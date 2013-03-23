@@ -16,6 +16,7 @@ protected/modules/import/*
 protected/modules/tinymce/assets/tiny_mce/*
 themes/*
 .htaccess
+index.php
 favicon.ico
 robots.txt
 *.html
