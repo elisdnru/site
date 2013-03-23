@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('new.models.*');
-Yii::import('page.models.*');
+Yii::import('application.modules.new.models.*');
+Yii::import('application.modules.page.models.*');
 
 class LastVideoWidget extends DWidget
 {

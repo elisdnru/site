@@ -23,7 +23,7 @@ class ContactModule extends DWebModule
 
     public static function notifications()
     {
-        Yii::import('contact.models.Contact');
+        Yii::import('application.modules.contact.models.Contact');
 
         $messages = Contact::model()->count('status=' . Contact::STATUS_NEW);
 

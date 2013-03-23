@@ -5,7 +5,7 @@
  * @version 1.0
  */
 
-Yii::import('crud.CrudModule');
+Yii::import('application.modules.crud.CrudModule');
 
 class DCrudAction extends CAction
 {

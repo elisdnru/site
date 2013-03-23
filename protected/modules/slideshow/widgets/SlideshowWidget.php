@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('slideshow.models.*');
+Yii::import('application.modules.slideshow.models.*');
 
 class SlideshowWidget extends DWidget
 {

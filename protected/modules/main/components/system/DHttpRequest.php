@@ -12,7 +12,7 @@ class DHttpRequest extends DLanguageHttpRequest
 
         parent::normalizeRequest();
 
-        if($_SERVER['REQUEST_METHOD'] != 'POST') return;
+        if(!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] != 'POST') return;
 
         //$route = Yii::app()->getUrlManager()->parseUrl($this);
         $route = $this->getPathInfo();

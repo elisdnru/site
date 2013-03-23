@@ -20,7 +20,6 @@ return array(
 
     'basePath'=>dirname(dirname(__FILE__)),
     'name'=>'Site',
-    'theme'=>'classic',
     'sourceLanguage'=>'en',
     'language'=>'ru',
 
@@ -62,7 +61,7 @@ return array(
         ),
 
         'user'=>array(
-            'class'=>'user.components.WebUser',
+            'class'=>'application.modules.user.components.WebUser',
             'allowAutoLogin'=>true,
             'loginUrl'=>array('/user/default/login'),
         ),
@@ -82,7 +81,7 @@ return array(
         ),
 
         'config'=>array(
-            'class'=>'config.components.DConfig',
+            'class'=>'application.modules.config.components.DConfig',
             'cache'=>3600,
         ),
 
@@ -99,12 +98,12 @@ return array(
         ),
 
         'authManager'=>array(
-            'class'=>'user.components.PhpAuthManager',
+            'class'=>'application.modules.user.components.PhpAuthManager',
             'defaultRoles'=>array('role_guest'),
         ),
 
         'moduleManager'=>array(
-            'class'=>'module.components.DModuleManager',
+            'class'=>'application.modules.module.components.DModuleManager',
         ),
         
         'errorHandler'=>array(
@@ -123,7 +122,7 @@ return array(
         ),
 
         'shopcart'=>array(
-            'class'=>'shop.components.ShopCart'
+            'class'=>'application.modules.shop.components.ShopCart'
         ),
 
         'image'=>array(
@@ -135,7 +134,7 @@ return array(
         ),
 
         'uploader'=>array(
-            'class'=>'uploader.components.DUploadManager',
+            'class'=>'application.modules.uploader.components.DUploadManager',
             'rootPath'=>'upload',
             'emptyImage'=>'core/images/nophoto.png',
             'allowedThumbnailResolutions'=>array(
@@ -203,7 +202,7 @@ return array(
 
     'behaviors'=> array(
         array(
-            'class'=>'module.components.DModuleUrlRulesBehavior',
+            'class'=>'application.modules.module.components.DModuleUrlRulesBehavior',
             'beforeCurrentModule'=>array(
                 'main',
                 'uploader',

@@ -1,9 +1,9 @@
 <?php
 
-Yii::import('blog.models.*');
-Yii::import('user.models.User');
-Yii::import('gallery.models.Gallery');
-Yii::import('comment.components.DICommentDepends');
+Yii::import('application.modules.blog.models.*');
+Yii::import('application.modules.user.models.User');
+Yii::import('application.modules.gallery.models.Gallery');
+Yii::import('application.modules.comment.components.DICommentDepends');
 
 /**
  * This is the model class for table "{{new}}".

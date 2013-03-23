@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('file.models.*');
+Yii::import('application.modules.file.models.*');
 
 /**
  * This is the model class for table "{{profsoyuz_category}}".

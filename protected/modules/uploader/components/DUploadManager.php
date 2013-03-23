@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('uploader.components.*');
+Yii::import('application.modules.uploader.components.*');
 
 /**
  * @author ElisDN <mail@elisdn.ru>

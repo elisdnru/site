@@ -1,7 +1,7 @@
 <?php
 
 DUrlRulesHelper::import('rubrikator');
-Yii::import('category.models.*');
+Yii::import('application.modules.category.models.*');
 
 /**
  * This is the model class for table "{{rubrikator_category}}".

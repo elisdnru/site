@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('shop.components.IShopItem');
+Yii::import('application.modules.shop.components.IShopItem');
 
 /**
  * This is the model class for table "{{shop_product}}".

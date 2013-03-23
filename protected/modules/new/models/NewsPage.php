@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('page.models.Page');
+Yii::import('application.modules.page.models.Page');
 
 /**
  * This is the model class for table "{{new_page}}".

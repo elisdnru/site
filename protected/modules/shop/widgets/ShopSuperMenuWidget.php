@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('shop.components.ShopWidget');
+Yii::import('application.modules.shop.components.ShopWidget');
 
 class ShopSuperMenuWidget extends ShopBaseWidget
 {

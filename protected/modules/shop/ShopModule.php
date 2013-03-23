@@ -40,7 +40,7 @@ class ShopModule extends DWebModule
 
     public static function notifications()
     {
-        Yii::import('shop.models.ShopOrder');
+        Yii::import('application.modules.shop.models.ShopOrder');
 
         $orders = ShopOrder::model()->count('apply=0');
 

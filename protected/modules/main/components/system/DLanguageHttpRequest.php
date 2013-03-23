@@ -12,14 +12,18 @@ class DLanguageHttpRequest extends CHttpRequest
     {
         if($this->_requestUri === null)
         {
-            $requestUri = ltrim(parent::getRequestUri(), '/');
-            $domains = explode('/', $requestUri);
-            if (in_array($domains[0], array_keys(Yii::app()->params['translatedLanguages'])))
-            {
-                $lang = array_shift($domains);
-                Yii::app()->setLanguage($lang);
+            try {
+                $requestUri = ltrim(parent::getRequestUri(), '/');
+                $domains = explode('/', $requestUri);
+                if (in_array($domains[0], array_keys(Yii::app()->params['translatedLanguages'])))
+                {
+                    $lang = array_shift($domains);
+                    Yii::app()->setLanguage($lang);
+                }
+                $this->_requestUri = '/' . implode('/', $domains);
+            } catch (Exception $e) {
+                $this->_requestUri = '';
             }
-            $this->_requestUri = '/' . implode('/', $domains);
         }
 
         return $this->_requestUri;

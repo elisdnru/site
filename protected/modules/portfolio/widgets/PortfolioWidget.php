@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('portfolio.models.*');
+Yii::import('application.modules.portfolio.models.*');
 DUrlRulesHelper::import('portfolio');
 
 class PortfolioWidget extends DWidget

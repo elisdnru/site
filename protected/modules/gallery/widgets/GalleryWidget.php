@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('gallery.models.*');
+Yii::import('application.modules.gallery.models.*');
 
 class GalleryWidget extends DWidget
 {

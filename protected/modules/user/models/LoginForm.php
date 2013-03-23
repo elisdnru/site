@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('user.components.*');
+Yii::import('application.modules.user.components.*');
 
 /**
  * LoginForm class.

@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('new.models.*');
-Yii::import('page.models.*');
+Yii::import('application.modules.new.models.*');
+Yii::import('application.modules.page.models.*');
 
 class DefaultController extends DController
 {
@@ -30,7 +30,7 @@ class DefaultController extends DController
 
         if (Yii::app()->moduleManager->active('blog'))
         {
-            Yii::import('blog.models.*');
+            Yii::import('application.modules.blog.models.*');
             $posts = BlogPost::model()->published()->findAll(array(
                 'order'=>'date DESC',
             ));
@@ -44,7 +44,7 @@ class DefaultController extends DController
 
         if (Yii::app()->moduleManager->active('portfolio'))
         {
-            Yii::import('portfolio.models.*');
+            Yii::import('application.modules.portfolio.models.*');
             $works = PortfolioWork::model()->findAll(array(
                 'order'=>'sort ASC',
             ));
@@ -58,7 +58,7 @@ class DefaultController extends DController
 
         if (Yii::app()->moduleManager->active('shop'))
         {
-            Yii::import('shop.models.*');
+            Yii::import('application.modules.shop.models.*');
             $products = ShopProduct::model()->findAll(array(
                 'order'=>'id DESC',
             ));

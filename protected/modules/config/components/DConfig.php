@@ -4,7 +4,7 @@
  * @link http://www.elisdn.ru
  */
 
-Yii::import('config.models.Config');
+Yii::import('application.modules.config.models.Config');
 
 class DConfig extends CApplicationComponent
 {

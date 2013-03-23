@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('crud.components.*');
-Yii::import('user.models.*');
+Yii::import('application.modules.crud.components.*');
+Yii::import('application.modules.user.models.*');
 
 class UsersController extends DController
 {

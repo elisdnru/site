@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('crud.components.*');
+Yii::import('application.modules.crud.components.*');
 
 class PosttypeAdminController extends DAdminController
 {

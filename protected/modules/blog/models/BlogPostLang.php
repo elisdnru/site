@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('blog.models.BlogPost');
+Yii::import('application.modules.blog.models.BlogPost');
 
 class BlogPostLang extends CActiveRecord
 {

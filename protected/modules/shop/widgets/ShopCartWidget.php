@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('shop.models.*');
+Yii::import('application.modules.shop.models.*');
 DUrlRulesHelper::import('shop');
 
 class ShopCartWidget extends DWidget

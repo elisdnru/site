@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('shop.components.ShopWidget');
-Yii::import('shop.models.*');
+Yii::import('application.modules.shop.components.ShopWidget');
+Yii::import('application.modules.shop.models.*');
 DUrlRulesHelper::import('shop');
 
 class LastProductsWidget extends ShopBaseWidget

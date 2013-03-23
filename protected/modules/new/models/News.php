@@ -1,11 +1,11 @@
 <?php
 
-Yii::import('comment.components.DICommentDepends');
-Yii::import('comment.models.Comment');
-Yii::import('new.models.*');
-Yii::import('page.models.Page');
-Yii::import('user.models.User');
-Yii::import('gallery.models.Gallery');
+Yii::import('application.modules.comment.components.DICommentDepends');
+Yii::import('application.modules.comment.models.Comment');
+Yii::import('application.modules.new.models.*');
+Yii::import('application.modules.page.models.Page');
+Yii::import('application.modules.user.models.User');
+Yii::import('application.modules.gallery.models.Gallery');
 
 /**
  * This is the model class for table "{{new}}".

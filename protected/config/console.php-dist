@@ -1,0 +1,38 @@
+<?php
+
+return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), array(
+
+    'components'=>array(
+        'db'=>array(
+            'connectionString' => 'mysql:host=localhost;dbname=dbname',
+            'enableProfiling' => false,
+            'emulatePrepare' => true,
+            'username' => 'username',
+            'password' => 'password',
+            'tablePrefix' => 'tbl_',
+            'charset' => 'utf8',
+            'schemaCachingDuration'=>3600,
+        ),
+    ),
+
+    'commandMap' => array(
+        'migrate' => array(
+            // псевдоним директории, в которую распаковано расширение
+            'class' => 'application.extensions.migrate-command.EMigrateCommand',
+            // путь для хранения общих миграций
+            'migrationPath' => 'application.migrations',
+            // имя таблицы с версиями
+            'migrationTable' => '{{migration}}',
+            // имя псевдомодуля для общих миграций. По умолчанию равно "core".
+            'applicationModuleName' => 'core',
+            // отключаем некоторые модули
+            'disabledModules' => array(
+                 'admin',
+            ),
+            // можно задать имя поддиректории для хранения миграций в директории модуля
+            'migrationSubPath' => 'migrations',
+            // название компонента для подключения к базе данных
+            'connectionID'=>'db',
+        ),
+    ),
+));

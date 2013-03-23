@@ -1,8 +1,8 @@
 <?php
 
-Yii::import('gallery.models.*');
-Yii::import('new.models.*');
-Yii::import('crud.components.*');
+Yii::import('application.modules.gallery.models.*');
+Yii::import('application.modules.new.models.*');
+Yii::import('application.modules.crud.components.*');
 
 class ArticleAdminController extends DAdminController
 {

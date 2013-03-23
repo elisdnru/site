@@ -18,7 +18,7 @@ class CallmeModule extends DWebModule
 
     public static function notifications()
     {
-        Yii::import('callme.models.Callme');
+        Yii::import('application.modules.callme.models.Callme');
 
         $messages = Callme::model()->count('readed = 0');
 

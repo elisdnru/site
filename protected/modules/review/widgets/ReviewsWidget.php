@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('review.models.Review');
+Yii::import('application.modules.review.models.Review');
 
 class ReviewsWidget extends DWidget
 {

@@ -32,7 +32,7 @@
  *
  */
 
-Yii::import('phpbb.extensions.phpBB.phpbbClass');
+Yii::import('application.modules.phpbb.extensions.phpBB.phpbbClass');
 
 class phpBB extends CApplicationComponent
 {

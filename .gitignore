@@ -5,7 +5,9 @@ forum/*
 upload/*
 core/images/soc/*
 core/images/soc16/*
+protected/yiic.php
 protected/runtime/*
+protected/config/console.php
 protected/config/local_*
 protected/config/prod_*
 protected/extensions/db_profiler/*

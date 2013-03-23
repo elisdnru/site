@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('uploader.components.DFileHelper');
+Yii::import('application.modules.uploader.components.DFileHelper');
 
 class FileAdminController extends DAdminController
 {

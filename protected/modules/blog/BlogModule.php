@@ -36,7 +36,7 @@ class BlogModule extends DWebModule
         if (!Yii::app()->moduleManager->active('comment'))
             return array();
 
-        Yii::import('blog.models.BlogPostComment');
+        Yii::import('application.modules.blog.models.BlogPostComment');
         $comments = BlogPostComment::model()->lang(Yii::app()->language)->count(array(
             'condition'=>'moder=0 AND type=:type',
             'params'=>array(':type'=>BlogPostComment::TYPE_OF_COMMENT),

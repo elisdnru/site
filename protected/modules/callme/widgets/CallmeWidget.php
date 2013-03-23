@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('callme.models.*');
+Yii::import('application.modules.callme.models.*');
 DUrlRulesHelper::import('callme');
 
 class CallmeWidget extends DWidget

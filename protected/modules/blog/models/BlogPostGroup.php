@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('new.models.*');
+Yii::import('application.modules.new.models.*');
 
 /**
  * This is the model class for table "{{new_group}}".

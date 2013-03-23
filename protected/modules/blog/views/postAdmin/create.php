@@ -2,7 +2,7 @@
 /* @var $this DAdminController */
 /* @var $model BlogPost */
 
-Yii::import('gallery.models.*');
+Yii::import('application.modules.gallery.models.*');
 
 $this->pageTitle='Редактор записи блога';
 $this->breadcrumbs=array(

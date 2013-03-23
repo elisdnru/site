@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('shop.models.ShopProduct');
+Yii::import('application.modules.shop.models.ShopProduct');
 
 class ShopCartItem extends CFormModel
 {

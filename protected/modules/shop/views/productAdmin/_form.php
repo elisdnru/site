@@ -151,7 +151,7 @@
         </fieldset>
 
         <?php if (Yii::app()->moduleManager->active('rubrikator')): ?>
-        <?php Yii::import('rubrikator.models.*'); ?>
+        <?php Yii::import('application.modules.rubrikator.models.*'); ?>
         <fieldset>
             <h4>Рубрикатор</h4>
             <?php echo $form->labelEx($model,'rubrika_id'); ?><br />

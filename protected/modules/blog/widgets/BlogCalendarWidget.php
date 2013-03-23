@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('blog.models.*');
+Yii::import('application.modules.blog.models.*');
 DUrlRulesHelper::import('blog');
 
 class BlogCalendarWidget extends DWidget

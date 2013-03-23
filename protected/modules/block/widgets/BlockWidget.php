@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('block.models.*');
+Yii::import('application.modules.block.models.*');
 
 class BlockWidget extends DWidget
 {

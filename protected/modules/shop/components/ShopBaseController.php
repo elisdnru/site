@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('shop.components.ShopHelper');
+Yii::import('application.modules.shop.components.ShopHelper');
 
 abstract class ShopBaseController extends DController
 {

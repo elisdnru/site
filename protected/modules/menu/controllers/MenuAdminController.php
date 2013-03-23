@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('crud.components.*');
-Yii::import('page.models.*');
+Yii::import('application.modules.crud.components.*');
+Yii::import('application.modules.page.models.*');
 
 class MenuAdminController extends DAdminController
 {

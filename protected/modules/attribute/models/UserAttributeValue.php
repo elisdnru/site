@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('attribute.models.UserAttribute');
+Yii::import('application.modules.attribute.models.UserAttribute');
 
 /**
  * This is the model class for table "{{user_attribute_value}}".

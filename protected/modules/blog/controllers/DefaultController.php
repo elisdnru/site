@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('page.models.*');
+Yii::import('application.modules.page.models.*');
 
 class DefaultController extends DController
 {

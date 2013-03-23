@@ -4,7 +4,7 @@
  * @link http://www.elisdn.ru
  */
 
-Yii::import('user.models.*');
+Yii::import('application.modules.user.models.*');
 
 class DUserBehavior extends CBehavior
 {

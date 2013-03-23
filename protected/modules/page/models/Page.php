@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('category.components.*');
+Yii::import('application.modules.category.components.*');
 
 /**
  * This is the model class for table "{{page}}".

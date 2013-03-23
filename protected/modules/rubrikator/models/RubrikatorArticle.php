@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('new.models.NewsPage');
+Yii::import('application.modules.new.models.NewsPage');
 
 /**
  * This is the model class for table "{{new}}".

@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('recipe.models.Recipe');
+Yii::import('application.modules.recipe.models.Recipe');
 DUrlRulesHelper::import('recipe');
 
 class RecipesWidget extends DWidget

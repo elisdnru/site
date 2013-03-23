@@ -1,7 +1,7 @@
 <?php
 
 DUrlRulesHelper::import('userphoto');
-Yii::import('userphoto.models.*');
+Yii::import('application.modules.userphoto.models.*');
 
 class UserPhotosWidget extends DWidget
 {

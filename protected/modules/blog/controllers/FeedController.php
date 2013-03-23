@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('application.extensions.feed.*');
+Yii::import('application.modules.application.extensions.feed.*');
 
 class FeedController extends DController
 {

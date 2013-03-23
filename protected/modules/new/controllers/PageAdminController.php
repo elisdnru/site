@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('page.models.*');
-Yii::import('crud.components.*');
+Yii::import('application.modules.page.models.*');
+Yii::import('application.modules.crud.components.*');
 
 class PageAdminController extends DAdminController
 {

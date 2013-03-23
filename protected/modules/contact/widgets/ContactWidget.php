@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('contact.models.*');
+Yii::import('application.modules.contact.models.*');
 DUrlRulesHelper::import('contact');
 
 class ContactWidget extends DWidget

@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('new.models.*');
-Yii::import('comment.models.Comment');
+Yii::import('application.modules.new.models.*');
+Yii::import('application.modules.comment.models.Comment');
 
 class NewsComment extends Comment
 {

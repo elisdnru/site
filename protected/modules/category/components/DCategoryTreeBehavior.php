@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('category.components.DCategoryBehavior');
+Yii::import('application.modules.category.components.DCategoryBehavior');
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru

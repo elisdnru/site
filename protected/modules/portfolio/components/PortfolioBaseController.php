@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('portfolio.components.PortfolioHelper');
+Yii::import('application.modules.portfolio.components.PortfolioHelper');
 
 abstract class PortfolioBaseController extends DController
 {

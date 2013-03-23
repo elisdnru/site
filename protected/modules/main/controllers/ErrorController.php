@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('page.models.Page');
+Yii::import('application.modules.page.models.Page');
 
 class ErrorController extends DController
 {

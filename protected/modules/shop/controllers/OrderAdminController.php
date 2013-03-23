@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('user.models.*');
-Yii::import('crud.components.*');
+Yii::import('application.modules.user.models.*');
+Yii::import('application.modules.crud.components.*');
 
 class OrderAdminController extends DAdminController
 {

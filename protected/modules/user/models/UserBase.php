@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('comment.models.*');
-Yii::import('attribute.components.*');
+Yii::import('application.modules.comment.models.*');
+Yii::import('application.modules.attribute.components.*');
 
 /**
  * This is the model class for table "{{user}}".

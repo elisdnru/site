@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('blog.models.*');
-Yii::import('comment.models.*');
+Yii::import('application.modules.blog.models.*');
+Yii::import('application.modules.comment.models.*');
 
 class BlogPostComment extends Comment
 {

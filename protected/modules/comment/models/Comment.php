@@ -1,12 +1,12 @@
 <?php
 
-Yii::import('user.models.*');
+Yii::import('application.modules.user.models.*');
 
 if (Yii::app()->moduleManager->installed('blog'))
-    Yii::import('blog.models.BlogPostComment');
+    Yii::import('application.modules.blog.models.BlogPostComment');
 
 if (Yii::app()->moduleManager->installed('new'))
-    Yii::import('new.models.NewsComment');
+    Yii::import('application.modules.new.models.NewsComment');
 
 /**
  * This is the model class for table "{{comment}}".

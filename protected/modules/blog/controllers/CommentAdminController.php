@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('comment.components.*');
+Yii::import('application.modules.comment.components.*');
 
 class CommentAdminController extends CommentAdminControllerBase
 {

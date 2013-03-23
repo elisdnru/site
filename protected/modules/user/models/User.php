@@ -56,7 +56,7 @@ class User extends UserBase
 
         if (Yii::app()->moduleManager->active('phpbb'))
         {
-            Yii::import('phpbb.models.*');
+            Yii::import('application.modules.phpbb.models.*');
             $relations = array_merge($relations, array(
                 'phpBbUser'=>array(self::HAS_ONE, 'PhpBBUser', array('username'=>'username')),
             ));

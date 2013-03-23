@@ -1,7 +1,7 @@
 <?php
 
-Yii::import('gallery.models.*');
-Yii::import('crud.components.*');
+Yii::import('application.modules.gallery.models.*');
+Yii::import('application.modules.crud.components.*');
 
 class SlideAdminController extends DAdminController
 {
