@@ -1,0 +1,40 @@
+Options +Includes +FollowSymLinks -Indexes
+AddHandler server-parsed .shtml
+DirectoryIndex index.shtml index.htm index.php index.html
+# CookieTracking on
+# CookieExpires "1 years"
+
+RewriteEngine on
+RewriteBase /
+
+# URI fix
+RewriteRule ^([a-z]{2}/)?index(\.html)?$ http://%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^(.*)\.$ $1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/forum
+RewriteRule ^(.*)/$ $1 [R=301,L]
+
+# Pagination fix
+RewriteRule ^(.*)/page-1$ $1 [R=301,L]
+RewriteCond %{QUERY_STRING} ^page=1$
+RewriteRule ^(.+)$ $1? [R=301,L]
+
+# RSS
+RewriteRule ^rss\.xml$ /new/feed [R=301,L]
+
+# Block random mirrors kind of http://site.com?qwer=0x54ghf...
+RewriteCond %{REQUEST_URI} ^$
+RewriteCond %{QUERY_STRING} ^.+$
+RewriteRule .* http://%{HTTP_HOST}/? [R=301,L]
+
+
+# Core
+RewriteCond %{REQUEST_URI} !^/forum
+RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php
+
+AddDefaultCharset utf-8
+# Action php5.3-script  /cgi-bin/php5.3.cgi
+# AddType php5.3-script .php

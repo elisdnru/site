@@ -1,0 +1,70 @@
+<?php
+
+return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), array(
+
+    'theme'=>'classic',
+
+    'components'=>array(
+
+        'db'=>array(
+            'connectionString' => 'mysql:host=localhost;dbname=dbname',
+            'enableProfiling' => false,
+            'emulatePrepare' => true,
+            'username' => 'username',
+            'password' => 'password',
+            'tablePrefix' => 't_',
+            'charset' => 'utf8',
+            'schemaCachingDuration'=>3600,
+        ),
+
+        'cache'=>array(
+            'class'=>'system.caching.CFileCache',
+            'cachePath'=>'cache'
+        ),
+
+        'uploader'=>array(
+            'allowedThumbnailResolutions'=>array(
+                // general
+                array('upload/images', array(
+                    '250x0',
+                )),
+                array('upload/images/users/avatars', array(
+                    '100x100',
+                    '50x50',
+                )),
+                array('upload/images/news', array(
+                    '200x180', // list
+                    '198x180', // greed
+                )),
+                array('upload/images/shop', array(
+                    '150x150', // admin
+                    '50x50', // cart
+                )),
+                array('upload/images/shop/models', array(
+                    '100x100',
+                    '150x150',
+                )),
+
+                //custom
+                //...
+            ),
+        ),
+    ),
+
+    'params'=>array(
+        'runtimeWidgets'=>array(
+            'new.widgets.News',
+            'new.widgets.LastNews',
+            'gallery.widgets.Gallery',
+            'page.widgets.SubPages',
+            'page.widgets.Page',
+            'menu.widgets.Menu',
+            'block.widgets.Block',
+            'contact.widgets.Contact',
+        ),
+        'translatedLanguages'=>array(
+            'ru'=>'Russian',
+        ),
+        'defaultLanguage'=>'ru',
+    ),
+));

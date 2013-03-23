@@ -1,0 +1,36 @@
+.share {
+    height:38px;
+}
+.share a span {
+    display:inline-block;
+    width:38px;
+    height:39px;
+    margin-right:4px;
+    background-position:0 0;
+    background-repeat:no-repeat;
+}
+
+.like_box {
+    position:relative;
+    height:24px;
+    margin-bottom:20px;
+}
+.like_box .item {
+    position:absolute;
+}
+.like_box .item.vk {
+    left:0;
+    top:0;
+}
+.like_box .item.fb {
+    left:183px;
+    top:0;
+}
+.like_box .item.tw {
+    left:345px;
+    top:0;
+}
+.like_box .item.gp {
+    left:480px;
+    top:0;
+}

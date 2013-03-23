@@ -1,0 +1,119 @@
+<?php
+/**
+ * @author ElisDN <mail@elisdn.ru>
+ * @link http://www.elisdn.ru
+ *
+ * Controller is the customized base controller class.
+ * All controller classes for this application should extend from this base class.
+ *
+ * DModuleAccessBehavior
+ * @method boolean moduleAllowed($module)
+ *
+ * DUserBehavior
+ * @method User getUser()
+ * @method boolean is($role)
+ * @method check($role)
+ *
+ * DFlashSessionBehavior
+ * @method initFlashSession()
+ *
+ * DLiveLayoutBehavior
+ * @method initLayout()
+ *
+ * DJsInitBehavior
+ * @method initJsDefaults()
+ *
+ * DInlineWidgetsBehavior
+ * @method string decodeWidgets($text)
+ *
+ * DHtmlValidateBehavior
+ * @method string validateOutput($output)
+ */
+class DController extends Controller
+{
+    public $admin = array();
+    public $info = '';
+
+    public $isHomePage = false;
+
+    public $description = '';
+    public $keywords = '';
+
+    public function filters()
+    {
+        return array(
+            array('module.components.DModuleFilter')
+        );
+    }
+
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), array(
+            'DModuleAccessBehavior'=>array('class'=>'module.components.DModuleAccessBehavior'),
+            'DUserBehavior'=>array('class'=>'DUserBehavior'),
+            'DFlashSessionBehavior'=>array('class'=>'DFlashSessionBehavior'),
+            'DLiveLayoutBehavior'=>array('class'=>'DLiveLayoutBehavior'),
+            'DJsInitBehavior'=>array('class'=>'DJsInitBehavior'),
+            'DInlineWidgetsBehavior'=>array(
+                'class'=>'DInlineWidgetsBehavior',
+                'location'=>'application.widgets',
+                'widgets'=>Yii::app()->params['runtimeWidgets'],
+                'classSuffix'=> 'Widget',
+                'startBlock'=> '[{widget:',
+                'endBlock'=> '}]',
+            ),
+            'DHtmlValidateBehavior'=>array('class'=>'DHtmlValidateBehavior'),
+        ));
+    }
+
+    public function init()
+    {
+        $this->initFlashSession();
+        parent::init();
+    }
+
+    protected function beforeRender($viev)
+    {
+        $this->initJsDefaults();
+		$this->initLayout();
+        return parent::beforeRender($viev);
+    }
+
+    protected function afterRender($view, &$output)
+	{
+        $output = $this->validateOutput($output);
+        parent::afterRender($view, $output);
+    }
+
+    public function checkIsPost()
+    {
+        if (!Yii::app()->request->isPostRequest)
+            throw new CHttpException (400, 'Bad request');
+    }
+
+    public function refresh($terminate=true, $anchor='')
+    {
+        $this->redirect(DLanguageUrlHelper::normalize(Yii::app()->getRequest()->getUrl() . $anchor), $terminate);
+    }
+
+    public function redirectOrAjax($route = array('index'))
+    {
+        if (!Yii::app()->request->isAjaxRequest)
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : $route);
+    }
+
+    public function checkUrl($url)
+    {
+        if(Yii::app()->request->getRequestUri() != $url && '/' . Yii::app()->language . Yii::app()->request->getRequestUri() != $url)
+            $this->redirect($url);
+    }
+
+    public function reflash()
+    {
+        foreach (array('notice', 'success', 'error') as $type)
+        {
+            if(Yii::app()->user->hasFlash($type))
+                Yii::app()->user->setFlash($type, Yii::app()->user->getFlash($type));
+        }
+    }
+}

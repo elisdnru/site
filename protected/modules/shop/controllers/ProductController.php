@@ -1,0 +1,67 @@
+<?php
+
+Yii::import('page.models.*');
+
+class ProductController extends ShopBaseController
+{
+
+    public function filters()
+    {
+        return array_merge(parent::filters(), array(
+            'postOnly +rating',
+        ));
+    }
+
+    public function actionShow($id)
+    {
+        $model = $this->loadModel($id);
+
+        if (strpos(Yii::app()->request->requestUri, $model->url) !== 0)
+            $this->redirect($model->url);
+
+        $this->render('show', array(
+            'model'=>$model,
+            'page'=>$this->loadShopPage(),
+        ));
+    }
+
+    public function actionRating($id)
+    {
+        $model = $this->loadModel($id);
+
+        if (isset($_POST['rate']))
+            $model->updateRating($_POST['rate']);
+
+        $this->redirectOrAjax($model->url);
+    }
+
+    protected function loadShopPage()
+    {
+        if (!$page = Page::model()->findByAlias('shop'))
+        {
+            $page = new Page();
+            $page->title = 'Каталог';
+            $page->pagetitle = $page->title;
+        }
+        return $page;
+    }
+
+    /**
+     * @param $id
+     * @return ShopProduct
+     * @throws CHttpException
+     */
+    protected function loadModel($id)
+    {
+        if($this->moduleAllowed('shop'))
+            $condition = '';
+        else
+            $condition = 'public = 1';
+
+        $model = ShopProduct::model()->findByPk($id, $condition);
+        if($model === null)
+            throw new CHttpException(404, 'Страница не найдена');
+
+        return $model;
+    }
+}
