@@ -1,7 +1,5 @@
 <?php
 /**
- * DCurrentPassword validates that the old password is correct.
- *
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
  */

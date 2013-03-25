@@ -3,8 +3,8 @@
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
  */
-Class DNumberHelper {
-
+Class DNumberHelper
+{
     /**
      * Множественное число
      * https://github.com/mbakirov/UHelpers/
