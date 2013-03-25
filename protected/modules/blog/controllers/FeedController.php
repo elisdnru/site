@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('application.modules.application.extensions.feed.*');
+Yii::import('application.extensions.feed.*');
 
 class FeedController extends DController
 {
@@ -13,7 +13,7 @@ class FeedController extends DController
 
         $feed = new EFeed();
 
-        $feed->title= Yii::app()->config->get('FEED.FEED_TITLE') . ' - Блог';
+        $feed->title= Yii::app()->config->get('FEED.FEED_TITLE');
         $feed->description = Yii::app()->config->get('GENERAL.SITE_NAME');
 
         $feed->addChannelTag('language', 'ru');

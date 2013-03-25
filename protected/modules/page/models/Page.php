@@ -209,6 +209,7 @@ class Page extends CActiveRecord
 
         if (DMultilangHelper::enabled())
         {
+            Yii::import('application.modules.page.models.PageLang');
             $behaviors = array_merge($behaviors, array(
                 'ml' => array(
                     'class' => 'ext.multilangual.MultilingualBehavior',
