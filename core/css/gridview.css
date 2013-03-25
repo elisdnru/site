@@ -152,3 +152,12 @@
 .grid-view table a {
     text-decoration:underline;
 }
+
+.grid-view table.items td.toggle-column {
+    width: 20px;
+    text-align: center;
+}
+.grid-view table.items td.button-column {
+    width: 20px;
+    text-align: center;
+}
