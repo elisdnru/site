@@ -18,6 +18,4 @@ class DUrlManager extends CUrlManager
     {
         return preg_replace('|\%2F|i', '/', $url);
     }
-
-
 }

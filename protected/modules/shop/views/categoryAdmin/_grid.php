@@ -1,5 +1,5 @@
 
-<?php $this->widget('DGridView', array(
+<?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'posts-grid',
     'dataProvider'=>$model->search(30),
     'filter'=>$model,
@@ -24,12 +24,10 @@
         ),
         array(
             'class'=>'DButtonColumn',
-            'htmlOptions'=>array('style'=>'width:20px;text-align:center'),
             'template'=>'{update}',
         ),
         array(
             'class'=>'DButtonColumn',
-            'htmlOptions'=>array('style'=>'width:20px;text-align:center'),
             'template'=>'{delete}',
         ),
     ),

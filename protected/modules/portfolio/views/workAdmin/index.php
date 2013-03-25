@@ -72,7 +72,7 @@ $toggle_public = $this->createUrl('toggle', array('id'=>$item->id, 'param'=>'pub
 
 </div>
 
-<?php $this->widget('DLinkPager', array(
+<?php $this->widget('CLinkPager', array(
     'pages' => $pages,
 )); ?>
 

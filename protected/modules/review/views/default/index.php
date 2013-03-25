@@ -31,7 +31,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <?php $this->renderPartial('_loop', array('reviews'=>$reviews)); ?>
 
-<?php $this->widget('DLinkPager', array(
+<?php $this->widget('CLinkPager', array(
     'pages' => $pages,
 )); ?>
 

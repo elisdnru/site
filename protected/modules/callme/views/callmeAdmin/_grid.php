@@ -1,5 +1,5 @@
 
-<?php $this->widget('DGridView', array(
+<?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'posts-grid',
     'dataProvider'=>$model->search(50),
     'filter'=>$model,
@@ -29,7 +29,6 @@
             'header'=>'П',
             'filter'=>array(1=>'Прочитано', 0=>'Новое'),
             'titles'=>array(1=>'Прочитано', 0=>'Новое'),
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
             'offImageUrl' => Yii::app()->request->baseUrl . '/core/images/admin/message.png',
         ),
         array(
@@ -38,17 +37,14 @@
             'header'=>'З',
             'filter'=>array(1=>'Звонок произведён', 0=>'Звонок не произведён'),
             'titles'=>array(1=>'Звонок произведён', 0=>'Звонок не произведён'),
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
             'offImageUrl' => Yii::app()->request->baseUrl . '/core/images/spacer.gif',
         ),
         array(
             'class'=>'DButtonColumn',
-            'htmlOptions'=>array('style'=>'width:20px;text-align:center'),
             'template'=>'{view}',
         ),
         array(
             'class'=>'DButtonColumn',
-            'htmlOptions'=>array('style'=>'width:20px;text-align:center'),
             'template'=>'{delete}',
         ),
     ),

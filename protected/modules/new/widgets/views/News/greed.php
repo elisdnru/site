@@ -23,6 +23,6 @@ $i=0;
     <div class="clear"></div>
 </div>
 
-<?php $this->widget('DLinkPager', array(
+<?php $this->widget('CLinkPager', array(
     'pages' => $pages,
 )); ?>

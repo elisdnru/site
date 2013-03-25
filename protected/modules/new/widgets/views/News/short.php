@@ -14,6 +14,6 @@
 
 <?php endforeach; ?>
 
-<?php $this->widget('DLinkPager', array(
+<?php $this->widget('CLinkPager', array(
     'pages' => $pages,
 )); ?>

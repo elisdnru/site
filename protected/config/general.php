@@ -180,6 +180,10 @@ return array(
             'pathLayouts'=>'//email/layouts'
         ),
 
+        'widgetFactory'=>array(
+            'enableSkin'=>true,
+        ),
+
         'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(

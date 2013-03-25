@@ -1,5 +1,5 @@
 
-<?php $this->widget('DGridView', array(
+<?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'posts-grid',
     'dataProvider'=>$dataProvider,
     'columns'=>array(
