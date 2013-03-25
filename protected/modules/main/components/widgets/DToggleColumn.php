@@ -53,6 +53,10 @@ class DToggleColumn extends CGridColumn
      * @var boolean whether this column is visible. Defaults to true.
      */
     public $visible = true;
+    /**
+     * @var array the HTML options for the data cell tags.
+     */
+    public $htmlOptions = array('class'=>'toggle-column');
 
     /**
      * @var string stores CSS class name for link

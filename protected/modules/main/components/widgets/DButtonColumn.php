@@ -10,9 +10,12 @@ class DButtonColumn extends CButtonColumn
 {
     public function init()
     {
-        $this->updateButtonImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/edit.png';
-        $this->deleteButtonImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/del.png';
-        $this->viewButtonImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/view.png';
+        if ($this->updateButtonImageUrl === null)
+            $this->updateButtonImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/edit.png';
+        if ($this->deleteButtonImageUrl === null)
+            $this->deleteButtonImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/del.png';
+        if ($this->viewButtonImageUrl === null)
+            $this->viewButtonImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/view.png';
 
         parent::init();
     }

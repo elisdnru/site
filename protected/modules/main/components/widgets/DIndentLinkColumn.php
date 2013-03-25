@@ -16,8 +16,8 @@ class DIndentLinkColumn extends DLinkColumn
      */
     protected function renderDataCellContent($row,$data)
     {
-        $url = $this->getItemUrl($data, $row);
-        $value = $this->getItemValue($data, $row);
+        $url = $this->getItemUrl($row, $data);
+        $value = $this->getItemValue($row, $data);
         $indent = $this->getItemIndent($data, $row);
         $spacer = str_repeat('&nbsp;', $indent * 4);
         $text = $this->grid->getFormatter()->format($value, $this->type);

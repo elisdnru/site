@@ -16,15 +16,15 @@ class DLinkColumn extends CDataColumn
      * @param integer $row the row number (zero-based)
      * @param mixed $data the data associated with the row
      */
-    protected function renderDataCellContent($row,$data)
+    protected function renderDataCellContent($row, $data)
     {
-        $url = $this->getItemUrl($data, $row);
-        $value = $this->getItemValue($data, $row);
+        $url = $this->getItemUrl($row, $data);
+        $value = $this->getItemValue($row, $data);
         $text = $this->grid->getFormatter()->format($value, $this->type);
         echo $value === null ? $this->grid->nullDisplay : CHtml::link($text, $url);
     }
 
-    protected function getItemValue($data, $row)
+    protected function getItemValue($row, $data)
     {
         if (!empty($this->value))
             return $this->evaluateExpression($this->value, array('data' => $data, 'row' => $row));
@@ -33,7 +33,7 @@ class DLinkColumn extends CDataColumn
         return null;
     }
 
-    protected function getItemUrl($data, $row)
+    protected function getItemUrl($row, $data)
     {
         if (!empty($this->link))
             return $this->evaluateExpression($this->link, array('data' => $data, 'row' => $row));

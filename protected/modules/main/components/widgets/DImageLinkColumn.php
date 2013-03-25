@@ -17,8 +17,8 @@ class DImageLinkColumn extends DLinkColumn
      */
     protected function renderDataCellContent($row,$data)
     {
-        $url = $this->getItemUrl($data, $row);
-        $value = $this->getItemValue($data, $row);
+        $url = $this->getItemUrl($row, $data);
+        $value = $this->getItemValue($row, $data);
 
         $options = $this->getImageOptions();
         $image = CHtml::image($value, '', $options);
