@@ -34,7 +34,7 @@ Yii::import('application.modules.shop.components.IShopItem');
  * @property ShopProductAttribute[] $otherAttributes
  * @property ShopCategory[] $otherCategories
  * @property ShopSize[] $sizes
- * @property ShopColour[] $colours
+ * @property ShopColor[] $colors
  *
  * @method ShopProduct published()
  * @method ShopProduct inhome()
@@ -43,7 +43,7 @@ Yii::import('application.modules.shop.components.IShopItem');
 class ShopProduct extends CActiveRecord
 {
     public $size;
-    public $colour;
+    public $color;
 
     protected $_otherAttributes;
 
@@ -78,7 +78,7 @@ class ShopProduct extends CActiveRecord
             array('artikul', 'unique', 'caseSensitive' => false, 'className' => 'ShopProduct', 'message' => 'Такой {attribute} уже используется'),
 			array('title, pagetitle, keywords', 'length', 'max'=>255),
 			array('title, short, text, description', 'safe'),
-			array('coloursArray', 'safe'),
+			array('colorsArray', 'safe'),
 			array('sizesArray', 'safe'),
 			array('otherCategoriesArray', 'safe'),
 			array('otherAttributes', 'safe'),
@@ -119,9 +119,9 @@ class ShopProduct extends CActiveRecord
             'sizes'=>array(self::MANY_MANY, 'ShopSize', '{{shop_product_size}}(product_id, size_id)',
                 'order'=>'sizes.sort',
             ),
-            'product_colours' => array(self::HAS_MANY, 'ShopProductColour', 'product_id'),
-            'colours'=>array(self::MANY_MANY, 'ShopColour', '{{shop_product_colour}}(product_id, colour_id)',
-                'order'=>'colours.sort',
+            'product_colors' => array(self::HAS_MANY, 'ShopProductColor', 'product_id'),
+            'colors'=>array(self::MANY_MANY, 'ShopColor', '{{shop_product_color}}(product_id, color_id)',
+                'order'=>'colors.sort',
             ),
             'images_count' => array(self::STAT, 'ShopImage', 'product'),
 		);
@@ -229,10 +229,10 @@ class ShopProduct extends CActiveRecord
             $criteria->addInCondition('t.id', array_unique($sizeProductIds));
         }
 
-        if ($this->colour)
+        if ($this->color)
         {
-            $colourProductIds = CHtml::listData(ShopProductColour::model()->with('colour')->findAll('colour.alias = :colour', array('colour'=>$this->colour)), 'product_id', 'product_id');
-            $criteria->addInCondition('t.id', array_unique($colourProductIds));
+            $colorProductIds = CHtml::listData(ShopProductColor::model()->with('color')->findAll('color.alias = :color', array('color'=>$this->color)), 'product_id', 'product_id');
+            $criteria->addInCondition('t.id', array_unique($colorProductIds));
         }
 
         $criteria->with = array('type', 'category');
@@ -257,9 +257,9 @@ class ShopProduct extends CActiveRecord
                         'asc'=>'brand.title ASC',
                         'desc'=>'brand.title DESC',
                     ),
-                    'colour_id'=>array(
-                        'asc'=>'colour.title ASC',
-                        'desc'=>'colour.title DESC',
+                    'color_id'=>array(
+                        'asc'=>'color.title ASC',
+                        'desc'=>'color.title DESC',
                     ),
                     'public',
                     'inhome',
@@ -320,10 +320,10 @@ class ShopProduct extends CActiveRecord
                 'relation'=>'sizes',
                 'relationPk'=>'id',
             ),
-            'MultiListColour'=>array(
+            'MultiListColor'=>array(
                 'class'=>'DMultiplyListBehavior',
-                'attribute'=>'coloursArray',
-                'relation'=>'colours',
+                'attribute'=>'colorsArray',
+                'relation'=>'colors',
                 'relationPk'=>'id',
             ),
         );
@@ -371,13 +371,13 @@ class ShopProduct extends CActiveRecord
         return $result;
     }
 
-    public function getColoursAccos()
+    public function getColorsAccos()
     {
         $result = array();
 
-        foreach ($this->colours as $colour)
+        foreach ($this->colors as $color)
         {
-             $result[$colour->title] = $colour->title;
+             $result[$color->title] = $color->title;
         }
 
         return $result;
@@ -427,7 +427,7 @@ class ShopProduct extends CActiveRecord
     protected function afterSave()
     {
         $this->loadImages();
-        $this->saveColours();
+        $this->saveColors();
         $this->saveSizes();
         $this->saveOtherCategories();
         $this->saveOtherAttributes();
@@ -486,18 +486,18 @@ class ShopProduct extends CActiveRecord
         }
     }
 
-    protected function saveColours()
+    protected function saveColors()
     {
-        foreach ($this->product_colours as $colour)
-            $colour->delete();
+        foreach ($this->product_colors as $color)
+            $color->delete();
 
-        if (is_array($this->coloursArray))
+        if (is_array($this->colorsArray))
         {
-            foreach ($this->coloursArray as $colour_id)
+            foreach ($this->colorsArray as $color_id)
             {
-                $size = new ShopProductColour();
+                $size = new ShopProductColor();
                 $size->product_id = $this->id;
-                $size->colour_id = $colour_id;
+                $size->color_id = $color_id;
                 $size->save();
             }
         }

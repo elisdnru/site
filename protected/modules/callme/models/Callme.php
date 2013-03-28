@@ -7,7 +7,7 @@
  * @property integer $id
  * @property string $date
  * @property string $name
- * @property string $tel
+ * @property string $phone
  * @property string $text
  * @property int $readed
  * @property int $called
@@ -39,14 +39,14 @@ class Callme extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('tel', 'required'),
+			array('phone', 'required'),
 			array('name', 'length', 'max'=>200),
-			array('tel', 'length', 'max'=>100),
+			array('phone', 'length', 'max'=>100),
             array('text', 'safe'),
 			array('date, readed, called', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, date, name, tel, text, readed, called', 'safe', 'on'=>'search')
+			array('id, date, name, phone, text, readed, called', 'safe', 'on'=>'search')
 		);
 	}
 
@@ -59,7 +59,7 @@ class Callme extends CActiveRecord
 			'id' => 'ID',
 			'date' => 'Дата',
 			'name' => 'Имя',
-			'tel' => 'Телефон',
+			'phone' => 'Телефон',
 			'text' => 'Текст',
 			'readed' => 'Прочитано',
 			'called' => 'Звонок произведён',
@@ -80,7 +80,7 @@ class Callme extends CActiveRecord
 		$criteria->compare('t.id',$this->id);
 		$criteria->compare('t.date',$this->date,true);
 		$criteria->compare('t.name',$this->name,true);
-		$criteria->compare('t.tel',$this->tel,true);
+		$criteria->compare('t.phone',$this->phone,true);
 		$criteria->compare('t.text',$this->text,true);
 		$criteria->compare('t.readed',$this->readed,true);
 		$criteria->compare('t.called',$this->called,true);
@@ -95,7 +95,7 @@ class Callme extends CActiveRecord
                         'desc'=>'t.date DESC',
                     ),
                     'name',
-                    'tel',
+                    'phone',
                     'text',
                     'readed',
                     'called',

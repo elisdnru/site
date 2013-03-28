@@ -30,7 +30,7 @@ class UserAttribute extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{user_attribute}}';
+		return '{{attribute}}';
 	}
 
 	/**

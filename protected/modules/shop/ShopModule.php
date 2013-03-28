@@ -31,7 +31,7 @@ class ShopModule extends DWebModule
             array('label'=>'Производители', 'url'=>array('/shop/brandAdmin/index'), 'icon'=>'foldericon.jpg'),
             array('label'=>'Способы доставки', 'url'=>array('/shop/posttypeAdmin/index'), 'icon'=>'fileicon.jpg'),
             array('label'=>'Размеры', 'url'=>array('/shop/sizeAdmin/index'), 'icon'=>'fileicon.jpg'),
-            array('label'=>'Цвета', 'url'=>array('/shop/colourAdmin/index'), 'icon'=>'fileicon.jpg'),
+            array('label'=>'Цвета', 'url'=>array('/shop/colorAdmin/index'), 'icon'=>'fileicon.jpg'),
             array('label'=>'Товары', 'url'=>array('/shop/productAdmin/index'), 'icon'=>'fileicon.jpg'),
             array('label'=>'Модели', 'url'=>array('/shop/modelAdmin/index'), 'icon'=>'fileicon.jpg'),
             array('label'=>'Добавить товар', 'url'=>array('/shop/productAdmin/create'), 'icon'=>'add.png'),

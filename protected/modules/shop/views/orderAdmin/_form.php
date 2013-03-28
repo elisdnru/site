@@ -40,9 +40,9 @@
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'postcode'); ?><br />
-            <?php echo $form->textField($model,'postcode',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'postcode'); ?>
+            <?php echo $form->labelEx($model,'post_code'); ?><br />
+            <?php echo $form->textField($model,'post_code',array('size'=>60, 'maxlength'=>255)); ?><br />
+            <?php echo $form->error($model,'post_code'); ?>
         </div>
 
         <div class="row">

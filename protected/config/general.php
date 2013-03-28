@@ -201,7 +201,6 @@ return array(
 
     'preload'=>array(
         'log',
-        'config'
     ),
 
     'behaviors'=> array(

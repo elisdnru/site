@@ -21,7 +21,7 @@
 
     <div class="row">
         <?php echo $form->textField($model,'name',array('size'=>30, 'placeholder'=>'ФИО', 'title'=>'ФИО')); ?><br />
-        <?php echo $form->textField($model,'tel',array('size'=>30, 'placeholder'=>'Телефон', 'title'=>'Телефон')); ?><br />
+        <?php echo $form->textField($model,'phone',array('size'=>30, 'placeholder'=>'Телефон', 'title'=>'Телефон')); ?><br />
         <?php echo $form->textArea($model,'text',array('rows'=>4, 'cols'=>50, 'placeholder'=>'Когда позвонить?', 'title'=>'Когда позвонить?')); ?>
     </div>
 

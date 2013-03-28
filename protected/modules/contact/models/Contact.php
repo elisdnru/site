@@ -9,7 +9,7 @@
  * @property string $date
  * @property string $name
  * @property string $email
- * @property string $tel
+ * @property string $phone
  * @property string $text
  * @property string $file
  * @property string $label
@@ -47,12 +47,12 @@ class Contact extends CActiveRecord
 		return array(
 			array('name, email, text', 'required'),
 			array('name', 'length', 'max'=>200),
-			array('email, tel', 'length', 'max'=>100),
+			array('email, phone', 'length', 'max'=>100),
             array('email', 'email'),
 			array('date, status', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, pagetitle, date, name, email, tel, text, label, status', 'safe', 'on'=>'search')
+			array('id, pagetitle, date, name, email, phone, text, label, status', 'safe', 'on'=>'search')
 		);
 	}
 
@@ -67,7 +67,7 @@ class Contact extends CActiveRecord
 			'date' => 'Дата',
 			'name' => 'Имя',
 			'email' => 'Email',
-			'tel' => 'Телефон',
+			'phone' => 'Телефон',
 			'text' => 'Текст',
 			'label' => 'Примечание',
 			'status' => 'Прочитано',
@@ -90,7 +90,7 @@ class Contact extends CActiveRecord
 		$criteria->compare('t.date',$this->date,true);
 		$criteria->compare('t.name',$this->name,true);
 		$criteria->compare('t.email',$this->email,true);
-		$criteria->compare('t.tel',$this->tel,true);
+		$criteria->compare('t.phone',$this->phone,true);
 		$criteria->compare('t.text',$this->text,true);
 		$criteria->compare('t.label',$this->label,true);
 		$criteria->compare('t.status',$this->status,true);

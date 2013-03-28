@@ -50,16 +50,16 @@ if ($this->is(Access::ROLE_CONTROL))
             <?php endforeach; ?>
 
             <tr>
-                <td colspan="2">Доставка: <?php echo $model->posttitle; ?></td>
+                <td colspan="2">Доставка: <?php echo $model->post_title; ?></td>
                 <td></td>
                 <td></td>
-                <td class="center"><?php echo number_format($model->postsumm, 0, '.', ' '); ?> р</td>
+                <td class="center"><?php echo number_format($model->post_sum, 0, '.', ' '); ?> р</td>
             </tr>
             <tr>
                 <th class="right" colspan="2">Итого с доставкой:</th>
                 <th></th>
                 <th></th>
-                <th class="center"><?php echo number_format($total_summ + $model->postsumm, 0, '.', ' '); ?> р</th>
+                <th class="center"><?php echo number_format($total_summ + $model->post_sum, 0, '.', ' '); ?> р</th>
             </tr>
 
         </table>

@@ -13,8 +13,8 @@
             'htmlOptions'=>array('style'=>'text-align:center'),
         ),
         array(
-            'name' => 'tel',
-            'value' => 'CHtml::link(CHtml::encode($data->tel), Yii::app()->controller->createUrl("view", array("id"=>$data->id)))',
+            'name' => 'phone',
+            'value' => 'CHtml::link(CHtml::encode($data->phone), Yii::app()->controller->createUrl("view", array("id"=>$data->id)))',
             'htmlOptions'=>array('style'=>'text-align:center'),
             'type'  => 'html',
         ),

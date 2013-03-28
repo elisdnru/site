@@ -120,7 +120,7 @@
         <fieldset>
             <h4>Цвета</h4>
             <div style="max-height:370px; overflow:auto;">
-                <?php echo $form->checkBoxList($model,'coloursArray', ShopColour::model()->getAssocList()); ?>
+                <?php echo $form->checkBoxList($model,'colorsArray', ShopColor::model()->getAssocList()); ?>
             </div>
         </fieldset>
 

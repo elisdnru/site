@@ -24,8 +24,6 @@ Yii::import('application.modules.gallery.models.Gallery');
  * @property string $short_purified
  * @property string $text
  * @property string $text_purified
- * @property string $linktext
- * @property string $linkurl
  * @property string $image
  * @property string $image_width
  * @property string $image_height
@@ -91,13 +89,13 @@ class News extends CActiveRecord implements DICommentDepends
             array('group_id', 'exists', 'className' => 'NewsGroup', 'attributeName' => 'id'),
             array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
 			array('short, text, description, del_image', 'safe'),
-            array('title, alias, newgroup, image_alt, pagetitle, keywords, linktext, linkurl', 'length', 'max'=>'255'),
+            array('title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max'=>'255'),
             array('alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
             array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'),
             array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, date, page_id, author_id, title, pagetitle, description, keywords, linktext, linkurl, image_alt, text, public, inhome, important, actual, gallery_id, group_id', 'safe', 'on'=>'search'),
+            array('id, date, page_id, author_id, title, pagetitle, description, keywords, image_alt, text, public, inhome, important, actual, gallery_id, group_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -137,8 +135,6 @@ class News extends CActiveRecord implements DICommentDepends
 			'keywords' => 'Ключевые слова (keywords)',
 			'short' => 'Превью',
 			'text' => 'Текст',
-			'linktext' => 'Текст ссылки',
-			'linkurl' => 'Адрес ссылки',
 			'image' => 'Картинка для статьи',
 			'del_image' => 'Удалить изображение',
 			'image_alt' => 'Описание изображения (по умолчанию как заголовок)',
@@ -196,8 +192,6 @@ class News extends CActiveRecord implements DICommentDepends
         $criteria->compare('t.keywords',$this->keywords,true);
         $criteria->compare('t.short',$this->short,true);
         $criteria->compare('t.text',$this->text,true);
-        $criteria->compare('t.linktext',$this->linktext,true);
-        $criteria->compare('t.linkurl',$this->linkurl,true);
         $criteria->compare('t.image',$this->image,true);
         $criteria->compare('t.image_alt',$this->image_alt);
         $criteria->compare('t.image_show',$this->image_show);

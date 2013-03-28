@@ -143,7 +143,7 @@ class DefaultController extends ShopBaseController
         $model->unsetAttributes();
 
         $model->size = Yii::app()->request->getQuery('size');
-        $model->colour = Yii::app()->request->getQuery('colour');
+        $model->color = Yii::app()->request->getQuery('color');
 
         return $model;
     }

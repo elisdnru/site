@@ -2,7 +2,7 @@
 
 Yii::import('application.modules.crud.components.*');
 
-class ColourAdminController extends DAdminController
+class ColorAdminController extends DAdminController
 {
     public function actions()
     {
@@ -21,13 +21,13 @@ class ColourAdminController extends DAdminController
 
     public function createModel()
     {
-        $model = new ShopColour();
+        $model = new ShopColor();
         return $model;
     }
 
     public function loadModel($id)
     {
-        $model = ShopColour::model()->findByPk($id);
+        $model = ShopColor::model()->findByPk($id);
         if($model === null)
             throw new CHttpException(404, 'Не найдено');
         return $model;

@@ -2,7 +2,7 @@
 
 <p>
     <b>Имя:</b> <?php echo CHtml::encode($callme->name); ?><br />
-    <b>Телефон:</b> <?php echo CHtml::encode($callme->tel); ?><br />
+    <b>Телефон:</b> <?php echo CHtml::encode($callme->phone); ?><br />
 </p>
 
 <p>

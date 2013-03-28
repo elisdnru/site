@@ -27,7 +27,7 @@ $this->info = 'Вы можете настроить отправку сообщ�
 <p><?php echo $model->date; ?></p>
 <table class="border">
     <tr><td>ФИО</td><td><?php echo CHtml::encode($model->name); ?></td></tr>
-    <tr><td>Телефон</td><td><?php echo CHtml::encode($model->tel); ?></td></tr>
+    <tr><td>Телефон</td><td><?php echo CHtml::encode($model->phone); ?></td></tr>
     <tr><td>Комментарий</td><td><?php echo nl2br(CHtml::encode($model->text)); ?></td></tr>
 </table>
 <?php if ($next): ?><p class="nomargin floatright"><a href="<?php echo $this->createUrl('view', array('id'=>$next->id)); ?>">следующее сообщение &rarr;</a></p><?php endif; ?>

@@ -28,7 +28,7 @@ class UserAttributeValue extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{user_attribute_value}}';
+		return '{{attribute_value}}';
 	}
 
 	/**

@@ -6,14 +6,14 @@
  * The followings are the available columns in table '{{shop_product_size}}':
  * @property integer $id
  * @property integer $product_id
- * @property integer $colour_id
+ * @property integer $color_id
  */
-class ShopProductColour extends CActiveRecord
+class ShopProductColor extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return ShopProductColour the static model class
+	 * @return ShopProductColor the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -25,7 +25,7 @@ class ShopProductColour extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{shop_product_colour}}';
+		return '{{shop_product_color}}';
 	}
 
 	/**
@@ -36,11 +36,11 @@ class ShopProductColour extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('product_id, colour_id', 'required'),
-			array('product_id, colour_id', 'numerical', 'integerOnly'=>true),
+			array('product_id, color_id', 'required'),
+			array('product_id, color_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, product_id, colour_id', 'safe', 'on'=>'search'),
+			array('id, product_id, color_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +52,7 @@ class ShopProductColour extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-            'colour'=>array(self::BELONGS_TO, 'ShopColour', 'colour_id'),
+            'color'=>array(self::BELONGS_TO, 'ShopColor', 'color_id'),
 		);
 	}
 
@@ -64,7 +64,7 @@ class ShopProductColour extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'product_id' => 'Product',
-			'colour_id' => 'Colour',
+			'color_id' => 'Color',
 		);
 	}
 
@@ -81,7 +81,7 @@ class ShopProductColour extends CActiveRecord
 
 		$criteria->compare('t.id',$this->id);
 		$criteria->compare('t.product_id',$this->product_id);
-		$criteria->compare('t.colour_id',$this->colour_id);
+		$criteria->compare('t.color_id',$this->color_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

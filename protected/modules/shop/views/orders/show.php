@@ -31,9 +31,9 @@ if ($this->is(Access::ROLE_CONTROL)){
     <tr><td>Телефон</td><td><?php echo $model->phone; ?></td></tr>
     <tr><td>Email</td><td><?php echo $model->email; ?></td></tr>
     <tr><td>Адрес</td><td><?php echo $model->address; ?></td></tr>
-    <tr><td>Доставка</td><td><?php echo $model->posttitle; ?></td></tr>
-    <?php if ($model->complete && $model->postcode): ?>
-    <tr><td>Идентификатор отправления</td><td><?php echo $model->postcode; ?></td></tr>
+    <tr><td>Доставка</td><td><?php echo $model->post_title; ?></td></tr>
+    <?php if ($model->complete && $model->post_code): ?>
+    <tr><td>Идентификатор отправления</td><td><?php echo $model->post_code; ?></td></tr>
     <?php endif; ?>
     <tr><td>Комментарий</td><td><?php echo $model->comment ? nl2br(strip_tags($model->comment)) : 'нет'; ?></td></tr>
     <tr><th colspan="2"></th></tr>
@@ -87,16 +87,16 @@ if ($this->is(Access::ROLE_CONTROL)){
             <th class="center"><?php echo $total_summ; ?></th>
         </tr>
         <tr>
-            <td colspan="2">Доставка: <?php echo $model->posttitle; ?></td>
+            <td colspan="2">Доставка: <?php echo $model->post_title; ?></td>
             <td></td>
             <td></td>
-            <td class="center"><?php echo number_format($model->postsumm, 0, '.', ' '); ?></td>
+            <td class="center"><?php echo number_format($model->post_sum, 0, '.', ' '); ?></td>
         </tr>
         <tr>
             <th class="right" colspan="2">Итого с доставкой:</th>
             <th></th>
             <th></th>
-            <th class="center"><?php echo number_format($total_summ + $model->postsumm, 0, '.', ' '); ?></th>
+            <th class="center"><?php echo number_format($total_summ + $model->post_sum, 0, '.', ' '); ?></th>
         </tr>
 
     </table>

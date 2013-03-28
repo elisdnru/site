@@ -31,7 +31,7 @@ class UserPhoto extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{user_image}}';
+		return '{{user_photo}}';
 	}
 
 	/**

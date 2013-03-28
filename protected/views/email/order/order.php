@@ -60,8 +60,8 @@
 
     <tr>
         <th style="text-align:right; background:#eee;" colspan="1">Доставка:</th>
-        <th style="text-align:right; background:#eee;" colspan="2"><?php echo $order->posttitle; ?></th>
-        <th style="text-align:center; background:#eee;"><?php echo number_format($order->postsumm, 0, '.', ' '); ?>р</th>
+        <th style="text-align:right; background:#eee;" colspan="2"><?php echo $order->post_title; ?></th>
+        <th style="text-align:center; background:#eee;"><?php echo number_format($order->post_sum, 0, '.', ' '); ?>р</th>
         <th style="background:#eee;"></th>
         <th style="background:#eee;"></th>
     </tr>
@@ -70,7 +70,7 @@
         <th style="text-align:center; background:#eee;"><?php echo $total_count; ?></th>
         <th style="background:#eee;"></th>
         <th style="text-align:center; background:#eee;">
-            <?php echo number_format($total_summ + $order->postsumm, 0, '.', ' '); ?>р
+            <?php echo number_format($total_summ + $order->post_sum, 0, '.', ' '); ?>р
         </th>
         <th style="background:#eee;"></th>
         <th style="background:#eee;"></th>

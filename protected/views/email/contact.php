@@ -3,7 +3,7 @@
 <p>
     <b>Имя:</b> <?php echo CHtml::encode($contact->name); ?><br />
     <b>Email:</b> <?php echo CHtml::encode($contact->email); ?><br />
-    <b>Телефон:</b> <?php echo CHtml::encode($contact->tel); ?><br />
+    <b>Телефон:</b> <?php echo CHtml::encode($contact->phone); ?><br />
 </p>
 
 <p>

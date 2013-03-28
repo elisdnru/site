@@ -65,7 +65,7 @@ class OrderAdminController extends DAdminController
         $model->complete = $model->complete ? 0 : 1;
 
         if (isset($_POST['code']))
-            $model->postcode = $_POST['code'];
+            $model->post_code = $_POST['code'];
 
         if ($model->save())
             Yii::app()->user->setFlash('success', 'Отметка об отправке сохранена');

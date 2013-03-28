@@ -8,12 +8,12 @@ Yii::import('application.modules.category.models.*');
  * The followings are the available columns in table '{{shop_size}}':
  * @property string $type
  */
-class ShopColour extends Category
+class ShopColor extends Category
 {
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
-     * @return ShopColour the static model class
+     * @return ShopColor the static model class
      */
     public static function model($className=__CLASS__)
     {
@@ -25,7 +25,7 @@ class ShopColour extends Category
      */
     public function tableName()
     {
-        return '{{shop_colour}}';
+        return '{{shop_color}}';
     }
 
     public function rules()
@@ -41,7 +41,7 @@ class ShopColour extends Category
     public function relations()
     {
         return array_merge(parent::relations(), array(
-            'colour_values' => array(self::HAS_MANY, 'ShopProductColour', 'colour_id'),
+            'color_values' => array(self::HAS_MANY, 'ShopProductColor', 'color_id'),
         ));
     }
 
@@ -66,7 +66,7 @@ class ShopColour extends Category
     {
         if (parent::beforeDelete())
         {
-            foreach ($this->colour_values as $value)
+            foreach ($this->color_values as $value)
                 $value->delete();
 
             return true;
@@ -80,7 +80,7 @@ class ShopColour extends Category
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->controller->createUrl('', array_replace($_GET, array('colour'=>$this->title)));
+            $this->_url = Yii::app()->controller->createUrl('', array_replace($_GET, array('color'=>$this->title)));
         return $this->_url;
     }
 }

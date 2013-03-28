@@ -37,8 +37,8 @@ $this->widget('zii.widgets.CDetailView', array(
         'email',
         'zip',
         'address',
-        'posttitle',
-        'postcode',
+        'post_title',
+        'post_code',
         array(
             'name'=>'comment',
             'value'=>nl2br(CHtml::encode($model->comment)),
@@ -101,8 +101,8 @@ $this->widget('zii.widgets.CDetailView', array(
 
     <tr>
         <td class="right" colspan="1">Доставка:</td>
-        <td colspan="2"><?php echo $model->posttitle; ?></td>
-        <td class="center"><?php echo $model->postsumm; ?> р</td>
+        <td colspan="2"><?php echo $model->post_title; ?></td>
+        <td class="center"><?php echo $model->post_sum; ?> р</td>
         <td></td>
         <td></td>
         <td></td>
@@ -113,7 +113,7 @@ $this->widget('zii.widgets.CDetailView', array(
         <th class="center"><?php echo $total_count; ?></th>
         <th></th>
         <th class="center">
-            <?php echo number_format($total_summ + $model->postsumm, 0, '.', ' '); ?> р
+            <?php echo number_format($total_summ + $model->post_sum, 0, '.', ' '); ?> р
         </th>
         <th></th>
         <th></th>
@@ -171,10 +171,10 @@ $toggle_complete = $this->createUrl('completed', array('id'=>$model->id));
         <h3>Доставка</h3>
         <div class="row">
             <?php if ($model->complete): ?>
-                <p><?php echo CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/yes.png'); ?> ID:<b> <?php echo CHtml::encode($model->postcode); ?></b></p>
+                <p><?php echo CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/yes.png'); ?> ID:<b> <?php echo CHtml::encode($model->post_code); ?></b></p>
             <?php else: ?>
                 <p>
-                <?php echo CHtml::textField('code', $model->postcode, array('size'=>50, 'class'=>'nomargin', 'placeholder'=>'Идентификатор почтового отпраления')); ?>
+                <?php echo CHtml::textField('code', $model->post_code, array('size'=>50, 'class'=>'nomargin', 'placeholder'=>'Идентификатор почтового отпраления')); ?>
                 </p>
             <?php endif; ?>
         </div>

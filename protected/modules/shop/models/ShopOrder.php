@@ -20,9 +20,9 @@
  * @property integer $apply
  * @property integer $payed
  * @property integer $post
- * @property integer $posttitle
- * @property integer $postsumm
- * @property integer $postcode
+ * @property integer $post_title
+ * @property integer $post_sum
+ * @property integer $post_code
  * @property integer $curs
  */
 class ShopOrder extends CActiveRecord
@@ -65,7 +65,7 @@ class ShopOrder extends CActiveRecord
 			array('user_id, post_id, lastname, name, phone, email, zip, address', 'required'),
 			array('confirm', 'numerical', 'min'=>1, 'tooSmall'=>'Для осуществления заказа необходимо согласиться с правилами', 'on'=>'orderForm'),
 			array('user_id, post_id, quickly', 'numerical', 'integerOnly'=>true),
-			array('lastname, name, middlename, zip, phone, email, postcode', 'length', 'max'=>255),
+			array('lastname, name, middlename, zip, phone, email, post_code', 'length', 'max'=>255),
             array('email', 'email', 'message' => 'Неверный формат E-mail адреса'),
 			array('address, date, comment', 'safe'),
 			array('curs', 'unsafe'),
@@ -110,8 +110,8 @@ class ShopOrder extends CActiveRecord
 			'apply' => 'Принят',
 			'payed' => 'Оплачен',
 			'post_id' => 'Способ доставки',
-			'posttitle' => 'Способ доставки',
-			'postcode' => 'Идентификатор отправления',
+			'post_title' => 'Способ доставки',
+			'post_code' => 'Идентификатор отправления',
 			'confirm' => 'Я согласен с условиями',
 			'quickly' => 'Отправить срочно',
 		);
@@ -185,8 +185,8 @@ class ShopOrder extends CActiveRecord
         {
             if ($this->post_id && $post = ShopPostType::model()->findByPk($this->post_id))
             {
-                $this->posttitle = $post->title;
-                $this->postsumm = $post->summ;
+                $this->post_title = $post->title;
+                $this->post_sum = $post->summ;
             }
             return true;
         }

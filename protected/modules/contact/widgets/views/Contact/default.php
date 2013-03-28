@@ -33,9 +33,9 @@
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'tel'); ?><br />
-        <?php echo $form->textField($model,'tel',array('size'=>40)); ?><br />
-        <?php echo $form->error($model,'tel'); ?>
+        <?php echo $form->labelEx($model,'phone'); ?><br />
+        <?php echo $form->textField($model,'phone',array('size'=>40)); ?><br />
+        <?php echo $form->error($model,'phone'); ?>
     </div>
 
     <div class="row">

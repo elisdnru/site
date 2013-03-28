@@ -34,7 +34,7 @@
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('ShopColour_title', 'ShopColour_alias')">Транслит наименования</a><br />
+            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('ShopColor_title', 'ShopColor_alias')">Транслит наименования</a><br />
             <?php echo $form->textField($model,'alias',array('size'=>60, 'maxlength'=>255)); ?><br />
             <?php echo $form->error($model,'alias'); ?>
         </div>

@@ -67,8 +67,8 @@ $total_summ = 0;
             if (!empty($item->data['size']))
                 $comment .= 'Размер ' . $item->data['size'] . ' ';
 
-            if (!empty($item->data['colour']))
-                $comment .= 'Цвет ' . $item->data['colour'] . ' ';
+            if (!empty($item->data['color']))
+                $comment .= 'Цвет ' . $item->data['color'] . ' ';
 
             ?>
 

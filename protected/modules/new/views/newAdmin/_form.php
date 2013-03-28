@@ -177,23 +177,6 @@
     </div>
 </fieldset>
 
-
-<fieldset>
-    <h4>Для перелинковки</h4>
-    <div class="row">
-        <?php echo $form->labelEx($model,'linktext'); ?><br />
-        <?php echo $form->textField($model,'linktext',array('size'=>60, 'maxlength'=>255)); ?><br />
-        <?php echo $form->error($model,'linktext'); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->labelEx($model,'linkurl'); ?><br />
-        <?php echo $form->textField($model,'linkurl',array('size'=>60, 'maxlength'=>255)); ?><br />
-        <?php echo $form->error($model,'linkurl'); ?>
-    </div>
-</fieldset>
-
-
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>

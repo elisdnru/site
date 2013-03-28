@@ -29,7 +29,7 @@ $this->info = 'Вы можете настроить отправку сообщ�
     <?php if ($model->pagetitle): ?><tr><td width="150" >Со страницы</td><td><?php echo CHtml::encode($model->pagetitle); ?></td></tr><?php endif; ?>
     <tr><td>Автор</td><td><?php echo CHtml::encode($model->name); ?></td></tr>
     <tr><td>Email</td><td><?php echo CHtml::encode($model->email); ?></td></tr>
-    <tr><td>Телефон</td><td><?php echo CHtml::encode($model->tel); ?></td></tr>
+    <tr><td>Телефон</td><td><?php echo CHtml::encode($model->phone); ?></td></tr>
     <tr><td>Сообщение</td><td><?php echo nl2br(CHtml::encode($model->text)); ?></td></tr>
 </table>
 <?php if ($next): ?><p class="nomargin floatright"><a href="<?php echo $this->createUrl('view', array('id'=>$next->id)); ?>">следующее сообщение &rarr;</a></p><?php endif; ?>

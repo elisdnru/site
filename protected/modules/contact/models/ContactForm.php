@@ -11,7 +11,7 @@ class ContactForm extends CFormModel
 {
 	public $name;
 	public $email;
-	public $tel;
+	public $phone;
 	public $text;
 	public $verifyCode;
 
@@ -25,7 +25,7 @@ class ContactForm extends CFormModel
    		return array(
    			array('name, email, text', 'required'),
    			array('name', 'length', 'max'=>200),
-   			array('email, tel', 'length', 'max'=>100),
+   			array('email, phone', 'length', 'max'=>100),
             array('email', 'email'),
    			// The following rule is used by search().
    			// Please remove those attributes that should not be searched.
@@ -43,7 +43,7 @@ class ContactForm extends CFormModel
         return array(
             'name' => 'Ваше имя',
             'email' => 'Email',
-            'tel' => 'Телефон',
+            'phone' => 'Телефон',
             'text' => 'Сообщение',
             'verifyCode'=>'Проверочный код',
 		);

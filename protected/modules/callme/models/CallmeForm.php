@@ -10,7 +10,7 @@ DUrlRulesHelper::import('callme');
 class CallmeForm extends CFormModel
 {
 	public $name;
-	public $tel;
+	public $phone;
 	public $text;
 	public $verifyCode;
 
@@ -22,9 +22,9 @@ class CallmeForm extends CFormModel
    		// NOTE: you should only define rules for those attributes that
    		// will receive user inputs.
    		return array(
-   			array('tel', 'required'),
+   			array('phone', 'required'),
    			array('name', 'length', 'max'=>200),
-   			array('tel', 'length', 'max'=>100),
+   			array('phone', 'length', 'max'=>100),
             array('text', 'safe'),
    			// The following rule is used by search().
    			// Please remove those attributes that should not be searched.
@@ -41,7 +41,7 @@ class CallmeForm extends CFormModel
 	{
         return array(
             'name' => 'Ваше имя',
-            'tel' => 'Телефон',
+            'phone' => 'Телефон',
             'text' => 'Когда позвонить',
             'verifyCode'=>'Проверочный код',
 		);
