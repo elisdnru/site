@@ -8,14 +8,17 @@ class DModuleManager extends CApplicationComponent
     {
         $this->modules = array();
 
-        $rows = Yii::app()->db->cache(3600*24)->createCommand('SELECT * FROM {{module}}')->queryAll();
+        if (Yii::app()->db->schema->getTable('{{module}}'))
+        {
+            $rows = Yii::app()->db->cache(3600*24)->createCommand('SELECT * FROM {{module}}')->queryAll();
 
-        foreach ($rows as $row){
-            $this->modules[$row['module']] = array(
-                'installed'=>$row['installed'],
-                'system'=>0,
-                'active'=>$row['active'],
-            );
+            foreach ($rows as $row){
+                $this->modules[$row['module']] = array(
+                    'installed'=>$row['installed'],
+                    'system'=>0,
+                    'active'=>$row['active'],
+                );
+            }
         }
     }
 
