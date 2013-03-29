@@ -68,7 +68,7 @@ class DefaultController extends ShopBaseController
         $model->type_id = $type->id;
         $model->category_id = $category->id;
 
-        $subcategories = $category->cache(3600*24)->childs;
+        $subcategories = $category->cache(3600*24)->child_items;
 
         $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('SHOP.PRODUCTS_PER_PAGE'));
 

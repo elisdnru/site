@@ -28,7 +28,7 @@ class NewsComment extends Comment
 	public function relations()
 	{
 		return array_merge(parent::relations(), array(
-            'childs' => array(self::HAS_MANY, self::TYPE_OF_COMMENT . 'Comment', 'parent_id'),
+            'child_items' => array(self::HAS_MANY, self::TYPE_OF_COMMENT . 'Comment', 'parent_id'),
             'material' => array(self::BELONGS_TO, self::TYPE_OF_COMMENT, 'material_id'),
 		));
 	}

@@ -44,8 +44,8 @@ class BlogCategory extends TreeCategory
             'parent' => array(self::BELONGS_TO, 'BlogCategory', 'parent_id'),
             'posts_count' => array(self::STAT, 'BlogPost', 'category_id'),
             'posts' => array(self::HAS_MANY, 'BlogPost', 'category_id'),
-            'childs' => array(self::HAS_MANY, 'BlogCategory', 'parent_id',
-                'order'=>'childs.sort ASC'
+            'child_items' => array(self::HAS_MANY, 'BlogCategory', 'parent_id',
+                'order'=>'child_items.sort ASC'
             ),
             'items_count' => array(self::STAT, 'BlogPost', 'category_id',
                 'condition'=>'public = 1',

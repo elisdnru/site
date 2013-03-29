@@ -46,8 +46,8 @@ class PortfolioCategory extends TreeCategory
 		// class name for the relations automatically generated below.
 		return array_merge(parent::relations(), array(
             'parent' => array(self::BELONGS_TO, 'PortfolioCategory', 'parent_id'),
-            'childs' => array(self::HAS_MANY, 'PortfolioCategory', 'parent_id',
-                'order'=>'childs.sort ASC'
+            'child_items' => array(self::HAS_MANY, 'PortfolioCategory', 'parent_id',
+                'order'=>'child_items.sort ASC'
             ),
             'items_count' => array(self::STAT, 'PortfolioWork', 'category_id',
                 'condition'=>'public = 1',

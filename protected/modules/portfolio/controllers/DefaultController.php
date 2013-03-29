@@ -44,7 +44,7 @@ class DefaultController extends PortfolioBaseController
         $criteria = $this->getStartCriteria();
         $criteria->addInCondition('t.category_id', array($category->id) + $category->getChildsArray());
 
-        $subcategories = $category->cache(3600*24)->childs;
+        $subcategories = $category->cache(3600*24)->child_items;
 
         $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(3600*24), array(
             'criteria'=>$criteria,

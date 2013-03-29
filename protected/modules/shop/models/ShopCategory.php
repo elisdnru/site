@@ -57,8 +57,8 @@ class ShopCategory extends TreeCategory
         return array_merge(parent::relations(), array(
             'type' => array(self::BELONGS_TO, 'ShopType', 'type_id'),
             'parent' => array(self::BELONGS_TO, 'ShopCategory', 'parent_id'),
-            'childs' => array(self::HAS_MANY, 'ShopCategory', 'parent_id',
-                'order'=>'childs.sort ASC'
+            'child_items' => array(self::HAS_MANY, 'ShopCategory', 'parent_id',
+                'order'=>'child_items.sort ASC'
             ),
             'items_count' => array(self::STAT, 'ShopProduct', 'category_id',
                 'condition'=>'public = 1',
@@ -85,7 +85,7 @@ class ShopCategory extends TreeCategory
         $criteria->compare('t.parent_id',$this->parent_id);
 
         return new DTreeActiveDataProvider($this, array(
-            'childRelation'=>'childs',
+            'childRelation'=>'child_items',
             'criteria'=>$criteria,
             'sort'=>array(
                 'defaultOrder'=>'t.sort ASC, t.title ASC',
@@ -135,7 +135,7 @@ class ShopCategory extends TreeCategory
 
     protected function afterSave()
     {
-        foreach ($this->childs as $child){
+        foreach ($this->child_items as $child){
             $child->type_id = $this->type_id;
             $child->save();
         }
