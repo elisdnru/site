@@ -9,7 +9,7 @@ Yii::import('application.modules.category.models.*');
  * The followings are the available columns in table '{{shop_category}}':
  * @property string $type
  */
-class ShopCategory extends Category
+class ShopCategory extends TreeCategory
 {
     public $urlRoute = '/shop/default/category';
     protected $current_type = 0;
@@ -99,7 +99,7 @@ class ShopCategory extends Category
 
     public function behaviors()
     {
-        return array(
+        return array_replace(parent::behaviors(), array(
             'CategoryBehavior'=>array(
                 'class'=>'category.components.DCategoryTreeBehavior',
                 'titleAttribute'=>'title',
@@ -112,7 +112,7 @@ class ShopCategory extends Category
                     'order'=>'`type`.sort ASC, t.sort ASC, t.title ASC'
                 ),
             ),
-        );
+        ));
     }
 
     /**

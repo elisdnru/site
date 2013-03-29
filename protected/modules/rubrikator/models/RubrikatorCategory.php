@@ -63,7 +63,7 @@ class RubrikatorCategory extends Category
                 'aliasAttribute'=>'alias',
                 'iconAttribute'=>'imageUrl',
                 'linkActiveAttribute'=>'linkActive',
-                'requestPathAttribute'=>'type',
+                'requestPathAttribute'=>'category',
                 'defaultCriteria'=>array(
                     'with'=>'i18nRubrikatorCategory',
                     'order'=>'t.sort ASC, t.title ASC'

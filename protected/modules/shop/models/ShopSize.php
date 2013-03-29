@@ -45,23 +45,6 @@ class ShopSize extends Category
         ));
     }
 
-    public function behaviors()
-    {
-        return array(
-            'CategoryBehavior'=>array(
-                'class'=>'category.components.DCategoryBehavior',
-                'titleAttribute'=>'title',
-                'aliasAttribute'=>'alias',
-                'iconAttribute'=>'imageUrl',
-                'linkActiveAttribute'=>'linkActive',
-                'requestPathAttribute'=>'type',
-                'defaultCriteria'=>array(
-                    'order'=>'t.sort ASC, t.title ASC'
-                ),
-            ),
-        );
-    }
-
     protected function beforeDelete()
     {
         if (parent::beforeDelete())

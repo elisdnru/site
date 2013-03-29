@@ -94,24 +94,14 @@ class ShopBrand extends Category
 
     public function behaviors()
     {
-        return array(
-            'CategoryBehavior'=>array(
-                'class'=>'category.components.DCategoryBehavior',
-                'titleAttribute'=>'title',
-                'aliasAttribute'=>'alias',
-                'linkActiveAttribute'=>'linkActive',
-                'requestPathAttribute'=>'type',
-                'defaultCriteria'=>array(
-                    'order'=>'t.sort ASC, t.title ASC'
-                ),
-            ),
+        return array_replace(parent::behaviors(), array(
             'MultiList'=>array(
                 'class'=>'DMultiplyListBehavior',
                 'attribute'=>'categoriesArray',
                 'relation'=>'categories',
                 'relationPk'=>'id',
             ),
-        );
+        ));
     }
 
     // scope

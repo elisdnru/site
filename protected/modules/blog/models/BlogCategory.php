@@ -9,7 +9,7 @@ Yii::import('application.modules.category.models.*');
  * @method BlogCategory multilang();
  */
 
-class BlogCategory extends Category
+class BlogCategory extends TreeCategory
 {
     public $urlRoute = '/blog/default/category';
     public $multiLanguage = true;
@@ -52,34 +52,4 @@ class BlogCategory extends Category
             ),
 		));
 	}
-
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @return DTreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize=10)
-    {
-        $criteria=new CDbCriteria;
-
-        $criteria->compare('t.id',$this->id);
-        $criteria->compare('t.alias',$this->alias,true);
-        $criteria->compare('t.title',$this->title,true);
-        $criteria->compare('t.text',$this->text,true);
-        $criteria->compare('t.pagetitle',$this->pagetitle,true);
-        $criteria->compare('t.description',$this->description,true);
-        $criteria->compare('t.keywords',$this->keywords,true);
-        $criteria->compare('t.parent_id',$this->parent_id);
-
-        return new DTreeActiveDataProvider($this, array(
-            'criteria'=>DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
-            'childRelation'=>'childs',
-            'sort'=>array(
-                'defaultOrder'=>'t.sort ASC, t.title ASC',
-            ),
-            'pagination'=>array(
-                'pageSize'=>$pageSize,
-                'pageVar'=>'page',
-            ),
-        ));
-    }
 }

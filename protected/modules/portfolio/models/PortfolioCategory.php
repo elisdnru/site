@@ -7,7 +7,7 @@ Yii::import('application.modules.category.models.*');
  * This is the model class for table "{{portfolio_category}}".
  */
 
-class PortfolioCategory extends Category
+class PortfolioCategory extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';
     public $multiLanguage = true;

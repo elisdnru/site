@@ -12,26 +12,18 @@
  * @property string $pagetitle
  * @property string $description
  * @property string $keywords
- * @property string $parent_id
  *
- * DTreeCategoryBehavior
+ * DCategoryBehavior
  * @method mixed getArray()
  * @method Category findByAlias($alias)
- * @method Category findByPath($path)
- * @method boolean isChildOf($parent)
- * @method mixed getChildsArray($parent=0)
  * @method mixed getAssocList($parent=0)
  * @method mixed getAliasList($parent=0)
- * @method mixed getTabList($parent=0)
  * @method mixed getMenuList($sub=0, $parent=0)
- * @method string getPath($separator='/')
- * @method mixed getBreadcrumbs($lastLink=false)
  */
 abstract class Category extends CActiveRecord
 {
     public $urlRoute = '';
     public $multiLanguage = false;
-    public $indent = 0;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -58,12 +50,12 @@ abstract class Category extends CActiveRecord
             array('alias, title', 'required'),
             array('alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
             //array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Элемент с таким URL уже существует'),
-            array('sort, parent_id', 'numerical', 'integerOnly'=>true),
+            array('sort', 'numerical', 'integerOnly'=>true),
             array('alias, title, pagetitle, keywords', 'length', 'max'=>255),
             array('text, description', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, sort, alias, title, text, pagetitle, description, keywords, parent_id', 'safe', 'on'=>'search'),
+            array('id, sort, alias, title, text, pagetitle, description, keywords', 'safe', 'on'=>'search'),
         );
     }
 
@@ -83,7 +75,6 @@ abstract class Category extends CActiveRecord
             'alias' => 'URL транслитом',
             'title' => 'Наименование',
             'text' => 'Текст',
-            'parent_id' => 'Родительский пункт',
             'pagetitle' => 'Заголовок окна',
             'description' => 'Описание',
             'keywords' => 'Ключевые слова',
@@ -108,7 +99,6 @@ abstract class Category extends CActiveRecord
 		$criteria->compare('t.pagetitle',$this->pagetitle,true);
 		$criteria->compare('t.description',$this->description,true);
 		$criteria->compare('t.keywords',$this->keywords,true);
-		$criteria->compare('t.parent_id',$this->parent_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
@@ -134,12 +124,10 @@ abstract class Category extends CActiveRecord
     {
         $behaviors = array(
             'CategoryBehavior'=>array(
-                'class'=>'category.components.DCategoryTreeBehavior',
+                'class'=>'category.components.DCategoryBehavior',
                 'titleAttribute'=>'title',
                 'aliasAttribute'=>'alias',
-                'parentAttribute'=>'parent_id',
                 'requestPathAttribute'=>'category',
-                'parentRelation'=>'parent',
                 'defaultCriteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? array(
                     'with'=>'i18n' . get_class($this),
                     'order'=>'t.sort ASC, t.title ASC'
@@ -184,7 +172,7 @@ abstract class Category extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl($this->urlRoute, array('category'=>$this->cache(3600)->getPath()));
+            $this->_url = Yii::app()->createUrl($this->urlRoute, array('category'=>$this->alias));
 
         return $this->_url;
     }
