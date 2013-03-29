@@ -1,5 +1,7 @@
 <?php
 
+Yii::import('application.modules.portfolio.models.*');
+
 /**
  * This is the model class for table "{{new}}".
  *
@@ -199,7 +201,13 @@ class PortfolioWork extends CActiveRecord
                     'class' => 'ext.multilangual.MultilingualBehavior',
                     'localizedAttributes' => array(
                         'title',
+                        'short',
+                        'short_purified',
                         'text',
+                        'text_purified',
+                        'pagetitle',
+                        'description',
+                        'keywords',
                     ),
                     'langClassName' => 'PortfolioWorkLang',
                     'langTableName' => 'portfolio_work_lang',

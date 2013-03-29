@@ -234,7 +234,13 @@ class RubrikatorArticle extends CActiveRecord
                     'class' => 'ext.multilangual.MultilingualBehavior',
                     'localizedAttributes' => array(
                         'title',
+                        'short',
+                        'short_purified',
                         'text',
+                        'text_purified',
+                        'pagetitle',
+                        'description',
+                        'keywords',
                     ),
                     'langClassName' => 'RubrikatorArticleLang',
                     'langTableName' => 'rubrikator_article_lang',

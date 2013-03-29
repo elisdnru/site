@@ -203,7 +203,13 @@ class Recipe extends CActiveRecord
                     'class' => 'ext.multilangual.MultilingualBehavior',
                     'localizedAttributes' => array(
                         'title',
+                        'short',
+                        'short_purified',
                         'text',
+                        'text_purified',
+                        'pagetitle',
+                        'description',
+                        'keywords',
                     ),
                     'langClassName' => 'RecipeLang',
                     'langTableName' => 'recipe_lang',

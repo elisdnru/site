@@ -300,7 +300,13 @@ class News extends CActiveRecord implements DICommentDepends
                     'class' => 'ext.multilangual.MultilingualBehavior',
                     'localizedAttributes' => array(
                         'title',
+                        'short',
+                        'short_purified',
                         'text',
+                        'text_purified',
+                        'pagetitle',
+                        'description',
+                        'keywords',
                     ),
                     'langClassName' => 'NewsLang',
                     'langTableName' => 'new_lang',
