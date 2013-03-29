@@ -24,11 +24,13 @@
     </div>
 
     <fieldset>
-        <div class="row">
-            <?php echo $form->labelEx($model,'title'); ?><br />
-            <?php echo $form->textField($model,'title',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'title'); ?>
-        </div>
+        <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
+            <div class="row">
+                <?php echo $form->labelEx($model,'title'); ?> <?php echo $lang; ?><br />
+                <?php echo $form->textField($model, 'title' . $suffix, array('size'=>60, 'maxlength'=>255)); ?><br />
+                <?php echo $form->error($model, 'title' . $suffix); ?>
+            </div>
+        <?php endforeach; ?>
 
         <div class="row">
             <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('PortfolioCategory_title', 'PortfolioCategory_alias')">Транслит наименования</a><br />
@@ -49,34 +51,20 @@
         </div>
     </fieldset>
 
-    <fieldset class="editor">
-        <div class="row">
-            <?php echo $form->labelEx($model,'text'); ?><br />
-            <?php echo $form->textArea($model,'text',array('rows'=>40, 'cols'=>80, 'class'=>'tinymce')); ?>
-            <?php echo $form->error($model,'text'); ?>
-        </div>
-    </fieldset>
+    <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
+        <fieldset class="editor">
+            <div class="row">
+                <?php echo $form->labelEx($model,'text'); ?> <?php echo $lang; ?><br />
+                <?php echo $form->textArea($model, 'text' . $suffix, array('rows'=>40, 'cols'=>80, 'class'=>'tinymce')); ?>
+                <?php echo $form->error($model, 'text' . $suffix); ?>
+            </div>
+        </fieldset>
+    <?php endforeach; ?>
 
-    <fieldset>
-        <h4>Мета-информация</h4>
-        <div class="row">
-            <?php echo $form->labelEx($model,'pagetitle'); ?><br />
-            <?php echo $form->textField($model,'pagetitle',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'pagetitle'); ?>
-        </div>
-
-        <div class="row">
-            <?php echo $form->labelEx($model,'description'); ?><br />
-            <?php echo $form->textArea($model,'description',array('rows'=>3, 'cols'=>80)); ?><br />
-            <?php echo $form->error($model,'description'); ?>
-        </div>
-
-        <div class="row">
-            <?php echo $form->labelEx($model,'keywords'); ?><br />
-            <?php echo $form->textField($model,'keywords',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'keywords'); ?>
-        </div>
-    </fieldset>
+    <?php echo $this->renderPartial('//common/forms/_lang_meta', array(
+        'form'=>$form,
+        'model'=>$model,
+    )); ?>
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>

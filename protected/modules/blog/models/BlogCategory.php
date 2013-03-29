@@ -5,11 +5,14 @@ Yii::import('application.modules.category.models.*');
 
 /**
  * This is the model class for table "{{blog_category}}".
+ *
+ * @method BlogCategory multilang();
  */
 
 class BlogCategory extends Category
 {
     public $urlRoute = '/blog/default/category';
+    public $multiLanguage = true;
     public $indent = 0;
 
 	/**
@@ -78,53 +81,5 @@ class BlogCategory extends Category
                 'pageVar'=>'page',
             ),
         ));
-    }
-
-    public function behaviors()
-    {
-        $behaviors = array(
-            'CategoryBehavior'=>array(
-                'class'=>'category.components.DCategoryTreeBehavior',
-                'titleAttribute'=>'title',
-                'aliasAttribute'=>'alias',
-                'parentAttribute'=>'parent_id',
-                'requestPathAttribute'=>'category',
-                'parentRelation'=>'parent',
-                'defaultCriteria'=>array(
-                    'with'=>'i18nBlogCategory',
-                    'order'=>'t.sort ASC, t.title ASC'
-                ),
-            ),
-        );
-
-        if (DMultilangHelper::enabled())
-        {
-            $behaviors = array_merge($behaviors, array(
-                'ml' => array(
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => array(
-                        'title',
-                        'text',
-                        'pagetitle',
-                        'description',
-                        'keywords',
-                    ),
-                    'langClassName' => 'BlogCategoryLang',
-                    'langTableName' => 'blog_category_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'localizedRelation' => 'i18nBlogCategory',
-                    'dynamicLangClass' => true,
-                ),
-            ));
-        }
-
-        return $behaviors;
-    }
-
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
     }
 }

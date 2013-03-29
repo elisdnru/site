@@ -29,7 +29,11 @@ class RecipeAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        $model = Recipe::model()->findByPk($id);
+        if (DMultilangHelper::enabled())
+            $model = Recipe::model()->multilang()->findByPk($id);
+        else
+            $model = Recipe::model()->findByPk($id);
+
         if($model===null)
             throw new CHttpException(404, 'Страница не найдена');
         return $model;

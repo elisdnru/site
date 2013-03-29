@@ -1,6 +1,7 @@
 <?php
 
 Yii::import('application.modules.category.components.*');
+Yii::import('application.modules.page.models.*');
 
 /**
  * This is the model class for table "{{page}}".
@@ -209,7 +210,6 @@ class Page extends CActiveRecord
 
         if (DMultilangHelper::enabled())
         {
-            Yii::import('application.modules.page.models.PageLang');
             $behaviors = array_merge($behaviors, array(
                 'ml' => array(
                     'class' => 'ext.multilangual.MultilingualBehavior',
@@ -224,7 +224,7 @@ class Page extends CActiveRecord
                     'langTableName' => 'page_lang',
                     'languages' => Yii::app()->params['translatedLanguages'],
                     'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'page_id',
+                    'langForeignKey' => 'owner_id',
                     'localizedRelation' => 'i18nPage',
                     'dynamicLangClass' => false,
                 ),

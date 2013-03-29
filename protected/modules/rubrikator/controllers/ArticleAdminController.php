@@ -30,7 +30,11 @@ class ArticleAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        $model = RubrikatorArticle::model()->findByPk($id);
+        if (DMultilangHelper::enabled())
+            $model = RubrikatorArticle::model()->multilang()->findByPk($id);
+        else
+            $model = RubrikatorArticle::model()->findByPk($id);
+
         if($model===null)
             throw new CHttpException(404, 'Страница не найдена');
         return $model;

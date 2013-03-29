@@ -24,6 +24,9 @@
  * @property string $url
  * @property string $imageUrl
  * @property string $imageThumdUrl
+ *
+ * @method PortfolioWork published()
+ * @method PortfolioWork multilang()
  */
 class PortfolioWork extends CActiveRecord
 {
@@ -137,8 +140,13 @@ class PortfolioWork extends CActiveRecord
         $criteria->compare('t.public',$this->public);
 
         return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria,
+            'criteria'=>DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
         ));
+    }
+
+    public function defaultScope()
+    {
+        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
     }
 
     public function scopes()
@@ -152,14 +160,13 @@ class PortfolioWork extends CActiveRecord
 
     public function behaviors()
     {
-        return array(
+        $behaviors = array(
             'PurifyShort'=>array(
                 'class'=>'DPurifyTextBehavior',
                 'sourceAttribute'=>'short',
                 'destinationAttribute'=>'short_purified',
                 'purifierOptions'=> array(
-                    'HTML.SafeObject'=>true,
-                    'Output.FlashCompat'=>true,
+                    'Attr.AllowedRel'=>array('nofollow'),
                 ),
                 'processOnBeforeSave'=>true,
             ),
@@ -168,6 +175,7 @@ class PortfolioWork extends CActiveRecord
                 'sourceAttribute'=>'text',
                 'destinationAttribute'=>'text_purified',
                 'purifierOptions'=> array(
+                    'Attr.AllowedRel'=>array('nofollow'),
                     'HTML.SafeObject'=>true,
                     'Output.FlashCompat'=>true,
                 ),
@@ -183,6 +191,27 @@ class PortfolioWork extends CActiveRecord
                 'imageHeightAttribute'=>'image_height',
             )
         );
+
+        if (DMultilangHelper::enabled())
+        {
+            $behaviors = array_merge($behaviors, array(
+                'ml' => array(
+                    'class' => 'ext.multilangual.MultilingualBehavior',
+                    'localizedAttributes' => array(
+                        'title',
+                        'text',
+                    ),
+                    'langClassName' => 'PortfolioWorkLang',
+                    'langTableName' => 'portfolio_work_lang',
+                    'languages' => Yii::app()->params['translatedLanguages'],
+                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
+                    'langForeignKey' => 'owner_id',
+                    'dynamicLangClass' => false,
+                ),
+            ));
+        }
+
+        return $behaviors;
     }
 
     protected function afterFind()

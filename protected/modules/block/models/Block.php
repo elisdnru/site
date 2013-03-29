@@ -112,7 +112,7 @@ class Block extends CActiveRecord
                     'langTableName' => 'block_lang',
                     'languages' => Yii::app()->params['translatedLanguages'],
                     'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'block_id',
+                    'langForeignKey' => 'owner_id',
                     'dynamicLangClass' => true,
                 ),
             ));

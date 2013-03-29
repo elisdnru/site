@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->admin[] = array('label'=>'Цвета', 'url'=>$this->createUrl('index'));
 $this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/shop/categoryAdmin/index'));
-$this->admin[] = array('label'=>'Типы', 'url'=>$this->createUrl('/shop/categoryAdmin/index'));
+$this->admin[] = array('label'=>'Типы', 'url'=>$this->createUrl('/shop/typeAdmin/index'));
 $this->admin[] = array('label'=>'Товары', 'url'=>$this->createUrl('/shop/productAdmin/index'));
 
 $this->info = 'Редактирование цвета';

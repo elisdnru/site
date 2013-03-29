@@ -16,8 +16,7 @@ class ProductController extends ShopBaseController
     {
         $model = $this->loadModel($id);
 
-        if (strpos(Yii::app()->request->requestUri, $model->url) !== 0)
-            $this->redirect($model->url);
+        $this->checkUrl($model->url);
 
         $this->render('show', array(
             'model'=>$model,

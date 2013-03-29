@@ -30,6 +30,7 @@
 abstract class Category extends CActiveRecord
 {
     public $urlRoute = '';
+    public $multiLanguage = false;
     public $indent = 0;
 
 	/**
@@ -110,7 +111,7 @@ abstract class Category extends CActiveRecord
 		$criteria->compare('t.parent_id',$this->parent_id);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
             'sort'=>array(
                 'defaultOrder'=>'t.sort ASC, t.title ASC',
             ),
@@ -131,7 +132,7 @@ abstract class Category extends CActiveRecord
 
     public function behaviors()
     {
-        return array(
+        $behaviors = array(
             'CategoryBehavior'=>array(
                 'class'=>'category.components.DCategoryTreeBehavior',
                 'titleAttribute'=>'title',
@@ -139,11 +140,43 @@ abstract class Category extends CActiveRecord
                 'parentAttribute'=>'parent_id',
                 'requestPathAttribute'=>'category',
                 'parentRelation'=>'parent',
-                'defaultCriteria'=>array(
+                'defaultCriteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? array(
+                    'with'=>'i18n' . get_class($this),
+                    'order'=>'t.sort ASC, t.title ASC'
+                ) : array(
                     'order'=>'t.sort ASC, t.title ASC'
                 ),
             ),
         );
+
+        if ($this->multiLanguage && DMultilangHelper::enabled())
+        {
+            $behaviors = array_merge($behaviors, array(
+                'ml' => array(
+                    'class' => 'ext.multilangual.MultilingualBehavior',
+                    'localizedAttributes' => array(
+                        'title',
+                        'text',
+                        'pagetitle',
+                        'description',
+                        'keywords',
+                    ),
+                    'langTableName' => str_replace(array('{{', '}}'), '', $this->tableName()) . '_lang',
+                    'languages' => Yii::app()->params['translatedLanguages'],
+                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
+                    'langForeignKey' => 'owner_id',
+                    'localizedRelation' => 'i18n' . get_class($this),
+                    'dynamicLangClass' => true,
+                ),
+            ));
+        }
+
+        return $behaviors;
+    }
+
+    public function defaultScope()
+    {
+        return $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
     }
 
     private $_url;

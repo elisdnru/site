@@ -155,7 +155,7 @@ class RubrikatorArticle extends CActiveRecord
         $criteria->compare('category_id',$this->category_id);
 
         return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria,
+            'criteria'=>DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
             'sort'=>array(
                 'defaultOrder'=>'t.date DESC',
                 'attributes'=>array(
@@ -171,6 +171,11 @@ class RubrikatorArticle extends CActiveRecord
         ));
     }
 
+    public function defaultScope()
+    {
+        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
+    }
+
     public function scopes()
     {
         return array(
@@ -182,7 +187,7 @@ class RubrikatorArticle extends CActiveRecord
 
     public function behaviors()
     {
-        return array(
+        $behaviors = array(
             'CategoryBehavior'=>array(
                 'class'=>'category.components.DCategoryBehavior',
                 'titleAttribute'=>'title',
@@ -221,6 +226,27 @@ class RubrikatorArticle extends CActiveRecord
                 'imageHeightAttribute'=>'image_height',
             ),
         );
+
+        if (DMultilangHelper::enabled())
+        {
+            $behaviors = array_merge($behaviors, array(
+                'ml' => array(
+                    'class' => 'ext.multilangual.MultilingualBehavior',
+                    'localizedAttributes' => array(
+                        'title',
+                        'text',
+                    ),
+                    'langClassName' => 'RubrikatorArticleLang',
+                    'langTableName' => 'rubrikator_article_lang',
+                    'languages' => Yii::app()->params['translatedLanguages'],
+                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
+                    'langForeignKey' => 'owner_id',
+                    'dynamicLangClass' => false,
+                ),
+            ));
+        }
+
+        return $behaviors;
     }
 
     // scope

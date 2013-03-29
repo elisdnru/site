@@ -152,7 +152,7 @@ class Menu extends CActiveRecord
                     'langTableName' => 'menu_lang',
                     'languages' => Yii::app()->params['translatedLanguages'],
                     'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'item_id',
+                    'langForeignKey' => 'owner_id',
                     'localizedRelation' => 'i18nMenu',
                     'dynamicLangClass' => true,
                 ),

@@ -99,7 +99,11 @@ class WorkAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        $model = PortfolioWork::model()->findByPk((int)$id);
+        if (DMultilangHelper::enabled())
+            $model = PortfolioWork::model()->multilang()->findByPk($id);
+        else
+            $model = PortfolioWork::model()->findByPk($id);
+
         if($model === null)
             throw new CHttpException(404, 'Не найдено');
         return $model;

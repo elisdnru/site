@@ -14,6 +14,7 @@ class RubrikatorCategory extends Category
     const IMAGE_PATH = 'upload/images/rubrikator/categories';
 
     public $urlRoute = '/rubrikator/default/category';
+    public $multiLanguage = true;
 
     public $del_image = false;
 
@@ -55,7 +56,7 @@ class RubrikatorCategory extends Category
 
     public function behaviors()
     {
-        return array(
+        return array_replace(parent::behaviors(), array(
             'CategoryBehavior'=>array(
                 'class'=>'category.components.DCategoryBehavior',
                 'titleAttribute'=>'title',
@@ -64,6 +65,7 @@ class RubrikatorCategory extends Category
                 'linkActiveAttribute'=>'linkActive',
                 'requestPathAttribute'=>'type',
                 'defaultCriteria'=>array(
+                    'with'=>'i18nRubrikatorCategory',
                     'order'=>'t.sort ASC, t.title ASC'
                 ),
             ),
@@ -73,7 +75,7 @@ class RubrikatorCategory extends Category
                 'deleteAttribute'=>'del_image',
                 'filePath'=>self::IMAGE_PATH,
             )
-        );
+        ));
     }
 
     public function getArticleMenuList($activeCategory='')

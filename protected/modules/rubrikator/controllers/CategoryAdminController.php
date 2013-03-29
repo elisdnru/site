@@ -40,7 +40,11 @@ class CategoryAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        $model = RubrikatorCategory::model()->findByPk($id);
+        if (DMultilangHelper::enabled())
+            $model = RubrikatorCategory::model()->multilang()->findByPk($id);
+        else
+            $model = RubrikatorCategory::model()->findByPk($id);
+
         if($model === null)
             throw new CHttpException(404, 'Не найдено');
         return $model;

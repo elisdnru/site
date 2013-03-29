@@ -29,11 +29,13 @@
 
     <fieldset>
         <h4>Наименование</h4>
-        <div class="row">
-            <?php echo $form->labelEx($model,'title'); ?><br />
-            <?php echo $form->textField($model,'title',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'title'); ?>
-        </div>
+        <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
+            <div class="row">
+                <?php echo $form->labelEx($model,'title'); ?> <?php echo $lang; ?><br />
+                <?php echo $form->textField($model, 'title' . $suffix, array('size'=>60, 'maxlength'=>255)); ?><br />
+                <?php echo $form->error($model, 'title' . $suffix); ?>
+            </div>
+        <?php endforeach; ?>
 
         <div class="row">
             <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('RubrikatorCategory_title', 'RubrikatorCategory_alias')">Транслит наименования</a><br />
@@ -73,6 +75,11 @@
             <?php echo $form->error($model,'image'); ?>
         </div>
     </fieldset>
+
+    <?php echo $this->renderPartial('//common/forms/_lang_meta', array(
+        'form'=>$form,
+        'model'=>$model,
+    )); ?>
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>
