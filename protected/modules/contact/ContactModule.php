@@ -38,4 +38,28 @@ class ContactModule extends DWebModule
             'contact/captcha'=>'contact/default/captcha',
         );
     }
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'CONTACT.SEND_ADMIN_EMAILS',
+                'label'=>'Уведомлять администратора по Email',
+                'value'=>'1',
+                'type'=>'checkbox',
+                'default'=>'1',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'COMMENT.SEND_REPLY_EMAILS',
+        ));
+
+        return parent::uninstall();
+    }
 }

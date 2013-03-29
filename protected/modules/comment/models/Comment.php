@@ -313,19 +313,22 @@ class Comment extends CActiveRecord
 
     protected function sendNotify($current)
     {
-        if ($this->email != $current->email)
+        if (Yii::app()->config->get('COMMENT.SEND_REPLY_EMAILS'))
         {
-            $email = Yii::app()->email;
-            $email->to = $this->email;
-            $email->replyTo = Yii::app()->config->get('MAIL.ADMIN_EMAIL');
-            $email->subject = 'Новый комментарий на сайте '.$_SERVER['SERVER_NAME'];
-            $email->message = '';
-            $email->view = 'comment/comment';
-            $email->viewVars = array(
-                'comment'=>$this,
-                'current'=>$current,
-            );
-            $email->send();
+            if ($this->email != $current->email)
+            {
+                $email = Yii::app()->email;
+                $email->to = $this->email;
+                $email->replyTo = Yii::app()->config->get('MAIL.ADMIN_EMAIL');
+                $email->subject = 'Новый комментарий на сайте '.$_SERVER['SERVER_NAME'];
+                $email->message = '';
+                $email->view = 'comment/comment';
+                $email->viewVars = array(
+                    'comment'=>$this,
+                    'current'=>$current,
+                );
+                $email->send();
+            }
         }
     }
 

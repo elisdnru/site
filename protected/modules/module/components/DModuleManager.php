@@ -15,7 +15,7 @@ class DModuleManager extends CApplicationComponent
             foreach ($rows as $row){
                 $this->modules[$row['module']] = array(
                     'installed'=>$row['installed'],
-                    'system'=>0,
+                    'system'=>$row['system'],
                     'active'=>$row['active'],
                 );
             }
@@ -31,11 +31,17 @@ class DModuleManager extends CApplicationComponent
                 $system = call_user_func($class .'::system');
             }
             else
-                $system = array();
+                $system = 0;
+
 
             $this->modules[$module]['system'] = $system;
             $this->modules[$module]['active'] = $system;
             $this->modules[$module]['installed'] = $system;
+        }
+
+        if (!isset($this->modules[$module]['system'])){
+            CVarDumper::dump($this->modules[$module], 10, true);
+            die();
         }
 
         return $this->modules[$module]['system'];
@@ -46,7 +52,7 @@ class DModuleManager extends CApplicationComponent
         if ($this->system($module))
             return true;
 
-        return isset($this->modules[$module]) ? $this->modules[$module]['installed'] : false;
+        return isset($this->modules[$module]['installed']) ? $this->modules[$module]['installed'] : 0;
     }
 
     public function active($module)
@@ -54,7 +60,7 @@ class DModuleManager extends CApplicationComponent
         if ($this->system($module))
             return true;
 
-        return isset($this->modules[$module]) ? $this->modules[$module]['active'] : false;
+        return isset($this->modules[$module]['active']) ? $this->modules[$module]['active'] : 0;
     }
 
     public function allowed($module)
@@ -112,23 +118,31 @@ class DModuleManager extends CApplicationComponent
 
     public function install($moduleName)
     {
-        if($moduleName && Yii::app()->hasModule($moduleName) && !$this->installed($moduleName))
+        if($moduleName && Yii::app()->hasModule($moduleName))
         {
             $module = Yii::app()->getModule($moduleName);
 
             if ($module->install())
             {
                 Yii::app()->db
-                    ->createCommand('INSERT INTO {{module}} (`module`, `installed`, `active`) VALUES (:module, :installed, :active)')
+                    ->createCommand('DELETE FROM {{module}} WHERE module = :module')
+                    ->execute(array(
+                        ':module'=>$module->id,
+                    ));
+
+                Yii::app()->db
+                    ->createCommand('INSERT INTO {{module}} (module, system, installed, active) VALUES (:module, :system, :installed, :active)')
                     ->execute(array(
                         ':module'=>$module->id,
                         ':installed'=>1,
-                        ':active'=>0,
+                        ':system'=>$this->system($module->id),
+                        ':active'=>$this->system($module->id),
                     ));
 
                 $this->modules[$moduleName] = array(
-                    ':installed'=>1,
-                    ':active'=>0,
+                    'installed'=>1,
+                    'system'=>$this->system($module->id),
+                    'active'=>$this->system($module->id),
                 );
 
                 return true;

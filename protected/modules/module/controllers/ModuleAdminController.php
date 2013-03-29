@@ -59,6 +59,28 @@ class ModuleAdminController extends DAdminController
         ));
 	}
 
+    public function actionInstallAll()
+	{
+        if (count(Yii::app()->modules))
+        {
+            foreach (Yii::app()->modules as $key => $value)
+            {
+                $key = strtolower($key);
+                $module = Yii::app()->getModule($key);
+
+                if ($module)
+                {
+                    if (is_a($module, 'DWebModule'))
+                    {
+                        Yii::app()->moduleManager->install($module->id);
+                    }
+                }
+            }
+        }
+
+        $this->redirect(array('index'));
+	}
+
     public function actionInstall($module)
     {
         if (Yii::app()->moduleManager->install($module))

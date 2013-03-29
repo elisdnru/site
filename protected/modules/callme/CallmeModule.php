@@ -34,4 +34,28 @@ class CallmeModule extends DWebModule
             'callme/captcha'=>'callme/default/captcha',
         );
     }
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'CALLME.SEND_ADMIN_EMAILS',
+                'label'=>'Отправлять заказы звонка администратору по Email',
+                'value'=>'1',
+                'type'=>'checkbox',
+                'default'=>'1',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'CALLME.SEND_ADMIN_EMAILS',
+        ));
+
+        return parent::uninstall();
+    }
 }

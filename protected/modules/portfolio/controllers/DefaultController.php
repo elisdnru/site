@@ -11,7 +11,7 @@ class DefaultController extends PortfolioBaseController
         $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(3600*24), array(
             'criteria'=>$criteria,
             'pagination'=>array(
-                'pageSize'=>Yii::app()->config->get('GENERAL.NEWS_PER_PAGE'),
+                'pageSize'=>Yii::app()->config->get('PORTFOLIO.ITEMS_PER_PAGE'),
                 'pageVar'=>'page',
             ),
         ));
@@ -49,7 +49,7 @@ class DefaultController extends PortfolioBaseController
         $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(3600*24), array(
             'criteria'=>$criteria,
             'pagination'=>array(
-                'pageSize'=>Yii::app()->config->get('GENERAL.NEWS_PER_PAGE'),
+                'pageSize'=>Yii::app()->config->get('PORTFOLIO.ITEMS_PER_PAGE'),
                 'pageVar'=>'page',
             ),
         ));

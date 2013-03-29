@@ -42,4 +42,28 @@ class CommentModule extends DWebModule
             'comment/delete/<id:\d+>'=>'comment/ajax/delete',
         );
     }
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'COMMENT.SEND_REPLY_EMAILS',
+                'label'=>'Уведомлять пользователей об ответе на их комментарий',
+                'value'=>'1',
+                'type'=>'checkbox',
+                'default'=>'1',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'COMMENT.SEND_REPLY_EMAILS',
+        ));
+
+        return parent::uninstall();
+    }
 }

@@ -47,4 +47,28 @@ class PortfolioModule extends DWebModule
     {
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/modules/portfolio.css');
     }
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'PORTFOLIO.ITEMS_PER_PAGE',
+                'label'=>'Работ на странице',
+                'value'=>'9',
+                'type'=>'string',
+                'default'=>'9',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'PORTFOLIO.ITEMS_PER_PAGE',
+        ));
+
+        return parent::uninstall();
+    }
 }
