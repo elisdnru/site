@@ -121,7 +121,7 @@ class Callme extends CActiveRecord
         if (Yii::app()->config->get('CALLME.SEND_ADMIN_EMAILS'))
         {
             $email = Yii::app()->email;
-            $email->to = Yii::app()->config->get('MAIL.ADMIN_EMAIL');
+            $email->to = Yii::app()->config->get('GENERAL.ADMIN_EMAIL');
             $email->replyTo = $this->name.' <'.$this->email.'>';
             $email->subject = 'Заказ звонка №'.$this->id.' на сайте '.$_SERVER['SERVER_NAME'];
             $email->message = '';

@@ -1,5 +1,5 @@
 <p class="follow center">
-    <a href="<?php echo Yii::app()->config->get('FEED.FEED_URL'); ?>" title="RSS"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/feed.png');"></span></a>
+    <a href="<?php echo Yii::app()->config->get('GENERAL.FEED_URL'); ?>" title="RSS"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/feed.png');"></span></a>
     <a href="http://twitter.com/elisdnru" title="Twitter"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/twitter.png');"></span></a>
     <a href="http://elisdn.livejournal.com" title="LiveJournal"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/livejournal.png');"></span></a>
     <a href="https://github.com/ElisDN" title="GitHub"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/github.png');"></span></a>

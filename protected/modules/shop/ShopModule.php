@@ -86,4 +86,36 @@ class ShopModule extends DWebModule
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/modules/shop.css');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/modules/shop.js', CClientScript::POS_END);
     }
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'SHOP.PRODUCTS_PER_PAGE',
+                'label'=>'Продуктов на странице',
+                'value'=>'10',
+                'type'=>'string',
+                'default'=>'10',
+            ),
+            array(
+                'param'=>'SHOP.ORDER_AGREEMENT',
+                'label'=>'Соглашение покупателя',
+                'value'=>'',
+                'type'=>'text',
+                'default'=>'Соглашение',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'SHOP.PRODUCTS_PER_PAGE',
+            'SHOP.ORDER_AGREEMENT',
+        ));
+
+        return parent::uninstall();
+    }
 }

@@ -222,7 +222,7 @@ class ShopOrder extends CActiveRecord
             $mailer = Yii::app()->mailer;
             $mailer->reset();
             $mailer->AddReplyTo($this->email);
-            $mailer->AddAddress(Yii::app()->config->get('MAIL.ADMIN_EMAIL'));
+            $mailer->AddAddress(Yii::app()->config->get('GENERAL.ADMIN_EMAIL'));
             $mailer->CharSet = 'UTF-8';
             $mailer->IsHTML();
             $mailer->Subject = 'Новый заказ №' . $this->getFullId() . ' на сайте '.$_SERVER['SERVER_NAME'];
@@ -243,7 +243,7 @@ class ShopOrder extends CActiveRecord
     {
         $mailer = Yii::app()->mailer;
         $mailer->reset();
-        $mailer->AddReplyTo(Yii::app()->config->get('MAIL.ADMIN_EMAIL'));
+        $mailer->AddReplyTo(Yii::app()->config->get('GENERAL.ADMIN_EMAIL'));
         $mailer->AddAddress($this->email);
         $mailer->CharSet = 'UTF-8';
         $mailer->IsHTML();
@@ -297,7 +297,7 @@ class ShopOrder extends CActiveRecord
     {
         $email = Yii::app()->email;
         $email->to = $this->email;
-        $email->replyTo = Yii::app()->config->get('MAIL.ADMIN_EMAIL');
+        $email->replyTo = Yii::app()->config->get('GENERAL.ADMIN_EMAIL');
         $email->subject = 'Новый статус заказа №'.$this->getFullId().' на сайте '.$_SERVER['SERVER_NAME'];
         $email->message = '';
         $email->view = $view;

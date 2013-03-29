@@ -319,7 +319,7 @@ class Comment extends CActiveRecord
             {
                 $email = Yii::app()->email;
                 $email->to = $this->email;
-                $email->replyTo = Yii::app()->config->get('MAIL.ADMIN_EMAIL');
+                $email->replyTo = Yii::app()->config->get('GENERAL.ADMIN_EMAIL');
                 $email->subject = 'Новый комментарий на сайте '.$_SERVER['SERVER_NAME'];
                 $email->message = '';
                 $email->view = 'comment/comment';
