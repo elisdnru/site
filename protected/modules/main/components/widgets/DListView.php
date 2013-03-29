@@ -15,9 +15,6 @@ class DListView extends CListView
         $this->enableHistory = false;
         $this->ajaxUpdate = true;
         $this->template = "{items}\n{pager}";
-        $this->pager= array(
-            'class'=>'DLinkPager',
-        );
         $this->cssFile = false;
         parent::__construct($owner);
     }
