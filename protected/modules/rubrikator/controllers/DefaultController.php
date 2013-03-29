@@ -8,7 +8,7 @@ class DefaultController extends DController
 	{
         $model = $this->loadSearchModel();
 
-        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('GENERAL.NEWS_PER_PAGE'));
+        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('NEW.NEWS_PER_PAGE'));
 
         $this->render('index', array(
             'dataProvider'=>$dataProvider,
@@ -23,7 +23,7 @@ class DefaultController extends DController
         $model = $this->loadSearchModel();
         $model->category_id = $category->id;
 
-        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('GENERAL.NEWS_PER_PAGE'));
+        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('NEW.NEWS_PER_PAGE'));
 
         $this->render('category', array(
             'dataProvider'=>$dataProvider,

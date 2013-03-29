@@ -21,7 +21,7 @@ class DefaultController extends DController
         $count = Review::model()->cache(30)->count($criteria);
 
         $pages = new CPagination($count);
-        $pages->pageSize = Yii::app()->config->get('GENERAL.NEWS_PER_PAGE');
+        $pages->pageSize = Yii::app()->config->get('NEW.NEWS_PER_PAGE');
         $pages->applyLimit($criteria);
 
         $criteria->order = 't.date DESC';

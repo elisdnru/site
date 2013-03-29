@@ -30,7 +30,7 @@ class NewsWidget extends DWidget
         $count = News::model()->cache(3600*24)->count($criteria);
 
         $pages = new CPagination($count);
-        $pages->pageSize = Yii::app()->config->get('GENERAL.NEWS_PER_PAGE');
+        $pages->pageSize = Yii::app()->config->get('NEW.NEWS_PER_PAGE');
         $pages->applyLimit($criteria);
 
         $criteria->with = array('page', 'files');

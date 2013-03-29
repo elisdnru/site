@@ -22,9 +22,9 @@ class MainModule extends DWebModule
             array(
                 'param'=>'GENERAL.SITE_NAME',
                 'label'=>'Имя сайта',
-                'value'=>'',
+                'value'=>'Site',
                 'type'=>'string',
-                'default'=>'',
+                'default'=>'Site',
             ),
             array(
                 'param'=>'GENERAL.FEED_TITLE',

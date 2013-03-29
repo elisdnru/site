@@ -58,4 +58,36 @@ class NewModule extends DWebModule
             array('class' => 'new.components.DNewUrlRule', 'cache'=>3600*24),
         );
     }
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'NEW.NEWS_PER_PAGE',
+                'label'=>'Новостей на странице',
+                'value'=>'10',
+                'type'=>'string',
+                'default'=>'10',
+            ),
+            array(
+                'param'=>'NEW.NEWS_PER_HOME',
+                'label'=>'Новостей на главной странице',
+                'value'=>'10',
+                'type'=>'string',
+                'default'=>'10',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'NEW.NEWS_PER_PAGE',
+            'NEW.NEWS_PER_HOME',
+        ));
+
+        return parent::uninstall();
+    }
 }
