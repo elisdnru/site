@@ -111,10 +111,13 @@ class ShopProductAttribute extends CActiveRecord
      */
     public function type($type_id)
     {
-        $this->getDbCriteria()->mergeWith(array(
-            'condition' => 't.type_id=:type OR t.type_id = 0',
-            'params'=>array(':type'=>$type_id),
-        ));
+        if ($type_id)
+        {
+            $this->getDbCriteria()->mergeWith(array(
+                'condition' => 't.type_id=:type OR t.type_id = 0',
+                'params'=>array(':type'=>$type_id),
+            ));
+        }
         return $this;
     }
 

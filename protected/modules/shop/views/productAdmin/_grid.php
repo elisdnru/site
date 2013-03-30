@@ -91,7 +91,14 @@
         array(
             'class'=>'DButtonColumn',
             'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
-            'template'=>'{view}<br /><br />{update}<br /><br />{delete}',
+            'template'=>'{view}<br /><br />{update}<br /><br />{copy}<br /><br />{delete}',
+            'buttons'=>array(
+                'copy'=>array(
+                    'imageUrl'=>Yii::app()->request->baseUrl.'/core/images/admin/copy.png',
+                    'url'=>'Yii::app()->controller->createUrl("create", array("id"=>$data->id))',
+                    'label'=>'Клонировать',
+                )
+            )
         ),
     ),
 )); ?>

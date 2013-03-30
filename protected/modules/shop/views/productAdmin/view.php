@@ -1,2 +1,2 @@
 <?php $this->reflash(); ?>
-<?php $this->redirect($model->url); ?>
+<?php $this->redirect($this->createUrl('update', array('id'=>$model->getPrimaryKey()))); ?>

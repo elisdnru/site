@@ -8,7 +8,7 @@ class ProductAdminController extends DAdminController
     public function filters()
     {
         return array_merge(parent::filters(), array(
-            'PostOnly + imagedel, imagemain',
+            'PostOnly + imagedel, imagemain, getCategories, getAttributes',
         ));
     }
 
@@ -30,9 +30,12 @@ class ProductAdminController extends DAdminController
         );
     }
 
-    public function actionCreate()
+    public function actionCreate($id=0)
     {
-        $model = $this->createModel();
+        if ($id)
+            $model = $this->cloneModel($id);
+        else
+            $model = $this->createModel();
 
         $attributes = ShopProductAttribute::model()->findAll(array(
             'order'=>'sort ASC',
@@ -58,11 +61,10 @@ class ProductAdminController extends DAdminController
 
                 Yii::app()->user->setFlash('success','Товар добавлен');
 
-                $model = $this->createModel();
-                $model->type_id = $_POST['ShopProduct']['type_id'];
-                $model->category_id = $_POST['ShopProduct']['category_id'];
+                $model = $this->cloneModel($model->getPrimaryKey());
             }
         }
+
         $this->render('create',array(
             'model'=>$model,
             'attributes'=>$attributes,
@@ -102,31 +104,40 @@ class ProductAdminController extends DAdminController
         $this->redirectOrAjax();
     }
 
-    public function actionGetCategories($id=0)
+    public function actionGetCategories()
     {
         if (!Yii::app()->request->isAjaxRequest)
             throw new CHttpException(400, 'Некорректный запрос');
 
+        $id = Yii::app()->request->getPost('id', 0);
+        $type = Yii::app()->request->getPost('type', 0);
+
         $model = $this->loadOrCreateModel($id);
 
         $html = '';
-        if (isset($_POST['type']) && (int)$_POST['type'])
+
+        if ($type)
         {
-            $list = CHtml::dropDownList('category', $model->category_id, array(''=>'') + ShopCategory::model()->type($_POST['type'])->getTabList());
+            $list = CHtml::dropDownList('category', $model->category_id, array(''=>'') + ShopCategory::model()->type($type)->getTabList());
             $html = strip_tags($list, '<option>');
         }
+
         echo $html;
 
         Yii::app()->end();
     }
 
-    public function actionGetAttributes($id=0)
+    public function actionGetAttributes()
     {
         if (!Yii::app()->request->isAjaxRequest)
             throw new CHttpException(400, 'Некорректный запрос');
 
+        $id = Yii::app()->request->getPost('id', 0);
+        $type = Yii::app()->request->getPost('type', 0);
+
         $model = $this->loadOrCreateModel($id);
-        $attributes = $model->getOtherAttributes(Yii::app()->request->getPost('type'));
+
+        $attributes = $model->getOtherAttributes($type);
 
         $html = '';
 
@@ -143,10 +154,27 @@ class ProductAdminController extends DAdminController
 
     public function createModel()
     {
-        $model = new ShopProduct;
+        $model = new ShopProduct();
         $model->count = 1000;
         $model->priority = 200;
         $model->public = 1;
+
+        return $model;
+    }
+
+    public function cloneModel($id)
+    {
+        $model = new ShopProduct();
+
+        if ($orig = ShopProduct::model()->findByPk($id))
+        {
+            $model->attributes = $orig->attributes;
+            $model->otherAttributesAssoc = $orig->otherAttributesAssoc;
+            $model->colorsArray = $orig->colorsArray;
+            $model->sizesArray = $orig->sizesArray;
+            $model->otherCategoriesArray = $orig->otherCategoriesArray;
+        }
+
         return $model;
     }
 

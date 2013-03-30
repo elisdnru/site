@@ -137,7 +137,7 @@
                 <?php foreach($model->otherAttributes as $attribute): ?>
                 <div class="row">
                     <label><?php echo $attribute->title; ?></label>
-                    <?php echo CHtml::textField(get_class($model) . '[otherAttributes][' . $attribute->alias . ']', $attribute->value, array('maxlength'=>255)); ?>
+                    <?php echo CHtml::textField(get_class($model) . '[otherAttributesAssoc][' . $attribute->alias . ']', $attribute->value, array('maxlength'=>255)); ?>
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -235,28 +235,36 @@
 
             $('#ShopProduct_category_id').html('<option>--- загрузка ---</option>');
             $.ajax({
-                type: 'post',
+                type: 'POST',
                 url: '<?php echo $this->createUrl('getCategories'); ?>',
                 data: {
                     'type': type,
+                    'id': '<?php echo $model->id; ?>',
                     '<?php echo Yii::app()->request->csrfTokenName; ?>': '<?php echo Yii::app()->request->csrfToken; ?>'
                 },
                 success: function(data){
                     $('#ShopProduct_category_id').html(data);
+                },
+                error:function(XHR) {
+                    alert(XHR.responseText);
                 }
-            });
 
+            });
 
             $('#attrFields').html('--- загрузка ---');
             $.ajax({
-                type: 'post',
-                url: '<?php echo $this->createUrl('getAttributes', array('id'=>$model->id)); ?>',
+                type: 'POST',
+                url: '<?php echo $this->createUrl('getAttributes'); ?>',
                 data: {
                     'type': type,
+                    'id': '<?php echo $model->id; ?>',
                     '<?php echo Yii::app()->request->csrfTokenName; ?>': '<?php echo Yii::app()->request->csrfToken; ?>'
                 },
                 success: function(data){
                     $('#attrFields').html(data);
+                },
+                error:function(XHR) {
+                    alert(XHR.responseText);
                 }
             });
         });

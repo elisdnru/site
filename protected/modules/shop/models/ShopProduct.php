@@ -81,7 +81,7 @@ class ShopProduct extends CActiveRecord
 			array('colorsArray', 'safe'),
 			array('sizesArray', 'safe'),
 			array('otherCategoriesArray', 'safe'),
-			array('otherAttributes', 'safe'),
+			array('otherAttributesAssoc', 'safe'),
 
 			array('id, artikul, type_id, category_id, title, pagetitle, description, keywords, text, price, count, priority, public, popular, inhome, rating, rating_count, rating_summ, size', 'safe', 'on'=>'search'),
 		);
@@ -514,26 +514,10 @@ class ShopProduct extends CActiveRecord
                 $attr = new ShopProductAttributeValue();
                 $attr->product_id = $this->id;
                 $attr->attribute_id = $attribute->id;
-                $attr->value = $attribute['value'];
+                $attr->value = $attribute->value;
                 $attr->save();
             }
         }
-    }
-
-    public function setOtherAttributes($value)
-    {
-        $attrFields = $this->loadAttrFields();
-
-        $attributes = array();
-        foreach ($attrFields as $field)
-        {
-            if (isset($value[$field->alias]))
-                $field->value = $value[$field->alias];
-
-            $attributes[] = $field;
-        }
-
-        $this->_otherAttributes = $attributes;
     }
 
     /**
@@ -563,13 +547,40 @@ class ShopProduct extends CActiveRecord
         return $this->_otherAttributes;
     }
 
+    public function getOtherAttributesAssoc()
+    {
+        $attributes = array();
+        foreach ($this->getOtherAttributes() as $attribute)
+        {
+            $attributes[$attribute->alias] = $attribute->value;
+        }
+
+        return $attributes;
+    }
+
+    public function setOtherAttributesAssoc($value)
+    {
+        $attrFields = $this->loadAttrFields();
+
+        $attributes = array();
+        foreach ($attrFields as $field)
+        {
+            if (isset($value[$field->alias]))
+                $field->value = $value[$field->alias];
+
+            $attributes[] = $field;
+        }
+
+        $this->_otherAttributes = $attributes;
+    }
+
     private $_attrFields;
 
     /**
-     * @param string $type
+     * @param int $type
      * @return ShopProductAttribute[]
      */
-    protected function loadAttrFields($type='')
+    protected function loadAttrFields($type=0)
     {
         if ($this->_attrFields === null)
         {
