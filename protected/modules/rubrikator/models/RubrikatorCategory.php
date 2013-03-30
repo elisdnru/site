@@ -64,8 +64,10 @@ class RubrikatorCategory extends Category
                 'iconAttribute'=>'imageUrl',
                 'linkActiveAttribute'=>'linkActive',
                 'requestPathAttribute'=>'category',
-                'defaultCriteria'=>array(
-                    'with'=>'i18nRubrikatorCategory',
+                'defaultCriteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? array(
+                    'with'=>'i18n' . get_class($this),
+                    'order'=>'t.sort ASC, t.title ASC'
+                ) : array(
                     'order'=>'t.sort ASC, t.title ASC'
                 ),
             ),
