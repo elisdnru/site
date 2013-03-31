@@ -33,9 +33,15 @@ class ProductAdminController extends DAdminController
     public function actionCreate($id=0)
     {
         if ($id)
+        {
             $model = $this->cloneModel($id);
+            $clone = true;
+        }
         else
+        {
+            $clone = false;
             $model = $this->createModel();
+        }
 
         $attributes = ShopProductAttribute::model()->findAll(array(
             'order'=>'sort ASC',
@@ -68,6 +74,7 @@ class ProductAdminController extends DAdminController
         $this->render('create',array(
             'model'=>$model,
             'attributes'=>$attributes,
+            'clone'=>$clone,
         ));
     }
 
@@ -169,6 +176,10 @@ class ProductAdminController extends DAdminController
         if ($orig = ShopProduct::model()->findByPk($id))
         {
             $model->attributes = $orig->attributes;
+            $model->text = '';
+            $model->pagetitle = '';
+            $model->description = '';
+            $model->keywords = '';
             $model->otherAttributesAssoc = $orig->otherAttributesAssoc;
             $model->colorsArray = $orig->colorsArray;
             $model->sizesArray = $orig->sizesArray;

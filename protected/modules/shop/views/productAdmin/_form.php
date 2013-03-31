@@ -168,7 +168,7 @@
 
     <div class="clear"></div>
 
-    <?php if ($model->isMainProduct()): ?>
+    <?php if (empty($clone) && $model->isMainProduct()): ?>
 
     <fieldset>
         <?php foreach ($model->images as $image) : ?>
