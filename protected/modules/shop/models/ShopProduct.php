@@ -461,12 +461,14 @@ class ShopProduct extends CActiveRecord
 
     protected function saveOtherCategories()
     {
+        $categories = $this->otherCategoriesArray;
+
         foreach ($this->other_product_categories as $otherCategory)
             $otherCategory->delete();
 
-        if (is_array($this->otherCategoriesArray))
+        if (is_array($categories))
         {
-            foreach ($this->otherCategoriesArray as $other_id)
+            foreach ($categories as $other_id)
             {
                 $otherCategory = new ShopProductOthercategory();
                 $otherCategory->product_id = $this->id;
@@ -478,12 +480,14 @@ class ShopProduct extends CActiveRecord
 
     protected function saveSizes()
     {
+        $sizes = $this->sizesArray;
+
         foreach ($this->product_sizes as $size)
             $size->delete();
 
-        if (is_array($this->sizesArray))
+        if (is_array($sizes))
         {
-            foreach ($this->sizesArray as $size_id)
+            foreach ($sizes as $size_id)
             {
                 $size = new ShopProductSize();
                 $size->product_id = $this->id;
@@ -495,12 +499,14 @@ class ShopProduct extends CActiveRecord
 
     protected function saveColors()
     {
+        $colors = $this->colorsArray;
+
         foreach ($this->product_colors as $color)
             $color->delete();
 
-        if (is_array($this->colorsArray))
+        if (is_array($colors))
         {
-            foreach ($this->colorsArray as $color_id)
+            foreach ($colors as $color_id)
             {
                 $size = new ShopProductColor();
                 $size->product_id = $this->id;
@@ -512,11 +518,13 @@ class ShopProduct extends CActiveRecord
 
     protected function saveOtherAttributes()
     {
+        $attrs = $this->otherAttributes;
+
         ShopProductAttributeValue::model()->deleteAllByAttributes(array('product_id' => $this->id));
 
-        if ($this->_otherAttributes !== null)
+        if ($attrs !== null)
         {
-            foreach ($this->_otherAttributes as $attribute)
+            foreach ($attrs as $attribute)
             {
                 $attr = new ShopProductAttributeValue();
                 $attr->product_id = $this->id;
