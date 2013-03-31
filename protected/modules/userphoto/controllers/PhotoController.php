@@ -2,7 +2,7 @@
 
 Yii::import('application.modules.crud.components.*');
 
-class ImageController extends DController
+class PhotoController extends DController
 {
     public function filters()
     {
@@ -27,6 +27,7 @@ class ImageController extends DController
     {
         return array(
             'create'=>'DCreateAction',
+            'update'=>'DUpdateAction',
             'delete'=>'DDeleteAction',
             'view'=>'DViewAction',
         );
@@ -52,9 +53,6 @@ class ImageController extends DController
         $model = UserPhoto::model()->findByPk($id);
 
         if($model === null)
-            throw new CHttpException(404, 'Не найдено');
-
-        if($model->user_id !== Yii::app()->user->id)
             throw new CHttpException(404, 'Не найдено');
 
         return $model;

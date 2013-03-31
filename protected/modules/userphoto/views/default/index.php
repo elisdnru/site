@@ -8,15 +8,19 @@ $this->description = '';
 $this->keywords = '';
 
 $this->breadcrumbs=array(
+    $username => $this->createUrl('/user/users/show', array('username'=>$username)),
     'Фоторграфии',
 );
 
+
 if ($this->is(Access::ROLE_CONTROL))
 {
-    if ($this->moduleAllowed('userphoto')) $this->admin[] = array('label'=>'Фотографии', 'url'=>$this->createUrl('/userphoto/photoAdmin/index'));
+    if ($this->moduleAllowed('userphoto')) $this->admin[] = array('label'=>'Фотографии', 'url'=>$this->createUrl('/userphoto/photoAdmin'));
+    if ($this->moduleAllowed('userphoto') && Yii::app()->moduleManager->active('comment') && $this->moduleAllowed('comment')) $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications($this->module->id));
 
     $this->info = 'Фоторграфии пользователя';
-} ?>
+}
+?>
 
 <h1>Фоторграфии пользователя <?php echo CHtml::encode($username); ?></h1>
 

@@ -3,6 +3,6 @@
     'itemView'=>'_view',
     'ajaxUpdate'=>false,
     'htmlOptions'=>array(
-        'class'=>'list-view'
+        'class'=>'list-view greed-container'
     ),
 )); ?>

@@ -19,7 +19,7 @@ class DefaultController extends DController
 
     public function getIndexProviderModel()
     {
-        $user = User::model()->findByAttributes(array('username'=>Yii::app()->request->getQuery('id', 0)));
+        $user = User::model()->findByAttributes(array('username'=>Yii::app()->request->getQuery('username', 0)));
         if($user === null)
             throw new CHttpException(404, 'Не найдено');
 

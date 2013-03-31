@@ -9,6 +9,7 @@ Yii::import('application.modules.user.models.*');
  * @property string $id
  * @property integer $user_id
  * @property string $title
+ * @property string $text
  * @property string $file
  */
 class UserPhoto extends CActiveRecord
@@ -42,10 +43,11 @@ class UserPhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'required'),
+			array('user_id, title', 'required'),
 			array('user_id', 'unsafe'),
+			array('text', 'safe'),
 			array('title', 'length', 'max'=>255),
-			array('file', 'file', 'types'=>'jpg,jpeg,gif,png', 'safe'=>false),
+			array('file', 'file', 'types'=>'jpg,jpeg,gif,png', 'allowEmpty'=>'true', 'safe'=>false),
 			array('id, user_id, file', 'safe', 'on'=>'search'),
 		);
 	}
@@ -71,6 +73,7 @@ class UserPhoto extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'Пользователь',
 			'title' => 'Название',
+			'text' => 'Текст',
 			'file' => 'Изображение',
 		);
 	}
@@ -79,26 +82,49 @@ class UserPhoto extends CActiveRecord
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    public function search($pageSize=10)
+    {
+        $criteria=new CDbCriteria;
 
-		$criteria=new CDbCriteria;
+        $criteria->compare('t.id',$this->id,true);
+        $criteria->compare('t.user_id',$this->user_id);
+        $criteria->compare('t.title',$this->title,true);
+        $criteria->compare('t.text',$this->title,true);
+        $criteria->compare('t.file',$this->file,true);
 
-		$criteria->compare('t.id',$this->id,true);
-		$criteria->compare('t.user_id',$this->user_id);
-		$criteria->compare('t.title',$this->title,true);
-		$criteria->compare('t.file',$this->file,true);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'sort'=>array(
+                'defaultOrder'=>'t.id DESC',
+                'attributes'=>array(
+                    'id',
+                    'user_id',
+                    'title',
+                )
+            ),
+            'pagination'=>array(
+                'pageSize'=>$pageSize,
+                'pageVar'=>'page',
+            ),
+        ));
+    }
 
     public function behaviors()
     {
         return array(
+            'PurifyText'=>array(
+                'class'=>'DPurifyTextBehavior',
+                'sourceAttribute'=>'text',
+                'destinationAttribute'=>'text_purified',
+                'purifierOptions'=> array(
+                    'AutoFormat.AutoParagraph' => true,
+                    'HTML.Allowed' => 'p,ul,li,b,i,a[href],pre',
+                    'AutoFormat.Linkify' => true,
+                    'HTML.Nofollow' => true,
+                    'Core.EscapeInvalidTags' => true,
+                ),
+                'processOnBeforeSave'=>true,
+            ),
             'ImageUpload'=>array(
                 'class'=>'uploader.components.DFileUploadBehavior',
                 'fileAttribute'=>'file',
@@ -126,9 +152,18 @@ class UserPhoto extends CActiveRecord
         return $this;
     }
 
-    private $_imageUrl;
+    private $_url;
 
     public function getUrl()
+    {
+        if ($this->_url === null)
+            $this->_url = Yii::app()->createUrl('/userphoto/photo/view', array('id'=>$this->id));
+        return $this->_url;
+    }
+
+    private $_imageUrl;
+
+    public function getImageUrl()
     {
         if ($this->_imageUrl === null)
             $this->_imageUrl = Yii::app()->request->baseUrl . '/' . self::IMAGE_PATH . '/' . $this->file;
