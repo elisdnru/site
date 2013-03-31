@@ -154,6 +154,8 @@ class RubrikatorArticle extends CActiveRecord
         $criteria->compare('gallery_id',$this->gallery_id);
         $criteria->compare('category_id',$this->category_id);
 
+        $criteria->with = array('category');
+
         return new CActiveDataProvider($this, array(
             'criteria'=>DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
             'sort'=>array(
@@ -162,6 +164,7 @@ class RubrikatorArticle extends CActiveRecord
                     'date',
                     'alias',
                     'title',
+                    'category_id',
                 )
             ),
             'pagination'=>array(
@@ -195,7 +198,7 @@ class RubrikatorArticle extends CActiveRecord
                 'linkActiveAttribute'=>'linkActive',
                 'requestPathAttribute'=>'alias',
                 'defaultCriteria'=>array(
-                    'order'=>'t.title ASC'
+                    'order'=>'t.date DESC'
                 ),
             ),
             'PurifyShort'=>array(

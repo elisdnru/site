@@ -13,6 +13,11 @@
             'name' => 'title',
         ),
         array(
+            'name' => 'category_id',
+            'filter' => RubrikatorCategory::model()->getAssocList(),
+            'value' => '$data->category ? $data->category->title : ""',
+        ),
+        array(
             'class'=>'DButtonColumn',
             'template'=>'{update}',
         ),
