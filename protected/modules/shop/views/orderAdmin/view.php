@@ -80,7 +80,7 @@ $this->widget('zii.widgets.CDetailView', array(
             <td class="center"><?php echo $product->count; ?></td>
             <td class="center"><?php echo number_format($product->price, 0, '.', ' '); ?> р</td>
             <td class="center"><?php echo $product->count * $product->price; ?> р</td>
-            <td class="center"><?php echo $product->product->count; ?></td>
+            <td class="center"><?php echo $product->product ? $product->product->count : ''; ?></td>
             <td class="center"><?php echo $product->comment; ?></td>
             <td class="center"><a href="<?php echo $editurl; ?>"><img src="/core/images/admin/edit.png" width="16" height="16" alt="Править" title="Править" /></a></td>
             <td class="center"><a class="ajax_del" data-del="product_<?php echo $product->id; ?>" title="Удалить товар &laquo;<?php echo $product->title; ?>&raquo; из заказа" href="<?php echo $delurl; ?>"><img src="/core/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a></td>
