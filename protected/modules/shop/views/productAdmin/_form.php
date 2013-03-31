@@ -67,6 +67,8 @@
                 <?php echo $form->error($model,'public'); ?>
             </div>
 
+            <?php if (empty($clone) && $model->isMainProduct()): ?>
+
             <div class="row">
                 <?php echo $form->checkBox($model,'popular'); ?>
                 <?php echo $form->labelEx($model,'popular'); ?><br />
@@ -84,6 +86,9 @@
                 <?php echo $form->labelEx($model,'sale'); ?><br />
                 <?php echo $form->error($model,'sale'); ?>
             </div>
+
+            <?php endif; ?>
+
         </fieldset>
 
         <fieldset>
