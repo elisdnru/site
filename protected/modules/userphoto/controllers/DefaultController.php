@@ -12,7 +12,8 @@ class DefaultController extends DController
             'index'=>array(
                 'class'=>'DIndexAction',
                 'view'=>'index',
-                'ajaxView'=>'_loop'
+                'ajaxView'=>'_loop',
+                'pageSize'=>Yii::app()->config->get('USERPHOTO.ITEMS_PER_PAGE'),
             ),
         );
     }

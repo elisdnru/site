@@ -59,6 +59,12 @@ class UserphotoModule extends DWebModule
     {
         Yii::app()->config->add(array(
             array(
+                'param'=>'USERPHOTO.ITEMS_PER_PAGE',
+                'label'=>'Фотографий на странице',
+                'value'=>'',
+                'type'=>'string',
+                'default'=>'12',
+            ),array(
                 'param'=>'USERPHOTO.MAX_COUNT',
                 'label'=>'Максимум фотографий',
                 'value'=>'',
@@ -73,6 +79,7 @@ class UserphotoModule extends DWebModule
     public function uninstall()
     {
         Yii::app()->config->delete(array(
+            'USERPHOTO.ITEMS_PER_PAGE',
             'USERPHOTO.MAX_COUNT',
         ));
 

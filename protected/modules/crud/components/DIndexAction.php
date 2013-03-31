@@ -19,6 +19,10 @@ class DIndexAction extends DCrudAction
      * @var string class of data provider
      */
     public $providerClass = 'CActiveDataProvider';
+    /**
+     * @var int items per page
+     */
+    public $pageSize = 10;
 
     public function run()
     {
@@ -26,7 +30,12 @@ class DIndexAction extends DCrudAction
 
         $provider = $this->providerClass;
 
-        $dataProvider = new $provider($model);
+        $dataProvider = new $provider($model, array(
+            'pagination'=>array(
+                'pageSize'=>$this->pageSize,
+                'pageVar'=>'page',
+            )
+        ));
 
         if ($this->ajaxView && Yii::app()->request->isAjaxRequest)
         {
