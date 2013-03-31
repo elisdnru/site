@@ -8,8 +8,8 @@
 
         <?php if ($model->image && $model->image_show) : ?>
 
-        <p class="thumb"><a class="lightbox" href="<?php echo Yii::app()->request->baseUrl . '/' . News::IMAGE_PATH . '/' . $model->image; ?>">
-            <img src="<?php echo Yii::app()->request->baseUrl . '/' . News::IMAGE_PATH . '/small_' . $model->image; ?>" alt="<?php echo $model->image_alt; ?>" />
+        <p class="thumb"><a class="lightbox" href="<?php echo $model->imageUrl; ?>">
+            <?php echo CHtml::image($model->imageThumbUrl, $model->image_alt); ?>
         </a></p>
 
         <?php endif; ?>

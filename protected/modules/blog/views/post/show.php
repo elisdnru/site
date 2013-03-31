@@ -47,7 +47,7 @@ CTextHighlighter::registerCssFile();
     <?php if ($model->image && $model->image_show) : ?>
 
     <p class="thumb"><a class="lightbox" href="<?php echo $model->imageUrl; ?>">
-        <img src="<?php echo $model->imageThumbUrl; ?>" alt="<?php echo $model->image_alt; ?>" />
+        <?php echo CHtml::image($model->imageThumbUrl, $model->image_alt); ?>
     </a></p>
 
     <?php endif; ?>

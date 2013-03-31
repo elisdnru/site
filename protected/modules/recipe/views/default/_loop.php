@@ -3,7 +3,7 @@
 <article class="entry list">
     <header>
         <?php if ($recipe->image): ?>
-        <p class="thumb"><a href="<?php echo $recipe->url; ?>"><img src="<?php echo $recipe->getImageThumbUrl(250, 0); ?>" alt="<?php echo $recipe->image_alt; ?>" /></a></p>
+        <p class="thumb"><a href="<?php echo $recipe->url; ?>"><?php echo CHtml::image($recipe->getImageThumbUrl(250, 0), $recipe->image_alt); ?></a></p>
         <?php endif; ?>
 
         <h2><a href="<?php echo $recipe->url; ?>"><?php echo CHtml::encode($recipe->title); ?></a></h2>

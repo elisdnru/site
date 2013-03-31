@@ -8,7 +8,7 @@
     <?php if ($page->image) : ?>
 
         <p class="thumb"><a class="lightbox" href="<?php echo $page->imageUrl; ?>">
-            <img class="page" src="<?php echo $page->imageThumbUrl; ?>" alt="<?php echo $page->image_alt; ?>" />
+            <?php echo CHtml::image($page->imageThumbUrl, $page->image_alt, array('class'=>'page')); ?>
         </a></p>
 
     <?php endif; ?>

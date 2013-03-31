@@ -4,7 +4,7 @@
     <header>
         <h2 class="title"><a href="<?php echo $new->url; ?>"><?php echo CHtml::encode($new->title); ?></a></h2>
         <?php if ($new->image): ?>
-        <p class="thumb"><a href="<?php echo $new->url; ?>"><img src="<?php echo $new->imageThumbUrl; ?>" alt="<?php echo $new->image_alt; ?>" /></a></p>
+        <p class="thumb"><a href="<?php echo $new->url; ?>"><?php echo CHtml::image($new->imageThumbUrl, $new->image_alt); ?></a></p>
         <?php endif; ?>
         <div class="info">
             <p class="date"><span><time datetime="<?php echo date('Y-m-d', strtotime($new->date)); ?>" pubdate="pubdate"><?php echo DDateHelper::normdate($new->date); ?></time></span></p>

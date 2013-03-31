@@ -31,7 +31,7 @@ if ($this->is(Access::ROLE_CONTROL)){
     <?php if ($recipe->image) : ?>
 
     <p class="thumb"><a class="lightbox" href="<?php echo $recipe->imageUrl; ?>">
-        <img src="<?php echo $recipe->imageThumbUrl; ?>" alt="<?php echo $recipe->image_alt; ?>" />
+        <?php echo CHtml::image($recipe->imageThumbUrl, $recipe->image_alt); ?>
     </a></p>
 
     <?php endif; ?>

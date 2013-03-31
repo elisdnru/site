@@ -18,13 +18,12 @@ if ($this->is(Access::ROLE_CONTROL)){
     if ($this->moduleAllowed('rubrikator')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/rubrikator/articleAdmin/update', array('id'=>$model->id)));
     if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
 
-    $this->info = 'Нажмите «Редактировать» чтобы изменить рецепт';
+    $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
 }?>
 
 <?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
 
-<article class="entry" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
-         xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<article class="entry">
 
 <?php if($this->beginCache(__FILE__.__LINE__.'_rubrikator_'.$model->id, array('duration'=>3600))) { ?>
     <header>
@@ -33,7 +32,7 @@ if ($this->is(Access::ROLE_CONTROL)){
     <?php if ($model->image) : ?>
 
     <p class="thumb"><a class="lightbox" href="<?php echo $model->imageUrl; ?>">
-        <img src="<?php echo $model->imageThumbUrl; ?>" alt="<?php echo $model->image_alt; ?>" />
+        <?php echo CHtml::image($model->imageThumbUrl, $model->image_alt); ?>
     </a></p>
 
     <?php endif; ?>
