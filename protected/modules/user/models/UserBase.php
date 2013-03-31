@@ -497,7 +497,7 @@ abstract class UserBase extends CActiveRecord
         if ($this->_url === null)
         {
             DUrlRulesHelper::import('user');
-            $this->_url = Yii::app()->createUrl('user/users/show', array('username'=>$this->username));
+            $this->_url = Yii::app()->createUrl('/user/users/show', array('username'=>$this->username));
         }
         return $this->_url;
     }
