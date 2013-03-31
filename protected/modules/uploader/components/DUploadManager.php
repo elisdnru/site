@@ -210,12 +210,14 @@ class DUploadManager extends CApplicationComponent
 
     protected function isAllowedResolution($path, $width, $height)
     {
-        $resolutions = array();
+        $resolution = (int)$width . 'x' . (int)$height;
+
         foreach ($this->allowedThumbnailResolutions as $rule)
         {
-            if (mb_strpos($rule[0], $path, null, 'UTF-8') === 0)
-                $resolutions = array_merge($resolutions, $rule[1]);
+            if (mb_strpos($path, $rule[0], null, 'UTF-8') === 0)
+                if (in_array($resolution, $rule[1]))
+                    return true;
         }
-        return in_array((int)$width . 'x' . (int)$height, array_unique($resolutions));
+        return false;
     }
 }
