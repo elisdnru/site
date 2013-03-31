@@ -13,7 +13,7 @@ class RubrikatorModule extends DWebModule
 
     public function getGroup()
     {
-        return 'Контент';
+        return 'Рубрикатор';
     }
 
     public function getName()
@@ -37,5 +37,30 @@ class RubrikatorModule extends DWebModule
             'rubrikator/<category:[\w_-]+>/<id:\d+>/<alias:[\w_-]+>'=>'rubrikator/article/show',
             'rubrikator/<category:[\w_-]+>'=>'rubrikator/default/category',
         );
+    }
+
+
+    public function install()
+    {
+        Yii::app()->config->add(array(
+            array(
+                'param'=>'RUBRIKATOR.ITEMS_PER_PAGE',
+                'label'=>'Статей на странице',
+                'value'=>'',
+                'type'=>'string',
+                'default'=>'10',
+            ),
+        ));
+
+        return parent::install();
+    }
+
+    public function uninstall()
+    {
+        Yii::app()->config->delete(array(
+            'RUBRIKATOR.ITEMS_PER_PAGE',
+        ));
+
+        return parent::uninstall();
     }
 }
