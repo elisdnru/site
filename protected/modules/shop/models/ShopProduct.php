@@ -44,6 +44,7 @@ class ShopProduct extends CActiveRecord
 {
     public $size;
     public $color;
+    public $grouped;
 
     protected $_otherAttributes;
 
@@ -101,6 +102,9 @@ class ShopProduct extends CActiveRecord
             ),
             'models' => array(self::HAS_MANY, 'ShopModel', 'product_id',
                 'order'=>'models.title ASC'
+            ),
+            'related_products' => array(self::HAS_MANY, 'ShopProduct', array('title'=>'title'),
+                'order'=>'related_products.id ASC'
             ),
             'inshort_attribute_values' => array(self::HAS_MANY, 'ShopProductAttributeValue', 'product_id',
                 'condition'=>'attribute.inshort = 1',
@@ -184,6 +188,9 @@ class ShopProduct extends CActiveRecord
         $criteria->compare('t.rating_count',$this->rating_count);
         $criteria->compare('t.rating_summ',$this->rating_summ);
         //$criteria->compare('t.type_id',$this->type_id);
+
+        if ($this->grouped)
+            $criteria->group = 't.title';
 
         $searchCategories = array();
 
@@ -592,22 +599,29 @@ class ShopProduct extends CActiveRecord
         return $this->_attrFields;
     }
 
+    public function getFullTitle()
+    {
+        return $this->artikul . ' / ' . $this->title;
+    }
+
     private $_firstImage;
 
     public function getFirstImage()
     {
+        $main_product = $this->getMainProduct();
+
         if ($this->_firstImage === null)
         {
             $this->_firstImage = ShopImage::model()->find(array(
                 'condition'=>'product_id = :id',
-                'params'=>array('id'=>$this->id),
+                'params'=>array('id'=>$main_product->id),
                 'order'=>'main DESC, id ASC',
                 'limit'=>1
             ));
             if ($this->_firstImage === null)
             {
                 $image = new ShopImage();
-                $image->product_id = $this->id;
+                $image->product_id = $main_product->id;
                 $this->_firstImage = $image;
             }
         }
@@ -623,7 +637,23 @@ class ShopProduct extends CActiveRecord
             return '';
 
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl('/shop/product/show', array('type'=>$this->type->alias, 'category'=>$this->category->path, 'id'=>$this->id));
+        {
+            $related = $this->related_products;
+            $main_product = $related[0];
+            $this->_url = Yii::app()->createUrl('/shop/product/show', array('type'=>$main_product->type->alias, 'category'=>$main_product->category->path, 'id'=>$main_product->id));
+        }
         return $this->_url;
+    }
+
+    public function isMainProduct()
+    {
+        $main_product = $this->getMainProduct();
+        return $main_product ? $this->id == $main_product->id : true;
+    }
+
+    protected function getMainProduct()
+    {
+        $related_products = $this->related_products;
+        return isset($related_products[0]) ? $related_products[0] : null;
     }
 }

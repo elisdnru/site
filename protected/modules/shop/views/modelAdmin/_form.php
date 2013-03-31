@@ -37,7 +37,7 @@
 
         <div class="row">
             <?php echo $form->labelEx($model,'product_id'); ?><br />
-            <?php echo $form->dropDownList($model,'product_id', CHtml::listData(ShopProduct::model()->findAll(), 'id', 'title')); ?><br />
+            <?php echo $form->dropDownList($model,'product_id', CHtml::listData(ShopProduct::model()->findAll(), 'id', 'fullTitle')); ?><br />
             <?php echo $form->error($model,'product_id'); ?>
         </div>
     </fieldset>

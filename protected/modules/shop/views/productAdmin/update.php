@@ -15,6 +15,10 @@ $this->admin[] = array('label'=>'Атрибуты', 'url'=>$this->createUrl('/sh
 $this->info = 'Редактирование товара';
 ?>
 
+<h1>Редактирование товара</h1>
+
+<?php $this->renderPartial('_related', array('model'=>$model)); ?>
+
 <div style="float:right">
     <?php echo CHtml::beginForm($this->createUrl('create', array('id'=>$model->id)), 'get'); ?>
     <div class="form">
@@ -24,8 +28,6 @@ $this->info = 'Редактирование товара';
     </div>
     <?php echo CHtml::endForm(); ?>
 </div>
-
-<h1>Редактирование товара</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 

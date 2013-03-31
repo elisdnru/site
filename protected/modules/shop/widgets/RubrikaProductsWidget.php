@@ -19,6 +19,7 @@ class RubrikaProductsWidget extends ShopBaseWidget
         $criteria->params[':rubrika_id'] = $this->rubrika;
 
         $criteria->limit = $this->limit;
+        $criteria->group = 't.title';
         $criteria->order = 't.id DESC';
 
         $items = ShopProduct::model()->cache(30)->findAll($criteria);
@@ -27,5 +28,4 @@ class RubrikaProductsWidget extends ShopBaseWidget
             'items'=>$items,
         ));
 	}
-
 }

@@ -8,7 +8,7 @@ class OtherProductsWidget extends ShopBaseWidget
 {
     public $tpl = 'default';
     public $category = 0;
-    public $skip = 0;
+    public $current = false;
 	public $limit = 10;
 
 	public function run()
@@ -28,12 +28,13 @@ class OtherProductsWidget extends ShopBaseWidget
             $criteria->addInCondition('t.id', array_unique($othersArray), 'OR');
 
             $criteria->limit = $this->limit;
+            $criteria->group = 't.title';
             $criteria->order = 't.id DESC';
 
-            if ($this->skip)
+            if ($this->current)
             {
-                $criteria->addCondition('t.id<>:id');
-                $criteria->params[':id'] = $this->skip;
+                $criteria->addCondition('t.title <> :title');
+                $criteria->params[':title'] = $this->current->title;
             }
 
             $items = ShopProduct::model()->cache(30)->findAll($criteria);

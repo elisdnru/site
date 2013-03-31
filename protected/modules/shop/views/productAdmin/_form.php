@@ -18,13 +18,13 @@
     )
 ); ?>
 
-    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
-    <br />
-    <?php echo $form->errorSummary($model); ?>
-
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>
+
+    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
+    <br />
+    <?php echo $form->errorSummary($model); ?>
 
     <div style="width:49%; float:left;">
         <fieldset>
@@ -95,6 +95,16 @@
             </div>
         </fieldset>
 
+        <?php if (Yii::app()->moduleManager->active('rubrikator')): ?>
+            <?php Yii::import('application.modules.rubrikator.models.*'); ?>
+            <fieldset>
+                <h4>Рубрикатор</h4>
+                <?php echo $form->labelEx($model,'rubrika_id'); ?><br />
+                <?php echo $form->dropDownList($model,'rubrika_id',array(''=>'') + RubrikatorArticle::model()->getAssocList()); ?><br />
+                <?php echo $form->error($model,'rubrika_id'); ?>
+            </fieldset>
+        <?php endif; ?>
+
     </div>
 
     <div style="width:49%; float:right;">
@@ -117,19 +127,23 @@
             </div>
         </fieldset>
 
+        <?php if (ShopColor::model()->count()): ?>
         <fieldset>
             <h4>Цвета</h4>
             <div style="max-height:370px; overflow:auto;">
                 <?php echo $form->checkBoxList($model,'colorsArray', ShopColor::model()->getAssocList()); ?>
             </div>
         </fieldset>
+        <?php endif; ?>
 
+        <?php if (ShopSize::model()->count()): ?>
         <fieldset>
             <h4>Размеры</h4>
             <div style="max-height:370px; overflow:auto;">
                 <?php echo $form->checkBoxList($model,'sizesArray', ShopSize::model()->getAssocList()); ?>
             </div>
         </fieldset>
+        <?php endif; ?>
 
         <fieldset>
             <h4>Атрибуты</h4>
@@ -150,19 +164,11 @@
             </div>
         </fieldset>
 
-        <?php if (Yii::app()->moduleManager->active('rubrikator')): ?>
-        <?php Yii::import('application.modules.rubrikator.models.*'); ?>
-        <fieldset>
-            <h4>Рубрикатор</h4>
-            <?php echo $form->labelEx($model,'rubrika_id'); ?><br />
-            <?php echo $form->dropDownList($model,'rubrika_id',array(''=>'') + RubrikatorArticle::model()->getAssocList()); ?><br />
-            <?php echo $form->error($model,'rubrika_id'); ?>
-        </fieldset>
-        <?php endif; ?>
-
     </div>
 
     <div class="clear"></div>
+
+    <?php if ($model->isMainProduct()): ?>
 
     <fieldset>
         <?php foreach ($model->images as $image) : ?>
@@ -219,6 +225,8 @@
             <?php echo $form->error($model,'keywords'); ?>
         </div>
     </fieldset>
+
+    <?php endif; ?>
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>
