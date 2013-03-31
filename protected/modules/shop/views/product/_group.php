@@ -47,6 +47,8 @@
 
         <?php foreach ($model->related_products as $product): ?>
 
+            <?php if (!$product->public) continue; ?>
+
             <tr>
                 <td><?php echo CHtml::encode($product->artikul); ?></td>
 

@@ -170,25 +170,6 @@ class ShopProduct extends CActiveRecord
 	{
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('t.id',$this->id);
-        $criteria->compare('t.brand_id',$this->brand_id);
-        $criteria->compare('t.artikul',$this->artikul,true);
-        $criteria->compare('t.title',$this->title,true);
-        $criteria->compare('t.pagetitle',$this->pagetitle,true);
-        $criteria->compare('t.description',$this->description,true);
-        $criteria->compare('t.keywords',$this->keywords,true);
-        $criteria->compare('t.text',$this->text,true);
-        $criteria->compare('t.price',$this->price,true);
-        $criteria->compare('t.priority',$this->priority);
-        $criteria->compare('t.public',$this->public);
-        $criteria->compare('t.popular',$this->popular);
-        $criteria->compare('t.inhome',$this->inhome);
-        $criteria->compare('t.sale',$this->sale);
-        $criteria->compare('t.rating',$this->rating);
-        $criteria->compare('t.rating_count',$this->rating_count);
-        $criteria->compare('t.rating_summ',$this->rating_summ);
-        //$criteria->compare('t.type_id',$this->type_id);
-
         if ($this->grouped)
             $criteria->group = 't.title';
 
@@ -241,6 +222,24 @@ class ShopProduct extends CActiveRecord
             $colorProductIds = CHtml::listData(ShopProductColor::model()->with('color')->findAll('color.alias = :color', array('color'=>$this->color)), 'product_id', 'product_id');
             $criteria->addInCondition('t.id', array_unique($colorProductIds));
         }
+
+        $criteria->compare('t.id',$this->id);
+        $criteria->compare('t.brand_id',$this->brand_id);
+        $criteria->compare('t.artikul',$this->artikul,true);
+        $criteria->compare('t.title',$this->title,true);
+        $criteria->compare('t.pagetitle',$this->pagetitle,true);
+        $criteria->compare('t.description',$this->description,true);
+        $criteria->compare('t.keywords',$this->keywords,true);
+        $criteria->compare('t.text',$this->text,true);
+        $criteria->compare('t.price',$this->price,true);
+        $criteria->compare('t.priority',$this->priority);
+        $criteria->compare('t.rating',$this->rating);
+        $criteria->compare('t.rating_count',$this->rating_count);
+        $criteria->compare('t.rating_summ',$this->rating_summ);
+        $criteria->compare('t.public',$this->public);
+        $criteria->compare('t.popular',$this->popular);
+        $criteria->compare('t.inhome',$this->inhome);
+        $criteria->compare('t.sale',$this->sale);
 
         $criteria->with = array('type', 'category');
 
