@@ -24,4 +24,10 @@ if ($this->is(Access::ROLE_CONTROL))
 
 <h1>Фоторграфии пользователя <?php echo CHtml::encode($username); ?></h1>
 
+<?php if (Yii::app()->user->id): ?>
+    <p>
+        <a href="<?php echo $this->createUrl('/userphoto/photo/create'); ?>">Загрузить фотографии в свой альбом</a>
+    </p>
+<?php endif; ?>
+
 <?php $this->renderPartial('_loop', array('dataProvider'=>$dataProvider)); ?>

@@ -1,6 +1,8 @@
 <?php
 
 Yii::import('application.modules.user.models.*');
+Yii::import('application.modules.comment.models.*');
+Yii::import('application.modules.userphoto.models.*');
 
 /**
  * This is the model class for table "{{shop_image}}".
@@ -176,4 +178,11 @@ class UserPhoto extends CActiveRecord
         return Yii::app()->request->baseUrl . '/' . $fileName;
     }
 
+    protected function afterDelete()
+    {
+        Comment::model()->deleteAllByAttributes(array(
+            'material_id'=>$this->id,
+            'type'=>UserPhotoComment::TYPE_OF_COMMENT,
+        ));
+    }
 }
