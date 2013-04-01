@@ -645,8 +645,7 @@ class ShopProduct extends CActiveRecord
 
         if ($this->_url === null)
         {
-            $related = $this->related_products;
-            $main_product = $related[0];
+            $main_product = $this->getMainProduct();
             $this->_url = Yii::app()->createUrl('/shop/product/show', array('type'=>$main_product->type->alias, 'category'=>$main_product->category->path, 'id'=>$main_product->id));
         }
         return $this->_url;
@@ -660,7 +659,14 @@ class ShopProduct extends CActiveRecord
 
     protected function getMainProduct()
     {
-        $related_products = $this->related_products;
-        return isset($related_products[0]) ? $related_products[0] : null;
+        if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))
+        {
+            $related_products = $this->related_products;
+            $main = isset($related_products[0]) ? $related_products[0] : null;
+        }
+        else
+            $main = $this;
+
+        return $main ;
     }
 }

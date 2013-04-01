@@ -13,6 +13,10 @@ class LastProductsWidget extends ShopBaseWidget
 	{
         $criteria = new CDbCriteria;
         $criteria->scopes = array('published');
+
+        if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))
+            $criteria->group = 't.title';
+
         $criteria->limit = $this->limit;
         $criteria->order = 'id DESC';
 

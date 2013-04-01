@@ -145,7 +145,7 @@ class DefaultController extends ShopBaseController
         $model->size = Yii::app()->request->getQuery('size');
         $model->color = Yii::app()->request->getQuery('color');
         $model->public = 1;
-        $model->grouped = true;
+        $model->grouped = Yii::app()->config->get('SHOP.GROUP_BY_TITLE');
 
         return $model;
     }

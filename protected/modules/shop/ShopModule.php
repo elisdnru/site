@@ -104,6 +104,13 @@ class ShopModule extends DWebModule
                 'type'=>'text',
                 'default'=>'Соглашение',
             ),
+            array(
+                'param'=>'SHOP.GROUP_BY_TITLE',
+                'label'=>'Группировать по наименованию',
+                'value'=>'0',
+                'type'=>'string',
+                'default'=>'0',
+            ),
         ));
 
         return parent::install();

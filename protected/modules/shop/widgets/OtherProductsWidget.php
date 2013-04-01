@@ -28,7 +28,10 @@ class OtherProductsWidget extends ShopBaseWidget
             $criteria->addInCondition('t.id', array_unique($othersArray), 'OR');
 
             $criteria->limit = $this->limit;
-            $criteria->group = 't.title';
+
+            if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))
+                $criteria->group = 't.title';
+
             $criteria->order = 't.id DESC';
 
             if ($this->current)

@@ -25,7 +25,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 	$this->info = 'Управлять товаром Вы можете перейдя по соответствующим ссылкам';
 }?>
 
-<?php if (count($model->related_products)>1): ?>
+<?php if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE') && count($model->related_products) > 1): ?>
     <?php $this->renderPartial('_group', array('model'=>$model)); ?>
 <?php else: ?>
     <?php $this->renderPartial('_single', array('model'=>$model)); ?>

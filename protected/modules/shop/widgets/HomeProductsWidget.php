@@ -14,6 +14,10 @@ class HomeProductsWidget extends ShopBaseWidget
         $criteria = new CDbCriteria;
         $criteria->scopes = array('published');
         $criteria->addCondition('inhome = 1');
+
+        if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))
+            $criteria->group = 't.title';
+
         $criteria->limit = $this->limit;
         $criteria->order = 'id DESC';
 

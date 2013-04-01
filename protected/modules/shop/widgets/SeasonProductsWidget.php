@@ -27,6 +27,9 @@ class SeasonProductsWidget extends ShopBaseWidget
 
             $criteria->addInCondition('t.id', array_unique($othersArray), 'OR');
 
+            if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))
+                $criteria->group = 't.title';
+
             $criteria->limit = $this->limit;
             $criteria->order = 't.id DESC';
 

@@ -18,8 +18,10 @@ class RubrikaProductsWidget extends ShopBaseWidget
         $criteria->addCondition('t.rubrika_id=:rubrika_id', $this->rubrika);
         $criteria->params[':rubrika_id'] = $this->rubrika;
 
+        if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))
+            $criteria->group = 't.title';
+
         $criteria->limit = $this->limit;
-        $criteria->group = 't.title';
         $criteria->order = 't.id DESC';
 
         $items = ShopProduct::model()->cache(30)->findAll($criteria);
