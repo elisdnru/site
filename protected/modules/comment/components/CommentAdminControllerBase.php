@@ -70,7 +70,7 @@ class CommentAdminControllerBase extends DAdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->childs)
+        if ($model->child_items)
         {
             $model->public = false;
             $success = $model->save(false);

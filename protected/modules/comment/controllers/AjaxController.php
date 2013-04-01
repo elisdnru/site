@@ -19,15 +19,12 @@ class AjaxController extends DController
         if (!($this->moduleAllowed('comment') || $model->user_id == Yii::app()->user->id))
             throw new CHttpException(403);
 
-        $childs = Comment::model()->findAll(array(
-            'condition'=>'parent_id = :parent',
-            'params'=>array(':parent'=>$model->id)
-        ));
-
-        if ($childs){
+        if ($model->child_items)
+        {
             $model->public = false;
             $success = $model->save(false);
-        } else
+        }
+        else
             $success = $model->delete();
 
         if (!$success)
