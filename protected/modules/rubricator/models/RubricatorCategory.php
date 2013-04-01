@@ -1,19 +1,19 @@
 <?php
 
-DUrlRulesHelper::import('rubrikator');
+DUrlRulesHelper::import('rubricator');
 Yii::import('application.modules.category.models.*');
 
 /**
- * This is the model class for table "{{rubrikator_category}}".
+ * This is the model class for table "{{rubricator_category}}".
  *
- * The followings are the available columns in table '{{rubrikator_category}}':
+ * The followings are the available columns in table '{{rubricator_category}}':
  * @property string $type
  */
-class RubrikatorCategory extends Category
+class RubricatorCategory extends Category
 {
-    const IMAGE_PATH = 'upload/images/rubrikator/categories';
+    const IMAGE_PATH = 'upload/images/rubricator/categories';
 
-    public $urlRoute = '/rubrikator/default/category';
+    public $urlRoute = '/rubricator/default/category';
     public $multiLanguage = true;
 
     public $del_image = false;
@@ -21,7 +21,7 @@ class RubrikatorCategory extends Category
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return RubrikatorCategory the static model class
+	 * @return RubricatorCategory the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -33,15 +33,15 @@ class RubrikatorCategory extends Category
 	 */
 	public function tableName()
 	{
-		return '{{rubrikator_category}}';
+		return '{{rubricator_category}}';
 	}
 
     public function rules()
     {
         return array_merge(parent::rules(), array(
-            array('alias', 'unique', 'caseSensitive' => false, 'className'=>'RubrikatorCategory', 'message' => 'Элемент с таким URL уже существует'),
+            array('alias', 'unique', 'caseSensitive' => false, 'className'=>'RubricatorCategory', 'message' => 'Элемент с таким URL уже существует'),
             array('image', 'file', 'types'=>'jpg,jpeg,gif,png', 'allowEmpty'=>true, 'safe'=>false),
-            array('parent_id', 'exists', 'className' => 'RubrikatorCategory', 'attributeName' => 'id'),
+            array('parent_id', 'exists', 'className' => 'RubricatorCategory', 'attributeName' => 'id'),
             array('del_image', 'safe'),
         ));
     }
@@ -93,7 +93,7 @@ class RubrikatorCategory extends Category
                 'icon'=>$model->ImageUpload->getImageUrl(),
                 'active'=>$model->alias == $activeCategory,
                 'url'=>$model->getUrl(),
-                'items'=>RubrikatorArticle::model()->category($model)->getMenuList()
+                'items'=>RubricatorArticle::model()->category($model)->getMenuList()
             );
         }
 

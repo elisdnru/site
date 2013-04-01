@@ -10,21 +10,21 @@ class ArticleController extends DController
 
 		$this->render('show', array(
             'model'=>$model,
-            'page'=>$this->loadRubrikatorPage(),
+            'page'=>$this->loadRubricatorPage(),
         ));
 	}
 
     protected function loadModel($id)
     {
-        $model = RubrikatorArticle::model()->findByPk($id);
+        $model = RubricatorArticle::model()->findByPk($id);
         if($model===null)
             throw new CHttpException(404, 'Страница не найдена');
         return $model;
     }
 
-    protected function loadRubrikatorPage()
+    protected function loadRubricatorPage()
     {
-        if (!$page = Page::model()->findByAlias('rubrikator'))
+        if (!$page = Page::model()->findByAlias('rubricator'))
         {
             $page = new Page();
             $page->title = 'Рубрикатор';

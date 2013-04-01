@@ -1,13 +1,13 @@
 <?php
 
-class RubrikatorModule extends DWebModule
+class RubricatorModule extends DWebModule
 {
     public function init()
     {
         parent::init();
 
         $this->setImport(array(
-            'rubrikator.models.*',
+            'rubricator.models.*',
         ));
     }
 
@@ -24,18 +24,18 @@ class RubrikatorModule extends DWebModule
     public static function adminMenu()
     {
         return array(
-            array('label'=>'Рубрики', 'url'=>array('/rubrikator/categoryAdmin/index'), 'icon'=>'foldericon.jpg'),
-            array('label'=>'Статьи', 'url'=>array('/rubrikator/articleAdmin/index'), 'icon'=>'fileicon.jpg'),
-            array('label'=>'Добавить статью', 'url'=>array('/rubrikator/articleAdmin/create'), 'icon'=>'add.png'),
+            array('label'=>'Рубрики', 'url'=>array('/rubricator/categoryAdmin/index'), 'icon'=>'foldericon.jpg'),
+            array('label'=>'Статьи', 'url'=>array('/rubricator/articleAdmin/index'), 'icon'=>'fileicon.jpg'),
+            array('label'=>'Добавить статью', 'url'=>array('/rubricator/articleAdmin/create'), 'icon'=>'add.png'),
         );
     }
 
     public static function rules()
     {
         return array(
-            'rubrikator'=>'rubrikator/default/index',
-            'rubrikator/<category:[\w_-]+>/<id:\d+>/<alias:[\w_-]+>'=>'rubrikator/article/show',
-            'rubrikator/<category:[\w_-]+>'=>'rubrikator/default/category',
+            'rubricator'=>'rubricator/default/index',
+            'rubricator/<category:[\w_-]+>/<id:\d+>/<alias:[\w_-]+>'=>'rubricator/article/show',
+            'rubricator/<category:[\w_-]+>'=>'rubricator/default/category',
         );
     }
 
@@ -44,7 +44,7 @@ class RubrikatorModule extends DWebModule
     {
         Yii::app()->config->add(array(
             array(
-                'param'=>'RUBRIKATOR.ITEMS_PER_PAGE',
+                'param'=>'RUBRICATOR.ITEMS_PER_PAGE',
                 'label'=>'Статей на странице',
                 'value'=>'',
                 'type'=>'string',
@@ -58,7 +58,7 @@ class RubrikatorModule extends DWebModule
     public function uninstall()
     {
         Yii::app()->config->delete(array(
-            'RUBRIKATOR.ITEMS_PER_PAGE',
+            'RUBRICATOR.ITEMS_PER_PAGE',
         ));
 
         return parent::uninstall();

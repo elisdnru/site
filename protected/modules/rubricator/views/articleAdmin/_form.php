@@ -35,7 +35,7 @@
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('RubrikatorArticle_title', 'RubrikatorArticle_alias')">Транслит наименования</a><br />
+            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('RubricatorArticle_title', 'RubricatorArticle_alias')">Транслит наименования</a><br />
             <?php echo $form->textField($model,'alias',array('size'=>60, 'maxlength'=>255)); ?><br />
             <?php echo $form->error($model,'alias'); ?>
         </div>
@@ -48,7 +48,7 @@
 
         <div class="row">
             <?php echo $form->labelEx($model,'category_id'); ?><br />
-            <?php echo $form->dropDownList($model,'category_id',array('0'=>'') + RubrikatorCategory::model()->getAssocList()); ?><br />
+            <?php echo $form->dropDownList($model,'category_id',array('0'=>'') + RubricatorCategory::model()->getAssocList()); ?><br />
             <?php echo $form->error($model,'category_id'); ?>
         </div>
     </fieldset>

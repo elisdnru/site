@@ -14,10 +14,10 @@ $this->breadcrumbs=array(
 
 if ($this->is(Access::ROLE_CONTROL)){
 
-    if ($this->moduleAllowed('rubrikator')) $this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/rubrikator/categoryAdmin/index'));
-    if ($this->moduleAllowed('rubrikator')) $this->admin[] = array('label'=>'Редактировать категорию', 'url'=>$this->createUrl('/rubrikator/categoryAdmin/update', array('id'=>$category->id)));
-    if ($this->moduleAllowed('rubrikator')) $this->admin[] = array('label'=>'Статьи', 'url'=>$this->createUrl('/rubrikator/articleAdmin/index'));
-    if ($this->moduleAllowed('rubrikator')) $this->admin[] = array('label'=>'Добавить статью', 'url'=>$this->createUrl('/rubrikator/articleAdmin/create'));
+    if ($this->moduleAllowed('rubricator')) $this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/rubricator/categoryAdmin/index'));
+    if ($this->moduleAllowed('rubricator')) $this->admin[] = array('label'=>'Редактировать категорию', 'url'=>$this->createUrl('/rubricator/categoryAdmin/update', array('id'=>$category->id)));
+    if ($this->moduleAllowed('rubricator')) $this->admin[] = array('label'=>'Статьи', 'url'=>$this->createUrl('/rubricator/articleAdmin/index'));
+    if ($this->moduleAllowed('rubricator')) $this->admin[] = array('label'=>'Добавить статью', 'url'=>$this->createUrl('/rubricator/articleAdmin/create'));
     if ($this->moduleAllowed('page')) if ($page->id) $this->admin[] = array('label'=>'Редактировать страницу', 'url'=>$this->createUrl('/page/pageAdmin/update', array('id'=>$page->id)));
 
     $this->info = 'Рубрикатор';

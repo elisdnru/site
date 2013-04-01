@@ -23,7 +23,7 @@ class ArticleAdminController extends DAdminController
 
     public function createModel()
     {
-        $model = new RubrikatorArticle();
+        $model = new RubricatorArticle();
         $model->date = date('Y-m-d H:i:s');
         return $model;
     }
@@ -31,9 +31,9 @@ class ArticleAdminController extends DAdminController
     public function loadModel($id)
     {
         if (DMultilangHelper::enabled())
-            $model = RubrikatorArticle::model()->multilang()->findByPk($id);
+            $model = RubricatorArticle::model()->multilang()->findByPk($id);
         else
-            $model = RubrikatorArticle::model()->findByPk($id);
+            $model = RubricatorArticle::model()->findByPk($id);
 
         if($model===null)
             throw new CHttpException(404, 'Страница не найдена');

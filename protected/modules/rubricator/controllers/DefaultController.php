@@ -8,11 +8,11 @@ class DefaultController extends DController
 	{
         $model = $this->loadSearchModel();
 
-        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('RUBRIKATOR.ITEMS_PER_PAGE'));
+        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('RUBRICATOR.ITEMS_PER_PAGE'));
 
         $this->render('index', array(
             'dataProvider'=>$dataProvider,
-            'page'=>$this->loadRubrikatorPage(),
+            'page'=>$this->loadRubricatorPage(),
         ));
 	}
 
@@ -23,18 +23,18 @@ class DefaultController extends DController
         $model = $this->loadSearchModel();
         $model->category_id = $category->id;
 
-        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('RUBRIKATOR.ITEMS_PER_PAGE'));
+        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('RUBRICATOR.ITEMS_PER_PAGE'));
 
         $this->render('category', array(
             'dataProvider'=>$dataProvider,
             'category'=>$category,
-            'page'=>$this->loadRubrikatorPage(),
+            'page'=>$this->loadRubricatorPage(),
         ));
 	}
 
     protected function loadSearchModel()
     {
-        $model = new RubrikatorArticle('search');
+        $model = new RubricatorArticle('search');
         $model->unsetAttributes();
         $model->public = 1;
         return $model;
@@ -42,15 +42,15 @@ class DefaultController extends DController
 
     protected function loadCategoryModel($alias)
     {
-        $category = RubrikatorCategory::model()->cache(3600 * 24)->findByAlias($alias);
+        $category = RubricatorCategory::model()->cache(3600 * 24)->findByAlias($alias);
         if ($category === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $category;
     }
 
-    protected function loadRubrikatorPage()
+    protected function loadRubricatorPage()
     {
-        if (!$page = Page::model()->findByAlias('rubrikator'))
+        if (!$page = Page::model()->findByAlias('rubricator'))
         {
             $page = new Page;
             $page->title = 'Рубрикатор';

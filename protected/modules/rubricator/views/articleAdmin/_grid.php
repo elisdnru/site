@@ -14,7 +14,7 @@
         ),
         array(
             'name' => 'category_id',
-            'filter' => RubrikatorCategory::model()->getAssocList(),
+            'filter' => RubricatorCategory::model()->getAssocList(),
             'value' => '$data->category ? $data->category->title : ""',
         ),
         array(

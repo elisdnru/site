@@ -28,7 +28,7 @@ Yii::import('application.modules.new.models.NewsPage');
  * @property integer $photos_newspage_id
  * @property integer $videos_newspage_id
  *
- * @property RubrikatorCategory $category
+ * @property RubricatorCategory $category
  * @property Gallery $gallery
  * @property NewsPage $articles_newspage
  * @property NewsPage $photos_newspage
@@ -38,10 +38,10 @@ Yii::import('application.modules.new.models.NewsPage');
  * @property string $imageUrl
  * @property string $imageThumdUrl
  */
-class RubrikatorArticle extends CActiveRecord
+class RubricatorArticle extends CActiveRecord
 {
     const IMAGE_WIDTH = 250;
-    const IMAGE_PATH = 'upload/images/rubrikator/articles';
+    const IMAGE_PATH = 'upload/images/rubricator/articles';
 
 	public $del_image = false;
 
@@ -63,7 +63,7 @@ class RubrikatorArticle extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{rubrikator_article}}';
+		return '{{rubricator_article}}';
 	}
 
 	/**
@@ -76,7 +76,7 @@ class RubrikatorArticle extends CActiveRecord
 		return array(
 			array('date, alias, category_id, title', 'required'),
 			array('gallery_id, category_id, articles_newspage_id, photos_newspage_id, videos_newspage_id', 'numerical', 'integerOnly'=>true),
-            array('category_id', 'exists', 'className' => 'RubrikatorCategory', 'attributeName' => 'id'),
+            array('category_id', 'exists', 'className' => 'RubricatorCategory', 'attributeName' => 'id'),
 			array('short, text, description, del_image', 'safe'),
             array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
             array('title, alias, image_alt, pagetitle, keywords', 'length', 'max'=>'255'),
@@ -95,7 +95,7 @@ class RubrikatorArticle extends CActiveRecord
 	public function relations()
 	{
 		return array(
-			'category' => array(self::BELONGS_TO, 'RubrikatorCategory', 'category_id'),
+			'category' => array(self::BELONGS_TO, 'RubricatorCategory', 'category_id'),
 			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
 			'articles_newspage' => array(self::BELONGS_TO, 'NewsPage', 'articles_newspage_id'),
 			'photos_newspage' => array(self::BELONGS_TO, 'NewsPage', 'photos_newspage_id'),
@@ -245,8 +245,8 @@ class RubrikatorArticle extends CActiveRecord
                         'description',
                         'keywords',
                     ),
-                    'langClassName' => 'RubrikatorArticleLang',
-                    'langTableName' => 'rubrikator_article_lang',
+                    'langClassName' => 'RubricatorArticleLang',
+                    'langTableName' => 'rubricator_article_lang',
                     'languages' => Yii::app()->params['translatedLanguages'],
                     'defaultLanguage' => Yii::app()->params['defaultLanguage'],
                     'langForeignKey' => 'owner_id',
@@ -259,7 +259,7 @@ class RubrikatorArticle extends CActiveRecord
     }
 
     // scope
-    public function category(RubrikatorCategory $category)
+    public function category(RubricatorCategory $category)
     {
         if ($category)
         {
@@ -314,8 +314,8 @@ class RubrikatorArticle extends CActiveRecord
     {
         if ($this->_url === null)
         {
-            DUrlRulesHelper::import('rubrikator');
-            $this->_url = Yii::app()->createUrl('rubrikator/article/show', array('category'=>$this->category->alias, 'id'=>$this->id, 'alias'=>$this->alias));
+            DUrlRulesHelper::import('rubricator');
+            $this->_url = Yii::app()->createUrl('rubricator/article/show', array('category'=>$this->category->alias, 'id'=>$this->id, 'alias'=>$this->alias));
         }
         return $this->_url;
     }

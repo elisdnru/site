@@ -1,21 +1,21 @@
 <?php
 /* @var $this DController */
 /* @var $page Page */
-/* @var $model RubrikatorArticle */
+/* @var $model RubricatorArticle */
 
 $this->pageTitle = $model->title;
 $this->description = $model->description;
 $this->keywords = $model->keywords;
 
 $this->breadcrumbs=array(
-    $page->title => $this->createUrl('/rubrikator/default/index'),
+    $page->title => $this->createUrl('/rubricator/default/index'),
     $model->category->title => $model->category->url,
     $model->title,
 );
 
 if ($this->is(Access::ROLE_CONTROL)){
 
-    if ($this->moduleAllowed('rubrikator')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/rubrikator/articleAdmin/update', array('id'=>$model->id)));
+    if ($this->moduleAllowed('rubricator')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/rubricator/articleAdmin/update', array('id'=>$model->id)));
     if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
@@ -25,7 +25,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <article class="entry">
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_rubrikator_'.$model->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_rubricator_'.$model->id, array('duration'=>3600))) { ?>
     <header>
     <h1><?php echo CHtml::encode($model->title); ?></h1>
 
@@ -81,8 +81,8 @@ if ($this->is(Access::ROLE_CONTROL)){
 <hr />
 
 <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
-    <?php $this->widget('shop.widgets.RubrikaProductsWidget', array(
-        'rubrika'=>$model->id,
+    <?php $this->widget('shop.widgets.RubricProductsWidget', array(
+        'rubric'=>$model->id,
         'limit'=>10,
     )); ?>
 <?php $this->endCache(); } ?>

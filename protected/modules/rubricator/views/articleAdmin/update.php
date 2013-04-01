@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 
 $this->admin[] = array('label'=>'Просмотр', 'url'=>$model->url);
 $this->admin[] = array('label'=>'Статьи', 'url'=>$this->createUrl('index'));
-$this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/rubrikator/categoryAdmin/index'));
+$this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/rubricator/categoryAdmin/index'));
 if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
 
 $this->info = 'Редактирование статьи';

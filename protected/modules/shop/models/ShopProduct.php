@@ -74,7 +74,7 @@ class ShopProduct extends CActiveRecord
 		return array(
 			array('artikul, title, price, priority, type_id, category_id', 'required'),
 			array('type_id, category_id, brand_id, public, popular, inhome, sale, count, priority', 'numerical', 'integerOnly'=>true),
-			array('rubrika_id', 'numerical', 'integerOnly'=>true),
+			array('rubric_id', 'numerical', 'integerOnly'=>true),
 			array('artikul', 'length', 'max'=>128),
             array('artikul', 'unique', 'caseSensitive' => false, 'className' => 'ShopProduct', 'message' => 'Такой {attribute} уже используется'),
 			array('title, pagetitle, keywords', 'length', 'max'=>255),
@@ -146,7 +146,7 @@ class ShopProduct extends CActiveRecord
             'pagetitle' => 'Заголовок окна (title)',
             'description' => 'Описание (description)',
             'keywords' => 'Ключевые слова (keywords)',
-            'image' => 'Изображения',
+            'image' => '�?зображения',
             'short' => 'Превью',
             'text' => 'Текст',
             'price' => 'Цена',
@@ -158,7 +158,7 @@ class ShopProduct extends CActiveRecord
             'sale' => 'Участвует в акции',
             'rating' => 'Рейтинг',
             'otherCategoriesArray' => 'Дополнительные категории',
-            'rubrika_id' => 'Категория рубрикатора',
+            'rubric_id' => 'Категория рубрикатора',
 		);
 	}
 

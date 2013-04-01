@@ -1,8 +1,8 @@
 <?php
 
-Yii::import('application.modules.rubrikator.models.RubrikatorArticle');
+Yii::import('application.modules.rubricator.models.RubricatorArticle');
 
-class RubrikatorArticleLang extends CActiveRecord
+class RubricatorArticleLang extends CActiveRecord
 {
     public static function model($className=__CLASS__)
     {
@@ -11,12 +11,12 @@ class RubrikatorArticleLang extends CActiveRecord
 
     public function tableName()
     {
-        return '{{rubrikator_article_lang}}';
+        return '{{rubricator_article_lang}}';
     }
 
     public function relations()
     {
-        return array('RubrikatorArticle' => array(self::BELONGS_TO, 'RubrikatorArticle', 'owner_id'));
+        return array('RubricatorArticle' => array(self::BELONGS_TO, 'RubricatorArticle', 'owner_id'));
     }
 
     public function behaviors()

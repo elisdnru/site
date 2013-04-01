@@ -23,7 +23,7 @@ class CategoryAdminController extends DAdminController
     {
         $countProducts = ShopProduct::model()->count(
             array(
-                'condition'=>'rubrika_id=:ID',
+                'condition'=>'rubric_id=:ID',
                 'params'=>array(':ID'=>$model->id)
             )
         );
@@ -34,16 +34,16 @@ class CategoryAdminController extends DAdminController
 
     public function createModel()
     {
-        $model = new RubrikatorCategory();
+        $model = new RubricatorCategory();
         return $model;
     }
 
     public function loadModel($id)
     {
         if (DMultilangHelper::enabled())
-            $model = RubrikatorCategory::model()->multilang()->findByPk($id);
+            $model = RubricatorCategory::model()->multilang()->findByPk($id);
         else
-            $model = RubrikatorCategory::model()->findByPk($id);
+            $model = RubricatorCategory::model()->findByPk($id);
 
         if($model === null)
             throw new CHttpException(404, 'Не найдено');

@@ -100,13 +100,13 @@
             </div>
         </fieldset>
 
-        <?php if (Yii::app()->moduleManager->active('rubrikator')): ?>
-            <?php Yii::import('application.modules.rubrikator.models.*'); ?>
+        <?php if (Yii::app()->moduleManager->active('rubricator')): ?>
+            <?php Yii::import('application.modules.rubricator.models.*'); ?>
             <fieldset>
                 <h4>Рубрикатор</h4>
-                <?php echo $form->labelEx($model,'rubrika_id'); ?><br />
-                <?php echo $form->dropDownList($model,'rubrika_id',array(''=>'') + RubrikatorArticle::model()->getAssocList()); ?><br />
-                <?php echo $form->error($model,'rubrika_id'); ?>
+                <?php echo $form->labelEx($model,'rubric_id'); ?><br />
+                <?php echo $form->dropDownList($model,'rubric_id',array(''=>'') + RubricatorArticle::model()->getAssocList()); ?><br />
+                <?php echo $form->error($model,'rubric_id'); ?>
             </fieldset>
         <?php endif; ?>
 

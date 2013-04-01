@@ -135,7 +135,7 @@ return array(
         'data' => null
     ),
 
-    'module_rubrikator' => array(
+    'module_rubricator' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление рубрикатором',
         'bizRule' => null,
@@ -200,7 +200,7 @@ return array(
             'module_page',
             'module_recipe',
             'module_review',
-            'module_rubrikator',
+            'module_rubricator',
         ),
         'bizRule' => null,
         'data' => null
@@ -231,7 +231,7 @@ return array(
             'module_shop',
             'module_recipe',
             'module_review',
-            'module_rubrikator',
+            'module_rubricator',
             'module_slideshow',
             'module_userphoto',
         ),
