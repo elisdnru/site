@@ -6,7 +6,6 @@ Yii::import('application.modules.category.models.*');
  * This is the model class for table "{{shop_size}}".
  *
  * The followings are the available columns in table '{{shop_size}}':
- * @property string $type
  */
 class ShopSize extends Category
 {

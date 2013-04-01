@@ -39,12 +39,7 @@ class DModuleManager extends CApplicationComponent
             $this->modules[$module]['installed'] = $system;
         }
 
-        if (!isset($this->modules[$module]['system'])){
-            CVarDumper::dump($this->modules[$module], 10, true);
-            die();
-        }
-
-        return $this->modules[$module]['system'];
+        return isset($this->modules[$module]['system']) ? $this->modules[$module]['system'] : 0;
     }
 
     public function installed($module)

@@ -40,8 +40,6 @@ class OrderAdminController extends DAdminController
         else
             Yii::app()->user->setFlash('error', 'Ошибка сохранения');
 
-        CVarDumper::dump($model->errors, 10, true);
-
         $this->redirectOrAjax($this->createUrl('view', array('id'=>$id)));
     }
 
