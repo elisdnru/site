@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model RubrikatorCategory */
+/* @var $model UserPhoto */
 /* @var $form CActiveForm */
 ?>
 
