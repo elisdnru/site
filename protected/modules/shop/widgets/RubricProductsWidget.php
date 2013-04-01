@@ -15,7 +15,9 @@ class RubricProductsWidget extends ShopBaseWidget
         $criteria = new CDbCriteria;
         $criteria->scopes = array('published');
 
-        $criteria->addCondition('t.rubric_id=:rubric_id', $this->rubric);
+        $criteria->with = array('product_rubrics'=>array('together'=>true));
+
+        $criteria->addCondition('product_rubrics.rubric_id=:rubric_id', $this->rubric);
         $criteria->params[':rubric_id'] = $this->rubric;
 
         if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE'))

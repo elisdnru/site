@@ -104,9 +104,7 @@
             <?php Yii::import('application.modules.rubricator.models.*'); ?>
             <fieldset>
                 <h4>Рубрикатор</h4>
-                <?php echo $form->labelEx($model,'rubric_id'); ?><br />
-                <?php echo $form->dropDownList($model,'rubric_id',array(''=>'') + RubricatorArticle::model()->getAssocList()); ?><br />
-                <?php echo $form->error($model,'rubric_id'); ?>
+                <?php echo $form->checkBoxList($model,'rubricsArray', RubricatorArticle::model()->getAssocList()); ?>
             </fieldset>
         <?php endif; ?>
 

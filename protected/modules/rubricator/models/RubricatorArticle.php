@@ -280,6 +280,18 @@ class RubricatorArticle extends CActiveRecord
 
         return $this;
     }
+
+    public function getAssocList()
+    {
+        $items = $this->findAll();
+
+        $list = array();
+        foreach ($items as $item){
+            $list[$item->id] = ($item->category ? $item->category->title . ' - ' : '') . $item->title;
+        }
+
+        return $list;
+    }
 	
     protected function afterFind()
     {

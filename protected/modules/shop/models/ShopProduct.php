@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('application.modules.shop.components.IShopItem');
+Yii::import('application.modules.shop.models.*');
 
 /**
  * This is the model class for table "{{shop_product}}".
@@ -71,10 +71,9 @@ class ShopProduct extends CActiveRecord
 	 */
 	public function rules()
 	{
-		return array(
+		$rules = array(
 			array('artikul, title, price, priority, type_id, category_id', 'required'),
 			array('type_id, category_id, brand_id, public, popular, inhome, sale, count, priority', 'numerical', 'integerOnly'=>true),
-			array('rubric_id', 'numerical', 'integerOnly'=>true),
 			array('artikul', 'length', 'max'=>128),
             array('artikul', 'unique', 'caseSensitive' => false, 'className' => 'ShopProduct', 'message' => 'Такой {attribute} уже используется'),
 			array('title, pagetitle, keywords', 'length', 'max'=>255),
@@ -86,6 +85,15 @@ class ShopProduct extends CActiveRecord
 
 			array('id, artikul, type_id, category_id, title, pagetitle, description, keywords, text, price, count, priority, public, popular, inhome, rating, rating_count, rating_summ, size', 'safe', 'on'=>'search'),
 		);
+
+        if (Yii::app()->moduleManager->installed('rubricator'))
+        {
+            $rules = array_merge($rules, array(
+                array('rubricsArray', 'safe'),
+            ));
+        }
+
+        return $rules;
 	}
 
 	/**
@@ -93,7 +101,7 @@ class ShopProduct extends CActiveRecord
 	 */
 	public function relations()
 	{
-		return array(
+		$relations = array(
             'type' => array(self::BELONGS_TO, 'ShopType', 'type_id'),
             'category' => array(self::BELONGS_TO, 'ShopCategory', 'category_id'),
             'brand' => array(self::BELONGS_TO, 'ShopBrand', 'brand_id'),
@@ -129,6 +137,18 @@ class ShopProduct extends CActiveRecord
             ),
             'images_count' => array(self::STAT, 'ShopImage', 'product'),
 		);
+
+        if (Yii::app()->moduleManager->installed('rubricator'))
+        {
+            $relations = array_merge($relations, array(
+                'product_rubrics' => array(self::HAS_MANY, 'ShopProductRubric', 'product_id'),
+                'rubrics'=>array(self::MANY_MANY, 'RubricatorArticle', '{{shop_product_rubric}}(product_id, rubric_id)',
+                    'order'=>'rubrics.date DESC',
+                ),
+            ));
+        }
+
+        return $relations;
 	}
 
 	/**
@@ -146,7 +166,7 @@ class ShopProduct extends CActiveRecord
             'pagetitle' => 'Заголовок окна (title)',
             'description' => 'Описание (description)',
             'keywords' => 'Ключевые слова (keywords)',
-            'image' => '�?зображения',
+            'image' => 'Изображения',
             'short' => 'Превью',
             'text' => 'Текст',
             'price' => 'Цена',
@@ -158,7 +178,6 @@ class ShopProduct extends CActiveRecord
             'sale' => 'Участвует в акции',
             'rating' => 'Рейтинг',
             'otherCategoriesArray' => 'Дополнительные категории',
-            'rubric_id' => 'Категория рубрикатора',
 		);
 	}
 
@@ -300,7 +319,7 @@ class ShopProduct extends CActiveRecord
 
     public function behaviors()
     {
-        return array(
+        $behaviors = array(
             'PurifyText'=>array(
                 'class'=>'DPurifyTextBehavior',
                 'sourceAttribute'=>'text',
@@ -333,6 +352,20 @@ class ShopProduct extends CActiveRecord
                 'relationPk'=>'id',
             ),
         );
+
+        if (Yii::app()->moduleManager->installed('rubricator'))
+        {
+            $behaviors = array_merge($behaviors, array(
+                'MultiListRubric'=>array(
+                    'class'=>'DMultiplyListBehavior',
+                    'attribute'=>'rubricsArray',
+                    'relation'=>'rubrics',
+                    'relationPk'=>'id',
+                ),
+            ));
+        }
+
+        return $behaviors;
     }
 
     public function findByArtikul($artikul)
@@ -435,6 +468,7 @@ class ShopProduct extends CActiveRecord
         $this->loadImages();
         $this->saveColors();
         $this->saveSizes();
+        $this->saveRubrics();
         $this->saveOtherCategories();
         $this->saveOtherAttributes();
         parent::afterSave();
@@ -454,6 +488,28 @@ class ShopProduct extends CActiveRecord
                     $image->save();
                 }
                 unset($_FILES['News']['tmp_name'][$input]);
+            }
+        }
+    }
+
+    protected function saveRubrics()
+    {
+        if (Yii::app()->moduleManager->installed('rubricator'))
+        {
+            $rubrics = $this->rubricsArray;
+
+            foreach ($this->product_rubrics as $productRubric)
+                $productRubric->delete();
+
+            if (is_array($rubrics))
+            {
+                foreach ($rubrics as $rubric_id)
+                {
+                    $productRubric = new ShopProductRubric();
+                    $productRubric->product_id = $this->id;
+                    $productRubric->rubric_id = $rubric_id;
+                    $productRubric->save();
+                }
             }
         }
     }
