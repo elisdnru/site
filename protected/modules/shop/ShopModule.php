@@ -108,7 +108,7 @@ class ShopModule extends DWebModule
                 'param'=>'SHOP.GROUP_BY_TITLE',
                 'label'=>'Группировать по наименованию',
                 'value'=>'0',
-                'type'=>'string',
+                'type'=>'checkbox',
                 'default'=>'0',
             ),
         ));
