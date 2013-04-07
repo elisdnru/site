@@ -25,7 +25,7 @@
  *
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.0
+ * @version 1.1
  */
 
 class DPurifyTextBehavior extends CActiveRecordBehavior
@@ -122,7 +122,7 @@ class DPurifyTextBehavior extends CActiveRecordBehavior
      */
     public function markdownText($text)
     {
-        $md = new CMarkdown;
+        $md = new CMarkdownParser;
         return $md->transform($text);
     }
 
