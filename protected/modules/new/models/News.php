@@ -83,11 +83,11 @@ class News extends CActiveRecord implements DICommentDepends
 		// will receive user inputs.
 		return array(
 			array('date, page_id, alias, title', 'required'),
-			array('author_id, page_id, group_id, public, inhome, important, actual, image_show, gallery_id', 'numerical', 'integerOnly'=>true),
-            array('author_id', 'exists', 'className' => 'User', 'attributeName' => 'id'),
-            array('page_id', 'exists', 'className' => 'Page', 'attributeName' => 'id'),
-            array('gallery_id', 'exists', 'className' => 'Gallery', 'attributeName' => 'id'),
-            array('group_id', 'exists', 'className' => 'NewsGroup', 'attributeName' => 'id'),
+			array('public, inhome, important, actual, image_show', 'numerical', 'integerOnly'=>true),
+            array('author_id', 'exist', 'className' => 'User', 'attributeName' => 'id'),
+            array('page_id', 'exist', 'className' => 'Page', 'attributeName' => 'id'),
+            array('gallery_id', 'DExistOrEmpty', 'className' => 'Gallery', 'attributeName' => 'id'),
+            array('group_id', 'DExistOrEmpty', 'className' => 'NewsGroup', 'attributeName' => 'id'),
             array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
 			array('short, text, description, del_image', 'safe'),
             array('title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max'=>'255'),

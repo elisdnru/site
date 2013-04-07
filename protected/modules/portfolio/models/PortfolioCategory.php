@@ -33,7 +33,7 @@ class PortfolioCategory extends TreeCategory
     public function rules()
     {
         return array_merge(parent::rules(), array(
-            array('parent_id', 'exists', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
+            array('parent_id', 'DExistOrEmpty', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
         ));
     }
 

@@ -38,7 +38,7 @@ class ShopCategory extends TreeCategory
             array('type_id', 'required'),
             array('type_id', 'numerical', 'integerOnly'=>true),
             array('type_id', 'safe', 'on'=>'search'),
-            array('parent_id', 'exists', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
+            array('parent_id', 'DExistOrEmpty', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
         ));
     }
 

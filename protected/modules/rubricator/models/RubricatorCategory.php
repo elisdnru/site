@@ -41,7 +41,7 @@ class RubricatorCategory extends Category
         return array_merge(parent::rules(), array(
             array('alias', 'unique', 'caseSensitive' => false, 'className'=>'RubricatorCategory', 'message' => 'Элемент с таким URL уже существует'),
             array('image', 'file', 'types'=>'jpg,jpeg,gif,png', 'allowEmpty'=>true, 'safe'=>false),
-            array('parent_id', 'exists', 'className' => 'RubricatorCategory', 'attributeName' => 'id'),
+            array('parent_id', 'DExistOrEmpty', 'className' => 'RubricatorCategory', 'attributeName' => 'id'),
             array('del_image', 'safe'),
         ));
     }

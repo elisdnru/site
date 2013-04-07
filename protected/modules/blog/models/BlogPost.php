@@ -77,11 +77,11 @@ class BlogPost extends CActiveRecord implements DICommentDepends
 		// will receive user inputs.
 		return array(
 			array('category_id, alias, title', 'required'),
-            array('author_id', 'exists', 'className' => 'User', 'attributeName' => 'id'),
-            array('category_id', 'exists', 'className' => 'BlogCategory', 'attributeName' => 'id'),
-            array('gallery_id', 'exists', 'className' => 'Gallery', 'attributeName' => 'id'),
-            array('group_id', 'exists', 'className' => 'BlogGroup', 'attributeName' => 'id'),
-			array('author_id, category_id, group_id, public, image_show, gallery_id', 'numerical', 'integerOnly'=>true),
+            array('author_id', 'DExistOrEmpty', 'className' => 'User', 'attributeName' => 'id'),
+            array('category_id', 'exist', 'className' => 'BlogCategory', 'attributeName' => 'id'),
+            array('gallery_id', 'DExistOrEmpty', 'className' => 'Gallery', 'attributeName' => 'id'),
+            array('group_id', 'DExistOrEmpty', 'className' => 'BlogPostGroup', 'attributeName' => 'id'),
+			array('public, image_show, gallery_id', 'numerical', 'integerOnly'=>true),
 			array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
 			array('short, text, description, del_image', 'safe'),
             array('title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max'=>'255'),

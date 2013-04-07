@@ -64,8 +64,8 @@ class PortfolioWork extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('date, category_id, alias, title', 'required'),
-			array('sort, category_id, public, image_show', 'numerical', 'integerOnly'=>true),
-            array('category_id', 'exists', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
+			array('sort, public, image_show', 'numerical', 'integerOnly'=>true),
+            array('category_id', 'DExistOrEmpty', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
 			array('short, text, description, del_image', 'safe'),
             array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
             array('title, alias, pagetitle, keywords', 'length', 'max'=>'255'),

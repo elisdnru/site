@@ -76,7 +76,7 @@ class RubricatorArticle extends CActiveRecord
 		return array(
 			array('date, alias, category_id, title', 'required'),
 			array('gallery_id, category_id, articles_newspage_id, photos_newspage_id, videos_newspage_id', 'numerical', 'integerOnly'=>true),
-            array('category_id', 'exists', 'className' => 'RubricatorCategory', 'attributeName' => 'id'),
+            array('category_id', 'exist', 'className' => 'RubricatorCategory', 'attributeName' => 'id'),
 			array('short, text, description, del_image', 'safe'),
             array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
             array('title, alias, image_alt, pagetitle, keywords', 'length', 'max'=>'255'),

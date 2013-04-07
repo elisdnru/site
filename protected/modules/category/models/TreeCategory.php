@@ -42,7 +42,7 @@ abstract class TreeCategory extends Category
 	public function rules()
 	{
 		return array_merge(self::staticRules(), array(
-            array('parent_id', 'numerical', 'integerOnly'=>true),
+            array('parent_id', 'DExistOrEmpty', 'className'=>get_class($this), 'attributeName'=>'id'),
             array('parent_id', 'safe', 'on'=>'search'),
         ));
 	}
