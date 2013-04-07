@@ -71,29 +71,17 @@ class ShopProduct extends CActiveRecord
 	 */
 	public function rules()
 	{
-		$rules = array(
+		return array(
 			array('artikul, title, price, priority, type_id, category_id', 'required'),
 			array('type_id, category_id, brand_id, public, popular, inhome, sale, count, priority', 'numerical', 'integerOnly'=>true),
 			array('artikul', 'length', 'max'=>128),
             array('artikul', 'unique', 'caseSensitive' => false, 'className' => 'ShopProduct', 'message' => 'Такой {attribute} уже используется'),
 			array('title, pagetitle, keywords', 'length', 'max'=>255),
 			array('title, short, text, description', 'safe'),
-			array('colorsArray', 'safe'),
-			array('sizesArray', 'safe'),
-			array('otherCategoriesArray', 'safe'),
 			array('otherAttributesAssoc', 'safe'),
 
 			array('id, artikul, type_id, category_id, title, pagetitle, description, keywords, text, price, count, priority, public, popular, inhome, rating, rating_count, rating_summ, size', 'safe', 'on'=>'search'),
 		);
-
-        if (Yii::app()->moduleManager->installed('rubricator'))
-        {
-            $rules = array_merge($rules, array(
-                array('rubricsArray', 'safe'),
-            ));
-        }
-
-        return $rules;
 	}
 
 	/**

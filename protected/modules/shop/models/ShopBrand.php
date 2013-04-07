@@ -37,13 +37,6 @@ class ShopBrand extends Category
 		return '{{shop_brand}}';
 	}
 
-    public function rules()
-    {
-        return array_merge(parent::rules(), array(
-            array('categoriesArray', 'safe'),
-        ));
-    }
-
     /**
      * @return array relational rules.
      */
