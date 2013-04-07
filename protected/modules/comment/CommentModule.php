@@ -7,9 +7,9 @@ class CommentModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'comment.components.*',
-            'comment.models.*',
-            'new.models.*',
+            'application.modules.comment.components.*',
+            'application.modules.comment.models.*',
+            'application.modules.new.models.*',
         ));
 
         if (Yii::app()->moduleManager->installed('blog'))

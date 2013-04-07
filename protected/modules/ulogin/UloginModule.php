@@ -7,8 +7,8 @@ class UloginModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'ulogin.components.*',
-            'ulogin.models.*',
+            'application.modules.ulogin.components.*',
+            'application.modules.ulogin.models.*',
         ));
     }
 

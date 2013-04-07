@@ -7,8 +7,8 @@ class ConfigModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'config.components.*',
-            'config.models.*',
+            'application.modules.config.components.*',
+            'application.modules.config.models.*',
         ));
     }
 

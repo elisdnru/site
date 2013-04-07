@@ -7,7 +7,7 @@ class AttributeModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'attribute.models.*',
+            'application.modules.attribute.models.*',
         ));
     }
 

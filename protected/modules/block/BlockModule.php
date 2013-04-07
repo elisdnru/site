@@ -7,7 +7,7 @@ class BlockModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'block.models.*',
+            'application.modules.block.models.*',
         ));
     }
 

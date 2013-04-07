@@ -7,8 +7,8 @@ class ShopModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'shop.components.*',
-            'shop.models.*',
+            'application.modules.shop.components.*',
+            'application.modules.shop.models.*',
         ));
     }
 

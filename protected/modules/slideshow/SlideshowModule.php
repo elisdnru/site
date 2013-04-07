@@ -7,7 +7,7 @@ class SlideshowModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'slideshow.models.*',
+            'application.modules.slideshow.models.*',
         ));
     }
 

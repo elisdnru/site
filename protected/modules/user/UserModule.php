@@ -7,8 +7,8 @@ class UserModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'user.components.*',
-            'user.models.*',
+            'application.modules.user.components.*',
+            'application.modules.user.models.*',
         ));
     }
 

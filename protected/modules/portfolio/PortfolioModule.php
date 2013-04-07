@@ -7,8 +7,8 @@ class PortfolioModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'portfolio.components.*',
-            'portfolio.models.*',
+            'application.modules.portfolio.components.*',
+            'application.modules.portfolio.models.*',
         ));
     }
 

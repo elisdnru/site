@@ -7,7 +7,7 @@ class BlogModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'blog.models.*',
+            'application.modules.blog.models.*',
         ));
     }
 

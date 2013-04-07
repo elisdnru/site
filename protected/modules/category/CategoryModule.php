@@ -12,8 +12,8 @@ class CategoryModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'category.components.*',
-            'category.models.*',
+            'application.modules.category.components.*',
+            'application.modules.category.models.*',
         ));
     }
 }

@@ -8,7 +8,7 @@ class RecipeModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'recipe.models.*',
+            'application.modules.recipe.models.*',
         ));
     }
 

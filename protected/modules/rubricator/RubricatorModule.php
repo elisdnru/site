@@ -7,7 +7,7 @@ class RubricatorModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'rubricator.models.*',
+            'application.modules.rubricator.models.*',
         ));
     }
 

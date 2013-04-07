@@ -12,7 +12,7 @@ class PhpbbModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'phpbb.models.*',
+            'application.modules.phpbb.models.*',
         ));
     }
 

@@ -7,7 +7,7 @@ class GalleryModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'gallery.models.*',
+            'application.modules.gallery.models.*',
         ));
     }
 

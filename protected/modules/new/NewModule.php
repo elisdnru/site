@@ -7,7 +7,7 @@ class NewModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'new.models.*',
+            'application.modules.new.models.*',
         ));
     }
 

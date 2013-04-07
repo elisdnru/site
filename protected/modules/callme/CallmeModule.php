@@ -7,7 +7,7 @@ class CallmeModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'callme.models.*',
+            'application.modules.callme.models.*',
         ));
     }
 

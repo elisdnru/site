@@ -7,7 +7,7 @@ class ContactModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'contact.models.*',
+            'application.modules.contact.models.*',
         ));
     }
 

@@ -7,7 +7,7 @@ class FileModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'file.models.*',
+            'application.modules.file.models.*',
         ));
     }
 

@@ -7,7 +7,7 @@ class UserphotoModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'userphoto.models.*',
+            'application.modules.userphoto.models.*',
         ));
     }
 

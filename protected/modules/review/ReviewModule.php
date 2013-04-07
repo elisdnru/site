@@ -8,7 +8,7 @@ class ReviewModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'review.models.*',
+            'application.modules.review.models.*',
         ));
     }
 

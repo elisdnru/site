@@ -7,7 +7,7 @@ class UploaderModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'uploader.components.*',
+            'application.modules.uploader.components.*',
         ));
     }
 

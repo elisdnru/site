@@ -7,7 +7,7 @@ class MenuModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'menu.models.*',
+            'application.modules.menu.models.*',
         ));
     }
 

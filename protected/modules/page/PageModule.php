@@ -7,8 +7,8 @@ class PageModule extends DWebModule
         parent::init();
 
         $this->setImport(array(
-            'page.components.*',
-            'page.models.*',
+            'application.modules.page.components.*',
+            'application.modules.page.models.*',
         ));
     }
 
