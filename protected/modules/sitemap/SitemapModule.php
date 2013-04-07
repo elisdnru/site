@@ -2,6 +2,15 @@
 
 class SitemapModule extends DWebModule
 {
+    public function init()
+    {
+        parent::init();
+
+        $this->setImport(array(
+            'application.modules.sitemap.components.*',
+        ));
+    }
+
     public static function system()
     {
         return true;
