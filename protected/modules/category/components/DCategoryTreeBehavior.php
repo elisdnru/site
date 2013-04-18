@@ -4,7 +4,7 @@ Yii::import('application.modules.category.components.DCategoryBehavior');
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.1
+ * @version 1.2
  *
  * @property string $parentAttribute
  * @property string $parentRelation
@@ -54,9 +54,9 @@ class DCategoryTreeBehavior extends DCategoryBehavior
 
     protected function _childsArrayRecursive(&$items, &$result, $parent_id)
     {
-        $result[] = $parent_id;
+        $result[] = (int)$parent_id;
         foreach ($items as $item){
-            if ($item[$this->parentAttribute] == $parent_id){
+            if ((int)$item[$this->parentAttribute] == (int)$parent_id){
                 $result[] = $item[$this->primaryKeyAttribute];
                 $this->_childsArrayRecursive($items, $result, $item[$this->primaryKeyAttribute]);
             }
@@ -90,9 +90,9 @@ class DCategoryTreeBehavior extends DCategoryBehavior
             $titles = array($item[$this->titleAttribute]);
 
             $temp = $item;
-            while (isset($items[$temp[$this->parentAttribute]])){
-                $titles[] = $items[$temp[$this->parentAttribute]][$this->titleAttribute];
-                $temp = $items[$temp[$this->parentAttribute]];
+            while (isset($items[(int)$temp[$this->parentAttribute]])){
+                $titles[] = $items[(int)$temp[$this->parentAttribute]][$this->titleAttribute];
+                $temp = $items[(int)$temp[$this->parentAttribute]];
             }
 
             $result[$item[$this->primaryKeyAttribute]] = implode(' - ', array_reverse($titles));
@@ -128,9 +128,9 @@ class DCategoryTreeBehavior extends DCategoryBehavior
             $titles = array($item[$this->titleAttribute]);
 
             $temp = $item;
-            while (isset($items[$temp[$this->parentAttribute]])){
-                $titles[] = $items[$temp[$this->parentAttribute]][$this->titleAttribute];
-                $temp = $items[$temp[$this->parentAttribute]];
+            while (isset($items[(int)$temp[$this->parentAttribute]])){
+                $titles[] = $items[(int)$temp[$this->parentAttribute]][$this->titleAttribute];
+                $temp = $items[(int)$temp[$this->parentAttribute]];
             }
 
             $result[$item[$this->aliasAttribute]] = implode(' - ', array_reverse($titles));
@@ -167,7 +167,7 @@ class DCategoryTreeBehavior extends DCategoryBehavior
     protected function _getTabListRecursive(&$items, &$result, $parent_id, $indent=0)
     {
         foreach ($items as $item){
-            if ($item[$this->parentAttribute] == $parent_id && !isset($result[$item[$this->primaryKeyAttribute]])){
+            if ((int)$item[$this->parentAttribute] == (int)$parent_id && !isset($result[$item[$this->primaryKeyAttribute]])){
                 $result[$item[$this->primaryKeyAttribute]] = str_repeat('-- ', $indent) . $item[$this->titleAttribute];
                 $this->_getTabListRecursive($items, $result, $item[$this->primaryKeyAttribute], $indent + 1);
             }
@@ -194,7 +194,7 @@ class DCategoryTreeBehavior extends DCategoryBehavior
 
         $categories = array();
         foreach ($items as $item){
-            $categories[$item->{$this->parentAttribute}][] = $item;
+            $categories[(int)$item->{$this->parentAttribute}][] = $item;
         }
 
         return $this->_getUrlListRecursive ($categories, $parent);
@@ -232,7 +232,7 @@ class DCategoryTreeBehavior extends DCategoryBehavior
 
         $categories = array();
         foreach ($items as $item){
-            $categories[$item->{$this->parentAttribute}][] = $item;
+            $categories[(int)$item->{$this->parentAttribute}][] = $item;
         }
 
         return $this->_getMenuListRecursive ($categories, $parent, $sub);
