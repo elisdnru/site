@@ -25,9 +25,6 @@
  *
  * DInlineWidgetsBehavior
  * @method string decodeWidgets($text)
- *
- * DHtmlValidateBehavior
- * @method string validateOutput($output)
  */
 class DController extends Controller
 {
@@ -62,7 +59,6 @@ class DController extends Controller
                 'startBlock'=> '[{widget:',
                 'endBlock'=> '}]',
             ),
-            'DHtmlValidateBehavior'=>array('class'=>'DHtmlValidateBehavior'),
         ));
     }
 
@@ -79,12 +75,6 @@ class DController extends Controller
         return parent::beforeRender($viev);
     }
 
-    protected function afterRender($view, &$output)
-	{
-        $output = $this->validateOutput($output);
-        parent::afterRender($view, $output);
-    }
-
     public function checkIsPost()
     {
         if (!Yii::app()->request->isPostRequest)
@@ -93,7 +83,7 @@ class DController extends Controller
 
     public function refresh($terminate=true, $anchor='')
     {
-        $this->redirect(DLanguageUrlHelper::normalize(Yii::app()->getRequest()->getUrl() . $anchor), $terminate);
+        $this->redirect(Yii::app()->getRequest()->getOriginalUrl() . $anchor, $terminate);
     }
 
     public function redirectOrAjax($route = array('index'))
