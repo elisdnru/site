@@ -16,7 +16,7 @@ class DModuleUrlRulesBehavior extends CBehavior
         ));
     }
 
-    public function beginRequest()
+    public function beginRequest($event)
     {
         Yii::app()->moduleManager->init();
 
