@@ -698,7 +698,7 @@ class ShopProduct extends CActiveRecord
     public function isMainProduct()
     {
         $main_product = $this->getMainProduct();
-        return $main_product ? $this->id == $main_product->id : true;
+        return $main_product ? $this->getPrimaryKey() == $main_product->id : true;
     }
 
     protected function getMainProduct()

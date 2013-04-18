@@ -167,7 +167,7 @@ class Review extends CActiveRecord
         if ($this->_url === null)
         {
             DUrlRulesHelper::import('review');
-            $this->_url = Yii::app()->createUrl('review/review/show', array('id'=>$this->id));
+            $this->_url = Yii::app()->createUrl('review/review/show', array('id'=>$this->getPrimaryKey()));
         }
         return $this->_url;
     }

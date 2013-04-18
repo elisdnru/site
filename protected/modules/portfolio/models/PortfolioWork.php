@@ -274,7 +274,7 @@ class PortfolioWork extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl('/portfolio/work/show', array('category'=>$this->category->path, 'id'=>$this->id, 'alias'=>$this->alias));
+            $this->_url = Yii::app()->createUrl('/portfolio/work/show', array('category'=>$this->category->path, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
         return $this->_url;
     }
 

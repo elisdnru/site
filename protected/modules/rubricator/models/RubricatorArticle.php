@@ -327,7 +327,7 @@ class RubricatorArticle extends CActiveRecord
         if ($this->_url === null)
         {
             DUrlRulesHelper::import('rubricator');
-            $this->_url = Yii::app()->createUrl('rubricator/article/show', array('category'=>$this->category->alias, 'id'=>$this->id, 'alias'=>$this->alias));
+            $this->_url = Yii::app()->createUrl('rubricator/article/show', array('category'=>$this->category->alias, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
         }
         return $this->_url;
     }

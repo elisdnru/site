@@ -424,7 +424,7 @@ class News extends CActiveRecord implements DICommentDepends
             return '';
 
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl('/new/new/show', array('path'=>$this->page->path, 'id'=>$this->id, 'alias'=>$this->alias));
+            $this->_url = Yii::app()->createUrl('/new/new/show', array('path'=>$this->page->path, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
         return $this->_url;
     }
 
