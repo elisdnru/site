@@ -13,15 +13,46 @@ class DMultilangHelper
     public static function suffixList()
     {
         $list = array();
-        foreach (Yii::app()->params['translatedLanguages'] as $l => $lang){
-            if ($l === Yii::app()->params['defaultLanguage']) {
+        foreach (Yii::app()->params['translatedLanguages'] as $lang => $name){
+            if ($lang === Yii::app()->params['defaultLanguage']) {
                 $suffix = '';
                 $lang = '';
             } else {
-                $suffix = '_' . $l;
+                $suffix = '_' . $lang;
             }
-            $list[$suffix] = $lang;
+            $list[$suffix] = $name;
         }
         return $list;
+    }
+
+    public static function processLangInUrl($url)
+    {
+        $domains = explode('/', ltrim($url, '/'));
+
+        $isLangExists = in_array($domains[0], array_keys(Yii::app()->params['translatedLanguages']));
+        $isDefaultLang = $domains[0] == Yii::app()->params['defaultLanguage'];
+
+        if ($isLangExists && !$isDefaultLang)
+        {
+            $lang = array_shift($domains);
+            Yii::app()->setLanguage($lang);
+        }
+
+        return '/' . implode('/', $domains);
+    }
+
+    public static function addLangToUrl($url)
+    {
+        $domains = explode('/', ltrim($url, '/'));
+        $isHasLang = in_array($domains[0], array_keys(Yii::app()->params['translatedLanguages']));
+        $isDefaultLang = Yii::app()->getLanguage() == Yii::app()->params['defaultLanguage'];
+
+        if ($isHasLang && $isDefaultLang)
+            array_shift($domains);
+
+        if (!$isHasLang && !$isDefaultLang)
+            array_unshift($domains, Yii::app()->getLanguage());
+
+        return '/' . implode('/', $domains);
     }
 }

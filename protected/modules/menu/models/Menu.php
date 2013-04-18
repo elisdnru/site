@@ -217,7 +217,7 @@ class Menu extends CActiveRecord
 
     protected function getLinkActive()
     {
-        $uri = DLanguageUrlHelper::getRequestUri();
+        $uri = Yii::app()->getRequest()->getOriginalRequestUri();
         $uri = $uri != '/' . Yii::app()->language . '/' ? $uri : '/index';
         return strpos($uri, $this->getUrl()) === 0;
     }
@@ -231,7 +231,7 @@ class Menu extends CActiveRecord
             $url = Yii::app()->createUrl('/main/default/url', array('a'=>$url));
         }
         else
-            $url = DLanguageUrlHelper::normalize($this->link);
+            $url = DMultilangHelper::addLangToUrl($this->link);
 
         return $url;
     }

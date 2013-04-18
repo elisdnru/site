@@ -43,7 +43,7 @@
     <?php  $this->widget('ulogin.widgets.UloginWidget', array(
     'params'=>array(
         'display'=>'small',
-        'redirect'=>Yii::app()->createAbsoluteUrl('/ulogin/default/login', array('return'=>ltrim(DLanguageUrlHelper::getRequestUri(), '/')))
+        'redirect'=>Yii::app()->createAbsoluteUrl('/ulogin/default/login', array('return'=>ltrim(Yii::app()->getRequest()->getOriginalRequestUri(), '/')))
     )
 )); ?>
 </div>
