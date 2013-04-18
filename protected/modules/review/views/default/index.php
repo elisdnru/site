@@ -26,7 +26,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?><noindex><?php endif; ?>
-    <p><?php echo $this->processWidgets(trim($page->text_purified)); ?></p>
+    <?php echo $this->processWidgets(trim($page->text_purified)); ?>
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?></noindex><?php endif; ?>
 
 <?php $this->renderPartial('_loop', array('reviews'=>$reviews)); ?>

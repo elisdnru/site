@@ -16,7 +16,7 @@
         </div>
     </header>
 
-    <div class="short"><p><?php echo trim($data->short_purified); ?></p></div>
+    <div class="short"><?php echo trim($data->short_purified); ?></div>
 
     <div class="clear"></div>
 </article>

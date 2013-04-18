@@ -13,7 +13,7 @@ $i=0;
     <?php endif; ?>
 
     <h2 class="title"><a href="<?php echo $new->url; ?>"><?php echo CHtml::encode($new->title); ?></a></h2>
-    <?php if (trim($new->short)): ?><div class="short"><p><?php echo trim($new->short_purified); ?></p></div><?php endif; ?>
+    <?php if (trim($new->short)): ?><div class="short"><?php echo trim($new->short_purified); ?></div><?php endif; ?>
 
 </article>
 

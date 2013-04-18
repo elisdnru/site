@@ -9,7 +9,7 @@
         </div>
     </header>
 
-    <div class="short"><p><?php echo trim($new->short_purified); ?></p></div>
+    <div class="short"><?php echo trim($new->short_purified); ?></div>
 </article>
 
 <?php endforeach; ?>

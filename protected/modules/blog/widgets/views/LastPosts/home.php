@@ -29,7 +29,7 @@
             <p class="thumb"><a href="<?php echo $data->url; ?>"><?php echo CHtml::image($data->getImageThumbUrl(), $data->image_alt, $properties); ?></a></p>
         <?php endif; ?>
     </header>
-    <div class="short"><p><?php echo trim($data->short_purified); ?></p></div>
+    <div class="short"><?php echo trim($data->short_purified); ?></div>
     <p class="more"><a rel="nofollow" href="<?php echo $data->url; ?>">Читать далее</a></p>
     <div class="clear"></div>
 </article>

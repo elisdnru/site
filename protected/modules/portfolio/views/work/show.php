@@ -49,7 +49,7 @@ if ($this->is(Access::ROLE_CONTROL)){
         </div>
 
         <div class="short">
-            <p><?php echo trim($model->short_purified); ?></p>
+            <?php echo trim($model->short_purified); ?>
         </div>
 
     </header>
@@ -58,7 +58,7 @@ if ($this->is(Access::ROLE_CONTROL)){
     <div class="clear"></div>
 
     <div class="text">
-        <p><?php echo $this->decodeWidgets(trim($model->text_purified)); ?></p>
+        <?php echo $this->decodeWidgets(trim($model->text_purified)); ?>
     </div>
 
     <div class="clear"></div>

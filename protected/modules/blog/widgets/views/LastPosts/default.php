@@ -32,7 +32,7 @@
 
     </header>
 
-    <div class="short"><p><?php echo trim($data->short_purified); ?></p></div>
+    <div class="short"><?php echo trim($data->short_purified); ?></div>
 
     <p class="more"><a rel="nofollow" href="<?php echo $data->url; ?>">Читать далее</a></p>
 

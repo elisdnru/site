@@ -23,7 +23,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 <h1><?php echo CHtml::encode($page->title); ?></h1>
 
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?><noindex><?php endif; ?>
-    <p><?php echo $this->decodeWidgets(trim($page->text_purified)); ?></p>
+    <?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?></noindex><?php endif; ?>
 
 <?php $this->renderPartial('_loop', array('recipes'=>$recipes)); ?>

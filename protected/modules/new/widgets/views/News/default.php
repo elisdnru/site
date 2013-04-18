@@ -12,7 +12,7 @@
         </div>
     </header>
 
-    <div class="short"><p><?php echo trim($new->short_purified); ?></p></div>
+    <div class="short"><?php echo trim($new->short_purified); ?></div>
 
     <aside>
         <p class="more"><a href="<?php echo $new->url; ?>">Подробнее</a></p>
