@@ -107,15 +107,11 @@ CTextHighlighter::registerCssFile();
         'image'=>$model->imageUrl,
     )); ?>
 
-    <?php if (Yii::app()->moduleManager->active('adsense')): ?>
-        <?php if($this->beginCache('adsense_468x60', array('duration'=>3600*24))) { ?>
-            <?php $this->beginWidget('DPortlet', array('htmlOptions'=>array('class'=>'portlet adsense')));?>
-            <?php $this->widget('adsense.widgets.AdsenseWidget', array(
-                'tpl'=>'b468x60',
-            )); ?>
-            <?php $this->endWidget(); ?>
-        <?php $this->endCache(); } ?>
-    <?php endif; ?>
+    <?php if($this->beginCache('banner_post', array('duration'=>3600*24))) { ?>
+        <?php $this->beginWidget('DPortlet', array('htmlOptions'=>array('class'=>'portlet banner')));?>
+        <?php $this->widget('application.modules.block.widgets.BlockWidget', array('id'=>'banner_post')); ?>
+        <?php $this->endWidget(); ?>
+    <?php $this->endCache(); } ?>
 
     <!-- Другие новости -->
     <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('duration'=>300))) { ?>
