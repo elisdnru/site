@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 if ($type || $category)
 {
     $this->breadcrumbs = array_merge($this->breadcrumbs, array(
-        $rubric->title => $rubric->url,
+        $rubric->title => $this->createUrl('/shop/default/rubric', array('rubric'=>$rubric->alias)),
     ));
 
     if ($type)
