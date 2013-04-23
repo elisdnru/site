@@ -14,8 +14,6 @@ class ShopType extends Category
 {
     const IMAGE_PATH = 'upload/images/shop/types';
 
-    public $urlRoute = '/shop/default/type';
-
     public $del_image = false;
 
 	/**
@@ -126,7 +124,14 @@ class ShopType extends Category
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl($this->urlRoute, array('type'=>$this->alias));
+        {
+            if ($brand = Yii::app()->getRequest()->getQuery('brand'))
+                $this->_url = Yii::app()->createUrl('/shop/default/brand', array('type'=>$this->alias, 'brand'=>$brand));
+            elseif ($rubric = Yii::app()->getRequest()->getQuery('rubric'))
+                $this->_url = Yii::app()->createUrl('/shop/default/rubric', array('type'=>$this->alias, 'rubric'=>$rubric));
+            else
+                $this->_url = Yii::app()->createUrl('/shop/default/type', array('type'=>$this->alias));
+        }
         return $this->_url;
     }
 }

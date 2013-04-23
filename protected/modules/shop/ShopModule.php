@@ -69,6 +69,11 @@ class ShopModule extends DWebModule
             'shop/brand/<brand:[\w_-]+>/<type:[\w_-]+>'=>'shop/default/brand',
             'shop/brand/<brand:[\w_-]+>'=>'shop/default/brand',
 
+            'shop/rubric/<rubric:[\w_-]+>/<type:[\w_-]+>/<category:.+>/page-<page:\d+>'=>'shop/default/rubric',
+            'shop/rubric/<rubric:[\w_-]+>/<type:[\w_-]+>/<category:.+>'=>'shop/default/rubric',
+            'shop/rubric/<rubric:[\w_-]+>/<type:[\w_-]+>'=>'shop/default/rubric',
+            'shop/rubric/<rubric:[\w_-]+>'=>'shop/default/rubric',
+
             'shop/<type:[\w_-]+>/<category:[\w_\/-]+>/<id:[\d]+>'=>'shop/product/show',
             'shop/<type:[\w_-]+>/<category:[\w_\/-]+>/page-<page:\d+>'=>'shop/default/category',
             'shop/<type:[\w_-]+>/<category:[\w_\/-]+>'=>'shop/default/category',

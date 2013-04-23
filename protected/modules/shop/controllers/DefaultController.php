@@ -104,6 +104,29 @@ class DefaultController extends ShopBaseController
         ));
     }
 
+    public function actionRubric($rubric, $type='', $category='')
+    {
+        $rubric = $this->loadRubricModel($rubric);
+        if ($type) $type = $this->loadTypeModel($type);
+        if ($category) $category = $this->loadCategoryModel($category, $type->id);
+
+        $model = $this->loadSearchModel();
+        if ($type) $model->type_id = $type->id;
+        if ($category) $model->category_id = $category->id;
+        $model->rubric = $rubric->id;
+
+        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('SHOP.PRODUCTS_PER_PAGE'));
+
+        $this->render('rubric', array(
+            'dataProvider'=>$dataProvider,
+            'rubric' => $rubric,
+            'model' => $model,
+            'type' => $type,
+            'category' => $category,
+            'page' => $this->loadShopPage(),
+        ));
+    }
+
     public function actionSearch()
     {
         $criteria = $this->getStartCriteria();
@@ -161,6 +184,19 @@ class DefaultController extends ShopBaseController
     protected function loadBrandModel($type)
     {
         $type = ShopBrand::model()->cache(3600 * 24)->findByAlias($type);
+        if ($type === null)
+            throw new CHttpException('404', 'Страница не найдена');
+        return $type;
+    }
+
+    protected function loadRubricModel($type)
+    {
+        if (Yii::app()->moduleManager->active('rubricator'))
+        {
+            Yii::import('application.modules.rubricator.models.RubricatorArticle');
+            $type = RubricatorArticle::model()->cache(3600 * 24)->findByAlias($type);
+        }
+
         if ($type === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $type;

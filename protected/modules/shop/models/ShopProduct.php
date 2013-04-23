@@ -45,6 +45,7 @@ class ShopProduct extends CActiveRecord
     public $size;
     public $color;
     public $grouped;
+    public $rubric;
 
     protected $_otherAttributes;
 
@@ -80,7 +81,7 @@ class ShopProduct extends CActiveRecord
 			array('title, short, text, description', 'safe'),
 			array('otherAttributesAssoc', 'safe'),
 
-			array('id, artikul, type_id, category_id, title, pagetitle, description, keywords, text, price, count, priority, public, popular, inhome, rating, rating_count, rating_summ, size', 'safe', 'on'=>'search'),
+			array('id, artikul, type_id, category_id, title, pagetitle, description, keywords, text, price, count, priority, public, popular, inhome, rating, rating_count, rating_summ, size, rubric', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -176,6 +177,7 @@ class ShopProduct extends CActiveRecord
 	public function search($pageSize=10)
 	{
 		$criteria=new CDbCriteria;
+        $with = array();
 
         if ($this->grouped)
             $criteria->group = 't.title';
@@ -189,9 +191,7 @@ class ShopProduct extends CActiveRecord
         }
 
         if ($this->category_id)
-        {
             $searchCategories = array_merge($searchCategories, array($this->category_id));
-        }
 
         if (count($searchCategories))
         {
@@ -220,14 +220,23 @@ class ShopProduct extends CActiveRecord
 
         if ($this->size)
         {
-            $sizeProductIds = CHtml::listData(ShopProductSize::model()->with('size')->findAll('size.alias = :size', array('size'=>$this->size)), 'product_id', 'product_id');
-            $criteria->addInCondition('t.id', array_unique($sizeProductIds));
+            $criteria->compare('product_sizes.size_id', $this->size);
+            $with['product_sizes'] = array('together'=>true);
         }
 
         if ($this->color)
         {
-            $colorProductIds = CHtml::listData(ShopProductColor::model()->with('color')->findAll('color.alias = :color', array('color'=>$this->color)), 'product_id', 'product_id');
-            $criteria->addInCondition('t.id', array_unique($colorProductIds));
+            $criteria->compare('product_colors.color_id', $this->color);
+            $with['product_colors'] = array('together'=>true);
+        }
+
+        if (Yii::app()->moduleManager->installed('rubricator'))
+        {
+            if ($this->rubric)
+            {
+                $criteria->compare('product_rubrics.rubric_id', $this->rubric);
+                $with['product_rubrics'] = array('together'=>true);
+            }
         }
 
         $criteria->compare('t.id',$this->id);
@@ -248,7 +257,7 @@ class ShopProduct extends CActiveRecord
         $criteria->compare('t.inhome',$this->inhome);
         $criteria->compare('t.sale',$this->sale);
 
-        $criteria->with = array('type', 'category');
+        $criteria->with = array_merge(array('type', 'category'), $with);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
