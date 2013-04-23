@@ -561,20 +561,46 @@ class ShopProduct extends CActiveRecord
 
     protected function saveOtherAttributes()
     {
-        $attrs = $this->otherAttributes;
+        $attributes = $this->getOtherAttributesAssoc();
 
-        ShopProductAttributeValue::model()->deleteAllByAttributes(array('product_id' => $this->id));
+        ShopProductAttributeValue::model()->deleteAllByAttributes(array('product_id' => $this->primaryKey));
 
-        if ($attrs !== null)
+        if (is_array($attributes))
         {
-            foreach ($attrs as $attribute)
+            foreach ($attributes as $alias=>$value)
             {
-                $attr = new ShopProductAttributeValue();
-                $attr->product_id = $this->id;
-                $attr->attribute_id = $attribute->id;
-                $attr->value = $attribute->value;
-                $attr->save();
+                if ($attribute = ShopProductAttribute::model()->findByAttributes(array('alias'=>$alias))){
+                    $attr = new ShopProductAttributeValue();
+                    $attr->product_id = $this->primaryKey;
+                    $attr->attribute_id = $attribute->id;
+                    $attr->value = $value;
+                    $attr->save();
+                }
             }
+        }
+    }
+
+    public function getOtherAttributesAssoc()
+    {
+        if ($this->_otherAttributes === null)
+        {
+            foreach ($this->getOtherAttributes($this->type_id) as $attribute)
+                $this->_otherAttributes[$attribute->alias] = $attribute->value;
+        }
+
+        return $this->_otherAttributes;
+    }
+
+    public function setOtherAttributesAssoc($value)
+    {
+        $this->_otherAttributes = array();
+
+        foreach ($this->loadAttrFields($this->type_id) as $field)
+        {
+            if (isset($value[$field->alias]))
+                $field->value = $value[$field->alias];
+
+            $this->_otherAttributes[$field->alias] = $field->value;
         }
     }
 
@@ -582,57 +608,31 @@ class ShopProduct extends CActiveRecord
      * @param string $type
      * @return ShopProductAttribute[]
      */
-    public function getOtherAttributes($type='')
-    {
-        if ($this->_otherAttributes === null)
-        {
-            $attrFields = $this->loadAttrFields($type);
-
-            $attributes = array();
-            foreach ($attrFields as $attribute)
-            {
-                foreach ($this->all_attribute_values as $shop_attribute_value)
-                {
-                    if ($shop_attribute_value->attribute_id == $attribute->id)
-                        $attribute->value = $shop_attribute_value->value;
-                }
-                $attributes[] = $attribute;
-            }
-
-            $this->_otherAttributes = $attributes;
-        }
-
-        return $this->_otherAttributes;
-    }
-
-    public function getOtherAttributesAssoc()
+    public function getOtherAttributes($type=0)
     {
         $attributes = array();
-        foreach ($this->getOtherAttributes() as $attribute)
+        $attrFields = $this->loadAttrFields($type);
+
+        foreach ($attrFields as $attribute)
         {
-            $attributes[$attribute->alias] = $attribute->value;
+            foreach ($this->all_attribute_values as $shop_attribute_value)
+            {
+                if ($shop_attribute_value->attribute_id == $attribute->id)
+                    $attribute->value = $shop_attribute_value->value;
+            }
+
+            if (is_array($this->_otherAttributes)){
+                foreach ($this->_otherAttributes as $key=>$value)
+                {
+                    if ($attribute->alias == $key)
+                        $attribute->value = $value;
+                }
+            }
+            $attributes[] = $attribute;
         }
 
         return $attributes;
     }
-
-    public function setOtherAttributesAssoc($value)
-    {
-        $attrFields = $this->loadAttrFields();
-
-        $attributes = array();
-        foreach ($attrFields as $field)
-        {
-            if (isset($value[$field->alias]))
-                $field->value = $value[$field->alias];
-
-            $attributes[] = $field;
-        }
-
-        $this->_otherAttributes = $attributes;
-    }
-
-    private $_attrFields;
 
     /**
      * @param int $type
@@ -640,14 +640,9 @@ class ShopProduct extends CActiveRecord
      */
     protected function loadAttrFields($type=0)
     {
-        if ($this->_attrFields === null)
-        {
-            $this->_attrFields = ShopProductAttribute::model()->type($type ? $type : $this->type_id)->findAll(array(
-                'order' => 'sort ASC',
-            ));
-        }
-
-        return $this->_attrFields;
+        return ShopProductAttribute::model()->type($type ? $type : $this->type_id)->findAll(array(
+            'order' => 'sort ASC',
+        ));
     }
 
     public function getFullTitle()

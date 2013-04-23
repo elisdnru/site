@@ -43,37 +43,18 @@ class ProductAdminController extends DAdminController
             $model = $this->createModel();
         }
 
-        $attributes = ShopProductAttribute::model()->findAll(array(
-            'order'=>'sort ASC',
-        ));
-
         if(isset($_POST['ShopProduct']))
         {
             $model->attributes = $_POST['ShopProduct'];
 
             if($model->save()){
-
-                if (isset($_POST['ShopProductAttribute']))
-                {
-                    foreach ($_POST['ShopProductAttribute'] as $attrid=>$attribute)
-                    {
-                        $attr = new ShopProductAttributeValue;
-                        $attr->product_id = $model->id;
-                        $attr->attribute_id = $attrid;
-                        $attr->value = $attribute['value'];
-                        $attr->save();
-                    }
-                }
-
                 Yii::app()->user->setFlash('success','Товар добавлен');
-
                 $model = $this->cloneModel($model->getPrimaryKey());
             }
         }
 
         $this->render('create',array(
             'model'=>$model,
-            'attributes'=>$attributes,
             'clone'=>$clone,
         ));
     }
