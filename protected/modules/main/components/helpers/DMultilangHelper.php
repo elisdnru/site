@@ -13,14 +13,15 @@ class DMultilangHelper
     public static function suffixList()
     {
         $list = array();
+        $enabled = self::enabled();
         foreach (Yii::app()->params['translatedLanguages'] as $lang => $name){
             if ($lang === Yii::app()->params['defaultLanguage']) {
                 $suffix = '';
-                $lang = '';
+                $list[$suffix] = $enabled ? $name : '';
             } else {
                 $suffix = '_' . $lang;
+                $list[$suffix] = $name;
             }
-            $list[$suffix] = $name;
         }
         return $list;
     }
