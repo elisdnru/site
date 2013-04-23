@@ -26,7 +26,7 @@
                 <table class="nomargin">
                 <?php foreach($product->otherAttributes as $attribute): ?>
                     <tr>
-                        <td><?php echo $attribute->title; ?></td>
+                        <td style="width:50%"><?php echo $attribute->title; ?></td>
                         <td><?php echo $attribute->value; ?></td>
                     </tr>
                     <?php endforeach; ?>
