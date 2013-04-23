@@ -189,7 +189,18 @@ return array(
             'routes'=>array(
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>'error, warning',
+                    'levels'=>CLogger::LEVEL_ERROR,
+                    'logFile'=>'log_error.log',
+                ),
+                array(
+                    'class'=>'CFileLogRoute',
+                    'levels'=>CLogger::LEVEL_WARNING,
+                    'logFile'=>'log_warning.log',
+                ),
+                array(
+                    'class'=>'CFileLogRoute',
+                    'levels'=>CLogger::LEVEL_INFO,
+                    'logFile'=>'log_info.log',
                 ),
             ),
         ),
