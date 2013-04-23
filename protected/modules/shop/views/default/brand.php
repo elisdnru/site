@@ -5,8 +5,26 @@ $this->keywords = $brand->keywords;
 
 $this->breadcrumbs=array(
     $page->title => $this->createUrl('/shop/default/index'),
-    $brand->title
 );
+
+if ($type || $category)
+{
+    $this->breadcrumbs = array_merge($this->breadcrumbs, array(
+        $brand->title => $brand->url,
+    ));
+
+    if ($type)
+        $this->breadcrumbs = array_merge($this->breadcrumbs, array(
+            $type->title => $type->url,
+        ));
+
+    if ($category)
+        $this->breadcrumbs = array_merge($this->breadcrumbs, $category->getBreadcrumbs(true));
+}
+else
+{
+    $this->breadcrumbs[] = $brand->title;
+}
 
 if ($this->is(Access::ROLE_CONTROL)){
 
