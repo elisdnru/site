@@ -22,6 +22,10 @@ class ModelAdminController extends DAdminController
     public function createModel()
     {
         $model = new ShopModel();
+
+        if (isset($_GET['ShopModel']['product_id']))
+            $model->product_id = $_GET['ShopModel']['product_id'];
+
         return $model;
     }
 

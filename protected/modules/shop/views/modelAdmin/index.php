@@ -14,7 +14,7 @@ $this->admin[] = array('label'=>'Добавить модель', 'url'=>$this->c
 $this->info = 'Модели';
 ?>
 
-<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?php echo $this->createUrl('create', array('ShopModel[product_id]'=>$model->product_id)); ?>">Добавить</a></p>
 
 <h1>Модели товаров</h1>
 

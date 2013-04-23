@@ -3,7 +3,7 @@ $this->pageTitle='Редактор модели товара';
 $this->breadcrumbs=array(
 	'Панель управления'=>array('/admin'),
 	'Товары'=>array('/shop/productAdmin/index'),
-	'Модели товаров'=>array('index'),
+	'Модели товара'=>$this->createUrl('index', array('ShopModel[product_id]'=>$model->product_id)),
 	'Добавление модели'
 );
 
