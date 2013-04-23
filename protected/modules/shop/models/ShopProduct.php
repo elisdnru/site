@@ -319,7 +319,7 @@ class ShopProduct extends CActiveRecord
                 'processOnBeforeSave'=>true,
             ),
             'shopItem'=>array(
-                'class'=>'ShopItemBehavior',
+                'class'=>'application.modules.shop.components.ShopItemBehavior',
             ),
             'MultiListCategory'=>array(
                 'class'=>'DMultiplyListBehavior',
