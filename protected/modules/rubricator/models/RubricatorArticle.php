@@ -1,6 +1,8 @@
 <?php
 
 Yii::import('application.modules.new.models.NewsPage');
+Yii::import('application.modules.rubricator.models.RubricatorCategory');
+Yii::import('application.modules.gallery.models.Gallery');
 
 /**
  * This is the model class for table "{{new}}".
@@ -327,8 +329,20 @@ class RubricatorArticle extends CActiveRecord
         if ($this->_url === null)
         {
             DUrlRulesHelper::import('rubricator');
-            $this->_url = Yii::app()->createUrl('rubricator/article/show', array('category'=>$this->category->alias, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
+            $this->_url = Yii::app()->createUrl('/rubricator/article/show', array('category'=>$this->category->alias, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
         }
         return $this->_url;
+    }
+
+    private $_shopUrl;
+
+    public function getShopUrl()
+    {
+        if ($this->_shopUrl === null)
+        {
+            DUrlRulesHelper::import('shop');
+            $this->_shopUrl = Yii::app()->createUrl('/shop/default/rubric', array('rubric'=>$this->alias));
+        }
+        return $this->_shopUrl;
     }
 }
