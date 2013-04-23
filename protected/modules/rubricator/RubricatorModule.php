@@ -34,11 +34,11 @@ class RubricatorModule extends DWebModule
     {
         return array(
             'rubricator'=>'rubricator/default/index',
+            'rubricator/all'=>'rubricator/default/index',
             'rubricator/<category:[\w_-]+>/<id:\d+>/<alias:[\w_-]+>'=>'rubricator/article/show',
             'rubricator/<category:[\w_-]+>'=>'rubricator/default/category',
         );
     }
-
 
     public function install()
     {

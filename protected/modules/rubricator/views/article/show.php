@@ -7,11 +7,14 @@ $this->pageTitle = $model->title;
 $this->description = $model->description;
 $this->keywords = $model->keywords;
 
-$this->breadcrumbs=array(
+$this->breadcrumbs = array(
     $page->title => $this->createUrl('/rubricator/default/index'),
-    $model->category->title => $model->category->url,
-    $model->title,
 );
+
+if ($model->category)
+    $this->breadcrumbs[$model->category->title] = $model->category->url;
+
+$this->breadcrumbs[] = $model->title;
 
 if ($this->is(Access::ROLE_CONTROL)){
 
