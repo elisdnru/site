@@ -10,13 +10,13 @@ $this->breadcrumbs=array(
 
 if ($this->is(Access::ROLE_CONTROL)){
 
-    if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Товары', 'url'=>$this->createUrl('/shop/productAdmin/index', array('ShopProduct[brnd_id]'=>$brand->id)));
+    if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Товары', 'url'=>$this->createUrl('/shop/productAdmin/index', array('ShopProduct[brand_id]'=>$brand->id)));
     if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Типы', 'url'=>$this->createUrl('/shop/typeAdmin/index'));
     if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Редактировать тип', 'url'=>$this->createUrl('/shop/typeAdmin/update', array('id'=>$brand->id)));
     if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/shop/categoryAdmin/index'));
     if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Атрибуты', 'url'=>$this->createUrl('/shop/attributeAdmin/index'));
     if ($this->moduleAllowed('shop')) $this->admin[] = $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications($this->module->id));
-    if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Добавить товар', 'url'=>$this->createUrl('/shop/productAdmin/create', array('type'=>$brand->id)));
+    if ($this->moduleAllowed('shop')) $this->admin[] = array('label'=>'Добавить товар', 'url'=>$this->createUrl('/shop/productAdmin/create'));
 
     $this->info = 'Товары производителя';
 }
