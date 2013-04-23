@@ -220,13 +220,23 @@ class ShopProduct extends CActiveRecord
 
         if ($this->size)
         {
-            $criteria->compare('product_sizes.size_id', $this->size);
+            if (!is_numeric($this->size))
+                $size = ShopSize::model()->findByAlias($this->size);
+            else
+                $size = $this->size;
+
+            $criteria->compare('product_sizes.size_id', $size);
             $with['product_sizes'] = array('together'=>true);
         }
 
         if ($this->color)
         {
-            $criteria->compare('product_colors.color_id', $this->color);
+            if (!is_numeric($this->color))
+                $color = ShopColor::model()->findByAlias($this->color);
+            else
+                $color = $this->size;
+
+            $criteria->compare('product_colors.color_id', $color);
             $with['product_colors'] = array('together'=>true);
         }
 
