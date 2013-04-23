@@ -77,14 +77,3 @@ if ($this->is(Access::ROLE_CONTROL)){
 	</ul>
 	<div class="clear"></div>
 </div>
-
-<hr />
-
-<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
-    <?php $this->widget('shop.widgets.RubricProductsWidget', array(
-        'rubric'=>$model->id,
-        'limit'=>10,
-    )); ?>
-<?php $this->endCache(); } ?>
-
-</aside>
