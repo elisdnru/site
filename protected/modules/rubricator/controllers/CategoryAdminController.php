@@ -21,15 +21,15 @@ class CategoryAdminController extends DAdminController
 
     public function beforeDelete($model)
     {
-        $countProducts = ShopProduct::model()->count(
+        $countProducts = RubricatorArticle::model()->count(
             array(
-                'condition'=>'rubric_id=:ID',
+                'condition'=>'category_id=:ID',
                 'params'=>array(':ID'=>$model->id)
             )
         );
 
         if ($countProducts)
-            throw new CHttpException(400, 'В данной рубрике есть товары. Удалите их или переместите в другие типы.');
+            throw new CHttpException(400, 'В данной рубрике есть статьи. Удалите их или переместите в другие категории.');
     }
 
     public function createModel()
