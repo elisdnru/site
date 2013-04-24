@@ -154,7 +154,7 @@
                 <?php foreach($model->otherAttributes as $attribute): ?>
                 <div class="row">
                     <label><?php echo $attribute->title; ?></label>
-                    <?php echo CHtml::textField(get_class($model) . '[otherAttributesAssoc][' . $attribute->alias . ']', $attribute->value, array('maxlength'=>255)); ?>
+                    <?php echo CHtml::textField(get_class($model) . '[otherAttributesAssoc][' . $attribute->id . ']', $attribute->value, array('maxlength'=>255)); ?>
                 </div>
                 <?php endforeach; ?>
             </div>

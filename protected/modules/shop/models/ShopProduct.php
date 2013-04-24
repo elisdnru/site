@@ -586,12 +586,12 @@ class ShopProduct extends CActiveRecord
 
         if (is_array($attributes))
         {
-            foreach ($attributes as $alias=>$value)
+            foreach ($attributes as $id=>$value)
             {
-                if ($attribute = ShopProductAttribute::model()->findByAttributes(array('alias'=>$alias))){
+                if (ShopProductAttribute::model()->countByAttributes(array('id'=>$id))){
                     $attr = new ShopProductAttributeValue();
                     $attr->product_id = $this->primaryKey;
-                    $attr->attribute_id = $attribute->id;
+                    $attr->attribute_id = $id;
                     $attr->value = $value;
                     $attr->save();
                 }
@@ -604,7 +604,7 @@ class ShopProduct extends CActiveRecord
         if ($this->_otherAttributes === null)
         {
             foreach ($this->getOtherAttributes($this->type_id) as $attribute)
-                $this->_otherAttributes[$attribute->alias] = $attribute->value;
+                $this->_otherAttributes[$attribute->id] = $attribute->value;
         }
 
         return $this->_otherAttributes;
@@ -616,10 +616,10 @@ class ShopProduct extends CActiveRecord
 
         foreach ($this->loadAttrFields($this->type_id) as $field)
         {
-            if (isset($value[$field->alias]))
-                $field->value = $value[$field->alias];
+            if (isset($value[$field->id]))
+                $field->value = $value[$field->id];
 
-            $this->_otherAttributes[$field->alias] = $field->value;
+            $this->_otherAttributes[$field->id] = $field->value;
         }
     }
 
@@ -643,7 +643,7 @@ class ShopProduct extends CActiveRecord
             if (is_array($this->_otherAttributes)){
                 foreach ($this->_otherAttributes as $key=>$value)
                 {
-                    if ($attribute->alias == $key)
+                    if ($attribute->id == $key)
                         $attribute->value = $value;
                 }
             }

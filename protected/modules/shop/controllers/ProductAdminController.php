@@ -131,7 +131,7 @@ class ProductAdminController extends DAdminController
 
         foreach($attributes as $attribute){
             $label = CHtml::tag('label', array(), $attribute->title);
-            $input = CHtml::activeTextField($attribute, "[$attribute->id]value", array('maxlength'=>255));
+            $input = CHtml::textField("ShopProduct[otherAttributesAssoc][$attribute->id]", $attribute->value, array('maxlength'=>255));
             $html .= CHtml::tag('div', array('class'=>'row'), $label . $input);
         }
 
