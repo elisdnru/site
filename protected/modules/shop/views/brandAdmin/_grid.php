@@ -5,7 +5,7 @@
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'posts-grid',
-    'dataProvider'=>$model->search(),
+    'dataProvider'=>$model->search(30),
     'filter'=>$model,
     'columns'=>array(
         array(
