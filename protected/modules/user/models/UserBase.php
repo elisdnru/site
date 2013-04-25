@@ -222,13 +222,6 @@ abstract class UserBase extends CActiveRecord
 
             // Avatar
             array(
-                'avatar',
-                'file',
-                'types'=>'jpg,jpeg,gif,png',
-                'allowEmpty'=>true,
-                'safe'=>false
-            ),
-            array(
                 'del_avatar',
                 'safe'
             ),

@@ -80,7 +80,6 @@ class Page extends CActiveRecord
 			array('alias, title, image_alt, pagetitle, keywords', 'length', 'max'=>255),
             array('hidetitle, parent_id, layout_id, layout_subpages_id', 'numerical', 'integerOnly'=>true),
 			array('date, text, description, del_image', 'safe'),
-            array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, layout_id, layout_subpages_id, alias, date, title, pagetitle, description, keywords, text', 'safe', 'on'=>'search'),

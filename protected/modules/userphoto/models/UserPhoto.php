@@ -49,7 +49,6 @@ class UserPhoto extends CActiveRecord
 			array('user_id', 'unsafe'),
 			array('text', 'safe'),
 			array('title', 'length', 'max'=>255),
-			array('file', 'file', 'types'=>'jpg,jpeg,gif,png', 'allowEmpty'=>'true', 'safe'=>false),
 			array('id, user_id, file', 'safe', 'on'=>'search'),
 		);
 	}

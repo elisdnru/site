@@ -8,18 +8,13 @@
  * <pre>
  * public $del_image; // field for "Delete image" checkbox
  *
- * public function rules()
- * {
- *     return array(
- *         array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
- *     }
- * }
  * public function behaviors()
  * {
  *     return array(
  *         'ImageUpload'=>array(
  *             'class'=>'DFileUploadBehavior',
  *             'fileAttribute'=>'image',
+ *             'fileTypes'=>'jpg,jpeg,gif,png',
  *             'deleteAttribute'=>'del_image',
  *             'filePath'=>'upload/images',
  *         )
@@ -33,15 +28,28 @@
 
 class DFileUploadBehavior extends CActiveRecordBehavior
 {
-
 	public $fileAttribute = 'file';
-	public $storageAttribute = null; // set if it different from fileAttribute
-	public $deleteAttribute = null; // field for "Delete image" checkbox
+    public $fileTypes = 'jpg,jpeg,gif,png';
+    public $storageAttribute = null; // set if it different from fileAttribute
+    public $deleteAttribute = null; // field for "Delete image" checkbox
     public $filePath = '';
     public $defaultThumbWidth = 200;
     public $defaultThumbHeight = 0;
     public $imageWidthAttribute = '';
     public $imageHeightAttribute = '';
+
+    /**
+     * @param CComponent $owner
+     */
+    public function attach($owner){
+        parent::attach($owner);
+        $fileValidator = CValidator::createValidator('file', $owner, $this->fileAttribute,  array(
+            'types'=>$this->fileTypes,
+            'allowEmpty'=>true,
+            'safe'=>false,
+        ));
+        $owner->validatorList->add($fileValidator);
+    }
 
 	/**
 	* Responds to {@link CModel::onBeforeSave} event.

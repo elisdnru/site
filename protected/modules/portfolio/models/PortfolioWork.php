@@ -71,11 +71,9 @@ class PortfolioWork extends CActiveRecord
             array('title, alias, pagetitle, keywords', 'length', 'max'=>'255'),
             array('alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
             array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'),
-            array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, date, category_id, title, pagetitle, description, keywords, text, public', 'safe', 'on'=>'search'),
-            //array('image', 'file', 'types'=>'jpg, gif, png'),
 		);
 	}
 

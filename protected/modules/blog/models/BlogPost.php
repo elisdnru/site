@@ -88,12 +88,10 @@ class BlogPost extends CActiveRecord implements DICommentDepends
             array('tagsString', 'length', 'max'=>'255'),
             array('alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
             array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'),
-            array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
             array('author_id', 'default', 'value'=>Yii::app()->user->id),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, date, category_id, author_id, title, pagetitle, description, keywords, image_alt, text, public, gallery_id', 'safe', 'on'=>'search'),
-            //array('image', 'file', 'types'=>'jpg, gif, png'),
 		);
 	}
 

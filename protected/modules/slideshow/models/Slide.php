@@ -51,7 +51,6 @@ class Slide extends CActiveRecord
 			array('sort', 'numerical', 'integerOnly'=>true),
 			array('text', 'safe'),
             array('title, url', 'length', 'max'=>'255'),
-            array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
             array('del_image', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.

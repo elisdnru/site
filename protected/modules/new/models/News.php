@@ -93,7 +93,6 @@ class News extends CActiveRecord implements DICommentDepends
             array('title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max'=>'255'),
             array('alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
             array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'),
-            array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, date, page_id, author_id, title, pagetitle, description, keywords, image_alt, text, public, inhome, important, actual, gallery_id, group_id', 'safe', 'on'=>'search'),

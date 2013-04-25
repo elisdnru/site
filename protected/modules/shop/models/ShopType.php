@@ -38,7 +38,6 @@ class ShopType extends Category
     {
         return array_merge(parent::rules(), array(
             array('alias', 'unique', 'caseSensitive' => false, 'className'=>'ShopType', 'message' => 'Элемент с таким URL уже существует'),
-            array('image','file','types'=>'jpg,jpeg,gif,png','allowEmpty'=>true,'safe'=>false),
             array('del_image', 'safe'),
         ));
     }
