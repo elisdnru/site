@@ -6,11 +6,17 @@ Yii::import('application.modules.uploader.components.*');
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
  */
+
+Yii::import('ext.image.CImageHandler');
+
 class DUploadManager extends CApplicationComponent
 {
     public $rootPath = 'upload';
     public $emptyImage = '';
     public $watermarkFile = '';
+    public $watermarkOffsetX = 10;
+    public $watermarkOffsetY = 10;
+    public $watermarkPosition = CImageHandler::CORNER_RIGHT_BOTTOM;
     public $allowedThumbnailResolutions = array();
     public $directoryRights = 755;
 
@@ -191,7 +197,7 @@ class DUploadManager extends CApplicationComponent
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);
 
             if ($this->watermarkFile)
-                $thumb = $thumb->watermark($this->watermarkFile, 20, 20, CImageHandler::CORNER_RIGHT_BOTTOM);
+                $thumb = $thumb->watermark($this->watermarkFile, $this->watermarkOffsetX, $this->watermarkOffsetY, $this->watermarkPosition);
 
             if ($thumb->save($targetName, false, 100))
                 return Yii::app()->file->set($targetName);
