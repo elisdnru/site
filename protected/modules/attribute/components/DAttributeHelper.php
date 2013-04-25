@@ -5,6 +5,8 @@
  * @version 1.0
  */
 
+Yii::import('application.modules.attribute.models.UserAttribute');
+
 class DAttributeHelper
 {
     protected static $_attributes = array();
