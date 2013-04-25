@@ -129,6 +129,7 @@ class ShopProduct extends CActiveRecord
 
         if (Yii::app()->moduleManager->installed('rubricator'))
         {
+            Yii::import('application.modules.rubricator.models.RubricatorArticle');
             $relations = array_merge($relations, array(
                 'product_rubrics' => array(self::HAS_MANY, 'ShopProductRubric', 'product_id'),
                 'rubrics'=>array(self::MANY_MANY, 'RubricatorArticle', '{{shop_product_rubric}}(product_id, rubric_id)',

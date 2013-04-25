@@ -101,7 +101,7 @@
         </fieldset>
 
         <?php if (Yii::app()->moduleManager->active('rubricator')): ?>
-            <?php Yii::import('application.modules.rubricator.models.*'); ?>
+            <?php Yii::import('application.modules.rubricator.models.RubricatorArticle'); ?>
             <fieldset>
                 <h4>Рубрикатор</h4>
                 <?php echo $form->checkBoxList($model,'rubricsArray', RubricatorArticle::model()->getAssocList()); ?>
