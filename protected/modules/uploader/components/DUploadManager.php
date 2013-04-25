@@ -17,6 +17,7 @@ class DUploadManager extends CApplicationComponent
     public $watermarkOffsetX = 10;
     public $watermarkOffsetY = 10;
     public $watermarkPosition = CImageHandler::CORNER_RIGHT_BOTTOM;
+    public $origFileSalt = 'salt';
     public $allowedThumbnailResolutions = array();
     public $directoryRights = 755;
 
@@ -219,7 +220,7 @@ class DUploadManager extends CApplicationComponent
             $extension = '';
         }
 
-        return $fileName . '_orig' . $extension;
+        return $fileName . '_orig_' . $this->origFileSalt . $extension;
     }
 
     public function createThumbFileName($baseName, $width, $height)

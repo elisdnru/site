@@ -4,6 +4,13 @@ DirectoryIndex index.shtml index.htm index.php index.html
 # CookieTracking on
 # CookieExpires "1 years"
 
+AddDefaultCharset utf-8
+
+<Files "*_orig_*">
+    order allow,deny
+    deny from all
+</Files>
+
 RewriteEngine on
 RewriteBase /
 
@@ -27,14 +34,9 @@ RewriteCond %{REQUEST_URI} ^$
 RewriteCond %{QUERY_STRING} ^.+$
 RewriteRule .* http://%{HTTP_HOST}/? [R=301,L]
 
-
 # Core
 RewriteCond %{REQUEST_URI} !^/forum
 RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
-
-AddDefaultCharset utf-8
-# Action php5.3-script  /cgi-bin/php5.3.cgi
-# AddType php5.3-script .php

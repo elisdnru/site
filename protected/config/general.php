@@ -135,6 +135,7 @@ return array(
 
         'uploader'=>array(
             'class'=>'application.modules.uploader.components.DUploadManager',
+            'origFileSalt'=>'adFxt0de',
             'rootPath'=>'upload',
             'emptyImage'=>'core/images/nophoto.png',
             'allowedThumbnailResolutions'=>array(
