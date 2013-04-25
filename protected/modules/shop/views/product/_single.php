@@ -12,7 +12,7 @@
 
     <div style="width:300px; float:left;">
         <?php if ($model->firstImage): ?>
-            <a class="lightbox" href="<?php echo $model->firstImage->url; ?>"><img id="preview_img" src="<?php echo $model->firstImage->getThumbUrl(300, 0); ?>" alt="<?php //echo CHtml::encode(strip_tags($model->title)); ?>" /></a>
+            <a class="lightbox" href="<?php echo $model->firstImage->imageUrl; ?>"><img id="preview_img" src="<?php echo $model->firstImage->getImageThumbUrl(300, 0); ?>" alt="<?php //echo CHtml::encode(strip_tags($model->title)); ?>" /></a>
         <?php else: ?>
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/core/images/nophoto.png" alt="<?php //echo CHtml::encode($model->title); ?>" />
         <?php endif; ?>
@@ -49,15 +49,13 @@
 
     <div class="photoslider" style="with:100%; overflow:auto;">
         <ul>
-            <?php foreach ($model->images as $item) : ?><li>
-                <?php if ($item->file && file_exists(ShopImage::IMAGE_PATH .'/'.$item->file)): ?>
-                    <a class="show_preview lightbox" rel="group" href="<?php echo $item->url; ?>">
-                        <span style="background-image:url('<?php echo $item->getThumbUrl(100, 100); ?>')"></span>
+            <?php foreach ($model->images as $item) : ?>
+                <li>
+                    <a class="show_preview lightbox" rel="group" href="<?php echo $item->imageUrl; ?>">
+                        <span style="background-image:url('<?php echo $item->getImageThumbUrl(100, 100); ?>')"></span>
                     </a>
-                <?php else: ?>
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/nophoto.png" alt="<?php //echo CHtml::encode($model->title); ?>" />
-                <?php endif; ?>
-                </li><?php endforeach; ?>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
 
@@ -65,7 +63,7 @@
     <?php $this->widget('share.widgets.ShareWidget', array(
         'title'=>$model->title,
         'description'=>strip_tags($model->text),
-        'image'=>$model->firstImage ? $model->firstImage->url : '',
+        'image'=>$model->firstImage ? $model->firstImage->imageUrl : '',
     )); ?>
 
     <?php echo CHtml::endForm(); ?>

@@ -19,7 +19,7 @@
         <?php else: ?>
             <tr id="product_<?php echo $product->id; ?>">
         <?php endif; ?>
-        <td><?php echo  CHtml::link(CHtml::image($product->firstImage->getThumbUrl(250, 250), '', array('width'=>'50px', 'height'=>'50px')), $updateUrl) ; ?></td>
+        <td><?php echo  CHtml::link(CHtml::image($product->firstImage->getImageThumbUrl(250, 250), '', array('width'=>'50px', 'height'=>'50px')), $updateUrl) ; ?></td>
         <td class="center"><?php echo CHtml::link(CHtml::encode($product->artikul), $updateUrl); ?></td>
         <td class="center"><?php echo CHtml::encode($product->title); ?></td>
         <td>

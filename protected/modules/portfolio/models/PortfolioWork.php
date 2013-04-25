@@ -276,19 +276,4 @@ class PortfolioWork extends CActiveRecord
             $this->_url = Yii::app()->createUrl('/portfolio/work/show', array('category'=>$this->category->path, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
         return $this->_url;
     }
-
-    private $_imageUrl;
-
-    public function getImageUrl()
-    {
-        if ($this->_imageUrl === null)
-            $this->_imageUrl = Yii::app()->request->baseUrl . '/' . self::IMAGE_PATH . '/' . $this->image;
-        return $this->_imageUrl;
-    }
-
-    public function getImageThumbUrl($width=self::IMAGE_WIDTH, $height=0)
-    {
-        $fileName = Yii::app()->uploader->getThumbUrl(self::IMAGE_PATH, $this->image, $width, $height);
-        return Yii::app()->request->baseUrl . '/' . $fileName;
-    }
 }

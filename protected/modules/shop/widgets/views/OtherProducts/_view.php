@@ -10,7 +10,7 @@
 
             <?php if ($data->firstImage): ?>
             <a href="<?php echo $data->url; ?>">
-                <img src="<?php echo $data->firstImage->getThumbUrl(190, 190); ?>" />
+                <img src="<?php echo $data->firstImage->getImageThumbUrl(190, 190); ?>" />
             </a>
             <?php endif; ?>
 

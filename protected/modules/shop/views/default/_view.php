@@ -11,7 +11,7 @@
 
             <?php if ($data->firstImage): ?>
             <a href="<?php echo $data->url; ?>">
-                <span class="thumb" style="background-image:url('<?php echo $data->firstImage->getThumbUrl(150, 150); ?>')"></span>
+                <span class="thumb" style="background-image:url('<?php echo $data->firstImage->getImageThumbUrl(150, 150); ?>')"></span>
             </a>
             <?php endif; ?>
 

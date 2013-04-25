@@ -8,7 +8,7 @@
             <div class="content">
                 <div class="image">
                     <?php if ($product->firstImage): ?>
-                    <p class="photo"><a href="<?php echo $product->url; ?>"><img src="<?php echo $product->firstImage->getThumbUrl(400, 250); ?>" alt="<?php echo CHtml::encode($product->title); ?>" /></a></p>
+                    <p class="photo"><a href="<?php echo $product->url; ?>"><img src="<?php echo $product->firstImage->getImageThumbUrl(400, 250); ?>" alt="<?php echo CHtml::encode($product->title); ?>" /></a></p>
                     <?php endif; ?>
                     <p class="price"><span class="text"><?php echo CHtml::encode($product->price); ?> р</span><span class="corner"></span></p>
                 </div>

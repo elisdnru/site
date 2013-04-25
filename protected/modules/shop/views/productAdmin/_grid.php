@@ -10,7 +10,7 @@
     'columns'=>array(
         array(
             'class'=>'DImageLinkColumn',
-            'value' => '$data->firstImage ? $data->firstImage->getThumbUrl(150, 150) : ""',
+            'value' => '$data->firstImage ? $data->firstImage->getImageThumbUrl(150, 150) : ""',
             'width' => 150,
             'height' => 150,
             'htmlOptions'=>array('style'=>'width:130px;text-align:center'),

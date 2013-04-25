@@ -13,7 +13,7 @@
                 <?php if (++$i >= $limit) break; ?>
 
                 <li id="photo_<?php echo $photo->id; ?>">
-                    <?php echo CHtml::link(CHtml::image($photo->getThumbUrl(50, 50), $photo->title), $photo->url, array('title'=>$photo->title)); ?>
+                    <?php echo CHtml::link(CHtml::image($photo->getImageThumbUrl(50, 50), $photo->title), $photo->url, array('title'=>$photo->title)); ?>
                     <?php if ($user->id == Yii::app()->user->id): ?>
                         <a class="delete ajax_del" title="Удалить фотографию" data-del="photo_<?php echo $photo->id; ?>" href="<?php echo Yii::app()->createUrl('/userphoto/photo/delete', array('id'=>$photo->id)); ?>"></a>
                     <?php endif; ?>

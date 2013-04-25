@@ -163,21 +163,6 @@ class UserPhoto extends CActiveRecord
         return $this->_url;
     }
 
-    private $_imageUrl;
-
-    public function getImageUrl()
-    {
-        if ($this->_imageUrl === null)
-            $this->_imageUrl = Yii::app()->request->baseUrl . '/' . self::IMAGE_PATH . '/' . $this->file;
-        return $this->_imageUrl;
-    }
-
-    public function getThumbUrl($width=self::IMAGE_WIDTH, $height=0)
-    {
-        $fileName = Yii::app()->uploader->getThumbUrl(self::IMAGE_PATH, $this->file, $width, $height);
-        return Yii::app()->request->baseUrl . '/' . $fileName;
-    }
-
     protected function afterDelete()
     {
         Comment::model()->deleteAllByAttributes(array(

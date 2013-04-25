@@ -178,7 +178,7 @@
         <?php if ($image->file): ?>
 
             <span id="image_<?php echo $image->id; ?>">
-                <a class="lightbox" rel="group" href="<?php echo $image->url; ?>"><img src="<?php echo $image->getThumbUrl(150, 150); ?>" alt="" /></a>
+                <a class="lightbox" rel="group" href="<?php echo $image->imageUrl; ?>"><img src="<?php echo $image->getImageThumbUrl(150, 150); ?>" alt="" /></a>
                 <a class="ajax_post" title="Сделать главным" style="margin-left:-40px;" href="<?php echo $this->createUrl('imagemain', array('id'=>$image->id));?>"><img src="/core/images/admin/yes.png" alt="Удалить" /></a>
                 <a class="ajax_del" data-del="image_<?php echo $image->id; ?>" title="Удалить изображение" style="margin-left:0;" href="<?php echo $this->createUrl('imagedel', array('id'=>$image->id));?>"><img src="/core/images/admin/del.png" alt="Удалить" /></a>
             </span>

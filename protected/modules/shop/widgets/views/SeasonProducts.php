@@ -12,7 +12,7 @@
 
         <li>
         <?php if ($product->firstImage): ?>
-            <p class="photo"><a href="<?php echo $product->url; ?>"><img src="<?php echo $product->firstImage->getThumbUrl(400, 250); ?>" alt="" /></a></p>
+            <p class="photo"><a href="<?php echo $product->url; ?>"><img src="<?php echo $product->firstImage->getImageThumbUrl(400, 250); ?>" alt="" /></a></p>
             <?php endif; ?>
             <p class="title"><a href="<?php echo $product->url; ?>"><?php echo CHtml::encode($product->title); ?></a></p>
             <p class="price"><?php echo CHtml::encode($product->price); ?>.-</p>

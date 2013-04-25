@@ -111,20 +111,4 @@ class ShopImage extends CActiveRecord
             )
         );
     }
-
-    private $_imageUrl;
-
-    public function getUrl()
-    {
-        if ($this->_imageUrl === null)
-            $this->_imageUrl = Yii::app()->request->baseUrl . '/' . self::IMAGE_PATH . '/' . $this->file;
-        return $this->_imageUrl;
-    }
-
-    public function getThumbUrl($width=self::IMAGE_WIDTH, $height=0)
-    {
-        $fileName = Yii::app()->uploader->getThumbUrl(self::IMAGE_PATH, $this->file, $width, $height);
-        return Yii::app()->request->baseUrl . '/' . $fileName;
-    }
-
 }

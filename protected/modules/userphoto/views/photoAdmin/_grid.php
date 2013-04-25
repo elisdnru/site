@@ -11,7 +11,7 @@
         ),
         array(
             'class'=>'DImageLinkColumn',
-            'value' => '$data->file ? $data->getThumbUrl(150, 150) : ""',
+            'value' => '$data->file ? $data->getImageThumbUrl(150, 150) : ""',
             'width' => 150,
             'height' => 150,
             'htmlOptions'=>array('style'=>'width:130px;text-align:center'),
