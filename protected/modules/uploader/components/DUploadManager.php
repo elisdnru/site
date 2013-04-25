@@ -35,6 +35,7 @@ class DUploadManager extends CApplicationComponent
         {
             $orig = $path . '/' . $this->createOrigFileName($baseName);
             if ($file->saveAs($orig)){
+                $this->createThumb($path, $baseName);
                 return Yii::app()->file->set($main);
             }
         }
