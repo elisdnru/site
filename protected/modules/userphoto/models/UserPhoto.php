@@ -131,6 +131,7 @@ class UserPhoto extends CActiveRecord
                 'fileAttribute'=>'file',
                 'storageAttribute'=>'file',
                 'deleteAttribute'=>null,
+                'enableWatermark'=>true,
                 'filePath'=>self::IMAGE_PATH,
             )
         );

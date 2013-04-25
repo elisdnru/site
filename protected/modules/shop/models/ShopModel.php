@@ -110,6 +110,7 @@ class ShopModel extends CActiveRecord
                 'class'=>'uploader.components.DFileUploadBehavior',
                 'fileAttribute'=>'image',
                 'deleteAttribute'=>null,
+                'enableWatermark'=>true,
                 'defaultThumbWidth'=>self::IMAGE_WIDTH,
                 'filePath'=>self::IMAGE_PATH,
             )

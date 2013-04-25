@@ -106,6 +106,7 @@ class ShopImage extends CActiveRecord
                 'fileAttribute'=>'image',
                 'storageAttribute'=>'file',
                 'deleteAttribute'=>null,
+                'enableWatermark'=>true,
                 'filePath'=>self::IMAGE_PATH,
             )
         );

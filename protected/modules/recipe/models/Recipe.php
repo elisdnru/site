@@ -188,6 +188,7 @@ class Recipe extends CActiveRecord
                 'class'=>'uploader.components.DFileUploadBehavior',
                 'fileAttribute'=>'image',
                 'deleteAttribute'=>'del_image',
+                'enableWatermark'=>true,
                 'filePath'=>self::IMAGE_PATH,
                 'defaultThumbWidth'=>self::IMAGE_WIDTH,
                 'imageWidthAttribute'=>'image_width',

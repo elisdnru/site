@@ -30,6 +30,7 @@ class DFileUploadBehavior extends CActiveRecordBehavior
 {
 	public $fileAttribute = 'file';
     public $fileTypes = 'jpg,jpeg,gif,png';
+    public $enableWatermark = false;
     public $storageAttribute = null; // set if it different from fileAttribute
     public $deleteAttribute = null; // field for "Delete image" checkbox
     public $filePath = '';
@@ -115,6 +116,9 @@ class DFileUploadBehavior extends CActiveRecordBehavior
 
                 $thumbName = Yii::app()->uploader->createThumbFileName($this->getOwner()->{$this->storageAttribute}, $width, $height);
 
+                /* @var $file CFile */
+                /* @var $image CImageHandler */
+
                 if (Yii::app()->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName))
                     $file = Yii::app()->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 else
@@ -146,9 +150,8 @@ class DFileUploadBehavior extends CActiveRecordBehavior
         {
             $fileUrl = $model->{$this->fileAttribute};
             $this->deleteFile();
-            $upload = Yii::app()->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
 
-            if ($upload)
+            if ($upload = $this->uploadByUrl($fileUrl))
             {
                 $model->{$this->fileAttribute} = '';
                 $model->{$this->storageAttribute} = $upload->basename;
@@ -158,22 +161,16 @@ class DFileUploadBehavior extends CActiveRecordBehavior
         {
             $uploadedFile = $model->{$this->fileAttribute};
             $this->deleteFile();
-            $upload = Yii::app()->uploader->upload($uploadedFile, $this->filePath);
 
-            if ($upload)
-            {
+            if ($upload = $this->uploadFile($uploadedFile))
                 $model->{$this->storageAttribute} = $upload->basename;
-            }
         }
         elseif ($file = CUploadedFile::getInstance($model, $this->fileAttribute))
         {
             $this->deleteFile();
-            $upload = Yii::app()->uploader->upload($file, $this->filePath);
 
-            if ($upload)
-            {
+            if ($upload = $this->uploadFile($file))
                 $model->{$this->storageAttribute} = $upload->basename;
-            }
         }
     }
 
@@ -187,5 +184,31 @@ class DFileUploadBehavior extends CActiveRecordBehavior
                 $model->{$this->deleteAttribute} = false;
             $model->{$this->storageAttribute} = '';
         }
+    }
+
+    /**
+     * @param $fileUrl
+     * @return mixed
+     */
+    private function uploadByUrl($fileUrl)
+    {
+        return Yii::app()->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
+    }
+
+    /**
+     * @param $uploadedFile
+     * @return mixed
+     */
+    private function uploadFile($uploadedFile)
+    {
+        $watermarkFile = Yii::app()->uploader->watermarkFile;
+        if (!$this->enableWatermark)
+            Yii::app()->uploader->watermarkFile = '';
+
+        $upload = Yii::app()->uploader->upload($uploadedFile, $this->filePath);
+
+        Yii::app()->uploader->watermarkFile = $watermarkFile;
+
+        return $upload;
     }
 }
