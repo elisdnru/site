@@ -24,6 +24,8 @@ class DConfig extends CApplicationComponent
             if ($item['param'])
                 $this->data[$item['param']] = $item['value'] === '' ?  $item['default'] : $item['value'];
         }
+
+        parent::init();
     }
 
     public function has($key)
