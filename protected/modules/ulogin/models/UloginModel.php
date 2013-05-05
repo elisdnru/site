@@ -38,12 +38,9 @@ class UloginModel extends CModel {
 
     public function getAuthData()
     {
-
-        $authData = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=' . $_SERVER['HTTP_HOST']), true);
-
-        $this->setAttributes($authData);
-        if ($authData)
+        if ($authData = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=' . $_SERVER['HTTP_HOST']), true))
         {
+            $this->setAttributes($authData);
             $this->name = $authData['first_name'];
             $this->lastname = $authData['last_name'];
             $this->photo = $authData['photo'];
