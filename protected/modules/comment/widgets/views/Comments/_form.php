@@ -34,6 +34,8 @@
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>
 
+    <fieldset>
+
     <div class="row">
         <?php echo $f->labelEx($form,'name'); ?><br />
         <?php echo $f->textField($form,'name', array('size'=>40, 'maxlength'=>255)); ?>
