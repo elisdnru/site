@@ -162,6 +162,7 @@ class Comment extends CActiveRecord
                 'class'=>'DPurifyTextBehavior',
                 'sourceAttribute'=>'text',
                 'destinationAttribute'=>'text_purified',
+                'encodePreContent'=>true,
                 'purifierOptions'=> array(
                     'AutoFormat.AutoParagraph' => true,
                     'HTML.Allowed' => 'p,ul,li,b,i,a[href],pre',
