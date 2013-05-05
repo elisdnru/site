@@ -37,6 +37,7 @@ class CommentModule extends DWebModule
     public static function rules()
     {
         return array(
+            'comment/update/<id:\d+>'=>'comment/comment/update',
             'comment/like/<id:\d+>'=>'comment/ajax/like',
             'comment/hide/<id:\d+>'=>'comment/ajax/hide',
             'comment/delete/<id:\d+>'=>'comment/ajax/delete',
