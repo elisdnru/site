@@ -2,6 +2,7 @@
 
 Yii::import('application.modules.new.models.*');
 Yii::import('application.modules.comment.models.Comment');
+DUrlRulesHelper::import('new');
 
 class NewsComment extends Comment
 {

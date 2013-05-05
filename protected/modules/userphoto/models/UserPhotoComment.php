@@ -1,7 +1,8 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
+Yii::import('application.modules.userphoto.models.*');
 Yii::import('application.modules.comment.models.*');
+DUrlRulesHelper::import('userphoto');
 
 class UserPhotoComment extends Comment
 {
