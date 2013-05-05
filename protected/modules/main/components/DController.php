@@ -94,7 +94,7 @@ class DController extends Controller
 
     public function checkUrl($url)
     {
-        if(Yii::app()->request->getRequestUri() != $url && '/' . Yii::app()->language . Yii::app()->request->getRequestUri() != $url)
+        if (Yii::app()->getRequest()->getOriginalUrl() != $url)
             $this->redirect($url);
     }
 
