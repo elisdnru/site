@@ -348,6 +348,16 @@ class Comment extends CActiveRecord
             $this->user->updateCommentsStat();
     }
 
+    private $_url;
+
+    public function getUrl()
+    {
+        if ($this->_url === null)
+            $this->_url = $this->material ? $this->material->url . '#comment_' . $this->id : '#';
+
+        return $this->_url;
+    }
+
     private $_avatarUrl = array();
 
     public function getAvatarUrl($width=User::IMAGE_WIDTH, $height=User::IMAGE_HEIGHT)

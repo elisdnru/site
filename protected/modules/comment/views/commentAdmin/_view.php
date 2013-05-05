@@ -45,7 +45,7 @@ $publicurl = $this->createUrl('toggle', array('attribute'=>'public', 'id'=>$data
     <div class="text">
         <?php echo DTextHelper::fixBR($data->text_purified); ?>
         <p>
-            <?php if ($data->material): ?> <a href="<?php echo $data->material->url; ?>#comment_<?php echo $data->id; ?>"><?php echo CHtml::encode($data->material->title); ?></a><?php endif; ?>
+            <?php if ($data->material): ?> <a href="<?php echo $data->url; ?>"><?php echo CHtml::encode($data->material->title); ?></a><?php endif; ?>
             <!-- | <a href="<?php echo $groupurl; ?>">Комментарии</a> -->
         </p>
     </div>
