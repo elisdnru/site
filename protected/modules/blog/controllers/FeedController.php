@@ -7,7 +7,7 @@ class FeedController extends DController
     public function actionIndex()
     {
         $posts = BlogPost::model()->published()->findAll(array(
-            'limit'=>50,
+            'limit'=>100,
             'order'=>'date DESC',
         ));
 

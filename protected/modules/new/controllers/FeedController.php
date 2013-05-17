@@ -7,7 +7,7 @@ class FeedController extends DController
     public function actionIndex()
     {
         $news = News::model()->published()->findAll(array(
-            'limit'=>50,
+            'limit'=>100,
             'order'=>'date DESC',
         ));
 
