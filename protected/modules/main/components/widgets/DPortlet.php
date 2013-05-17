@@ -11,11 +11,6 @@ class DPortlet extends CPortlet
         return null;
     }
 
-    public function __construct()
-    {
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/portlet.css');
-    }
-
     /**
      * Renders the decoration for the portlet.
      * The default implementation will render the title if it is set.
