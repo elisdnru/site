@@ -266,7 +266,10 @@ class Page extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null)
+        {
+            DUrlRulesHelper::import('page');
             $this->_url = Yii::app()->createUrl('page/page/show', array('path'=>$this->path));
+        }
         return $this->_url;
     }
 
