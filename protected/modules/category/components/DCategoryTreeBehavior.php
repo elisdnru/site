@@ -48,13 +48,11 @@ class DCategoryTreeBehavior extends DCategoryBehavior
             $this->_childsArrayRecursive($items, $result, $parent_id);
         }
 
-
         return array_unique($result);
     }
 
     protected function _childsArrayRecursive(&$items, &$result, $parent_id)
     {
-        $result[] = (int)$parent_id;
         foreach ($items as $item){
             if ((int)$item[$this->parentAttribute] == (int)$parent_id){
                 $result[] = $item[$this->primaryKeyAttribute];
