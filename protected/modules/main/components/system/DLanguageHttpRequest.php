@@ -27,8 +27,12 @@ class DLanguageHttpRequest extends CHttpRequest
         return $this->getOriginalRequestUri();
     }
 
+    private $_originalRequestUri;
+
     public function getOriginalRequestUri()
     {
-        return DMultilangHelper::addLangToUrl($this->getRequestUri());
+        if ($this->_originalRequestUri == null)
+            $this->_originalRequestUri = DMultilangHelper::addLangToUrl($this->getRequestUri());
+        return $this->_originalRequestUri;
     }
 }
