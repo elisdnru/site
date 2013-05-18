@@ -217,22 +217,24 @@ class Menu extends CActiveRecord
 
     protected function getLinkActive()
     {
-        $uri = Yii::app()->getRequest()->getOriginalRequestUri();
-        $uri = $uri != '/' . Yii::app()->language . '/' ? $uri : '/index';
-        return strpos($uri, $this->getUrl()) === 0;
+        $currentUri = Yii::app()->getRequest()->getOriginalRequestUri();
+        $itemUri = $this->getUrl();
+        return strpos('/' . $currentUri . '/', '/' . $itemUri . '/') === 0 || strpos('/' . $currentUri . '?', '/' . $itemUri . '?') === 0;
     }
+
+    private $_url;
 
     protected function getUrl()
     {
-        $url = $this->link ? $this->link : '#';
-
-        if (preg_match('|^http:\/\/|', $url, $m))
+        if ($this->_url === null)
         {
-            $url = Yii::app()->createUrl('/main/default/url', array('a'=>$url));
+            $url = $this->link ? $this->link : '#';
+            if (preg_match('|^http:\/\/|', $url, $m))
+                $this->_url = Yii::app()->createUrl('/main/default/url', array('a'=>$url));
+            else
+                $this->_url = DMultilangHelper::addLangToUrl($this->link !='/index' ? $this->link : '/');
         }
-        else
-            $url = DMultilangHelper::addLangToUrl($this->link);
 
-        return $url;
+        return $this->_url;
     }
 }
