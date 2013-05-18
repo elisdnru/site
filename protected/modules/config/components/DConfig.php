@@ -30,7 +30,7 @@ class DConfig extends CApplicationComponent
 
     public function has($key)
     {
-        return (isset($this->data[$key]));
+        return isset($this->data[$key]);
     }
 
     public function get($key)
