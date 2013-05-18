@@ -39,14 +39,14 @@ class DController extends Controller
     public function filters()
     {
         return array(
-            array('module.components.DModuleFilter')
+            array('application.modules.module.components.DModuleFilter')
         );
     }
 
     public function behaviors()
     {
         return array_merge(parent::behaviors(), array(
-            'DModuleAccessBehavior'=>array('class'=>'module.components.DModuleAccessBehavior'),
+            'DModuleAccessBehavior'=>array('class'=>'application.modules.module.components.DModuleAccessBehavior'),
             'DUserBehavior'=>array('class'=>'DUserBehavior'),
             'DFlashSessionBehavior'=>array('class'=>'DFlashSessionBehavior'),
             'DLiveLayoutBehavior'=>array('class'=>'DLiveLayoutBehavior'),
