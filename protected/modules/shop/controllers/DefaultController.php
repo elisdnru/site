@@ -138,7 +138,7 @@ class DefaultController extends ShopBaseController
             $searchForm->attributes = $_REQUEST['ShopSearchForm'];
 
             $criteria->addSearchCondition('t.title', $searchForm->word);
-            $criteria->addSearchCondition('t.text', $searchForm->word, true, 'OR');
+            $criteria->addSearchCondition('t.text_purified', $searchForm->word, true, 'OR');
             $criteria->addSearchCondition('t.price', $searchForm->word, true, 'OR');
         }
 

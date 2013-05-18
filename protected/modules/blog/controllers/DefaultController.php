@@ -67,8 +67,8 @@ class DefaultController extends DController
             $searchForm->word = $_REQUEST['word'];
 
             $criteria->addSearchCondition('t.title', $searchForm->word);
-            $criteria->addSearchCondition('t.text', $searchForm->word, true, 'OR');
-            $criteria->addSearchCondition('t.short', $searchForm->word, true, 'OR');
+            $criteria->addSearchCondition('t.text_purified', $searchForm->word, true, 'OR');
+            $criteria->addSearchCondition('t.short_purified', $searchForm->word, true, 'OR');
         }
 
         $this->render('search', array(
