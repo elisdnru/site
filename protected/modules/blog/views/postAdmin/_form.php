@@ -4,6 +4,12 @@
 /* @var $form CActiveForm */
 ?>
 
+<?php
+$cs = Yii::app()->getClientScript();
+$url = CHtml::asset(Yii::getPathOfAlias('application.modules.blog.assets'));
+$cs->registerCssFile($url . '/tags.css');
+?>
+
 <?php $this->widget('tinymce.widgets.TinyMCEWidget'); ?>
 
 <div class="form">
@@ -150,7 +156,56 @@
             )
         )); ?>
         </div>
+        <div class="row">
+            <ul class="tags_list" id="BlogPost_tagsVariants">
+                <?php foreach(CHtml::listData(BlogTag::model()->findAll(array('order'=>'title ASC')), 'id', 'title') as $id=>$tag): ?>
+                    <li id="tag_<?php echo $id; ?>">
+                        <a class="tag" href="#"><?php echo CHtml::encode($tag); ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </fieldset>
+
+    <script type="text/javascript">
+        (function ($){
+            var tagsInput = $('#BlogPost_tagsString');
+            var tagsVariants = $('#BlogPost_tagsVariants li');
+
+            function highlightActive(){
+                var tags = tagsInput.val().split(', ');
+                tagsVariants.each(function(){
+                    var variant = $(this);
+                    var thisTag = variant.find('.tag').text();
+                    if (tags.indexOf(thisTag) != -1){
+                        variant.addClass('active');
+                    } else {
+                        variant.removeClass('active');
+                    }
+                });
+            }
+
+            highlightActive();
+
+            tagsVariants.find('.tag').click(function(e){
+                var tags = tagsInput.val().split(', ');
+                if (!tags[0]){
+                    tags.splice(0,1);
+                }
+                var newTag = $(this).text();
+                var index = tags.indexOf(newTag);
+                if (index == -1){
+                    tags[tags.length] = newTag;
+                } else {
+                    tags.splice(index, 1);
+                }
+                tagsInput.val(tags.join(', '));
+                highlightActive();
+                e.stopPropagation();
+                return false;
+            });
+        })(jQuery);
+    </script>
 
     <?php echo $this->renderPartial('//common/forms/_lang_meta', array(
         'form'=>$form,

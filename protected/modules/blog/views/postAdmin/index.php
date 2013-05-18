@@ -11,6 +11,7 @@ $this->breadcrumbs=array(
 $this->admin = array(
     array('label'=>'Добавить', 'url'=>$this->createUrl('create')),
     array('label'=>'Категории', 'url'=>$this->createUrl('/blog/categoryAdmin/index')),
+    array('label'=>'Метки', 'url'=>$this->createUrl('/blog/tagAdmin/index')),
     array('label'=>'Тематические группы', 'url'=>$this->createUrl('/blog/groupAdmin/index')),
 );
 $this->info = 'Блоги';

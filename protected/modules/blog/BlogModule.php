@@ -26,6 +26,7 @@ class BlogModule extends DWebModule
         return array(
             array('label'=>'Категории', 'url'=>array('/blog/categoryAdmin/index'), 'icon'=>'foldericon.jpg'),
             array('label'=>'Группы', 'url'=>array('/blog/groupAdmin/index'), 'icon'=>'foldericon.jpg'),
+            array('label'=>'Метки', 'url'=>array('/blog/tagAdmin/index'), 'icon'=>'fileicon.jpg'),
             array('label'=>'Записи', 'url'=>array('/blog/postAdmin/index'), 'icon'=>'fileicon.jpg'),
             array('label'=>'Добавить запись', 'url'=>array('/blog/postAdmin/create'), 'icon'=>'add.png'),
         );

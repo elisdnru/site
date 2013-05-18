@@ -54,6 +54,7 @@ class BlogTag extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'frequency' => array(self::STAT, 'BlogPostTag', 'tag_id'),
+            'posttags' => array(self::HAS_MANY, 'BlogPostTag', 'tag_id'),
 		);
 	}
 
@@ -65,6 +66,7 @@ class BlogTag extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => 'Метка',
+			'frequency' => 'Число записей',
 		);
 	}
 
@@ -72,11 +74,8 @@ class BlogTag extends CActiveRecord
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($pageSize=10)
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
@@ -84,8 +83,24 @@ class BlogTag extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>$pageSize,
+                'pageVar'=>'page',
+            ),
 		));
 	}
+
+    protected function beforeDelete()
+    {
+        if (parent::beforeSave())
+        {
+            foreach ($this->posttags as $posttag)
+                $posttag->delete();
+            return true;
+        }
+        else
+            return false;
+    }
 
     public function getAssocList()
     {
