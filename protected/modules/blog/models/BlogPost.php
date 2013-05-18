@@ -287,6 +287,18 @@ class BlogPost extends CActiveRecord implements DICommentDepends
 
         parent::afterFind();
     }
+
+    protected function beforeDelete()
+    {
+        if (parent::beforeSave())
+        {
+            foreach ($this->posttags as $posttag)
+                $posttag->delete();
+            return true;
+        }
+        else
+            return false;
+    }
     
     protected function beforeSave()
     {
