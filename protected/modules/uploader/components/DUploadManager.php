@@ -209,6 +209,9 @@ class DUploadManager extends CApplicationComponent
 
     public function createOrigFileName($baseName)
     {
+        if (!$this->watermarkFile)
+            return $baseName;
+
         if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches))
         {
             $fileName = $matches['name'];
