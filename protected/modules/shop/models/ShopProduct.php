@@ -359,6 +359,10 @@ class ShopProduct extends CActiveRecord
                 'relation'=>'colors',
                 'relationPk'=>'id',
             ),
+            'PingBehavior'=>array(
+                'class'=>'DPingBehavior',
+                'urlAttribute'=>'url',
+            ),
         );
 
         if (Yii::app()->moduleManager->installed('rubricator'))

@@ -54,6 +54,23 @@ class MainModule extends DWebModule
                 'type'=>'string',
                 'default'=>'0000000',
             ),
+            array(
+                'param'=>'GENERAL.PING_ENABLE',
+                'label'=>'Пинговать поисковые системы',
+                'value'=>'',
+                'type'=>'checkbox',
+                'default'=>'0',
+            ),
+            array(
+                'param'=>'GENERAL.PING_SERVERS',
+                'label'=>'Адреса пинга',
+                'value'=>implode(PHP_EOL , array(
+                    'http://ping.blogs.yandex.ru/RPC2',
+                    'http://blogsearch.google.com/ping/RPC2',
+                )),
+                'type'=>'text',
+                'default'=>'',
+            ),
         ));
 
         return parent::install();

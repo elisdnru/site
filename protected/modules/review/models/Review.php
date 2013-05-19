@@ -157,6 +157,10 @@ class Review extends CActiveRecord
                 ),
                 'processOnBeforeSave'=>true,
             ),
+            'PingBehavior'=>array(
+                'class'=>'DPingBehavior',
+                'urlAttribute'=>'url',
+            ),
         );
     }
 

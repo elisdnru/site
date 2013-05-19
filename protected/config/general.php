@@ -181,6 +181,10 @@ return array(
             'pathLayouts'=>'//email/layouts'
         ),
 
+        'rpcManager'=>array(
+            'class'=>'DRPCManager',
+        ),
+
         'widgetFactory'=>array(
             'enableSkin'=>true,
         ),

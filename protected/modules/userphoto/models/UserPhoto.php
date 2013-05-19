@@ -133,7 +133,11 @@ class UserPhoto extends CActiveRecord
                 'deleteAttribute'=>null,
                 'enableWatermark'=>true,
                 'filePath'=>self::IMAGE_PATH,
-            )
+            ),
+            'PingBehavior'=>array(
+                'class'=>'DPingBehavior',
+                'urlAttribute'=>'url',
+            ),
         );
     }
 

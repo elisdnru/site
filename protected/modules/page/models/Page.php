@@ -205,7 +205,11 @@ class Page extends CActiveRecord
                 'enableWatermark'=>true,
                 'filePath'=>self::IMAGE_PATH,
                 'defaultThumbWidth'=>self::IMAGE_WIDTH,
-            )
+            ),
+            'PingBehavior'=>array(
+                'class'=>'DPingBehavior',
+                'urlAttribute'=>'url',
+            ),
         );
 
         if (DMultilangHelper::enabled())

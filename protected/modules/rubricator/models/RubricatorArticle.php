@@ -230,6 +230,10 @@ class RubricatorArticle extends CActiveRecord
                 'imageWidthAttribute'=>'image_width',
                 'imageHeightAttribute'=>'image_height',
             ),
+            'PingBehavior'=>array(
+                'class'=>'DPingBehavior',
+                'urlAttribute'=>'url',
+            ),
         );
 
         if (DMultilangHelper::enabled())

@@ -190,7 +190,11 @@ class PortfolioWork extends CActiveRecord
                 'defaultThumbWidth'=>self::IMAGE_WIDTH,
                 'imageWidthAttribute'=>'image_width',
                 'imageHeightAttribute'=>'image_height',
-            )
+            ),
+            'PingBehavior'=>array(
+                'class'=>'DPingBehavior',
+                'urlAttribute'=>'url',
+            ),
         );
 
         if (DMultilangHelper::enabled())
