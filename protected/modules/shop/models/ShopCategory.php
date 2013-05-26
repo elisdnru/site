@@ -237,7 +237,7 @@ class ShopCategory extends TreeCategory
         $resultArray = array();
         if (isset($items[$parent]) && $items[$parent]){
             foreach ($items[$parent] as $item){
-                $resultArray = $resultArray + array($item->getUrl() => $item->type->title . ' - ' . str_repeat('-- ', $indent) . $item->title) + $this->_getTabListRecursive($items, $item->id, $indent + 1);
+                $resultArray = CArray::merge($resultArray, array($item->getUrl() => $item->type->title . ' - ' . str_repeat('-- ', $indent) . $item->title), $this->_getTabListRecursive($items, $item->id, $indent + 1));
             }
         }
         return $resultArray;

@@ -18,7 +18,7 @@ class OtherProductsWidget extends ShopBaseWidget
             $criteria = new CDbCriteria;
             $criteria->scopes = array('published');
 
-            $criteria->addInCondition('t.category_id', array($category->id) + $category->getChildsArray());
+            $criteria->addInCondition('t.category_id', CArray::merge(array($category->id), $category->getChildsArray()));
 
             $othersArray = array();
             $others = ShopProductOthercategory::model()->findAll('t.category_id=:cid', array(':cid'=>$category->id));

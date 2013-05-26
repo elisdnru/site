@@ -201,7 +201,7 @@ class ShopProduct extends CActiveRecord
             foreach ($searchCategories as $categoryId)
             {
                 $category = ShopCategory::model()->findByPk($categoryId);
-                $categoryIds = array_merge($categoryIds, array($category->id) + $category->getChildsArray());
+                $categoryIds = CArray::merge($categoryIds, CArray::merge(array($category->id), $category->getChildsArray()));
             }
 
             $othersArray = array();

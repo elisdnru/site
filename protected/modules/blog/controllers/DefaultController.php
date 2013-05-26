@@ -19,7 +19,7 @@ class DefaultController extends DController
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', array($category->id) + $category->getChildsArray());
+        $criteria->addInCondition('t.category_id', CArray::merge(array($category->id), $category->getChildsArray()));
 
         $this->render('category', array(
             'dataProvider'=>$this->createProvider($criteria),
