@@ -125,8 +125,16 @@ class Contact extends CActiveRecord
 
         return parent::beforeSave();
     }
+    
+    protected function afterSave()
+    {
+        if ($this->isNewRecord)
+            $this->sendAdminNotify();
 
-    public function sendEmail()
+        parent::afterSave();
+    }
+
+    public function sendAdminNotify()
     {
         if (Yii::app()->config->get('CONTACT.SEND_ADMIN_EMAILS'))
         {

@@ -23,9 +23,6 @@ class ContactWidget extends DWidget
                 $contact->pagetitle = Yii::app()->controller->pageTitle;
 
                 if ($contact->save()){
-
-                    $contact->sendEmail();
-
                     Yii::app()->user->setFlash('contactForm','Ваше сообщение принято');
                     Yii::app()->controller->refresh();
                 }
