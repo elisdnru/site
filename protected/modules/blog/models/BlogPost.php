@@ -217,6 +217,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'destinationAttribute'=>'short_purified',
                 'purifierOptions'=> array(
                     'Attr.AllowedRel'=>array('nofollow'),
+                    'HTML.Nofollow' => true,
                 ),
                 'processOnBeforeSave'=>true,
             ),
@@ -228,7 +229,6 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'enablePurifier'=>true,
                 'purifierOptions'=> array(
                     'Attr.AllowedRel'=>array('nofollow'),
-                    'HTML.Nofollow' => true,
                     'HTML.SafeObject'=>true,
                     'Output.FlashCompat'=>true,
                 ),
