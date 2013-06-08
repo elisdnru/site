@@ -296,23 +296,8 @@ class Comment extends CActiveRecord
 
     protected function sendNotifications()
     {
-        $current = $this;
-        $comment = $this;
-
-        $sended = array();
-
-        while ($comment->parent)
-        {
-            $parent = $comment->parent;
-
-            if (!in_array($parent->email, $sended))
-            {
-                $parent->sendNotify($current);
-                $sended[] = $parent->email;
-            }
-
-            $comment = $parent;
-        }
+        if ($this->parent && $this->parent->email != $this->email)
+            $this->parent->sendNotify($this);
     }
 
     protected function sendNotify($current)
