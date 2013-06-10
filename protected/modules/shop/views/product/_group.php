@@ -33,11 +33,24 @@
         </ul>
     </div>
 
+	<?php
+	$attributes = array();
+	foreach ($model->related_products as $product){
+		if (!$product->public) continue;
+		foreach ($product->all_attribute_values as $attributeValue){
+			if (empty($attributes[$attributeValue->attribute_id]))
+				$attributes[$attributeValue->attribute_id] = (bool)$attributeValue->value;
+		}
+	}
+	?>
+
     <table>
         <tr>
             <th>Артикул</th>
             <?php foreach ($model->all_attribute_values as $attributeValue): ?>
-                <th><?php echo $attributeValue->attribute->title; ?></th>
+				<?php if (!empty($attributes[$attributeValue->attribute_id])): ?>
+                	<th><?php echo $attributeValue->attribute->title; ?></th>
+				<?php endif; ?>
             <?php endforeach; ?>
             <th>Цена</th>
             <th></th>
@@ -51,7 +64,9 @@
                 <td><?php echo CHtml::encode($product->artikul); ?></td>
 
                 <?php foreach ($product->all_attribute_values as $attributeValue): ?>
-                    <td class="center"><?php echo CHtml::encode($attributeValue->value); ?></td>
+					<?php if (!empty($attributes[$attributeValue->attribute_id])): ?>
+						<td class="center"><?php echo CHtml::encode($attributeValue->value); ?></td>
+					<?php endif; ?>
                 <?php endforeach; ?>
 
                 <td style="white-space: nowrap">
