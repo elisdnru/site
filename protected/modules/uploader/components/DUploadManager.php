@@ -183,7 +183,13 @@ class DUploadManager extends CApplicationComponent
     {
         $fileName = $path . '/' . $this->createOrigFileName($baseName);
         if (!file_exists($fileName))
-            return false;
+		{
+			$fileName = $path . '/' . $baseName;
+			$this->watermarkFile = false;
+		}
+
+		if (!file_exists($fileName))
+			return false;
 
         /* @var $orig CImageHandler */
         /* @var $thumb CImageHandler */
