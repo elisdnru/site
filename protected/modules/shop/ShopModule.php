@@ -116,6 +116,13 @@ class ShopModule extends DWebModule
                 'type'=>'checkbox',
                 'default'=>'0',
             ),
+            array(
+                'param'=>'SHOP.SEND_ADMIN_EMAILS',
+                'label'=>'Уведомлять администратора о заказах по Email',
+                'value'=>'0',
+                'type'=>'checkbox',
+                'default'=>'0',
+            ),
         ));
 
         return parent::install();

@@ -217,7 +217,7 @@ class ShopOrder extends CActiveRecord
 
     public function sendAdminEmail($attach = false)
     {
-        if (Yii::app()->config->get('MAIL.SEND_EMAILS'))
+        if (Yii::app()->config->get('SHOP.SEND_ADMIN_EMAILS'))
         {
             $mailer = Yii::app()->mailer;
             $mailer->reset();
