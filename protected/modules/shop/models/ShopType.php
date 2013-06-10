@@ -118,6 +118,40 @@ class ShopType extends Category
         return $items;
     }
 
+    public function getRubricMenuList($rubric_id)
+    {
+		if (Yii::app()->moduleManager->installed('rubricator'))
+		{
+			$types = $this->findAll(array('order'=>'t.sort ASC, t.title ASC'));
+
+			$items = array();
+
+			foreach ($types as $type)
+			{
+				$count = ShopProduct::model()->cache(3600)->count(array(
+					'condition'=>'t.public=1 AND product_rubrics.rubric_id = :rubric AND t.type_id = :type',
+					'params'=>array(
+						':rubric'=>$rubric_id,
+						':type'=>$type->id,
+					),
+					'with'=>'product_rubrics',
+				));
+	
+				if ($count)
+				{
+					$items[] = array(
+						'label'=>$type->title,
+						'url'=>$type->getUrl(),
+						'active'=>$type->CategoryBehavior->getLinkActive(),
+					);
+				}
+			}
+
+			return $items;
+		}
+		return array();
+    }
+
     private $_url;
 
     public function getUrl()
