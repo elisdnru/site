@@ -113,7 +113,7 @@ class ShopOrder extends CActiveRecord
 			'post_title' => 'Способ доставки',
 			'post_code' => 'Идентификатор отправления',
 			'confirm' => 'Я согласен с условиями',
-			'quickly' => 'Отправить срочно',
+			'quickly' => 'Отправить заказ срочно',
 		);
 	}
 
