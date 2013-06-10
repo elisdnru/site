@@ -19,8 +19,6 @@ class Slide extends CActiveRecord
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/slides';
 
-	public $del_image = false;
-
     /**
      * Returns the static model of the specified AR class.
      * @param string $className
@@ -51,7 +49,6 @@ class Slide extends CActiveRecord
 			array('sort', 'numerical', 'integerOnly'=>true),
 			array('text', 'safe'),
             array('title, url', 'length', 'max'=>'255'),
-            array('del_image', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, title, text, url', 'safe', 'on'=>'search'),
@@ -127,6 +124,9 @@ class Slide extends CActiveRecord
             $this->url = str_replace(Yii::app()->request->hostInfo, '', $this->url);
             if (empty($this->url))
                 $this->url = '/';
+
+			return true;
         }
+		return false;
     }
 }
