@@ -39,6 +39,7 @@ Yii::import('application.modules.shop.models.*');
  * @method ShopProduct published()
  * @method ShopProduct inhome()
  * @method ShopProduct popular()
+ * @method ShopProduct saled()
  */
 class ShopProduct extends CActiveRecord
 {
@@ -321,6 +322,9 @@ class ShopProduct extends CActiveRecord
             ),
             'popular'=>array(
                 'condition'=>'t.popular=1',
+            ),
+            'saled'=>array(
+                'condition'=>'t.sale=1',
             ),
         );
     }
