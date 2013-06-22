@@ -11,6 +11,9 @@ Disallow: /error
 Disallow: /comment
 Disallow: /assets
 Disallow: /core
+Disallow: /blog/date/
+Disallow: /blog/tag/
+Disallow: /booksru/
 
 Sitemap: http://www.yourhost.ru/sitemap.xml
 
