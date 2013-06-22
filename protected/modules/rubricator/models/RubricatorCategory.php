@@ -103,7 +103,10 @@ class RubricatorCategory extends Category
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl($this->urlRoute, array('category'=>$this->alias));
+		{
+			DUrlRulesHelper::import('rubricator');
+			$this->_url = Yii::app()->createUrl($this->urlRoute, array('category'=>$this->alias));
+		}
         return $this->_url;
     }
 }

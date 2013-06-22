@@ -249,6 +249,7 @@ class ShopCategory extends TreeCategory
     {
         if ($this->_url === null)
         {
+			DUrlRulesHelper::import('shop');
             $params = array();
             $params['type'] = $this->type ? $this->type->alias : 'all';
             $params['category'] = $this->cache(3600)->getPath();

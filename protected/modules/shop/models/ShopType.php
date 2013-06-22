@@ -158,6 +158,7 @@ class ShopType extends Category
     {
         if ($this->_url === null)
         {
+			DUrlRulesHelper::import('shop');
             if ($brand = Yii::app()->getRequest()->getQuery('brand'))
                 $this->_url = Yii::app()->createUrl('/shop/default/brand', array('type'=>$this->alias, 'brand'=>$brand));
             elseif ($rubric = Yii::app()->getRequest()->getQuery('rubric'))

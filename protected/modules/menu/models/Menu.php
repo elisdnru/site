@@ -228,6 +228,7 @@ class Menu extends CActiveRecord
     {
         if ($this->_url === null)
         {
+			DUrlRulesHelper::import('main');
             $url = $this->link ? $this->link : '#';
             if (preg_match('|^http:\/\/|', $url, $m))
                 $this->_url = Yii::app()->createUrl('/main/default/url', array('a'=>$url));

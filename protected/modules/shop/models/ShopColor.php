@@ -63,7 +63,10 @@ class ShopColor extends Category
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->controller->createUrl('', array_replace($_GET, array('color'=>$this->title)));
+		{
+			DUrlRulesHelper::import('shop');
+			$this->_url = Yii::app()->controller->createUrl('', array_replace($_GET, array('color'=>$this->title)));
+		}
         return $this->_url;
     }
 }

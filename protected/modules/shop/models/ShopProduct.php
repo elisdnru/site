@@ -712,6 +712,7 @@ class ShopProduct extends CActiveRecord
 
         if ($this->_url === null)
         {
+			DUrlRulesHelper::import('shop');
             $main_product = $this->getMainProduct();
             $this->_url = Yii::app()->createUrl('/shop/product/show', array('type'=>$main_product->type->alias, 'category'=>$main_product->category->path, 'id'=>$main_product->id));
         }

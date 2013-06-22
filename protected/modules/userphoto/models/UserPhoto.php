@@ -163,7 +163,10 @@ class UserPhoto extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl('/userphoto/photo/view', array('id'=>$this->getPrimaryKey()));
+		{
+			DUrlRulesHelper::import('userphoto');
+			$this->_url = Yii::app()->createUrl('/userphoto/photo/view', array('id'=>$this->getPrimaryKey()));
+		}
         return $this->_url;
     }
 
