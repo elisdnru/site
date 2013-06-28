@@ -3,8 +3,6 @@
 /**
  * This is the model class for table "{{user}}".
  *
- * @property integer $rating
- *
  * @property PhpBBUser phpBbUser
  */
 class User extends UserBase
@@ -26,21 +24,6 @@ class User extends UserBase
     public function rules()
     {
         return array_merge(parent::rules(), array(
-
-            // Rating
-            array('rating',
-                'numerical',
-                'integerOnly'=>true,
-                'on'=>array(
-                    self::SCENARIO_ADMIN_UPDATE
-                )
-            ),
-            array(
-                'rating',
-                'safe',
-                'on'=>'search'
-            ),
-
             // Settings
             // array('old_password', 'required', 'on' => 'settings'),
             array('old_password', 'DCurrentPassword', 'className'=>'User', 'validateMethod'=>'validatePassword', 'dependsOnAttributes'=>array('new_password'), 'on'=>'settings'),
@@ -63,16 +46,6 @@ class User extends UserBase
         }
 
         return $relations;
-    }
-
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
-    public function attributeLabels()
-    {
-        return array_merge(parent::attributeLabels(), array(
-            'rating' => 'Рейтинг',
-        ));
     }
 
     public function behaviors()
