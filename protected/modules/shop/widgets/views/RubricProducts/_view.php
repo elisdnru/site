@@ -27,7 +27,7 @@
                 <?php endforeach; ?>
             </p>
             <p class="price">Цена: <?php echo number_format($data->price, 0, '.', ' '); ?> руб.</p>
-            <p class="tocart"><?php echo CHtml::submitButton('В корзину' , array('onclick'=>'return toCartClick(' . $data->id . ')')); ?></p>
+            <p class="tocart"><?php echo CHtml::submitButton('В корзину' , array('onclick'=>'return toCartClick(event, ' . $data->id . ')')); ?></p>
 
         </div>
 
