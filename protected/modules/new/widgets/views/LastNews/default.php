@@ -6,8 +6,8 @@
         <h2><a href="<?php echo $data->url; ?>"><?php echo CHtml::encode($data->title); ?></a></h2>
         <div class="info">
             <p class="date"><span><time datetime="<?php echo date('Y-m-d', strtotime($data->date)); ?>" pubdate="pubdate"><?php echo DDateHelper::normdate($data->date); ?></time></span></p>
-            <?php if ($data->category): ?>
-                <p class="category"><span><a href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></a></span></p>
+            <?php if ($data->page): ?>
+                <p class="category"><span><a href="<?php echo $data->page->url; ?>"><?php echo CHtml::encode($data->page->title); ?></a></span></p>
             <?php endif; ?>
             <?php if (Yii::app()->moduleManager->active('comment')) : ?>
             <p class="comments"><span><a href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></a></span></p>
