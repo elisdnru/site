@@ -133,6 +133,8 @@ class ShopModule extends DWebModule
         Yii::app()->config->delete(array(
             'SHOP.PRODUCTS_PER_PAGE',
             'SHOP.ORDER_AGREEMENT',
+            'SHOP.GROUP_BY_TITLE',
+            'SHOP.SEND_ADMIN_EMAILS',
         ));
 
         return parent::uninstall();
