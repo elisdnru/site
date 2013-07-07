@@ -402,7 +402,7 @@ class DCategoryTreeBehavior extends DCategoryBehavior
             $parent = $this->getOwner()->getPrimaryKey();
 
         if ($parent)
-            $criteria->compare($this->primaryKeyAttribute, $this->getChildsArray($parent));
+            $criteria->compare($this->primaryKeyAttribute, array_merge(array($parent), $this->getChildsArray($parent)));
 
         $command = $this->createFindCommand($criteria);
         $this->clearOwnerCriteria();
