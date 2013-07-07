@@ -10,6 +10,7 @@ Yii::import('application.modules.page.models.Page');
  * @property integer $page_id
  * @property string $list_layout
  * @property string $show_layout
+ * @property string $show_view
  *
  * @property Page $page
  */
