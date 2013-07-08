@@ -95,7 +95,7 @@ class DController extends Controller
     public function checkUrl($url)
     {
         if (Yii::app()->getRequest()->getOriginalUrl() != $url)
-            $this->redirect($url);
+            $this->redirect($url, true, 301);
     }
 
     public function reflash()
