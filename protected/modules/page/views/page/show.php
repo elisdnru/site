@@ -37,6 +37,9 @@
 <?php Yii::app()->syntaxhighlighter->addHighlighter(); ?>
 <?php endif; ?>
 
+<?php Yii::import('application.modules.new.models.NewsPage'); ?>
+<?php if (NewsPage::model()->exists('page_id = :id', array('id'=>$page->id))): ?>
 <?php $this->widget('new.widgets.NewsWidget', array(
     'page'=>$page,
 )); ?>
+<?php endif; ?>
