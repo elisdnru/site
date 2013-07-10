@@ -53,7 +53,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <aside>
 
-    <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
+    <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('userphoto')))) { ?>
         <?php $this->widget('share.widgets.ShareWidget', array(
             'title'=>$model->title,
             'description'=>$model->title,

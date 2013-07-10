@@ -40,7 +40,7 @@ CTextHighlighter::registerCssFile();
 
 <article class="entry">
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('dependency'=>new Tags('blog')))) { ?>
     <header>
     <h1><?php echo CHtml::encode($model->title); ?></h1>
 
@@ -69,7 +69,7 @@ CTextHighlighter::registerCssFile();
 
     <div class="clear"></div>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('dependency'=>new Tags('gallery')))) { ?>
 
     <?php $this->widget('gallery.widgets.GalleryWidget', array(
         'id'=>$model->gallery_id,
@@ -91,7 +91,7 @@ CTextHighlighter::registerCssFile();
     <div class="clear"></div>
 
     <!-- Новости по теме -->
-    <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('duration'=>300))) { ?>
+    <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('dependency'=>new Tags('blog')))) { ?>
 
         <?php $this->widget('blog.widgets.ThemePostsWidget', array(
             'current'=>$model->id,
@@ -107,14 +107,14 @@ CTextHighlighter::registerCssFile();
         'image'=>$model->imageUrl,
     )); ?>
 
-    <?php if($this->beginCache('banner_post', array('duration'=>3600*24))) { ?>
+    <?php if($this->beginCache('banner_post', array('dependency'=>new Tags('block')))) { ?>
         <?php $this->beginWidget('DPortlet', array('htmlOptions'=>array('class'=>'portlet banner')));?>
         <?php $this->widget('application.modules.block.widgets.BlockWidget', array('id'=>'banner_post')); ?>
         <?php $this->endWidget(); ?>
     <?php $this->endCache(); } ?>
 
     <!-- Другие новости -->
-    <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('duration'=>300))) { ?>
+    <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('dependency'=>new Tags('blog')))) { ?>
     <?php $this->widget('blog.widgets.OtherPostsWidget', array(
         'category'=>$model->category_id,
         'skip'=>$model->id,

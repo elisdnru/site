@@ -3,7 +3,7 @@
     <?php $this->renderPartial($layout_subpages, array('page'=>$page)); ?>
 </header>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_page_'.$page->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_page_'.$page->id, array('dependency'=>new Tags('page')))) { ?>
 
     <?php if ($page->image) : ?>
 
@@ -22,7 +22,7 @@
 
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?></noindex><?php endif; ?>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_page_'.$page->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_page_'.$page->id, array('dependency'=>new Tags('blog')))) { ?>
     <?php foreach ($page->files as $file) : ?>
 
         <p><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/fileicon.jpg" alt="" />

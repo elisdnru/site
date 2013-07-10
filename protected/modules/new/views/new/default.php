@@ -2,7 +2,7 @@
 
 <article class="entry">
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('new')))) { ?>
     <header>
     <h1><?php echo CHtml::encode($model->title); ?></h1>
 
@@ -27,7 +27,7 @@
 
     <div class="clear"></div>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('gallery')))) { ?>
 
     <?php $this->widget('gallery.widgets.GalleryWidget', array(
         'id'=>$model->gallery_id,
@@ -56,7 +56,7 @@
 
 <!-- Другие новости -->
 <div class="other_news">
-<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_other_'.$model->id, array('duration'=>300))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_other_'.$model->id, array('dependency'=>new Tags('new')))) { ?>
 
     <?php $this->widget('new.widgets.ThemeNewsWidget', array(
         'current'=>$model->id,

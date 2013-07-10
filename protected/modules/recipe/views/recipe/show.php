@@ -24,7 +24,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <article class="entry">
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_recipe_'.$recipe->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_recipe_'.$recipe->id, array('dependency'=>new Tags('recipe')))) { ?>
     <header>
     <h1><?php echo CHtml::encode($recipe->title); ?></h1>
 
@@ -48,7 +48,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
     <div class="clear"></div>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$recipe->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$recipe->id, array('dependency'=>new Tags('recipe')))) { ?>
 
     <?php $this->widget('gallery.widgets.GalleryWidget', array(
         'id'=>$recipe->gallery_id,

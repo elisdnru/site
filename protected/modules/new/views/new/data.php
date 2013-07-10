@@ -2,7 +2,7 @@
 
 <article class="entry">
 
-    <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
+    <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('new')))) { ?>
     <h1><?php echo CHtml::encode($model->title); ?></h1>
     <?php $this->endCache(); } ?>
 
@@ -12,7 +12,7 @@
 
     <div class="clear"></div>
 
-    <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('duration'=>3600))) { ?>
+    <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('new')))) { ?>
 
     <?php $this->widget('gallery.widgets.GalleryWidget', array(
         'id'=>$model->gallery_id,

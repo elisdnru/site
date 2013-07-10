@@ -22,7 +22,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <article class="entry">
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_recipe_'.$review->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_recipe_'.$review->id, array('dependency'=>new Tags('review')))) { ?>
     <header>
     <h1><?php echo CHtml::encode($review->name); ?></h1>
 

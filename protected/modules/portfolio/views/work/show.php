@@ -27,7 +27,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <article class="entry">
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('duration'=>3600))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('dependency'=>new Tags('portfolio')))) { ?>
     <header>
 
         <h1><?php echo CHtml::encode($model->title); ?></h1>
