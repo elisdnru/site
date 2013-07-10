@@ -18,7 +18,7 @@ abstract class DAdminController extends DController
 
     public function beforeAction($action)
     {
-        Yii::app()->cache->flush();
+        Yii::app()->cache->clear($this->getModule()->getId());
 
         if (Yii::app()->user->isGuest)
             throw new CHttpException(403, 'Отказано в доступе');
