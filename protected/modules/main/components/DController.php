@@ -25,6 +25,7 @@
  *
  * DInlineWidgetsBehavior
  * @method string decodeWidgets($text)
+ * @method string clearWidgets($text)
  */
 class DController extends Controller
 {

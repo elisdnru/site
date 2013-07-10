@@ -113,6 +113,20 @@ class DInlineWidgetsBehavior extends CBehavior
         return $text;
     }
 
+    /**
+     * Content cleaner
+     * Use $this->clearWidgets($model->text) in view
+     * @param $text
+     * @return mixed
+     */
+    public function clearWidgets($text)
+    {
+        $text = $this->_replaceBlocks($text);
+        $text = $this->_clearAutoParagraphs($text);
+        $text = $this->_clearWidgets($text);
+        return $text;
+    }
+
     protected function _processWidgets($text)
     {
         if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text))
@@ -129,6 +143,11 @@ class DInlineWidgetsBehavior extends CBehavior
             return $text;
         }
         return $text;
+    }
+
+    protected function _clearWidgets($text)
+    {
+        return preg_replace('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', '', $text);
     }
 
     protected function _initToken()
