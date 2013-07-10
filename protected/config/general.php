@@ -35,6 +35,7 @@ return array(
         'application.modules.user.components.*',
         'application.modules.user.models.*',
         'application.modules.module.components.DUrlRulesHelper',
+        'application.extensions.cachetagging.Tags',
     ),
 
     'modules'=>array_replace($modules, array(
@@ -212,6 +213,11 @@ return array(
 
         'cache'=>array(
             'class'=>'system.caching.CDummyCache',
+            'behaviors'=>array(
+                'tagging'=>array(
+                    'class'=>'ext.cachetagging.TaggingBehavior',
+                ),
+            ),
         ),
     ),
 
