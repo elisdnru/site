@@ -4,7 +4,7 @@ Yii::import('application.modules.category.components.DCategoryBehavior');
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.2
+ * @version 1.3
  *
  * @property string $parentAttribute
  * @property string $parentRelation
@@ -270,7 +270,7 @@ class DCategoryTreeBehavior extends DCategoryBehavior
         if (count($domens)==1) {
 
             $criteria->mergeWith(array(
-                'condition'=>'t.' . $this->aliasAttribute . '=:alias AND t.' . $this->parentAttribute . '=0',
+                'condition'=>'t.' . $this->aliasAttribute . '=:alias AND (t.' . $this->parentAttribute . ' iS NULL OR t.' . $this->parentAttribute . '=0)',
                 'params'=>array(':alias'=>$domens[0])
             ));
             $model = $this->cached($this->getOwner())->find($criteria);
