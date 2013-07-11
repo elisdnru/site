@@ -36,13 +36,6 @@ class FollowModule extends DWebModule
                 'type'=>'string',
                 'default'=>'',
             ),
-            array(
-                'param'=>'FOLLOW.FEEDBURNER',
-                'label'=>'Логин Feedburner',
-                'value'=>'',
-                'type'=>'string',
-                'default'=>'',
-            ),
         ));
 
         return parent::install();
@@ -54,7 +47,6 @@ class FollowModule extends DWebModule
             'FOLLOW.TWITTER',
             'FOLLOW.LIVEJOURNAL',
             'FOLLOW.GITHUB',
-            'FOLLOW.FEEDBURNER',
         ));
 
         return parent::uninstall();
