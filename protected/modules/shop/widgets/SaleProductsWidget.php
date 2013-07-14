@@ -21,7 +21,7 @@ class SaleProductsWidget extends ShopBaseWidget
         $criteria->limit = $this->limit;
         $criteria->order = 'id DESC';
 
-        $items = ShopProduct::model()->cache(3600)->findAll($criteria);
+        $items = ShopProduct::model()->cache(0, new Tags('shop'))->findAll($criteria);
 
 		$this->render('SaleProducts/' . $this->tpl ,array(
             'items'=>$items,

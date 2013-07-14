@@ -71,7 +71,7 @@ class DAttributeHelper
     public static function attributes($class)
     {
         if (!isset(self::$_attributes[$class]))
-            self::$_attributes[$class] = UserAttribute::model()->cache(3600)->findAll(array(
+            self::$_attributes[$class] = UserAttribute::model()->cache(0, new Tags('attribute'))->findAll(array(
                 'condition'=>'class = :class',
                 'params'=>array(':class'=>$class),
                 'order'=>'sort',

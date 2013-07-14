@@ -21,7 +21,7 @@ class HomeProductsWidget extends ShopBaseWidget
         $criteria->limit = $this->limit;
         $criteria->order = 'id DESC';
 
-        $products = ShopProduct::model()->cache(30)->findAll($criteria);
+        $products = ShopProduct::model()->cache(0, new Tags('shop'))->findAll($criteria);
 
 		$this->render($this->tpl ,array(
             'products'=>$products,

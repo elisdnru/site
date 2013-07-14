@@ -7,6 +7,6 @@
 <?php if (Yii::app()->moduleManager->active('shop')): ?>
     <?php Yii::import('application.modules.shop.models.ShopCategory'); ?>
     <?php $this->beginWidget('DPortlet', array('title' => 'Ассортимент'));?>
-        <?php $this->widget('zii.widgets.CMenu',array('items'=>ShopCategory::model()->cache(3600)->getMenuList(1000), 'htmlOptions'=>array('class'=>'collapsed'))); ?>
+        <?php $this->widget('zii.widgets.CMenu',array('items'=>ShopCategory::model()->cache(0, new Tags('shop'))->getMenuList(1000), 'htmlOptions'=>array('class'=>'collapsed'))); ?>
     <?php $this->endWidget();?>
 <?php endif; ?>

@@ -17,7 +17,7 @@ class PortfolioWidget extends DWidget
         $criteria->limit = $this->limit;
         $criteria->order = 'sort DESC';
 
-        $items = PortfolioWork::model()->published()->cache(1000)->findAll($criteria);
+        $items = PortfolioWork::model()->published()->cache(0, new Tags('portfolio'))->findAll($criteria);
 
 		$this->render($this->tpl ,array(
             'items'=>$items,

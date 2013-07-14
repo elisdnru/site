@@ -88,7 +88,7 @@ class DAttributeBehavior extends CActiveRecordBehavior
             $this->attributeNames = array();
             $this->attributeLabels = array();
 
-            $attrs = UserAttribute::model()->cache(3600)->findAll(array(
+            $attrs = UserAttribute::model()->cache(0, new Tags('attribute'))->findAll(array(
                 'condition' => 'class = :class',
                 'params' => array(':class' => get_class($this->getOwner())),
                 'order' => 'sort',

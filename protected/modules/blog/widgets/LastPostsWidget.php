@@ -17,7 +17,7 @@ class LastPostsWidget extends DWidget
         $criteria->order = 'date DESC';
         $criteria->with = array('category', 'tags');
 
-        $posts = BlogPost::model()->cache(30)->findAll($criteria);
+        $posts = BlogPost::model()->cache(0, new Tags('blog'))->findAll($criteria);
 
 		$this->render('LastPosts/' . $this->tpl ,array(
             'posts'=>$posts,

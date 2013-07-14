@@ -20,7 +20,7 @@ class LastProductsWidget extends ShopBaseWidget
         $criteria->limit = $this->limit;
         $criteria->order = 'id DESC';
 
-        $items = ShopProduct::model()->cache(3600)->published()->findAll($criteria);
+        $items = ShopProduct::model()->cache(0, new Tags('shop'))->published()->findAll($criteria);
 
 		$this->render('LastProducts/' . $this->tpl ,array(
             'items'=>$items,

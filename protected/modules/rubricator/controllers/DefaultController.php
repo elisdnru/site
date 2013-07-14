@@ -42,7 +42,7 @@ class DefaultController extends DController
 
     protected function loadCategoryModel($alias)
     {
-        $category = RubricatorCategory::model()->cache(3600 * 24)->findByAlias($alias);
+        $category = RubricatorCategory::model()->cache(0, new Tags('rubricator'))->findByAlias($alias);
         if ($category === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $category;

@@ -8,7 +8,7 @@ class DefaultController extends PortfolioBaseController
 	{
         $criteria = $this->getStartCriteria();
 
-        $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(3600*24), array(
+        $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(0, new Tags('portfolio')), array(
             'criteria'=>$criteria,
             'pagination'=>array(
                 'pageSize'=>Yii::app()->config->get('PORTFOLIO.ITEMS_PER_PAGE'),
@@ -16,7 +16,7 @@ class DefaultController extends PortfolioBaseController
             ),
         ));
 
-        $categories = PortfolioCategory::model()->cache(3600*24)->findAll(array(
+        $categories = PortfolioCategory::model()->cache(0, new Tags('portfolio'))->findAll(array(
             'condition'=>'parent_id = 0',
             'order'=>'sort ASC',
         ));
@@ -46,7 +46,7 @@ class DefaultController extends PortfolioBaseController
 
         $subcategories = $category->cache(3600*24)->child_items;
 
-        $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(3600*24), array(
+        $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(0, new Tags('portfolio')), array(
             'criteria'=>$criteria,
             'pagination'=>array(
                 'pageSize'=>Yii::app()->config->get('PORTFOLIO.ITEMS_PER_PAGE'),
@@ -91,7 +91,7 @@ class DefaultController extends PortfolioBaseController
 
     protected function loadPortfolioPage()
     {
-        if (!$page = Page::model()->cache(3600*24)->findByAlias('portfolio'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByAlias('portfolio'))
         {
             $page = new Page();
             $page->title = 'Портфолио';

@@ -20,7 +20,7 @@ class WorkController extends PortfolioBaseController
             $condition = 'public = 1';
         }
 
-        $model = PortfolioWork::model()->cache(3600*24)->findByPk($id, $condition);
+        $model = PortfolioWork::model()->cache(0, new Tags('portfolio'))->findByPk($id, $condition);
 
         if($model===null)
             throw new CHttpException(404,'Страница не найдена');

@@ -33,8 +33,8 @@ class SeasonProductsWidget extends ShopBaseWidget
             $criteria->limit = $this->limit;
             $criteria->order = 't.id DESC';
 
-            $count = ShopProduct::model()->cache(30)->count($criteria);
-            $products = ShopProduct::model()->cache(30)->findAll($criteria);
+            $count = ShopProduct::model()->cache(0, new Tags('shop'))->count($criteria);
+            $products = ShopProduct::model()->cache(0, new Tags('shop'))->findAll($criteria);
 
             $this->render($this->tpl ,array(
                 'products'=>$products,

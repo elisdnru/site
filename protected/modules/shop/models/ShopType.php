@@ -128,7 +128,7 @@ class ShopType extends Category
 
 			foreach ($types as $type)
 			{
-				$count = ShopProduct::model()->cache(3600)->count(array(
+				$count = ShopProduct::model()->cache(0, new Tags('shop'))->count(array(
 					'condition'=>'t.public=1 AND product_rubrics.rubric_id = :rubric AND t.type_id = :type',
 					'params'=>array(
 						':rubric'=>$rubric_id,

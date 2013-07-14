@@ -17,7 +17,7 @@ class UpdatedPostsWidget extends DWidget
         $criteria->order = 'update_date DESC';
         $criteria->with = array('category');
 
-        $posts = BlogPost::model()->cache(30)->findAll($criteria);
+        $posts = BlogPost::model()->cache(0, new Tags('blog'))->findAll($criteria);
 
 		$this->render('UpdatedPosts/' . $this->tpl ,array(
             'posts'=>$posts,

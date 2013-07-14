@@ -27,14 +27,14 @@ class NewsWidget extends DWidget
             }
         }
 
-        $count = News::model()->cache(3600*24)->count($criteria);
+        $count = News::model()->cache(0, new Tags('new'))->count($criteria);
 
         $pages = new CPagination($count);
         $pages->pageSize = Yii::app()->config->get('NEW.NEWS_PER_PAGE');
         $pages->applyLimit($criteria);
 
         $criteria->with = array('page', 'files');
-        $news = News::model()->cache(30)->findAll($criteria);
+        $news = News::model()->cache(0, new Tags('new'))->findAll($criteria);
 
 		$this->render('News/'.$this->tpl ,array(
             'news'=>$news,

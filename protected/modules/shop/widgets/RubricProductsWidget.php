@@ -26,7 +26,7 @@ class RubricProductsWidget extends ShopBaseWidget
         $criteria->limit = $this->limit;
         $criteria->order = 't.id DESC';
 
-        $items = ShopProduct::model()->cache(30)->findAll($criteria);
+        $items = ShopProduct::model()->cache(0, new Tags('shop'))->findAll($criteria);
 
         $this->render('RubricProducts/' . $this->tpl ,array(
             'items'=>$items,

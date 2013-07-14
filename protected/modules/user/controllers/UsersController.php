@@ -37,7 +37,7 @@ class UsersController extends DController
 
     public function getIndexProviderModel()
     {
-        return User::model()->cache(3600);
+        return User::model()->cache(0, new Tags('user'));
     }
 
     public function loadModel($username)

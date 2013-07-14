@@ -40,7 +40,7 @@ class OtherProductsWidget extends ShopBaseWidget
                 $criteria->params[':title'] = $this->current->title;
             }
 
-            $items = ShopProduct::model()->cache(30)->findAll($criteria);
+            $items = ShopProduct::model()->cache(0, new Tags('shop'))->findAll($criteria);
 
             $this->render('OtherProducts/' . $this->tpl ,array(
                 'items'=>$items,

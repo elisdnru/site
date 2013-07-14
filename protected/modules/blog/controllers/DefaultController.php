@@ -135,7 +135,7 @@ class DefaultController extends DController
      */
     protected function createProvider($criteria)
     {
-        $dataProvider = new CActiveDataProvider(BlogPost::model()->cache(300), array(
+        $dataProvider = new CActiveDataProvider(BlogPost::model()->cache(0, new Tags('blog')), array(
             'criteria' => $criteria,
             'pagination' => array(
                 'pageSize' => Yii::app()->config->get('BLOG.POSTS_PER_PAGE'),

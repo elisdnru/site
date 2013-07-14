@@ -10,11 +10,11 @@ class DefaultController extends ShopBaseController
     {
         $model = $this->loadSearchModel();
 
-        $types = ShopType::model()->cache(3600*24)->findAll(array(
+        $types = ShopType::model()->cache(0, new Tags('shop'))->findAll(array(
             'order'=>'sort ASC',
         ));
 
-        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('SHOP.PRODUCTS_PER_PAGE'));
+        $dataProvider = $model->cache(0, new Tags('shop'))->search(Yii::app()->config->get('SHOP.PRODUCTS_PER_PAGE'));
 
         $this->render('index', array(
             'dataProvider'=>$dataProvider,
@@ -30,7 +30,7 @@ class DefaultController extends ShopBaseController
 
         $model->sale = 1;
 
-        $dataProvider = $model->cache(3600)->search(Yii::app()->config->get('SHOP.PRODUCTS_PER_PAGE'));
+        $dataProvider = $model->cache(0, new Tags('shop'))->search(Yii::app()->config->get('SHOP.PRODUCTS_PER_PAGE'));
 
         $this->render('sale', array(
             'dataProvider'=>$dataProvider,
@@ -143,7 +143,7 @@ class DefaultController extends ShopBaseController
         }
 
         $dataProvider = new CActiveDataProvider(
-            ShopProduct::model()->cache(3600*24),
+            ShopProduct::model()->cache(0, new Tags('shop')),
             array(
                 'criteria'=>$criteria,
                 'pagination'=>array(
@@ -175,7 +175,7 @@ class DefaultController extends ShopBaseController
 
     protected function loadTypeModel($type)
     {
-        $type = ShopType::model()->cache(3600 * 24)->findByAlias($type);
+        $type = ShopType::model()->cache(0, new Tags('shop'))->findByAlias($type);
         if ($type === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $type;
@@ -183,7 +183,7 @@ class DefaultController extends ShopBaseController
 
     protected function loadBrandModel($type)
     {
-        $type = ShopBrand::model()->cache(3600 * 24)->findByAlias($type);
+        $type = ShopBrand::model()->cache(0, new Tags('shop'))->findByAlias($type);
         if ($type === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $type;
@@ -194,7 +194,7 @@ class DefaultController extends ShopBaseController
         if (Yii::app()->moduleManager->active('rubricator'))
         {
             Yii::import('application.modules.rubricator.models.RubricatorArticle');
-            $type = RubricatorArticle::model()->cache(3600 * 24)->findByAlias($type);
+            $type = RubricatorArticle::model()->cache(0, new Tags('rubricator'))->findByAlias($type);
         }
 
         if ($type === null)
@@ -204,7 +204,7 @@ class DefaultController extends ShopBaseController
 
     protected function loadCategoryModel($path, $type_id=0)
     {
-        $category = ShopCategory::model()->cache(3600 * 24)->type($type_id)->findByPath($path);
+        $category = ShopCategory::model()->cache(0, new Tags('shop'))->type($type_id)->findByPath($path);
         if ($category === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $category;

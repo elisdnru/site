@@ -9,14 +9,14 @@ class DefaultController extends DController
         $criteria = new CDbCriteria;
         $criteria->scopes = array('published');
 
-        $count = Recipe::model()->cache(30)->count($criteria);
+        $count = Recipe::model()->cache(0, new Tags('recipe'))->count($criteria);
 
         $pages = new CPagination($count);
         $pages->pageSize = Yii::app()->config->get('NEW.NEWS_PER_PAGE');
         $pages->applyLimit($criteria);
 
         $criteria->order = 't.date DESC';
-        $recipes = Recipe::model()->cache(30)->findAll($criteria);
+        $recipes = Recipe::model()->cache(0, new Tags('recipe'))->findAll($criteria);
 
         $this->render('index', array(
             'page'=>$this->loadRecipePage(),

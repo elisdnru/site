@@ -38,7 +38,7 @@ class BlogCalendarWidget extends DWidget
         }
 
         // Make the links
-        $posts = BlogPost::model()->cache(3600*24)->published()->findAll(array(
+        $posts = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll(array(
             'condition'=>'date LIKE :date',
             'params'=>array(':date'=>"$year-$month-%"),
         ));

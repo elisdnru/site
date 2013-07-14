@@ -28,7 +28,7 @@ $this->info = 'Здесь собраны товары из всех раздел
 
 <div class="subpages">
     <?php $this->widget('zii.widgets.CMenu',array(
-        'items'=>ShopType::model()->cache(3600*24)->getMenuList())
+        'items'=>ShopType::model()->cache(0, new Tags('shop'))->getMenuList())
     ); ?>
     <div class="clear"></div>
 </div>

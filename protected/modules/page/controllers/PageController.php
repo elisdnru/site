@@ -24,7 +24,7 @@ class PageController extends DController
 
     protected function loadModel($path)
     {
-        $page = Page::model()->cache(3600 * 24)->findByPath($path);
+        $page = Page::model()->cache(0, new Tags('page'))->findByPath($path);
         if ($page === null)
             throw new CHttpException('404', 'Страница не найдена');
         return $page;

@@ -8,7 +8,7 @@ class PageWidget extends DWidget
 	
 	public function run()
 	{
-		 $page = Page::model()->cache(1000)->findByPath($this->alias);
+		 $page = Page::model()->cache(0, new Tags('page'))->findByPath($this->alias);
          $this->render('Page', array('page'=>$page));
 	}
 }

@@ -18,14 +18,14 @@ class DefaultController extends DController
         $criteria = new CDbCriteria;
         $criteria->scopes = array('published');
 
-        $count = Review::model()->cache(30)->count($criteria);
+        $count = Review::model()->cache(0, new Tags('review'))->count($criteria);
 
         $pages = new CPagination($count);
         $pages->pageSize = Yii::app()->config->get('NEW.NEWS_PER_PAGE');
         $pages->applyLimit($criteria);
 
         $criteria->order = 't.date DESC';
-        $reviews = Review::model()->cache(30)->findAll($criteria);
+        $reviews = Review::model()->cache(0, new Tags('review'))->findAll($criteria);
 
         $reviewForm = new ReviewForm;
 
