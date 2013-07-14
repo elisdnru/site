@@ -40,4 +40,11 @@ class DefaultController extends DAdminController
             'user'=>$this->getUser(),
         ));
 	}
+
+    public function actionClearCache()
+    {
+        Yii::app()->cache->flush();
+        Yii::app()->user->setFlash('success', 'Кэш очищен');
+        $this->redirect(array('index'));
+    }
 }

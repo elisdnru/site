@@ -66,4 +66,18 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <?php endif; ?>
     <?php endforeach; ?>
 
+    <fieldset>
+        <h2>Дополнительно</h2>
+        <ul class="adminlist">
+            <li>
+                <ul>
+                    <?php $this->widget('DIconMenu', array('items'=>array(
+                        array('label'=>'Очистить кэш', 'url'=>array('/admin/default/clearCache'), 'icon'=>'clear.png'),
+                    ), 'iconsPath'=>'/core/images/admin/'));?>
+                </ul>
+                <div class="clear"></div>
+            </li>
+        </ul>
+    </fieldset>
+
 </div>
