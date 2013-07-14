@@ -128,6 +128,13 @@ return array(
         'data' => null
     ),
 
+    'module_personnel' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => 'Управление сотрудниками',
+        'bizRule' => null,
+        'data' => null
+    ),
+
     'module_recipe' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление рецептами',
@@ -205,6 +212,7 @@ return array(
             'module_menu',
             'module_new',
             'module_page',
+            'module_personnel',
             'module_recipe',
             'module_review',
             'module_rubricator',
@@ -232,6 +240,7 @@ return array(
             'module_menu',
             'module_new',
             'module_page',
+            'module_personnel',
             'module_user',
             'module_meta',
             'module_blog',
