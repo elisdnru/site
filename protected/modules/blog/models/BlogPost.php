@@ -294,7 +294,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
 
     protected function beforeDelete()
     {
-        if (parent::beforeSave())
+        if (parent::beforeDelete())
         {
             foreach ($this->posttags as $posttag)
                 $posttag->delete();
