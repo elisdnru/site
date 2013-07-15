@@ -283,15 +283,6 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
     }
 
-    protected function afterFind()
-    {
-        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
-        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
-        if (!$this->description) $this->description = strip_tags($this->short);
-
-        parent::afterFind();
-    }
-
     protected function beforeDelete()
     {
         if (parent::beforeDelete())
@@ -308,15 +299,20 @@ class BlogPost extends CActiveRecord implements DICommentDepends
     {
         if (parent::beforeSave())
         {
+            $this->fillDefaultValues();
             $this->processThematicGroup();
-
-            if (!$this->image_alt)
-                $this->image_alt = $this->title;
-
             return true;
         }
         else
             return false;
+    }
+
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->description) $this->description = strip_tags($this->short);
+        if (!$this->image_alt) $this->image_alt = $this->title;
     }
 
     protected function processThematicGroup()

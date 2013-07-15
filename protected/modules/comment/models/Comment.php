@@ -245,17 +245,6 @@ class Comment extends CActiveRecord
         return parent::count($condition, $params);
     }
 
-    protected function afterFind()
-    {
-        if ($this->cache(0)->user)
-        {
-            $this->email = $this->user->email;
-            $this->name = trim($this->user->name . ' ' . $this->user->lastname);
-            $this->site = $this->user->site;
-        }
-        parent::afterFind();
-    }
-
     protected function beforeValidate()
     {
         $this->initType();
@@ -264,12 +253,23 @@ class Comment extends CActiveRecord
 
     protected function beforeSave()
     {
+        $this->fillDefaultValues();
         $this->initType();
 
         if (!$this->type)
             return false;
 
         return parent::beforeSave();
+    }
+
+    protected function fillDefaultValues()
+    {
+        if ($this->cache(0)->user)
+        {
+            $this->email = $this->user->email;
+            $this->name = trim($this->user->name . ' ' . $this->user->lastname);
+            $this->site = $this->user->site;
+        }
     }
 
     protected function initType()

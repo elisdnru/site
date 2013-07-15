@@ -243,17 +243,6 @@ class Page extends CActiveRecord
         return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
     }
 
-    protected function afterFind()
-    {
-        if (!$this->alias)
-            $this->alias = DTextHelper::strToChpu($this->title);
-
-        if (!$this->pagetitle)
-            $this->pagetitle = strip_tags($this->title);
-
-        parent::afterFind();
-    }
-
     public function allowedForUser(User $user)
     {
         if ($user->access_pages)
@@ -279,8 +268,15 @@ class Page extends CActiveRecord
 
     protected function beforeSave()
     {
-        if (!$this->image_alt) $this->image_alt = $this->title;
+        $this->fillDefaultValues();
         return parent::beforeSave();
+    }
+
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->image_alt) $this->image_alt = $this->title;
     }
 
     protected function afterSave()

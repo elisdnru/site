@@ -111,15 +111,6 @@ abstract class Category extends CActiveRecord
             ),
 		));
 	}
-
-    protected function afterFind()
-    {
-        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
-        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
-        if (!$this->description) $this->description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
-        parent::afterFind();
-    }
-
     public function behaviors()
     {
         $behaviors = array(
@@ -165,6 +156,24 @@ abstract class Category extends CActiveRecord
     public function defaultScope()
     {
         return $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
+    }
+
+    protected function beforeSave()
+    {
+        if (parent::beforeSave())
+        {
+            $this->fillDefaultValues();
+            return true;
+        }
+        else
+            return false;
+    }
+
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->description) $this->description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
     }
 
     private $_url;

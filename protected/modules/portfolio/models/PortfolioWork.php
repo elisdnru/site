@@ -225,18 +225,22 @@ class PortfolioWork extends CActiveRecord
         return $behaviors;
     }
 
-    protected function afterFind()
+    protected function beforeSave()
     {
-        if (!$this->alias)
-            $this->alias = DTextHelper::strToChpu($this->title);
+        if (parent::beforeSave())
+        {
+            $this->fillDefaultValues();
+            return true;
+        }
+        else
+            return false;
+    }
 
-        if (!$this->pagetitle)
-            $this->pagetitle = strip_tags($this->title);
-
-        if (!$this->description)
-            $this->description = strip_tags($this->short);
-
-        parent::afterFind();
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->description) $this->description = strip_tags($this->short);
     }
 
     protected function afterSave()

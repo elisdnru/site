@@ -324,37 +324,26 @@ class News extends CActiveRecord implements DICommentDepends
 
         return $behaviors;
     }
-	
-    protected function afterFind()
-    {
-        if (!$this->pagetitle)
-            $this->pagetitle = strip_tags($this->title);
 
-        if (!$this->description)
-            $this->description = strip_tags($this->short);
-
-        parent::afterFind();
-    }
-    
     protected function beforeSave()
     {
         if (parent::beforeSave())
         {
+            $this->fillDefaultValues();
             $this->processThematicGroup();
-
-			if (!$this->alias)
-				$this->alias = mb_strtolower(DTextHelper::strToChpu($this->title), 'UTF-8');
-
-            if (!$this->author_id)
-                $this->author_id = Yii::app()->user->id;
-
-            if (!$this->image_alt)
-                $this->image_alt = $this->title;
-
             return true;
         }
         else
             return false;
+    }
+
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = mb_strtolower(DTextHelper::strToChpu($this->title), 'UTF-8');
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->description) $this->description = strip_tags($this->short);
+        if (!$this->author_id) $this->author_id = Yii::app()->user->id;
+        if (!$this->image_alt) $this->image_alt = $this->title;
     }
 
     protected function processThematicGroup()

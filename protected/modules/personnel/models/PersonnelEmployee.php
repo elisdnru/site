@@ -226,18 +226,17 @@ class PersonnelEmployee extends CActiveRecord
     {
         if (parent::beforeSave())
         {
-            if (!$this->alias)
-                $this->alias = DTextHelper::strToChpu($this->title);
-
-            if (!$this->pagetitle)
-                $this->pagetitle = strip_tags($this->title);
-
-            if (!$this->description)
-                $this->description = strip_tags($this->short);
-
+            $this->fillDefaultValues();
             return true;
         }
         return false;
+    }
+
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->description) $this->description = strip_tags($this->short);
     }
 
     protected function afterSave()

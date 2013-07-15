@@ -227,32 +227,24 @@ class Recipe extends CActiveRecord
 
         return $behaviors;
     }
-	
-    protected function afterFind()
-    {
-        if (!$this->alias)
-            $this->alias = DTextHelper::strToChpu($this->title);
 
-        if (!$this->pagetitle)
-            $this->pagetitle = strip_tags($this->title);
-
-        if (!$this->description)
-            $this->description = strip_tags($this->short);
-
-        parent::afterFind();
-    }
-    
     protected function beforeSave()
     {
         if (parent::beforeSave())
         {
-            if (!$this->image_alt)
-                $this->image_alt = $this->title;
-
+            $this->fillDefaultValues();
             return true;
         }
         else
             return false;
+    }
+
+    protected function fillDefaultValues()
+    {
+        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
+        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
+        if (!$this->description) $this->description = strip_tags($this->short);
+        if (!$this->image_alt) $this->image_alt = $this->title;
     }
 
     public function findByAlias($alias)

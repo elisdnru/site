@@ -97,6 +97,7 @@ abstract class FileModel extends CActiveRecord
     protected function afterFind()
     {
         $this->oldfile = $this->file;
+        parent::afterFind();
     }
 
     protected function beforeSave() {
