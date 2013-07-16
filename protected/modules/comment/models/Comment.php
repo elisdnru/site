@@ -247,19 +247,25 @@ class Comment extends CActiveRecord
 
     protected function beforeValidate()
     {
-        $this->initType();
-        return parent::beforeValidate();
+        if (parent::beforeValidate())
+        {
+            $this->initType();
+            return true;
+        }
+        return false;
     }
 
     protected function beforeSave()
     {
-        $this->fillDefaultValues();
-        $this->initType();
-
-        if (!$this->type)
-            return false;
-
-        return parent::beforeSave();
+        if (parent::beforeSave())
+        {
+            $this->fillDefaultValues();
+            $this->initType();
+            if (!$this->type)
+                return false;
+            return true;
+        }
+        return false;
     }
 
     protected function fillDefaultValues()

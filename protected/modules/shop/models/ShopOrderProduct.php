@@ -108,13 +108,16 @@ class ShopOrderProduct extends CActiveRecord
 
     protected function beforeValidate()
     {
-        if ($product = ShopProduct::model()->findByPk($this->product_id))
+        if (parent::beforeValidate())
         {
-            $this->artikul = $product->artikul;
-            $this->title = $product->title;
-            $this->price = $product->price;
+            if ($product = ShopProduct::model()->findByPk($this->product_id))
+            {
+                $this->artikul = $product->artikul;
+                $this->title = $product->title;
+                $this->price = $product->price;
+            }
+            return true;
         }
-
-        return parent::beforeValidate();
+        return false;
     }
 }

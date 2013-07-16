@@ -457,22 +457,13 @@ class ShopProduct extends CActiveRecord
     {
         if (parent::beforeDelete())
         {
-            foreach ($this->all_attribute_values as $val)
-                $val->delete();
-
-            foreach ($this->product_sizes as $productSize)
-                $productSize->delete();
-
-            foreach ($this->images as $image)
-                $image->delete();
-
-            foreach ($this->models as $model)
-                $model->delete();
-
+            $this->delAttributes();
+            $this->delSizes();
+            $this->delImages();
+            $this->delModels();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     protected function afterSave()
@@ -732,5 +723,29 @@ class ShopProduct extends CActiveRecord
             $main = $this;
 
         return $main ;
+    }
+
+    protected function delAttributes()
+    {
+        foreach ($this->all_attribute_values as $val)
+            $val->delete();
+    }
+
+    protected function delSizes()
+    {
+        foreach ($this->product_sizes as $productSize)
+            $productSize->delete();
+    }
+
+    protected function delImages()
+    {
+        foreach ($this->images as $image)
+            $image->delete();
+    }
+
+    protected function delModels()
+    {
+        foreach ($this->models as $model)
+            $model->delete();
     }
 }

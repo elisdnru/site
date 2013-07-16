@@ -48,12 +48,9 @@ class ShopSize extends Category
     {
         if (parent::beforeDelete())
         {
-            foreach ($this->size_values as $value)
-                $value->delete();
-
+            $this->delValues();
             return true;
         }
-
         return false;
     }
 
@@ -67,5 +64,11 @@ class ShopSize extends Category
 			$this->_url = Yii::app()->controller->createUrl('', array_replace($_GET, array('size'=>$this->title)));
 		}
         return $this->_url;
+    }
+
+    protected function delValues()
+    {
+        foreach ($this->size_values as $value)
+            $value->delete();
     }
 }

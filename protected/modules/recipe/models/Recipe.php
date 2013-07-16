@@ -235,8 +235,7 @@ class Recipe extends CActiveRecord
             $this->fillDefaultValues();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     protected function fillDefaultValues()

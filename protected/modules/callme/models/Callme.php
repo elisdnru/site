@@ -110,10 +110,13 @@ class Callme extends CActiveRecord
 
     protected function beforeSave()
     {
-        if ($this->isNewRecord)
-            $this->date = date('Y-m-d H:i:s');
-
-        return parent::beforeSave();
+        if (parent::beforeSave())
+        {
+            if ($this->isNewRecord)
+                $this->date = date('Y-m-d H:i:s');
+            return true;
+        }
+        return false;
     }
 
     public function sendEmail()

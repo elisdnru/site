@@ -139,6 +139,7 @@ class ShopCategory extends TreeCategory
             $child->type_id = $this->type_id;
             $child->save();
         }
+        parent::afterSave();
     }
 
     /**

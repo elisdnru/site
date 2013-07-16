@@ -268,8 +268,12 @@ class Page extends CActiveRecord
 
     protected function beforeSave()
     {
-        $this->fillDefaultValues();
-        return parent::beforeSave();
+        if (parent::beforeSave())
+        {
+            $this->fillDefaultValues();
+            return true;
+        }
+        return false;
     }
 
     protected function fillDefaultValues()
@@ -305,17 +309,24 @@ class Page extends CActiveRecord
 
     protected function beforeDelete()
     {
-        $this->delFiles();
-
-        foreach ($this->child_pages as $child)
-            $child->delete();
-
-        return parent::beforeDelete();
+        if (parent::beforeDelete())
+        {
+            $this->delFiles();
+            $this->delChildPages();
+            return true;
+        }
+        return false;
     }
 
     protected function delFiles()
     {
         foreach ($this->files as $file)
             $file->delete();
+    }
+
+    protected function delChildPages()
+    {
+        foreach ($this->child_pages as $child)
+            $child->delete();
     }
 }

@@ -125,12 +125,15 @@ class ShopProductAttribute extends CActiveRecord
     {
         if (parent::beforeDelete())
         {
-            foreach ($this->attribute_values as $value)
-                $value->delete();
-
+            $this->delValues();
             return true;
         }
-
         return false;
+    }
+
+    protected function delValues()
+    {
+        foreach ($this->attribute_values as $value)
+            $value->delete();
     }
 }

@@ -333,8 +333,7 @@ class News extends CActiveRecord implements DICommentDepends
             $this->processThematicGroup();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     protected function fillDefaultValues()
@@ -387,8 +386,12 @@ class News extends CActiveRecord implements DICommentDepends
 
     protected function beforeDelete()
     {
-        $this->delFiles();
-        return parent::beforeDelete();
+        if (parent::beforeDelete())
+        {
+            $this->delFiles();
+            return true;
+        }
+        return false;
     }    
 
     protected function delFiles()

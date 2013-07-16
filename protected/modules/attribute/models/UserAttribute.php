@@ -105,9 +105,7 @@ class UserAttribute extends CActiveRecord
 
     protected function afterDelete()
     {
-        foreach ($this->values as $value)
-            $value->delete();
-
+        $this->delValues();
         parent::afterDelete();
     }
 
@@ -139,5 +137,11 @@ class UserAttribute extends CActiveRecord
     {
         $rules = self::getRules();
         return isset($rules[$name]) ? $rules[$name] : $name;
+    }
+
+    protected function delValues()
+    {
+        foreach ($this->values as $value)
+            $value->delete();
     }
 }

@@ -60,15 +60,20 @@ class CommentForm extends CFormModel
     
     protected function beforeValidate()
     {
-        if ($this->site)
+        if (parent::beforeValidate())
         {
-            if (!preg_match('|^http:\/\/|', $this->site))
-                $this->site = 'http://' . $this->site;
-
-            if ($this->site == 'http://')
-                $this->site = '';
+            if ($this->site)
+                $this->checkSite();
+            return true;
         }
-        
-        return parent::beforeValidate();
+        return false;
+    }
+
+    protected function checkSite()
+    {
+        if (!preg_match('|^http:\/\/|', $this->site))
+            $this->site = 'http://' . $this->site;
+        if ($this->site == 'http://')
+            $this->site = '';
     }
 }

@@ -100,14 +100,16 @@ abstract class FileModel extends CActiveRecord
         parent::afterFind();
     }
 
-    protected function beforeSave() {
-
-        if (!$this->type){
-            return false;
+    protected function beforeSave()
+    {
+        if (parent::beforeSave())
+        {
+            if (!$this->type)
+                return false;
+            $this->loadFile();
+            return true;
         }
-        $this->loadFile();
-
-        return parent::beforeSave();
+        return false;
     }
 
     protected function loadFile()
@@ -127,8 +129,12 @@ abstract class FileModel extends CActiveRecord
 
     protected function beforeDelete()
     {
-        $this->delFile();
-        return parent::beforeDelete();
+        if (parent::beforeDelete())
+        {
+            $this->delFile();
+            return true;
+        }
+        return false;
     }
 
     private function delFile()

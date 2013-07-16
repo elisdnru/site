@@ -428,8 +428,7 @@ abstract class UserBase extends CActiveRecord
             $this->updateCommentsCount();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     public function validatePassword($password)

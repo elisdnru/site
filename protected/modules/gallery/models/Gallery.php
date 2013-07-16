@@ -104,38 +104,33 @@ class Gallery extends CActiveRecord
 
     protected function beforeDelete()
     {
-        if ($this->alias)
+        if (parent::beforeDelete())
         {
-            $path = $this->getFileDir();
-            Yii::app()->file->set($path)->Delete();
+            if ($this->alias)
+            {
+                $path = $this->getFileDir();
+                Yii::app()->file->set($path)->Delete();
+            }
+            return true;
         }
-        return parent::beforeDelete();
+        return false;
     }
 
     protected function beforeSave()
     {
-        if ($this->isNewRecord && $this->alias)
+        if (parent::beforeSave())
         {
-            $path = $this->getFileDir();
-            Yii::app()->file->CreateDir(0754, $path);
+            if ($this->isNewRecord && $this->alias)
+                $this->createDirectory();
+            return true;
         }
-        return parent::beforeSave();
+        return false;
     }
 
     protected function afterSave()
     {
         if ($this->oldalias && $this->oldalias != $this->alias)
-        {
-            $oldname = $this->getFileDir($this->oldalias);
-            $newname = $this->alias;
-
-            $dir = Yii::app()->file->set($oldname);
-
-            if ($dir->exists)
-                $dir->Rename($newname);
-            else
-                Yii::app()->file->CreateDir(0754, $this->getFileDir($newname));
-        }
+            $this->renameDirectory();
 
         parent::afterSave();
     }
@@ -315,6 +310,25 @@ class Gallery extends CActiveRecord
             'params'=>array(':alias'=>$alias)
         ));
         return $model;
+    }
+
+    protected function renameDirectory()
+    {
+        $oldname = $this->getFileDir($this->oldalias);
+        $newname = $this->alias;
+
+        $dir = Yii::app()->file->set($oldname);
+
+        if ($dir->exists)
+            $dir->Rename($newname);
+        else
+            Yii::app()->file->CreateDir(0754, $this->getFileDir($newname));
+    }
+
+    protected function createDirectory()
+    {
+        $path = $this->getFileDir();
+        Yii::app()->file->CreateDir(0754, $path);
     }
 
 }

@@ -176,5 +176,6 @@ class UserPhoto extends CActiveRecord
             'material_id'=>$this->id,
             'type'=>UserPhotoComment::TYPE_OF_COMMENT,
         ));
+        parent::afterDelete();
     }
 }

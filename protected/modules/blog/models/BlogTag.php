@@ -92,14 +92,13 @@ class BlogTag extends CActiveRecord
 
     protected function beforeDelete()
     {
-        if (parent::beforeSave())
+        if (parent::beforeDelete())
         {
             foreach ($this->posttags as $posttag)
                 $posttag->delete();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     public function getAssocList()

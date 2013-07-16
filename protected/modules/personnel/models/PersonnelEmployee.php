@@ -246,6 +246,7 @@ class PersonnelEmployee extends CActiveRecord
             Yii::app()->db->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE `id`=:id')->execute(array(':id'=>$this->id));
             $this->sort = $this->id;
         }
+        parent::afterSave();
     }
 
     private $_url;

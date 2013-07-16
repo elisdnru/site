@@ -232,8 +232,7 @@ class PortfolioWork extends CActiveRecord
             $this->fillDefaultValues();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     protected function fillDefaultValues()
@@ -250,6 +249,7 @@ class PortfolioWork extends CActiveRecord
             Yii::app()->db->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE `id`=:id')->execute(array(':id'=>$this->id));
             $this->sort = $this->id;
         }
+        parent::afterSave();
     }
 
     public function getAssocList($only_public = false)

@@ -197,16 +197,17 @@ class ShopOrder extends CActiveRecord
     {
         if (!$this->isNewRecord)
             $this->processOrder();
-
         parent::afterSave();
     }
 
     protected function beforeDelete()
     {
-        foreach ($this->products as $product)
-            $product->delete();
-
-        return parent::beforeDelete();
+        if (parent::beforeDelete())
+        {
+            $this->delProducts();
+            return true;
+        }
+        return false;
     }
 
     public function sendEmails()
@@ -357,5 +358,11 @@ class ShopOrder extends CActiveRecord
     {
         $id = $event->params['order']->id;
         $this->updateByPk($id, array('payed'=>1));
+    }
+
+    protected function delProducts()
+    {
+        foreach ($this->products as $product)
+            $product->delete();
     }
 }

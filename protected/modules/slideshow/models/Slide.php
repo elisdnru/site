@@ -121,12 +121,16 @@ class Slide extends CActiveRecord
     {
         if (parent::beforeValidate())
         {
-            $this->url = str_replace(Yii::app()->request->hostInfo, '', $this->url);
-            if (empty($this->url))
-                $this->url = '/';
-
+            $this->checkUrl();
 			return true;
         }
 		return false;
+    }
+
+    protected function checkUrl()
+    {
+        $this->url = str_replace(Yii::app()->request->hostInfo, '', $this->url);
+        if (empty($this->url))
+            $this->url = '/';
     }
 }

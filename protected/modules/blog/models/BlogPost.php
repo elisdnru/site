@@ -291,8 +291,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 $posttag->delete();
             return true;
         }
-        else
-            return false;
+        return false;
     }
     
     protected function beforeSave()
@@ -303,8 +302,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
             $this->processThematicGroup();
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     protected function fillDefaultValues()
