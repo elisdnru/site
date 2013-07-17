@@ -60,6 +60,12 @@ $this->widget('zii.widgets.CDetailView', array(
                 'value'=>CHtml::link(CHtml::encode($model->site), $model->site),
                 'visible'=>$model->site,
             ),
+            array(
+                'label'=>'Google+',
+                'type'=>'html',
+                'value'=>CHtml::link(CHtml::image(DSocNetworkHelper::getIcon('google')), $model->googleplus),
+                'visible'=>$model->googleplus,
+            ),
         ),
 
         $model->getAttrDetailView(),

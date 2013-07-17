@@ -57,7 +57,14 @@ CTextHighlighter::registerCssFile();
         <?php if ($model->category): ?>
             <p class="category"><span><a href="<?php echo $model->category->url; ?>"><?php echo CHtml::encode($model->category->title); ?></a></span></p>
         <?php endif; ?>
-        <p class="author"><span>Автор: <a href="https://plus.google.com/116153200022401064957?rel=author"><?php echo $model->author->name; ?> <?php echo $model->author->lastname; ?></a></span></p>
+        <?php if ($model->author): ?>
+            <p class="author"><span>Автор:
+                <?php echo CHtml::link(CHtml::encode($model->author->name . ' ' . $model->author->lastname), $model->author->url); ?>
+                <?php if ($model->author->googleplus): ?>
+                    <?php echo CHtml::link(CHtml::image(DSocNetworkHelper::getIcon('google')), $model->author->googleplus . '?rel=author'); ?>
+                <?php endif; ?>
+            </span></p>
+        <?php endif; ?>
     </div>
 
     </header>

@@ -57,6 +57,12 @@ if ($this->is(Access::ROLE_CONTROL)){
             <?php echo $form->error($model,'site'); ?>
         </div>
 
+        <div class="row">
+            <?php echo $form->labelEx($model,'googleplus'); ?><br />
+            <?php echo $form->textField($model,'googleplus', array('size'=>40, 'maxlength'=>255)); ?>
+            <?php echo $form->error($model,'googleplus'); ?>
+        </div>
+
         <?php foreach (DAttributeHelper::attributes(get_class($model)) as $attr): ?>
         <div class="row">
             <?php echo $form->labelEx($model,$attr->name); ?><br />

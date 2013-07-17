@@ -32,6 +32,7 @@ Yii::import('application.modules.attribute.components.*');
  * @property string $address
  * @property string $phone
  * @property string $site
+ * @property string $googleplus
  *
  * @property Page[] $access_pages
  * @property int $comments_count
@@ -268,6 +269,17 @@ abstract class UserBase extends CActiveRecord
                 'max'=>255
             ),
 
+            // GooglePlus
+            array(
+                'googleplus',
+                'url'
+            ),
+            array(
+                'googleplus',
+                'length',
+                'max'=>255
+            ),
+
             array(
                 'verifyCode',
                 'captcha',
@@ -329,13 +341,15 @@ abstract class UserBase extends CActiveRecord
             'address' => 'Адрес',
             'phone' => 'Телефон',
             'site' => 'Сайт',
+            'googleplus' => 'Профиль в Google+',
 		), DAttributeHelper::attributeLabels('User'));
 	}
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @param int $pageSize
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
 	public function search($pageSize=10)
 	{
 		// Warning: Please modify the following code to remove attributes that
@@ -364,6 +378,7 @@ abstract class UserBase extends CActiveRecord
         $criteria->compare('t.zip',$this->zip,true);
         $criteria->compare('t.address',$this->address,true);
         $criteria->compare('t.phone',$this->phone,true);
+        $criteria->compare('t.site',$this->site,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
