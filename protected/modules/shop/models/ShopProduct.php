@@ -477,7 +477,7 @@ class ShopProduct extends CActiveRecord
         parent::afterSave();
     }
 
-    protected function loadImages()
+    private function loadImages()
     {
         if (isset($_FILES['ShopProduct']) && isset($_FILES['ShopProduct']['tmp_name']))
         {
@@ -495,7 +495,7 @@ class ShopProduct extends CActiveRecord
         }
     }
 
-    protected function saveRubrics()
+    private function saveRubrics()
     {
         if (Yii::app()->moduleManager->installed('rubricator'))
         {
@@ -517,7 +517,7 @@ class ShopProduct extends CActiveRecord
         }
     }
 
-    protected function saveOtherCategories()
+    private function saveOtherCategories()
     {
         $categories = $this->otherCategoriesArray;
 
@@ -536,7 +536,7 @@ class ShopProduct extends CActiveRecord
         }
     }
 
-    protected function saveSizes()
+    private function saveSizes()
     {
         $sizes = $this->sizesArray;
 
@@ -555,7 +555,7 @@ class ShopProduct extends CActiveRecord
         }
     }
 
-    protected function saveColors()
+    private function saveColors()
     {
         $colors = $this->colorsArray;
 
@@ -574,7 +574,7 @@ class ShopProduct extends CActiveRecord
         }
     }
 
-    protected function saveOtherAttributes()
+    private function saveOtherAttributes()
     {
         $attributes = $this->getOtherAttributesAssoc();
 
@@ -653,7 +653,7 @@ class ShopProduct extends CActiveRecord
      * @param int $type
      * @return ShopProductAttribute[]
      */
-    protected function loadAttrFields($type=0)
+    private function loadAttrFields($type=0)
     {
         return ShopProductAttribute::model()->type($type ? $type : $this->type_id)->findAll(array(
             'order' => 'sort ASC',
@@ -725,25 +725,25 @@ class ShopProduct extends CActiveRecord
         return $main ;
     }
 
-    protected function delAttributes()
+    private function delAttributes()
     {
         foreach ($this->all_attribute_values as $val)
             $val->delete();
     }
 
-    protected function delSizes()
+    private function delSizes()
     {
         foreach ($this->product_sizes as $productSize)
             $productSize->delete();
     }
 
-    protected function delImages()
+    private function delImages()
     {
         foreach ($this->images as $image)
             $image->delete();
     }
 
-    protected function delModels()
+    private function delModels()
     {
         foreach ($this->models as $model)
             $model->delete();

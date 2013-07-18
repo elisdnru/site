@@ -66,7 +66,7 @@ class ShopSize extends Category
         return $this->_url;
     }
 
-    protected function delValues()
+    private function delValues()
     {
         foreach ($this->size_values as $value)
             $value->delete();

@@ -192,7 +192,7 @@ class ShopCategory extends TreeCategory
         return $this->_getTabListRecursive($categories, $parent);
     }
 
-    protected function _getTabListRecursive($items, $parent, $indent=0)
+    private function _getTabListRecursive($items, $parent, $indent=0)
     {
         $parent = (int)$parent;
         $resultArray = array();
@@ -232,7 +232,7 @@ class ShopCategory extends TreeCategory
         return $this->_getUrlListRecursive($categories, $parent);
     }
 
-    protected function _getUrlListRecursive($items, $parent, $indent=0)
+    private function _getUrlListRecursive($items, $parent, $indent=0)
     {
         $parent = (int)$parent;
         $resultArray = array();

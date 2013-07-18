@@ -137,7 +137,7 @@ class Contact extends CActiveRecord
         parent::afterSave();
     }
 
-    public function sendAdminNotify()
+    private function sendAdminNotify()
     {
         if (Yii::app()->config->get('CONTACT.SEND_ADMIN_EMAILS'))
         {

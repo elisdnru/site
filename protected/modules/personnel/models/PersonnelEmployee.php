@@ -232,7 +232,7 @@ class PersonnelEmployee extends CActiveRecord
         return false;
     }
 
-    protected function fillDefaultValues()
+    private function fillDefaultValues()
     {
         if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
         if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);

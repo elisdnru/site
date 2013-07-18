@@ -170,7 +170,7 @@ class UserPhoto extends CActiveRecord
         return $this->_url;
     }
 
-    protected function afterDelete()
+    private function afterDelete()
     {
         Comment::model()->deleteAllByAttributes(array(
             'material_id'=>$this->id,

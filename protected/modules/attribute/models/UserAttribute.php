@@ -139,7 +139,7 @@ class UserAttribute extends CActiveRecord
         return isset($rules[$name]) ? $rules[$name] : $name;
     }
 
-    protected function delValues()
+    private function delValues()
     {
         foreach ($this->values as $value)
             $value->delete();

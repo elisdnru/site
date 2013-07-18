@@ -236,7 +236,7 @@ class Gallery extends CActiveRecord
         return $orig->delete();
     }
 
-    protected function deleteThumb($name)
+    private function deleteThumb($name)
     {
         $orig = Yii::app()->file->set($this->getFileDir() . '/' . $name);
         if (!preg_match('/_prev$/', $orig->filename, $t))
@@ -298,7 +298,7 @@ class Gallery extends CActiveRecord
         return self::GALLERY_PATH.'/'.($alias ? $alias : $this->alias);
     }
 
-    protected function isCorrectExtension($extension)
+    private function isCorrectExtension($extension)
     {
         return in_array(mb_strtolower($extension, 'UTF-8'), array('jpg', 'jpeg', 'png', 'gif'));
     }
@@ -312,7 +312,7 @@ class Gallery extends CActiveRecord
         return $model;
     }
 
-    protected function renameDirectory()
+    private function renameDirectory()
     {
         $oldname = $this->getFileDir($this->oldalias);
         $newname = $this->alias;
@@ -325,7 +325,7 @@ class Gallery extends CActiveRecord
             Yii::app()->file->CreateDir(0754, $this->getFileDir($newname));
     }
 
-    protected function createDirectory()
+    private function createDirectory()
     {
         $path = $this->getFileDir();
         Yii::app()->file->CreateDir(0754, $path);

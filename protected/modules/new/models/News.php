@@ -336,7 +336,7 @@ class News extends CActiveRecord implements DICommentDepends
         return false;
     }
 
-    protected function fillDefaultValues()
+    private function fillDefaultValues()
     {
         if (!$this->alias) $this->alias = mb_strtolower(DTextHelper::strToChpu($this->title), 'UTF-8');
         if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
@@ -345,7 +345,7 @@ class News extends CActiveRecord implements DICommentDepends
         if (!$this->image_alt) $this->image_alt = $this->title;
     }
 
-    protected function processThematicGroup()
+    private function processThematicGroup()
     {
         if ($this->newgroup)
         {
@@ -366,7 +366,7 @@ class News extends CActiveRecord implements DICommentDepends
         parent::afterSave();
     }
 
-    protected function loadFiles()
+    private function loadFiles()
     {
         if (isset($_FILES['News']) && isset($_FILES['News']['tmp_name']))
         {
@@ -392,9 +392,9 @@ class News extends CActiveRecord implements DICommentDepends
             return true;
         }
         return false;
-    }    
+    }
 
-    protected function delFiles()
+    private function delFiles()
     {
         foreach ($this->files as $file)
             $file->delete();

@@ -276,7 +276,7 @@ class Page extends CActiveRecord
         return false;
     }
 
-    protected function fillDefaultValues()
+    private function fillDefaultValues()
     {
         if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
         if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
@@ -289,7 +289,7 @@ class Page extends CActiveRecord
         parent::afterSave();
     }
 
-    protected function loadFiles()
+    private function loadFiles()
     {
 		if (!empty($_FILES['Page']))
 		{
@@ -318,13 +318,13 @@ class Page extends CActiveRecord
         return false;
     }
 
-    protected function delFiles()
+    private function delFiles()
     {
         foreach ($this->files as $file)
             $file->delete();
     }
 
-    protected function delChildPages()
+    private function delChildPages()
     {
         foreach ($this->child_pages as $child)
             $child->delete();

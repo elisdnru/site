@@ -55,6 +55,12 @@ class ShopColor extends Category
         return false;
     }
 
+    private function delColors()
+    {
+        foreach ($this->color_values as $value)
+            $value->delete();
+    }
+
     private $_url;
 
     public function getUrl()
@@ -65,11 +71,5 @@ class ShopColor extends Category
 			$this->_url = Yii::app()->controller->createUrl('', array_replace($_GET, array('color'=>$this->title)));
 		}
         return $this->_url;
-    }
-
-    protected function delColors()
-    {
-        foreach ($this->color_values as $value)
-            $value->delete();
     }
 }

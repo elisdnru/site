@@ -127,7 +127,7 @@ class Slide extends CActiveRecord
 		return false;
     }
 
-    protected function checkUrl()
+    private function checkUrl()
     {
         $this->url = str_replace(Yii::app()->request->hostInfo, '', $this->url);
         if (empty($this->url))

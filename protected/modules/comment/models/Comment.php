@@ -268,7 +268,7 @@ class Comment extends CActiveRecord
         return false;
     }
 
-    protected function fillDefaultValues()
+    private function fillDefaultValues()
     {
         if ($this->cache(0)->user)
         {
@@ -278,7 +278,7 @@ class Comment extends CActiveRecord
         }
     }
 
-    protected function initType()
+    private function initType()
     {
         if (!$this->type)
             $this->type = $this->type_of_comment;
@@ -300,13 +300,13 @@ class Comment extends CActiveRecord
         parent::afterDelete();
     }
 
-    protected function sendNotifications()
+    private function sendNotifications()
     {
         if ($this->parent && $this->parent->email != $this->email)
             $this->parent->sendNotify($this);
     }
 
-    protected function sendNotify($current)
+    private function sendNotify($current)
     {
         if (Yii::app()->config->get('COMMENT.SEND_REPLY_EMAILS'))
         {
@@ -327,14 +327,14 @@ class Comment extends CActiveRecord
         }
     }
 
-    protected function updateMaterial()
+    private function updateMaterial()
     {
         if ($this->type && $this->material instanceof DICommentDepends)
             $this->material->updateCommentsState($this);
     }
 
 
-    protected function updateAuthor()
+    private function updateAuthor()
     {
         if ($this->user)
             $this->user->updateCommentsStat();

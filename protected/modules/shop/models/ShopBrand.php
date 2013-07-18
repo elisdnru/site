@@ -134,7 +134,7 @@ class ShopBrand extends Category
         parent::afterDelete();
     }
 
-    protected function saveCategories()
+    private function saveCategories()
     {
         foreach ($this->brand_categories as $brandCategory)
             $brandCategory->delete();
@@ -151,7 +151,7 @@ class ShopBrand extends Category
         }
     }
 
-    protected function clearCategories()
+    private function clearCategories()
     {
         foreach ($this->brand_categories as $brandCategory)
             $brandCategory->delete();
@@ -176,7 +176,7 @@ class ShopBrand extends Category
         return $items;
     }
 
-    protected function createFullUrl($model)
+    private function createFullUrl($model)
     {
         return Yii::app()->createUrl('shop/default/brand', array('brand'=>$model->alias, 'type'=>$this->current_type, 'category'=>$this->current_category));
     }

@@ -188,7 +188,7 @@ class Menu extends CActiveRecord
         return $items;
     }
 
-    protected function _getMenuListRecursive ($parent, $sub = true, $withhidden=false)
+    private function _getMenuListRecursive ($parent, $sub = true, $withhidden=false)
     {
         $criteria = new CDbCriteria;
         $criteria->addCondition('t.parent_id = :parent');
@@ -208,14 +208,14 @@ class Menu extends CActiveRecord
                 'label'=>$item->title,
                 'url'=>$item->url,
                 'itemOptions'=>array('class'=>'item_' . $item->id),
-                'active'=>$item->linkActive,
+                'active'=>$item->getLinkActive(),
             ) + ($sub ? array('items'=>$this->_getMenuListRecursive($item->id, $sub - 1, $withhidden)) : array());
         }
 
         return $itArray;
     }
 
-    protected function getLinkActive()
+    private function getLinkActive()
     {
         $currentUri = Yii::app()->getRequest()->getOriginalRequestUri();
         $itemUri = $this->getUrl();
@@ -224,7 +224,7 @@ class Menu extends CActiveRecord
 
     private $_url;
 
-    protected function getUrl()
+    public function getUrl()
     {
         if ($this->_url === null)
         {

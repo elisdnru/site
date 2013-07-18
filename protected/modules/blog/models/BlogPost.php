@@ -305,7 +305,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         return false;
     }
 
-    protected function fillDefaultValues()
+    private function fillDefaultValues()
     {
         if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
         if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
@@ -313,7 +313,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         if (!$this->image_alt) $this->image_alt = $this->title;
     }
 
-    protected function processThematicGroup()
+    private function processThematicGroup()
     {
         if ($this->newgroup)
         {
@@ -368,7 +368,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         $this->tags_string = $value;
     }
 
-    public function updateTags()
+    private function updateTags()
     {
         $newtags = array_unique(preg_split('/\s*,\s*/', $this->tagsString));
 

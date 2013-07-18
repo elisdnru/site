@@ -294,7 +294,7 @@ class ShopOrder extends CActiveRecord
         }
     }
 
-    protected  function sendUserNotification($view)
+    private function sendUserNotification($view)
     {
         $email = Yii::app()->email;
         $email->to = $this->email;
@@ -360,7 +360,7 @@ class ShopOrder extends CActiveRecord
         $this->updateByPk($id, array('payed'=>1));
     }
 
-    protected function delProducts()
+    private function delProducts()
     {
         foreach ($this->products as $product)
             $product->delete();

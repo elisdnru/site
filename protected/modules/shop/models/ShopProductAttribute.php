@@ -131,7 +131,7 @@ class ShopProductAttribute extends CActiveRecord
         return false;
     }
 
-    protected function delValues()
+    private function delValues()
     {
         foreach ($this->attribute_values as $value)
             $value->delete();
