@@ -45,22 +45,22 @@ class DefaultController extends DController
         $tables = array();
 
         $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.page.models.Page' AS material_import, 'Page' AS material_class FROM {{page}}";
-        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.new.models.News' AS material_import, 'News' AS material_class FROM {{new}}";
+        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.new.models.News' AS material_import, 'News' AS material_class FROM {{new}} WHERE public=1";
 
         if (Yii::app()->moduleManager->active('blog'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.blog.models.BlogPost' AS material_import, 'BlogPost' AS material_class FROM {{blog_post}}";
+            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.blog.models.BlogPost' AS material_import, 'BlogPost' AS material_class FROM {{blog_post}} WHERE public=1";
 
         if (Yii::app()->moduleManager->active('portfolio'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}}";
+            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}} WHERE public=1";
 
         if (Yii::app()->moduleManager->active('recipe'))
             $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.recipe.models.Recipe' AS material_import, 'Recipe' AS material_class FROM {{recipe}}";
 
         if (Yii::app()->moduleManager->active('rubricator'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.rubricator.models.RubricatorArticle' AS material_import, 'RubricatorArticle' AS material_class FROM {{rubricator_article}}";
+            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.rubricator.models.RubricatorArticle' AS material_import, 'RubricatorArticle' AS material_class FROM {{rubricator_article}} WHERE public=1";
 
         if (Yii::app()->moduleManager->active('shop'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.shop.models.ShopProduct' AS material_import, 'ShopProduct' AS material_class FROM {{shop_product}}";
+            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.shop.models.ShopProduct' AS material_import, 'ShopProduct' AS material_class FROM {{shop_product}} WHERE public=1";
 
         Yii::app()->db->createCommand($query . implode(' UNION ' , $tables))->execute();
     }
