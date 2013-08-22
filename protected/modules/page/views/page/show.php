@@ -34,7 +34,7 @@
 <?php $this->endCache(); } ?>
 
 <?php if (preg_match('|<pre\sclass=\"brush\s?:\s?\w+\">|', $page->text)): ?>
-<?php Yii::app()->syntaxhighlighter->addHighlighter(); ?>
+<?php Yii::app()->syntaxHighlighter->addHighlighter(); ?>
 <?php endif; ?>
 
 <?php Yii::import('application.modules.new.models.NewsPage'); ?>
