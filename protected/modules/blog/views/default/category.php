@@ -16,8 +16,8 @@ $this->breadcrumbs = array_merge($this->breadcrumbs, $category->getBreadcrumbs()
 if ($this->is(Access::ROLE_CONTROL))
 {
     if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Записи', 'url'=>$this->createUrl('/blog/postAdmin'));
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Добавить запись', 'url'=>$this->createUrl('/blog/postadmin/create', array('category'=>$category->id)));
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Редактировать категорию', 'url'=>$this->createUrl('/blog/postcategory/update', array('id'=>$category->id)));
+    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Добавить запись', 'url'=>$this->createUrl('/blog/postAdmin/create', array('category'=>$category->id)));
+    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Редактировать категорию', 'url'=>$this->createUrl('/blog/postCategory/update', array('id'=>$category->id)));
     $this->info = '<p>Записи по категории</p>';
 }
 ?>

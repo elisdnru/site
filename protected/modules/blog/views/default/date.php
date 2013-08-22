@@ -16,7 +16,7 @@ $this->breadcrumbs=array(
 if ($this->is(Access::ROLE_CONTROL)){
 
     if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Редактировать записи', 'url'=>$this->createUrl('/blog/postAdmin'));
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Добавить запись', 'url'=> $this->createUrl('/blog/postadmin/create'));
+    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Добавить запись', 'url'=> $this->createUrl('/blog/postAdmin/create'));
     $this->info = 'Здесь собраны записи по дате';
 }
 ?>
