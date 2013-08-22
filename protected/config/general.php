@@ -190,7 +190,12 @@ return array(
             'enableSkin'=>true,
         ),
 
-        'log'=>array(
+		'syntaxHighlighter' => array(
+			'class'=>'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
+			'theme'=>'Eclipse',
+		),
+
+		'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
                 array(
