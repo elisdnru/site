@@ -1,4 +1,6 @@
 .idea/*
+/js/*
+/images/*
 /assets/*
 /cache/*
 /forum/*
