@@ -41,7 +41,7 @@
 
         <div class="row">
             <?php echo $form->labelEx($model,'parent_id'); ?><br />
-            <?php echo $form->dropDownList($model,'parent_id',array(0=>'') + array_diff_key(BlogCategory::model()->getTabList(), $model->getAssocList())); ?><br />
+            <?php echo $form->dropDownList($model,'parent_id',array(0=>'') + ($model->parent_id ? array_diff_key(BlogCategory::model()->getTabList(), $model->getAssocList()) : BlogCategory::model()->getTabList())); ?><br />
             <?php echo $form->error($model,'parent_id'); ?>
         </div>
 
