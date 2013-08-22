@@ -1,6 +1,7 @@
 <?php
 
 DUrlRulesHelper::import('new');
+Yii::import('application.modules.new.models.*');
 Yii::import('application.modules.page.models.Page');
 
 class LastNewsWidget extends DWidget
