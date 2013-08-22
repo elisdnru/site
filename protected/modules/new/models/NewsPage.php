@@ -115,15 +115,16 @@ class NewsPage extends CActiveRecord
 
         foreach ($newPages as $newPage)
         {
-            $page = $newPage->page;
-
-            if ((int)$parent)
-            {
-                if ($page->id == $parent || $page->isChildOf($parent))
-                    $result[] = $page->id;
-            }
-            else
-                $result[] = $page->id;
+            if ($page = $newPage->page)
+			{
+				if ((int)$parent)
+				{
+					if ($page->id == $parent || $page->isChildOf($parent))
+						$result[] = $page->id;
+				}
+				else
+					$result[] = $page->id;
+			}
         }
 
         return $result;
