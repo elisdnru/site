@@ -56,7 +56,7 @@ class BooksruModule extends DWebModule
     public function uninstall()
     {
         Yii::app()->config->delete(array(
-            'BLOG.BOOKSRU.PARTNER_ID',
+            'BOOKSRU.PARTNER_ID',
         ));
 
         return parent::uninstall();
