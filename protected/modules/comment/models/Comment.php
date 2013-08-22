@@ -74,8 +74,16 @@ class Comment extends CActiveRecord
             array('site', 'url'),
             array('site', 'length', 'max'=>255),
 
+			array('text', 'fixedText'),
+
 			array('id, material_id, type, date, user_id, parent_id, text, public, moder', 'safe', 'on'=>'search'),
 		);
+	}
+
+	public function fixedText($attribute, $options)
+	{
+		$this->$attribute = preg_replace('#\r\n#s', "\n", trim($this->$attribute));
+		$this->$attribute = preg_replace('#([^\n])\n?<pre\>#s', "$1\n\n<pre>", $this->$attribute);
 	}
 
 	/**
