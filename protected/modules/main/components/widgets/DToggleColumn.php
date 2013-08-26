@@ -2,7 +2,7 @@
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.1
+ * @version 1.2
  */
 
 Yii::import('zii.widgets.grid.CGridColumn');
@@ -62,6 +62,8 @@ class DToggleColumn extends CGridColumn
      * @var string stores CSS class name for link
      */
     protected $class;
+
+    private static $increment_id = 0;
 
     /**
      * @throws CException
@@ -139,7 +141,7 @@ class DToggleColumn extends CGridColumn
         } else
             $csrf = '';
 
-        $this->class = 'toggle-property-p' . rand(1000, 9999);
+        $this->class = 'toggle-property-p' . ++self::$increment_id;
 
         $js = "
 $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
