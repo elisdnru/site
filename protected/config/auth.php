@@ -93,7 +93,7 @@ return array(
         'data' => null
     ),
 
-    'module_gallery' => array(
+    'module_newsgallery' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление галереями',
         'bizRule' => null,
@@ -208,7 +208,7 @@ return array(
             'module_admin',
             'module_comment',
             'module_file',
-            'module_gallery',
+            'module_newsgallery',
             'module_menu',
             'module_new',
             'module_page',
@@ -235,7 +235,7 @@ return array(
             'module_contact',
             'module_comment',
             'module_file',
-            'module_gallery',
+            'module_newsgallery',
             'module_module',
             'module_menu',
             'module_new',

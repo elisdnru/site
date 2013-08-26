@@ -34,8 +34,8 @@ class GalleryAdminController extends DAdminController
 
         $path = $gallery->alias;
 
-        $root = Yii::getPathOfAlias('webroot').'/'.Gallery::GALLERY_PATH;
-        $htmlroot = Yii::app()->request->baseUrl.'/'.Gallery::GALLERY_PATH;
+        $root = Yii::getPathOfAlias('webroot').'/'.NewsGallery::GALLERY_PATH;
+        $htmlroot = Yii::app()->request->baseUrl.'/'.NewsGallery::GALLERY_PATH;
 
         if (!empty($_FILES))
         {
@@ -158,22 +158,22 @@ class GalleryAdminController extends DAdminController
     }
 
     /**
-     * @return Gallery
+     * @return NewsGallery
      */
     public function createModel()
     {
-        $model = new Gallery();
+        $model = new NewsGallery();
         return $model;
     }
 
     /**
      * @param $id
-     * @return Gallery
+     * @return NewsGallery
      * @throws CHttpException
      */
     public function loadModel($id)
     {
-        $model = Gallery::model()->findByPk($id);
+        $model = NewsGallery::model()->findByPk($id);
         if($model === null)
             throw new CHttpException(404, 'Не найдено');
         return $model;

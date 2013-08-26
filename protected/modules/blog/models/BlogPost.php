@@ -2,7 +2,7 @@
 
 Yii::import('application.modules.blog.models.*');
 Yii::import('application.modules.user.models.User');
-Yii::import('application.modules.gallery.models.Gallery');
+Yii::import('application.modules.newsgallery.models.NewsGallery');
 Yii::import('application.modules.comment.components.DICommentDepends');
 
 /**
@@ -79,7 +79,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
 			array('category_id, alias, title', 'required'),
             array('author_id', 'DExistOrEmpty', 'className' => 'User', 'attributeName' => 'id'),
             array('category_id', 'exist', 'className' => 'BlogCategory', 'attributeName' => 'id'),
-            array('gallery_id', 'DExistOrEmpty', 'className' => 'Gallery', 'attributeName' => 'id'),
+            array('gallery_id', 'DExistOrEmpty', 'className' => 'NewsGallery', 'attributeName' => 'id'),
             array('group_id', 'DExistOrEmpty', 'className' => 'BlogPostGroup', 'attributeName' => 'id'),
 			array('public, image_show, gallery_id', 'numerical', 'integerOnly'=>true),
 			array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
@@ -105,7 +105,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
 		return array(
 			'category' => array(self::BELONGS_TO, 'BlogCategory', 'category_id'),
 			'author' => array(self::BELONGS_TO, 'User', 'author_id'),
-			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
+			'gallery' => array(self::BELONGS_TO, 'NewsGallery', 'gallery_id'),
 			'group' => array(self::BELONGS_TO, 'BlogPostGroup', 'group_id'),
             'posttags' => array(self::HAS_MANY, 'BlogPostTag', 'post_id'),
             'tags'=>array(self::MANY_MANY, 'BlogTag', '{{blog_post_tag}}(post_id, tag_id)', 'order'=>'tags.title'),

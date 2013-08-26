@@ -6,7 +6,7 @@ $dir = Yii::app()->file->set($path);
 <?php
     $cs = Yii::app()->getClientScript();
     $cs->registerCoreScript('jquery');
-    $url = CHtml::asset(Yii::getPathOfAlias('gallery.widgets.views.assets'));
+    $url = CHtml::asset(Yii::getPathOfAlias('newsgallery.widgets.views.assets'));
     $cs->registerCssFile($url . '/fotorama.css');
     $cs->registerScriptFile($url . '/fotorama.js', CClientScript::POS_HEAD);
 ?>

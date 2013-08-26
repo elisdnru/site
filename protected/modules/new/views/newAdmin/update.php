@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 
 if ($model->url) $this->admin[] = array('label'=>'Просмотр', 'url'=>$model->url);
 $this->admin[] = array('label'=>'Новости', 'url'=>$this->createUrl('index'));
-if ($this->moduleAllowed('gallery')) if ($model->id) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+if ($this->moduleAllowed('newsgallery')) if ($model->id) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 if ($model->id && $model->page) $this->admin[] = array('label'=>'Просмотр страницы', 'url'=>$model->page->url);
 if ($this->moduleAllowed('page')) if ($model->page_id) $this->admin[] = array('label'=>'Править страницу', 'url'=>$this->createUrl('', array('id'=>$model->page_id)));
 

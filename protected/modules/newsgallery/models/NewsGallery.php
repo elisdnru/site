@@ -3,14 +3,14 @@
 Yii::import('application.modules.uploader.components.DFileHelper');
 
 /**
- * This is the model class for table "{{gallery}}".
+ * This is the model class for table "{{new_gallery}}".
  *
- * The followings are the available columns in table '{{gallery}}':
+ * The followings are the available columns in table '{{new_gallery}}':
  * @property integer $id
  * @property string $title
  * @property string $alias
  */
-class Gallery extends CActiveRecord
+class NewsGallery extends CActiveRecord
 {
     const GALLERY_PATH = 'upload/gallery';
     const THUMB_IMAGE_WIDTH = 84;
@@ -20,7 +20,7 @@ class Gallery extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Gallery the static model class
+	 * @return NewsGallery the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -32,7 +32,7 @@ class Gallery extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{gallery}}';
+		return '{{new_gallery}}';
 	}
 
 	/**

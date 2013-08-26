@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 if ($this->is(Access::ROLE_CONTROL)){
 
     if ($this->moduleAllowed('review')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/review/reviewAdmin/update', array('id'=>$review->id)));
-    if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+    if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить рецепт';
 }?>

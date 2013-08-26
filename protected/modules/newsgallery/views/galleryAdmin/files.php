@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model Gallery */
+/* @var $model NewsGallery */
 /* @var $htmlroot string */
 /* @var $root string */
 /* @var $upload_count int */

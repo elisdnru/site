@@ -2,7 +2,7 @@
 
 Yii::import('application.modules.new.models.NewsPage');
 Yii::import('application.modules.rubricator.models.RubricatorCategory');
-Yii::import('application.modules.gallery.models.Gallery');
+Yii::import('application.modules.newsgallery.models.NewsGallery');
 
 /**
  * This is the model class for table "{{new}}".
@@ -31,7 +31,7 @@ Yii::import('application.modules.gallery.models.Gallery');
  * @property integer $videos_newspage_id
  *
  * @property RubricatorCategory $category
- * @property Gallery $gallery
+ * @property NewsGallery $gallery
  * @property NewsPage $articles_newspage
  * @property NewsPage $photos_newspage
  * @property NewsPage $videos_newspage
@@ -97,7 +97,7 @@ class RubricatorArticle extends CActiveRecord
 	{
 		return array(
 			'category' => array(self::BELONGS_TO, 'RubricatorCategory', 'category_id'),
-			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
+			'gallery' => array(self::BELONGS_TO, 'NewsGallery', 'gallery_id'),
 			'articles_newspage' => array(self::BELONGS_TO, 'NewsPage', 'articles_newspage_id'),
 			'photos_newspage' => array(self::BELONGS_TO, 'NewsPage', 'photos_newspage_id'),
 			'videos_newspage' => array(self::BELONGS_TO, 'NewsPage', 'videos_newspage_id'),

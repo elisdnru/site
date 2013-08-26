@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 if ($this->is(Access::ROLE_CONTROL)){
 
     if ($this->moduleAllowed('recipe')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/recipe/recipeAdmin/update', array('id'=>$recipe->id)));
-    if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+    if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить рецепт';
 }?>
@@ -50,7 +50,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$recipe->id, array('dependency'=>new Tags('recipe')))) { ?>
 
-    <?php $this->widget('gallery.widgets.GalleryWidget', array(
+    <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', array(
         'id'=>$recipe->gallery_id,
     )); ?>
 

@@ -16,7 +16,7 @@ $this->admin[] = array('label'=>'Все записи', 'url'=>$this->createUrl('
 $this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/blog/categoryAdmin/index'));
 $this->admin[] = array('label'=>'Править категорию', 'url'=>$this->createUrl('/blog/categoryAdmin/update', array('id'=>$model->category_id)));
 $this->admin[] = array('label'=>'Метки', 'url'=>$this->createUrl('/blog/tagAdmin/index'));
-if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 ?>
 
 <h1>Редактирование записи</h1>

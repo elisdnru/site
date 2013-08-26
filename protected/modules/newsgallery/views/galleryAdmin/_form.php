@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model Gallery */
+/* @var $model NewsGallery */
 /* @var $form CActiveForm */
 ?>
 
@@ -32,7 +32,7 @@
             <?php echo $form->error($model,'title'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('Gallery_title', 'Gallery_alias')">Транслит наименования</a><br />
+            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('NewsGallery_title', 'NewsGallery_alias')">Транслит наименования</a><br />
             <?php echo $form->textField($model,'alias',array('size'=>60, 'maxlength'=>255)); ?><br />
             <?php echo $form->error($model,'alias'); ?>
         </div>

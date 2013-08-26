@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->admin[] = array('label'=>'Новости', 'url'=>$this->createUrl('index'));
-if ($this->moduleAllowed('gallery')) if ($model->id) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+if ($this->moduleAllowed('newsgallery')) if ($model->id) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 
 $this->info = 'В поле «Раздел» перечислены страницы с типом «Новости/Статьи»';
 ?>

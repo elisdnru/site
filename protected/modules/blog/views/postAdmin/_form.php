@@ -103,9 +103,9 @@ $cs->registerCssFile($url . '/tags.css');
         <h4>Фотогалерея</h4>
         <div class="row">
             <?php echo $form->labelEx($model,'gallery_id'); ?><br />
-            <?php echo $form->dropDownList($model,'gallery_id',array('0'=>'') + Gallery::model()->getAssocList()); ?><br />
+            <?php echo $form->dropDownList($model,'gallery_id',array('0'=>'') + NewsGallery::model()->getAssocList()); ?><br />
             <?php echo $form->error($model,'gallery_id'); ?>
-            <a class="floatright" href="<?php echo $this->createUrl('create'); ?>">Создать новую галерею</a>
+            <a class="floatright" href="<?php echo $this->createUrl('/newsgallery/galleryAdmin/create'); ?>">Создать новую галерею</a>
         </div>
     </fieldset>
 

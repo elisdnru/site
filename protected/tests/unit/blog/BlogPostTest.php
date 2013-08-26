@@ -13,7 +13,7 @@ class BlogPostTest extends DbTestCase {
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
-        'gallery'=>'Gallery',
+        'new_gallery'=>'NewsGallery',
         'user'=>'User',
     );
 
@@ -155,7 +155,7 @@ class BlogPostTest extends DbTestCase {
     public function testBelongsToGallery()
     {
         $post = $this->blog_post('post_with_gallery');
-        $this->assertInstanceOf('Gallery', $post->gallery);
+        $this->assertInstanceOf('NewsGallery', $post->gallery);
     }
 
     public function testBelongsToGroup()

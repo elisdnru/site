@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model Gallery */
+/* @var $model NewsGallery */
 
 $this->pageTitle='Фотогалереи';
 $this->breadcrumbs=array(

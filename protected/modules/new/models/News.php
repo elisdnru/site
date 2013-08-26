@@ -5,7 +5,7 @@ Yii::import('application.modules.comment.models.Comment');
 Yii::import('application.modules.new.models.*');
 Yii::import('application.modules.page.models.Page');
 Yii::import('application.modules.user.models.User');
-Yii::import('application.modules.gallery.models.Gallery');
+Yii::import('application.modules.newsgallery.models.NewsGallery');
 
 /**
  * This is the model class for table "{{new}}".
@@ -86,7 +86,7 @@ class News extends CActiveRecord implements DICommentDepends
 			array('public, inhome, important, actual, image_show', 'numerical', 'integerOnly'=>true),
             array('author_id', 'exist', 'className' => 'User', 'attributeName' => 'id'),
             array('page_id', 'exist', 'className' => 'Page', 'attributeName' => 'id'),
-            array('gallery_id', 'DExistOrEmpty', 'className' => 'Gallery', 'attributeName' => 'id'),
+            array('gallery_id', 'DExistOrEmpty', 'className' => 'NewsGallery', 'attributeName' => 'id'),
             array('group_id', 'DExistOrEmpty', 'className' => 'NewsGroup', 'attributeName' => 'id'),
             array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
 			array('short, text, description, del_image', 'safe'),
@@ -109,7 +109,7 @@ class News extends CActiveRecord implements DICommentDepends
 		return array(
 			'page' => array(self::BELONGS_TO, 'Page', 'page_id'),
 			'author' => array(self::BELONGS_TO, 'User', 'author_id'),
-			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
+			'gallery' => array(self::BELONGS_TO, 'NewsGallery', 'gallery_id'),
 			'group' => array(self::BELONGS_TO, 'NewsGroup', 'group_id'),
             'files' => array(self::HAS_MANY, 'NewsFile', 'material_id',
                 'order'=>'files.title DESC'

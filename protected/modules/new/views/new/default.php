@@ -27,9 +27,9 @@
 
     <div class="clear"></div>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('gallery')))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('newsgallery')))) { ?>
 
-    <?php $this->widget('gallery.widgets.GalleryWidget', array(
+    <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', array(
         'id'=>$model->gallery_id,
     )); ?>
 

@@ -1,26 +1,26 @@
 <?php
 
-Yii::import('application.modules.gallery.models.*');
+Yii::import('application.modules.newsgallery.models.*');
 
-class GalleryWidget extends DWidget
+class NewsGalleryWidget extends DWidget
 {
-    public $tpl = 'Gallery';
+    public $tpl = 'NewsGallery';
     public $id = '';
 
     public function run()
     {
-        $path = Gallery::GALLERY_PATH;
+        $path = NewsGallery::GALLERY_PATH;
 
         if (!$this->id)
             return;
 
-        $gallery = Gallery::model()->find(array(
+        $gallery = NewsGallery::model()->find(array(
             'condition'=>'alias = :alias',
             'params'=>array(':alias'=>$this->id),
         ));
 
         if (!$gallery && (int)$this->id)
-            $gallery = Gallery::model()->findByPk($this->id);
+            $gallery = NewsGallery::model()->findByPk($this->id);
 
         if ($gallery && file_exists($path.'/'.$gallery->alias))
         {

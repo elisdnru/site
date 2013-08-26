@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model Gallery */
+/* @var $model NewsGallery */
 ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(

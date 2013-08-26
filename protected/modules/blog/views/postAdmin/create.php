@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
 $this->admin[] = array('label'=>'Все записи', 'url'=>$this->createUrl('index'));
 $this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/blog/categoryAdmin/index'));
 $this->admin[] = array('label'=>'Метки', 'url'=>$this->createUrl('/blog/tagAdmin/index'));
-if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 
 ?>
 

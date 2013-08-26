@@ -19,7 +19,7 @@ $this->breadcrumbs[] = $model->title;
 if ($this->is(Access::ROLE_CONTROL)){
 
     if ($this->moduleAllowed('rubricator')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/rubricator/articleAdmin/update', array('id'=>$model->id)));
-    if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin/index'));
+    if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
 }?>
@@ -50,7 +50,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
 <?php if($this->beginCache(__FILE__.__LINE__.'_newpage_'.$model->id, array('dependency'=>new Tags('rubricator')))) { ?>
 
-    <?php $this->widget('gallery.widgets.GalleryWidget', array(
+    <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', array(
         'id'=>$model->gallery_id,
     )); ?>
 

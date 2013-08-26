@@ -55,7 +55,7 @@ return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), arra
         'runtimeWidgets'=>array(
             'new.widgets.News',
             'new.widgets.LastNews',
-            'gallery.widgets.Gallery',
+            'newsgallery.widgets.NewsGallery',
             'page.widgets.SubPages',
             'page.widgets.Page',
             'menu.widgets.Menu',

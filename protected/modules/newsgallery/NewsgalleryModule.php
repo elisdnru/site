@@ -1,13 +1,13 @@
 <?php
 
-class GalleryModule extends DWebModule
+class NewsgalleryModule extends DWebModule
 {
     public function init()
     {
         parent::init();
 
         $this->setImport(array(
-            'application.modules.gallery.models.*',
+            'application.modules.newsgallery.models.*',
         ));
     }
 
@@ -23,14 +23,14 @@ class GalleryModule extends DWebModule
 
     public function getName()
     {
-        return 'Галереи';
+        return 'Галереи для новостей';
     }
 
     public static function adminMenu()
     {
         return array(
-            array('label'=>'Галереи', 'url'=>array('/gallery/galleryAdmin/index'), 'icon'=>'images.png'),
-            array('label'=>'Добавить галерею', 'url'=>array('/gallery/galleryAdmin/create'), 'icon'=>'add.png'),
+            array('label'=>'Галереи', 'url'=>array('/newsgallery/galleryAdmin/index'), 'icon'=>'images.png'),
+            array('label'=>'Добавить галерею', 'url'=>array('/newsgallery/galleryAdmin/create'), 'icon'=>'add.png'),
         );
     }
 }

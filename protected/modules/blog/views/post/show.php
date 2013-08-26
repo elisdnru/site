@@ -20,7 +20,7 @@ if ($this->is(Access::ROLE_CONTROL)){
 
     if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/blog/postAdmin/update', array('id'=>$model->id)));
     if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Записи', 'url'=>$this->createUrl('/blog/postAdmin/index'));
-    if ($this->moduleAllowed('gallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/gallery/galleryAdmin'));
+    if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin'));
     if ($this->moduleAllowed('blog') && $model->category) $this->admin[] = array('label'=>'Редактировать категорию', 'url'=>$this->createUrl('categoryAdmin/update', array('id'=>$model->category_id)));
     if ($this->moduleAllowed('comment') && Yii::app()->moduleManager->active('comment'))
         $this->admin[] = array('label'=>'Комментарии (' . $model->comments_new_count.' ' . DNumberHelper::Plural($model->comments_new_count, array('новый', 'новых', 'новых')) . ')', 'url'=>$this->createUrl('/blog/commentAdmin/index', array('id'=>$model->id)));
@@ -76,9 +76,9 @@ CTextHighlighter::registerCssFile();
 
     <div class="clear"></div>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('dependency'=>new Tags('gallery')))) { ?>
+<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('dependency'=>new Tags('newsgallery')))) { ?>
 
-    <?php $this->widget('gallery.widgets.GalleryWidget', array(
+    <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', array(
         'id'=>$model->gallery_id,
     )); ?>
 

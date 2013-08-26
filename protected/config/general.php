@@ -90,7 +90,7 @@ return array(
             'class'=>'DHttpRequest',
             'baseUrl'=>'',
             'noCsrfValidationUris'=>array(
-                '^gallery/galleryAdmin/(upload|checkexists).*$',
+                '^newsgallery/galleryAdmin/(upload|checkexists).*$',
                 '^file/fileAdmin/(upload|checkexists).*$',
                 '^ulogin.*$',
             ),
@@ -252,7 +252,7 @@ return array(
         'runtimeWidgets'=>array(
             'new.widgets.News',
             'new.widgets.LastNews',
-            'gallery.widgets.Gallery',
+            'newsgallery.widgets.NewsGallery',
             'page.widgets.SubPages',
             'page.widgets.Page',
             'menu.widgets.Menu',

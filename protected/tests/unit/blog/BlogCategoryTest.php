@@ -13,7 +13,7 @@ class BlogCategoryTest extends DbTestCase
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
-        'gallery'=>'Gallery',
+        'new_gallery'=>'NewsGallery',
         'user'=>'User',
     );
 
