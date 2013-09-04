@@ -8,7 +8,7 @@ $this->description = $model->description;
 $this->keywords = $model->keywords;
 
 $this->breadcrumbs=array(
-    'Блог' => $this->createUrl('/blog')
+    'Блог' => $this->createUrl('/blog/default/index')
 );
 
 if ($model->category)
