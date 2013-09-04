@@ -20,6 +20,7 @@ Yii::import('application.modules.comment.components.DICommentDepends');
  * @property string $description
  * @property string $keywords
  * @property string $short
+ * @property string $short_purified
  * @property string $text
  * @property string $text_purified
  * @property string $image
