@@ -25,7 +25,7 @@
  *
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.2
+ * @version 1.3
  */
 
 class DPurifyTextBehavior extends CActiveRecordBehavior
@@ -75,16 +75,25 @@ class DPurifyTextBehavior extends CActiveRecordBehavior
      */
     public $updateOnAfterFind = true;
 
+    private $_contentHash = '';
+
     /**
      * @param CModelEvent $event event parameter
      */
     public function beforeSave($event)
     {
+        $model = $this->getOwner();
+
         if ($this->processOnBeforeSave)
         {
-            $model = $this->getOwner();
-            if ($this->sourceAttribute && $this->destinationAttribute)
+            if (
+                $this->sourceAttribute &&
+                $this->destinationAttribute &&
+                $this->calculateHash($model->{$this->sourceAttribute}) !== $this->_contentHash
+            )
+            {
                 $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
+            }
         }
     }
 
@@ -93,9 +102,12 @@ class DPurifyTextBehavior extends CActiveRecordBehavior
      */
     public function afterFind($event)
     {
+        $model = $this->getOwner();
+
+        $this->_contentHash = $this->calculateHash($model->{$this->sourceAttribute});
+
         if ($this->processOnAfterFind)
         {
-            $model = $this->getOwner();
             if (
                 $this->sourceAttribute &&
                 $this->destinationAttribute &&
@@ -196,8 +208,12 @@ class DPurifyTextBehavior extends CActiveRecordBehavior
         return $id;
     }
 
-    private  function resumeContent($id)
+    private function resumeContent($id)
     {
         return isset($this->_preContents[$id]) ? CHtml::encode($this->_preContents[$id]) : '';
+    }
+
+    private function calculateHash($content) {
+        return md5($content);
     }
 }
