@@ -232,6 +232,8 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                     'Attr.AllowedRel'=>array('nofollow'),
                     'HTML.SafeObject'=>true,
                     'Output.FlashCompat'=>true,
+                    'HTML.SafeIframe'=>true,
+                    'URI.SafeIframeRegexp'=>'%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
                 ),
                 'processOnBeforeSave'=>true,
             ),
