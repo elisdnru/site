@@ -11,7 +11,6 @@ class BooksWidget extends DWidget
 	public function run()
 	{
         $criteria = new CDbCriteria;
-        $criteria->scopes = array('free');
 
         $criteria->limit = $this->limit;
         $criteria->order = 'RAND()';

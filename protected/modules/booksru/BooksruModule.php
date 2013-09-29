@@ -33,7 +33,7 @@ class BooksruModule extends DWebModule
     public static function rules()
     {
         return array(
-            'booksru/allfree'=>'booksru/book/allfree',
+            'booksru/all'=>'booksru/book/all',
             'booksru/book/<code:\w+>'=>'booksru/book/show',
         );
     }

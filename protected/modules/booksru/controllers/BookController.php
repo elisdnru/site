@@ -4,9 +4,9 @@ Yii::import('blog.models.*');
 
 class BookController extends DController {
 
-    public function actionAllFree()
+    public function actionAll()
     {
-        $url = 'http://www.books.ru/knigi-so-svobodnoi-tsenoi-3129328/?partner=' . Yii::app()->config->get('BOOKSRU.PARTNER_ID');
+        $url = 'http://www.books.ru/knigi-9000000/?partner=' . Yii::app()->config->get('BOOKSRU.PARTNER_ID');
         $this->redirect($url);
     }
 
