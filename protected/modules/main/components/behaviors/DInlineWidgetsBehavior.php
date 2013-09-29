@@ -66,7 +66,7 @@
  *
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.1
+ * @version 1.2
  */
 
 class DInlineWidgetsBehavior extends CBehavior
@@ -107,8 +107,8 @@ class DInlineWidgetsBehavior extends CBehavior
      */
     public function decodeWidgets($text)
     {
-        $text = $this->_replaceBlocks($text);
-        $text = $this->_clearAutoParagraphs($text);
+		$text = $this->_clearAutoParagraphs($text);
+		$text = $this->_replaceBlocks($text);
         $text = $this->_processWidgets($text);
         return $text;
     }
@@ -121,8 +121,8 @@ class DInlineWidgetsBehavior extends CBehavior
      */
     public function clearWidgets($text)
     {
-        $text = $this->_replaceBlocks($text);
-        $text = $this->_clearAutoParagraphs($text);
+		$text = $this->_clearAutoParagraphs($text);
+		$text = $this->_replaceBlocks($text);
         $text = $this->_clearWidgets($text);
         return $text;
     }
