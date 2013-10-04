@@ -55,6 +55,9 @@ return array(
 			'useStrictParsing'=>true,
             'urlSuffix'=>'',
             'rules'=>array(
+				/*'gii'=>'gii/default/index',
+				'gii/<controller:\w+>'=>'gii/<controller>/index',
+				'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',*/
                 '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
                 '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
                 '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
