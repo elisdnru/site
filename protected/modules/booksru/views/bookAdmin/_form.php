@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model Recipe */
+/* @var $model Book */
 /* @var $form CActiveForm */
 ?>
 <?php $this->widget('tinymce.widgets.TinyMCEWidget'); ?>
