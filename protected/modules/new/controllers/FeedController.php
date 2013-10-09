@@ -34,7 +34,7 @@ class FeedController extends DController
             $description = '';
             if ($model->image) $description .= CHtml::link(Chtml::image($image, $model->title, array('style'=>'display:block; float:left; margin:0 10px 10px 0')), $link);
             $description .= $model->short_purified;
-            $description .= CHtml::tag('p', array(), CHtml::link('Читать далее &rarr;', $link));
+            $description .= CHtml::tag('p', array(), CHtml::link('Читать далее &rarr;', $link, array('rel'=>'nofollow')));
 
             $item->description = $description;
 
