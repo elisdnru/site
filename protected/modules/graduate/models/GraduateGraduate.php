@@ -1,5 +1,7 @@
 <?php
 
+Yii::import('application.modules.graduate.models.GraduateGrade');
+
 /**
  * This is the model class for table "{{graduate_graduate}}".
  *

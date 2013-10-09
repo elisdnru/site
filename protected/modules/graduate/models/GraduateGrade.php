@@ -1,7 +1,6 @@
 <?php
 
-DUrlRulesHelper::import('personnel');
-Yii::import('application.modules.category.models.*');
+Yii::import('application.modules.graduate.models.GraduateGraduate');
 
 /**
  * This is the model class for table "{{graduate_grade}}".
@@ -187,6 +186,7 @@ class GraduateGrade extends CActiveRecord
 	{
 		if ($this->_url === null)
 		{
+			DUrlRulesHelper::import('graduate');
 			$this->_url = Yii::app()->createUrl('/graduate/default/year', array(
 				'year'=>$this->year,
 			));
