@@ -203,17 +203,17 @@ return array(
             'routes'=>array(
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>CLogger::LEVEL_ERROR,
+                    'levels'=>'error',
                     'logFile'=>'log_error.log',
                 ),
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>CLogger::LEVEL_WARNING,
+                    'levels'=>'warning',
                     'logFile'=>'log_warning.log',
                 ),
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>CLogger::LEVEL_INFO,
+                    'levels'=>'info',
                     'logFile'=>'log_info.log',
                 ),
             ),

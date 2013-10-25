@@ -15,10 +15,10 @@
 /protected/config/local_*
 /protected/config/prod_*
 /protected/config/test_*
+/protected/config/tinybrowser.php
 /protected/extensions/db_profiler/*
 /protected/extensions/yii-debug-toolbar/*
 /protected/modules/import/*
-/protected/modules/tinymce/assets/tinymce/*
 /themes/*
 /.htaccess
 /index.php
