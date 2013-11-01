@@ -13,10 +13,10 @@ class ShareWidget extends DWidget
         $this->initFields();
 
         $this->render('Share/'.$this->tpl ,array(
-            'url'=>urlencode($this->url),
-            'title'=>urlencode($this->title),
-            'description'=>urlencode(mb_substr($this->description, 0, 200, 'UTF-8')) . '...',
-            'image'=>urlencode($this->image),
+            'url'=>$this->url,
+            'title'=>$this->title,
+            'description'=>mb_substr(strip_tags($this->description), 0, 200, 'UTF-8') . '...',
+            'image'=>$this->image,
         ));
     }
 
