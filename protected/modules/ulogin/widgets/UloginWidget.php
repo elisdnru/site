@@ -17,7 +17,7 @@ class UloginWidget extends DWidget
     public function run()
     {
         //подключаем JS скрипт
-        Yii::app()->clientScript->registerScriptFile('http://ulogin.ru/js/ulogin.js', CClientScript::POS_HEAD);
+        Yii::app()->clientScript->registerScriptFile('http://ulogin.ru/js/ulogin.js', CClientScript::POS_END);
         $this->render('uloginWidget', $this->params);
     }
 
