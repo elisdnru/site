@@ -15,9 +15,15 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
 
     $title   = $month_names[(int)$month].'&nbsp;'.$year;
 
+	$current_year = (int)date('Y');
+	$current_month = (int)date('m');
+
+	$enable_p = $year > $current_year - 1;
+	$enable_n = $year < $current_year || $year == $current_year && $month < $current_month;
+
     @list($p, $pl) = each($pn); @list($n, $nl) = each($pn); #previous and next links, if applicable
-    if($p) $p = '<span class="calendar-prev">'.($pl ? '<a rel="nofollow" href="'.htmlspecialchars($pl).'">'.$p.'</a>' : $p).'</span>';
-    if($n) $n = '<span class="calendar-next">'.($nl ? '<a rel="nofollow" href="'.htmlspecialchars($nl).'">'.$n.'</a>' : $n).'</span>';
+    if($p) $p = '<span class="calendar-prev">'.($pl && $enable_p ? '<a rel="nofollow" href="'.htmlspecialchars($pl).'">'.$p.'</a>' : $p).'</span>';
+    if($n) $n = '<span class="calendar-next">'.($nl && $enable_n ? '<a rel="nofollow" href="'.htmlspecialchars($nl).'">'.$n.'</a>' : $n).'</span>';
     $calendar = '<div class="calendar-month">'.$p.$n.($month_href ? '<a href="'.htmlspecialchars($month_href).'">'.$title.'</a>' : $title)."</div>\n".'<table><tr>';
 
     if($day_name_length){ #if the day names should be shown ($day_name_length > 0)
