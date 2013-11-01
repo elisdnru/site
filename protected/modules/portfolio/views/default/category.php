@@ -19,10 +19,10 @@ if ($this->is(Access::ROLE_CONTROL)){
 }
 ?>
 
-<h1><a href="<?php echo $this->createUrl('index'); ?>">Портфолио</a> &rarr;
+<h1><a rel="nofollow" href="<?php echo $this->createUrl('index'); ?>">Портфолио</a> &rarr;
     <?php foreach ($category->breadcrumbs as $title=>$url): ?>
         <?php if (!is_numeric($title)): ?>
-            <a href="<?php echo $url; ?>"><?php echo CHtml::encode($title); ?></a> &rarr;
+            <a rel="nofollow" href="<?php echo $url; ?>"><?php echo CHtml::encode($title); ?></a> &rarr;
         <?php endif; ?>
     <?php endforeach; ?>
     <?php echo CHtml::encode($category->title); ?>
@@ -32,7 +32,7 @@ if ($this->is(Access::ROLE_CONTROL)){
     <ul>
         <li class="return"><a rel="nofollow" href="<?php echo $category->parent ? $category->parent->url : $this->createUrl('/portfolio/default/index'); ?>">&larr; Выше</a></li>
         <?php foreach ($subcategories as $subcategory): ?>
-        <li><a href="<?php echo $subcategory->url; ?>"><?php echo $subcategory->title; ?></a></li>
+        <li><a rel="nofollow" href="<?php echo $subcategory->url; ?>"><?php echo $subcategory->title; ?></a></li>
         <?php endforeach; ?>
     </ul>
     <div class="clear"></div>

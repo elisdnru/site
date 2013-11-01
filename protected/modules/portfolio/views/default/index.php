@@ -24,7 +24,7 @@ if ($this->is(Access::ROLE_CONTROL)){
     <div class="subpages">
         <ul>
         <?php foreach ($categories as $category): ?>
-            <li><a href="<?php echo $category->url; ?>"><?php echo $category->title; ?></a></li>
+            <li><a rel="nofollow" href="<?php echo $category->url; ?>"><?php echo $category->title; ?></a></li>
         <?php endforeach; ?>
         </ul>
     <div class="clear"></div>

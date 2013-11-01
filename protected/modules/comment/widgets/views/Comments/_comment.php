@@ -2,7 +2,7 @@
 <article class="comment<?php if ($authorId == $comment->user_id): ?> author<?php endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php echo $indent < 8 ? $indent*20 : 5*20; ?>px">
 
     <?php if ($comment->cache(1000)->user): ?>
-        <a href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" /></a>
+        <a rel="nofollow" href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" /></a>
     <?php else: ?>
         <img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" />
     <?php endif; ?>

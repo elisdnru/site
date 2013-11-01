@@ -3,7 +3,7 @@
 <?php
     $links = array();
     foreach ($data->cache(1000)->tags as $tag){
-        $links[] = CHtml::link(CHtml::encode($tag->title), $tag->url);
+		$links[] = CHtml::link(CHtml::encode($tag->title), $tag->url, array('rel'=>'nofollow'));
     }
     ?>
 
@@ -13,7 +13,7 @@
         <div class="info">
             <p class="date"><span><time datetime="<?php echo date('Y-m-d', strtotime($data->date)); ?>" pubdate="pubdate"><?php echo DDateHelper::normdate($data->date); ?></time></span></p>
             <?php if ($data->category): ?>
-            <p class="category"><span><a href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></a></span></p>
+            <p class="category"><span><a rel="nofollow" href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></a></span></p>
             <?php endif; ?>
             <p class="tags"><span><?php echo implode(', ', $links); ?></span></p>
             <?php if (Yii::app()->moduleManager->active('comment')) : ?>

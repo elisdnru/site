@@ -31,7 +31,7 @@
     <div class="row"><?php echo CHtml::activePasswordField($model, 'password', array('style'=>'width:95%', 'placeholder'=>'Пароль', 'title'=>'Пароль')); ?></div>
 
     <div class="row buttons">
-        <span class="right floatright" style="font-size:12px"><a href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</a> | <a href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</a></span>
+        <span class="right floatright" style="font-size:12px"><a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</a> | <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</a></span>
         <?php echo CHtml::submitButton("Войти"); ?>
         <div class="clear"></div>
     </div>

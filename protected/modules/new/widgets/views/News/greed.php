@@ -9,7 +9,7 @@ $i=0;
 <article class="entry greed">
 
     <?php if ($new->image): ?>
-    <p class="thumb"><a href="<?php echo $new->url; ?>"><span style="background-image: url('<?php echo $new->imageThumbUrl; ?>')"></span></a></p>
+    <p class="thumb"><a rel="nofollow" href="<?php echo $new->url; ?>"><span style="background-image: url('<?php echo $new->imageThumbUrl; ?>')"></span></a></p>
     <?php endif; ?>
 
     <h2 class="title"><a href="<?php echo $new->url; ?>"><?php echo CHtml::encode($new->title); ?></a></h2>

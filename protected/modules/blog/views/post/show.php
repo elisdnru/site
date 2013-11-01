@@ -91,7 +91,7 @@ CTextHighlighter::registerCssFile();
     <?php
     $links = array();
     foreach ($model->tags as $tag){
-        $links[] = CHtml::link(CHtml::encode($tag->title), $tag->url);
+        $links[] = CHtml::link(CHtml::encode($tag->title), $tag->url, array('rel'=>'nofollow'));
     }
     ?>
     <p class="entry_tags">Метки: <?php echo implode('', $links); ?></p>
