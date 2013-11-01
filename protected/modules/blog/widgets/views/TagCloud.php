@@ -1,4 +1,4 @@
-<noindex>
+<!--noindex-->
 <p class="nomargin center tags">
 <?php
 
@@ -16,5 +16,5 @@ foreach($tags as $tag)
 ?>
 
 </p>
-</noindex>
+<!--/noindex-->
 
