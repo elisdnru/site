@@ -9,6 +9,7 @@ foreach($tags as $tag)
     if ($size < 8) $size = 9;
     if ($size > 16) $size = 16;
     echo CHtml::link(CHtml::encode($tag->title), $tag->url ,array(
+		'rel'=>'nofollow',
         'style'=>'font-size:' . $size . 'pt',
     )) . "\n";
 }
