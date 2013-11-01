@@ -23,7 +23,7 @@
     <p class='exit floatright'><a href="<?php echo Yii::app()->createUrl('/user/profile'); ?>">профиль</a> | <a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>">выход</a></p>
     <p class="nomargin">
         <?php if ($user->site): ?>
-        <a href="<?php echo $user->site; ?>"><?php echo $user->fio; ?></a>
+        <a rel="nofollow" href="<?php echo $user->site; ?>"><?php echo $user->fio; ?></a>
         <?php else: ?>
         <?php echo $user->fio; ?>
         <?php endif; ?>
@@ -33,7 +33,7 @@
     <?php else: ?>
 
     <div class="floatright">
-        <p class="right" style="padding-right:10px"><a href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</a> | <a href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</a></p>
+        <p class="right" style="padding-right:10px"><a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</a> | <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</a></p>
         <?php  $this->widget('ulogin.widgets.UloginWidget', array(
         'params'=>array('redirect'=>Yii::app()->createAbsoluteUrl('/ulogin/default/login', array('return'=>Yii::app()->request->getOriginalRequestUri())).'#comments', 'display'=>'panel')
     )); ?>
