@@ -28,6 +28,7 @@ class NewsLang extends CActiveRecord
                 'destinationAttribute'=>'l_short_purified',
                 'purifierOptions'=> array(
                     'Attr.AllowedRel'=>array('nofollow'),
+					'HTML.Nofollow' => true,
                 ),
                 'processOnBeforeSave'=>true,
             ),
@@ -38,9 +39,11 @@ class NewsLang extends CActiveRecord
                 'enableMarkdown'=>true,
                 'enablePurifier'=>true,
                 'purifierOptions'=> array(
-                    'Attr.AllowedRel'=>array('nofollow'),
-                    'HTML.SafeObject'=>true,
-                    'Output.FlashCompat'=>true,
+					'Attr.AllowedRel'=>array('nofollow'),
+					'HTML.SafeObject'=>true,
+					'Output.FlashCompat'=>true,
+					'HTML.SafeIframe'=>true,
+					'URI.SafeIframeRegexp'=>'%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
                 ),
                 'processOnBeforeSave'=>true,
             ),

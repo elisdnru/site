@@ -171,6 +171,8 @@ class Recipe extends CActiveRecord
                 'sourceAttribute'=>'short',
                 'destinationAttribute'=>'short_purified',
                 'purifierOptions'=> array(
+					'Attr.AllowedRel'=>array('nofollow'),
+					'HTML.Nofollow' => true,
                 ),
                 'processOnBeforeSave'=>true,
             ),
@@ -179,8 +181,11 @@ class Recipe extends CActiveRecord
                 'sourceAttribute'=>'text',
                 'destinationAttribute'=>'text_purified',
                 'purifierOptions'=> array(
-                    'HTML.SafeObject'=>true,
-                    'Output.FlashCompat'=>true,
+					'Attr.AllowedRel'=>array('nofollow'),
+					'HTML.SafeObject'=>true,
+					'Output.FlashCompat'=>true,
+					'HTML.SafeIframe'=>true,
+					'URI.SafeIframeRegexp'=>'%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
                 ),
                 'processOnBeforeSave'=>true,
             ),

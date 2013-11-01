@@ -28,6 +28,7 @@ class BlogPostLang extends CActiveRecord
                 'destinationAttribute'=>'l_short_purified',
                 'purifierOptions'=> array(
                     'Attr.AllowedRel'=>array('nofollow'),
+					'HTML.Nofollow' => true,
                 ),
                 'processOnBeforeSave'=>true,
             ),
