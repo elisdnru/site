@@ -43,7 +43,7 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
             @list($link, $classes, $content) = $days[$day];
             if(is_null($content))  $content  = $day;
             $calendar .= '<td'.($classes ? ' class="'.htmlspecialchars($classes).'">' : '>').
-                ($link ? '<a href="'.htmlspecialchars($link).'">'.$content.'</a>' : $content).'</td>';
+                ($link ? '<a rel="nofollow" href="'.htmlspecialchars($link).'">'.$content.'</a>' : $content).'</td>';
         }
         else $calendar .= "<td>$day</td>";
     }
