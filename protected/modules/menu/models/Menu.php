@@ -203,12 +203,14 @@ class Menu extends CActiveRecord
         $itArray = Array();
         foreach ($items as $item)
         {
+			$active = $item->getLinkActive();
             $itArray[$item->id] = array(
                 'id'=>$item->id,
                 'label'=>$item->title,
                 'url'=>$item->url,
-                'itemOptions'=>array('class'=>'item_' . $item->id),
-                'active'=>$item->getLinkActive(),
+				'active'=>$active,
+				'itemOptions'=>array('class'=>'item_' . $item->id),
+				'linkOptions'=>$active ? array('rel'=>'nofollow') : array(),
             ) + ($sub ? array('items'=>$this->_getMenuListRecursive($item->id, $sub - 1, $withhidden)) : array());
         }
 

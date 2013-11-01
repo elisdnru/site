@@ -4,7 +4,7 @@ Yii::import('application.modules.category.components.DCategoryBehavior');
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
- * @version 1.3
+ * @version 1.4
  *
  * @property string $parentAttribute
  * @property string $parentRelation
@@ -242,13 +242,15 @@ class DCategoryTreeBehavior extends DCategoryBehavior
         $resultArray = array();
         if (isset($items[$parent]) && $items[$parent]){
             foreach ($items[$parent] as $item){
+                $active = $item->{$this->linkActiveAttribute};
                 $resultArray[$item->getPrimaryKey()] = array(
                     'id'=>$item->getPrimaryKey(),
                     'label'=>$item->{$this->titleAttribute},
                     'url'=>$item->{$this->urlAttribute},
                     'icon'=>$this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
+                    'active'=>$active,
                     'itemOptions'=>array('class'=>'item_' . $item->getPrimaryKey()),
-                    'active'=>$item->{$this->linkActiveAttribute},
+                    'linkOptions'=>$active ? array('rel'=>'nofollow') : array(),
                 ) + ($sub ? array('items'=>$this->_getMenuListRecursive($items, $item->getPrimaryKey(), $sub - 1)) : array());
             }
         }
