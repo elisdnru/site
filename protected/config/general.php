@@ -266,5 +266,8 @@ return array(
             'ru'=>'Russian',
         ),
         'defaultLanguage'=>'ru',
+
+		'minimize_styles' => array(),
+		'minimize_scripts' => array(),
     ),
 );
