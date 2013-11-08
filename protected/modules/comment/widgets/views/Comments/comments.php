@@ -1,6 +1,6 @@
 <section id="comments">
 
-    <h4>Комментарии</h4>
+    <div class="block-title">Комментарии</div>
 
     <div id="commentsList">
 
