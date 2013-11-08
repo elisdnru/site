@@ -38,6 +38,23 @@
 
 <script type="text/javascript">
 
+	jQuery(document).on('click', '.ajax_like', function(){
+		var t = jQuery(this);
+		$.ajax({
+			type : 'POST',
+			url : $(this).data('url'),
+			data : {'YII_CSRF_TOKEN' : getCSRFToken()},
+			success : function(data) {
+				jQuery('#' + t.data('load')).html(data);
+			},
+			error:function(XHR) {
+				alert(XHR.responseText);
+			}
+		});
+
+		return false;
+	});
+
     function setParentComment(id)
     {
         var parentField = jQuery('#comment-parent-id');

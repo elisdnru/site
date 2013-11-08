@@ -23,7 +23,7 @@
 
         <span class="like">
             <span id="like_<?php echo $comment->id; ?>"><?php echo $comment->likes; ?></span>
-            <a rel="nofollow" class="ajax_load like_icon<?php if ($comment->liked): ?> like_active<?php endif; ?>" data-load="like_<?php echo $comment->id; ?>" href="<?php echo Yii::app()->createUrl('comment/ajax/like', array('id'=>$comment->id)); ?>" title="Мне нравится"></a>
+            <span class="ajax_like like_icon<?php if ($comment->liked): ?> like_active<?php endif; ?>" data-load="like_<?php echo $comment->id; ?>" data-url="<?php echo Yii::app()->createUrl('comment/ajax/like', array('id'=>$comment->id)); ?>" title="Мне нравится"></span>
         </span>
 
         <span class="date"><?php echo $comment->date; ?></span>
