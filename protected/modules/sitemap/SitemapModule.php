@@ -24,7 +24,8 @@ class SitemapModule extends DWebModule
     public static function rules()
     {
         return array(
-            array('sitemap/default/index', 'pattern'=>'sitemap.xml', 'urlSuffix'=>''),
+			'sitemap'=>'sitemap/default/index',
+            array('sitemap/default/xml', 'pattern'=>'sitemap.xml', 'urlSuffix'=>''),
         );
     }
 }

@@ -1,13 +1,37 @@
-<?php echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
+<?php
+/* @var $this DController */
+/* @var $page Page */
+/* @var $items CModel[] */
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <?php foreach ($items as $item): ?>
+$this->pageTitle = $page->pagetitle;
+$this->description = $page->description;
+$this->keywords = $page->keywords;
 
-    <url>
-        <loc>http://<?php echo $_SERVER['SERVER_NAME']; ?><?php echo $item->url; ?></loc>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <?php endforeach; ?>
+$this->breadcrumbs=array(
+	'Карта сайта',
+);
 
-</urlset>
+if ($this->is(Access::ROLE_CONTROL))
+{
+	if ($page->id) if ($this->moduleAllowed('page')) $this->admin[] = array('label'=>'Редактировать страницу', 'url'=>$this->createUrl('/page/pageAdmin/edit', array('id'=>$page->id)));
+	$this->info = 'Карта сайта';
+}
+?>
+
+<h1><?php echo CHtml::encode($page->title); ?></h1>
+
+<?php function sitemap_recursive(&$models, $parent=0) { ?>
+	<ul>
+		<?php foreach ($models as $model): ?>
+			<?php if ($model->parent_id == $parent): ?>
+				<li><a rel="nofollow" href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a>
+					<?php sitemap_recursive($models, $model->id); ?>
+				</li>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</ul>
+<?php } ?>
+
+<?php foreach ($items as $models): ?>
+	<?php sitemap_recursive($models); ?>
+<?php endforeach; ?>
