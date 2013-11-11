@@ -10,7 +10,7 @@ class DModuleManager extends CApplicationComponent
 
         if (Yii::app()->db->schema->getTable('{{module}}'))
         {
-            $rows = Yii::app()->db->cache(3600*24)->createCommand('SELECT * FROM {{module}}')->queryAll();
+            $rows = Yii::app()->db->cache(0, new Tags('module'))->createCommand('SELECT * FROM {{module}}')->queryAll();
 
             foreach ($rows as $row){
                 $this->modules[$row['module']] = array(
