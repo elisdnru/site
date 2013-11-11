@@ -14,6 +14,7 @@ Disallow: /core
 Disallow: /blog/date/
 Disallow: /blog/tag/
 Disallow: /blog/search
+Disallow: /search
 Disallow: /booksru/
 
 Sitemap: http://www.yourhost.ru/sitemap.xml
