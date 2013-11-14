@@ -4,6 +4,7 @@
 	</div>
 <?php endif; ?>
 
+<!--noindex-->
 <div id="comment-form" class="form">
 
     <?php $f=$this->beginWidget('CActiveForm', array(
@@ -89,4 +90,5 @@
     </fieldset>
     <?php $this->endWidget(); ?>
 
-</div><!-- form -->
+</div>
+<!--/noindex-->
