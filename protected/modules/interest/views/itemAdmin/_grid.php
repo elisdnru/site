@@ -12,11 +12,6 @@
         ),
         array(
             'class'=>'DLinkColumn',
-            'name' => 'code',
-            'htmlOptions'=>array('style'=>'text-align:center'),
-        ),
-        array(
-            'class'=>'DLinkColumn',
             'name' => 'title',
             'htmlOptions'=>array('style'=>'text-align:center'),
         ),
@@ -24,14 +19,6 @@
             'class'=>'DLinkColumn',
             'name' => 'author',
             'htmlOptions'=>array('style'=>'text-align:center'),
-        ),
-        array(
-            'class'=>'DToggleColumn',
-            'name'=>'free',
-            'header'=>'С',
-            'filter'=>array(1=>'Свободная цена', 0=>'Фиксированная цена'),
-            'titles'=>array(1=>'Свободная цена', 0=>'Фиксированная цена'),
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
         ),
         array(
             'class'=>'DButtonColumn',

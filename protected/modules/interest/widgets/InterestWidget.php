@@ -1,9 +1,9 @@
 <?php
 
-Yii::import('application.modules.booksru.models.Book');
-DUrlRulesHelper::import('booksru');
+Yii::import('application.modules.interest.models.InretestItem');
+DUrlRulesHelper::import('interest');
 
-class BooksWidget extends DWidget
+class InterestWidget extends DWidget
 {
     public $tpl = 'default';
 	public $limit = 6;
@@ -15,9 +15,9 @@ class BooksWidget extends DWidget
         $criteria->limit = $this->limit;
         $criteria->order = 'RAND()';
 
-        $books = Book::model()->findAll($criteria);
+        $books = InterestItem::model()->findAll($criteria);
 
-		$this->render('Books/'.$this->tpl ,array(
+		$this->render('Interest/'.$this->tpl ,array(
             'books'=>$books,
         ));
 	}

@@ -1,16 +1,16 @@
 <?php
-$this->pageTitle='Редактор книги';
+$this->pageTitle='Редактор';
 $this->breadcrumbs=array(
 	'Панель управления'=>array('/admin'),
-	'Книги'=>array('index'),
+	'Интересное'=>array('index'),
 	'Редактор',
 );
 
 $this->admin[] = array('label'=>'Книги', 'url'=>$this->createUrl('index'));
 
-$this->info = 'Книги';
+$this->info = 'Интересное';
 ?>
 
-<h1>Добавление книги</h1>
+<h1>Добавление элемента</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -1,15 +1,15 @@
 <?php
-$this->pageTitle='Книги';
+$this->pageTitle='Интересное';
 $this->breadcrumbs=array(
 	'Панель управления'=>array('/admin'),
-	'Книги',
+	'Интересное',
 );
 
-$this->admin[] = array('label'=>'Добавить книгу', 'url'=>$this->createUrl('create'));
-$this->info = 'Книги';
+$this->admin[] = array('label'=>'Добавить элемент', 'url'=>$this->createUrl('create'));
+$this->info = 'Интересное';
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
-<h1>Книги</h1>
+<h1>Интересное</h1>
 
 <?php $this->renderPartial('_grid', array('model'=>$model)); ?>

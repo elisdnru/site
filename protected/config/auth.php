@@ -52,9 +52,9 @@ return array(
         'data' => null
     ),
 
-    'module_booksru' => array(
+    'module_interest' => array(
         'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление книгами',
+        'description' => 'Управление интересным',
         'bizRule' => null,
         'data' => null
     ),
@@ -237,7 +237,7 @@ return array(
             'module_admin',
             'module_attribute',
             'module_block',
-            'module_booksru',
+            'module_interest',
             'module_config',
             'module_callme',
             'module_contact',

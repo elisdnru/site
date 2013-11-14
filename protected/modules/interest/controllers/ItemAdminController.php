@@ -2,7 +2,7 @@
 
 Yii::import('application.modules.crud.components.*');
 
-class BookAdminController extends DAdminController
+class ItemAdminController extends DAdminController
 {
     public function actions()
     {
@@ -25,14 +25,12 @@ class BookAdminController extends DAdminController
 
 	public function createModel()
     {
-        $model = new Book();
-        $model->free = 1;
-        return $model;
+        return new InterestItem();
 	}
 
     public function loadModel($id)
     {
-        $model = Book::model()->findByPk($id);
+        $model = InterestItem::model()->findByPk($id);
 
         if($model===null)
             throw new CHttpException(404, 'Страница не найдена');

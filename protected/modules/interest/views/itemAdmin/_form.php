@@ -1,6 +1,6 @@
 <?php
 /* @var $this DAdminController */
-/* @var $model Book */
+/* @var $model InterestItem */
 /* @var $form CActiveForm */
 ?>
 <?php $this->widget('tinymce.widgets.TinyMCEWidget'); ?>
@@ -41,21 +41,9 @@
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'alias'); ?><br />
-            <?php echo $form->textField($model,'alias',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'alias'); ?>
-        </div>
-
-        <div class="row">
-            <?php echo $form->labelEx($model,'code'); ?><br />
-            <?php echo $form->textField($model,'code',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'code'); ?>
-        </div>
-
-        <div class="row">
-            <?php echo $form->checkBox($model,'free'); ?>
-            <?php echo $form->labelEx($model,'free'); ?><br />
-            <?php echo $form->error($model,'free'); ?>
+            <?php echo $form->labelEx($model,'link'); ?><br />
+            <?php echo $form->textField($model,'link',array('size'=>60, 'maxlength'=>255)); ?><br />
+            <?php echo $form->error($model,'link'); ?>
         </div>
     </fieldset>
 

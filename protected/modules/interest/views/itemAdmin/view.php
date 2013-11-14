@@ -1,16 +1,16 @@
 <?php
-$this->pageTitle='Редактор книги';
+$this->pageTitle='Редактор';
 $this->breadcrumbs=array(
     'Панель управления'=>array('/admin'),
-    'Книги'=>array('index'),
+    'Интересное'=>array('index'),
     'Редактор',
 );
 
 $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('update', array('id'=>$model->id)));
-$this->admin[] = array('label'=>'Книги', 'url'=>$this->createUrl('index'));
-$this->admin[] = array('label'=>'Добавить книгу', 'url'=>$this->createUrl('create'));
+$this->admin[] = array('label'=>'Интересное', 'url'=>$this->createUrl('index'));
+$this->admin[] = array('label'=>'Добавить элемент', 'url'=>$this->createUrl('create'));
 
-$this->info = 'Книги';
+$this->info = 'Интересное';
 ?>
 
 <h1><?php echo CHtml::encode($model->title); ?></h1>
@@ -38,7 +38,7 @@ $this->widget('zii.widgets.CDetailView', array(
         array(
             'label'=>'URL',
             'type'=>'html',
-            'value'=>CHtml::link($model->alias, $model->originalUrl, array('target'=>'_blank')),
+            'value'=>CHtml::link($model->link, $model->link, array('target'=>'_blank')),
         ),
     ),
 ));
