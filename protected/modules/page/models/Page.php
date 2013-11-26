@@ -15,6 +15,7 @@ Yii::import('application.modules.page.models.*');
  * @property string $pagetitle
  * @property string $description
  * @property string $keywords
+ * @property string $robots
  * @property string $text
  * @property string $text_purified
  * @property string $image
@@ -45,6 +46,11 @@ class Page extends CActiveRecord
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/pages';
+
+	const INDEX_FOLLOW = 'index, follow';
+	const INDEX_NOFOLLOW = 'index, nofollow';
+	const NOINDEX_FOLLOW = 'noindex, follow';
+	const NOINDEX_NOFOLLOW = 'noindex, nofollow';
 
     public $del_image = false;
     public $indent = 0;
@@ -77,7 +83,7 @@ class Page extends CActiveRecord
 		return array(
 			array('alias, title', 'required'),
             array('alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
-			array('alias, title, image_alt, pagetitle, keywords', 'length', 'max'=>255),
+			array('alias, title, image_alt, pagetitle, keywords, robots', 'length', 'max'=>255),
             array('hidetitle, parent_id, layout_id, layout_subpages_id', 'numerical', 'integerOnly'=>true),
 			array('date, text, description, del_image', 'safe'),
 			// The following rule is used by search().
@@ -126,6 +132,7 @@ class Page extends CActiveRecord
 			'pagetitle' => 'Заголовок окна (title)',
 			'description' => 'Описание (description)',
 			'keywords' => 'Ключевые слова (keywords)',
+			'robots' => 'Индексация (robots)',
 			'text' => 'Текст',
 			'image' => 'Изображение',
 			'del_image' => 'Удалить изображение',
@@ -157,6 +164,7 @@ class Page extends CActiveRecord
 		$criteria->compare('t.image',$this->image,true);
 		$criteria->compare('t.image_alt',$this->image_alt,true);
 		$criteria->compare('t.parent_id',$this->parent_id);
+		$criteria->compare('t.robots',$this->robots);
 
         return new DTreeActiveDataProvider($this, array(
             'criteria'=>DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
@@ -245,6 +253,15 @@ class Page extends CActiveRecord
     {
         return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
     }
+
+	public function getRobotsList() {
+		return array(
+			self::INDEX_FOLLOW => self::INDEX_FOLLOW,
+			self::INDEX_NOFOLLOW => self::INDEX_NOFOLLOW,
+			self::NOINDEX_FOLLOW => self::NOINDEX_FOLLOW,
+			self::NOINDEX_NOFOLLOW => self::NOINDEX_NOFOLLOW,
+		);
+	}
 
     public function allowedForUser(User $user)
     {

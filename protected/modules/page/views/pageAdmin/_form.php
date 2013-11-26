@@ -125,6 +125,15 @@
         'model'=>$model,
     )); ?>
 
+	<fieldset>
+		<h4>Индексация</h4>
+		<div class="row">
+			<?php echo $form->labelEx($model,'robots'); ?><br />
+			<?php echo $form->dropDownList($model,'robots',Page::model()->getRobotsList()); ?><br />
+			<?php echo $form->error($model,'robots'); ?>
+		</div>
+	</fieldset>
+
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>

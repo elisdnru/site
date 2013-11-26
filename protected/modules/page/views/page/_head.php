@@ -1,9 +1,13 @@
 <?php
+/** @var $page Page */
+
 $this->pageTitle = $page->pagetitle ? $page->pagetitle : $page->title;
 $this->description = $page->description;
 $this->keywords = $page->keywords;
 
 $this->breadcrumbs = $page->alias != 'index' ? $page->breadcrumbs : array();
+
+Yii::app()->clientScript->registerMetaTag($page->robots, 'robots');
 
 if ($this->is(Access::ROLE_CONTROL)){
 
