@@ -66,7 +66,7 @@ class DefaultController extends DController
             Yii::import('application.modules.page.models.*');
             DUrlRulesHelper::import('page');
 
-            $sitemap->addModels(Page::model()->findAll(array('condition'=>'system = 0')), DSitemap::WEEKLY);
+            $sitemap->addModels(Page::model()->findAll(array('condition'=>'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')')), DSitemap::WEEKLY);
 
             Yii::import('application.modules.new.models.*');
             DUrlRulesHelper::import('new');
