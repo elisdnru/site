@@ -40,18 +40,22 @@ class DTreeActiveDataProvider extends CActiveDataProvider
 
         $this->model->setDbCriteria($baseCriteria!==null ? clone $baseCriteria : null);
 
-        $cr = clone $criteria;
-        $cr->addCondition('t.parent_id=0');
-        $items=$this->model->findAll($cr);
-        if (!$items)
-            $items=$this->model->findAll($criteria);
-        $data = $this->recursive($items);
+        $rootCriteria=clone $criteria;
+		$isEmptyCondition=empty($rootCriteria->condition);
+
+		if ($isEmptyCondition)
+			$rootCriteria->addCondition('t.parent_id iS NULL OR t.parent_id = 0');
+
+        $items=$this->model->findAll($rootCriteria);
+
+		if ($isEmptyCondition)
+			$items=$this->buildRecursive($items);
 
         $this->model->setDbCriteria($baseCriteria);  // restore original criteria
-        return $data;
+        return $items;
     }
 
-    protected function recursive($items, $indent=0, $foolproof=20)
+    protected function buildRecursive($items, $indent=0, $foolproof=20)
     {
         $data = array();
         foreach ($items as $item)
@@ -59,7 +63,7 @@ class DTreeActiveDataProvider extends CActiveDataProvider
             $item->indent = $indent;
             $data[] = $item;
             if ($foolproof && $item->{$this->childRelation})
-                $data = array_merge($data, $this->recursive($item->{$this->childRelation}, $indent + 1, $foolproof - 1));
+                $data = array_merge($data, $this->buildRecursive($item->{$this->childRelation}, $indent + 1, $foolproof - 1));
         }
         return $data;
     }
