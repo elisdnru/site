@@ -150,7 +150,7 @@ class DefaultController extends DController
      */
     protected function loadBlogPage()
     {
-        if (!$page = Page::model()->findByAlias('blog'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('blog'))
         {
             $page = new Page;
             $page->title = 'Блог';

@@ -24,9 +24,9 @@ class ArticleController extends DController
 
     protected function loadRubricatorPage()
     {
-        if (!$page = Page::model()->findByAlias('rubricator'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('rubricator'))
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Рубрикатор';
             $page->pagetitle = $page->title;
         }

@@ -24,10 +24,10 @@ class RecipeController extends DController
 
     protected function loadRecipePage()
     {
-        $page = Page::model()->findByAlias('recipes');
+        $page = Page::model()->cache(0, new Tags('page'))->findByPath('recipes');
         if (!$page)
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Рецепты';
             $page->pagetitle = $page->title;
         }

@@ -47,9 +47,9 @@ class DefaultController extends GraduateBaseController
 
     protected function loadGraduatePage()
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByAlias('graduate'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('graduate'))
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Выпускники';
             $page->pagetitle = $page->title;
         }

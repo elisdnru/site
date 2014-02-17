@@ -91,9 +91,9 @@ class DefaultController extends PersonnelBaseController
 
     protected function loadPersonnelPage()
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByAlias('personnel'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('personnel'))
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Сотрудники';
             $page->pagetitle = $page->title;
         }

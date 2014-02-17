@@ -112,7 +112,7 @@ class DefaultController extends DController
 	 */
 	private function loadSitemapPage()
 	{
-		if (!$page = Page::model()->findByAlias('sitemap'))
+		if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('sitemap'))
 		{
 			$page = new Page;
 			$page->title = 'Карта сайта';

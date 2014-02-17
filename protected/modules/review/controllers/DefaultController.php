@@ -55,7 +55,7 @@ class DefaultController extends DController
 
     protected function loadReviewPage()
     {
-        if (!$page = Page::model()->findByAlias('reviews'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('reviews'))
         {
             $page = new Page;
             $page->title = 'Отзывы';

@@ -91,9 +91,9 @@ class DefaultController extends GalleryBaseController
 
     protected function loadGalleryPage()
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByAlias('gallery'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('gallery'))
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Галерея';
             $page->pagetitle = $page->title;
         }

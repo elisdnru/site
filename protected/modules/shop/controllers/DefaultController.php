@@ -212,9 +212,9 @@ class DefaultController extends ShopBaseController
 
     protected function loadShopPage()
     {
-        if (!$page = Page::model()->findByAlias('shop'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('shop'))
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Каталог';
             $page->pagetitle = $page->title;
         }

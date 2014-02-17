@@ -25,9 +25,9 @@ class DefaultController extends DController
 
     protected function loadIndexPage()
     {
-        if (!$page = Page::model()->findByAlias('index'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('index'))
         {
-            $page = new Page();
+            $page = new Page;
             $page->title = 'Главная';
             $page->pagetitle = $page->title;
         }

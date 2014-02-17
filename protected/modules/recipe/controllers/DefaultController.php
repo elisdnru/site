@@ -27,7 +27,7 @@ class DefaultController extends DController
 
     protected function loadRecipePage()
     {
-        if (!$page = Page::model()->findByAlias('recipes'))
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('recipes'))
         {
             $page = new Page;
             $page->title = 'Рецепты';
