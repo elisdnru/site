@@ -56,8 +56,9 @@ class DUploadManager extends CApplicationComponent
     }
 
     /**
-     * @param CUploadedFile $file
+     * @param string $url
      * @param string $path
+     * @param string $extension
      * @return bool|CFile
      */
     public function uploadByUrl($url, $path, $extension)
