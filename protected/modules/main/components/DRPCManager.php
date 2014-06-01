@@ -22,7 +22,7 @@ class DRPCManager extends CApplicationComponent
         {
             foreach ($pingServers as $serverUrl)
             {
-                if (preg_match('|(?P<host>\w+://[\w\d\._-]+)(/?P<uri>.*)|i', $serverUrl, $matches))
+                if (preg_match('|(?P<host>\w+://[\w\d\._-]+)/?(?P<uri>.*)|i', $serverUrl, $matches))
                 {
                     $client = new IXR_Client($matches['host'], $matches['uri']);
                     if (!$client->query('weblogUpdates.ping', array($siteName, $siteHost, $fullPageUrl)))
