@@ -20,15 +20,37 @@ if ($this->is(Access::ROLE_CONTROL)){
 
     $this->admin[] = array('label'=>'Товары', 'url'=>$this->createUrl('/shop/productAdmin/index'));
     $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/shop/productAdmin/update', array('id'=>$model->id)));
+    $this->admin[] = array('label'=>'Модели товара', 'url'=>$this->createUrl('/shop/modelAdmin/index', array('ShopModel[product_id]'=>$model->id)));
     $this->admin[] = array('label'=>'Добавить товар', 'url'=>$this->createUrl('/shop/productAdmin/create'));
 
 	$this->info = 'Управлять товаром Вы можете перейдя по соответствующим ссылкам';
 }?>
 
-<?php if (Yii::app()->config->get('SHOP.GROUP_BY_TITLE') && count($model->related_products) > 1): ?>
+<?php if (count($model->related_products)>1): ?>
     <?php $this->renderPartial('_group', array('model'=>$model)); ?>
 <?php else: ?>
     <?php $this->renderPartial('_single', array('model'=>$model)); ?>
 <?php endif; ?>
 
+<hr />
+
+<h2>Другие товары категории</h2>
+
+<?php $this->widget('shop.widgets.OtherProductsWidget', array(
+	'category'=>$model->category_id,
+	'current'=>$model,
+	'limit'=>4,
+)); ?>
+
+<script>
+	jQuery("a.tocartiframe").colorbox({
+		'transition' : 'none',
+		'initialWidth' : 200,
+		'initialHeight' : 120,
+		'innerWidth' : 480,
+		'innerHeight' : 300,
+		'opacity' : 0.1,
+		'iframe' : true
+	});
+</script>
 

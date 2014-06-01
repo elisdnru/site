@@ -1,5 +1,7 @@
 <?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
 
+<h1><?php echo CHtml::encode($model->title); ?></h1>
+
 <div class="product_page">
 
     <?php if (Yii::app()->shopcart->get($model->id)): ?>
@@ -8,44 +10,54 @@
         <?php echo CHtml::beginForm($this->createUrl('/shop/cart/add', array('id'=>$model->id)),'post'); ?>
     <?php endif; ?>
 
-    <h1><?php echo CHtml::encode($model->title); ?></h1>
+    <div class="image_block">
 
-    <div style="width:300px; float:left;">
         <?php if ($model->firstImage): ?>
-            <a class="lightbox" href="<?php echo $model->firstImage->imageUrl; ?>"><img id="preview_img" src="<?php echo $model->firstImage->getImageThumbUrl(300, 0); ?>" alt="<?php //echo CHtml::encode(strip_tags($model->title)); ?>" /></a>
+            <a class="lightbox" href="<?php echo $model->firstImage->imageUrl; ?>"><img id="preview_img" src="<?php echo $model->firstImage->getImageThumbUrl(300, 0); ?>" alt="<?php echo CHtml::encode(strip_tags($model->title)); ?>" /></a>
         <?php else: ?>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/core/images/nophoto.png" alt="<?php //echo CHtml::encode($model->title); ?>" />
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/core/images/nophoto.png" alt="" />
         <?php endif; ?>
+
+        <?php if ($model->sale): ?>
+            <span class="sale" title="Участвует в акции"></span>
+        <?php endif; ?>
+
     </div>
 
-    <div style="margin-left:320px">
+    <div class="description_block">
 
-        <p class="artikul">Артикул: <span><?php echo CHtml::encode($model->artikul); ?></span></p>
+        <p class="label">Артикул: <span><?php echo CHtml::encode($model->artikul); ?></span></p>
+        
+        <?php if ($model->brand): ?>
+            <p class="label">Брэнд: <span><?php echo CHtml::link(CHtml::encode($model->brand->title), $model->brand->url); ?></span></p>
+        <?php endif; ?>
 
-        <br/>
+        <br />
 
         <?php foreach ($model->all_attribute_values as $attributeValue): ?>
-            <?php if ($attributeValue->value): ?><p class="label"><?php echo CHtml::encode($attributeValue->attribute->title); ?>: <span><?php echo CHtml::encode($attributeValue->value); ?></span></p><?php endif; ?>
+            <?php if ($attributeValue->value): ?><p class="label"><?php echo $attributeValue->attribute->title; ?>: <span><?php echo CHtml::encode($attributeValue->value); ?></span></p><?php endif; ?>
         <?php endforeach; ?>
 
-        <p>&nbsp;</p>
-        <p><span class="price"><?php echo number_format($model->price, 0, '.', ' '); ?> р</span></p>
+        <br />
 
-        <?php if (Yii::app()->shopcart->get($model->id)): ?>
-            <p class="tocart">&nbsp;Добавлено&nbsp; <?php echo CHtml::submitButton('Перейти в корзину', array('class'=>'button')); ?></p>
-        <?php else: ?>
-            <p class="tocart"><?php echo CHtml::textField('count', 1, array('size'=>3, 'class'=>'count')); ?> <?php echo CHtml::submitButton('Добавить в корзину', array('class'=>'button')); ?></p>
-        <?php endif; ?>
+        <?php Yii::app()->controller->widget('shop.components.ShopStarRating', array(
+            'name' => 'rating_' . $model->id,
+            'product' => $model,
+            'cssFile'=>Yii::app()->theme->baseUrl . '/css/rating.css',
+        )); ?>
+
+        <br />
+
+        <p><span class="price"><?php echo number_format($model->price, 0, '.', ' '); ?> р.</span></p>
+
+        <p class="tocart"><?php echo CHtml::submitButton('В корзину' , array('onclick'=>'return toCartClick(event, ' . $model->id . ')')); ?></p>
+
 
         <a id="link<?php echo $model->id; ?>" class="inv tocartiframe" href="<?php echo $this->createUrl('/shop/cart/frame', array('id'=>$model->id, 'rand'=>md5(microtime()))); ?>"></a>
 
     </div>
 
     <div class="clear"></div>
-
-    <div class="product_text">
-        <?php echo $model->text_purified; ?>
-    </div>
 
     <div class="photoslider" style="with:100%; overflow:auto;">
         <ul>
@@ -59,25 +71,17 @@
         </ul>
     </div>
 
-    <hr />
+    <div class="product_text">
+        <?php echo $model->text_purified; ?>
+    </div>
+
     <?php $this->widget('share.widgets.ShareWidget', array(
         'title'=>$model->title,
         'description'=>strip_tags($model->text),
         'image'=>$model->firstImage ? $model->firstImage->imageUrl : '',
     )); ?>
 
+    <p><?php echo CHtml::link('&larr; Назад в каталог', $this->createUrl('/shop/default/index')); ?></p>
+
     <?php echo CHtml::endForm(); ?>
-
 </div>
-
-<script>
-    jQuery("a.tocartiframe").colorbox({
-        'transition' : 'none',
-        'initialWidth' : 200,
-        'initialHeight' : 120,
-        'innerWidth' : 200,
-        'innerHeight' : 120,
-        'opacity' : 0.1,
-        'iframe' : true
-    });
-</script>

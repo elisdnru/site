@@ -5,7 +5,7 @@ Yii::import('application.modules.shop.models.ShopProduct');
 class ShopCartItem extends CFormModel
 {
     public $id;
-    public $data;
+    public $data = array();
     public $count;
 
     private $_model;

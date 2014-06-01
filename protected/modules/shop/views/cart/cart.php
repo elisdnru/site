@@ -23,18 +23,24 @@ $total_count = 0;
 $total_summ = 0;
 ?>
 
-<h1>Корзина</h1>
-<div class="form">
+<?php $this->beginWidget('DPortlet');?>
+
 <div class="shopcart_page">
+
 <?php echo CHtml::beginForm(); ?>
 
-<table>
+<div class="form">
+
+    <table class="cart_table">
 
     <tr>
-        <th>Наименование</th>
-        <th style="width:100px">Количество</th>
-        <th style="width:100px">Цена</th>
-        <th style="width:16px"></th>
+		<th style="width:100px"></th>
+		<th>Наименование</th>
+		<th style="width:140px">Количество</th>
+        <th style="width:20px"></th>
+        <th style="width:140px">Цена</th>
+        <th style="width:140px">Сумма</th>
+        <th style="width:18px"></th>
     </tr>
 
 <?php foreach ($items as $id=>$item) : ?>
@@ -50,30 +56,46 @@ $total_summ = 0;
     ?>
 
     <tr>
-        <td><a href="<?php echo $item->model->url; ?>"><?php echo $item->model->title; ?></a></td>
-        <td class="center">
-            <?php echo CHtml::textField('Cart['.$id.'][count]', $item->count, array('size'=>3, 'class'=>'center')); ?>
+        <td>
+            <?php echo CHtml::image($item->model->firstImage->getImageThumbUrl(100, 100), $item->model->title, array('class'=>'preview')); ?>
+		</td>
+		<td>
+            <h2><?php echo CHtml::link(CHtml::encode($item->model->fullTitle), $item->model->url); ?></h2>
+
+            <p><?php echo CHtml::encode($item->model->short); ?></p>
+
+            <p>
+                <?php if (!empty($item->data['model'])): ?>Модель <?php echo $item->data['model']; ?> <?php endif; ?>
+                <?php if (!empty($item->data['size'])): ?>Размер <?php echo $item->data['size']; ?> <?php endif; ?>
+                <?php if (!empty($item->data['color'])): ?>Цвет <?php echo $item->data['color']; ?> <?php endif; ?>
+            </p>
         </td>
-        <td class="center price"><?php echo number_format($item->model->price, 0, '.', ' '); ?> р</td>
-        <td style="width:16px"><a class="confirm" title="Убрать элемент" href="<?php echo Yii::app()->createUrl('/shop/cart/remove', array('id'=>$id)); ?>"><img src="<?php echo Yii::app()->baseUrl; ?>/core/images/admin/del.png" alt="Удалить" /></a></td>
+        <td class="center count">
+            <span class="diff minus">&ndash;</span>
+            <?php echo CHtml::textField('Cart['.$id.'][count]', $item->count, array('size'=>3, 'class'=>'center count_' . $item->model->id)); ?>
+            <span class="diff plus">+</span>
+        </td>
+        <td class="center"><?php echo CHtml::imageButton(Yii::app()->theme->baseUrl . '/images/recalc.png', array('title'=>'Пересчитать')); ?></td>
+        <td class="center price"><?php echo number_format($item->model->price, 0, '.', ' '); ?> руб</td>
+        <td class="center price"><?php echo number_format($item->model->price * $item->count, 0, '.', ' '); ?> руб</td>
+        <td class="center"><a class="confirm" title="Убрать элемент" href="<?php echo Yii::app()->createUrl('/shop/cart/remove', array('id'=>$id)); ?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/remove.png" alt="Удалить" /></a></td>
     </tr>
 
 <?php endforeach; ?>
 
     <tr>
-        <th colspan="1" class="right">Итого</th>
+        <th></th>
         <th class="center"><?php echo $total_count; ?></th>
+        <th></th>
+        <th></th>
+        <th></th>
         <th class="center price">
-            <?php echo number_format($total_summ, 0, '.', ' '); ?> р
+            <?php echo number_format($total_summ, 0, '.', ' '); ?> руб
         </th>
         <th></th>
     </tr>
 
 </table>
-
-<div class="row buttons floatright">
-    <?php echo CHtml::submitButton('Пересчитать'); ?> &nbsp;
-    <a class="confirm" title="Убрать все товары из корзины" href="<?php echo Yii::app()->createUrl('/shop/cart/clear'); ?>">Очистить корзину</a>
 
 </div>
 
@@ -81,11 +103,41 @@ $total_summ = 0;
 
     <div class="clear"></div>
 
+    <br />
+
 <?php echo CHtml::beginForm(Yii::app()->createUrl('/shop/order')); ?>
-    <div class="row buttons">
+
+<div class="form">
+    <p style="float:left"><?php echo CHtml::link('&larr; Назад в каталог', $this->createUrl('/shop/default/index')); ?></p>
+    <div class="row buttons right">
         <?php echo CHtml::submitButton('Перейти к оформлению заказа'); ?>
     </div>
-<?php echo CHtml::endForm(); ?>
+</div>
+    <?php echo CHtml::endForm(); ?>
 
 </div>
-</div>
+
+<?php $this->endWidget(); ?>
+
+<script>
+    (function($){
+
+         $('.cart_table td.count').each(function(){
+
+             var field = $(this).find('input');
+             var val = parseInt(field.val());
+
+              $(this).find('.minus').click(function(){
+                  val = val > 1 ? val - 1 : 1;
+                  field.val(val);
+              });
+
+              $(this).find('.plus').click(function(){
+                  val = val + 1;
+                  field.val(val);
+              });
+         })
+
+    })(jQuery);
+
+</script>

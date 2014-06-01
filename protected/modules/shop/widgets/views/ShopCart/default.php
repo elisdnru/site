@@ -9,7 +9,7 @@
 
     <tr>
         <td><a href="<?php echo $item->model->url; ?>"><?php echo $item->model->title; ?></a></td>
-        <td class="center"><?php echo $count; ?></td>
+        <td class="center"><?php echo $item->count; ?></td>
         <td style="width:16px"><a href="<?php echo Yii::app()->createUrl('/shop/cart/remove', array('id'=>$item->model->id)); ?>"><img src="<?php echo Yii::app()->baseUrl; ?>/core/images/admin/del.png" alt="Удалить" /></a></td>
     </tr>
 
