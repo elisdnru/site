@@ -20,7 +20,7 @@ class UploaderModule extends DWebModule
     {
         return array(
             'upload/resize'=>'uploader/resize/index',
-            'upload/images/.+/[a-f0-9]+_[0-9]+x[0-9]+\..+'=>'uploader/download/thumb',
+            'upload/images/<image:.+\/[a-f0-9]+_[0-9]+x[0-9]+\..+>'=>'uploader/download/thumb',
         );
     }
 }
