@@ -65,6 +65,11 @@
 
     function initComments()
     {
+        jQuery('.comment .reply').each(function () {
+            var span = $(this);
+            span.replaceWith(jQuery('<a/>').addClass('reply').attr('href', '#comment-form').html(span.html()));
+        });
+        
         jQuery('.comment .reply').click(function()
         {
             var comment = jQuery(this).parent().parent();
@@ -79,7 +84,6 @@
             form.find('form').attr('action', '#comment_' + id);
 
             setParentComment(id);
-
 
             return false;
         });

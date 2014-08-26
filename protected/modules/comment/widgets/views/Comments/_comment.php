@@ -2,9 +2,9 @@
 <article class="comment<?php if ($authorId == $comment->user_id): ?> author<?php endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php echo $indent < 8 ? $indent*20 : 5*20; ?>px">
 
     <?php if ($comment->cache(1000)->user): ?>
-        <a rel="nofollow" href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" /></a>
+        <span data-href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" /></span>
     <?php else: ?>
-        <img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" />
+        <img class="userpic" src="<?php echo CHtml::encode($comment->getAvatarUrl(50, 50)); ?>" alt="" />
     <?php endif; ?>
 
     <header>
@@ -28,15 +28,15 @@
 
         <span class="date"><?php echo $comment->date; ?></span>
 
-        <?php if ($comment->user && $comment->user->network): ?><a target="_blank" rel="nofollow" href="<?php echo $comment->user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($comment->user->network); ?>" /></a><?php endif; ?>
+        <?php if ($comment->user && $comment->user->network): ?><span data-href="<?php echo $comment->user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($comment->user->network); ?>" /></span><?php endif; ?>
 
         <span class="author">
             <?php if ($comment->site): ?>
-                <cite><a rel="nofollow" href="<?php echo CHtml::encode($comment->site); ?>"><?php echo CHtml::encode($comment->name); ?></a></cite>
+                <cite><span data-href="<?php echo CHtml::encode($comment->site); ?>"><?php echo CHtml::encode($comment->name); ?></span></cite>
             <?php elseif ($comment->name): ?>
-                <?php echo CHtml::encode($comment->name); ?>
+                <cite><?php echo CHtml::encode($comment->name); ?></cite>
             <?php else: ?>
-                <i>Неизвестный</i>
+                <cite><em>Неизвестный</em></cite>
             <?php endif; ?>
         </span>
 
@@ -53,6 +53,6 @@
     </div>
 
     <div class="clear"></div>
-    <footer><a rel="nofollow" data-id="<?php echo $comment->id; ?>" class="reply" href="#comment-form">Ответить</a></footer>
+    <footer><span data-id="<?php echo $comment->id; ?>" class="reply">Ответить</span></footer>
 
 </article>

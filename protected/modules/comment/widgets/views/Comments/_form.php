@@ -36,8 +36,8 @@
     <div class="floatright">
         <p class="right" style="padding-right:10px"><a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</a> | <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</a></p>
         <?php  $this->widget('ulogin.widgets.UloginWidget', array(
-        'params'=>array('redirect'=>Yii::app()->createAbsoluteUrl('/ulogin/default/login', array('return'=>Yii::app()->request->getOriginalRequestUri())).'#comments', 'display'=>'panel')
-    )); ?>
+            'params'=>array('redirect'=>Yii::app()->createAbsoluteUrl('/ulogin/default/login', array('return'=>Yii::app()->request->getOriginalRequestUri())).'#comments', 'display'=>'panel')
+        )); ?>
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>
 
