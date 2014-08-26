@@ -6,6 +6,11 @@ jQuery('.confirm').doConfirm();
 
 jQuery('.js_hide').hide();
 
+jQuery('span[data-href]').each(function () {
+	var span = jQuery(this);
+	span.replaceWith(jQuery('<a/>').attr('href', span.data('href')).html(span.html()));
+});
+
 jQuery(document).on('click', 'a.ajax_del', function(){
     var t=jQuery(this);
     if (!confirm(t.attr('title')+'?')) return false;
