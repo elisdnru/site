@@ -15,9 +15,9 @@ jQuery(document).on('click', 'a.ajax_del', function(){
     var t=jQuery(this);
     if (!confirm(t.attr('title')+'?')) return false;
 
-    $.ajax({
+	jQuery.ajax({
         type:'POST',
-        url:$(this).attr('href'),
+        url:jQuery(this).attr('href'),
         data:{'YII_CSRF_TOKEN': getCSRFToken()},
         success:function(data) {
             jQuery('#'+t.data('del')).hide(500);
@@ -34,9 +34,9 @@ jQuery(document).on('click', 'a.ajax_load', function(){
     var t=jQuery(this);
     if (!confirm(t.attr('title')+'?')) return false;
 
-    $.ajax({
+	jQuery.ajax({
         type:'POST',
-        url:$(this).attr('href'),
+        url:jQuery(this).attr('href'),
         data:{'YII_CSRF_TOKEN': getCSRFToken()},
         success:function(data) {
             jQuery('#'+t.data('load')).html(data);
@@ -53,9 +53,9 @@ jQuery(document).on('click', 'a.ajax_post', function(){
     var t=jQuery(this);
     if (!confirm(t.attr('title')+'?')) return false;
 
-    $.ajax({
+	jQuery.ajax({
         type:'POST',
-        url:$(this).attr('href'),
+        url:jQuery(this).attr('href'),
         data:{'YII_CSRF_TOKEN': getCSRFToken()},
         success:function(data) {
             alert('Успешно');
