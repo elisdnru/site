@@ -67,9 +67,14 @@
     {
         jQuery('.comment .reply').each(function () {
             var span = $(this);
-            span.replaceWith(jQuery('<a/>').addClass('reply').attr('href', '#comment-form').html(span.html()));
+            span.replaceWith(jQuery('<a/>')
+                .addClass('reply')
+                .attr('data-id', span.data('id'))
+                .attr('href', '#comment-form')
+                .html(span.html())
+            );
         });
-        
+
         jQuery('.comment .reply').click(function()
         {
             var comment = jQuery(this).parent().parent();
