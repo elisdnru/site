@@ -26,7 +26,7 @@ $publicurl = $this->createUrl('toggle', array('attribute'=>'public', 'id'=>$data
             <a rel="nofollow" class="ajax_load like_icon<?php if ($data->liked): ?> like_active<?php endif; ?>" data-load="like_<?php echo $data->id; ?>" href="<?php echo Yii::app()->createUrl('comment/ajax/like', array('id'=>$data->id)); ?>" title="Мне нравится"></a>
         </span>
 
-        <span class="date"><?php echo $data->date; ?></span>
+        <h2 class="date"><?php echo $data->date; ?></h2>
 
         <?php if ($data->user && $data->user->network): ?><a target="_blank" rel="nofollow" href="<?php echo $data->user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($data->user->network); ?>" /></a><?php endif; ?>
 
