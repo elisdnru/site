@@ -84,7 +84,6 @@
     <div class="row buttons">
         <br />
         <?php echo CHtml::submitButton('Отправить комментарий', array('id'=>'comment_submit')); ?>
-        <p class="center inv" id="comment_load"><img src="/core/images/loading.gif" /></p>
     </div>
 
     </fieldset>

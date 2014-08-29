@@ -1,4 +1,4 @@
-<section id="comments">
+<div id="comments">
 
     <div class="block-title">Комментарии</div>
 
@@ -27,14 +27,14 @@
 
     </div>
 
-    <?php if (count($comments)): ?><p class="reply-comment"><a rel="nofollow" href="#comment-form">Оставить комментарий</a></p><?php endif; ?>
+    <?php if (count($comments)): ?><p class="reply-comment"><a href="#comment-form">Оставить комментарий</a></p><?php endif; ?>
 
     <?php $this->render('Comments/_form', array(
         'form'=>$form,
         'user'=>$user,
     )); ?>
 
-</section>
+</div>
 
 <script type="text/javascript">
 

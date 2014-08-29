@@ -68,10 +68,13 @@
 .comment header {
     margin-bottom:15px;
 }
-.comment .date {
+.comment h2.date {
     color:#999;
     float:right;
     font-size:12px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
 }
 .comment .like {
     color:#999;

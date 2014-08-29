@@ -2,7 +2,7 @@
 <article class="comment<?php if ($authorId == $comment->user_id): ?> author<?php endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php echo $indent < 8 ? $indent*20 : 5*20; ?>px">
 
     <?php if ($comment->cache(1000)->user): ?>
-        <span data-href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" /></span>
+        <span data-href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" alt="" /></span>
     <?php else: ?>
         <img class="userpic" src="<?php echo CHtml::encode($comment->getAvatarUrl(50, 50)); ?>" alt="" />
     <?php endif; ?>
@@ -26,7 +26,7 @@
             <span class="ajax_like like_icon<?php if ($comment->liked): ?> like_active<?php endif; ?>" data-load="like_<?php echo $comment->id; ?>" data-url="<?php echo Yii::app()->createUrl('comment/ajax/like', array('id'=>$comment->id)); ?>" title="Мне нравится"></span>
         </span>
 
-        <span class="date"><?php echo $comment->date; ?></span>
+        <h2 class="date"><?php echo $comment->date; ?></h2>
 
         <?php if ($comment->user && $comment->user->network): ?><span data-href="<?php echo $comment->user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($comment->user->network); ?>" /></span><?php endif; ?>
 
