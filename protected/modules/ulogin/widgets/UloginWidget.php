@@ -4,7 +4,8 @@ DUrlRulesHelper::import('ulogin');
 
 class UloginWidget extends DWidget
 {
-    //параметры по-умолчанию
+    private static $once = false;
+
     private $params = array(
         'display'       =>  'panel',
         'fields'        =>  'first_name,last_name,email,photo',
@@ -16,9 +17,11 @@ class UloginWidget extends DWidget
 
     public function run()
     {
-        //подключаем JS скрипт
-        Yii::app()->clientScript->registerScriptFile('http://ulogin.ru/js/ulogin.js', CClientScript::POS_END);
-        $this->render('uloginWidget', $this->params);
+        if (!self::$once) {
+            Yii::app()->clientScript->registerScriptFile('http://ulogin.ru/js/ulogin.js', CClientScript::POS_END);
+            $this->render('uloginWidget', $this->params);
+            self::$once = true;
+        }
     }
 
     public function setParams($params)
