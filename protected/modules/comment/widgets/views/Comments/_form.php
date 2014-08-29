@@ -34,7 +34,7 @@
     <?php else: ?>
 
     <div class="floatright">
-        <p class="right" style="padding-right:10px"><a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</a> | <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</a></p>
+        <p class="right" style="padding-right:10px"><span data-href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</span> | <span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</span></p>
         <?php  $this->widget('ulogin.widgets.UloginWidget', array(
             'params'=>array('redirect'=>Yii::app()->createAbsoluteUrl('/ulogin/default/login', array('return'=>Yii::app()->request->getOriginalRequestUri())).'#comments', 'display'=>'panel')
         )); ?>
