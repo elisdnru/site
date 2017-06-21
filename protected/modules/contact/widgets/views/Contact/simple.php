@@ -22,7 +22,8 @@
     <div class="row inp_text">
         <?php echo $form->textField($model,'name',array('placeholder'=>'ФИО', 'title'=>'ФИО')); ?><br />
         <?php echo $form->textField($model,'email',array('placeholder'=>'Email', 'title'=>'Email')); ?><br />
-        <?php echo $form->textArea($model,'text',array('rows'=>4, 'cols'=>30, 'placeholder'=>'Сообщение', 'title'=>'Сообщение')); ?>
+        <?php echo $form->textArea($model,'text',array('rows'=>4, 'cols'=>30, 'placeholder'=>'Сообщение', 'title'=>'Сообщение')); ?><br />
+        <?php echo $form->checkBox($model,'accept'); ?><?php echo $form->labelEx($model,'accept'); ?>
     </div>
 
     <div class="row buttons">

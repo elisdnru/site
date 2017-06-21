@@ -14,6 +14,7 @@ class ContactForm extends CFormModel
 	public $phone;
 	public $text;
 	public $verifyCode;
+	public $accept;
 
 	/**
 	 * Declares the validation rules.
@@ -23,10 +24,11 @@ class ContactForm extends CFormModel
    		// NOTE: you should only define rules for those attributes that
    		// will receive user inputs.
    		return array(
-   			array('name, email, text', 'required'),
+   			array('name, email, text, accept', 'required'),
    			array('name', 'length', 'max'=>200),
    			array('email, phone', 'length', 'max'=>100),
             array('email', 'email'),
+            array('accept', 'compare', 'compareValue' => '1'),
    			// The following rule is used by search().
    			// Please remove those attributes that should not be searched.
    			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements(), 'captchaAction'=>'/contact/default/captcha', 'except'=>'safe'),
@@ -46,6 +48,7 @@ class ContactForm extends CFormModel
             'phone' => 'Телефон',
             'text' => 'Сообщение',
             'verifyCode'=>'Проверочный код',
+            'accept' => 'Я добровольно отправляю свои данные',
 		);
 	}
 }

@@ -55,6 +55,14 @@
 
     <br />
 
+    <div class="row">
+        <?php echo $form->checkBox($model,'accept'); ?>
+        <?php echo $form->labelEx($model,'accept'); ?><br />
+        <?php echo $form->error($model,'accept'); ?>
+    </div>
+
+    <br />
+
     <div class="row buttons">
         <?php echo CHtml::submitButton('Отправить сообщение'); ?>
     </div>
