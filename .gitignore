@@ -9,6 +9,5 @@
 /protected/runtime/*
 /protected/extensions/db_profiler/*
 /protected/extensions/yii-debug-toolbar/*
-/protected/modules/import/*
 /index.php
 /robots.txt
