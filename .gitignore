@@ -1,8 +1,6 @@
 .idea/*
 /assets/*
 /upload/*
-/core/images/soc/*
-/core/images/soc16/*
 /protected/yiic.php
 /protected/tests/bootstrap.php
 /protected/tests/WebTestCase.php
