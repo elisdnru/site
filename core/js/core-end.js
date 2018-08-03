@@ -1,6 +1,5 @@
 jQuery('.graytext').grayText();
 
-jQuery('a[href^="http://"], a[href^="https://"]').attr('target', '_blank');
 jQuery('.tdruller').tdRuller();
 jQuery('.confirm').doConfirm();
 
