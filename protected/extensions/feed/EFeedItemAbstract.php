@@ -112,7 +112,7 @@ abstract class EFeedItemAbstract extends CComponent {
 	 */
 	public function setLink($link) {
 		$validator = new CUrlValidator();
-		$validator->pattern = '/(((f|ht){1}tp:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i';
+		$validator->pattern = '/(((f|ht){1}tps?:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i';
 		
 		if(!$validator->validateValue($link))
 			throw new CException( Yii::t('EFeed', $link. ' does not seem to be a valid URL') );
