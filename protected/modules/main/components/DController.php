@@ -95,7 +95,7 @@ class DController extends Controller
 
     public function checkUrl($url)
     {
-        if (Yii::app()->getRequest()->getOriginalUrl() != $url)
+        if ('/' . Yii::app()->getRequest()->getPathInfo() != $url)
             $this->redirect($url, true, 301);
     }
 
