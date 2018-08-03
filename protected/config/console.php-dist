@@ -17,22 +17,37 @@ return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), arra
 
     'commandMap' => array(
         'migrate' => array(
-            // псевдоним директории, в которую распаковано расширение
-            'class' => 'application.extensions.migrate-command.EMigrateCommand',
-            // путь для хранения общих миграций
+            'class' => 'application.extensions.migrate.EMigrateCommand',
             'migrationPath' => 'application.migrations',
-            // имя таблицы с версиями
             'migrationTable' => '{{migration}}',
-            // имя псевдомодуля для общих миграций. По умолчанию равно "core".
             'applicationModuleName' => 'core',
-            // отключаем некоторые модули
             'disabledModules' => array(
-                 'admin',
+                'admin',
             ),
-            // можно задать имя поддиректории для хранения миграций в директории модуля
             'migrationSubPath' => 'migrations',
-            // название компонента для подключения к базе данных
             'connectionID'=>'db',
         ),
     ),
+
+	'params' => array(
+		'minimize_styles' => array(
+			'../themes/classic/css/main.css' => array(
+				'../themes/classic/css/_layout.css',
+				'../themes/classic/css/_style.css',
+				'../themes/classic/css/_typo.css',
+				'../themes/classic/css/_portlet.css',
+				'../themes/classic/css/_pager.css',
+				'../themes/classic/css/_media.css',
+			),
+		),
+		'minimize_scripts' => array(
+			'../themes/classic/js/main.js' => array(
+				'../core/js/jquery.plugins.js',
+				'../themes/classic/js/share.js',
+				'../themes/classic/js/follow.js',
+				'../themes/classic/js/justclick.js',
+				'../core/js/core-site.js',
+			),
+		),
+	)
 ));
