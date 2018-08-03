@@ -10,10 +10,9 @@ Disallow: /confirmregister
 Disallow: /error
 Disallow: /comment
 Disallow: /blog/date/
-Disallow: /blog/search/
 Disallow: /users
 Disallow: /search
-Host: site.com
+Host: https://elisdn.ru
 
 User-agent: Mediapartners-Google
 Disallow:
@@ -21,4 +20,4 @@ Disallow:
 User-Agent: YaDirectBot
 Disallow:
 
-Sitemap: http://site.com/sitemap.xml
+Sitemap: https://elisdn.ru/sitemap.xml
