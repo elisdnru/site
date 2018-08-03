@@ -227,7 +227,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'sourceAttribute'=>'text',
                 'destinationAttribute'=>'text_purified',
                 'enableMarkdown'=>true,
-                'enablePurifier'=>true,
+                'enablePurifier'=>false,
                 'purifierOptions'=> array(
                     'Attr.AllowedRel'=>array('nofollow'),
                     'HTML.SafeObject'=>true,
