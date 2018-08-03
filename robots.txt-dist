@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /*?
 Disallow: /*.php
+Disallow: /search
 Disallow: /login
 Disallow: /logout
 Disallow: /registration
@@ -9,12 +9,16 @@ Disallow: /remind
 Disallow: /confirmregister
 Disallow: /error
 Disallow: /comment
-Disallow: /assets
-Disallow: /core
 Disallow: /blog/date/
-Disallow: /blog/tag/
-Disallow: /blog/search
+Disallow: /blog/search/
+Disallow: /users
 Disallow: /search
+Host: site.com
 
-Sitemap: http://www.yourhost.ru/sitemap.xml
+User-agent: Mediapartners-Google
+Disallow:
 
+User-Agent: YaDirectBot
+Disallow:
+
+Sitemap: http://site.com/sitemap.xml
