@@ -18,5 +18,4 @@
 /.htaccess
 /index.php
 /favicon.ico
-/*.txt
-/*.html
+/robots.txt
