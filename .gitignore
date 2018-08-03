@@ -19,7 +19,6 @@
 /protected/extensions/db_profiler/*
 /protected/extensions/yii-debug-toolbar/*
 /protected/modules/import/*
-/themes/*
 /.htaccess
 /index.php
 /favicon.ico

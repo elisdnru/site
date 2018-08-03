@@ -1,0 +1,205 @@
+.photoslider ul {
+    width:630px;
+    margin:0 0 0 -3px;
+    padding:0;
+}
+.photoslider ul li {
+    display:inline-block;
+    margin:0 5px 0 0;
+    padding:0;
+    width:100px;
+    background:transparent;
+    position:relative;
+}
+.photoslider ul li.none {
+    background:transparent;
+}
+.photoslider ul a:hover img, #main .photoslider ul a.active img {
+    border-color:#09c;
+}
+.photoslider ul li a {
+    display:block;
+}
+.photoslider ul li span {
+    display:block;
+    border-width:3px;
+    border-style:solid;
+    border-color:#fff;
+    margin:0;
+    width:100px;
+    height:100px;
+    display:block;
+    cursor:pointer;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.photoslider ul li img {
+    width:100px;
+    height:100px;
+}
+
+#preview_img {
+    width:300px;
+}
+
+.loop_container {
+    margin-right: -20px;
+}
+
+.product_loop {
+    width:250px;
+    margin:20px 20px 0 0;
+    padding:20px;
+    float:left;
+    position:relative;
+    border: #ddd 1px solid;
+}
+.product_loop .title {
+    margin-bottom:15px;
+    text-align:center;
+    font-size:13px;
+    line-height:1.1;
+}
+.product_loop .title a {
+    text-decoration:underline;
+}
+.product_loop .image_block {
+    border: #eee 1px solid;
+    margin-bottom:10px;
+    background:url('/core/images/loading.gif') center center no-repeat;
+}
+.product_loop .thumb {
+    width:150px;
+    height:150px;
+    display:block;
+    margin:0 auto;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+.product_loop .price {
+    font-size:18px;
+    text-align: center;
+    color: #c3177b;
+    margin-bottom:10px;
+}
+
+.product_loop .tocart {
+    text-align: center;
+    font-size:18px;
+    color:#069
+}
+.product_loop .text {
+    margin-bottom:10px;
+    text-align:center;
+    font-size:12px;
+}
+.product_loop .category {
+    color:#333;
+    text-transform: lowercase;
+    font-weight:bold;
+}
+
+.product_loop:hover a {
+    text-decoration:none !important;
+}
+
+.product_page .price {
+    font-size:24px;
+    color:#069;
+    vertical-align:middle;
+}
+
+.product_page .label {
+    color:#888;
+    margin: 0;
+}
+.product_page .label span {
+    font-size:14px;
+    color:#500;
+}
+
+.product_page .artikul {
+    color:#888;
+}
+.product_page .artikul span {
+    font-size:18px;
+    color:#555;
+}
+.product_page .tocart_button {
+    color:#000 !important;
+    text-decoration:none !important;
+    margin: 0 !important;
+    padding: 6px 10px !important;
+    box-shadow:0px 1px 1px #666;
+    border:#eee 1px solid !important;
+    border-right:#999 1px solid !important;
+    font-size:12px !important;
+    background:#ddd;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dddddd');
+    background: -moz-linear-gradient(#eee, #ddd) !important;
+    background: -webkit-linear-gradient(#eee, #ddd) !important;
+    background: -o-linear-gradient(#eee, #ddd) !important;
+    background: -ms-linear-gradient(#eee, #ddd) !important;
+    behavior: url('/core/css/PIE.htc');
+    cursor:pointer;
+}
+.product_page .tocart_button:hover {
+    text-decoration:underline !important
+}
+.product_page .image_block {
+    background:url('/core/images/loading.gif') center center no-repeat;
+    border: #ddd 1px solid;
+    width:300px;
+    float:left;
+    position:relative;
+    margin-bottom:20px;
+}
+.product_page .image_block .sale {
+    background:url('../../images/sale.png') center center no-repeat;
+    display:block;
+    width:43px;
+    height:43px;
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
+.product_page .description_block {
+    margin-left:320px;
+}
+.product_page .product_text {
+    color:#333;
+}
+.product_page .product_text p {
+    color:#333;
+    line-height: 1.4;
+}
+.product_page .product_size {
+    color:#888;
+    line-height: 1;
+}
+
+.shopcart_page {
+}
+.shopcart_page table {
+}
+.shopcart_page table td {
+}
+.shopcart_page table td a {
+}
+.shopcart_page table td a:hover {
+}
+.shopcart_page .tocart {
+    margin:0;
+}
+.shopcart_page table td .diff {
+    cursor:pointer;
+}
+
+.shopcart td {
+    border: none;
+    padding-left: 0;
+}
+
+#colorbox iframe {
+    margin:0 !important;
+}
