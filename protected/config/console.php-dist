@@ -31,22 +31,22 @@ return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), arra
 
 	'params' => array(
 		'minimize_styles' => array(
-			'../themes/classic/css/main.css' => array(
-				'../themes/classic/css/_layout.css',
-				'../themes/classic/css/_style.css',
-				'../themes/classic/css/_typo.css',
-				'../themes/classic/css/_portlet.css',
-				'../themes/classic/css/_pager.css',
-				'../themes/classic/css/_media.css',
+			'../public/themes/classic/css/main.css' => array(
+				'../public/themes/classic/css/_layout.css',
+				'../public/themes/classic/css/_style.css',
+				'../public/themes/classic/css/_typo.css',
+				'../public/themes/classic/css/_portlet.css',
+				'../public/themes/classic/css/_pager.css',
+				'../public/themes/classic/css/_media.css',
 			),
 		),
 		'minimize_scripts' => array(
-			'../themes/classic/js/main.js' => array(
-				'../core/js/jquery.plugins.js',
-				'../themes/classic/js/share.js',
-				'../themes/classic/js/follow.js',
-				'../themes/classic/js/justclick.js',
-				'../core/js/core-site.js',
+			'../public/themes/classic/js/main.js' => array(
+				'../public/core/js/jquery.plugins.js',
+				'../public/themes/classic/js/share.js',
+				'../public/themes/classic/js/follow.js',
+				'../public/themes/classic/js/justclick.js',
+				'../public/core/js/core-site.js',
 			),
 		),
 	)

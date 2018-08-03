@@ -1,13 +1,13 @@
 .idea/*
-/assets/*
-/upload/*
+/public/assets/*
+/public/upload/*
 /protected/yiic.php
 /protected/tests/bootstrap.php
 /protected/tests/WebTestCase.php
-/protected/runtime/*
+/runtime/*
 /protected/config/console.php
 /protected/config/main.php
 /protected/config/test.php
 /protected/extensions/db_profiler/*
 /protected/extensions/yii-debug-toolbar/*
-/index.php
+/public/index.php

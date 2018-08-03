@@ -19,6 +19,7 @@ define('MODULES_MATCHES', implode('|', array_keys($modules)));
 return array(
 
     'basePath'=>dirname(dirname(__FILE__)),
+    'runtimePath'=>dirname(dirname(dirname(__FILE__))) . '/runtime',
     'name'=>'Site',
     'sourceLanguage'=>'en',
     'language'=>'ru',

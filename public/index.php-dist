@@ -1,11 +1,11 @@
 <?php
 
-require_once(dirname(__FILE__).'/protected/components/DTimer.php');
+require_once(dirname(__FILE__).'/../protected/components/DTimer.php');
 DTimer::run();
 
 // change the following paths if necessary
-$yii=dirname(__FILE__).'/framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/main.php';
+$yii=dirname(__FILE__).'/../framework/yii.php';
+$config=dirname(__FILE__).'/../protected/config/main.php';
 
 defined('YII_DEBUG') or define('YII_DEBUG',true);
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
