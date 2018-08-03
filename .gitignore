@@ -7,10 +7,6 @@
 /protected/tests/bootstrap.php
 /protected/tests/WebTestCase.php
 /protected/runtime/*
-/protected/config/console.php
-/protected/config/local_*
-/protected/config/prod_*
-/protected/config/test_*
 /protected/extensions/db_profiler/*
 /protected/extensions/yii-debug-toolbar/*
 /protected/modules/import/*

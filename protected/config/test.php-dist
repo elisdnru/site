@@ -6,20 +6,29 @@ return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), arra
 
     'components'=>array(
 
+        'fixture'=>array(
+            'class'=>'system.test.CDbFixtureManager',
+        ),
+
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=dbname',
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=test',
             'enableProfiling' => false,
             'emulatePrepare' => true,
-            'username' => 'username',
-            'password' => 'password',
-            'tablePrefix' => 'tbl_',
+            'username' => 'root',
+            'password' => '',
+            'tablePrefix' => '',
             'charset' => 'utf8',
             'schemaCachingDuration'=>3600,
         ),
 
-        'cache'=>array(
-            'class'=>'system.caching.CFileCache',
-            'cachePath'=>'cache'
+        'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                    'class'=>'CFileLogRoute',
+                    'levels'=>'error',
+                ),
+            ),
         ),
 
         'uploader'=>array(
@@ -69,22 +78,9 @@ return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), arra
     ),
 
     'params'=>array(
-        'runtimeWidgets'=>array(
-            'new.widgets.News',
-            'new.widgets.LastNews',
-            'blog.widgets.LastPosts',
-            'newsgallery.widgets.NewsGallery',
-            'gallery.widgets.Gallery',
-            'page.widgets.SubPages',
-            'page.widgets.Page',
-            'menu.widgets.Menu',
-            'block.widgets.Block',
-            'contact.widgets.Contact',
-            'portfolio.widgets.Portfolio',
-        ),
         'translatedLanguages'=>array(
             'ru'=>'Russian',
-            //'en'=>'English',
+            'en'=>'English',
         ),
         'defaultLanguage'=>'ru',
     ),
