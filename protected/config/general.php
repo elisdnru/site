@@ -115,14 +115,7 @@ return array(
         ),
 
         'session'=>array (
-            'class'=>'system.web.CDbHttpSession',
-            'sessionTableName'=>'{{session}}',
-            'connectionID'=>'db',
-            'timeout'=>3600*24*10,
-            'autoCreateSessionTable'=>false,
-            'cookieParams'=>array(
-                'lifetime'=>3600*24*10,
-            ),
+            'class'=>'system.web.CHttpSession',
         ),
 
         'shopcart'=>array(
