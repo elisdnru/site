@@ -10,6 +10,5 @@
 /protected/extensions/db_profiler/*
 /protected/extensions/yii-debug-toolbar/*
 /protected/modules/import/*
-/.htaccess
 /index.php
 /robots.txt
