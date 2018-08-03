@@ -19,6 +19,6 @@ class DGRavatarHelper
         $id = md5(strtolower(trim($email)));
         $default = '?d=' . urlencode($default);
         $width = $width ? '&s=' . $width : '';
-        return 'http://www.gravatar.com/avatar/' . $id . $default . $width;
+        return '//www.gravatar.com/avatar/' . $id . $default . $width;
     }
 }
