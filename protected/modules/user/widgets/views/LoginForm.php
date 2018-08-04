@@ -8,7 +8,7 @@
 <div style="margin-left:60px;">
     <p class="nomargin"><strong>
         <?php if ($user->network): ?>
-        <a rel="nofollow" href="<?php echo $user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($user->network); ?>" /></a>
+        <a href="<?php echo $user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($user->network); ?>" /></a>
         <?php endif; ?>
         <?php echo CHtml::encode($user->fio); ?>
     </strong>
@@ -27,11 +27,11 @@
 <?php echo CHtml::beginForm(array('/user/default/login')); ?>
 <div id="login-side-form" class="form">
 
-    <div class="row"><?php echo CHtml::activeTextField($model, 'username', array('style'=>'width:95%', 'placeholder'=>'Логин или Email', 'title'=>'Логин или Email')); ?></div>
-    <div class="row"><?php echo CHtml::activePasswordField($model, 'password', array('style'=>'width:95%', 'placeholder'=>'Пароль', 'title'=>'Пароль')); ?></div>
+    <div class="row"><?php echo CHtml::activeTextField($model, 'username', array('style'=>'width:100%', 'placeholder'=>'Логин или Email', 'title'=>'Логин или Email')); ?></div>
+    <div class="row"><?php echo CHtml::activePasswordField($model, 'password', array('style'=>'width:100%', 'placeholder'=>'Пароль', 'title'=>'Пароль')); ?></div>
 
     <div class="row buttons">
-        <span class="right floatright" style="font-size:12px"><a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</a> | <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</a></span>
+        <span class="right floatright" style="font-size:12px"><span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</span> | <span data-href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</span></span>
         <?php echo CHtml::submitButton("Войти"); ?>
         <div class="clear"></div>
     </div>
