@@ -4,7 +4,7 @@
  * В классе EMailer необходимо заменить private $_myMailer на protected $_myMailer
  */
 
-require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'EMailer.php');
+require_once(__DIR__.DIRECTORY_SEPARATOR.'EMailer.php');
 
 class MyEMailer extends EMailer
 {

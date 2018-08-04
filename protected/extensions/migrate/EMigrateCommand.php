@@ -21,7 +21,7 @@
  */
 
 Yii::import('system.cli.commands.MigrateCommand');
-require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'EDbMigration.php');
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'EDbMigration.php');
 
 /**
  * EMigrateCommand manages the database migrations.

@@ -1,6 +1,6 @@
 <?php
 
-return array_replace_recursive(require(dirname(__FILE__) . '/general.php'), array(
+return array_replace_recursive(require(__DIR__ . '/general.php'), array(
 
     'theme'=>'classic',
 

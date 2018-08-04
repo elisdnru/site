@@ -1,3 +1,3 @@
 <?php
 
-return require(dirname(__FILE__) . '/main.php');
+return require(__DIR__ . '/main.php');

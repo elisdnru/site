@@ -9,7 +9,7 @@ class JMSyntaxHighlighter extends CApplicationComponent {
     protected function registerScript() {
         $cs = Yii::app()->clientScript;
         $cs->registerCoreScript('jquery');
-        $assets = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'syntaxhighlighter' . DIRECTORY_SEPARATOR;
+        $assets = __DIR__ . DIRECTORY_SEPARATOR . 'syntaxhighlighter' . DIRECTORY_SEPARATOR;
         $this->_aUrl = Yii::app()->getAssetManager()->publish($assets);
         $cs->registerScriptFile($this->_aUrl . '/scripts/shCore.js');
         $cs->registerScriptFile($this->_aUrl . '/scripts/shAutoloader.js');

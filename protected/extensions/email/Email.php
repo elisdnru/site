@@ -98,7 +98,7 @@ class Email extends CApplicationComponent {
 	public $lineLength = 70;
 	
 	public function __construct() {
-		Yii::setPathOfAlias('email', dirname(__FILE__).'/views');
+		Yii::setPathOfAlias('email', __DIR__.'/views');
 	}
 	
 	/**

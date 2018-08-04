@@ -29,7 +29,7 @@
 /**
  * Include the the PHPMailer class.
  */
-require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'phpmailer'.DIRECTORY_SEPARATOR.'class.phpmailer.php');
+require_once(__DIR__.DIRECTORY_SEPARATOR.'phpmailer'.DIRECTORY_SEPARATOR.'class.phpmailer.php');
 
 /**
  * EMailer is a simple wrapper for the PHPMailer library.

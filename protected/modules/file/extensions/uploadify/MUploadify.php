@@ -177,7 +177,7 @@ class MUploadify extends CInputWidget{
      */
     function getBaseUrl(){
         if($this->_basePath===null)
-            $this->_basePath=Yii::app()->getAssetManager()->publish(dirname(__FILE__).DIRECTORY_SEPARATOR.'assets');
+            $this->_basePath=Yii::app()->getAssetManager()->publish(__DIR__.DIRECTORY_SEPARATOR.'assets');
         return $this->_basePath;
     }
     /**
