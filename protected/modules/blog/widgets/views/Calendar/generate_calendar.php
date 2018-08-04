@@ -22,9 +22,9 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
 	$enable_n = $year < $current_year || $year == $current_year && $month < $current_month;
 
     @list($p, $pl) = each($pn); @list($n, $nl) = each($pn); #previous and next links, if applicable
-    if($p) $p = '<span class="calendar-prev">'.($pl && $enable_p ? '<a rel="nofollow" href="'.htmlspecialchars($pl).'">'.$p.'</a>' : $p).'</span>';
-    if($n) $n = '<span class="calendar-next">'.($nl && $enable_n ? '<a rel="nofollow" href="'.htmlspecialchars($nl).'">'.$n.'</a>' : $n).'</span>';
-    $calendar = '<div class="calendar-month">'.$p.$n.($month_href ? '<a href="'.htmlspecialchars($month_href).'">'.$title.'</a>' : $title)."</div>\n".'<table><tr>';
+    if($p) $p = '<span class="calendar-prev">'.($pl && $enable_p ? '<span data-href="'.htmlspecialchars($pl).'">'.$p.'</span>' : $p).'</span>';
+    if($n) $n = '<span class="calendar-next">'.($nl && $enable_n ? '<span data-href="'.htmlspecialchars($nl).'">'.$n.'</span>' : $n).'</span>';
+    $calendar = '<div class="calendar-month">'.$p.$n.($month_href ? '<span data-href="'.htmlspecialchars($month_href).'">'.$title.'</span>' : $title)."</div>\n".'<table><tr>';
 
     if($day_name_length){ #if the day names should be shown ($day_name_length > 0)
         #if day_name_length is >3, the full name of the day will be printed
@@ -43,11 +43,11 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
             @list($link, $classes, $content) = $days[$day];
             if(is_null($content))  $content  = $day;
             $calendar .= '<td'.($classes ? ' class="'.htmlspecialchars($classes).'">' : '>').
-                ($link ? '<a rel="nofollow" href="'.htmlspecialchars($link).'">'.$content.'</a>' : $content).'</td>';
+                ($link ? '<span data-href="'.htmlspecialchars($link).'">'.$content.'</span>' : $content).'</td>';
         }
         else $calendar .= "<td>$day</td>";
     }
-    if($weekday != 7) $calendar .= '<td colspan="'.(7-$weekday).'">&nbsp;</td>'; #remaining "empty" days
+    if($weekday != 7) $calendar .= '<td colspan="'.(7-$weekday).'">&nbsp;</td>';
 
     return $calendar."</tr>\n</table>\n";
 }

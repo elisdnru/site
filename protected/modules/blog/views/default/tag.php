@@ -7,6 +7,7 @@ $this->pageTitle = 'Записи с меткой ' . $tag->title . DNumberHelper
 $this->description = 'Записи с меткой ' . $tag->title . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $tag->title;
 
+Yii::app()->clientScript->registerMetaTag('noindex, follow', 'robots');
 
 $this->breadcrumbs=array(
     'Блог' => $this->createUrl('/blog/default/index'),
