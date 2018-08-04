@@ -4,7 +4,5 @@
 /tests/WebTestCase.php
 /runtime/*
 /config/env.php
-/config/console.php
-/config/main.php
-/config/test.php
+/config/*-local.php
 /vendor

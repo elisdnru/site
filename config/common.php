@@ -115,10 +115,6 @@ return array(
             'errorAction'=>'/main/error/index',
         ),
 
-        'session'=>array (
-            'class'=>'system.web.CHttpSession',
-        ),
-
         'image'=>array(
             'class'=>'ext.image.CImageHandler',
         ),
@@ -133,19 +129,37 @@ return array(
             'rootPath'=>'upload',
             'emptyImage'=>'images/nophoto.png',
             'allowedThumbnailResolutions'=>array(
+                // general
+                array('upload/images', array(
+                    '250x0',
+                )),
+                array('upload/images/users/avatars', array(
+                    '100x100',
+                    '50x50',
+                )),
+                array('upload/images/news', array(
+                    '200x180', // list
+                    '198x180', // greed
+                )),
+
                 array('upload/images/news', array(
                     '250x0', // default
                     '200x180', // list
                     '198x180', // greed
                 )),
+                array('upload/images/portfolio', array(
+                    '198x0', // greed
+                    '190x0', // homepage
+                    '50x0', // admin
+                )),
+                array('upload/images/blogs', array(
+                    '100x100', // last posts
+                )),
                 array('upload/images/users/avatars', array(
-                    '200x0', // fishing
                     '100x100',
                     '50x50',
                 )),
                 array('upload/images/users/galleries', array(
-                    '50x50', // fishing
-                    '200x0', // fishing
                     '250x0', // admin
                 )),
                 array('upload/images/pages', array(
@@ -235,12 +249,15 @@ return array(
         'runtimeWidgets'=>array(
             'new.widgets.News',
             'new.widgets.LastNews',
+            'blog.widgets.LastPosts',
             'newsgallery.widgets.NewsGallery',
+            'gallery.widgets.Gallery',
             'page.widgets.SubPages',
             'page.widgets.Page',
             'menu.widgets.Menu',
             'block.widgets.Block',
             'contact.widgets.Contact',
+            'portfolio.widgets.Portfolio',
         ),
         'translatedLanguages'=>array(
             'ru'=>'Russian',

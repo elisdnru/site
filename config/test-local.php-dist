@@ -1,0 +1,16 @@
+<?php
+
+return array(
+    'components'=>array(
+        'db'=>array(
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=test',
+            'enableProfiling' => false,
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => '',
+            'tablePrefix' => '',
+            'charset' => 'utf8',
+            'schemaCachingDuration'=>3600,
+        ),
+    ),
+);
