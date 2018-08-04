@@ -12,6 +12,10 @@ return array_replace_recursive(
                 'basePath'=>dirname(__DIR__).'/tests/fixtures'
             ),
 
+            'request' => array(
+                'hostInfo' => 'http://localhost',
+            ),
+
             'log'=>array(
                 'class'=>'CLogRouter',
                 'routes'=>array(
@@ -26,7 +30,6 @@ return array_replace_recursive(
         'params'=>array(
             'translatedLanguages'=>array(
                 'ru'=>'Russian',
-                'en'=>'English',
             ),
             'defaultLanguage'=>'ru',
         ),

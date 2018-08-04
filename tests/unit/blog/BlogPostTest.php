@@ -67,7 +67,8 @@ class BlogPostTest extends DbTestCase {
 
         $post = new BlogPost();
 
-        $post->attributes = $source->attributes;
+        $post->setAttributes($source->attributes, false);
+        $post->id = null;
         $post->alias = 'alias_create_date';
         $post->title = 'alias_create_date';
         $post->date = '';
