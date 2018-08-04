@@ -423,7 +423,7 @@ div.form select
 	padding: 8px 10px;
 	margin: 0 0 20px 0;
     border-radius:5px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 #admin fieldset h4 {
@@ -434,7 +434,7 @@ div.form select
     font-size: 14px;
     font-weight: normal;
     border-radius:5px 5px 0 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 div.form label
@@ -473,7 +473,7 @@ div.form .row.buttons input
     border-radius:3px;
     box-shadow:1px 1px 1px #ccc;
     cursor:pointer;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 button, input[type=submit]{
@@ -605,7 +605,7 @@ div.form.login
 	padding: 20px 10px 10px 10px;
 	text-align: center;
 	border-radius: 5px;
-        behavior: url('/core/css/PIE.htc');
+        behavior: url('/css/PIE.htc');
 }
 
 div.form.login p
@@ -812,7 +812,7 @@ div.popup {
     background:#fff;
     border-radius:6px;
     box-shadow:1px 2px 3px #ccc;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 div.popup .close {
@@ -824,7 +824,7 @@ div.popup .close {
     color:#fff;
     border:#333 1px solid;
     border-radius:6px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     cursor:pointer;
 }
 
@@ -913,7 +913,7 @@ table.grid a {
 	background: -o-linear-gradient(#fff, #ccc);
 	background: -ms-linear-gradient(#fff, #ccc);
 	border-radius:3px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 	font-family:'Trebuchet MS';
 	cursor:pointer;
 	color:#333;
@@ -925,7 +925,7 @@ table.grid a {
     padding: 8px 8px 0 8px;
     margin: 0 0 20px 0;
     border-radius:5px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 #admin .controlPanel fieldset h2 {
@@ -937,13 +937,13 @@ table.grid a {
     background: -webkit-linear-gradient(#505050, #333);
     background: -o-linear-gradient(#505050, #333);
     background: -ms-linear-gradient(#505050, #333);
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     color:#fff;
     font-family: tahoma, arial;
     font-size: 15px;
     font-weight: normal;
     border-radius:5px 5px 0 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 #admin .controlPanel ul.adminlist {
     list-style: none !important;
@@ -962,7 +962,7 @@ table.grid a {
     margin: 0 !important;
     float:left;
     border-radius:5px 5px 0 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 #admin .controlPanel ul.adminlist li ul {
@@ -996,7 +996,7 @@ table.grid a {
     background: -webkit-linear-gradient(#fff, #eee) !important;
     background: -o-linear-gradient(#fff, #eee) !important;
     background: -ms-linear-gradient(#fff, #eee) !important;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 #admin .controlPanel ul.adminlist li ul li a {

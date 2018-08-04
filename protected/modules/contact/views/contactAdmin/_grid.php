@@ -31,7 +31,7 @@
             'filter'=>array(1=>'Прочитано', 0=>'Новое'),
             'titles'=>array(1=>'Прочитано', 0=>'Новое'),
             'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
-            'offImageUrl' => Yii::app()->request->baseUrl . '/core/images/admin/message.png',
+            'offImageUrl' => Yii::app()->request->baseUrl . '/images/admin/message.png',
         ),
         array(
             'class'=>'DButtonColumn',

@@ -99,10 +99,10 @@ div.breadcrumbs a:hover {
 	text-align: center;
     margin:0 0 10px 0;
     padding:6px;
-    background:#fff url('/core/images/loading.gif') center center no-repeat;
+    background:#fff url('/images/loading.gif') center center no-repeat;
     border:#ccc 1px solid;
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .entry.list .thumb {
     margin:0 0 10px 0;
@@ -127,7 +127,7 @@ div.breadcrumbs a:hover {
     float:none;
     margin:0 0 10px 0;
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     padding:6px;
 }
 .entry .thumb img {
@@ -138,13 +138,13 @@ div.breadcrumbs a:hover {
     height:100px;
     border:#ddd 1px solid;
     border-radius:400px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .entry.greed .thumb a {
     display:block;
     position:relative;
     margin:0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     width:198px;
     height:180px;
     background-position:center top;
@@ -295,7 +295,7 @@ div.breadcrumbs a:hover {
     background: -o-linear-gradient(#f6f6f6, #eee);
     background: -ms-linear-gradient(#f6f6f6, #eee);
     border-radius:6px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     padding: 0 0 0 8px;
     margin-right: 10px;
     float:left;
@@ -309,7 +309,7 @@ div.breadcrumbs a:hover {
 }
 .entry_date span:last-child, .entry_tags a:last-child {
     border-radius:0 6px 6px 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .entry_tags a:hover {
     color:#333;
@@ -320,7 +320,7 @@ div.breadcrumbs a:hover {
     border: #ddd 1px solid;
     border-radius: 10px;
     padding: 20px 15px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     margin-bottom:20px;
 }
 .product h2 a {
@@ -344,7 +344,7 @@ div.breadcrumbs a:hover {
     box-shadow:1px 2px 2px #ddd;
     border:#ddd 1px solid;
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     margin-bottom:20px;
     position:relative;
     overflow:hidden;
@@ -359,7 +359,7 @@ div.breadcrumbs a:hover {
     padding:15px 0 13px 15px;
     border:#ccc 1px solid;
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     position:relative;
 }
 .smart .item .title {
@@ -367,7 +367,7 @@ div.breadcrumbs a:hover {
     margin:-15px 0 15px -15px;
     border-bottom:#eee 1px solid;
     border-radius:4px 4px 0 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .smart .item .title:after {
     display:block;
@@ -583,7 +583,7 @@ ul.short_list li {
 
 .flash-success, .flash-error, .errorSummary {
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 div.form .errorSummary
@@ -597,7 +597,7 @@ a.order-button {
     padding: 10px 20px 12px 20px;
     border-radius: 60px;
     color: #fff;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 a.order-button:hover {
     background: #8DC35F;

@@ -22,7 +22,7 @@
             'buttons'=>array(
                 'files'=>array(
                     'url'=>'Yii::app()->controller->createUrl("files", array("id"=>$data->id))',
-                    'imageUrl'=>Yii::app()->request->baseUrl . '/core/images/admin/images.png',
+                    'imageUrl'=>Yii::app()->request->baseUrl . '/images/admin/images.png',
                     'label'=>'Изображения',
                 )
             )

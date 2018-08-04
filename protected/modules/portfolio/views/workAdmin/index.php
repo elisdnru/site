@@ -16,7 +16,7 @@ $this->info = 'Портфолио';
 <p class="floatright"><a href="<?php echo $this->createUrl('create', array('category'=>$category)); ?>">Добавить</a></p>
 <h1>Портфолио</h1>
 
-<p id="saving" style="display:none;float:right"><img src="/core/images/loading.gif"></p>
+<p id="saving" style="display:none;float:right"><img src="/images/loading.gif"></p>
 
 <?php echo CHtml::beginForm($this->createUrl('index'),'get'); ?>
 <p>
@@ -62,9 +62,9 @@ $toggle_public = $this->createUrl('toggle', array('id'=>$item->id, 'param'=>'pub
 	</td>
 	<td><a href="<?php echo $editurl; ?>"><?php echo $item->title; ?></a></td>
 	<td width="200px" class="center"><a href="<?php echo $editurl; ?>"><?php echo $item->category->title; ?></a></td>
-    <td width="20px" class="nopadding center" title="Опубликовано"><a class="field" href="<?php echo $toggle_public; ?>"><?php if ($item->public): ?><img src="/core/images/admin/yes.png" width="16" /><?php endif; ?></a></td>
-    <td width="20px" class="center"><a href="<?php echo $editurl; ?>"><img src="/core/images/admin/edit.png" width="16" height="16" alt="Править" title="Править" /></a></td>
-	<td width="20px" class="center"><a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить материал &laquo;<?php echo $item->title; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/core/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a></td>
+    <td width="20px" class="nopadding center" title="Опубликовано"><a class="field" href="<?php echo $toggle_public; ?>"><?php if ($item->public): ?><img src="/images/admin/yes.png" width="16" /><?php endif; ?></a></td>
+    <td width="20px" class="center"><a href="<?php echo $editurl; ?>"><img src="/images/admin/edit.png" width="16" height="16" alt="Править" title="Править" /></a></td>
+	<td width="20px" class="center"><a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить материал &laquo;<?php echo $item->title; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a></td>
 </tr>
 </table>
 

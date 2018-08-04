@@ -219,7 +219,7 @@ blockquote {
     border-radius:4px;
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     background:#eee;
     padding:8px 10px;
     margin-bottom:12px;

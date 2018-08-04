@@ -42,11 +42,11 @@ return array_replace_recursive(require(__DIR__ . '/general.php'), array(
 		),
 		'minimize_scripts' => array(
 			'../public/themes/classic/js/main.js' => array(
-				'../public/core/js/jquery.plugins.js',
+				'../public/js/jquery.plugins.js',
 				'../public/themes/classic/js/share.js',
 				'../public/themes/classic/js/follow.js',
 				'../public/themes/classic/js/justclick.js',
-				'../public/core/js/core-site.js',
+				'../public/js/core-site.js',
 			),
 		),
 	)

@@ -3,7 +3,7 @@
     background:#fff;
     border:#e9e9e9 1px solid;
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     margin-bottom:20px;
 }
 .portlet-title {
@@ -20,7 +20,7 @@
     background: -o-linear-gradient(#fafafa, #eee);
     background: -ms-linear-gradient(#fafafa, #eee);
     border-radius:4px 4px 0 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .portlet-title:after {
     display:block;
@@ -36,7 +36,7 @@
     background:#fff;
     opacity:0.3;
     border-radius:4px 4px 0 0;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .portlet-title span {
     position:relative;
@@ -65,7 +65,7 @@
 }
 .portlet-content > ul > li:last-child > a {
     border-radius:0 0 6px 6px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .portlet-content ul li.active > a {
     color:#333;
@@ -157,7 +157,7 @@
     border:#ccc 1px solid;
     font-family: arial;
     border-radius:4px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 .portlet.banner .portlet-content {
@@ -211,7 +211,7 @@
     background: -ms-linear-gradient(#ff8d3b, #dd3333);
     border: none;
     border-radius:30px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 
 .portlet-content .subscribe-form-horizontal {
@@ -256,7 +256,7 @@
 	background: -ms-linear-gradient(#ff8d3b, #dd3333);
 	border: none;
 	border-radius:30px;
-	behavior: url('/core/css/PIE.htc');
+	behavior: url('/css/PIE.htc');
 }
 
 

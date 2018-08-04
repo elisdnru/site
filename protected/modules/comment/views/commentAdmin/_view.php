@@ -16,9 +16,9 @@ $publicurl = $this->createUrl('toggle', array('attribute'=>'public', 'id'=>$data
     <header>
 
         <span class="link">
-            <a class="ajax_del" data-del="item_<?php echo $data->id; ?>" title="Скрыть/отобразить комментарий" href="<?php echo $publicurl; ?>"><img src="/core/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" title="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" /></a>
-            <a href="<?php echo $editurl; ?>"><img src="/core/images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать" /></a>
-            <a class="ajax_del" data-del="comment_<?php echo $data->id; ?>" title="Удалить комментарий" href="<?php echo $delurl; ?>"><img src="/core/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+            <a class="ajax_del" data-del="item_<?php echo $data->id; ?>" title="Скрыть/отобразить комментарий" href="<?php echo $publicurl; ?>"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" title="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" /></a>
+            <a href="<?php echo $editurl; ?>"><img src="/images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать" /></a>
+            <a class="ajax_del" data-del="comment_<?php echo $data->id; ?>" title="Удалить комментарий" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
         </span>
 
         <span class="like">

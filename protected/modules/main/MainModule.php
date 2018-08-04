@@ -11,7 +11,7 @@ class MainModule extends DWebModule
     {
         return array(
             ''=>'main/default/index',
-            'core/js/config.js'=>'main/default/configjs',
+            'js/config.js'=>'main/default/configjs',
             '<action:error|url>'=>'main/default/<action>',
         );
     }

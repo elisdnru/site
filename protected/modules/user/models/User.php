@@ -30,6 +30,6 @@ class User extends UserBase
 
     public function getDefaultAvatarUrl($width)
     {
-        return DGRavatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/core/images/noavatar.png');
+        return DGRavatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/images/noavatar.png');
     }
 }

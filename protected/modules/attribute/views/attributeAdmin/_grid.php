@@ -44,7 +44,7 @@
             'filter'=>array(1=>'Обязательный', 0=>'Необязательный'),
             'titles'=>array(1=>'Обязательный', 0=>'Необязательный'),
             'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
-            'offImageUrl' => Yii::app()->request->baseUrl . '/core/images/spacer.gif',
+            'offImageUrl' => Yii::app()->request->baseUrl . '/images/spacer.gif',
         ),
         array(
             'class'=>'DButtonColumn',

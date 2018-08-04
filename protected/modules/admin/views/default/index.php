@@ -27,7 +27,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget('DIconMenu', array('items'=>$notifications, 'iconsPath'=>'/core/images/admin/'));?>
+                    <?php $this->widget('DIconMenu', array('items'=>$notifications, 'iconsPath'=>'/images/admin/'));?>
                 </ul>
                 <div class="clear"></div>
             </li>
@@ -55,7 +55,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
                     <li>
                         <?php if ($module->name != $group): ?><h3><?php echo $module->name; ?></h3><?php endif; ?>
                         <ul>
-                            <?php $this->widget('DIconMenu', array('items'=>array_merge(Yii::app()->moduleManager->adminMenu($module->id), Yii::app()->moduleManager->notifications($module->id)), 'iconsPath'=>'/core/images/admin/'));?>
+                            <?php $this->widget('DIconMenu', array('items'=>array_merge(Yii::app()->moduleManager->adminMenu($module->id), Yii::app()->moduleManager->notifications($module->id)), 'iconsPath'=>'/images/admin/'));?>
                         </ul>
                         <div class="clear"></div>
                     </li>
@@ -73,7 +73,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
                 <ul>
                     <?php $this->widget('DIconMenu', array('items'=>array(
                         array('label'=>'Очистить кэш', 'url'=>array('/admin/default/clearCache'), 'icon'=>'clear.png'),
-                    ), 'iconsPath'=>'/core/images/admin/'));?>
+                    ), 'iconsPath'=>'/images/admin/'));?>
                 </ul>
                 <div class="clear"></div>
             </li>

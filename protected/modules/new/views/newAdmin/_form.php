@@ -113,8 +113,8 @@
     <?php foreach ($model->files as $file) : ?>
     <?php if ($file->file): ?>
         <p id="file_<?php echo $file->id; ?>">
-            <img src="/core/images/admin/fileicon.jpg" alt="" /> <a target="_blank" href="<?php echo Yii::app()->request->baseUrl . '/' . NewsFile::FILE_PATH . '/' .  $file->file; ?>" ><?php echo $file->title; ?></a>
-            <a class="ajax_del" data-del="file_<?php echo $file->id; ?>" title="Удалить файл" href="<?php echo $this->createUrl('admin/news/filedel', array('id'=>$file->id));?>"><img src="/core/images/admin/del.png" alt="Удалить" /></a>
+            <img src="/images/admin/fileicon.jpg" alt="" /> <a target="_blank" href="<?php echo Yii::app()->request->baseUrl . '/' . NewsFile::FILE_PATH . '/' .  $file->file; ?>" ><?php echo $file->title; ?></a>
+            <a class="ajax_del" data-del="file_<?php echo $file->id; ?>" title="Удалить файл" href="<?php echo $this->createUrl('admin/news/filedel', array('id'=>$file->id));?>"><img src="/images/admin/del.png" alt="Удалить" /></a>
         </p>
         <?php endif; ?>
     <?php endforeach; ?>

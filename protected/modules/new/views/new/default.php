@@ -36,7 +36,7 @@
     <?php foreach ($model->files as $file) : ?>
 
         <p>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/core/images/fileicon.jpg" alt="" />
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fileicon.jpg" alt="" />
             <a href="<?php echo Yii::app()->request->baseUrl . '/' . NewsFile::FILE_PATH . '/' . $file->file; ?>"><?php echo str_replace('_', ' ', $file->title); ?></a>
         </p>
 

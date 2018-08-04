@@ -32,7 +32,7 @@ $this->info = 'Нельзя удалить группу, пока в ней ес
         <tr id="item_<?php echo $item->id; ?>">
             <td><?php echo CHtml::activeTextField($item,"[$item->id]title", array('style'=>'width:99%', 'maxlength'=>255)); ?></td>
             <td class="center"><a href="<?php echo $newsurl; ?>">Новости</a></td>
-            <td class="center"><?php if ($item->news_count == 0) : ?><a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить группу &laquo;<?php echo CHtml::encode($item->title); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/core/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a><?php endif; ?></td>
+            <td class="center"><?php if ($item->news_count == 0) : ?><a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить группу &laquo;<?php echo CHtml::encode($item->title); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a><?php endif; ?></td>
         </tr>
 
     <?php endforeach; ?>

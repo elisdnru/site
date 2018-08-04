@@ -30,7 +30,7 @@ ul.paginator .page a
 {
     text-decoration:underline;
     background:#eee;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     color:#333;
 }
 

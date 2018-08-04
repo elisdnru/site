@@ -76,10 +76,10 @@ class DToggleColumn extends CGridColumn
             $this->sortable=false;
 
         if (empty($this->onImageUrl))
-            $this->onImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/yes.png';
+            $this->onImageUrl = Yii::app()->request->baseUrl . '/images/admin/yes.png';
 
         if (empty($this->offImageUrl))
-            $this->offImageUrl = Yii::app()->request->baseUrl . '/core/images/admin/no.png';
+            $this->offImageUrl = Yii::app()->request->baseUrl . '/images/admin/no.png';
 
         if (empty($this->name) && empty($this->value))
             throw new CException('Either "name" or "value" must be specified for DToggleColumn.');

@@ -93,7 +93,7 @@
 		background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAIAAADZSiLoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi/P79OwMDw/Xr1xmArHPnzoH4EAoIAAIMACtkFdTWUO0tAAAAAElFTkSuQmCC');
 		box-shadow:1px 2px 2px 1px #ccc inset;
 		border-radius:6px;
-		behavior: url('/core/css/PIE.htc');
+		behavior: url('/css/PIE.htc');
 	}
 
 	#main_nav ul {
@@ -111,7 +111,7 @@
 		box-shadow:1px 2px 2px 1px #d6d6d6;
 		border-radius:4px;
 		border: none;
-		behavior: url('/core/css/PIE.htc');
+		behavior: url('/css/PIE.htc');
 	}
 
 	#main_nav ul:after {
@@ -159,12 +159,12 @@
 	}
 	#main_nav ul li:first-child a {
 		border-radius:4px 0 0 4px;
-		behavior: url('/core/css/PIE.htc');
+		behavior: url('/css/PIE.htc');
 	}
 	#main_nav ul li:last-child a {
 		border:none !important;
 		border-radius:0 4px 4px 0;
-		behavior: url('/core/css/PIE.htc');
+		behavior: url('/css/PIE.htc');
 	}
 	#main_nav ul li a:hover {
 		color:#fff;

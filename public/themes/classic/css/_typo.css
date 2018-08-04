@@ -137,7 +137,7 @@ code {
 kbd {
     border: #aaa 1px solid;
     border-radius:3px;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     font-family:Consolas, 'Courier New';
     background: #f6f6f6;
     padding:4px 6px;

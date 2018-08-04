@@ -39,7 +39,7 @@ table.mceToolbar td {
     background: -webkit-linear-gradient(#fff, #eee) !important;
     background: -o-linear-gradient(#fff, #eee) !important;
     background: -ms-linear-gradient(#fff, #eee) !important;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
 }
 .mceToolbarTop select {
     width:auto !important;

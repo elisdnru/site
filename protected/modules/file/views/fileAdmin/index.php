@@ -46,7 +46,7 @@ $nav = '';
 
 <?php
 $dir = Yii::app()->file->set($root.'/'.$path);
-$renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/code.png', 'Переименовать', array('title'=>'Переименовать'));
+$renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/images/admin/code.png', 'Переименовать', array('title'=>'Переименовать'));
 ?>
 
 <?php echo CHtml::beginForm($this->createUrl('process', array('path'=>$path))); ?>
@@ -82,7 +82,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/co
                         </td>
                         <td>
                             <a class="renameLink floatright" href="#" onclick="rename('<?php echo $file->basename; ?>'); return false;"><?php echo $renameIcon; ?></a>
-                            <img src="/core/images/admin/foldericon.jpg" />
+                            <img src="/images/admin/foldericon.jpg" />
                             <a href="<?php echo $this->createUrl('index', array('path'=>($path ? $path.'/' : '').$file->basename)); ?>"><?php echo $file->basename; ?></a>
                         </td>
                         <td></td>
@@ -90,7 +90,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/co
                         <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
                         </td>
                         <td class="center">
-                            <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить директорию &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/core/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                            <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить директорию &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                         </td>
                     </tr>
 
@@ -104,7 +104,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/co
                         </td>
                         <td>
                             <a class="renameLink floatright" href="#" onclick="rename('<?php echo $file->basename; ?>')"><?php echo $renameIcon; ?></a>
-                            <img src="/core/images/admin/fileicon.jpg" />
+                            <img src="/images/admin/fileicon.jpg" />
                             <a href="<?php echo $htmlroot.'/'.($path ? $path.'/' : '').$file->basename; ?>"><?php echo $file->basename; ?></a>
                         </td>
                         <td class="center">
@@ -114,7 +114,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/core/images/admin/co
                             <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
                         </td>
                         <td class="center">
-                            <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить файл &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/core/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                            <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить файл &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                         </td>
                     </tr>
 

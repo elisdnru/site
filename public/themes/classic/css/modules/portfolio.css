@@ -54,10 +54,10 @@
     margin:0;
     padding:10px;
     box-shadow:1px 2px 2px 1px #ccc;
-    behavior: url('/core/css/PIE.htc');
+    behavior: url('/css/PIE.htc');
     width:190px;
     height:180px;
-    background:#fff url('/core/images/loading.gif') center center no-repeat;
+    background:#fff url('/images/loading.gif') center center no-repeat;
 }
 .portfolio ul li a .thumb {
     display:block;

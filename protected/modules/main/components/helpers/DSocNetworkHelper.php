@@ -5,7 +5,7 @@
  */
 class DSocNetworkHelper
 {
-    const IMAGE_PATH = 'core/images/soc16/';
+    const IMAGE_PATH = 'images/soc16/';
 
     public static function getIcon($network)
     {

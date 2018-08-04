@@ -73,15 +73,15 @@ return array(
 
         'clientScript'=>array(
             'scriptMap'=>array(
-                'modernizr.js'=>'/core/js/modernizr.min.js',
-                'core-site.js'=>'/core/js/core-site.js',
-                'core-end.js'=>'/core/js/core-end.js',
+                'modernizr.js'=>'/js/modernizr.min.js',
+                'core-site.js'=>'/js/core-site.js',
+                'core-end.js'=>'/js/core-end.js',
                 //'jquery.js'=>'http://code.jquery.com/jquery-latest.min.js',
                 //'jquery.min.js'=>'http://code.jquery.com/jquery-latest.min.js',
-                'jquery.easing.js'=>'/core/js/jquery.easing.js',
-                'jquery.mousewheel.js'=>'/core/js/jquery.mousewheel.js',
-                'jquery.plugins.js'=>'/core/js/jquery.plugins.js',
-                'swfobject.js'=>'/core/js/swfobject.js',
+                'jquery.easing.js'=>'/js/jquery.easing.js',
+                'jquery.mousewheel.js'=>'/js/jquery.mousewheel.js',
+                'jquery.plugins.js'=>'/js/jquery.plugins.js',
+                'swfobject.js'=>'/js/swfobject.js',
             )
         ),
 
@@ -131,7 +131,7 @@ return array(
             'class'=>'application.modules.uploader.components.DUploadManager',
             'origFileSalt'=>'adFxt0de',
             'rootPath'=>'upload',
-            'emptyImage'=>'core/images/nophoto.png',
+            'emptyImage'=>'images/nophoto.png',
             'allowedThumbnailResolutions'=>array(
                 array('upload/images/news', array(
                     '250x0', // default

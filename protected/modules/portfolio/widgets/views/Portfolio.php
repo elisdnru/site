@@ -3,8 +3,8 @@
 ?>
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-<?php Yii::app()->clientScript->registerScript('/core/js/jcarousellite.min.js', CClientScript::POS_HEAD);  ?>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/core/js/jcarousellite.min.js', CClientScript::POS_HEAD);  ?>
+<?php Yii::app()->clientScript->registerScript('/js/jcarousellite.min.js', CClientScript::POS_HEAD);  ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/jcarousellite.min.js', CClientScript::POS_HEAD);  ?>
 
 <div class="portfolio ribbed">
     <div class="carousel_link carouselPrevLink"></div>
