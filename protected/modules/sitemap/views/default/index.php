@@ -20,18 +20,39 @@ if ($this->is(Access::ROLE_CONTROL))
 
 <h1><?php echo CHtml::encode($page->title); ?></h1>
 
-<?php function sitemap_recursive(&$models, $parent=0) { ?>
+<div class="sitemap">
+
+	<?php function sitemap_recursive(&$models, $parent=0) { ?>
+		<ul>
+			<?php foreach ($models as $model): ?>
+				<?php if ($model->parent_id == $parent && $model->url != '/prices' ): ?>
+					<li><span data-href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></span>
+						<?php sitemap_recursive($models, $model->id); ?>
+					</li>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</ul>
+	<?php } ?>
+
+	<!--noindex-->
+	<h2>Страницы</h2>
+	<?php sitemap_recursive($items['Page']); ?>
+	<!--/noindex-->
+
+	<h2>Записи в блоге</h2>
 	<ul>
-		<?php foreach ($models as $model): ?>
-			<?php if ($model->parent_id == $parent): ?>
-				<li><a rel="nofollow" href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a>
-					<?php sitemap_recursive($models, $model->id); ?>
-				</li>
-			<?php endif; ?>
+		<?php foreach ($items['BlogPost'] as $model): ?>
+			<li><a href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a></li>
 		<?php endforeach; ?>
 	</ul>
-<?php } ?>
 
-<?php foreach ($items as $models): ?>
-	<?php sitemap_recursive($models); ?>
-<?php endforeach; ?>
+	<!--noindex-->
+	<h2>Портфолио</h2>
+	<ul>
+		<?php foreach ($items['PortfolioWork'] as $model): ?>
+			<li><span data-href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></span></li>
+		<?php endforeach; ?>
+	</ul>
+	<!--/noindex-->
+
+</div>
