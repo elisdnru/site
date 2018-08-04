@@ -1,7 +1,7 @@
 .idea/*
 /public/assets/*
 /public/upload/*
-/protected/tests/WebTestCase.php
+/tests/WebTestCase.php
 /runtime/*
 /protected/config/env.php
 /protected/config/console.php
