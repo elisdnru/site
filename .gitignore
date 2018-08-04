@@ -1,8 +1,2 @@
-.idea/*
-/public/assets/*
-/public/upload/*
-/tests/WebTestCase.php
-/var/*
-/config/env.php
-/config/*-local.php
+.idea
 /vendor
