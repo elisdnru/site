@@ -2,8 +2,6 @@
 
 /**
  * This is the model class for table "{{user}}".
- *
- * @property PhpBBUser phpBbUser
  */
 class User extends UserBase
 {
@@ -30,48 +28,9 @@ class User extends UserBase
 		));
 	}
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations()
-    {
-        $relations = parent::relations();
-
-        if (Yii::app()->moduleManager->active('phpbb'))
-        {
-            Yii::import('application.modules.phpbb.models.*');
-            $relations = array_merge($relations, array(
-                'phpBbUser'=>array(self::HAS_ONE, 'PhpBBUser', array('username'=>'username')),
-            ));
-        }
-
-        return $relations;
-    }
-
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-
-        if (Yii::app()->moduleManager->active('phpbb'))
-        {
-            $behaviors = array_merge($behaviors, array(
-                'PhpBBUserBehavior'=>array(
-                    'class'=>'phpbb.components.PhpBBUserBehavior',
-                    'usernameAttribute'=>'username',
-                    'newPasswordAttribute'=>'new_password',
-                    'emailAttribute'=>'email',
-                    'avatarAttribute'=>'avatar',
-                    'avatarPath'=>Yii::getPathOfAlias('webroot.upload.images.users.avatars'),
-                    'syncAttributes' => array(
-                        'site'=>'user_website',
-                        'icq'=>'user_icq',
-                        'from'=>'user_from',
-                        'occ'=>'user_occ',
-                        'interests'=>'user_interests',
-                    ),
-                ),
-            ));
-        }
 
         if (Yii::app()->moduleManager->active('userphoto'))
         {
