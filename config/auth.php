@@ -143,13 +143,6 @@ return array(
         'data' => null
     ),
 
-    'module_userphoto' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление фоторграфиями пользователей',
-        'bizRule' => null,
-        'data' => null
-    ),
-
     'module_blog' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление блогом',
@@ -209,7 +202,6 @@ return array(
             'module_blog',
             'module_portfolio',
             'module_review',
-            'module_userphoto',
         ),
         'bizRule' => null,
         'data' => null

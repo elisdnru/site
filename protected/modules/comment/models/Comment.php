@@ -8,9 +8,6 @@ if (Yii::app()->moduleManager->installed('blog'))
 if (Yii::app()->moduleManager->installed('new'))
     Yii::import('application.modules.new.models.NewsComment');
 
-if (Yii::app()->moduleManager->installed('userphoto'))
-    Yii::import('application.modules.userphoto.models.UserPhotoComment');
-
 /**
  * This is the model class for table "{{comment}}".
  *

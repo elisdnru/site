@@ -28,22 +28,6 @@ class User extends UserBase
 		));
 	}
 
-    public function behaviors()
-    {
-        $behaviors = parent::behaviors();
-
-        if (Yii::app()->moduleManager->active('userphoto'))
-        {
-            $behaviors = array_merge($behaviors, array(
-                'UserPhotosBehavior'=>array(
-                    'class'=>'userphoto.components.UserPhotosBehavior',
-                )
-            ));
-        }
-
-        return $behaviors;
-    }
-
     public function getDefaultAvatarUrl($width)
     {
         return DGRavatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . Yii::app()->request->baseUrl . '/core/images/noavatar.png');
