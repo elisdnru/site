@@ -1,6 +1,6 @@
 .grid-view-loading
 {
-	background:url(loading.gif) no-repeat;
+	background:url('../images/loading.gif') no-repeat;
 }
 
 .grid-view table.items th a.asc
