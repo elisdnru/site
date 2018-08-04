@@ -2,7 +2,7 @@
 /public/assets/*
 /public/upload/*
 /tests/WebTestCase.php
-/runtime/*
+/var/*
 /config/env.php
 /config/*-local.php
 /vendor
