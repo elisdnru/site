@@ -1,6 +1,17 @@
-<p class="follow center">
-    <a rel="nofollow" href="<?php echo Yii::app()->config->get('GENERAL.FEED_URL'); ?>" title="RSS"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/feed.png');"></span></a>
-    <?php if ($username = Yii::app()->config->get('FOLLOW.TWITTER')): ?><a rel="nofollow" href="http://twitter.com/<?php echo $username; ?>" title="Twitter"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/twitter.png');"></span></a><?php endif; ?>
-    <?php if ($username = Yii::app()->config->get('FOLLOW.LIVEJOURNAL')): ?><a rel="nofollow" href="http://<?php echo $username; ?>.livejournal.com" title="LiveJournal"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/livejournal.png');"></span></a><?php endif; ?>
-    <?php if ($username = Yii::app()->config->get('FOLLOW.GITHUB')): ?><a rel="nofollow" href="https://github.com/<?php echo $username; ?>" title="GitHub"><span style="background-image:url('<?php echo $assetsUrl; ?>/32/github.png');"></span></a><?php endif; ?>
-</p>
+
+<p id="followMe" class="follow center"></p>
+
+<script type="text/javascript">
+	/*<![CDATA[*/
+	jQuery('#followMe').follow({
+		rss: '<?php echo Yii::app()->config->get('GENERAL.FEED_URL'); ?>',
+		twitter: '<?php echo Yii::app()->config->get('FOLLOW.TWITTER'); ?>',
+		livejournal: '<?php echo Yii::app()->config->get('FOLLOW.LIVEJOURNAL'); ?>',
+		github: '<?php echo Yii::app()->config->get('FOLLOW.GITHUB'); ?>',
+		assets_url: '<?php echo $assetsUrl; ?>'
+	});
+	/*]]>*/
+</script>
+
+<?php $this->widget('block.widgets.BlockWidget', array('id'=>'subscribe_sidebar'));?>
+
