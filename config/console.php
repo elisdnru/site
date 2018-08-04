@@ -21,6 +21,7 @@ return array_replace_recursive(
         'params' => array(
             'minimize_styles' => array(
                 '../public/build/main.css' => array(
+                    '../public/css/_system.css',
                     '../public/css/_layout.css',
                     '../public/css/_style.css',
                     '../public/css/_typo.css',

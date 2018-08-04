@@ -4,7 +4,7 @@
 
 <meta charset="utf-8" />
 
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/system.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/_system.css" />
 <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/_typo.css" />
 <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/_style.css" />
 <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/iframe.css" />

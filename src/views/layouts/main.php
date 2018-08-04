@@ -19,9 +19,8 @@
 <link rel="publisher" href="https://plus.google.com/116153200022401064957" />
 <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
 
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/system.css" />
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/build/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>.css" />
 <!--[if lt IE 9]><script src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/build/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>.css" />
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/build/all-' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css') . '.js'); ?>
 <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
