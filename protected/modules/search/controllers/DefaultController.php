@@ -53,9 +53,6 @@ class DefaultController extends DController
         if (Yii::app()->moduleManager->active('portfolio'))
             $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}} WHERE public=1";
 
-        if (Yii::app()->moduleManager->active('recipe'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.recipe.models.Recipe' AS material_import, 'Recipe' AS material_class FROM {{recipe}}";
-
         if (Yii::app()->moduleManager->active('rubricator'))
             $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.rubricator.models.RubricatorArticle' AS material_import, 'RubricatorArticle' AS material_class FROM {{rubricator_article}} WHERE public=1";
 

@@ -129,13 +129,6 @@ return array(
         'data' => null
     ),
 
-    'module_recipe' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление рецептами',
-        'bizRule' => null,
-        'data' => null
-    ),
-
     'module_review' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление отзывами',
@@ -207,7 +200,6 @@ return array(
             'module_menu',
             'module_new',
             'module_page',
-            'module_recipe',
             'module_review',
             'module_rubricator',
         ),
@@ -239,7 +231,6 @@ return array(
             'module_blog',
             'module_portfolio',
             'module_shop',
-            'module_recipe',
             'module_review',
             'module_rubricator',
             'module_slideshow',
