@@ -3,7 +3,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../config/env.php';
 
-require_once(__DIR__.'/../protected/components/DTimer.php');
+require_once(__DIR__.'/../src/components/DTimer.php');
 DTimer::run();
 
 $yii=__DIR__.'/../vendor/yiisoft/yii/framework/yii.php';
