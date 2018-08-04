@@ -14,7 +14,7 @@ foreach ($dirs as $name){
         $modules[$name] = array('class'=>'application.modules.' . $name . '.' . ucfirst($name) . 'Module');
 }
 
-define('MODULES_MATCHES', implode('|', array_keys($modules)));
+$MODULES_MATCHES = implode('|', array_keys($modules));
 
 return array(
 
@@ -59,9 +59,9 @@ return array(
 				/*'gii'=>'gii/default/index',
 				'gii/<controller:\w+>'=>'gii/<controller>/index',
 				'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',*/
-                '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
-                '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
-                '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
+                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
+                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
+                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
             ),
         ),
 

@@ -9,6 +9,7 @@ return array_replace_recursive(
         'components'=>array(
             'fixture'=>array(
                 'class'=>'system.test.CDbFixtureManager',
+                'basePath'=>dirname(__DIR__).'/tests/fixtures'
             ),
 
             'log'=>array(
