@@ -9,7 +9,6 @@ $this->keywords = $page->keywords;
 if ($this->is(Access::ROLE_CONTROL)){
     if ($this->moduleAllowed('contact')) $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('contact'));
     if ($this->moduleAllowed('comment')) $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('comment'));
-    if ($this->moduleAllowed('shop')) $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('shop'));
     if ($this->moduleAllowed('page')) if ($page->id) $this->admin[] = array('label'=>'Редактировать страницу', 'url'=>$this->createUrl('/page/pageAdmin/update', array('id'=>$page->id)));
     $this->info = 'Стартовая страница';
 }

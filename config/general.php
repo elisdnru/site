@@ -119,10 +119,6 @@ return array(
             'class'=>'system.web.CHttpSession',
         ),
 
-        'shopcart'=>array(
-            'class'=>'application.modules.shop.components.ShopCart'
-        ),
-
         'image'=>array(
             'class'=>'ext.image.CImageHandler',
         ),
@@ -151,16 +147,6 @@ return array(
                     '50x50', // fishing
                     '200x0', // fishing
                     '250x0', // admin
-                )),
-                array('upload/images/shop', array(
-                    '250x0', // default
-                    '150x150', // admin
-                    '50x50', // cart
-                )),
-                array('upload/images/shop/models', array(
-                    '250x0', // default
-                    '100x100', // default
-                    '150x150', // default
                 )),
                 array('upload/images/pages', array(
                     '250x0', // default

@@ -25,10 +25,6 @@ if ($this->is(Access::ROLE_CONTROL))
 
     <?php if ($model->id == Yii::app()->user->id): ?>
     <p style="float:right">
-        <?php if (Yii::app()->moduleManager->active('shop')): ?>
-        <a href="<?php echo $this->createUrl('/shop/orders'); ?>">Мои заказы</a> |
-        <?php endif; ?>
-
         <a href="<?php echo $this->createUrl('/users/profile'); ?>">Редактировать</a> |
         <a href="<?php echo $this->createUrl('/user/default/logout'); ?>">Выход</a>
     </p>

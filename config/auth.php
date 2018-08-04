@@ -136,13 +136,6 @@ return array(
         'data' => null
     ),
 
-    'module_rubricator' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление рубрикатором',
-        'bizRule' => null,
-        'data' => null
-    ),
-
     'module_slideshow' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление слайдшоу',
@@ -178,13 +171,6 @@ return array(
         'data' => null
     ),
 
-    'module_shop' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление магазином',
-        'bizRule' => null,
-        'data' => null
-    ),
-
     /* */
 
     'role_manager' => array(
@@ -201,7 +187,6 @@ return array(
             'module_new',
             'module_page',
             'module_review',
-            'module_rubricator',
         ),
         'bizRule' => null,
         'data' => null
@@ -230,9 +215,7 @@ return array(
             'module_meta',
             'module_blog',
             'module_portfolio',
-            'module_shop',
             'module_review',
-            'module_rubricator',
             'module_slideshow',
             'module_userphoto',
         ),

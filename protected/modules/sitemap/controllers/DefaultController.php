@@ -41,16 +41,6 @@ class DefaultController extends DController
 			));
 		}
 
-		if (Yii::app()->moduleManager->active('shop'))
-		{
-			Yii::import('application.modules.shop.models.*');
-			DUrlRulesHelper::import('shop');
-
-			$models['ShopProduct'] = ShopProduct::model()->cache(0, new Tags('shop'))->published()->findAll(array(
-				'order'=>'title ASC',
-			));
-		}
-
 		$this->render('index', array(
 			'items'=>$models,
 			'page'=>$this->loadSitemapPage(),
@@ -87,14 +77,6 @@ class DefaultController extends DController
                 DUrlRulesHelper::import('portfolio');
 
                 $sitemap->addModels(PortfolioWork::model()->findAll(), DSitemap::WEEKLY);
-            }
-
-            if (Yii::app()->moduleManager->active('shop'))
-            {
-                Yii::import('application.modules.shop.models.*');
-                DUrlRulesHelper::import('shop');
-
-                $sitemap->addModels(ShopProduct::model()->published()->findAll(), DSitemap::WEEKLY);
             }
 
             $xml = $sitemap->render();

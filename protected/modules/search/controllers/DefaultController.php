@@ -53,12 +53,6 @@ class DefaultController extends DController
         if (Yii::app()->moduleManager->active('portfolio'))
             $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}} WHERE public=1";
 
-        if (Yii::app()->moduleManager->active('rubricator'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.rubricator.models.RubricatorArticle' AS material_import, 'RubricatorArticle' AS material_class FROM {{rubricator_article}} WHERE public=1";
-
-        if (Yii::app()->moduleManager->active('shop'))
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.shop.models.ShopProduct' AS material_import, 'ShopProduct' AS material_class FROM {{shop_product}} WHERE public=1";
-
         Yii::app()->db->createCommand($query . implode(' UNION ' , $tables))->execute();
     }
 }

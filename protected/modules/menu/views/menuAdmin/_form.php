@@ -63,17 +63,6 @@
             <label>Ссылка на страницу</label><br />
             <?php echo CHtml::dropDownList('sss', '/'.$model->link, Array(''=>'') + Page::model()->getUrlList(), array('class'=>'m_selector')); ?><br />
         </div>
-        <?php if (Yii::app()->moduleManager->active('shop')): ?>
-        <?php Yii::import('application.modules.shop.models.*'); ?>
-        <div class="row">
-            <label>Ссылка на тип товара</label><br />
-            <?php echo CHtml::dropDownList('sss', '/'.$model->link, Array(''=>'') + ShopType::model()->getUrlList(), array('class'=>'m_selector')); ?><br />
-        </div>
-        <div class="row">
-            <label>Ссылка на категорию магазина</label><br />
-            <?php echo CHtml::dropDownList('sss', '/'.$model->link, Array(''=>'') + ShopCategory::model()->getUrlList(), array('class'=>'m_selector')); ?><br />
-        </div>
-        <?php endif; ?>
 
     </fieldset>
 

@@ -36,14 +36,6 @@ return array_replace_recursive(require(__DIR__ . '/general.php'), array(
                     '200x180', // list
                     '198x180', // greed
                 )),
-                array('upload/images/shop', array(
-                    '150x150', // admin
-                    '50x50', // cart
-                )),
-                array('upload/images/shop/models', array(
-                    '100x100',
-                    '150x150',
-                )),
 
                 // elisdn
                 array('upload/images/news', array(
@@ -54,12 +46,6 @@ return array_replace_recursive(require(__DIR__ . '/general.php'), array(
                     '198x0', // greed
                     '190x0', // homepage
                     '50x0', // admin
-                )),
-                array('upload/images/shop', array(
-                    '150x150', // tocart iframe
-                    '100x100', // card images
-                    '170x120', // list
-                    '300x0', // show
                 )),
                 array('upload/images/blogs', array(
                     '100x100', // last posts
