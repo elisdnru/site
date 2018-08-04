@@ -236,14 +236,6 @@ iframe { margin-bottom: 20px; }
 .portlet.banner .portlet-content { padding:5px 0; }
 .portlet.banner .portlet-content .b468x60 { display: block; margin: 0 auto; width: 468px; height: 60px; position: relative; }
 .portlet.banner .portlet-content .b250x250 { display: block; margin:0 auto; width: 250px; height: 250px; position: relative; }
-.portlet.interest .portlet-content { padding: 10px 10px; }
-.portlet.interest .portlet-content .book { padding: 8px 0; margin-bottom: 10px; border-bottom: #ddd 1px dashed; }
-.portlet.interest .portlet-content .book:last-child { margin-bottom: 0; border-bottom: none; }
-.portlet.interest .portlet-content .book img { margin: 2px 8px 6px 0; border: #ccc 1px solid; width: 75px; float: left; }
-.portlet.interest .portlet-content .book .title { color: #999; font-size: 12px; line-height: 1.2; margin-bottom: 10px; }
-.portlet.interest .portlet-content .book .author { color: #999; font-size: 11px; margin-bottom: 6px; }
-.portlet.interest .portlet-content .book .short p { color: #666; font-size: 11px; margin-bottom: 6px; }
-.portlet.interest .portlet-content p.show_all { margin-bottom: 0; text-align: center; }
 .portlet-content .subscribe-form { text-align: center; }
 .portlet-content .subscribe-form p.title { margin-bottom: 6px; color: #666; font-size: 14px; font-weight: bold; }
 .portlet-content .subscribe-form .row { margin-bottom: 10px; }

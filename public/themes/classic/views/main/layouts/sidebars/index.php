@@ -54,16 +54,6 @@
     <?php $this->endCache(); } ?>
 <?php endif; ?>
 
-<!--noindex-->
-<?php if (Yii::app()->moduleManager->active('interest')): ?>
-	<?php if($this->beginCache('interest_main', array('dependency'=>new Tags('interest')))) { ?>
-		<?php $this->beginWidget('DPortlet', array('title'=>'Интересные книги', 'htmlOptions'=>array('class'=>'portlet interest')));?>
-		<?php $this->widget('interest.widgets.InterestWidget', array('limit'=>2)); ?>
-		<?php $this->endWidget(); ?>
-	<?php $this->endCache(); } ?>
-<?php endif; ?>
-<!--/noindex-->
-
 <?php if($this->beginCache('banner_sidebar_second', array('dependency'=>new Tags('block')))) { ?>
 	<?php $this->widget('application.modules.block.widgets.BlockWidget', array('id'=>'banner_sidebar_second')); ?>
 <?php $this->endCache(); } ?>
