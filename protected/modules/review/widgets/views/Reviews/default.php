@@ -1,1 +1,0 @@
-<div class="reviews">    <?php foreach ($reviews as $review): ?>    <div class="item">        <p class="text">"<a href="<?php echo $review->url; ?>"><?php echo mb_substr(strip_tags($review->text_purified), 0, 200, 'UTF-8'); ?></a>..."</p>        <p class="name"><?php echo CHtml::encode($review->name); ?></a></p>    </div>    <?php endforeach; ?></div>
