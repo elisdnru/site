@@ -83,7 +83,6 @@ table th {
     padding:6px 4px;
     text-align: center;
     background:#ddd;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#f6f6f6, #eee);
     background: -webkit-linear-gradient(#f6f6f6, #eee);
     background: -o-linear-gradient(#f6f6f6, #eee);
@@ -137,7 +136,7 @@ code {
 kbd {
     border: #aaa 1px solid;
     border-radius:3px;
-    behavior: url('/css/PIE.htc');
+
     font-family:Consolas, 'Courier New';
     background: #f6f6f6;
     padding:4px 6px;

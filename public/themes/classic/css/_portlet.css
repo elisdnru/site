@@ -3,7 +3,6 @@
     background:#fff;
     border:#e9e9e9 1px solid;
     border-radius:4px;
-    behavior: url('/css/PIE.htc');
     margin-bottom:20px;
 }
 .portlet-title {
@@ -14,13 +13,11 @@
     font-size:13px;
     color:#333;
     background:#eee;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#fafafa, #eee);
     background: -webkit-linear-gradient(#fafafa, #eee);
     background: -o-linear-gradient(#fafafa, #eee);
     background: -ms-linear-gradient(#fafafa, #eee);
     border-radius:4px 4px 0 0;
-    behavior: url('/css/PIE.htc');
 }
 .portlet-title:after {
     display:block;
@@ -36,7 +33,6 @@
     background:#fff;
     opacity:0.3;
     border-radius:4px 4px 0 0;
-    behavior: url('/css/PIE.htc');
 }
 .portlet-title span {
     position:relative;
@@ -65,7 +61,6 @@
 }
 .portlet-content > ul > li:last-child > a {
     border-radius:0 0 6px 6px;
-    behavior: url('/css/PIE.htc');
 }
 .portlet-content ul li.active > a {
     color:#333;
@@ -157,7 +152,6 @@
     border:#ccc 1px solid;
     font-family: arial;
     border-radius:4px;
-    behavior: url('/css/PIE.htc');
 }
 
 .portlet.banner .portlet-content {
@@ -204,14 +198,12 @@
     color:#fff;
     cursor: pointer;
     background: #dd3333;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8d3b', endColorstr='#dd3333'); /* для IE6-9 */
     background: -moz-linear-gradient(#ff8d3b, #dd3333);
     background: -webkit-linear-gradient(#ff8d3b, #dd3333);
     background: -o-linear-gradient(#ff8d3b, #dd3333);
     background: -ms-linear-gradient(#ff8d3b, #dd3333);
     border: none;
     border-radius:30px;
-    behavior: url('/css/PIE.htc');
 }
 
 .portlet-content .subscribe-form-horizontal {
@@ -249,14 +241,12 @@
 	color:#fff;
 	cursor: pointer;
 	background: #dd3333;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8d3b', endColorstr='#dd3333'); /* для IE6-9 */
 	background: -moz-linear-gradient(#ff8d3b, #dd3333);
 	background: -webkit-linear-gradient(#ff8d3b, #dd3333);
 	background: -o-linear-gradient(#ff8d3b, #dd3333);
 	background: -ms-linear-gradient(#ff8d3b, #dd3333);
 	border: none;
 	border-radius:30px;
-	behavior: url('/css/PIE.htc');
 }
 
 

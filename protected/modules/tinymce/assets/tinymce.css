@@ -15,7 +15,6 @@
     border-color:#ccc !important;
     padding:0 !important;
     width:auto !important;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #eee) !important;
     background: -webkit-linear-gradient(#fff, #eee) !important;
     background: -o-linear-gradient(#fff, #eee) !important;
@@ -34,12 +33,10 @@ table.mceToolbar td {
     border-width:1px 0 0 0 !important;
     border-color:#ccc !important;
     padding:0 !important;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #eee) !important;
     background: -webkit-linear-gradient(#fff, #eee) !important;
     background: -o-linear-gradient(#fff, #eee) !important;
     background: -ms-linear-gradient(#fff, #eee) !important;
-    behavior: url('/css/PIE.htc');
 }
 .mceToolbarTop select {
     width:auto !important;

@@ -2,8 +2,6 @@
     border: #e6e6e6 1px solid;
     border-radius:6px;
     box-shadow:1px 2px 1px #d6d6d6;
-    behavior: url('/css/PIE.htc');
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f9f9f9'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #f9f9f9);;
     background: -webkit-linear-gradient(#fff, #f9f9f9);
     background: -o-linear-gradient(#fff, #f9f9f9);
@@ -25,9 +23,7 @@
     border-bottom:none;
     border-radius:6px;
     box-shadow:1px 2px 1px #d6d6d6;
-    behavior: url('/css/PIE.htc');
     background: #f6f6f6;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f9f9f9'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #f9f9f9);;
     background: -webkit-linear-gradient(#fff, #f9f9f9);
     background: -o-linear-gradient(#fff, #f9f9f9);
@@ -157,7 +153,6 @@
 
 .comment.admin {
     background: #f6f6f6;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #eee);
     background: -webkit-linear-gradient(#fff, #eee);
     background: -o-linear-gradient(#fff, #eee);
@@ -166,7 +161,6 @@
 }
 .comment.author {
     background: #e9f6ff;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6eaff', endColorstr='#e0ebff'); /* для IE6-9 */
     background: -moz-linear-gradient(#e6eaff, #e0ebff);
     background: -webkit-linear-gradient(#e6eaff, #e0ebff);
     background: -o-linear-gradient(#e6eaff, #e0ebff);
@@ -174,7 +168,6 @@
 }
 .comment.newcomment {
     background: #E6F2FF;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eff8ff', endColorstr='#FBC2C4'); /* для IE6-9 */
     background: -moz-linear-gradient(#eff8ff, #FBC2C4);
     background: -webkit-linear-gradient(#eff8ff, #FBC2C4);
     background: -o-linear-gradient(#eff8ff, #FBC2C4);
@@ -183,7 +176,6 @@
 }
 .comment.nopublcomment {
     background: #eee;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bbbbbb', endColorstr='#999999'); /* для IE6-9 */
     background: -moz-linear-gradient(#bbb, #999) !important;
     background: -webkit-linear-gradient(#bbb, #999) !important;
     background: -o-linear-gradient(#bbb, #999) !important;
@@ -192,7 +184,6 @@
 }
 .comment.deletedcomment {
     background: #eee;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bbbbbb', endColorstr='#999999'); /* для IE6-9 */
     background: -moz-linear-gradient(#bbb, #999) !important;
     background: -webkit-linear-gradient(#bbb, #999) !important;
     background: -o-linear-gradient(#bbb, #999) !important;
@@ -208,7 +199,6 @@
     border:#ccc 1px solid !important;
     font-family: arial;
     border-radius:4px;
-    behavior: url('/css/PIE.htc');
 }
 
 #comment-form input[type=text], #comment-form textarea, #comment-form select {
@@ -219,7 +209,6 @@
     border:#ccc 1px solid !important;
     font-family: arial;
     border-radius:4px;
-    behavior: url('/css/PIE.htc');
 }
 
 #comment-form .dt1s {

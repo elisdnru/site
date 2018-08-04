@@ -55,7 +55,6 @@ div.Calendar table th
     border:#eee 1px solid;
     color:#333;
     width:1%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #eee);
     background: -webkit-linear-gradient(#fff, #eee);
     background: -o-linear-gradient(#fff, #eee);
@@ -67,7 +66,6 @@ div.Calendar table td
     text-align: center;
     padding: 6px 0;
     border:#eee 1px solid;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* для IE6-9 */
     background: -moz-linear-gradient(#fff, #eee);
     background: -webkit-linear-gradient(#fff, #eee);
     background: -o-linear-gradient(#fff, #eee);
