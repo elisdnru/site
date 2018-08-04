@@ -29,7 +29,7 @@
     <?php if($this->beginCache(__FILE__.__LINE__.'_page_'.$page->id, array('dependency'=>new Tags('blog')))) { ?>
         <?php foreach ($page->files as $file) : ?>
 
-            <p><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/fileicon.jpg" alt="" />
+            <p><img src="<?php echo Yii::app()->baseUrl; ?>/images/fileicon.jpg" alt="" />
                 <a href="<?php echo Yii::app()->request->baseUrl . '/' . PageFile::FILE_PATH . '/' . $file->file; ?>"><?php echo str_replace('_', ' ', $file->title); ?></a>
             </p>
 

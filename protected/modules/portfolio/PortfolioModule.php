@@ -45,7 +45,7 @@ class PortfolioModule extends DWebModule
 
     public static function registerScripts()
     {
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/modules/portfolio.css');
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/modules/portfolio.css');
     }
 
     public function install()

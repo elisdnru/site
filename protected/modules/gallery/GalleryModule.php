@@ -65,7 +65,7 @@ class GalleryModule extends DWebModule
 
     public static function registerScripts()
     {
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/modules/gallery.css');
+        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/modules/gallery.css');
     }
 
     public function install()

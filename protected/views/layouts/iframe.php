@@ -5,9 +5,9 @@
 <meta charset="utf-8" />
 
 <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/system.css" />
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/_typo.css" />
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/_style.css" />
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/iframe.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/_typo.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/_style.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/iframe.css" />
 <!--[if lt IE 9]><script src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5.js"></script><![endif]-->
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>

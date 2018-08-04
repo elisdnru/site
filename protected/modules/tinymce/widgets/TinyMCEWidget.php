@@ -13,7 +13,7 @@ class TinyMCEWidget extends DWidget
 		$cs->registerScriptFile($url . '/tinymce/plugins/tinybrowser/tb_tinymce.js.php', CClientScript::POS_END);
 
         $scriptUrl = $url . '/tinymce/tiny_mce.js';
-        $styleUrl = Yii::app()->theme->baseUrl . '/css/tinymce.css';
+        $styleUrl = Yii::app()->baseUrl . '/css/tinymce.css';
 
         $this->render('tinymce', array(
             'scriptUrl'=>$scriptUrl,

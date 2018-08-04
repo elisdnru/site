@@ -339,7 +339,7 @@ div.breadcrumbs a:hover {
 }
 
 .smart {
-    background:#f3f3f3 url('/themes/classic/images/smart.png') 0px 10px no-repeat;
+    background:#f3f3f3 url('/images/smart.png') 0px 10px no-repeat;
     box-shadow:1px 2px 2px #ddd;
     border:#ddd 1px solid;
     border-radius:4px;

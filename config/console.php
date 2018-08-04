@@ -20,21 +20,21 @@ return array_replace_recursive(
 
         'params' => array(
             'minimize_styles' => array(
-                '../public/themes/classic/css/main.css' => array(
-                    '../public/themes/classic/css/_layout.css',
-                    '../public/themes/classic/css/_style.css',
-                    '../public/themes/classic/css/_typo.css',
-                    '../public/themes/classic/css/_portlet.css',
-                    '../public/themes/classic/css/_pager.css',
-                    '../public/themes/classic/css/_media.css',
+                '../public/css/main.css' => array(
+                    '../public/css/_layout.css',
+                    '../public/css/_style.css',
+                    '../public/css/_typo.css',
+                    '../public/css/_portlet.css',
+                    '../public/css/_pager.css',
+                    '../public/css/_media.css',
                 ),
             ),
             'minimize_scripts' => array(
-                '../public/themes/classic/js/main.js' => array(
+                '../public/js/main.js' => array(
                     '../public/js/jquery.plugins.js',
-                    '../public/themes/classic/js/share.js',
-                    '../public/themes/classic/js/follow.js',
-                    '../public/themes/classic/js/justclick.js',
+                    '../public/js/share.js',
+                    '../public/js/follow.js',
+                    '../public/js/justclick.js',
                     '../public/js/core-site.js',
                 ),
             ),
