@@ -30,7 +30,7 @@ if(isset($_GET['sessidpass'])) session_id($_GET['sessidpass']); // workaround fo
 
 session_start();
 
-$yii_config = require(__DIR__ . '/../../../../../protected/config/tinybrowser.php');
+$yii_config = require(__DIR__ . '/../../../../../../../config/tinybrowser.php');
 
 $db_params = $yii_config['components']['db'];
 define('DB_PREFIX', $db_params['tablePrefix']);

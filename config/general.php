@@ -6,7 +6,7 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
-$dirs = scandir(__DIR__.'/../modules');
+$dirs = scandir(__DIR__.'/../protected/modules');
 
 $modules = array();
 foreach ($dirs as $name){
@@ -18,8 +18,8 @@ define('MODULES_MATCHES', implode('|', array_keys($modules)));
 
 return array(
 
-    'basePath'=>dirname(__DIR__),
-    'runtimePath'=>dirname(dirname(__DIR__)) . '/runtime',
+    'basePath'=>dirname(__DIR__).'/protected',
+    'runtimePath'=>dirname(__DIR__) . '/runtime',
     'name'=>'Site',
     'sourceLanguage'=>'en',
     'language'=>'ru',

@@ -3,8 +3,8 @@
 /public/upload/*
 /tests/WebTestCase.php
 /runtime/*
-/protected/config/env.php
-/protected/config/console.php
-/protected/config/main.php
-/protected/config/test.php
+/config/env.php
+/config/console.php
+/config/main.php
+/config/test.php
 /vendor

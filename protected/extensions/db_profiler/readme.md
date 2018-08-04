@@ -8,7 +8,7 @@ and queries repeated many times.
 Installation
 ------------
 
-Unpack to `protected/extensions/`. Add the following to your `protected/config/main.php`:
+Unpack to `protected/extensions/`. Add the following to your `config/main.php`:
 
 ~~~
 <?php
