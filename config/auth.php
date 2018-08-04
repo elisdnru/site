@@ -66,12 +66,6 @@ return array(
         'data' => null
     ),
 
-    'module_callme' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление заказанными звонками',
-        'bizRule' => null,
-        'data' => null
-    ),
     'module_contact' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление сообщениями',
@@ -239,7 +233,6 @@ return array(
             'module_block',
             'module_interest',
             'module_config',
-            'module_callme',
             'module_contact',
             'module_comment',
             'module_file',
