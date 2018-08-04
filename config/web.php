@@ -10,5 +10,5 @@ return array_replace_recursive(
             ),
         ),
     ),
-    require(__DIR__ . '/main-local.php')
+    require(__DIR__ . '/web-local.php')
 );
