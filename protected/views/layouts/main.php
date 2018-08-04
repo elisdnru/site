@@ -20,10 +20,10 @@
 <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
 
 <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/system.css" />
-<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/css/main.css'); ?>.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/build/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>.css" />
 <!--[if lt IE 9]><script src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5.js"></script><![endif]-->
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/all-' . @filemtime(Yii::getPathOfAlias('webroot') . '/css/main.css') . '.js'); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/build/all-' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css') . '.js'); ?>
 <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 

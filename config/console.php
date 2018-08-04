@@ -20,7 +20,7 @@ return array_replace_recursive(
 
         'params' => array(
             'minimize_styles' => array(
-                '../public/css/main.css' => array(
+                '../public/build/main.css' => array(
                     '../public/css/_layout.css',
                     '../public/css/_style.css',
                     '../public/css/_typo.css',
@@ -30,7 +30,7 @@ return array_replace_recursive(
                 ),
             ),
             'minimize_scripts' => array(
-                '../public/js/main.js' => array(
+                '../public/build/main.js' => array(
                     '../public/js/jquery.plugins.js',
                     '../public/js/share.js',
                     '../public/js/follow.js',
