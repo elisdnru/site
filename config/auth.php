@@ -136,13 +136,6 @@ return array(
         'data' => null
     ),
 
-    'module_slideshow' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление слайдшоу',
-        'bizRule' => null,
-        'data' => null
-    ),
-
     'module_user' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление пользователями',
@@ -216,7 +209,6 @@ return array(
             'module_blog',
             'module_portfolio',
             'module_review',
-            'module_slideshow',
             'module_userphoto',
         ),
         'bizRule' => null,
