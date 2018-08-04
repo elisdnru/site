@@ -8,6 +8,4 @@
 /protected/config/console.php
 /protected/config/main.php
 /protected/config/test.php
-/protected/extensions/db_profiler/*
-/protected/extensions/yii-debug-toolbar/*
 /vendor
