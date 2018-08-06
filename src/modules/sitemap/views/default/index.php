@@ -25,22 +25,9 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <div class="sitemap">
 
-    <?php function sitemap_recursive(&$models, $parent = 0)
-    { ?>
-        <ul>
-            <?php foreach ($models as $model): ?>
-                <?php if ($model->parent_id == $parent && $model->url != '/prices'): ?>
-                    <li><span data-href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></span>
-                        <?php sitemap_recursive($models, $model->id); ?>
-                    </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
-    <?php } ?>
-
     <!--noindex-->
     <h2>Страницы</h2>
-    <?php sitemap_recursive($items['Page']); ?>
+    <?php $this->renderPartial('_recursive', ['models' => $items['Page'], 'parent' => 0]); ?>
     <!--/noindex-->
 
     <h2>Записи в блоге</h2>

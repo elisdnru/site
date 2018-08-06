@@ -3,38 +3,23 @@
     <div class="block-title">Комментарии</div>
 
     <div id="commentsList">
-
-        <?php function treeComments($indent, $comments, $parent, $user, $authorId, $widget)
-        { ?>
-            <?php if (isset($comments[$parent])): ?>
-            <?php foreach ($comments[$parent] as $comment): ?>
-
-                <?php $widget->render('Comments/_comment', array(
-                    'indent' => $indent,
-                    'comment' => $comment,
-                    'authorId' => $authorId,
-                    'user' => $user,
-                )); ?>
-
-                <?php if ($indent < 100 && isset($comments[$comment->id]) && $comments[$comment->id]): ?>
-                    <?php treeComments($indent + 1, $comments, $comment->id, $user, $authorId, $widget); ?>
-                <?php endif; ?>
-
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <?php } ?>
-
-        <?php treeComments(0, $comments, 0, $user, $authorId, $this); ?>
-
+        <?php $this->render('Comments/_tree', [
+            'indent' => 0,
+            'comments' => $comments,
+            'parent' => 0,
+            'user' => $user,
+            'authorId' => $authorId,
+        ]) ?>
     </div>
 
-    <?php if (count($comments)): ?><p class="reply-comment"><a href="#comment-form">Оставить комментарий</a>
-    </p><?php endif; ?>
+    <?php if (count($comments)) :
+        ?><p class="reply-comment"><a href="#comment-form">Оставить комментарий</a>
+    <?php endif; ?>
 
-    <?php $this->render('Comments/_form', array(
+    <?php $this->render('Comments/_form', [
         'form' => $form,
         'user' => $user,
-    )); ?>
+    ]); ?>
 
 </div>
 
