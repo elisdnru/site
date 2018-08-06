@@ -8,8 +8,6 @@
  * @property string $alias
  * @property string $title
  * @property string $text
- *
- * @method Block multilang()
  */
 class Block extends CActiveRecord
 {
@@ -88,40 +86,11 @@ class Block extends CActiveRecord
         $criteria->compare('text', $this->text, true);
 
         return new CActiveDataProvider($this, [
-            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'pagination' => [
                 'pageSize' => $pageSize,
                 'pageVar' => 'page',
             ],
         ]);
-    }
-
-    public function behaviors()
-    {
-        $behaviors = parent::behaviors();
-
-        if (DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                        'text',
-                    ],
-                    'langTableName' => 'block_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'dynamicLangClass' => true,
-                ],
-            ]);
-        }
-
-        return $behaviors;
-    }
-
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 }

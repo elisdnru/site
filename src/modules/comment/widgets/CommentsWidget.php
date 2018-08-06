@@ -55,7 +55,6 @@ class CommentsWidget extends DWidget
                 $comment = new $className;
                 $comment->attributes = $form->attributes;
                 $comment->material_id = $this->material_id;
-                $comment->lang_id = Yii::app()->language;
                 $comment->public = 1;
                 $comment->moder = 0;
 
@@ -73,7 +72,6 @@ class CommentsWidget extends DWidget
         $items = Comment::model()
             ->type($this->type)
             ->material($this->material_id)
-            ->lang(Yii::app()->language)
             ->with('user')
             ->findAll(['order' => 't.id ASC']);
 

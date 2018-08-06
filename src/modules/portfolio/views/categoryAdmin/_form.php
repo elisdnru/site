@@ -24,13 +24,11 @@
     </div>
 
     <fieldset>
-        <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'title'); ?> <?php echo $lang; ?><br/>
-                <?php echo $form->textField($model, 'title' . $suffix, ['size' => 60, 'maxlength' => 255]); ?><br/>
-                <?php echo $form->error($model, 'title' . $suffix); ?>
-            </div>
-        <?php endforeach; ?>
+        <div class="row">
+            <?php echo $form->labelEx($model, 'title'); ?><br/>
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'title'); ?>
+        </div>
 
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
@@ -54,17 +52,15 @@
         </div>
     </fieldset>
 
-    <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
-        <fieldset class="editor">
-            <div class="row">
-                <?php echo $form->labelEx($model, 'text'); ?> <?php echo $lang; ?><br/>
-                <?php echo $form->textArea($model, 'text' . $suffix, ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
-                <?php echo $form->error($model, 'text' . $suffix); ?>
-            </div>
-        </fieldset>
-    <?php endforeach; ?>
+    <fieldset class="editor">
+        <div class="row">
+            <?php echo $form->labelEx($model, 'text'); ?><br/>
+            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
+            <?php echo $form->error($model, 'text'); ?>
+        </div>
+    </fieldset>
 
-    <?php echo $this->renderPartial('//common/forms/_lang_meta', [
+    <?php echo $this->renderPartial('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
     ]); ?>

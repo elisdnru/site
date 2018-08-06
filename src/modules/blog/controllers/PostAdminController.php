@@ -44,12 +44,7 @@ class PostAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = BlogPost::model()->multilang()->findByPk($id);
-        } else {
-            $model = BlogPost::model()->findByPk($id);
-        }
-
+        $model = BlogPost::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

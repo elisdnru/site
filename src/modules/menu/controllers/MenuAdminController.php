@@ -33,12 +33,7 @@ class MenuAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = Menu::model()->multilang()->findByPk($id);
-        } else {
-            $model = Menu::model()->findByPk($id);
-        }
-
+        $model = Menu::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
         }

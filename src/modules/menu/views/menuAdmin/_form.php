@@ -24,13 +24,11 @@
 
     <fieldset>
 
-        <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'title'); ?> <?php echo $lang; ?><br/>
-                <?php echo $form->textField($model, 'title' . $suffix, ['size' => 60, 'maxlength' => 255]); ?><br/>
-                <?php echo $form->error($model, 'title' . $suffix); ?>
-            </div>
-        <?php endforeach; ?>
+        <div class="row">
+            <?php echo $form->labelEx($model, 'title'); ?><br/>
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'title'); ?>
+        </div>
 
         <div class="row">
             <?php echo $form->labelEx($model, 'parent_id'); ?><br/>

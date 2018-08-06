@@ -40,12 +40,7 @@ class CategoryAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = PortfolioCategory::model()->multilang()->findByPk($id);
-        } else {
-            $model = PortfolioCategory::model()->findByPk($id);
-        }
-
+        $model = PortfolioCategory::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

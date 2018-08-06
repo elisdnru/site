@@ -39,8 +39,6 @@ Yii::import('application.modules.page.models.*');
  * @method mixed getMenuList($sub = 0, $parent = 0)
  * @method string getPath($separator = '/')
  * @method mixed getBreadcrumbs($lastLink = false)
- *
- * @method Page multilang()
  */
 class Page extends CActiveRecord
 {
@@ -167,7 +165,7 @@ class Page extends CActiveRecord
         $criteria->compare('t.robots', $this->robots);
 
         return new DTreeActiveDataProvider($this, [
-            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'childRelation' => 'child_pages',
             'sort' => [
                 'defaultOrder' => 't.alias ASC',
@@ -181,7 +179,7 @@ class Page extends CActiveRecord
 
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'CategoryBehavior' => [
                 'class' => 'DCategoryTreeBehavior',
                 'titleAttribute' => 'title',
@@ -189,10 +187,7 @@ class Page extends CActiveRecord
                 'parentAttribute' => 'parent_id',
                 'linkActiveAttribute' => 'linkActive',
                 'parentRelation' => 'parent',
-                'defaultCriteria' => DMultilangHelper::enabled() ? [
-                    'with' => 'i18nPage',
-                    'order' => 't.parent_id ASC, t.title ASC',
-                ] : [
+                'defaultCriteria' => [
                     'order' => 't.parent_id ASC, t.title ASC',
                 ],
             ],
@@ -222,35 +217,6 @@ class Page extends CActiveRecord
                 'urlAttribute' => 'url',
             ],
         ];
-
-        if (DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                        'text',
-                        'text_purified',
-                        'pagetitle',
-                        'description',
-                        'keywords',
-                    ],
-                    'langTableName' => 'page_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'localizedRelation' => 'i18nPage',
-                    'dynamicLangClass' => false,
-                ],
-            ]);
-        }
-
-        return $behaviors;
-    }
-
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     public function getRobotsList()

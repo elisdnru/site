@@ -40,12 +40,7 @@ class CategoryAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = BlogCategory::model()->multilang()->findByPk($id);
-        } else {
-            $model = BlogCategory::model()->findByPk($id);
-        }
-
+        $model = BlogCategory::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

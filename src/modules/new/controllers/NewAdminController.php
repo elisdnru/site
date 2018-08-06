@@ -119,12 +119,7 @@ class NewAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = News::model()->multilang()->findByPk($id);
-        } else {
-            $model = News::model()->findByPk($id);
-        }
-
+        $model = News::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
         }

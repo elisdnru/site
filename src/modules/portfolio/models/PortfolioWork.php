@@ -28,7 +28,6 @@ Yii::import('application.modules.portfolio.models.*');
  * @property string $imageThumdUrl
  *
  * @method PortfolioWork published()
- * @method PortfolioWork multilang()
  */
 class PortfolioWork extends CActiveRecord
 {
@@ -140,13 +139,8 @@ class PortfolioWork extends CActiveRecord
         $criteria->compare('t.public', $this->public);
 
         return new CActiveDataProvider($this, [
-            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
         ]);
-    }
-
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     public function scopes()
@@ -160,7 +154,7 @@ class PortfolioWork extends CActiveRecord
 
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'PurifyShort' => [
                 'class' => 'DPurifyTextBehavior',
                 'sourceAttribute' => 'short',
@@ -196,32 +190,6 @@ class PortfolioWork extends CActiveRecord
                 'urlAttribute' => 'url',
             ],
         ];
-
-        if (DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                        'short',
-                        'short_purified',
-                        'text',
-                        'text_purified',
-                        'pagetitle',
-                        'description',
-                        'keywords',
-                    ],
-                    'langClassName' => 'PortfolioWorkLang',
-                    'langTableName' => 'portfolio_work_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'dynamicLangClass' => false,
-                ],
-            ]);
-        }
-
-        return $behaviors;
     }
 
     protected function beforeSave()

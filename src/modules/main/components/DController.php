@@ -86,7 +86,7 @@ class DController extends Controller
 
     public function refresh($terminate = true, $anchor = '')
     {
-        $this->redirect(Yii::app()->getRequest()->getOriginalUrl() . $anchor, $terminate);
+        $this->redirect(Yii::app()->getRequest()->getUrl() . $anchor, $terminate);
     }
 
     public function redirectOrAjax($route = ['index'])

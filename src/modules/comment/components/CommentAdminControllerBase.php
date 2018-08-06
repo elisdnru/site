@@ -41,7 +41,7 @@ class CommentAdminControllerBase extends DAdminController
             $material = null;
         }
 
-        $dataProvider = new CActiveDataProvider(call_user_func([$this->getModelName(), 'model'])->lang(Yii::app()->language), [
+        $dataProvider = new CActiveDataProvider(call_user_func([$this->getModelName(), 'model']), [
             'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.date DESC'

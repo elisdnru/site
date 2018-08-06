@@ -26,12 +26,7 @@ class BlockAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = Block::model()->multilang()->findByPk($id);
-        } else {
-            $model = Block::model()->findByPk($id);
-        }
-
+        $model = Block::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

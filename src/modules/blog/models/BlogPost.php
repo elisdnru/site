@@ -37,7 +37,6 @@ Yii::import('application.modules.comment.components.DICommentDepends');
  * @property string $imageThumdUrl
  *
  * @method BlogPost published()
- * @method BlogPost multilang()
  */
 class BlogPost extends CActiveRecord implements DICommentDepends
 {
@@ -164,7 +163,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         $criteria->with = ['category', 'author', 'group'];
 
         return new CActiveDataProvider($this, [
-            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.date DESC',
                 'attributes' => [
@@ -204,7 +203,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
 
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'CTimestampBehavior' => [
                 'class' => 'zii.behaviors.CTimestampBehavior',
                 'setUpdateOnCreate' => true,
@@ -251,37 +250,6 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'urlAttribute' => 'url',
             ],
         ];
-
-        if (DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                        'short',
-                        'short_purified',
-                        'text',
-                        'text_purified',
-                        'pagetitle',
-                        'description',
-                        'keywords',
-                    ],
-                    'langClassName' => 'BlogPostLang',
-                    'langTableName' => '{{blog_post_lang}}',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'dynamicLangClass' => false,
-                ],
-            ]);
-        }
-
-        return $behaviors;
-    }
-
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     protected function beforeDelete()

@@ -27,12 +27,7 @@ return array_replace_recursive(
             ],
         ],
 
-        'params'=>[
-            'translatedLanguages'=>[
-                'ru'=>'Russian',
-            ],
-            'defaultLanguage'=>'ru',
-        ],
+        'params'=>[],
     ],
     require(__DIR__ . '/test-local.php')
 );

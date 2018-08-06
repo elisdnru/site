@@ -23,7 +23,6 @@
 abstract class TreeCategory extends Category
 {
     public $urlRoute = '';
-    public $multiLanguage = false;
     public $indent = 0;
 
     /**
@@ -78,7 +77,7 @@ abstract class TreeCategory extends Category
         $criteria->compare('t.parent_id', $this->parent_id);
 
         return new DTreeActiveDataProvider($this, [
-            'criteria' => $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.sort ASC, t.title ASC',
             ],
@@ -99,10 +98,7 @@ abstract class TreeCategory extends Category
                 'parentAttribute' => 'parent_id',
                 'requestPathAttribute' => 'category',
                 'parentRelation' => 'parent',
-                'defaultCriteria' => $this->multiLanguage && DMultilangHelper::enabled() ? [
-                    'with' => 'i18n' . get_class($this),
-                    'order' => 't.sort ASC, t.title ASC'
-                ] : [
+                'defaultCriteria' => [
                     'order' => 't.sort ASC, t.title ASC'
                 ],
             ],

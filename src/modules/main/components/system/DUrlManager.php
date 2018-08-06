@@ -4,7 +4,7 @@
  * @link http://www.elisdn.ru
  */
 
-class DUrlManager extends DLanguageUrlManager
+class DUrlManager extends CUrlManager
 {
     public function createUrl($route, $params = [], $ampersand = '&')
     {

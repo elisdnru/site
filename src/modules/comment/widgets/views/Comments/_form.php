@@ -38,7 +38,7 @@
             <span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</span>
         </p>
         <?php $this->widget('ulogin.widgets.UloginWidget', [
-            'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getOriginalRequestUri()]) . '#comments', 'display' => 'panel']
+            'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
         ]); ?>
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>

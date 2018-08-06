@@ -248,11 +248,6 @@ return [
             'contact.widgets.Contact',
             'portfolio.widgets.Portfolio',
         ],
-        'translatedLanguages'=>[
-            'ru'=>'Russian',
-        ],
-        'defaultLanguage'=>'ru',
-
         'minimize_styles' => [],
         'minimize_scripts' => [],
     ],

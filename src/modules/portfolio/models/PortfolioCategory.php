@@ -9,7 +9,6 @@ Yii::import('application.modules.category.models.*');
 class PortfolioCategory extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';
-    public $multiLanguage = true;
 
     /**
      * Returns the static model of the specified AR class.

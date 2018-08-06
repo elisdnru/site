@@ -43,7 +43,7 @@ class GalleryModule extends DWebModule
         }
 
         Yii::import('application.modules.gallery.models.GalleryPhotoComment');
-        $comments = GalleryPhotoComment::model()->lang(Yii::app()->language)->count([
+        $comments = GalleryPhotoComment::model()->count([
             'condition' => 'moder=0 AND type=:type',
             'params' => [':type' => GalleryPhotoComment::TYPE_OF_COMMENT],
         ]);

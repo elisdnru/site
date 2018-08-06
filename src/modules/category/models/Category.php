@@ -23,7 +23,6 @@
 abstract class Category extends CActiveRecord
 {
     public $urlRoute = '';
-    public $multiLanguage = false;
 
     /**
      * Returns the static model of the specified AR class.
@@ -102,7 +101,7 @@ abstract class Category extends CActiveRecord
         $criteria->compare('t.keywords', $this->keywords, true);
 
         return new CActiveDataProvider($this, [
-            'criteria' => $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.sort ASC, t.title ASC',
             ],
@@ -115,48 +114,17 @@ abstract class Category extends CActiveRecord
 
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'CategoryBehavior' => [
                 'class' => 'category.components.DCategoryBehavior',
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'requestPathAttribute' => 'category',
-                'defaultCriteria' => $this->multiLanguage && DMultilangHelper::enabled() ? [
-                    'with' => 'i18n' . get_class($this),
-                    'order' => 't.sort ASC, t.title ASC'
-                ] : [
+                'defaultCriteria' => [
                     'order' => 't.sort ASC, t.title ASC'
                 ],
             ],
         ];
-
-        if ($this->multiLanguage && DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                        'text',
-                        'pagetitle',
-                        'description',
-                        'keywords',
-                    ],
-                    'langTableName' => str_replace(['{{', '}}'], '', $this->tableName()) . '_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'localizedRelation' => 'i18n' . get_class($this),
-                    'dynamicLangClass' => true,
-                ],
-            ]);
-        }
-
-        return $behaviors;
-    }
-
-    public function defaultScope()
-    {
-        return $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     protected function beforeSave()

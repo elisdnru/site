@@ -24,14 +24,11 @@
     </div>
 
     <fieldset>
-
-        <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'title'); ?> <?php echo $lang; ?><br/>
-                <?php echo $form->textField($model, 'title' . $suffix, ['size' => 60, 'maxlength' => 255]); ?><br/>
-                <?php echo $form->error($model, 'title' . $suffix); ?>
-            </div>
-        <?php endforeach; ?>
+        <div class="row">
+            <?php echo $form->labelEx($model, 'title'); ?><br/>
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'title'); ?>
+        </div>
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
             &nbsp;<a href="javascript:transliterate('Block_title', 'Block_alias')">Транслит наименования</a><br/>
@@ -40,15 +37,13 @@
         </div>
     </fieldset>
 
-    <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
-        <fieldset class="editor">
-            <div class="row">
-                <?php echo $form->labelEx($model, 'text'); ?> <?php echo $lang; ?><br/>
-                <?php echo $form->textArea($model, 'text' . $suffix, ['rows' => 40, 'cols' => 80]); ?><br/>
-                <?php echo $form->error($model, 'text' . $suffix); ?>
-            </div>
-        </fieldset>
-    <?php endforeach; ?>
+    <fieldset class="editor">
+        <div class="row">
+            <?php echo $form->labelEx($model, 'text'); ?><br/>
+            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?><br/>
+            <?php echo $form->error($model, 'text'); ?>
+        </div>
+    </fieldset>
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>

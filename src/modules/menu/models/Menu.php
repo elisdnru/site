@@ -23,8 +23,6 @@
  * @method mixed getTabList($parent = 0)
  * @method string getPath($separator = '/')
  * @method mixed getBreadcrumbs($lastLink = false)
- *
- * @method Menu multilang()
  */
 class Menu extends CActiveRecord
 {
@@ -112,7 +110,7 @@ class Menu extends CActiveRecord
 
         return new DTreeActiveDataProvider($this, [
             'childRelation' => 'child_items',
-            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.sort ASC, t.title ASC',
             ],
@@ -125,7 +123,7 @@ class Menu extends CActiveRecord
 
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'CategoryBehavior' => [
                 'class' => 'category.components.DCategoryTreeBehavior',
                 'titleAttribute' => 'title',
@@ -133,38 +131,11 @@ class Menu extends CActiveRecord
                 'parentAttribute' => 'parent_id',
                 'linkActiveAttribute' => 'linkActive',
                 'parentRelation' => 'parent',
-                'defaultCriteria' => DMultilangHelper::enabled() ? [
-                    'with' => 'i18nMenu',
-                    'order' => 't.sort ASC, t.title ASC'
-                ] : [
+                'defaultCriteria' => [
                     'order' => 't.sort ASC, t.title ASC'
                 ],
             ],
         ];
-
-        if (DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                    ],
-                    'langTableName' => 'menu_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'localizedRelation' => 'i18nMenu',
-                    'dynamicLangClass' => true,
-                ],
-            ]);
-        }
-
-        return $behaviors;
-    }
-
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     public function getMenuList($parent = 0, $sub = true, $withhidden = false)
@@ -219,7 +190,7 @@ class Menu extends CActiveRecord
 
     private function getLinkActive()
     {
-        $currentUri = Yii::app()->getRequest()->getOriginalRequestUri();
+        $currentUri = Yii::app()->getRequest()->getRequestUri();
         $itemUri = $this->getUrl();
         return strpos('/' . $currentUri . '/', '/' . $itemUri . '/') === 0 || strpos('/' . $currentUri . '?', '/' . $itemUri . '?') === 0;
     }
@@ -234,7 +205,7 @@ class Menu extends CActiveRecord
             if (preg_match('|^http:\/\/|', $url, $m)) {
                 $this->_url = Yii::app()->createUrl('/main/default/url', ['a' => $url]);
             } else {
-                $this->_url = DMultilangHelper::addLangToUrl($this->link != '/index' ? $this->link : '/');
+                $this->_url = $this->link != '/index' ? $this->link : '/';
             }
         }
 

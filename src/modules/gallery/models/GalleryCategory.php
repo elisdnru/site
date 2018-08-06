@@ -22,7 +22,6 @@ class GalleryCategory extends TreeCategory
     public $del_image = false;
 
     public $urlRoute = '/gallery/default/category';
-    public $multiLanguage = false;
     public $indent = 0;
 
     /**

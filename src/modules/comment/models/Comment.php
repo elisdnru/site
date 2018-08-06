@@ -16,7 +16,6 @@ if (Yii::app()->moduleManager->installed('new')) {
  * The followings are the available columns in table '{{comment}}':
  * @property string $id
  * @property string $type
- * @property string $lang_id
  * @property integer $material_id
  * @property string $date
  * @property string $user_id
@@ -209,18 +208,6 @@ class Comment extends CActiveRecord
             $this->getDbCriteria()->mergeWith([
                 'condition' => 'type=:type',
                 'params' => [':type' => $type],
-            ]);
-        }
-        return $this;
-    }
-
-    // scope
-    public function lang($lang)
-    {
-        if ($lang) {
-            $this->getDbCriteria()->mergeWith([
-                'condition' => 'lang_id=:lang',
-                'params' => [':lang' => $lang],
             ]);
         }
         return $this;

@@ -4,7 +4,7 @@
  * http://creative-territory.net/post/view/id/25/
  */
 
-class DHttpRequest extends DLanguageHttpRequest
+class DHttpRequest extends CHttpRequest
 {
     public $noCsrfValidationUris = [];
 

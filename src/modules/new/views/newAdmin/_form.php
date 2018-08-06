@@ -162,7 +162,7 @@
         </div>
     </fieldset>
 
-    <?php echo $this->renderPartial('//common/forms/_lang_meta', [
+    <?php echo $this->renderPartial('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
     ]); ?>

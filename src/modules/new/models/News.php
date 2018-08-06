@@ -43,7 +43,6 @@ Yii::import('application.modules.newsgallery.models.NewsGallery');
  * @property string $imageThumdUrl
  *
  * @method News published()
- * @method News multilang()
  */
 class News extends CActiveRecord implements DICommentDepends
 {
@@ -200,7 +199,7 @@ class News extends CActiveRecord implements DICommentDepends
         $criteria->with = ['page', 'author', 'group'];
 
         return new CActiveDataProvider($this, [
-            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.date DESC',
                 'attributes' => [
@@ -236,11 +235,6 @@ class News extends CActiveRecord implements DICommentDepends
         ]);
     }
 
-    public function defaultScope()
-    {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
-    }
-
     public function scopes()
     {
         return [
@@ -255,7 +249,7 @@ class News extends CActiveRecord implements DICommentDepends
 
     public function behaviors()
     {
-        $behaviors = [
+        return [
             'PurifyShort' => [
                 'class' => 'DPurifyTextBehavior',
                 'sourceAttribute' => 'short',
@@ -294,32 +288,6 @@ class News extends CActiveRecord implements DICommentDepends
                 'urlAttribute' => 'url',
             ],
         ];
-
-        if (DMultilangHelper::enabled()) {
-            $behaviors = array_merge($behaviors, [
-                'ml' => [
-                    'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => [
-                        'title',
-                        'short',
-                        'short_purified',
-                        'text',
-                        'text_purified',
-                        'pagetitle',
-                        'description',
-                        'keywords',
-                    ],
-                    'langClassName' => 'NewsLang',
-                    'langTableName' => 'new_lang',
-                    'languages' => Yii::app()->params['translatedLanguages'],
-                    'defaultLanguage' => Yii::app()->params['defaultLanguage'],
-                    'langForeignKey' => 'owner_id',
-                    'dynamicLangClass' => false,
-                ],
-            ]);
-        }
-
-        return $behaviors;
     }
 
     protected function beforeSave()

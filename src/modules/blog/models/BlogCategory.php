@@ -5,13 +5,10 @@ Yii::import('application.modules.category.models.*');
 
 /**
  * This is the model class for table "{{blog_category}}".
- *
- * @method BlogCategory multilang();
  */
 class BlogCategory extends TreeCategory
 {
     public $urlRoute = '/blog/default/category';
-    public $multiLanguage = true;
     public $indent = 0;
 
     /**

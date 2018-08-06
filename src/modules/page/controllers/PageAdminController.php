@@ -64,12 +64,7 @@ class PageAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled()) {
-            $model = Page::model()->multilang()->findByPk($id);
-        } else {
-            $model = Page::model()->findByPk($id);
-        }
-
+        $model = Page::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
         }

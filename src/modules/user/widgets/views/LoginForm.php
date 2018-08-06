@@ -44,7 +44,7 @@
         <?php $this->widget('ulogin.widgets.UloginWidget', [
             'params' => [
                 'display' => 'small',
-                'redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getOriginalRequestUri(), '/')])
+                'redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])
             ]
         ]); ?>
     </div>
