@@ -91,18 +91,6 @@ return [
             'cache'=>3600,
         ],
 
-        'request'=>[
-            'class'=>'DHttpRequest',
-            'baseUrl'=>'',
-            'noCsrfValidationUris'=>[
-                '^newsgallery/galleryAdmin/(upload|checkexists).*$',
-                '^file/fileAdmin/(upload|checkexists).*$',
-                '^ulogin.*$',
-            ],
-            'enableCsrfValidation'=>true,
-            'enableCookieValidation'=>true,
-        ],
-
         'authManager'=>[
             'class'=>'application.modules.user.components.PhpAuthManager',
             'defaultRoles'=>['role_guest'],
