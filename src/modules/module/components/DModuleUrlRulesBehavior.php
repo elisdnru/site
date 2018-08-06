@@ -20,6 +20,10 @@ class DModuleUrlRulesBehavior extends CBehavior
     {
         Yii::app()->moduleManager->init();
 
+        if (Yii::app() instanceof CConsoleApplication) {
+            return;
+        }
+
         $module = $this->_getCurrentModuleName();
 
         $list = array_merge(
