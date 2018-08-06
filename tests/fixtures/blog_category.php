@@ -1,7 +1,7 @@
 <?php
 
-return array(
-    'child_category' => array(
+return [
+    'child_category' => [
         'id' => 1,
         'sort' => 1,
         'alias' => 'category-1',
@@ -11,8 +11,8 @@ return array(
         'pagetitle' => '',
         'description' => '',
         'keywords' => '',
-    ),
-    'parent_category' => array(
+    ],
+    'parent_category' => [
         'id' => 2,
         'sort' => 2,
         'alias' => 'category-2',
@@ -22,8 +22,8 @@ return array(
         'pagetitle' => '',
         'description' => '',
         'keywords' => '',
-    ),
-    'category_with_posts' => array(
+    ],
+    'category_with_posts' => [
         'id' => 3,
         'sort' => 2,
         'alias' => 'category-3',
@@ -33,8 +33,8 @@ return array(
         'pagetitle' => '',
         'description' => '',
         'keywords' => '',
-    ),
-    'category_without_posts' => array(
+    ],
+    'category_without_posts' => [
         'id' => 4,
         'sort' => 2,
         'alias' => 'category-4',
@@ -44,5 +44,5 @@ return array(
         'pagetitle' => '',
         'description' => '',
         'keywords' => '',
-    ),
-);
+    ],
+];

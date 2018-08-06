@@ -9,13 +9,13 @@ class BlogCategoryTest extends DbTestCase
      */
     protected $category;
 
-    public $fixtures = array(
+    public $fixtures = [
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
         'new_gallery'=>'NewsGallery',
         'user'=>'User',
-    );
+    ];
 
     protected function setUp()
     {
@@ -26,49 +26,47 @@ class BlogCategoryTest extends DbTestCase
     public function testTitleIsRequired()
     {
         $this->category->title = '';
-        $this->assertFalse($this->category->validate(array('title')));
+        $this->assertFalse($this->category->validate(['title']));
     }
 
     public function testAliasIsRequired()
     {
         $this->category->alias = '';
-        $this->assertFalse($this->category->validate(array('alias')));
+        $this->assertFalse($this->category->validate(['alias']));
     }
 
     public function testAliasSymbols()
     {
-        foreach ($this->normalAliases as $alias)
-        {
+        foreach ($this->normalAliases as $alias) {
             $this->category->alias = $alias;
-            $this->assertTrue($this->category->validate(array('alias')), 'Alias ' . $alias);
+            $this->assertTrue($this->category->validate(['alias']), 'Alias ' . $alias);
         }
 
-        foreach ($this->failAliases as $alias)
-        {
+        foreach ($this->failAliases as $alias) {
             $this->category->alias = $alias;
-            $this->assertFalse($this->category->validate(array('alias')), 'Alias ' . $alias);
+            $this->assertFalse($this->category->validate(['alias']), 'Alias ' . $alias);
         }
     }
 
     public function testTitleMaxLength()
     {
         $this->category->title = str_repeat('q', 256);
-        $this->assertFalse($this->category->validate(array('title')));
+        $this->assertFalse($this->category->validate(['title']));
 
         $this->category->title = str_repeat('q', 255);
-        $this->assertTrue($this->category->validate(array('title')));
+        $this->assertTrue($this->category->validate(['title']));
     }
 
     public function testParentIdIsExist()
     {
         $this->category->parent_id = 0;
-        $this->assertTrue($this->category->validate(array('parent_id')), 'Empty parent');
+        $this->assertTrue($this->category->validate(['parent_id']), 'Empty parent');
 
         $this->category->parent_id = 1;
-        $this->assertTrue($this->category->validate(array('parent_id')), 'Existing parent');
+        $this->assertTrue($this->category->validate(['parent_id']), 'Existing parent');
 
         $this->category->parent_id = 100;
-        $this->assertFalse($this->category->validate(array('parent_id')), 'Other parent');
+        $this->assertFalse($this->category->validate(['parent_id']), 'Other parent');
     }
 
     public function testParentRelation()
@@ -113,4 +111,3 @@ class BlogCategoryTest extends DbTestCase
         $this->assertEquals(0, $category->items_count);
     }
 }
-

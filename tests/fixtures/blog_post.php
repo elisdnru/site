@@ -1,7 +1,7 @@
 <?php
 
-return array(
-    'post_with_category' => array(
+return [
+    'post_with_category' => [
         'id' => 1,
         'date' => '2016-12-11 12:34',
         'update_date' => '2016-12-11 12:34',
@@ -26,8 +26,8 @@ return array(
         'image_show' => 1,
         'comments_count' => 0,
         'comments_new_count' => 0,
-    ),
-    'post_with_author' => array(
+    ],
+    'post_with_author' => [
         'id' => 2,
         'date' => '2016-12-11 12:34',
         'update_date' => '2016-12-11 12:34',
@@ -52,8 +52,8 @@ return array(
         'image_show' => 1,
         'comments_count' => 0,
         'comments_new_count' => 0,
-    ),
-    'post_with_gallery' => array(
+    ],
+    'post_with_gallery' => [
         'id' => 3,
         'date' => '2016-12-11 12:34',
         'update_date' => '2016-12-11 12:34',
@@ -78,8 +78,8 @@ return array(
         'image_show' => 1,
         'comments_count' => 0,
         'comments_new_count' => 0,
-    ),
-    'post_with_group' => array(
+    ],
+    'post_with_group' => [
         'id' => 5,
         'date' => '2016-12-11 12:34',
         'update_date' => '2016-12-11 12:34',
@@ -104,5 +104,5 @@ return array(
         'image_show' => 1,
         'comments_count' => 0,
         'comments_new_count' => 0,
-    ),
-);
+    ],
+];

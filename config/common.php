@@ -8,15 +8,16 @@
 
 $dirs = scandir(__DIR__.'/../src/modules');
 
-$modules = array();
-foreach ($dirs as $name){
-    if ($name[0] != '.')
-        $modules[$name] = array('class'=>'application.modules.' . $name . '.' . ucfirst($name) . 'Module');
+$modules = [];
+foreach ($dirs as $name) {
+    if ($name[0] != '.') {
+        $modules[$name] = ['class'=>'application.modules.' . $name . '.' . ucfirst($name) . 'Module'];
+    }
 }
 
 $MODULES_MATCHES = implode('|', array_keys($modules));
 
-return array(
+return [
 
     'basePath'=>dirname(__DIR__).'/src',
     'runtimePath'=>dirname(__DIR__) . '/var',
@@ -24,7 +25,7 @@ return array(
     'sourceLanguage'=>'en',
     'language'=>'ru',
 
-    'import'=>array(
+    'import'=>[
         'application.components.*',
         'application.modules.main.components.actions.*',
         'application.modules.main.components.arbehaviors.*',
@@ -37,42 +38,42 @@ return array(
         'application.modules.user.models.*',
         'application.modules.module.components.DUrlRulesHelper',
         'application.extensions.cachetagging.Tags',
-    ),
+    ],
 
-    'modules'=>array_replace($modules, array(
+    'modules'=>array_replace($modules, [
         /*'gii'=>array(
             'class'=>'system.gii.GiiModule',
             'password'=>'admin',
             'ipFilters'=>array('127.0.0.1','::1'),
         ),*/
-    )),
+    ]),
 
-    'components'=>array(
+    'components'=>[
 
-        'urlManager'=>array(
+        'urlManager'=>[
             'class'=>'DUrlManager',
             'urlFormat'=>'path',
             'showScriptName'=>false,
-			'useStrictParsing'=>true,
+            'useStrictParsing'=>true,
             'urlSuffix'=>'',
-            'rules'=>array(
-				/*'gii'=>'gii/default/index',
-				'gii/<controller:\w+>'=>'gii/<controller>/index',
-				'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',*/
+            'rules'=>[
+                /*'gii'=>'gii/default/index',
+                'gii/<controller:\w+>'=>'gii/<controller>/index',
+                'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',*/
                 '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
                 '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
                 '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
-            ),
-        ),
+            ],
+        ],
 
-        'user'=>array(
+        'user'=>[
             'class'=>'application.modules.user.components.WebUser',
             'allowAutoLogin'=>true,
-            'loginUrl'=>array('/user/default/login'),
-        ),
+            'loginUrl'=>['/user/default/login'],
+        ],
 
-        'clientScript'=>array(
-            'scriptMap'=>array(
+        'clientScript'=>[
+            'scriptMap'=>[
                 'modernizr.js'=>'/js/modernizr.min.js',
                 'core-site.js'=>'/js/core-site.js',
                 'core-end.js'=>'/js/core-end.js',
@@ -82,171 +83,171 @@ return array(
                 'jquery.mousewheel.js'=>'/js/jquery.mousewheel.js',
                 'jquery.plugins.js'=>'/js/jquery.plugins.js',
                 'swfobject.js'=>'/js/swfobject.js',
-            )
-        ),
+            ]
+        ],
 
-        'config'=>array(
+        'config'=>[
             'class'=>'application.modules.config.components.DConfig',
             'cache'=>3600,
-        ),
+        ],
 
-        'request'=>array(
+        'request'=>[
             'class'=>'DHttpRequest',
             'baseUrl'=>'',
-            'noCsrfValidationUris'=>array(
+            'noCsrfValidationUris'=>[
                 '^newsgallery/galleryAdmin/(upload|checkexists).*$',
                 '^file/fileAdmin/(upload|checkexists).*$',
                 '^ulogin.*$',
-            ),
+            ],
             'enableCsrfValidation'=>true,
             'enableCookieValidation'=>true,
-        ),
+        ],
 
-        'authManager'=>array(
+        'authManager'=>[
             'class'=>'application.modules.user.components.PhpAuthManager',
-            'defaultRoles'=>array('role_guest'),
-        ),
+            'defaultRoles'=>['role_guest'],
+        ],
 
-        'moduleManager'=>array(
+        'moduleManager'=>[
             'class'=>'application.modules.module.components.DModuleManager',
-        ),
-        
-        'errorHandler'=>array(
+        ],
+
+        'errorHandler'=>[
             'errorAction'=>'/main/error/index',
-        ),
+        ],
 
-        'image'=>array(
+        'image'=>[
             'class'=>'ext.image.CImageHandler',
-        ),
+        ],
 
-        'file'=>array(
+        'file'=>[
             'class'=>'ext.file.CFile',
-        ),
+        ],
 
-        'uploader'=>array(
+        'uploader'=>[
             'class'=>'application.modules.uploader.components.DUploadManager',
             'origFileSalt'=>'adFxt0de',
             'rootPath'=>'upload',
             'emptyImage'=>'images/nophoto.png',
-            'allowedThumbnailResolutions'=>array(
+            'allowedThumbnailResolutions'=>[
                 // general
-                array('upload/images', array(
+                ['upload/images', [
                     '250x0',
-                )),
-                array('upload/images/users/avatars', array(
+                ]],
+                ['upload/images/users/avatars', [
                     '100x100',
                     '50x50',
-                )),
-                array('upload/images/news', array(
+                ]],
+                ['upload/images/news', [
                     '200x180', // list
                     '198x180', // greed
-                )),
+                ]],
 
-                array('upload/images/news', array(
+                ['upload/images/news', [
                     '250x0', // default
                     '200x180', // list
                     '198x180', // greed
-                )),
-                array('upload/images/portfolio', array(
+                ]],
+                ['upload/images/portfolio', [
                     '198x0', // greed
                     '190x0', // homepage
                     '50x0', // admin
-                )),
-                array('upload/images/blogs', array(
+                ]],
+                ['upload/images/blogs', [
                     '100x100', // last posts
-                )),
-                array('upload/images/users/avatars', array(
+                ]],
+                ['upload/images/users/avatars', [
                     '100x100',
                     '50x50',
-                )),
-                array('upload/images/users/galleries', array(
+                ]],
+                ['upload/images/users/galleries', [
                     '250x0', // admin
-                )),
-                array('upload/images/pages', array(
+                ]],
+                ['upload/images/pages', [
                     '250x0', // default
-                )),
-            ),
-        ),
+                ]],
+            ],
+        ],
 
-        'email'=>array(
+        'email'=>[
             'class'=>'ext.email.Email',
             'delivery'=>'php', //'php'|'debug'
-        ),
+        ],
 
-        'mailer'=>array(
+        'mailer'=>[
             'class'=>'ext.mailer.MyEMailer',
             'pathViews'=>'//email',
             'pathLayouts'=>'//email/layouts'
-        ),
+        ],
 
-        'rpcManager'=>array(
+        'rpcManager'=>[
             'class'=>'DRPCManager',
-        ),
+        ],
 
-        'widgetFactory'=>array(
+        'widgetFactory'=>[
             'enableSkin'=>true,
-        ),
+        ],
 
-		'syntaxHighlighter' => array(
-			'class'=>'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
-			'theme'=>'Eclipse',
-		),
+        'syntaxHighlighter' => [
+            'class'=>'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
+            'theme'=>'Eclipse',
+        ],
 
-		'log'=>array(
+        'log'=>[
             'class'=>'CLogRouter',
-            'routes'=>array(
-                array(
+            'routes'=>[
+                [
                     'class'=>'CFileLogRoute',
                     'levels'=>'error',
                     'logFile'=>'log_error.log',
-                ),
-                array(
+                ],
+                [
                     'class'=>'CFileLogRoute',
                     'levels'=>'warning',
                     'logFile'=>'log_warning.log',
-                ),
-                array(
+                ],
+                [
                     'class'=>'CFileLogRoute',
                     'levels'=>'info',
                     'logFile'=>'log_info.log',
-                ),
-            ),
-        ),
+                ],
+            ],
+        ],
 
-        'cache'=>array(
+        'cache'=>[
             'class'=>'system.caching.CDummyCache',
-            'behaviors'=>array(
-                'tagging'=>array(
+            'behaviors'=>[
+                'tagging'=>[
                     'class'=>'ext.cachetagging.TaggingBehavior',
-                ),
-            ),
-        ),
-    ),
+                ],
+            ],
+        ],
+    ],
 
-    'preload'=>array(
+    'preload'=>[
         'log',
-    ),
+    ],
 
-    'behaviors'=> array(
-        array(
+    'behaviors'=> [
+        [
             'class'=>'application.modules.module.components.DModuleUrlRulesBehavior',
-            'beforeCurrentModule'=>array(
+            'beforeCurrentModule'=>[
                 'main',
                 'uploader',
                 'sitemap',
                 'admin',
                 'user',
                 'ulogin',
-            ),
-            'afterCurrentModule'=>array(
+            ],
+            'afterCurrentModule'=>[
                 'page',
                 'new',
-            )
-        )
-    ),
+            ]
+        ]
+    ],
 
-    'params'=>array(
-        'runtimeWidgets'=>array(
+    'params'=>[
+        'runtimeWidgets'=>[
             'new.widgets.News',
             'new.widgets.LastNews',
             'blog.widgets.LastPosts',
@@ -258,13 +259,13 @@ return array(
             'block.widgets.Block',
             'contact.widgets.Contact',
             'portfolio.widgets.Portfolio',
-        ),
-        'translatedLanguages'=>array(
+        ],
+        'translatedLanguages'=>[
             'ru'=>'Russian',
-        ),
+        ],
         'defaultLanguage'=>'ru',
 
-		'minimize_styles' => array(),
-		'minimize_scripts' => array(),
-    ),
-);
+        'minimize_styles' => [],
+        'minimize_scripts' => [],
+    ],
+];

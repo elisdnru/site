@@ -4,20 +4,20 @@ class DbTestCase extends CDbTestCase
 {
     private static $_loadFixturesFlag = false;
 
-    protected $normalAliases = array(
+    protected $normalAliases = [
         'normal-alias',
         'normal_alias',
         'normalAlias_2',
         '3_normalAlias',
-    );
+    ];
 
-    protected $failAliases = array(
+    protected $failAliases = [
         ' crazy_alias',
         'crazy_alias ',
         'crazy.alias',
         'crazy/alias',
         'crazy alias',
-    );
+    ];
 
     /**
      * Load fixtures one time
@@ -44,6 +44,5 @@ class DbTestCase extends CDbTestCase
 
     public function testDummy()
     {
-
     }
 }

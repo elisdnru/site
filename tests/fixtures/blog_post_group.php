@@ -1,8 +1,8 @@
 <?php
 
-return array(
-    array(
+return [
+    [
         'id' => 1,
         'title' => 'Group 1',
-    ),
-);
+    ],
+];

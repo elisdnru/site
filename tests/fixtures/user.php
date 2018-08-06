@@ -1,7 +1,7 @@
 <?php
 
-return array(
-    array(
+return [
+    [
         'id' => 1,
         'username' => 'Admin',
         'email' => 'admin@example.com',
@@ -26,8 +26,8 @@ return array(
         'site' => '',
         'googleplus' => '',
         'comments_count' => 0,
-    ),
-    array(
+    ],
+    [
         'id' => 2,
         'username' => 'Moder',
         'email' => 'moder@example.com',
@@ -52,5 +52,5 @@ return array(
         'site' => '',
         'googleplus' => '',
         'comments_count' => 0,
-    ),
-);
+    ],
+];
