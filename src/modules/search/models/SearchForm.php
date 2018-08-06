@@ -14,10 +14,10 @@ class SearchForm extends CFormModel
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
-        return array(
-            array('q', 'filter', 'filter'=>'trim'),
-            array('q', 'required'),
-        );
+        return [
+            ['q', 'filter', 'filter' => 'trim'],
+            ['q', 'required'],
+        ];
     }
 
     /**
@@ -25,9 +25,8 @@ class SearchForm extends CFormModel
      */
     public function attributeLabels()
     {
-        return array(
+        return [
             'q' => 'Слово',
-        );
+        ];
     }
-
 }

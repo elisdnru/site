@@ -6,9 +6,9 @@ class FileModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.file.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -28,8 +28,8 @@ class FileModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Файлы', 'url'=>array('/file/fileAdmin/index'), 'icon'=>'fileicon.jpg'),
-        );
+        return [
+            ['label' => 'Файлы', 'url' => ['/file/fileAdmin/index'], 'icon' => 'fileicon.jpg'],
+        ];
     }
 }

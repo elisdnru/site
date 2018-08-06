@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CFile class file.
  *
@@ -17,7 +18,7 @@ class CFile extends CApplicationComponent
     /**
      * @var array object instances array with key set to $_filepath
      */
-    private static $_instances = array();
+    private static $_instances = [];
     /**
      * @var string filesystem object path submitted by user
      */
@@ -111,11 +112,11 @@ class CFile extends CApplicationComponent
     /**
      * @var resource file pointer resource (for {@link open} & {@link close})
      */
-    private $_handle=null;
+    private $_handle = null;
     /**
      * @var CUploadedFile object instance
      */
-    private $_uploadedInstance=null;
+    private $_uploadedInstance = null;
 
 
     /**
@@ -126,8 +127,7 @@ class CFile extends CApplicationComponent
      */
     public static function getInstance($filePath)
     {
-        if(!array_key_exists($filePath, self::$_instances))
-        {
+        if (!array_key_exists($filePath, self::$_instances)) {
             self::$_instances[$filePath] = new CFile($filePath);
         }
         return self::$_instances[$filePath];
@@ -140,9 +140,9 @@ class CFile extends CApplicationComponent
      * @param string $level Level of the message (e.g. 'trace', 'warning',
      * 'error', 'info', see CLogger constants definitions)
      */
-    private function addLog($message, $level='info')
+    private function addLog($message, $level = 'info')
     {
-        Yii::log($message.' (obj: '.$this->realpath.')', $level, 'ext.file');
+        Yii::log($message . ' (obj: ' . $this->realpath . ')', $level, 'ext.file');
     }
 
     /**
@@ -160,22 +160,18 @@ class CFile extends CApplicationComponent
      * 'Permission', etc.) would be autoloaded
      * @return object CFile instance for the specified filesystem object
      */
-    public function set($filePath, $greedy=false)
+    public function set($filePath, $greedy = false)
     {
-        if (trim($filePath)!='')
-        {
+        if (trim($filePath) != '') {
             $uploaded = null;
-            
-            if (strpos($filePath, '\\')===false && strpos($filePath, '/')===false)
-            {
-                $uploaded = CUploadedFile::getInstanceByName($filePath);
-                if ($uploaded)
-                {
-                    $filePath = $uploaded->getTempName();
-                    Yii::trace('File "'.$filePath.'" is identified as uploaded', 'ext.file');
 
+            if (strpos($filePath, '\\') === false && strpos($filePath, '/') === false) {
+                $uploaded = CUploadedFile::getInstanceByName($filePath);
+                if ($uploaded) {
+                    $filePath = $uploaded->getTempName();
+                    Yii::trace('File "' . $filePath . '" is identified as uploaded', 'ext.file');
                 } elseif ($pathOfAlias = YiiBase::getPathOfAlias($filePath)) {
-                    Yii::trace('The string supplied to '.__METHOD__.' method - "'.$filePath.'" is identified as the alias to "'.$pathOfAlias.'"', 'ext.file');
+                    Yii::trace('The string supplied to ' . __METHOD__ . ' method - "' . $filePath . '" is identified as the alias to "' . $pathOfAlias . '"', 'ext.file');
                     $filePath = $pathOfAlias;
                 }
             }
@@ -186,30 +182,29 @@ class CFile extends CApplicationComponent
             $instance->_filepath = $filePath;
             $instance->_realpath = $realPath;
 
-            if ($instance->exists())
-            {
+            if ($instance->exists()) {
                 $instance->_uploadedInstance = $uploaded;
 
                 $instance->pathInfo();
                 $instance->readable;
                 $instance->writeable;
-                
-                if ($greedy)
-                {
+
+                if ($greedy) {
                     $instance->isempty;
                     $instance->size;
                     $instance->owner;
                     $instance->group;
                     $instance->permissions;
                     $instance->timeModified;
-                    if ($instance->isFile)
+                    if ($instance->isFile) {
                         $instance->mimeType;
+                    }
                 }
             }
             return $instance;
         }
 
-        throw new CException('Path to filesystem object is not specified within '.__METHOD__.' method');
+        throw new CException('Path to filesystem object is not specified within ' . __METHOD__ . ' method');
     }
 
     /**
@@ -219,36 +214,32 @@ class CFile extends CApplicationComponent
      */
     private function pathInfo()
     {
-        if (is_file($this->_realpath))
-        {
+        if (is_file($this->_realpath)) {
             $this->_isFile = true;
-        }
-        elseif (is_dir($this->_realpath))
-        {
+        } elseif (is_dir($this->_realpath)) {
             $this->_isDir = true;
         }
 
-        if ($this->_uploadedInstance)
+        if ($this->_uploadedInstance) {
             $this->_isUploaded = true;
+        }
 
-        $pathinfo = pathinfo($this->_isUploaded?$this->_uploadedInstance->getName():$this->_realpath);
+        $pathinfo = pathinfo($this->_isUploaded ? $this->_uploadedInstance->getName() : $this->_realpath);
 
         $this->_dirname = $pathinfo['dirname'];
         $this->_basename = $pathinfo['basename'];
 
         // PHP version < 5.2 workaround
-        if(!isset($pathinfo['filename']))
-        {
+        if (!isset($pathinfo['filename'])) {
             $this->_filename = substr($pathinfo['basename'], 0, strrpos($pathinfo['basename'], '.'));
-        }
-        else
-        {
+        } else {
             $this->_filename = $pathinfo['filename'];
         }
-        if (key_exists('extension', $pathinfo))
+        if (key_exists('extension', $pathinfo)) {
             $this->_extension = $pathinfo['extension'];
-        else
+        } else {
             $this->_extension = null;
+        }
     }
 
     /**
@@ -259,10 +250,11 @@ class CFile extends CApplicationComponent
      * @param string $dir_separator Directory separator char (depends upon OS)
      * @return string Real file path
      */
-    public function getRealPath($dir_separator=DIRECTORY_SEPARATOR)
+    public function getRealPath($dir_separator = DIRECTORY_SEPARATOR)
     {
-        if (!isset($this->_realpath))
+        if (!isset($this->_realpath)) {
             $this->_realpath = $this->realPath($this->_filepath, $dir_separator);
+        }
 
         return $this->_realpath;
     }
@@ -276,59 +268,49 @@ class CFile extends CApplicationComponent
      * @param string $dir_separator Directory separator char (depends upon OS)
      * @return string Real file path
      */
-    private function realPath($suppliedPath, $dir_separator=DIRECTORY_SEPARATOR)
+    private function realPath($suppliedPath, $dir_separator = DIRECTORY_SEPARATOR)
     {
         $currentPath = $suppliedPath;
 
-        if (!strlen($currentPath))
+        if (!strlen($currentPath)) {
             return $dir_separator;
+        }
 
         $winDrive = '';
 
         // Windows OS path type detection
-        if (!strncasecmp(PHP_OS, 'win', 3))
-        {
+        if (!strncasecmp(PHP_OS, 'win', 3)) {
             $currentPath = preg_replace('/[\\\\\/]/', $dir_separator, $currentPath);
-            if (preg_match('/([a-zA-Z]\:)(.*)/', $currentPath, $matches))
-            {
+            if (preg_match('/([a-zA-Z]\:)(.*)/', $currentPath, $matches)) {
                 $winDrive = $matches[1];
                 $currentPath = $matches[2];
-            }
-            else
-            {
+            } else {
                 $workingDir = getcwd();
                 $winDrive = substr($workingDir, 0, 2);
-                if ($currentPath{0} !== $dir_separator{0})
-                {
-                    $currentPath = substr($workingDir, 3).$dir_separator.$currentPath;
+                if ($currentPath{0} !== $dir_separator{0}) {
+                    $currentPath = substr($workingDir, 3) . $dir_separator . $currentPath;
                 }
             }
-        }
-        elseif ($currentPath{0} !== $dir_separator)
-        {
-            $currentPath = getcwd().$dir_separator.$currentPath;
+        } elseif ($currentPath{0} !== $dir_separator) {
+            $currentPath = getcwd() . $dir_separator . $currentPath;
         }
 
-        $pathsArr = array();
-        foreach (explode($dir_separator, $currentPath) as $path)
-        {
-            if (strlen($path) && $path !== '.')
-            {
-                if ($path == '..')
-                {
+        $pathsArr = [];
+        foreach (explode($dir_separator, $currentPath) as $path) {
+            if (strlen($path) && $path !== '.') {
+                if ($path == '..') {
                     array_pop($pathsArr);
-                }
-                else
-                {
+                } else {
                     $pathsArr[] = $path;
                 }
             }
         }
 
-        $realpath = $winDrive.$dir_separator.implode($dir_separator, $pathsArr);
+        $realpath = $winDrive . $dir_separator . implode($dir_separator, $pathsArr);
 
-        if ($currentPath != $suppliedPath)
-            Yii::trace('Path "'.$suppliedPath.'" resolved into "'.$realpath.'"', 'ext.file');
+        if ($currentPath != $suppliedPath) {
+            Yii::trace('Path "' . $suppliedPath . '" resolved into "' . $realpath . '"', 'ext.file');
+        }
 
         return $realpath;
     }
@@ -342,8 +324,9 @@ class CFile extends CApplicationComponent
      */
     public function getExists()
     {
-        if (!isset($this->_exists))
+        if (!isset($this->_exists)) {
             $this->exists();
+        }
 
         return $this->_exists;
     }
@@ -393,15 +376,15 @@ class CFile extends CApplicationComponent
      */
     public function getIsEmpty()
     {
-        if (!isset($this->isEmpty))
-        {
-            if (($this->isFile && $this->getSize(false)==0) ||
-                (!$this->isFile && count($this->dirContents($this->_realpath))==0 ))
+        if (!isset($this->isEmpty)) {
+            if (($this->isFile && $this->getSize(false) == 0) ||
+                (!$this->isFile && count($this->dirContents($this->_realpath)) == 0)) {
                 $this->_isEmpty = true;
-            else
+            } else {
                 $this->_isEmpty = false;
+            }
         }
-        
+
         return $this->_isEmpty;
     }
 
@@ -414,8 +397,9 @@ class CFile extends CApplicationComponent
      */
     public function getReadable()
     {
-        if (!isset($this->_readable))
+        if (!isset($this->_readable)) {
             $this->_readable = is_readable($this->_realpath);
+        }
 
         return $this->_readable;
     }
@@ -431,8 +415,9 @@ class CFile extends CApplicationComponent
      */
     public function getWriteable()
     {
-        if (!isset($this->_writeable))
+        if (!isset($this->_writeable)) {
             $this->_writeable = is_writable($this->_realpath);
+        }
 
         return $this->_writeable;
     }
@@ -445,19 +430,17 @@ class CFile extends CApplicationComponent
      */
     private function exists()
     {
-        Yii::trace('Filesystem object availability test: '.$this->_realpath, 'ext.file');
+        Yii::trace('Filesystem object availability test: ' . $this->_realpath, 'ext.file');
 
-        if (file_exists($this->_realpath))
-        {
+        if (file_exists($this->_realpath)) {
             $this->_exists = true;
-        }
-        else
-        {
+        } else {
             $this->_exists = false;
         }
 
-        if ($this->_exists)
+        if ($this->_exists) {
             return true;
+        }
 
         $this->addLog('Filesystem object not found');
         return false;
@@ -471,10 +454,8 @@ class CFile extends CApplicationComponent
      */
     public function create()
     {
-        if (!$this->exists)
-        {
-            if ($this->open('w'))
-            {
+        if (!$this->exists) {
+            if ($this->open('w')) {
                 $this->close();
                 return $this->set($this->_realpath);
             }
@@ -482,7 +463,7 @@ class CFile extends CApplicationComponent
             $this->addLog('Unable to create empty file');
             return false;
         }
-        
+
         $this->addLog('File creation failed. File already exists');
         return false;
     }
@@ -490,7 +471,7 @@ class CFile extends CApplicationComponent
     /**
      * Creates empty directory defined either through {@link set} or through the
      * $directory parameter.
-     * 
+     *
      *
      * @param string $permissions Access permissions for the directory
      * @param string $directory Parameter used to create directory other than
@@ -498,22 +479,23 @@ class CFile extends CApplicationComponent
      * @return mixed Updated the current CFile object on success, 'false'
      * on fail.
      */
-    public function createDir($permissions=0754, $directory=null)
+    public function createDir($permissions = 0754, $directory = null)
     {
-        if (is_null($directory))
+        if (is_null($directory)) {
             $dir = $this->_realpath;
-        else
+        } else {
             $dir = $directory;
-
-        if (@mkdir($dir, $permissions, true))
-        {
-            if(!$directory)
-                return $this->set($dir);
-            else
-                return true;
         }
 
-        $this->addLog('Unable to create empty directory "'.$dir.'"');
+        if (@mkdir($dir, $permissions, true)) {
+            if (!$directory) {
+                return $this->set($dir);
+            } else {
+                return true;
+            }
+        }
+
+        $this->addLog('Unable to create empty directory "' . $dir . '"');
         return false;
     }
 
@@ -528,12 +510,12 @@ class CFile extends CApplicationComponent
      */
     private function open($mode)
     {
-        if (is_null($this->_handle))
-        {
-            if ($this->_handle = fopen($this->_realpath, $mode))
+        if (is_null($this->_handle)) {
+            if ($this->_handle = fopen($this->_realpath, $mode)) {
                 return $this;
+            }
 
-            $this->addLog('Unable to open file using mode "'.$mode.'"');
+            $this->addLog('Unable to open file using mode "' . $mode . '"');
             return false;
         }
     }
@@ -546,8 +528,7 @@ class CFile extends CApplicationComponent
      */
     private function close()
     {
-        if (!is_null($this->_handle))
-        {
+        if (!is_null($this->_handle)) {
             fclose($this->_handle);
             $this->_handle = null;
         }
@@ -562,13 +543,13 @@ class CFile extends CApplicationComponent
      * instead of ID should be returned.
      * @return mixed Owner name, or ID if $getName set to 'false'
      */
-    public function getOwner($getName=true)
+    public function getOwner($getName = true)
     {
-        if (!isset($this->_owner))
-            $this->_owner = $this->exists?fileowner($this->_realpath):null;
+        if (!isset($this->_owner)) {
+            $this->_owner = $this->exists ? fileowner($this->_realpath) : null;
+        }
 
-        if (is_int($this->_owner) && function_exists('posix_getpwuid') && $getName==true)
-        {
+        if (is_int($this->_owner) && function_exists('posix_getpwuid') && $getName == true) {
             $this->_owner = posix_getpwuid($this->_owner);
             $this->_owner = $this->_owner['name'];
         }
@@ -585,13 +566,13 @@ class CFile extends CApplicationComponent
      * instead of ID should be returned.
      * @return mixed Group name, or ID if $getName set to 'false'
      */
-    public function getGroup($getName=true)
+    public function getGroup($getName = true)
     {
-        if (!isset($this->_group))
-            $this->_group = $this->exists?filegroup($this->_realpath):null;
-            
-        if (is_int($this->_group) && function_exists('posix_getgrgid') && $getName==true)
-        {
+        if (!isset($this->_group)) {
+            $this->_group = $this->exists ? filegroup($this->_realpath) : null;
+        }
+
+        if (is_int($this->_group) && function_exists('posix_getgrgid') && $getName == true) {
             $this->_group = posix_getgrgid($this->_group);
             $this->_group = $this->_group['name'];
         }
@@ -608,8 +589,9 @@ class CFile extends CApplicationComponent
      */
     public function getPermissions()
     {
-        if (!isset($this->_permissions))
-            $this->_permissions = $this->exists?substr(sprintf('%o', fileperms($this->_realpath)), -4):null;
+        if (!isset($this->_permissions)) {
+            $this->_permissions = $this->exists ? substr(sprintf('%o', fileperms($this->_realpath)), -4) : null;
+        }
 
         return $this->_permissions;
     }
@@ -625,17 +607,20 @@ class CFile extends CApplicationComponent
      * @return mixed Filesystem object size formatted (eg. '70.4 KB') or in
      * bytes (eg. '72081') if $format set to 'false'
      */
-    public function getSize($format='0.00'){
-        if (!isset($this->_size)){
-            if ($this->isFile)
-                $this->_size = $this->exists?sprintf("%u", filesize($this->_realpath)):null;
-            else
-                $this->_size = $this->exists?sprintf("%u", $this->dirSize()):null;
+    public function getSize($format = '0.00')
+    {
+        if (!isset($this->_size)) {
+            if ($this->isFile) {
+                $this->_size = $this->exists ? sprintf("%u", filesize($this->_realpath)) : null;
+            } else {
+                $this->_size = $this->exists ? sprintf("%u", $this->dirSize()) : null;
+            }
         }
         $size = $this->_size;
-        
-        if ($format !== false)
+
+        if ($format !== false) {
             $size = $this->formatFileSize($this->_size, $format);
+        }
 
         return $size;
     }
@@ -648,11 +633,12 @@ class CFile extends CApplicationComponent
      * See {@link getSize} method params for detailed information.
      */
     private function dirSize()
-    {       
+    {
         $size = 0;
         foreach ($this->dirContents($this->_realpath, true) as $item) {
-            if(is_file($item))
+            if (is_file($item)) {
                 $size += sprintf("%u", filesize($item));
+            }
         }
 
         return $size;
@@ -661,22 +647,22 @@ class CFile extends CApplicationComponent
     /**
      * Base filesystem object size format method.
      * Converts file size in bytes into human readable format (i.e. '70.4 KB')
-     * 
+     *
      * @param integer $bytes Filesystem object size in bytes
      * @param integer $format Number format (see {@link CNumberFormatter})
      * @return string Filesystem object size in human readable format
      */
     private function formatFileSize($bytes, $format)
     {
-        $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
+        $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
         $bytes = max($bytes, 0);
         $expo = floor(($bytes ? log($bytes) : 0) / log(1024));
-        $expo = min($expo, count($units)-1);
+        $expo = min($expo, count($units) - 1);
 
         $bytes /= pow(1024, $expo);
 
-        return Yii::app()->numberFormatter->format($format, $bytes).' '.$units[$expo];
+        return Yii::app()->numberFormatter->format($format, $bytes) . ' ' . $units[$expo];
     }
 
     /**
@@ -687,8 +673,9 @@ class CFile extends CApplicationComponent
      */
     public function getTimeModified()
     {
-        if (empty($this->_timeModified))
-            $this->_timeModified = $this->exists?filemtime($this->_realpath):null;
+        if (empty($this->_timeModified)) {
+            $this->_timeModified = $this->exists ? filemtime($this->_realpath) : null;
+        }
 
         return $this->_timeModified;
     }
@@ -752,23 +739,20 @@ class CFile extends CApplicationComponent
      * Could be a string, or an array of strings (perl regexp supported).
      * @return mixed The read data or 'false' on fail.
      */
-    public function getContents($recursive=false, $filter=null)
+    public function getContents($recursive = false, $filter = null)
     {
-        if($this->readable)
-        {
-            if ($this->isFile)
-            {
-                if ($contents = file_get_contents($this->_realpath))
+        if ($this->readable) {
+            if ($this->isFile) {
+                if ($contents = file_get_contents($this->_realpath)) {
                     return $contents;
-            }
-            else
-            {
-                if ($contents = $this->dirContents($this->_realpath, $recursive, $filter))
+                }
+            } else {
+                if ($contents = $this->dirContents($this->_realpath, $recursive, $filter)) {
                     return $contents;
-
+                }
             }
         }
-        $this->addLog('Unable to get filesystem object contents'.($filter!==null?' *using supplied filter*':''));
+        $this->addLog('Unable to get filesystem object contents' . ($filter !== null ? ' *using supplied filter*' : ''));
         return false;
     }
 
@@ -783,41 +767,40 @@ class CFile extends CApplicationComponent
      * See {@link filterPassed} method for further information on filters.
      * @return array Array of descendants filepaths
      */
-    private function dirContents($directory=false, $recursive=false, $filter=null)
+    private function dirContents($directory = false, $recursive = false, $filter = null)
     {
-        $descendants = array();
-        if (!$directory) $directory = $this->_realpath;
-
-        if ($filter!==null)
-        {
-            if (is_string($filter))
-                $filter = array($filter);
-
-            foreach ($filter as $key=>$rule)
-            {
-                if ($rule[0]!='/')
-                    $filter[$key] = ltrim($rule, '.');
-            }
+        $descendants = [];
+        if (!$directory) {
+            $directory = $this->_realpath;
         }
 
-        if ($contents = @scandir($directory.DIRECTORY_SEPARATOR))
-        {
-            foreach ($contents as $key=>$item)
-            {
-                $contents[$key] = $directory.DIRECTORY_SEPARATOR.$item;
-                if(!in_array($item, array(".", "..")))
-                {
-                    if ($this->filterPassed($contents[$key], $filter))
-                        $descendants[] = $contents[$key];
+        if ($filter !== null) {
+            if (is_string($filter)) {
+                $filter = [$filter];
+            }
 
-                    if (is_dir($contents[$key]) && $recursive)
-                        $descendants = array_merge($descendants, $this->dirContents($contents[$key], $recursive, $filter));
+            foreach ($filter as $key => $rule) {
+                if ($rule[0] != '/') {
+                    $filter[$key] = ltrim($rule, '.');
                 }
             }
         }
-        else
-        {
-            throw new CHttpException(500, 'Unable to get directory contents for "'.$directory.DIRECTORY_SEPARATOR.'"');
+
+        if ($contents = @scandir($directory . DIRECTORY_SEPARATOR)) {
+            foreach ($contents as $key => $item) {
+                $contents[$key] = $directory . DIRECTORY_SEPARATOR . $item;
+                if (!in_array($item, [".", ".."])) {
+                    if ($this->filterPassed($contents[$key], $filter)) {
+                        $descendants[] = $contents[$key];
+                    }
+
+                    if (is_dir($contents[$key]) && $recursive) {
+                        $descendants = array_merge($descendants, $this->dirContents($contents[$key], $recursive, $filter));
+                    }
+                }
+            }
+        } else {
+            throw new CHttpException(500, 'Unable to get directory contents for "' . $directory . DIRECTORY_SEPARATOR . '"');
             return false;
         }
 
@@ -840,24 +823,22 @@ class CFile extends CApplicationComponent
     {
         $passed = false;
 
-        if ($filter!==null)
-        {
-            foreach ($filter as $rule)
-            {
-                if ($rule[0]!='/')
-                {
-                    $rule = '.'.$rule;
-                    $passed = (bool)substr_count($str, $rule, strlen($str)-strlen($rule));
-                }
-                else
+        if ($filter !== null) {
+            foreach ($filter as $rule) {
+                if ($rule[0] != '/') {
+                    $rule = '.' . $rule;
+                    $passed = (bool)substr_count($str, $rule, strlen($str) - strlen($rule));
+                } else {
                     $passed = (bool)preg_match($rule, $str);
+                }
 
-                if ($passed)
+                if ($passed) {
                     break;
+                }
             }
-        } 
-        else
+        } else {
             $passed = true;
+        }
 
         return $passed;
     }
@@ -872,22 +853,21 @@ class CFile extends CApplicationComponent
      * to append data to file instead of overwriting.
      * @return mixed Current CFile object on success, 'false' on fail.
      */
-    public function setContents($contents=null, $autocreate=true, $flags=0)
+    public function setContents($contents = null, $autocreate = true, $flags = 0)
     {
-        if ($this->isFile)
-        {
-            if ($autocreate && !$this->exists)
+        if ($this->isFile) {
+            if ($autocreate && !$this->exists) {
                 $this->create();
+            }
 
-            if($this->writeable && file_put_contents($this->_realpath, $contents, $flags)!==false)
+            if ($this->writeable && file_put_contents($this->_realpath, $contents, $flags) !== false) {
                 return $this;
+            }
 
             $this->addLog('Unable to put file contents');
             return false;
-        }
-        else
-        {
-            $this->addLog(__METHOD__.' method is available only for files', 'warning');
+        } else {
+            $this->addLog(__METHOD__ . ' method is available only for files', 'warning');
             return false;
         }
     }
@@ -900,24 +880,23 @@ class CFile extends CApplicationComponent
      * @param string $basename New file basename (eg. 'mynewfile.txt')
      * @return mixed Current CFile object on success, 'false' on fail.
      */
-    public function setBasename($basename=false)
+    public function setBasename($basename = false)
     {
-        if ($this->isFile)
-        {
-            if ($this->isUploaded)
-            {
-                $this->addLog(__METHOD__.' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
+        if ($this->isFile) {
+            if ($this->isUploaded) {
+                $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
                 return false;
             }
 
-            if($this->writeable && $basename!==false && $this->rename($basename))
+            if ($this->writeable && $basename !== false && $this->rename($basename)) {
                 return $this;
+            }
 
-            $this->addLog('Unable to set file basename "'.$basename.'"');
+            $this->addLog('Unable to set file basename "' . $basename . '"');
             return false;
         }
-        
-        $this->addLog(__METHOD__.' method is available only for files', 'warning');
+
+        $this->addLog(__METHOD__ . ' method is available only for files', 'warning');
         return false;
     }
 
@@ -929,25 +908,24 @@ class CFile extends CApplicationComponent
      * @param string $filename New file name (eg. 'mynewfile')
      * @return mixed Current CFile object on success, 'false' on fail.
      */
-    public function setFilename($filename=false)
+    public function setFilename($filename = false)
     {
-        if ($this->isFile)
-        {
-            if ($this->isUploaded)
-            {
-                $this->addLog(__METHOD__.' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
+        if ($this->isFile) {
+            if ($this->isUploaded) {
+                $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
                 return false;
             }
 
-            if($this->writeable && $filename!==false &&
-                    $this->rename(str_replace($this->filename, $filename, $this->basename)))
+            if ($this->writeable && $filename !== false &&
+                $this->rename(str_replace($this->filename, $filename, $this->basename))) {
                 return $this;
+            }
 
-            $this->addLog('Unable to set file name "'.$filename.'"');
+            $this->addLog('Unable to set file name "' . $filename . '"');
             return false;
         }
 
-        $this->addLog(__METHOD__.' method is available only for files', 'warning');
+        $this->addLog(__METHOD__ . ' method is available only for files', 'warning');
         return false;
     }
 
@@ -960,45 +938,41 @@ class CFile extends CApplicationComponent
      * @param string $extension New file extension (eg. 'txt')
      * @return mixed Current CFile object on success, 'false' on fail.
      */
-    public function setExtension($extension=false)
+    public function setExtension($extension = false)
     {
-        if ($this->isFile)
-        {
-            if ($this->isUploaded)
-            {
-                $this->addLog(__METHOD__.' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
+        if ($this->isFile) {
+            if ($this->isUploaded) {
+                $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
                 return false;
             }
 
-            if($this->writeable && $extension!==false)
-            {
+            if ($this->writeable && $extension !== false) {
                 $extension = trim($extension);
 
                 // drop current extension
-                if (is_null($extension) || $extension=='')
-                {
+                if (is_null($extension) || $extension == '') {
                     $newBaseName = $this->filename;
-                }
-                // apply new extension
-                else
-                {
+                } // apply new extension
+                else {
                     $extension = ltrim($extension, '.');
 
-                    if (is_null($this->extension))
-                        $newBaseName = $this->filename.'.'.$extension;
-                    else
+                    if (is_null($this->extension)) {
+                        $newBaseName = $this->filename . '.' . $extension;
+                    } else {
                         $newBaseName = str_replace($this->extension, $extension, $this->basename);
+                    }
                 }
 
-                if ($this->rename($newBaseName))
+                if ($this->rename($newBaseName)) {
                     return $this;
+                }
             }
 
-            $this->addLog('Unable to set file extension "'.$extension.'"');
+            $this->addLog('Unable to set file extension "' . $extension . '"');
             return false;
         }
 
-        $this->addLog(__METHOD__.' method is available only for files', 'warning');
+        $this->addLog(__METHOD__ . ' method is available only for files', 'warning');
         return false;
     }
 
@@ -1012,13 +986,12 @@ class CFile extends CApplicationComponent
      */
     public function setOwner($owner)
     {
-        if($this->exists && chown($this->_realpath, $owner))
-        {
+        if ($this->exists && chown($this->_realpath, $owner)) {
             $this->_owner = $owner;
             return $this;
         }
 
-        $this->addLog('Unable to set owner for filesystem object to "'.$owner.'"');
+        $this->addLog('Unable to set owner for filesystem object to "' . $owner . '"');
         return false;
     }
 
@@ -1032,13 +1005,12 @@ class CFile extends CApplicationComponent
      */
     public function setGroup($group)
     {
-        if($this->exists && chgrp($this->_realpath, $group))
-        {
+        if ($this->exists && chgrp($this->_realpath, $group)) {
             $this->_group = $group;
             return $this;
         }
 
-        $this->addLog('Unable to set group for filesystem object to "'.$group.'"');
+        $this->addLog('Unable to set group for filesystem object to "' . $group . '"');
         return false;
     }
 
@@ -1053,19 +1025,17 @@ class CFile extends CApplicationComponent
      */
     public function setPermissions($permissions)
     {
-        if ($this->exists && is_numeric($permissions))
-        {
+        if ($this->exists && is_numeric($permissions)) {
             // '755' normalize to octal '0755'
             $permissions = octdec(str_pad($permissions, 4, "0", STR_PAD_LEFT));
 
-            if(@chmod($this->_realpath, $permissions))
-            {
+            if (@chmod($this->_realpath, $permissions)) {
                 $this->_group = $permissions;
                 return $this;
             }
         }
 
-        $this->addLog('Unable to change permissions for filesystem object to "'.$permissions.'"');
+        $this->addLog('Unable to change permissions for filesystem object to "' . $permissions . '"');
         return false;
     }
 
@@ -1082,8 +1052,9 @@ class CFile extends CApplicationComponent
      */
     private function resolveDestPath($fileDest)
     {
-        if (strpos($fileDest, DIRECTORY_SEPARATOR)===false)
-            return $this->dirname.DIRECTORY_SEPARATOR.$fileDest;
+        if (strpos($fileDest, DIRECTORY_SEPARATOR) === false) {
+            return $this->dirname . DIRECTORY_SEPARATOR . $fileDest;
+        }
 
         return $this->realPath($fileDest);
     }
@@ -1102,24 +1073,19 @@ class CFile extends CApplicationComponent
     {
         $destRealPath = $this->resolveDestPath($fileDest);
 
-        if ($this->isFile)
-        {
-            if ($this->readable && @copy($this->_realpath, $destRealPath))
+        if ($this->isFile) {
+            if ($this->readable && @copy($this->_realpath, $destRealPath)) {
                 return $this->set($destRealPath);
-        }
-        else
-        {
-            Yii::trace('Copying directory "'.$this->_realpath.'" to "'.$destRealPath.'"', 'ext.file');
+            }
+        } else {
+            Yii::trace('Copying directory "' . $this->_realpath . '" to "' . $destRealPath . '"', 'ext.file');
             $dirContents = $this->dirContents($this->_realpath, true);
             foreach ($dirContents as $item) {
-                $itemDest = $destRealPath.str_replace($this->_realpath, '', $item);
+                $itemDest = $destRealPath . str_replace($this->_realpath, '', $item);
 
-                if(is_file($item))
-                {
+                if (is_file($item)) {
                     @copy($item, $itemDest);
-                }
-                elseif (is_dir($item))
-                {
+                } elseif (is_dir($item)) {
                     $this->createDir(0754, $itemDest);
                 }
             }
@@ -1127,7 +1093,7 @@ class CFile extends CApplicationComponent
             return $this->set($destRealPath);
         }
 
-        $this->addLog('Unable to copy filesystem object into "'.$destRealPath.'"');
+        $this->addLog('Unable to copy filesystem object into "' . $destRealPath . '"');
         return false;
     }
 
@@ -1143,9 +1109,8 @@ class CFile extends CApplicationComponent
     public function rename($fileDest)
     {
         $destRealPath = $this->resolveDestPath($fileDest);
-        
-        if ($this->writeable && @rename($this->_realpath, $destRealPath))
-        {
+
+        if ($this->writeable && @rename($this->_realpath, $destRealPath)) {
             $this->_filepath = $fileDest;
             $this->_realpath = $destRealPath;
             // update pathinfo properties
@@ -1153,7 +1118,7 @@ class CFile extends CApplicationComponent
             return $this;
         }
 
-        $this->addLog('Unable to rename/move filesystem object into "'.$destRealPath.'"');
+        $this->addLog('Unable to rename/move filesystem object into "' . $destRealPath . '"');
         return false;
     }
 
@@ -1173,27 +1138,24 @@ class CFile extends CApplicationComponent
      *
      * @return mixed Current CFile object on success, 'false' on fail.
      */
-    public function purge($path=false)
+    public function purge($path = false)
     {
-        if (!$path) $path = $this->_realpath;
-
-        if ($this->isFile)
-        {
-            if ($this->writeable)
-                return $this->contents='';
+        if (!$path) {
+            $path = $this->_realpath;
         }
-        else
-        {
-            Yii::trace('Purging directory "'.$path.'"', 'ext.file');
+
+        if ($this->isFile) {
+            if ($this->writeable) {
+                return $this->contents = '';
+            }
+        } else {
+            Yii::trace('Purging directory "' . $path . '"', 'ext.file');
             $dirContents = $this->dirContents($path, true);
             foreach ($dirContents as $item) {
-                if(is_file($item))
-                {
+                if (is_file($item)) {
                     @unlink($item);
-                }
-                elseif (is_dir($item))
-                {
-                    $this->purge($item);   
+                } elseif (is_dir($item)) {
+                    $this->purge($item);
                     @rmdir($item);
                 }
             }
@@ -1211,13 +1173,11 @@ class CFile extends CApplicationComponent
      * descendants
      * @return boolean 'True' if sucessfully deleted, 'false' on fail
      */
-    public function delete($purge=true)
+    public function delete($purge = true)
     {
-        if ($this->writeable)
-        {
-            if (($this->isFile && @unlink($this->_realpath) ) ||
-                (!$this->isFile && ($purge?$this->purge():true) && rmdir($this->_realpath) ))
-            {
+        if ($this->writeable) {
+            if (($this->isFile && @unlink($this->_realpath)) ||
+                (!$this->isFile && ($purge ? $this->purge() : true) && rmdir($this->_realpath))) {
                 $this->_exists = $this->_readable = $this->_writeable = false;
                 return true;
             }
@@ -1236,47 +1196,43 @@ class CFile extends CApplicationComponent
      * @param string $fakeName New filename (eg. 'myfileFakedName.htm')
      * @param boolean $serverHandled Whether file contents delivery is handled
      * by server internals (cf. when file contents is read and sent by php).
-     * E.g.: lighttpd and Apache with mod-sendfile can use X-Senfile header to 
+     * E.g.: lighttpd and Apache with mod-sendfile can use X-Senfile header to
      * speed up file delivery blazingly.
      * Note: If you want to serve big or even huge files you are definetly
      * advised to turn this option on and setup your server software
      * appropriately, if not to say that it is your only alternative :).
      * @return file File download
      */
-    public function send($fakeName=false, $serverHandled=false)
+    public function send($fakeName = false, $serverHandled = false)
     {
-        if ($this->isFile)
-        {
-            if ($this->readable && !headers_sent()){
-
+        if ($this->isFile) {
+            if ($this->readable && !headers_sent()) {
                 $content_type = $this->mimeType;
 
-                if (!$content_type)
+                if (!$content_type) {
                     $content_type = "application/octet-stream";
+                }
 
-                if ($fakeName)
+                if ($fakeName) {
                     $filename = $fakeName;
-                else
+                } else {
                     $filename = $this->basename;
+                }
 
                 // disable browser caching
                 header('Cache-control: private');
                 header('Pragma: private');
                 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 
-                header('Content-Type: '.$content_type);
+                header('Content-Type: ' . $content_type);
                 header('Content-Transfer-Encoding: binary');
-                header('Content-Length: '.$this->getSize(false));
-                header('Content-Disposition: attachment;filename="'.$filename.'"');
+                header('Content-Length: ' . $this->getSize(false));
+                header('Content-Disposition: attachment;filename="' . $filename . '"');
 
-                if ($serverHandled)
-                {
-                    header('X-Sendfile: '.$this->_realpath);
-                }
-                else
-                {
-                    if ($contents = $this->contents)
-                    {
+                if ($serverHandled) {
+                    header('X-Sendfile: ' . $this->_realpath);
+                } else {
+                    if ($contents = $this->contents) {
                         echo $contents;
                     }
                 }
@@ -1285,9 +1241,7 @@ class CFile extends CApplicationComponent
 
             $this->addLog('Unable to prepare file for download. Headers already sent or file doesn\'t not exist');
             return false;
-        }
-        else
-        {
+        } else {
             $this->addLog('send() and download() methods are available only for files', 'warning');
             return false;
         }
@@ -1296,7 +1250,8 @@ class CFile extends CApplicationComponent
     /**
      * Alias for {@link send}
      */
-    function download($fakeName=false, $serverHandled=false){
+    function download($fakeName = false, $serverHandled = false)
+    {
         return $this->send($fakeName, $serverHandled);
     }
 
@@ -1319,35 +1274,32 @@ class CFile extends CApplicationComponent
      */
     public function getMimeType()
     {
-        if ($this->_mimeType)
+        if ($this->_mimeType) {
             return $this->_mimeType;
+        }
 
-        if ($this->isFile)
-        {
-            if ($this->readable)
-            {
-
-                if ($this->_isUploaded)
+        if ($this->isFile) {
+            if ($this->readable) {
+                if ($this->_isUploaded) {
                     return $this->_mimeType = $this->_uploadedInstance->getType();
-
-                if (function_exists('finfo_open'))
-                {
-                    if(($info=@finfo_open(FILEINFO_MIME)) && ($result=finfo_file($info,$this->_realpath))!==false)
-                        return $this->_mimeType = $result;
                 }
 
-                if(function_exists('mime_content_type') && ($result=@mime_content_type($this->_realpath))!==false)
+                if (function_exists('finfo_open')) {
+                    if (($info = @finfo_open(FILEINFO_MIME)) && ($result = finfo_file($info, $this->_realpath)) !== false) {
                         return $this->_mimeType = $result;
+                    }
+                }
+
+                if (function_exists('mime_content_type') && ($result = @mime_content_type($this->_realpath)) !== false) {
+                    return $this->_mimeType = $result;
+                }
 
                 return $this->_mimeType = $this->getMimeTypeByExtension($this->_realpath);
-
             }
 
             $this->addLog('Unable to get mime type for file');
             return false;
-        }
-        else
-        {
+        } else {
             $this->addLog('getMimeType() method is available only for files', 'warning');
             return false;
         }
@@ -1363,24 +1315,22 @@ class CFile extends CApplicationComponent
      */
     public function getMimeTypeByExtension()
     {
-        if ($this->isFile)
-        {
-            Yii::trace('Trying to get MIME type for "'.$this->_realpath.'" from extension "'.$this->_extension.'"', 'ext.file');
+        if ($this->isFile) {
+            Yii::trace('Trying to get MIME type for "' . $this->_realpath . '" from extension "' . $this->_extension . '"', 'ext.file');
             static $extensions;
-            if($extensions===null)
-                $extensions=require(Yii::getPathOfAlias('system.utils.mimeTypes').'.php');
+            if ($extensions === null) {
+                $extensions = require(Yii::getPathOfAlias('system.utils.mimeTypes') . '.php');
+            }
 
             $ext = strtolower($this->_extension);
-            if(!empty($ext) && isset($extensions[$ext]))
-                    return $extensions[$ext];
+            if (!empty($ext) && isset($extensions[$ext])) {
+                return $extensions[$ext];
+            }
 
             return false;
-        }
-        else
-        {
-            $this->addLog(__METHOD__.' method is available only for files', 'warning');
+        } else {
+            $this->addLog(__METHOD__ . ' method is available only for files', 'warning');
             return false;
         }
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Replaces outer links like '<a href="http://..."></a>'
  * to redirection URL like '<a href="/link?url=http..."></a>'
@@ -23,7 +24,7 @@
  */
 class DOuterLinker
 {
-    protected $_protocols = array('ftp', 'http', 'https');
+    protected $_protocols = ['ftp', 'http', 'https'];
     protected $_prefix = '/link?url=';
 
     /**
@@ -75,17 +76,17 @@ class DOuterLinker
     public function process($html)
     {
         $protocols = implode('|', $this->_protocols);
-        return preg_replace_callback('@\<a(?P<before>[^>]+)href=(?P<beginquote>[\'"]?)(?P<protocol>'. $protocols . ')://(?P<url>[^\'"\s]+)(?P<endquote>[\'"]?)(?P<after>[^>]+)?\>@i', array(get_class($this),'pregCallback') , $html);
+        return preg_replace_callback('@\<a(?P<before>[^>]+)href=(?P<beginquote>[\'"]?)(?P<protocol>' . $protocols . ')://(?P<url>[^\'"\s]+)(?P<endquote>[\'"]?)(?P<after>[^>]+)?\>@i', [get_class($this), 'pregCallback'], $html);
     }
 
     protected function pregCallback($matches)
     {
-        $before     = isset($matches['before'])     ? $matches['before']     : '';
+        $before = isset($matches['before']) ? $matches['before'] : '';
         $beginquote = isset($matches['beginquote']) ? $matches['beginquote'] : '';
-        $protocol   = isset($matches['protocol'])   ? $matches['protocol']   : '';
-        $url        = isset($matches['url'])        ? $matches['url']        : '';
-        $endquote   = isset($matches['endquote'])   ? $matches['endquote']   : '';
-        $after      = isset($matches['after'])      ? $matches['after']      : '';
+        $protocol = isset($matches['protocol']) ? $matches['protocol'] : '';
+        $url = isset($matches['url']) ? $matches['url'] : '';
+        $endquote = isset($matches['endquote']) ? $matches['endquote'] : '';
+        $after = isset($matches['after']) ? $matches['after'] : '';
 
         return '<a' . $before . 'href=' . $beginquote . $this->_prefix . $protocol . '://' . urlencode($url) . $endquote . $after . '>';
     }

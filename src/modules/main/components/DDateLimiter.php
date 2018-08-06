@@ -19,7 +19,7 @@ class DDateLimiter extends CComponent
     /**
      * @param string $date
      */
-    public function __construct($date='')
+    public function __construct($date = '')
     {
         $this->date = $date;
     }
@@ -29,11 +29,13 @@ class DDateLimiter extends CComponent
      */
     public function validate()
     {
-        if ($this->month > 12 || $this->day > 31)
+        if ($this->month > 12 || $this->day > 31) {
             return false;
+        }
 
-        if (($this->year && $this->month) || ($this->year && !$this->day))
+        if (($this->year && $this->month) || ($this->year && !$this->day)) {
             return true;
+        }
 
         return false;
     }
@@ -51,8 +53,7 @@ class DDateLimiter extends CComponent
      */
     public function setDate($date)
     {
-        if (preg_match('/(\d{4})-?(\d{2})?-?(\d{2})?/', $date, $m))
-        {
+        if (preg_match('/(\d{4})-?(\d{2})?-?(\d{2})?/', $date, $m)) {
             $this->year = isset($m[1]) ? (int)$m[1] : 0;
             $this->month = isset($m[2]) ? (int)$m[2] : 0;
             $this->day = isset($m[3]) ? (int)$m[3] : 0;
@@ -64,7 +65,7 @@ class DDateLimiter extends CComponent
      */
     public function getDate()
     {
-        return  $this->nulled($this->year, 4) . ($this->month ? '-' . $this->nulled($this->month, 2) : '') . ($this->day ? '-' . $this->nulled($this->day, 2) : '');
+        return $this->nulled($this->year, 4) . ($this->month ? '-' . $this->nulled($this->month, 2) : '') . ($this->day ? '-' . $this->nulled($this->day, 2) : '');
     }
 
     public function setDay($day)

@@ -6,23 +6,23 @@ class CommentController extends DController
 {
     public function filters()
     {
-        return array_merge(parent::filters(), array(
+        return array_merge(parent::filters(), [
             'accessControl',
-        ));
+        ]);
     }
 
     public function accessRules()
     {
-        return array(
-            array('allow',
-                'actions'=>array('update'),
-                'users'=>array('?'),
-            ),
-            array('deny',
-                'actions'=>array('*'),
-                'users'=>array('*'),
-            ),
-        );
+        return [
+            ['allow',
+                'actions' => ['update'],
+                'users' => ['?'],
+            ],
+            ['deny',
+                'actions' => ['*'],
+                'users' => ['*'],
+            ],
+        ];
     }
 
     public function actionUpdate($id)
@@ -36,27 +36,24 @@ class CommentController extends DController
 
         $form->attributes = $model->attributes;
 
-        if(isset($_POST['CommentForm']))
-        {
+        if (isset($_POST['CommentForm'])) {
             $form->attributes = $_POST['CommentForm'];
 
-            if($form->validate())
-            {
+            if ($form->validate()) {
                 $model->attributes = $form->attributes;
 
-                if ($model->save())
-                {
-                    Yii::app()->user->setFlash('commentForm','Ваш коментарий сохранён');
+                if ($model->save()) {
+                    Yii::app()->user->setFlash('commentForm', 'Ваш коментарий сохранён');
                     $this->redirect($model->url);
                 }
             }
         }
 
-        $this->render('update', array(
-            'model'=>$model,
-            'form'=>$form,
-            'user'=>$user,
-        ));
+        $this->render('update', [
+            'model' => $model,
+            'form' => $form,
+            'user' => $user,
+        ]);
     }
 
     protected function loadModel($id)
@@ -68,8 +65,9 @@ class CommentController extends DController
         }
 
         $model = Comment::model()->findByPk($id, $condition);
-        if($model===null)
+        if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
+        }
 
         return $model;
     }

@@ -8,24 +8,24 @@ class GalleryAdminController extends DAdminController
 
     public function filters()
     {
-        return array_merge(parent::filters(), array(
+        return array_merge(parent::filters(), [
             'PostOnly + delete, renamefile, upload, process',
-        ));
+        ]);
     }
 
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function actionFiles($id)
@@ -34,34 +34,34 @@ class GalleryAdminController extends DAdminController
 
         $path = $gallery->alias;
 
-        $root = Yii::getPathOfAlias('webroot').'/'.NewsGallery::GALLERY_PATH;
-        $htmlroot = Yii::app()->request->baseUrl.'/'.NewsGallery::GALLERY_PATH;
+        $root = Yii::getPathOfAlias('webroot') . '/' . NewsGallery::GALLERY_PATH;
+        $htmlroot = Yii::app()->request->baseUrl . '/' . NewsGallery::GALLERY_PATH;
 
-        if (!empty($_FILES))
-        {
-            for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++)
-            {
-                if (isset($_FILES['file_'.$i]))
-                    $gallery->uploadPostFile('file_'.$i);
+        if (!empty($_FILES)) {
+            for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++) {
+                if (isset($_FILES['file_' . $i])) {
+                    $gallery->uploadPostFile('file_' . $i);
+                }
             }
             $this->refresh();
         }
 
-        $this->render('files', array(
-            'model'=>$gallery,
-            'htmlroot'=>$htmlroot,
-            'root'=>$root,
-            'path'=>$path,
-            'upload_count'=>self::FILES_UPLOAD_COUNT,
-        ));
+        $this->render('files', [
+            'model' => $gallery,
+            'htmlroot' => $htmlroot,
+            'root' => $root,
+            'path' => $path,
+            'upload_count' => self::FILES_UPLOAD_COUNT,
+        ]);
     }
 
     public function actionDelfile($id, $name)
     {
         $gallery = $this->loadModel($id);
 
-        if (!$gallery->deleteFile($name))
+        if (!$gallery->deleteFile($name)) {
             throw new CHttpException(400, 'Ошибка удаления');
+        }
 
         $this->redirectOrAjax();
     }
@@ -71,23 +71,24 @@ class GalleryAdminController extends DAdminController
         $name = Yii::app()->request->getParam('name');
         $to = Yii::app()->request->getParam('to');
 
-        if (!$name || !$to)
+        if (!$name || !$to) {
             throw new CHttpException(400, 'Некорректный запрос');
+        }
 
         $gallery = $this->loadModel($id);
 
-        if (!$gallery->renameFile($name, $to))
+        if (!$gallery->renameFile($name, $to)) {
             throw new CHttpException(400, 'Ошибка переименования');
+        }
 
-        $this->redirectOrAjax($this->createUrl('files', array('id'=>$id)));
+        $this->redirectOrAjax($this->createUrl('files', ['id' => $id]));
     }
 
     public function actionUpload($id)
     {
         $gallery = $this->loadModel($id);
 
-        if (!empty($_FILES))
-        {
+        if (!empty($_FILES)) {
             $up = $gallery->uploadPostFile('Filedata');
             echo $up == 1 ? 1 : $up;
         }
@@ -97,13 +98,12 @@ class GalleryAdminController extends DAdminController
 
     public function actionCheckexists($id)
     {
-        if (isset($_POST['filename']))
-        {
+        if (isset($_POST['filename'])) {
             $gallery = $this->loadModel($id);
             echo $gallery->isFileExists($_POST['filename']) ? 1 : 0;
-        }
-        else
+        } else {
             echo 0;
+        }
 
         Yii::app()->end();
     }
@@ -112,25 +112,23 @@ class GalleryAdminController extends DAdminController
     {
         $action = Yii::app()->request->getPost('action');
 
-        if ($action)
-        {
+        if ($action) {
             $gallery = $this->loadModel($id);
 
             $files = $gallery->getFileNameList();
 
-            foreach ($files as $filename)
-            {
-                switch($action)
-                {
+            foreach ($files as $filename) {
+                switch ($action) {
                     case 'del':
-                        if (Yii::app()->request->getPost('del_'.md5($filename)))
+                        if (Yii::app()->request->getPost('del_' . md5($filename))) {
                             $gallery->deleteFile($filename);
+                        }
                         break;
                 }
             }
         }
 
-        $this->redirectOrAjax($this->createUrl('files', array('id'=>$id)));
+        $this->redirectOrAjax($this->createUrl('files', ['id' => $id]));
     }
 
     public function actionRegenerate($id)
@@ -138,10 +136,9 @@ class GalleryAdminController extends DAdminController
         $gallery = $this->loadModel($id);
         $gallery->createThumbs();
 
-        if (!Yii::app()->request->isAjaxRequest)
-        {
-            Yii::app()->user->setFlash('success','Превью перегенерированы');
-            $this->redirect($this->createUrl('files', array('id'=>$id)));
+        if (!Yii::app()->request->isAjaxRequest) {
+            Yii::app()->user->setFlash('success', 'Превью перегенерированы');
+            $this->redirect($this->createUrl('files', ['id' => $id]));
         }
     }
 
@@ -150,10 +147,9 @@ class GalleryAdminController extends DAdminController
         $gallery = $this->loadModel($id);
         $gallery->clearThumbs();
 
-        if (!Yii::app()->request->isAjaxRequest)
-        {
-            Yii::app()->user->setFlash('success','Превью удалены');
-            $this->redirect($this->createUrl('files', array('id'=>$id)));
+        if (!Yii::app()->request->isAjaxRequest) {
+            Yii::app()->user->setFlash('success', 'Превью удалены');
+            $this->redirect($this->createUrl('files', ['id' => $id]));
         }
     }
 
@@ -174,9 +170,9 @@ class GalleryAdminController extends DAdminController
     public function loadModel($id)
     {
         $model = NewsGallery::model()->findByPk($id);
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
-
 }

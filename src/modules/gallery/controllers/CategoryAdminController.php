@@ -6,30 +6,31 @@ class CategoryAdminController extends DAdminController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function beforeDelete($model)
     {
         $count = GalleryPhoto::model()->count(
-            array(
-                'condition'=>'t.category_id = :id',
-                'params'=>array(':id'=>$model->id)
-            )
+            [
+                'condition' => 't.category_id = :id',
+                'params' => [':id' => $model->id]
+            ]
         );
 
-        if ($count)
+        if ($count) {
             throw new CHttpException(402, 'В данной группе есть материалы. Удалите их или переместите в другие категории.');
+        }
     }
 
     public function createModel()
@@ -41,8 +42,9 @@ class CategoryAdminController extends DAdminController
     {
         $model = GalleryCategory::model()->findByPk($id);
 
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

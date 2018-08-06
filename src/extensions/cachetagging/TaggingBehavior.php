@@ -1,4 +1,5 @@
 <?php
+
 class TaggingBehavior extends CBehavior
 {
     const PREFIX = '__tag__';
@@ -9,10 +10,11 @@ class TaggingBehavior extends CBehavior
      * @param $tags
      * @return void
      */
-    public function clear($tags) {
+    public function clear($tags)
+    {
 
         foreach ((array)$tags as $tag) {
-            $this->owner->set(self::PREFIX.$tag, time());
+            $this->owner->set(self::PREFIX . $tag, time());
         }
     }
 }

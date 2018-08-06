@@ -26,19 +26,21 @@ class DLinkColumn extends CDataColumn
 
     protected function getItemValue($row, $data)
     {
-        if (!empty($this->value))
-            return $this->evaluateExpression($this->value, array('data' => $data, 'row' => $row));
-        elseif (!empty($this->name))
+        if (!empty($this->value)) {
+            return $this->evaluateExpression($this->value, ['data' => $data, 'row' => $row]);
+        } elseif (!empty($this->name)) {
             return CHtml::value($data, $this->name);
+        }
         return null;
     }
 
     protected function getItemUrl($row, $data)
     {
-        if (!empty($this->link))
-            return $this->evaluateExpression($this->link, array('data' => $data, 'row' => $row));
-        elseif ($this->link !== false)
-            return Yii::app()->controller->createUrl('update', array('id' => $data->getPrimaryKey()));
+        if (!empty($this->link)) {
+            return $this->evaluateExpression($this->link, ['data' => $data, 'row' => $row]);
+        } elseif ($this->link !== false) {
+            return Yii::app()->controller->createUrl('update', ['id' => $data->getPrimaryKey()]);
+        }
         return '';
     }
 }

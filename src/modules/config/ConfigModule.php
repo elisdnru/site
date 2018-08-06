@@ -6,10 +6,10 @@ class ConfigModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.config.components.*',
             'application.modules.config.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -29,8 +29,8 @@ class ConfigModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Параметры', 'url'=>array('/config/configAdmin/index'), 'icon'=>'settings.png'),
-        );
+        return [
+            ['label' => 'Параметры', 'url' => ['/config/configAdmin/index'], 'icon' => 'settings.png'],
+        ];
     }
 }

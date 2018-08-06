@@ -1,18 +1,18 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
-<section class="main left_main">
+    <section class="main left_main">
 
-    <?php $this->widget('main.widgets.DMessagesWidget'); ?>
+        <?php $this->widget('main.widgets.DMessagesWidget'); ?>
 
-    <?php echo $content; ?>
+        <?php echo $content; ?>
 
-</section>
+    </section>
 
-<aside class="sidebar right_sidebar">
+    <aside class="sidebar right_sidebar">
 
-    <?php $this->renderPartial('/layouts/sidebars/index'); ?>
+        <?php $this->renderPartial('/layouts/sidebars/index'); ?>
 
-    <div class="clear"></div>
-</aside>
+        <div class="clear"></div>
+    </aside>
 
 <?php $this->endContent(); ?>

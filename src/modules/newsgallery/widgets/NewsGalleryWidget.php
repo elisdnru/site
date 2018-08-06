@@ -11,23 +11,24 @@ class NewsGalleryWidget extends DWidget
     {
         $path = NewsGallery::GALLERY_PATH;
 
-        if (!$this->id)
+        if (!$this->id) {
             return;
+        }
 
-        $gallery = NewsGallery::model()->find(array(
-            'condition'=>'alias = :alias',
-            'params'=>array(':alias'=>$this->id),
-        ));
+        $gallery = NewsGallery::model()->find([
+            'condition' => 'alias = :alias',
+            'params' => [':alias' => $this->id],
+        ]);
 
-        if (!$gallery && (int)$this->id)
+        if (!$gallery && (int)$this->id) {
             $gallery = NewsGallery::model()->findByPk($this->id);
+        }
 
-        if ($gallery && file_exists($path.'/'.$gallery->alias))
-        {
-            $this->render($this->tpl ,array(
-                'path'=>$path.'/'.$gallery->alias,
-                'htmlpath'=>$path.'/'.$gallery->alias,
-            ));
+        if ($gallery && file_exists($path . '/' . $gallery->alias)) {
+            $this->render($this->tpl, [
+                'path' => $path . '/' . $gallery->alias,
+                'htmlpath' => $path . '/' . $gallery->alias,
+            ]);
         }
     }
 }

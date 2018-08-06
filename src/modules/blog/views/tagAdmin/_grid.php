@@ -1,30 +1,29 @@
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'posts-grid',
-    'dataProvider'=>$model->search(30),
-    'filter'=>$model,
-    'columns'=>array(
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'title',
-        ),
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'frequency',
-            'htmlOptions'=>array('style'=>'width:130px;text-align:center'),
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{view}',
-            'viewButtonUrl'=>'$data->url',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{update}',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{delete}',
-        ),
-    ),
-)); ?>
+<?php $this->widget('zii.widgets.grid.CGridView', [
+    'id' => 'posts-grid',
+    'dataProvider' => $model->search(30),
+    'filter' => $model,
+    'columns' => [
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'title',
+        ],
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'frequency',
+            'htmlOptions' => ['style' => 'width:130px;text-align:center'],
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{view}',
+            'viewButtonUrl' => '$data->url',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{update}',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{delete}',
+        ],
+    ],
+]);

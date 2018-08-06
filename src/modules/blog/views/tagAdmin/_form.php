@@ -8,13 +8,13 @@
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('CActiveForm', array(
-    'id'=>'page-form',
-    'enableClientValidation'=>true,
-    'clientOptions'=>array(
-        'validateOnSubmit'=>true,
-    ),
-)); ?>
+    <?php $form = $this->beginWidget('CActiveForm', [
+        'id' => 'page-form',
+        'enableClientValidation' => true,
+        'clientOptions' => [
+            'validateOnSubmit' => true,
+        ],
+    ]); ?>
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
@@ -22,9 +22,9 @@
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model,'title'); ?><br />
-            <?php echo $form->textField($model,'title',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'title'); ?>
+            <?php echo $form->labelEx($model, 'title'); ?><br/>
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'title'); ?>
         </div>
     </fieldset>
 

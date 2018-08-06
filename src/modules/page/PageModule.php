@@ -6,10 +6,10 @@ class PageModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.page.components.*',
             'application.modules.page.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -29,19 +29,19 @@ class PageModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Шаблоны', 'url'=>array('/page/layoutAdmin/index'), 'icon'=>'fileicon.jpg'),
-            array('label'=>'Страницы', 'url'=>array('/page/pageAdmin/index'), 'icon'=>'fileicon.jpg'),
-            array('label'=>'Добавить страницу', 'url'=>array('/page/pageAdmin/create'), 'icon'=>'add.png'),
-        );
+        return [
+            ['label' => 'Шаблоны', 'url' => ['/page/layoutAdmin/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Страницы', 'url' => ['/page/pageAdmin/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить страницу', 'url' => ['/page/pageAdmin/create'], 'icon' => 'add.png'],
+        ];
     }
 
     public static function rules()
     {
-        return array(
-            'page/page/show'=>'site/error',
-            'page/page'=>'site/error',
-            array('class' => 'page.components.DPageUrlRule', 'cache'=>3600*24),
-        );
+        return [
+            'page/page/show' => 'site/error',
+            'page/page' => 'site/error',
+            ['class' => 'page.components.DPageUrlRule', 'cache' => 3600 * 24],
+        ];
     }
 }

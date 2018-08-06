@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -8,9 +9,10 @@ class DTimeBehavior extends CBehavior
     public function checkTime()
     {
         $expires = $this->getExpires();
-    
-        if ($expires < 0) 
+
+        if ($expires < 0) {
             throw new CHttpException(403, 'Демонстрационный режим работы сайта истёк');
+        }
 
         Yii::app()->user->setFlash('warning', '<!doctype html><p style="position:fixed; z-index:200; width:100%; background:#f66; color:#fff; padding:5px 0; text-align:center;">До окончания демо-срока работы сайта осталось ' . $expires . ' дн.</p>');
     }

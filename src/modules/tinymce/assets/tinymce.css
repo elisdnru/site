@@ -1,57 +1,65 @@
 .tinymce table {
-    width:auto !important;
-    margin:0 2px !important;
+    width: auto !important;
+    margin: 0 2px !important;
 }
+
 .tinymce table td {
-    margin:0 !important;
-    padding:0 !important;
-    border:none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
 }
+
 .tinymce textarea {
-    width:706px !important;
+    width: 706px !important;
 }
+
 .mceToolbar {
-    border-width:0 0 1px 0 !important;
-    border-color:#ccc !important;
-    padding:0 !important;
-    width:auto !important;
+    border-width: 0 0 1px 0 !important;
+    border-color: #ccc !important;
+    padding: 0 !important;
+    width: auto !important;
     background: -moz-linear-gradient(#fff, #eee) !important;
     background: -webkit-linear-gradient(#fff, #eee) !important;
     background: -o-linear-gradient(#fff, #eee) !important;
     background: -ms-linear-gradient(#fff, #eee) !important;
 }
+
 table.mceToolbar td {
-    margin:0 !important;
-    padding:0 !important;
-    border:none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
 }
 
 .mceToolbarTop * {
-    float:left;
+    float: left;
 }
+
 .mceStatusbar {
-    border-width:1px 0 0 0 !important;
-    border-color:#ccc !important;
-    padding:0 !important;
+    border-width: 1px 0 0 0 !important;
+    border-color: #ccc !important;
+    padding: 0 !important;
     background: -moz-linear-gradient(#fff, #eee) !important;
     background: -webkit-linear-gradient(#fff, #eee) !important;
     background: -o-linear-gradient(#fff, #eee) !important;
     background: -ms-linear-gradient(#fff, #eee) !important;
 }
+
 .mceToolbarTop select {
-    width:auto !important;
+    width: auto !important;
 }
 
 .mceToolbarTop option {
-    float:none;
+    float: none;
 }
+
 .mceLayout {
-    border:none !important;
-    border-top:#ddd 1px solid !important;
-    width:100% !important;
+    border: none !important;
+    border-top: #ddd 1px solid !important;
+    width: 100% !important;
 }
-table.mceLayout td.mceIframeContainer  {
-    border:0 !important;
-    padding:0 !important;
-    margin:0 !important;
+
+table.mceLayout td.mceIframeContainer {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }

@@ -1,2 +1,2 @@
 <?php $this->layout = false; ?>
-<?php echo $content; ?>
+<?php echo $content;

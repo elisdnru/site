@@ -9,7 +9,7 @@ Yii::import('application.modules.attribute.models.UserAttribute');
 
 class DAttributeHelper
 {
-    protected static $_attributes = array();
+    protected static $_attributes = [];
 
     /**
      * @param string $class
@@ -19,9 +19,10 @@ class DAttributeHelper
     {
         $attrs = self::attributes($class);
 
-        $attributes = array();
-        foreach ($attrs as $attr)
+        $attributes = [];
+        foreach ($attrs as $attr) {
             $attributes[$attr->name] = $attr->label;
+        }
 
         return $attributes;
     }
@@ -34,9 +35,10 @@ class DAttributeHelper
     {
         $attrs = self::attributes($class);
 
-        $names = array();
-        foreach ($attrs as $attr)
+        $names = [];
+        foreach ($attrs as $attr) {
             $names[] = $attr->name;
+        }
 
         return $names;
     }
@@ -49,16 +51,17 @@ class DAttributeHelper
     {
         $attrs = self::attributes($class);
 
-        $rules = array();
-        foreach ($attrs as $attr)
-        {
-            if (strpos($attr->rule, '|') === 0)
-                $rules[] = array($attr->name, 'match', 'pattern'=>$attr->rule, 'message'=>'Неверный формат поля {attribute}');
-            else
-                $rules[] = array($attr->name, $attr->rule);
+        $rules = [];
+        foreach ($attrs as $attr) {
+            if (strpos($attr->rule, '|') === 0) {
+                $rules[] = [$attr->name, 'match', 'pattern' => $attr->rule, 'message' => 'Неверный формат поля {attribute}'];
+            } else {
+                $rules[] = [$attr->name, $attr->rule];
+            }
 
-            if ($attr->required)
-                $rules[] = array($attr->name, 'required');
+            if ($attr->required) {
+                $rules[] = [$attr->name, 'required'];
+            }
         }
 
         return $rules;
@@ -70,12 +73,13 @@ class DAttributeHelper
      */
     public static function attributes($class)
     {
-        if (!isset(self::$_attributes[$class]))
-            self::$_attributes[$class] = UserAttribute::model()->cache(0, new Tags('attribute'))->findAll(array(
-                'condition'=>'class = :class',
-                'params'=>array(':class'=>$class),
-                'order'=>'sort',
-            ));
+        if (!isset(self::$_attributes[$class])) {
+            self::$_attributes[$class] = UserAttribute::model()->cache(0, new Tags('attribute'))->findAll([
+                'condition' => 'class = :class',
+                'params' => [':class' => $class],
+                'order' => 'sort',
+            ]);
+        }
 
         return self::$_attributes[$class];
     }

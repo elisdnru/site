@@ -6,25 +6,25 @@
 
 class DHttpRequest extends DLanguageHttpRequest
 {
-    public $noCsrfValidationUris = array();
+    public $noCsrfValidationUris = [];
 
-    protected function normalizeRequest(){
+    protected function normalizeRequest()
+    {
 
         parent::normalizeRequest();
 
-        if(!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] != 'POST') return;
+        if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] != 'POST') {
+            return;
+        }
 
         //$route = Yii::app()->getUrlManager()->parseUrl($this);
         $route = $this->getPathInfo();
 
-        if($this->enableCsrfValidation)
-        {
-            foreach($this->noCsrfValidationUris as $cr)
-            {
-                if(preg_match('#'.$cr.'#', $route))
-                {
-                    Yii::app()->detachEventHandler('onBeginRequest', array($this,'validateCsrfToken'));
-                    Yii::trace('Route "'.$route.' passed without CSRF validation');
+        if ($this->enableCsrfValidation) {
+            foreach ($this->noCsrfValidationUris as $cr) {
+                if (preg_match('#' . $cr . '#', $route)) {
+                    Yii::app()->detachEventHandler('onBeginRequest', [$this, 'validateCsrfToken']);
+                    Yii::trace('Route "' . $route . ' passed without CSRF validation');
                     break; // found first route and break
                 }
             }

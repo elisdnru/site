@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -29,7 +30,7 @@
  */
 class DController extends Controller
 {
-    public $admin = array();
+    public $admin = [];
     public $info = '';
 
     public $isHomePage = false;
@@ -39,28 +40,28 @@ class DController extends Controller
 
     public function filters()
     {
-        return array(
-            array('application.modules.module.components.DModuleFilter')
-        );
+        return [
+            ['application.modules.module.components.DModuleFilter']
+        ];
     }
 
     public function behaviors()
     {
-        return array_merge(parent::behaviors(), array(
-            'DModuleAccessBehavior'=>array('class'=>'application.modules.module.components.DModuleAccessBehavior'),
-            'DUserBehavior'=>array('class'=>'DUserBehavior'),
-            'DFlashSessionBehavior'=>array('class'=>'DFlashSessionBehavior'),
-            'DLiveLayoutBehavior'=>array('class'=>'DLiveLayoutBehavior'),
-            'DJsInitBehavior'=>array('class'=>'DJsInitBehavior'),
-            'DInlineWidgetsBehavior'=>array(
-                'class'=>'DInlineWidgetsBehavior',
-                'location'=>'application.widgets',
-                'widgets'=>Yii::app()->params['runtimeWidgets'],
-                'classSuffix'=> 'Widget',
-                'startBlock'=> '[{widget:',
-                'endBlock'=> '}]',
-            ),
-        ));
+        return array_merge(parent::behaviors(), [
+            'DModuleAccessBehavior' => ['class' => 'application.modules.module.components.DModuleAccessBehavior'],
+            'DUserBehavior' => ['class' => 'DUserBehavior'],
+            'DFlashSessionBehavior' => ['class' => 'DFlashSessionBehavior'],
+            'DLiveLayoutBehavior' => ['class' => 'DLiveLayoutBehavior'],
+            'DJsInitBehavior' => ['class' => 'DJsInitBehavior'],
+            'DInlineWidgetsBehavior' => [
+                'class' => 'DInlineWidgetsBehavior',
+                'location' => 'application.widgets',
+                'widgets' => Yii::app()->params['runtimeWidgets'],
+                'classSuffix' => 'Widget',
+                'startBlock' => '[{widget:',
+                'endBlock' => '}]',
+            ],
+        ]);
     }
 
     public function init()
@@ -72,39 +73,42 @@ class DController extends Controller
     protected function beforeRender($viev)
     {
         $this->initJsDefaults();
-		$this->initLayout();
+        $this->initLayout();
         return parent::beforeRender($viev);
     }
 
     public function checkIsPost()
     {
-        if (!Yii::app()->request->isPostRequest)
-            throw new CHttpException (400, 'Bad request');
+        if (!Yii::app()->request->isPostRequest) {
+            throw new CHttpException(400, 'Bad request');
+        }
     }
 
-    public function refresh($terminate=true, $anchor='')
+    public function refresh($terminate = true, $anchor = '')
     {
         $this->redirect(Yii::app()->getRequest()->getOriginalUrl() . $anchor, $terminate);
     }
 
-    public function redirectOrAjax($route = array('index'))
+    public function redirectOrAjax($route = ['index'])
     {
-        if (!Yii::app()->request->isAjaxRequest)
+        if (!Yii::app()->request->isAjaxRequest) {
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : $route);
+        }
     }
 
     public function checkUrl($url)
     {
-        if ('/' . Yii::app()->getRequest()->getPathInfo() != $url)
+        if ('/' . Yii::app()->getRequest()->getPathInfo() != $url) {
             $this->redirect($url, true, 301);
+        }
     }
 
     public function reflash()
     {
-        foreach (array('notice', 'success', 'error') as $type)
-        {
-            if(Yii::app()->user->hasFlash($type))
+        foreach (['notice', 'success', 'error'] as $type) {
+            if (Yii::app()->user->hasFlash($type)) {
                 Yii::app()->user->setFlash($type, Yii::app()->user->getFlash($type));
+            }
         }
     }
 }

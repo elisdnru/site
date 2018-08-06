@@ -9,12 +9,13 @@ Yii::import('application.modules.user.models.*');
 class DUserBehavior extends CBehavior
 {
     protected $_user;
-    protected $_access = array();
+    protected $_access = [];
 
     public function getUser()
     {
-        if ($this->_user === null)
+        if ($this->_user === null) {
             $this->_user = User::model()->findByPk(Yii::app()->user->id);
+        }
         return $this->_user;
     }
 
@@ -26,14 +27,15 @@ class DUserBehavior extends CBehavior
     public function check($role)
     {
         $success = false;
-        if (is_array($role)){
-            foreach ($role as $item){
+        if (is_array($role)) {
+            foreach ($role as $item) {
                 $success = $success || $this->is($item);
             }
         } else {
             $success = $this->is($role);
         }
-        if (!$success)
+        if (!$success) {
             throw new CHttpException(403, 'Недостаточно прав для просмотра страницы');
+        }
     }
 }

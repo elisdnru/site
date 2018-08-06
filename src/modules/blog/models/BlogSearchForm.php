@@ -14,9 +14,9 @@ class BlogSearchForm extends CFormModel
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
-        return array(
-            array('word', 'safe'),
-        );
+        return [
+            ['word', 'safe'],
+        ];
     }
 
     /**
@@ -24,9 +24,8 @@ class BlogSearchForm extends CFormModel
      */
     public function attributeLabels()
     {
-        return array(
+        return [
             'word' => 'Слово',
-        );
+        ];
     }
-
 }

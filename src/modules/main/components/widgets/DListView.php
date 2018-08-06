@@ -10,7 +10,7 @@ class DListView extends CListView
 {
     public $noScript = false;
 
-    public function __construct($owner=null)
+    public function __construct($owner = null)
     {
         $this->enableHistory = false;
         $this->ajaxUpdate = true;
@@ -21,8 +21,8 @@ class DListView extends CListView
 
     public function registerClientScript()
     {
-        if (!$this->noScript)
+        if (!$this->noScript) {
             parent::registerClientScript();
+        }
     }
-
 }

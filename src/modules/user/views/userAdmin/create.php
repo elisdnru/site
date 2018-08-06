@@ -3,18 +3,18 @@
 /* @var $model User */
 /* @var $form CActiveForm */
 
-$this->pageTitle='Пользователи';
-$this->breadcrumbs=array(
-    'Панель управления'=>array('/admin'),
-    'Пользователи'=>array('index'),
+$this->pageTitle = 'Пользователи';
+$this->breadcrumbs = [
+    'Панель управления' => ['/admin'],
+    'Пользователи' => ['index'],
     'Редактор',
-);
+];
 
-$this->admin[] = array('label'=>'Пользователи', 'url'=>$this->createUrl('index'));
+$this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
 
 $this->info = 'Для добавления администратора выберите соответствующую роль';
 ?>
 
-<h1>Добавление пользователя</h1>
+    <h1>Добавление пользователя</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', ['model' => $model]); ?>

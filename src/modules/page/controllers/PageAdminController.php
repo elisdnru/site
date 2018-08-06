@@ -6,47 +6,51 @@ class PageAdminController extends DAdminController
 {
     public function filters()
     {
-        return array_merge(parent::filters(), array(
+        return array_merge(parent::filters(), [
             'PostOnly + deleteFile',
-        ));
+        ]);
     }
 
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
-	public function beforeUpdate($model)
+    public function beforeUpdate($model)
     {
         $user = $this->getUser();
-        if (!$model->allowedForUser($user))
+        if (!$model->allowedForUser($user)) {
             throw new CHttpException(403, 'Отказано в доступе');
-	}
+        }
+    }
 
-	public function beforeDelete($model)
+    public function beforeDelete($model)
     {
         $user = $this->getUser();
-        if ($model->system || !$model->allowedForUser($user))
+        if ($model->system || !$model->allowedForUser($user)) {
             throw new CHttpException(403, 'Отказано в доступе');
-	}
+        }
+    }
 
     public function actionDeleteFile($id)
     {
-        if (!$model = PageFile::model()->findByPk($id))
+        if (!$model = PageFile::model()->findByPk($id)) {
             throw new CHttpException(404, 'Не найдено');
+        }
 
-        if (!$model->delete())
+        if (!$model->delete()) {
             throw new CHttpException(400, 'Ошибка удаления');
+        }
 
         $this->redirectOrAjax();
     }
@@ -60,14 +64,15 @@ class PageAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled())
+        if (DMultilangHelper::enabled()) {
             $model = Page::model()->multilang()->findByPk($id);
-        else
+        } else {
             $model = Page::model()->findByPk($id);
+        }
 
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
+        }
         return $model;
     }
-
 }

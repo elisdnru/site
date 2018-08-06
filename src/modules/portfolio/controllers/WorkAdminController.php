@@ -8,33 +8,32 @@ class WorkAdminController extends DAdminController
 
     public function filters()
     {
-        return array_merge(parent::filters(), array(
+        return array_merge(parent::filters(), [
             'PostOnly + sort',
-        ));
+        ]);
     }
 
     public function actions()
     {
-        return array(
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'toggle'=>array(
-                'class'=>'DToggleAction',
-                'attributes'=>array('public')
-            ),
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'toggle' => [
+                'class' => 'DToggleAction',
+                'attributes' => ['public']
+            ],
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
-	public function actionIndex()
-	{
+    public function actionIndex()
+    {
         $category = (int)Yii::app()->request->getParam('category');
 
         $criteria = new CDbCriteria;
 
-        if ($category)
-        {
+        if ($category) {
             $criteria->addCondition('t.category_id = :categoryID');
             $criteria->params[':categoryID'] = $category;
         }
@@ -46,37 +45,40 @@ class WorkAdminController extends DAdminController
         $pages->applyLimit($criteria);
 
         $criteria->order = 't.sort DESC';
-        $criteria->with = array('category');
+        $criteria->with = ['category'];
 
         $works = PortfolioWork::model()->findAll($criteria);
 
-        $this->render('index', array(
-            'works'=>$works,
-            'category'=>$category,
-            'pages'=>$pages,
-        ));
-	}
+        $this->render('index', [
+            'works' => $works,
+            'category' => $category,
+            'pages' => $pages,
+        ]);
+    }
 
     public function actionSort()
     {
         $success = true;
 
-        $items =  Yii::app()->request->getPost('item');
+        $items = Yii::app()->request->getPost('item');
 
-        if ($items){
-
+        if ($items) {
             $sort = 0;
             $count = 0;
 
-            foreach ($items as $id){
+            foreach ($items as $id) {
                 $model = $this->loadModel($id);
-                if ($model->sort > $sort) $sort = $model->sort;
+                if ($model->sort > $sort) {
+                    $sort = $model->sort;
+                }
                 $count++;
             };
 
-            if ($sort < $count) $sort = $count;
+            if ($sort < $count) {
+                $sort = $count;
+            }
 
-            foreach ($items as $id){
+            foreach ($items as $id) {
                 $model = $this->loadModel($id);
                 $model->sort = $sort;
                 $sort--;
@@ -99,13 +101,15 @@ class WorkAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled())
+        if (DMultilangHelper::enabled()) {
             $model = PortfolioWork::model()->multilang()->findByPk($id);
-        else
+        } else {
             $model = PortfolioWork::model()->findByPk($id);
+        }
 
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

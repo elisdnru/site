@@ -13,42 +13,43 @@ class CommentsWidget extends DWidget
     public $tpl = 'comments';
 
 
-	public function run()
-	{
-        if (!Yii::app()->moduleManager->active('comment'))
+    public function run()
+    {
+        if (!Yii::app()->moduleManager->active('comment')) {
             return;
+        }
 
-        if (!$this->user)
+        if (!$this->user) {
             $this->user = User::model()->findByPk(Yii::app()->user->getId());
+        }
 
-        if (!$this->material_id)
+        if (!$this->material_id) {
             throw new CException('Not setted a Material_ID');
+        }
 
-        if (!$this->type)
+        if (!$this->type) {
             throw new CException('Not setted a TYPE of comments');
+        }
 
         $this->registerScripts();
 
         $form = new CommentForm();
 
-        if (!$this->user)
-        {
+        if (!$this->user) {
             $form->scenario = 'anonim';
             $form->attributes = $this->loadFormState();
         }
-        
-        if(isset($_POST['CommentForm']) && Yii::app()->moduleManager->active('comment'))
-        {
+
+        if (isset($_POST['CommentForm']) && Yii::app()->moduleManager->active('comment')) {
             $form->attributes = $_POST['CommentForm'];
 
-            $this->saveFormState(array(
-                'name'=>$form->name,
-                'email'=>$form->email,
-                'site'=>$form->site,
-            ));
+            $this->saveFormState([
+                'name' => $form->name,
+                'email' => $form->email,
+                'site' => $form->site,
+            ]);
 
-            if($form->validate())
-            {
+            if ($form->validate()) {
                 $className = $this->type . 'Comment';
 
                 $comment = new $className;
@@ -58,12 +59,12 @@ class CommentsWidget extends DWidget
                 $comment->public = 1;
                 $comment->moder = 0;
 
-                if ($this->user)
+                if ($this->user) {
                     $comment->user_id = $this->user->id;
+                }
 
-                if ($comment->save())
-                {
-                    Yii::app()->user->setFlash('commentForm','Ваш коментарий добавлен');
+                if ($comment->save()) {
+                    Yii::app()->user->setFlash('commentForm', 'Ваш коментарий добавлен');
                     Yii::app()->controller->refresh();
                 }
             }
@@ -74,22 +75,23 @@ class CommentsWidget extends DWidget
             ->material($this->material_id)
             ->lang(Yii::app()->language)
             ->with('user')
-            ->findAll(array('order'=>'t.id ASC'));
+            ->findAll(['order' => 't.id ASC']);
 
-        $comments = array();
+        $comments = [];
 
-        foreach ($items as $item)
+        foreach ($items as $item) {
             $comments[$item->parent_id][] = $item;
+        }
 
-		$this->render('Comments/' . $this->tpl, array(
-            'comments'=>$comments,
-            'form'=>$form,
-            'user'=>$this->user,
-            'material_id'=>$this->material_id,
-            'type'=>$this->type,
-            'authorId'=>$this->authorId,
-        ));
-	}
+        $this->render('Comments/' . $this->tpl, [
+            'comments' => $comments,
+            'form' => $form,
+            'user' => $this->user,
+            'material_id' => $this->material_id,
+            'type' => $this->type,
+            'authorId' => $this->authorId,
+        ]);
+    }
 
     protected function registerScripts()
     {
@@ -107,8 +109,9 @@ class CommentsWidget extends DWidget
     protected function loadFormState()
     {
         $cookie = Yii::app()->request->cookies['comment_form'];
-        if ($cookie !== null)
+        if ($cookie !== null) {
             return unserialize($cookie->value);
-        return array();
+        }
+        return [];
     }
 }

@@ -15,16 +15,16 @@ class PageLayoutSubpages extends PageLayout
      * Returns the static model of the specified AR class.
      * @return PageLayoutSubpages the static model class
      */
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{page_layout_subpages}}';
-	}
 
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName()
+    {
+        return '{{page_layout_subpages}}';
+    }
 }

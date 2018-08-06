@@ -3,48 +3,47 @@
 /* @var $material CActiveRecord */
 /* @var $dataPrvider CActiveDataProvider */
 
-$this->pageTitle='Комментарии';
+$this->pageTitle = 'Комментарии';
 
-if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Сообщения', 'url'=>$this->createUrl('/contact/contactAdmin/index'));
+if ($this->moduleAllowed('blog')) {
+    $this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('/contact/contactAdmin/index')];
+}
 
 $this->info = 'Неопубликованные комментарии выделены серым, новые подсвечены';
 ?>
 
-<?php if ($material !== null): ?>
+<?php if ($material !== null) : ?>
+    <?php
+    $this->breadcrumbs = [
+        'Панель управления' => ['/admin/index'],
+        'Комментарии' => ['index'],
+        $material->title
+    ];
+    ?>
 
-<?php
-$this->breadcrumbs=array(
-    'Панель управления'=>array('/admin/index'),
-    'Комментарии'=>array('index'),
-    $material->title
-);
-?>
+    <h1>Комментарии к материалу &laquo;<?php echo CHtml::encode($material->title); ?>&raquo;</h1>
 
-<h1>Комментарии к материалу &laquo;<?php echo CHtml::encode($material->title); ?>&raquo;</h1>
+<?php else : ?>
+    <?php
+    $this->breadcrumbs = [
+        'Панель управления' => ['/admin'],
+        'Комментарии',
+    ];
+    ?>
 
-<?php else: ?>
+    <div style="float:right">
+        <?php echo CHtml::beginForm($this->createUrl('moderAll')); ?>
+        <?php echo CHtml::submitButton('Пометить все новые почтёнными'); ?>
+        <?php echo CHtml::endForm(); ?>
+    </div>
 
-<?php
-$this->breadcrumbs=array(
-    'Панель управления'=>array('/admin'),
-    'Комментарии',
-);
-?>
-
-<div style="float:right">
-    <?php echo CHtml::beginForm($this->createUrl('moderAll')); ?>
-    <?php echo CHtml::submitButton('Пометить все новые почтёнными'); ?>
-    <?php echo CHtml::endForm(); ?>
-</div>
-
-<h1>Комментарии</h1>
+    <h1>Комментарии</h1>
 
 <?php endif; ?>
 
-<?php if ($this->is(Access::ROLE_CONTROL)){
-
+<?php if ($this->is(Access::ROLE_CONTROL)) {
 } ?>
 
-<?php $this->renderPartial('comment.views.commentAdmin._list', array('dataProvider'=>$dataProvider)); ?>
+<?php $this->renderPartial('comment.views.commentAdmin._list', ['dataProvider' => $dataProvider]); ?>
 
 

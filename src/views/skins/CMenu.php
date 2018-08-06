@@ -1,7 +1,7 @@
 <?php
 
-return array(
-    'default'=>array(
-        'activateParents'=>true,
-    ),
-);
+return [
+    'default' => [
+        'activateParents' => true,
+    ],
+];

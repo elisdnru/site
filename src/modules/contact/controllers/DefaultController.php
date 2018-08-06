@@ -4,11 +4,10 @@ class DefaultController extends DController
 {
     public function actions()
     {
-        return array(
-            'captcha'=>array(
-                'class'=>'DCaptchaAction',
-            ),
-        );
+        return [
+            'captcha' => [
+                'class' => 'DCaptchaAction',
+            ],
+        ];
     }
-
 }

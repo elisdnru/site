@@ -4,7 +4,7 @@ class m130328_130712_create_user extends EDbMigration
 {
     public function safeUp()
     {
-        $this->createTable('{{user}}', array(
+        $this->createTable('{{user}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'username' => 'varchar(255) NOT NULL',
             'password' => 'varchar(255) NOT NULL',
@@ -28,7 +28,7 @@ class m130328_130712_create_user extends EDbMigration
             'phone' => 'varchar(255) NOT NULL',
             'site' => 'varchar(255) NOT NULL',
             'comments_count' => 'int(11) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('username', '{{user}}', 'username');
         $this->createIndex('role', '{{user}}', 'role');

@@ -27,20 +27,18 @@ class DAdminAction extends DCrudAction
         $model = new $modelName($this->scenario);
 
         $model->unsetAttributes();
-        if(isset($_GET[$modelName]))
-            $model->attributes=$_GET[$modelName];
-
-        if ($this->ajaxView && Yii::app()->request->isAjaxRequest)
-        {
-            $this->controller->renderPartial($this->ajaxView,array(
-                'model'=>$model,
-            ));
+        if (isset($_GET[$modelName])) {
+            $model->attributes = $_GET[$modelName];
         }
-        else
-        {
-            $this->controller->render($this->view ,array(
-                'model'=>$model,
-            ));
+
+        if ($this->ajaxView && Yii::app()->request->isAjaxRequest) {
+            $this->controller->renderPartial($this->ajaxView, [
+                'model' => $model,
+            ]);
+        } else {
+            $this->controller->render($this->view, [
+                'model' => $model,
+            ]);
         }
     }
 }

@@ -5,56 +5,56 @@ Yii::import('application.modules.page.models.*');
 class DefaultController extends DController
 {
     public function actionIndex()
-	{
+    {
         $criteria = $this->getBlogCriteria();
 
-        $this->render('index', array(
-            'dataProvider'=>$this->createProvider($criteria),
-            'page'=>$this->loadBlogPage(),
-        ));
-	}
+        $this->render('index', [
+            'dataProvider' => $this->createProvider($criteria),
+            'page' => $this->loadBlogPage(),
+        ]);
+    }
 
     public function actionCategory($category)
-	{
+    {
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', CArray::merge(array($category->id), $category->getChildsArray()));
+        $criteria->addInCondition('t.category_id', CArray::merge([$category->id], $category->getChildsArray()));
 
-        $this->render('category', array(
-            'dataProvider'=>$this->createProvider($criteria),
-            'page'=>$this->loadBlogPage(),
-            'category'=>$category,
-        ));
-	}
+        $this->render('category', [
+            'dataProvider' => $this->createProvider($criteria),
+            'page' => $this->loadBlogPage(),
+            'category' => $category,
+        ]);
+    }
 
     public function actionDate($date)
-	{
+    {
         $date = $this->getDateLimiter($date);
 
         $criteria = $this->getBlogCriteria();
         $criteria->addSearchCondition('t.date', $date->searchString, false);
 
-        $this->render('date', array(
-            'dataProvider'=>$this->createProvider($criteria),
-            'page'=>$this->loadBlogPage(),
-            'date'=>$date,
-        ));
-	}
+        $this->render('date', [
+            'dataProvider' => $this->createProvider($criteria),
+            'page' => $this->loadBlogPage(),
+            'date' => $date,
+        ]);
+    }
 
     public function actionTag($tag)
-	{
+    {
         $tag = $this->loadTagModel($tag);
 
         $criteria = $this->getBlogCriteria();
         $criteria->addInCondition('t.id', $tag->getPostIds());
 
-        $this->render('tag', array(
-            'dataProvider'=>$this->createProvider($criteria),
-            'page'=>$this->loadBlogPage(),
-            'tag'=>$tag,
-        ));
-	}
+        $this->render('tag', [
+            'dataProvider' => $this->createProvider($criteria),
+            'page' => $this->loadBlogPage(),
+            'tag' => $tag,
+        ]);
+    }
 
     public function actionSearch()
     {
@@ -62,8 +62,7 @@ class DefaultController extends DController
 
         $searchForm = new BlogSearchForm();
 
-        if (isset($_REQUEST['word']))
-        {
+        if (isset($_REQUEST['word'])) {
             $searchForm->word = $_REQUEST['word'];
 
             $criteria->addSearchCondition('t.title', $searchForm->word);
@@ -71,11 +70,11 @@ class DefaultController extends DController
             $criteria->addSearchCondition('t.short_purified', $searchForm->word, true, 'OR');
         }
 
-        $this->render('search', array(
-            'dataProvider'=>$this->createProvider($criteria),
+        $this->render('search', [
+            'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
             'searchForm' => $searchForm,
-        ));
+        ]);
     }
 
     /**
@@ -86,8 +85,9 @@ class DefaultController extends DController
     protected function loadCategoryModel($path)
     {
         $category = BlogCategory::model()->findByPath($path);
-        if (!$category)
+        if (!$category) {
             throw new CHttpException('404', 'Страница не найдена');
+        }
         return $category;
     }
 
@@ -99,8 +99,9 @@ class DefaultController extends DController
     protected function loadTagModel($tag)
     {
         $tag = BlogTag::model()->findByTitle($tag);
-        if (!$tag)
+        if (!$tag) {
             throw new CHttpException('404', 'Страница не найдена');
+        }
         return $tag;
     }
 
@@ -112,8 +113,9 @@ class DefaultController extends DController
     protected function getDateLimiter($date)
     {
         $dateLimiter = new DDateLimiter($date);
-        if (!$dateLimiter->validate())
+        if (!$dateLimiter->validate()) {
             throw new CHttpException('404', 'Страница не найдена');
+        }
         return $dateLimiter;
     }
 
@@ -123,9 +125,9 @@ class DefaultController extends DController
     protected function getBlogCriteria()
     {
         $criteria = new CDbCriteria();
-        $criteria->scopes = array('published');
+        $criteria->scopes = ['published'];
         $criteria->order = 't.date DESC';
-        $criteria->with = array('category');
+        $criteria->with = ['category'];
         return $criteria;
     }
 
@@ -135,13 +137,13 @@ class DefaultController extends DController
      */
     protected function createProvider($criteria)
     {
-        $dataProvider = new CActiveDataProvider(BlogPost::model()->cache(0, new Tags('blog')), array(
+        $dataProvider = new CActiveDataProvider(BlogPost::model()->cache(0, new Tags('blog')), [
             'criteria' => $criteria,
-            'pagination' => array(
+            'pagination' => [
                 'pageSize' => Yii::app()->config->get('BLOG.POSTS_PER_PAGE'),
                 'pageVar' => 'page',
-            )
-        ));
+            ]
+        ]);
         return $dataProvider;
     }
 
@@ -150,8 +152,7 @@ class DefaultController extends DController
      */
     protected function loadBlogPage()
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('blog'))
-        {
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('blog')) {
             $page = new Page;
             $page->title = 'Блог';
             $page->pagetitle = $page->title;

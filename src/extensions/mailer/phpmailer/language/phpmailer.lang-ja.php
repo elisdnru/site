@@ -1,9 +1,9 @@
 <?php
 /**
-* PHPMailer language file: refer to English translation for definitive list
-* Japanese Version
-* By Mitsuhiro Yoshida - http://mitstek.com/
-*/
+ * PHPMailer language file: refer to English translation for definitive list
+ * Japanese Version
+ * By Mitsuhiro Yoshida - http://mitstek.com/
+ */
 
 $PHPMAILER_LANG['authenticate'] = 'SMTPエラー: 認証できませんでした。';
 $PHPMAILER_LANG['connect_host'] = 'SMTPエラー: SMTPホストに接続できませんでした。';
@@ -23,4 +23,3 @@ $PHPMAILER_LANG['recipients_failed'] = 'SMTPエラー: 次の受信者アドレ�
 //$PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() failed.';
 //$PHPMAILER_LANG['smtp_error']           = 'SMTP server error: ';
 //$PHPMAILER_LANG['variable_set']         = 'Cannot set or reset variable: ';
-?>

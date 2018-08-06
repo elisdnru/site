@@ -6,30 +6,31 @@ class CategoryAdminController extends DAdminController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function beforeDelete($model)
     {
         $count = PortfolioWork::model()->count(
-            array(
-                'condition'=>'t.category_id = :ID',
-                'params'=>array(':ID'=>$model->id)
-            )
+            [
+                'condition' => 't.category_id = :ID',
+                'params' => [':ID' => $model->id]
+            ]
         );
 
-        if ($count)
+        if ($count) {
             throw new CHttpException(400, 'В данной группе есть записи. Удалите их или переместите в другие категории.');
+        }
     }
 
     public function createModel()
@@ -39,13 +40,15 @@ class CategoryAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled())
+        if (DMultilangHelper::enabled()) {
             $model = PortfolioCategory::model()->multilang()->findByPk($id);
-        else
+        } else {
             $model = PortfolioCategory::model()->findByPk($id);
-        
-        if($model === null)
+        }
+
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

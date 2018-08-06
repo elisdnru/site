@@ -3,19 +3,20 @@
 class DTimer
 {
     protected static $startTime;
-    protected static $points = array();
+    protected static $points = [];
 
     public static function run()
     {
         self::$startTime = microtime(true);
     }
 
-    public static function log($message='')
+    public static function log($message = '')
     {
-        if (self::$startTime === null)
+        if (self::$startTime === null) {
             self::run();
+        }
 
-        self::$points[] = array('message'=>$message, 'time'=>sprintf('%0.3f', microtime(true) - self::$startTime));
+        self::$points[] = ['message' => $message, 'time' => sprintf('%0.3f', microtime(true) - self::$startTime)];
     }
 
     public static function show()
@@ -31,8 +32,7 @@ class DTimer
             </tr>
         ';
 
-        foreach(self::$points as $item){
-
+        foreach (self::$points as $item) {
             $message = $item['message'];
             $time = $item['time'] * 1000;
             $diff = ($item['time'] - $oldtime) * 1000;

@@ -1,45 +1,44 @@
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'posts-grid',
-    'dataProvider'=>$model->search(30),
-    'filter'=>$model,
-    'columns'=>array(
-        array(
-            'name'=>'sort',
-            'htmlOptions'=>array('style'=>'width:50px;text-align:center'),
-        ),
-        array(
-            'class'=>'DIndentLinkColumn',
-            'name'=>'title',
-        ),
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'link',
-        ),
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'alias',
-        ),
-        array(
-            'class'=>'DToggleColumn',
-            'name'=>'visible',
-            'header'=>'В',
-            'filter'=>array(1=>'Видимые', 0=>'Скрытые'),
-            'titles'=>array(1=>'Видимо', 0=>'Скрыто'),
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{view}',
-            'viewButtonUrl'=>'$data->link',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{update}',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{delete}',
-        ),
-    ),
-)); ?>
+<?php $this->widget('zii.widgets.grid.CGridView', [
+    'id' => 'posts-grid',
+    'dataProvider' => $model->search(30),
+    'filter' => $model,
+    'columns' => [
+        [
+            'name' => 'sort',
+            'htmlOptions' => ['style' => 'width:50px;text-align:center'],
+        ],
+        [
+            'class' => 'DIndentLinkColumn',
+            'name' => 'title',
+        ],
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'link',
+        ],
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'alias',
+        ],
+        [
+            'class' => 'DToggleColumn',
+            'name' => 'visible',
+            'header' => 'В',
+            'filter' => [1 => 'Видимые', 0 => 'Скрытые'],
+            'titles' => [1 => 'Видимо', 0 => 'Скрыто'],
+            'htmlOptions' => ['style' => 'width:30px;text-align:center'],
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{view}',
+            'viewButtonUrl' => '$data->link',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{update}',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{delete}',
+        ],
+    ],
+]);

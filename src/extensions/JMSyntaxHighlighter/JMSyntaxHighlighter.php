@@ -1,12 +1,14 @@
 <?php
 
-class JMSyntaxHighlighter extends CApplicationComponent {
+class JMSyntaxHighlighter extends CApplicationComponent
+{
 
     private $_aUrl = '';
 
     public $theme = 'Default';
 
-    protected function registerScript() {
+    protected function registerScript()
+    {
         $cs = Yii::app()->clientScript;
         $cs->registerCoreScript('jquery');
         $assets = __DIR__ . DIRECTORY_SEPARATOR . 'syntaxhighlighter' . DIRECTORY_SEPARATOR;
@@ -17,12 +19,14 @@ class JMSyntaxHighlighter extends CApplicationComponent {
         $cs->registerCssFile($this->_aUrl . '/styles/shTheme' . $this->theme . '.css');
     }
 
-    public function init() {
+    public function init()
+    {
         $this->registerScript();
         parent::init();
     }
 
-    public function addHighlighter() {
+    public function addHighlighter()
+    {
 
         Yii::app()->clientScript->registerScript(__CLASS__, '
                         function path()
@@ -68,5 +72,4 @@ class JMSyntaxHighlighter extends CApplicationComponent {
 			SyntaxHighlighter.all();
 		', CClientScript::POS_END);
     }
-
 }

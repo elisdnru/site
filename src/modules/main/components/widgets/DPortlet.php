@@ -6,7 +6,7 @@ class DPortlet extends CPortlet
 {
     public $url = '';
 
-    public function getId($autoGenerate=true)
+    public function getId($autoGenerate = true)
     {
         return null;
     }
@@ -17,13 +17,13 @@ class DPortlet extends CPortlet
      */
     protected function renderDecoration()
     {
-        if($this->title!==null)
-        {
+        if ($this->title !== null) {
             echo "<div class=\"{$this->decorationCssClass}\">\n";
-            if ($this->url)
+            if ($this->url) {
                 echo "<div class=\"{$this->titleCssClass}\"><span><a href=\"{$this->url}\">{$this->title}</a></span></div>\n";
-            else
+            } else {
                 echo "<div class=\"{$this->titleCssClass}\"><span>{$this->title}</span></div>\n";
+            }
             echo "</div>\n";
         }
     }

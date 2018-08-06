@@ -7,32 +7,41 @@ $this->pageTitle = $model->pagetitle;
 $this->description = $model->description;
 $this->keywords = ($model->category ? $model->category->title . ' ' : '') . implode(' ', CHtml::listData($model->tags, 'id', 'title')) . ($model->keywords ? ' ' . $model->keywords : '');
 
-$this->breadcrumbs=array(
+$this->breadcrumbs = [
     'Блог' => $this->createUrl('/blog')
-);
+];
 
 $cs = Yii::app()->clientScript;
-$cs->registerMetaTag($model->title, null, null, array('property' => 'og:title'));
-$cs->registerMetaTag($model->description, null, null, array('property' => 'og:description'));
-$cs->registerMetaTag(Yii::app()->request->getHostInfo() . $model->url, null, null, array('property' => 'og:url'));
+$cs->registerMetaTag($model->title, null, null, ['property' => 'og:title']);
+$cs->registerMetaTag($model->description, null, null, ['property' => 'og:description']);
+$cs->registerMetaTag(Yii::app()->request->getHostInfo() . $model->url, null, null, ['property' => 'og:url']);
 if ($model->image) {
-    $cs->registerMetaTag(Yii::app()->request->getHostInfo() . $model->imageUrl, null, null, array('property' => 'og:image'));
+    $cs->registerMetaTag(Yii::app()->request->getHostInfo() . $model->imageUrl, null, null, ['property' => 'og:image']);
     $cs->registerLinkTag('image_src', null, Yii::app()->request->getHostInfo() . $model->imageUrl);
 }
 
-if ($model->category)
+if ($model->category) {
     $this->breadcrumbs = array_merge($this->breadcrumbs, $model->category->getBreadcrumbs(true));
+}
 
-$this->breadcrumbs[]= $model->title;
+$this->breadcrumbs[] = $model->title;
 
-if ($this->is(Access::ROLE_CONTROL)){
-
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Редактировать', 'url'=>$this->createUrl('/blog/postAdmin/update', array('id'=>$model->id)));
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Записи', 'url'=>$this->createUrl('/blog/postAdmin/index'));
-    if ($this->moduleAllowed('newsgallery')) $this->admin[] = array('label'=>'Галереи', 'url'=>$this->createUrl('/newsgallery/galleryAdmin/index'));
-    if ($this->moduleAllowed('blog') && $model->category) $this->admin[] = array('label'=>'Редактировать категорию', 'url'=>$this->createUrl('categoryAdmin/update', array('id'=>$model->category_id)));
-    if ($this->moduleAllowed('comment') && Yii::app()->moduleManager->active('comment'))
-        $this->admin[] = array('label'=>'Комментарии (' . $model->comments_new_count.' ' . DNumberHelper::Plural($model->comments_new_count, array('новый', 'новых', 'новых')) . ')', 'url'=>$this->createUrl('/blog/commentAdmin/index', array('id'=>$model->id)));
+if ($this->is(Access::ROLE_CONTROL)) {
+    if ($this->moduleAllowed('blog')) {
+        $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/postAdmin/update', ['id' => $model->id])];
+    }
+    if ($this->moduleAllowed('blog')) {
+        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin/index')];
+    }
+    if ($this->moduleAllowed('newsgallery')) {
+        $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
+    }
+    if ($this->moduleAllowed('blog') && $model->category) {
+        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
+    }
+    if ($this->moduleAllowed('comment') && Yii::app()->moduleManager->active('comment')) {
+        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . DNumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/commentAdmin/index', ['id' => $model->id])];
+    }
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
 }
@@ -43,28 +52,33 @@ CTextHighlighter::registerCssFile();
 
 <?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
 
-<?php if (!$model->public): ?>
-<div class="flash-error">Внимание! Новость скрыта от публикации!</div>
+<?php if (!$model->public) : ?>
+    <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
 <?php endif; ?>
 
 <article class="entry">
     <header>
-		<h1><?php echo CHtml::encode($model->title); ?></h1>
+        <h1><?php echo CHtml::encode($model->title); ?></h1>
 
         <!--noindex-->
-        <?php if($this->beginCache('banner_post_before', array('dependency'=>new Tags('block')))) { ?>
-            <?php $this->widget('application.modules.block.widgets.BlockWidget', array('id'=>'banner_post_before')); ?>
-            <?php $this->endCache(); } ?>
+        <?php if ($this->beginCache('banner_post_before', ['dependency' => new Tags('block')])) : ?>
+            <?php $this->widget('application.modules.block.widgets.BlockWidget', ['id' => 'banner_post_before']); ?>
+            <?php $this->endCache(); ?>
+        <?php endif; ?>
         <!--/noindex-->
 
-		<?php if ($model->image && $model->image_show) : ?>
-			<?php
-			$properties = array();
-			if ($model->image_width) $properties['width'] = $model->image_width;
-			if ($model->image_height) $properties['height'] = $model->image_height;
-			?>
-			<p class="thumb"><?php echo CHtml::image($model->imageUrl, $model->image_alt, $properties); ?></p>
-		<?php endif; ?>
+        <?php if ($model->image && $model->image_show) : ?>
+            <?php
+            $properties = [];
+            if ($model->image_width) {
+                $properties['width'] = $model->image_width;
+            }
+            if ($model->image_height) {
+                $properties['height'] = $model->image_height;
+            }
+            ?>
+            <p class="thumb"><?php echo CHtml::image($model->imageUrl, $model->image_alt, $properties); ?></p>
+        <?php endif; ?>
 
     </header>
 
@@ -74,21 +88,21 @@ CTextHighlighter::registerCssFile();
 
     <div class="clear"></div>
 
-<?php if($this->beginCache(__FILE__.__LINE__.'_post_'.$model->id, array('dependency'=>new Tags('newsgallery')))) { ?>
-
-    <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', array(
-        'id'=>$model->gallery_id,
-    )); ?>
-
-<?php $this->endCache(); } ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new Tags('newsgallery')])) : ?>
+        <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', [
+            'id' => $model->gallery_id,
+        ]); ?>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
 </article>
 
 <aside>
 
-	<?php if($this->beginCache('banner_post_after', array('dependency'=>new Tags('block')))) { ?>
-		<?php $this->widget('application.modules.block.widgets.BlockWidget', array('id'=>'banner_post_after')); ?>
-	<?php $this->endCache(); } ?>
+    <?php if ($this->beginCache('banner_post_after', ['dependency' => new Tags('block')])) : ?>
+        <?php $this->widget('application.modules.block.widgets.BlockWidget', ['id' => 'banner_post_after']); ?>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
     <!--
     <div class="portlet" style="background: #eee; border: 2px dashed #0e76db">
@@ -113,50 +127,51 @@ CTextHighlighter::registerCssFile();
 
     <!--noindex-->
     <?php
-    $links = array();
-    foreach ($model->tags as $tag){
+    $links = [];
+    foreach ($model->tags as $tag) {
         $links[] = '<span data-href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</span>';
     }
     ?>
-	<p class="entry_date">Дата: <span class="enc-date" data-date="<?php echo DDateHelper::normdate($model->date); ?>">&nbsp;</span></p>
+    <p class="entry_date">Дата: <span class="enc-date" data-date="<?php echo DDateHelper::normdate($model->date); ?>">&nbsp;</span>
+    </p>
     <p class="entry_tags">Метки: <?php echo implode('', $links); ?></p>
     <div class="clear"></div>
     <!--/noindex-->
 
     <div class="donate-btn" style=""><a href="/donate">Поддержать проект</a></div>
 
-    <?php $this->widget('share.widgets.ShareWidget', array(
-        'title'=>$model->title,
-        'description'=>$model->description,
-        'image'=>$model->imageUrl,
-    )); ?>
+    <?php $this->widget('share.widgets.ShareWidget', [
+        'title' => $model->title,
+        'description' => $model->description,
+        'image' => $model->imageUrl,
+    ]); ?>
 
     <div class="clear"></div>
 
-    <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('dependency'=>new Tags('blog')))) { ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
+        <?php $this->widget('blog.widgets.ThemePostsWidget', [
+            'current' => $model->id,
+            'group' => $model->group_id,
+        ]); ?>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
-        <?php $this->widget('blog.widgets.ThemePostsWidget', array(
-            'current'=>$model->id,
-            'group'=>$model->group_id,
-        )); ?>
-
-    <?php $this->endCache(); } ?>
-
-    <?php if($this->beginCache(__FILE__.__LINE__.'_post_other_'.$model->id, array('dependency'=>new Tags('blog')))) { ?>
-    <?php $this->widget('blog.widgets.OtherPostsWidget', array(
-        //'category'=>$model->category_id,
-        'skip'=>$model->id,
-        'limit'=>2,
-    )); ?>
-    <?php $this->endCache(); } ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
+        <?php $this->widget('blog.widgets.OtherPostsWidget', [
+            //'category'=>$model->category_id,
+            'skip' => $model->id,
+            'limit' => 2,
+        ]); ?>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
 </aside>
 
-<?php if (Yii::app()->moduleManager->active('comment')): ?>
-<?php $this->widget('comment.widgets.CommentsWidget', array(
-    'material_id'=>$model->id,
-    'authorId'=>$model->author_id,
-    'type'=>BlogPostComment::TYPE_OF_COMMENT,
-    'url'=>$model->url,
-)); ?>
+<?php if (Yii::app()->moduleManager->active('comment')) : ?>
+    <?php $this->widget('comment.widgets.CommentsWidget', [
+        'material_id' => $model->id,
+        'authorId' => $model->author_id,
+        'type' => BlogPostComment::TYPE_OF_COMMENT,
+        'url' => $model->url,
+    ]); ?>
 <?php endif; ?>

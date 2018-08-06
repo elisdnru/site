@@ -1,5 +1,6 @@
-(function() {
-    function async_load(){
+(function () {
+    function async_load()
+    {
         // Twitter widget code
         var twitterWidgets = document.createElement('script');
         twitterWidgets.type = 'text/javascript';
@@ -28,18 +29,22 @@
         x.parentNode.insertBefore(vkontakte, x);
         //twitterWidgets.onload = _ga.trackTwitter;
     }
-    if (window.attachEvent)
+
+    if (window.attachEvent) {
         window.attachEvent('onload', async_load);
-    else
+    } else {
         window.addEventListener('load', async_load, false);
+    }
 })();
 
-window.fbAsyncInit = function() {
-    FB.init({appId: getFBApiId(), status: true, cookie: true,
-        xfbml: true});
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: getFBApiId(), status: true, cookie: true,
+        xfbml: true
+    });
     //_ga.trackFacebook();
 };
-window.vkAsyncInit = function(){
+window.vkAsyncInit = function () {
     VK.init({apiId: getVKApiId(), onlyWidgets: true});
     VK.Widgets.Like('vk_like', {type: 'button'});
     //_ga.trackVkontakte();

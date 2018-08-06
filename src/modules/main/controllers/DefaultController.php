@@ -4,14 +4,15 @@ Yii::import('application.modules.page.models.Page');
 
 class DefaultController extends DController
 {
-	public function actionIndex()
-	{
-        $this->render('index', array(
-            'page'=>$this->loadIndexPage(),
-        ));
-	}
+    public function actionIndex()
+    {
+        $this->render('index', [
+            'page' => $this->loadIndexPage(),
+        ]);
+    }
 
-    public function actionUrl($a){
+    public function actionUrl($a)
+    {
         $this->redirect($a);
         Yii::app()->end();
     }
@@ -25,8 +26,7 @@ class DefaultController extends DController
 
     protected function loadIndexPage()
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('index'))
-        {
+        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('index')) {
             $page = new Page;
             $page->title = 'Главная';
             $page->pagetitle = $page->title;

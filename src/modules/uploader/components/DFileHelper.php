@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -21,6 +22,6 @@ class DFileHelper
 
     public static function escape($name)
     {
-        return DTextHelper::translit(str_replace(array('./', '../', '~', '"', '"', '//', ':'), '', $name));
+        return DTextHelper::translit(str_replace(['./', '../', '~', '"', '"', '//', ':'], '', $name));
     }
 }

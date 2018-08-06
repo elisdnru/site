@@ -6,21 +6,21 @@ class PhotoAdminController extends DAdminController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'toggle'=>array(
-                'class'=>'DToggleAction',
-                'attributes'=>array('public')
-            ),
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'toggle' => [
+                'class' => 'DToggleAction',
+                'attributes' => ['public']
+            ],
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function createModel()
@@ -36,8 +36,9 @@ class PhotoAdminController extends DAdminController
     {
         $model = GalleryPhoto::model()->findByPk($id);
 
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

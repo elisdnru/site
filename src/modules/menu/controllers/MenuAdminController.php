@@ -7,21 +7,21 @@ class MenuAdminController extends DAdminController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'toggle'=>array(
-                'class'=>'DToggleAction',
-                'attributes'=>array('visible')
-            ),
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'toggle' => [
+                'class' => 'DToggleAction',
+                'attributes' => ['visible']
+            ],
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function createModel()
@@ -33,13 +33,15 @@ class MenuAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled())
+        if (DMultilangHelper::enabled()) {
             $model = Menu::model()->multilang()->findByPk($id);
-        else
+        } else {
             $model = Menu::model()->findByPk($id);
+        }
 
-        if($model===null)
+        if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
+        }
         return $model;
     }
 }

@@ -6,21 +6,21 @@ class AttributeAdminController extends DAdminController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'toggle'=>array(
-                'class'=>'DToggleAction',
-                'attributes'=>array('required')
-            ),
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'toggle' => [
+                'class' => 'DToggleAction',
+                'attributes' => ['required']
+            ],
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function createModel()
@@ -33,8 +33,9 @@ class AttributeAdminController extends DAdminController
     public function loadModel($id)
     {
         $model = UserAttribute::model()->findByPk((int)$id);
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

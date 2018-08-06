@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -14,28 +15,24 @@ class DTableInputBehavior extends CBehavior
 
         // Grid
         $items = CActiveRecord::model($modelName)->findAll(
-            array(
+            [
                 'order' => $formOrder ? $formOrder : 'title ASC',
-            )
+            ]
         );
 
-        if (isset($_POST[$modelName]))
-        {
+        if (isset($_POST[$modelName])) {
             $valid = true;
 
-            foreach ($items as $item)
-            {
-                if (isset($_POST[$modelName][$item->id]))
+            foreach ($items as $item) {
+                if (isset($_POST[$modelName][$item->id])) {
                     $item->attributes = $_POST[$modelName][$item->id];
+                }
                 $valid = $item->validate() && $valid;
             }
 
-            if ($valid)
-            {
-                foreach ($items as $item)
-                {
-                    if (isset($_POST[$modelName][$item->id]))
-                    {
+            if ($valid) {
+                foreach ($items as $item) {
+                    if (isset($_POST[$modelName][$item->id])) {
                         $item->attributes = $_POST[$modelName][$item->id];
                         $item->save();
                     }
@@ -43,32 +40,29 @@ class DTableInputBehavior extends CBehavior
 
                 Yii::app()->user->setFlash('success', 'Изменения сохранены');
 
-                $items = CActiveRecord::model($modelName)->findAll(array(
+                $items = CActiveRecord::model($modelName)->findAll([
                     'order' => $formOrder ? $formOrder : 'title ASC',
-                ));
+                ]);
             }
         }
 
         // Add new
         $form = new $formName;
 
-        if (isset($_POST[$formName]))
-        {
+        if (isset($_POST[$formName])) {
             $form->attributes = $_POST[$formName];
 
-            if ($form->validate())
-            {
+            if ($form->validate()) {
                 $model = new $modelName;
                 $model->attributes = $_POST[$formName];
 
-                if ($model->save())
-                {
+                if ($model->save()) {
                     Yii::app()->user->setFlash('success', 'Добавлено');
                     $this->owner->refresh();
                 }
             }
         }
 
-        $this->owner->render($view, array('categoryForm' => $form, 'items' => $items));
+        $this->owner->render($view, ['categoryForm' => $form, 'items' => $items]);
     }
 }

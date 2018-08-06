@@ -1,9 +1,9 @@
-(function( $ ){
+(function ($) {
     var COOKIE_NAME = 'yii-debug-toolbar';
 
     yiiDebugToolbar = {
 
-        init : function(){
+        init: function () {
 
             this.registerEventListeners();
 
@@ -15,37 +15,31 @@
             this.initTabs();
         },
 
-        initTabs : function()
-        {
-            $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li').bind('click', $.proxy( this.toggleTabs, this ));
+        initTabs: function () {
+            $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li').bind('click', $.proxy(this.toggleTabs, this));
             $('.tabscontent').hide();
 
             var panelId = $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li.active').attr('type');
 
-            if (typeof panelId !== 'undefined')
-            {
+            if (typeof panelId !== 'undefined') {
                 var path = panelId.split('-');
                 var panelName = path.pop();
                 var section = path.join('-');
 
-                if($.cookie(section))
-                {
+                if ($.cookie(section)) {
                     $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li').removeClass('active');
-                    panelId = section+'-'+$.cookie(section);
-                    $('#'+panelId).show();
-                    $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li[type='+panelId+']').addClass('active');
-                }
-                else
-                {
-                    $('#'+panelId).show();
+                    panelId = section + '-' + $.cookie(section);
+                    $('#' + panelId).show();
+                    $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li[type=' + panelId + ']').addClass('active');
+                } else {
+                    $('#' + panelId).show();
                 }
             }
 
 
         },
 
-        toggleTabs : function(e)
-        {
+        toggleTabs: function (e) {
             e.preventDefault();
             var $target = $(e.currentTarget);
             $('.tabscontent').hide();
@@ -61,7 +55,7 @@
                 expires: 10
             });
 
-            $('#'+panelId).show();
+            $('#' + panelId).show();
             $target.addClass('active');
 
         },
@@ -69,63 +63,55 @@
         /**
          * Toggles the nearby panel section in context of the clicked element
          */
-        toggleSection: function(toToggle, object) {
+        toggleSection: function (toToggle, object) {
             object = $(object);
             toToggle = !toToggle ? object.next() : $(toToggle);
             toToggle.toggle();
-            if(toToggle.is(':visible')) {
+            if (toToggle.is(':visible')) {
                 object.removeClass('collapsed');
             } else {
                 object.addClass('collapsed');
             }
         },
 
-        togglePanel : function(id)
-        {
+        togglePanel: function (id) {
             var button = $('.' + id);
             var panel = $('#' + id);
 
-            if(panel.is(':visible')) {
+            if (panel.is(':visible')) {
                 panel.hide();
                 button.removeClass('active');
                 return;
             }
 
             this.closeAllPannels();
-            $('#'+id).show();
-            $('.'+id).addClass('active');
+            $('#' + id).show();
+            $('.' + id).addClass('active');
         },
 
-        buttonClicked : function(e)
-        {
+        buttonClicked: function (e) {
             this.togglePanel($(e.currentTarget).attr('class').split(' ')[1]);
         },
 
-        closeAllPannels : function()
-        {
+        closeAllPannels: function () {
             $('.yii-debug-toolbar-panel').hide();
             $('.yii-debug-toolbar-button').removeClass('active');
         },
 
-        closeButtonClicked : function(e)
-        {
+        closeButtonClicked: function (e) {
             this.closeAllPannels();
         },
 
-        toggleToolbar : function(e)
-        {
+        toggleToolbar: function (e) {
             //this.closeButtonClicked(e);
-            if($('#yii-debug-toolbar').is(":visible"))
-            {
+            if ($('#yii-debug-toolbar').is(":visible")) {
                 $('#yii-debug-toolbar').hide();
                 $('#yii-debug-toolbar-switcher a').removeClass('close');
                 $.cookie(COOKIE_NAME, 'hide', {
                     path: '/',
                     expires: 10
                 });
-            }
-            else
-            {
+            } else {
                 $('#yii-debug-toolbar').show();
                 $('#yii-debug-toolbar-switcher a').addClass('close');
                 $.cookie(COOKIE_NAME, null, {
@@ -135,19 +121,23 @@
             }
         },
 
-        registerEventListeners: function() {
-            $('#yii-debug-toolbar-switcher').bind('click',$.proxy( this.toggleToolbar, this ));
-            $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
-            $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
-            $('#yii-debug-toolbar .collapsible').bind('click', function(){ yiiDebugToolbar.toggleSection($(this).attr('rel'), this); });
+        registerEventListeners: function () {
+            $('#yii-debug-toolbar-switcher').bind('click', $.proxy(this.toggleToolbar, this));
+            $('.yii-debug-toolbar-button').bind('click', $.proxy(this.buttonClicked, this));
+            $('.yii-debug-toolbar-panel-close').bind('click', $.proxy(this.closeButtonClicked, this));
+            $('#yii-debug-toolbar .collapsible').bind('click', function () {
+                yiiDebugToolbar.toggleSection($(this).attr('rel'), this);
+            });
             $('#yii-debug-toolbar p.collapsible.collapsed').next().hide();
-            $('#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr').bind('click', function(){ $(this).toggleClass('selected'); });
+            $('#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr').bind('click', function () {
+                $(this).toggleClass('selected');
+            });
         },
 
-        toggleDetails: function(selector, cell){
+        toggleDetails: function (selector, cell) {
             $(selector).toggleClass('hidden');
         }
 
     };
 
-})( jQuery );
+})(jQuery);

@@ -3,58 +3,58 @@
 /* @var $model BlogPost */
 ?>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'posts-grid',
-    'dataProvider'=>$model->search(),
-    'filter'=>$model,
-    'columns'=>array(
-        array(
-            'name'=>'sort',
-            'htmlOptions'=>array('style'=>'width:60px;text-align:center'),
-        ),
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'label',
-        ),
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'name',
-        ),
-        array(
-            'name'=>'class',
-            'filter'=>array('User'=>'Пользователь'),
-            'htmlOptions'=>array('style'=>'text-align:center'),
-        ),
-        array(
+<?php $this->widget('zii.widgets.grid.CGridView', [
+    'id' => 'posts-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => [
+        [
+            'name' => 'sort',
+            'htmlOptions' => ['style' => 'width:60px;text-align:center'],
+        ],
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'label',
+        ],
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'name',
+        ],
+        [
+            'name' => 'class',
+            'filter' => ['User' => 'Пользователь'],
+            'htmlOptions' => ['style' => 'text-align:center'],
+        ],
+        [
             'name' => 'type',
             'value' => 'UserAttribute::getTypeName($data->type)',
             'filter' => UserAttribute::getTypes(),
-            'htmlOptions'=>array('style'=>'text-align:center'),
-        ),
-        array(
+            'htmlOptions' => ['style' => 'text-align:center'],
+        ],
+        [
             'name' => 'type',
             'value' => 'UserAttribute::getRuleName($data->rule)',
             'filter' => UserAttribute::getRules(),
-            'htmlOptions'=>array('style'=>'text-align:center'),
-        ),
-        array(
-            'class'=>'DToggleColumn',
-            'name'=>'required',
-            'header'=>'О',
-            'filter'=>array(1=>'Обязательный', 0=>'Необязательный'),
-            'titles'=>array(1=>'Обязательный', 0=>'Необязательный'),
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
+            'htmlOptions' => ['style' => 'text-align:center'],
+        ],
+        [
+            'class' => 'DToggleColumn',
+            'name' => 'required',
+            'header' => 'О',
+            'filter' => [1 => 'Обязательный', 0 => 'Необязательный'],
+            'titles' => [1 => 'Обязательный', 0 => 'Необязательный'],
+            'htmlOptions' => ['style' => 'width:30px;text-align:center'],
             'offImageUrl' => Yii::app()->request->baseUrl . '/images/spacer.gif',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
-            'template'=>'{update}',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'htmlOptions'=>array('style'=>'width:30px;text-align:center'),
-            'template'=>'{delete}',
-        ),
-    ),
-)); ?>
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'htmlOptions' => ['style' => 'width:30px;text-align:center'],
+            'template' => '{update}',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'htmlOptions' => ['style' => 'width:30px;text-align:center'],
+            'template' => '{delete}',
+        ],
+    ],
+]);

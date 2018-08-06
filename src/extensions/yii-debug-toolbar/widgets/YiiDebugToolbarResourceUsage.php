@@ -18,14 +18,13 @@ class YiiDebugToolbarResourceUsage extends CWidget
 {
     public $title = 'Resource Usage';
 
-    public $htmlOptions = array();
+    public $htmlOptions = [];
 
     private $_loadTime;
 
     public function getLoadTime()
     {
-        if (null === $this->_loadTime)
-        {
+        if (null === $this->_loadTime) {
             $this->_loadTime = $this->owner->owner->getLoadTime();
         }
         return $this->_loadTime;
@@ -41,17 +40,16 @@ class YiiDebugToolbarResourceUsage extends CWidget
      */
     public function run()
     {
-        $resources =  array(
-            YiiDebug::t('Page Load Time')    =>  sprintf('%0.6F s.',$this->getLoadTime()),
-            YiiDebug::t('Elapsed Time')      =>  sprintf('%0.6F s.',$this->getRequestLoadTime()),
-            YiiDebug::t('Memory Usage')      =>  number_format(Yii::getLogger()->getMemoryUsage()/1024) . ' KB',
-            YiiDebug::t('Memory Peak Usage') => function_exists('memory_get_peak_usage') ? number_format(memory_get_peak_usage()/1024) . ' KB' : 'N/A',
-        );
+        $resources = [
+            YiiDebug::t('Page Load Time') => sprintf('%0.6F s.', $this->getLoadTime()),
+            YiiDebug::t('Elapsed Time') => sprintf('%0.6F s.', $this->getRequestLoadTime()),
+            YiiDebug::t('Memory Usage') => number_format(Yii::getLogger()->getMemoryUsage() / 1024) . ' KB',
+            YiiDebug::t('Memory Peak Usage') => function_exists('memory_get_peak_usage') ? number_format(memory_get_peak_usage() / 1024) . ' KB' : 'N/A',
+        ];
 
-        if (function_exists('mb_strlen') && isset($_SESSION))
-        {
+        if (function_exists('mb_strlen') && isset($_SESSION)) {
             try {
-                $resources[YiiDebug::t('Session Size')] = sprintf('%0.3F KB' ,mb_strlen(serialize($_SESSION))/1024);
+                $resources[YiiDebug::t('Session Size')] = sprintf('%0.3F KB', mb_strlen(serialize($_SESSION)) / 1024);
             } catch (Exception $e) {
                 $resources[YiiDebug::t('Session Size')] = 'Unknown';
             }
@@ -60,14 +58,13 @@ class YiiDebugToolbarResourceUsage extends CWidget
 
         echo CHtml::openTag('div', $this->htmlOptions);
 
-        echo CHtml::tag('h1', array(), $this->title);
+        echo CHtml::tag('h1', [], $this->title);
 
-        echo CHtml::openTag('ul', array('class'=>'data'));
-        foreach ($resources as $key=>$value)
-        {
+        echo CHtml::openTag('ul', ['class' => 'data']);
+        foreach ($resources as $key => $value) {
             echo CHtml::openTag('li');
-            echo CHtml::tag('label', array(), $key);
-            echo CHtml::tag('span', array(), $value);
+            echo CHtml::tag('label', [], $key);
+            echo CHtml::tag('span', [], $value);
             echo CHtml::closeTag('li');
         }
         echo CHtml::closeTag('ul');

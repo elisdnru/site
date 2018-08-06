@@ -1,11 +1,12 @@
 .follow {
-    height:38px;
+    height: 38px;
 }
+
 .follow a span {
-    display:inline-block;
-    width:38px;
-    height:39px;
-    margin-right:4px;
-    background-position:0 0;
-    background-repeat:no-repeat;
+    display: inline-block;
+    width: 38px;
+    height: 39px;
+    margin-right: 4px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
 }

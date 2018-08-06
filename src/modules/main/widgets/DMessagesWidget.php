@@ -2,8 +2,8 @@
 
 class DMessagesWidget extends DWidget
 {
-     public function run()
-     {
-          $this->render('Messages');
-     }
+    public function run()
+    {
+        $this->render('Messages');
+    }
 }

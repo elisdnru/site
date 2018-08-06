@@ -1,6 +1,6 @@
 <?php Yii::app()->clientScript->registerScriptFile('swfobject.js'); ?>
 
-<?php $id = 'flash_'. md5(rand(0, 100000)); ?>
+<?php $id = 'flash_' . md5(rand(0, 100000)); ?>
 
 <div class='flash' style='width:<?php echo $width; ?>px; height:<?php echo $height; ?>px;'>
     <div id='<?php echo $id; ?>'></div>

@@ -1,5 +1,5 @@
 <?php
- /**
+/**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
  */
@@ -14,7 +14,7 @@ class DSitemap
     const YEARLY = 'yearly';
     const NEVER = 'never';
 
-    protected $items = array();
+    protected $items = [];
 
     /**
      * @param $url
@@ -22,16 +22,17 @@ class DSitemap
      * @param float $priority
      * @param int $lastmod
      */
-    public function addUrl($url, $changeFreq=self::DAILY, $priority=0.5, $lastMod=0)
+    public function addUrl($url, $changeFreq = self::DAILY, $priority = 0.5, $lastMod = 0)
     {
         $host = Yii::app()->request->hostInfo;
-        $item = array(
+        $item = [
             'loc' => $host . $url,
             'changefreq' => $changeFreq,
             'priority' => $priority
-        );
-        if ($lastMod)
+        ];
+        if ($lastMod) {
             $item['lastmod'] = $this->dateToW3C($lastMod);
+        }
 
         $this->items[] = $item;
     }
@@ -41,19 +42,19 @@ class DSitemap
      * @param string $changeFreq
      * @param float $priority
      */
-    public function addModels($models, $changeFreq=self::DAILY, $priority=0.5)
+    public function addModels($models, $changeFreq = self::DAILY, $priority = 0.5)
     {
         $host = Yii::app()->request->hostInfo;
-        foreach ($models as $model)
-        {
-            $item = array(
+        foreach ($models as $model) {
+            $item = [
                 'loc' => $host . $model->getUrl(),
                 'changefreq' => $changeFreq,
                 'priority' => $priority
-            );
+            ];
 
-            if ($model->hasAttribute('update_date'))
+            if ($model->hasAttribute('update_date')) {
                 $item['lastmod'] = $this->dateToW3C($model->update_date);
+            }
 
             $this->items[] = $item;
         }
@@ -66,13 +67,11 @@ class DSitemap
     {
         $dom = new DOMDocument('1.0', 'utf-8');
         $urlset = $dom->createElement('urlset');
-        $urlset->setAttribute('xmlns','http://www.sitemaps.org/schemas/sitemap/0.9');
-        foreach($this->items as $item)
-        {
+        $urlset->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+        foreach ($this->items as $item) {
             $url = $dom->createElement('url');
 
-            foreach ($item as $key=>$value)
-            {
+            foreach ($item as $key => $value) {
                 $elem = $dom->createElement($key);
                 $elem->appendChild($dom->createTextNode($value));
                 $url->appendChild($elem);
@@ -87,9 +86,10 @@ class DSitemap
 
     protected function dateToW3C($date)
     {
-        if (is_int($date))
+        if (is_int($date)) {
             return date(DATE_W3C, $date);
-        else
+        } else {
             return date(DATE_W3C, strtotime($date));
+        }
     }
 }

@@ -6,9 +6,9 @@ class NewModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.new.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -28,65 +28,66 @@ class NewModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Новостные страницы', 'url'=>array('/new/pageAdmin'), 'icon'=>'foldericon.jpg'),
-            array('label'=>'Темы', 'url'=>array('/new/groupAdmin'), 'icon'=>'foldericon.jpg'),
-            array('label'=>'Новости/Статьи', 'url'=>array('/new/newAdmin'), 'icon'=>'fileicon.jpg'),
-            array('label'=>'Добавить новость', 'url'=>array('/new/newAdmin/create'), 'icon'=>'add.png'),
-        );
+        return [
+            ['label' => 'Новостные страницы', 'url' => ['/new/pageAdmin'], 'icon' => 'foldericon.jpg'],
+            ['label' => 'Темы', 'url' => ['/new/groupAdmin'], 'icon' => 'foldericon.jpg'],
+            ['label' => 'Новости/Статьи', 'url' => ['/new/newAdmin'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить новость', 'url' => ['/new/newAdmin/create'], 'icon' => 'add.png'],
+        ];
     }
 
     public static function notifications()
     {
-        if (!Yii::app()->moduleManager->active('comment'))
-            return array();
+        if (!Yii::app()->moduleManager->active('comment')) {
+            return [];
+        }
 
-        $comments = NewsComment::model()->count(array(
-            'condition'=>'moder=0 AND type=:type',
-            'params'=>array(':type'=>NewsComment::TYPE_OF_COMMENT),
-        ));
+        $comments = NewsComment::model()->count([
+            'condition' => 'moder=0 AND type=:type',
+            'params' => [':type' => NewsComment::TYPE_OF_COMMENT],
+        ]);
 
-        return array(
-            array('label'=>'Комментарии к новостям' . ($comments ?  ' (' . $comments . ')' : ''), 'url'=>array('/new/commentAdmin/index'), 'icon'=>'comments.png'),
-        );
+        return [
+            ['label' => 'Комментарии к новостям' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/new/commentAdmin/index'], 'icon' => 'comments.png'],
+        ];
     }
 
     public static function rules()
     {
-        return array(
-            'new/feed'=>'new/feed/index',
-            array('class' => 'new.components.DNewUrlRule', 'cache'=>3600*24),
-        );
+        return [
+            'new/feed' => 'new/feed/index',
+            ['class' => 'new.components.DNewUrlRule', 'cache' => 3600 * 24],
+        ];
     }
 
     public function install()
     {
-        Yii::app()->config->add(array(
-            array(
-                'param'=>'NEW.NEWS_PER_PAGE',
-                'label'=>'Новостей на странице',
-                'value'=>'10',
-                'type'=>'string',
-                'default'=>'10',
-            ),
-            array(
-                'param'=>'NEW.NEWS_PER_HOME',
-                'label'=>'Новостей на главной странице',
-                'value'=>'10',
-                'type'=>'string',
-                'default'=>'10',
-            ),
-        ));
+        Yii::app()->config->add([
+            [
+                'param' => 'NEW.NEWS_PER_PAGE',
+                'label' => 'Новостей на странице',
+                'value' => '10',
+                'type' => 'string',
+                'default' => '10',
+            ],
+            [
+                'param' => 'NEW.NEWS_PER_HOME',
+                'label' => 'Новостей на главной странице',
+                'value' => '10',
+                'type' => 'string',
+                'default' => '10',
+            ],
+        ]);
 
         return parent::install();
     }
 
     public function uninstall()
     {
-        Yii::app()->config->delete(array(
+        Yii::app()->config->delete([
             'NEW.NEWS_PER_PAGE',
             'NEW.NEWS_PER_HOME',
-        ));
+        ]);
 
         return parent::uninstall();
     }

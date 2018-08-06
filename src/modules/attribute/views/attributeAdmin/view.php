@@ -1,1 +1,1 @@
-<?php $this->redirect(array('index')); ?>
+<?php $this->redirect(['index']);

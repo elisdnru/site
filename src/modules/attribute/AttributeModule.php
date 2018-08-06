@@ -6,9 +6,9 @@ class AttributeModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.attribute.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -28,8 +28,8 @@ class AttributeModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Атрибуты моделей', 'url'=>array('/attribute/attributeAdmin/index'), 'icon'=>'fileicon.jpg'),
-        );
+        return [
+            ['label' => 'Атрибуты моделей', 'url' => ['/attribute/attributeAdmin/index'], 'icon' => 'fileicon.jpg'],
+        ];
     }
 }

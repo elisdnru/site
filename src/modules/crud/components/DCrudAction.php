@@ -20,40 +20,46 @@ class DCrudAction extends CAction
 
     protected function checkIsPostRequest()
     {
-        if (!Yii::app()->request->isPostRequest)
-            throw new CHttpException (400, Yii::t('yii', 'Your request is invalid.'));
+        if (!Yii::app()->request->isPostRequest) {
+            throw new CHttpException(400, Yii::t('yii', 'Your request is invalid.'));
+        }
     }
 
     protected function clientCallback($method, $model)
     {
-        if (method_exists($this->controller, $method))
+        if (method_exists($this->controller, $method)) {
             $this->controller->$method($model);
+        }
     }
 
     protected function success($message)
     {
-        if (!Yii::app()->request->isAjaxRequest)
+        if (!Yii::app()->request->isAjaxRequest) {
             Yii::app()->user->setFlash($this->flashSuccess, Yii::t('CrudModule.crud', $message));
+        }
     }
 
     protected function error($message)
     {
-        if (!Yii::app()->request->isAjaxRequest)
+        if (!Yii::app()->request->isAjaxRequest) {
             Yii::app()->user->setFlash($this->flashError, Yii::t('CrudModule.crud', $message));
-        else
+        } else {
             throw new CHttpException(400, $message);
+        }
     }
 
     protected function redirectToView($model)
     {
-        if (!Yii::app()->request->isAjaxRequest)
-            $this->controller->redirect(array('view', 'id' => $model->getPrimaryKey()));
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->controller->redirect(['view', 'id' => $model->getPrimaryKey()]);
+        }
     }
 
     protected function redirectToReferrer()
     {
-        if (!Yii::app()->request->isAjaxRequest)
-            $this->controller->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+        if (!Yii::app()->request->isAjaxRequest) {
+            $this->controller->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : ['index']);
+        }
     }
 
     /**
@@ -88,7 +94,8 @@ class DCrudAction extends CAction
 
     protected function checkMethodExists($method)
     {
-        if (!method_exists($this->controller, $method))
+        if (!method_exists($this->controller, $method)) {
             throw new CException("Method CController::{$method}() not found");
+        }
     }
 }

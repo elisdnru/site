@@ -18,7 +18,7 @@ class DUploadManager extends CApplicationComponent
     public $watermarkOffsetY = 10;
     public $watermarkPosition = CImageHandler::CORNER_RIGHT_BOTTOM;
     public $origFileSalt = 'salt';
-    public $allowedThumbnailResolutions = array();
+    public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
 
     /**
@@ -28,28 +28,26 @@ class DUploadManager extends CApplicationComponent
      */
     public function upload(CUploadedFile $file, $path)
     {
-        if (!is_dir($path)){
+        if (!is_dir($path)) {
             Yii::app()->file->set($path)->createDir($this->directoryRights);
         }
 
         $extension = strtolower($file->extensionName);
         $fileName = DFileHelper::getRandomFileName($path, $extension);
-        $baseName =  $fileName . '.' . $extension;
+        $baseName = $fileName . '.' . $extension;
 
         $main = $path . '/' . $baseName;
 
-        if ($this->watermarkFile)
-        {
+        if ($this->watermarkFile) {
             $orig = $path . '/' . $this->createOrigFileName($baseName);
-            if ($file->saveAs($orig)){
+            if ($file->saveAs($orig)) {
                 $this->createThumb($path, $baseName);
                 return Yii::app()->file->set($main);
             }
-        }
-        else
-        {
-            if ($file->saveAs($main))
+        } else {
+            if ($file->saveAs($main)) {
                 return Yii::app()->file->set($main);
+            }
         }
 
         return false;
@@ -65,10 +63,9 @@ class DUploadManager extends CApplicationComponent
     {
         $content = file_get_contents($url);
 
-        if ($content)
-        {
+        if ($content) {
             $fileName = DFileHelper::getRandomFileName($path, $extension);
-            $baseName =  $fileName . '.' . $extension;
+            $baseName = $fileName . '.' . $extension;
 
             $orig = $path . '/' . $this->createOrigFileName($baseName);
 
@@ -77,9 +74,9 @@ class DUploadManager extends CApplicationComponent
             fclose($f);
 
             return Yii::app()->file->set($orig);
-        }
-        else
+        } else {
             return false;
+        }
     }
 
     /**
@@ -89,28 +86,32 @@ class DUploadManager extends CApplicationComponent
      */
     public function delete($baseName, $path)
     {
-        if (!$baseName)
+        if (!$baseName) {
             return false;
+        }
 
-        if (!preg_match('|^' . $this->rootPath . '|s', $path))
+        if (!preg_match('|^' . $this->rootPath . '|s', $path)) {
             return false;
+        }
 
         $dir = Yii::app()->file->set($path);
 
-        if (!$dir->contents)
+        if (!$dir->contents) {
             return false;
+        }
 
         $file = Yii::app()->file->set($path . '/' . $baseName);
         $fileName = $file->filename;
         $extension = $file->extension ? '\.' . $file->extension : '';
 
-        if (!$fileName)
+        if (!$fileName) {
             return false;
+        }
 
-        foreach ($dir->contents as $currentFile)
-        {
-            if (preg_match('|^' . $fileName . '.*' . $extension . '$|s', basename($currentFile)))
+        foreach ($dir->contents as $currentFile) {
+            if (preg_match('|^' . $fileName . '.*' . $extension . '$|s', basename($currentFile))) {
                 @unlink($currentFile);
+            }
         }
 
         return true;
@@ -123,11 +124,13 @@ class DUploadManager extends CApplicationComponent
      */
     public function getUrl($path, $baseName)
     {
-        if (!$baseName)
+        if (!$baseName) {
             return $this->emptyImage;
+        }
 
-        if (!file_exists($path . '/' . $baseName))
+        if (!file_exists($path . '/' . $baseName)) {
             $this->createThumb($path, $baseName);
+        }
 
         return $path . '/' . $baseName;
     }
@@ -139,13 +142,15 @@ class DUploadManager extends CApplicationComponent
      * @param integer $height
      * @return string
      */
-    public function getThumbUrl($path, $baseName, $width=0, $height=0)
+    public function getThumbUrl($path, $baseName, $width = 0, $height = 0)
     {
-        if (!$baseName)
+        if (!$baseName) {
             return $this->emptyImage;
+        }
 
-        if (!$this->isAllowedResolution($path, $width, $height))
+        if (!$this->isAllowedResolution($path, $width, $height)) {
             return '';
+        }
 
         $baseName = $this->createThumbFileName($baseName, $width, $height);
 
@@ -158,17 +163,21 @@ class DUploadManager extends CApplicationComponent
      */
     public function checkThumbExists($fileName)
     {
-        if (file_exists($fileName))
+        if (file_exists($fileName)) {
             return true;
+        }
 
-        if (!$requested = $this->parseFileName($fileName))
+        if (!$requested = $this->parseFileName($fileName)) {
             return false;
+        }
 
-        if (!$this->isAllowedResolution($requested->path, $requested->width, $requested->height))
+        if (!$this->isAllowedResolution($requested->path, $requested->width, $requested->height)) {
             return false;
+        }
 
-        if (!$file = $this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height))
+        if (!$file = $this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height)) {
             return false;
+        }
 
         return $file;
     }
@@ -180,35 +189,37 @@ class DUploadManager extends CApplicationComponent
      * @param bool $height
      * @return bool|CFile
      */
-    public function createThumb($path, $baseName, $width=0, $height=0)
+    public function createThumb($path, $baseName, $width = 0, $height = 0)
     {
         $fileName = $path . '/' . $this->createOrigFileName($baseName);
-        if (!file_exists($fileName))
-		{
-			$fileName = $path . '/' . $baseName;
-			$this->watermarkFile = false;
-		}
+        if (!file_exists($fileName)) {
+            $fileName = $path . '/' . $baseName;
+            $this->watermarkFile = false;
+        }
 
-		if (!file_exists($fileName))
-			return false;
+        if (!file_exists($fileName)) {
+            return false;
+        }
 
         /* @var $orig CImageHandler */
         /* @var $thumb CImageHandler */
 
-        if ($orig = Yii::app()->image->load($fileName))
-        {
-            if ($width && $height)
+        if ($orig = Yii::app()->image->load($fileName)) {
+            if ($width && $height) {
                 $thumb = $orig->adaptiveThumb($width, $height);
-            else
+            } else {
                 $thumb = $orig->thumb($width ? $width : false, $height ? $height : false, true);
+            }
 
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);
 
-            if ($this->watermarkFile)
+            if ($this->watermarkFile) {
                 $thumb = $thumb->watermark($this->watermarkFile, $this->watermarkOffsetX, $this->watermarkOffsetY, $this->watermarkPosition);
+            }
 
-            if ($thumb->save($targetName, false, 100))
+            if ($thumb->save($targetName, false, 100)) {
                 return Yii::app()->file->set($targetName);
+            }
         }
 
         return false;
@@ -216,16 +227,14 @@ class DUploadManager extends CApplicationComponent
 
     public function createOrigFileName($baseName)
     {
-        if (!$this->watermarkFile)
+        if (!$this->watermarkFile) {
             return $baseName;
+        }
 
-        if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches))
-        {
+        if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches)) {
             $fileName = $matches['name'];
             $extension = '.' . $matches['extension'];
-        }
-        else
-        {
+        } else {
             $fileName = $baseName;
             $extension = '';
         }
@@ -235,31 +244,25 @@ class DUploadManager extends CApplicationComponent
 
     public function createThumbFileName($baseName, $width, $height)
     {
-        if ($width || $height)
-        {
-            if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches))
-            {
+        if ($width || $height) {
+            if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches)) {
                 $fileName = $matches['name'];
                 $extension = '.' . $matches['extension'];
-            }
-            else
-            {
+            } else {
                 $fileName = $baseName;
                 $extension = '';
             }
 
             return $fileName . '_' . (int)$width . 'x' . (int)$height . $extension;
-        }
-        else
+        } else {
             return $baseName;
-
+        }
     }
 
     protected function parseFilename($fileName)
     {
         $result = false;
-        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w\d]+)/(?P<name>[\w\d]+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>[\w\d]+)$|is', $fileName, $matches))
-        {
+        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w\d]+)/(?P<name>[\w\d]+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>[\w\d]+)$|is', $fileName, $matches)) {
             $result = new StdClass;
             $result->path = $matches['path'];
             $result->fileName = $matches['name'];
@@ -275,11 +278,12 @@ class DUploadManager extends CApplicationComponent
     {
         $resolution = (int)$width . 'x' . (int)$height;
 
-        foreach ($this->allowedThumbnailResolutions as $rule)
-        {
-            if (mb_strpos($path, $rule[0], null, 'UTF-8') === 0)
-                if (in_array($resolution, $rule[1]))
+        foreach ($this->allowedThumbnailResolutions as $rule) {
+            if (mb_strpos($path, $rule[0], null, 'UTF-8') === 0) {
+                if (in_array($resolution, $rule[1])) {
                     return true;
+                }
+            }
         }
         return false;
     }

@@ -1,3 +1,4 @@
-tinyMCE.addI18n('ru.youtube',{
-	desc : 'Вставить видео с YouTube'
+tinyMCE.addI18n('ru.youtube', {
+    desc: 'Вставить видео с YouTube'
 });
+

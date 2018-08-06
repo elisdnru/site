@@ -7,9 +7,9 @@ class FollowWidget extends DWidget
     public function run()
     {
         $assetsUrl = $this->registerScripts();
-        $this->render($this->tpl, array(
-            'assetsUrl'=>$assetsUrl,
-        ));
+        $this->render($this->tpl, [
+            'assetsUrl' => $assetsUrl,
+        ]);
     }
 
     protected function registerScripts()

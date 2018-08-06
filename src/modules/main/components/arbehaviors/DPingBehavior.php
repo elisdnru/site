@@ -11,7 +11,8 @@ class DPingBehavior extends CActiveRecordBehavior
     public function afterSave($event)
     {
         $model = $this->getOwner();
-        if ($model->isNewRecord)
+        if ($model->isNewRecord) {
             Yii::app()->rpcManager->pingPage($model->{$this->urlAttribute});
+        }
     }
 }

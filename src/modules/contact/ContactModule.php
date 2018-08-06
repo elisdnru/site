@@ -6,9 +6,9 @@ class ContactModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.contact.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -27,38 +27,38 @@ class ContactModule extends DWebModule
 
         $messages = Contact::model()->count('status=' . Contact::STATUS_NEW);
 
-        return array(
-            array('label'=>'Сообщения' . ($messages ?  ' (' . $messages . ')' : ''), 'url'=>array('/contact/contactAdmin/index'), 'icon'=>'message.png'),
-        );
+        return [
+            ['label' => 'Сообщения' . ($messages ? ' (' . $messages . ')' : ''), 'url' => ['/contact/contactAdmin/index'], 'icon' => 'message.png'],
+        ];
     }
 
     public static function rules()
     {
-        return array(
-            'contact/captcha'=>'contact/default/captcha',
-        );
+        return [
+            'contact/captcha' => 'contact/default/captcha',
+        ];
     }
 
     public function install()
     {
-        Yii::app()->config->add(array(
-            array(
-                'param'=>'CONTACT.SEND_ADMIN_EMAILS',
-                'label'=>'Уведомлять администратора по Email',
-                'value'=>'1',
-                'type'=>'checkbox',
-                'default'=>'1',
-            ),
-        ));
+        Yii::app()->config->add([
+            [
+                'param' => 'CONTACT.SEND_ADMIN_EMAILS',
+                'label' => 'Уведомлять администратора по Email',
+                'value' => '1',
+                'type' => 'checkbox',
+                'default' => '1',
+            ],
+        ]);
 
         return parent::install();
     }
 
     public function uninstall()
     {
-        Yii::app()->config->delete(array(
+        Yii::app()->config->delete([
             'COMMENT.SEND_REPLY_EMAILS',
-        ));
+        ]);
 
         return parent::uninstall();
     }

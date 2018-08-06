@@ -2,13 +2,13 @@
 /* @var $this DAdminController */
 /* @var $items Config[] */
 
-$this->pageTitle='Редактор параметров';
-$this->breadcrumbs=array(
-	'Панель управления'=>array('/admin'),
-	'Параметры',
-);
+$this->pageTitle = 'Редактор параметров';
+$this->breadcrumbs = [
+    'Панель управления' => ['/admin'],
+    'Параметры',
+];
 
-$this->admin[] = array('label'=>'Переоткрыть', 'url'=>$this->createUrl('admin/configs'));
+$this->admin[] = ['label' => 'Переоткрыть', 'url' => $this->createUrl('admin/configs')];
 $this->info = 'Если значение не указано, то используется значение по умолчанию';
 ?>
 
@@ -18,51 +18,46 @@ $this->info = 'Если значение не указано, то исполь�
     <?php echo CHtml::beginForm(); ?>
 
     <table class="grid">
-
-    <?php $prevGroup = ''; ?>
-
-    <?php foreach($items as $item): ?>
-
-        <?php
-            $domens = explode('.' ,$item->param);
+        <?php $prevGroup = ''; ?>
+        <?php foreach ($items as $item) : ?>
+            <?php
+            $domens = explode('.', $item->param);
             $currGroup = array_shift($domens);
-        ?>
+            ?>
+            <?php if ($prevGroup != $currGroup) : ?>
+    </table>
+    <br/>
+    <h2><?php echo $currGroup; ?></h2>
 
-        <?php if ($prevGroup != $currGroup): ?>
-
-        </table>
-            <br />
-            <h2><?php echo $currGroup; ?></h2>
-
-        <table class="grid" style="margin-bottom:20px !important">
+    <table class="grid" style="margin-bottom:20px !important">
         <tr>
             <th width="250">Параметр</th>
             <th>Значение</th>
         </tr>
-
-        <?php endif; ?>
-
+            <?php endif; ?>
 
         <tr>
-            <td><br /><?php echo $item->label; ?><br /><small>[<?php echo $item->param; ?>]</small><br /><br /></td>
+            <td><br/><?php echo $item->label; ?><br/>
+                <small>[<?php echo $item->param; ?>]</small>
+                <br/><br/></td>
             <td style="vertical-align: middle;">
-                <?php if (!$item->type || $item->type == 'string'): ?>
-                    <?php echo CHtml::activeTextField($item,"[$item->id]value", array('style'=>'width:99%', 'placeholder'=>$item->default)); ?>
-                <?php elseif ($item->type == 'text'): ?>
-                    <?php echo CHtml::activeTextArea($item,"[$item->id]value", array('rows'=>4, 'style'=>'width:99%', 'placeholder'=>$item->default)); ?>
-                <?php elseif ($item->type == 'checkbox'): ?>
-                    <?php echo CHtml::activeCheckBox($item,"[$item->id]value"); ?>
+                <?php if (!$item->type || $item->type == 'string') : ?>
+                    <?php echo CHtml::activeTextField($item, "[$item->id]value", ['style' => 'width:99%', 'placeholder' => $item->default]); ?>
+                <?php elseif ($item->type == 'text') : ?>
+                    <?php echo CHtml::activeTextArea($item, "[$item->id]value", ['rows' => 4, 'style' => 'width:99%', 'placeholder' => $item->default]); ?>
+                <?php elseif ($item->type == 'checkbox') : ?>
+                    <?php echo CHtml::activeCheckBox($item, "[$item->id]value"); ?>
                 <?php endif; ?>
             </td>
         </tr>
 
-        <?php $prevGroup = $currGroup; ?>
+            <?php $prevGroup = $currGroup; ?>
 
-    <?php endforeach; ?>
+        <?php endforeach; ?>
 
     </table>
     <div class="row buttons">
-        <?php echo CHtml::resetButton('Сбросить ввод', array('class'=>'floatright')); ?>
+        <?php echo CHtml::resetButton('Сбросить ввод', ['class' => 'floatright']); ?>
         <?php echo CHtml::submitButton('Сохранить параметры'); ?>
     </div>
     <?php echo CHtml::endForm(); ?>

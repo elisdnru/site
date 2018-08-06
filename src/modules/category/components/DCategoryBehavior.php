@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -9,7 +10,7 @@
  * @property string $aliasAttribute
  * @property string $linkActiveAttribute
  * @property string $requestPathAttribute
- *  
+ *
  * @property integer[] $array
  * @property mixed $assocList
  * @property mixed $aliasList
@@ -49,7 +50,7 @@ class DCategoryBehavior extends CActiveRecordBehavior
     /**
      * @var array default criteria for all queries
      */
-    public $defaultCriteria = array();
+    public $defaultCriteria = [];
 
     protected $_primaryKey;
     protected $_tableSchema;
@@ -79,13 +80,13 @@ class DCategoryBehavior extends CActiveRecordBehavior
     {
         $this->cached();
 
-        $items = $this->getFullAssocData(array(
+        $items = $this->getFullAssocData([
             $this->primaryKeyAttribute,
             $this->titleAttribute,
-        ));
+        ]);
 
-        $result = array();
-        foreach($items as $item){
+        $result = [];
+        foreach ($items as $item) {
             $result[$item[$this->primaryKeyAttribute]] = $item[$this->titleAttribute];
         }
 
@@ -100,13 +101,13 @@ class DCategoryBehavior extends CActiveRecordBehavior
     {
         $this->cached();
 
-        $items = $this->getFullAssocData(array(
+        $items = $this->getFullAssocData([
             $this->aliasAttribute,
             $this->titleAttribute,
-        ));
+        ]);
 
-        $result = array();
-        foreach($items as $item){
+        $result = [];
+        foreach ($items as $item) {
             $result[$item[$this->aliasAttribute]] = $item[$this->titleAttribute];
         }
 
@@ -123,10 +124,10 @@ class DCategoryBehavior extends CActiveRecordBehavior
 
         $items = $this->cached($this->getOwner())->findAll($criteria);
 
-        $result = array();
+        $result = [];
 
-        foreach ($items as $item){
-            $result = $result + array($item->{$this->urlAttribute}=>$item->{$this->titleAttribute});
+        foreach ($items as $item) {
+            $result = $result + [$item->{$this->urlAttribute} => $item->{$this->titleAttribute}];
         }
 
         return $result;
@@ -142,19 +143,19 @@ class DCategoryBehavior extends CActiveRecordBehavior
 
         $items = $this->cached($this->getOwner())->findAll($criteria);
 
-        $result = array();
+        $result = [];
 
-        foreach ($items as $item){
+        foreach ($items as $item) {
             $active = $item->{$this->linkActiveAttribute};
-            $result[$item->getPrimaryKey()] = array(
-                'id'=>$item->getPrimaryKey(),
-                'label'=>$item->{$this->titleAttribute},
-                'url'=>$item->{$this->urlAttribute},
-                'icon'=>$this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
-                'active'=>$active,
-                'itemOptions'=>array('class'=>'item_' . $item->getPrimaryKey()),
-                'linkOptions'=>$active ? array('rel'=>'nofollow') : array(),
-            );
+            $result[$item->getPrimaryKey()] = [
+                'id' => $item->getPrimaryKey(),
+                'label' => $item->{$this->titleAttribute},
+                'url' => $item->{$this->urlAttribute},
+                'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
+                'active' => $active,
+                'itemOptions' => ['class' => 'item_' . $item->getPrimaryKey()],
+                'linkOptions' => $active ? ['rel' => 'nofollow'] : [],
+            ];
         }
 
         return $result;
@@ -167,10 +168,10 @@ class DCategoryBehavior extends CActiveRecordBehavior
      */
     public function findByAlias($alias)
     {
-        $model = $this->cached($this->getOwner())->find(array(
-            'condition'=>'t.' . $this->aliasAttribute . '=:alias',
-            'params'=>array(':alias'=>$alias),
-        ));
+        $model = $this->cached($this->getOwner())->find([
+            'condition' => 't.' . $this->aliasAttribute . '=:alias',
+            'params' => [':alias' => $alias],
+        ]);
         return $model;
     }
 
@@ -197,7 +198,7 @@ class DCategoryBehavior extends CActiveRecordBehavior
     {
         $criteria = $this->getOwnerCriteria();
 
-        $attributes = $this->aliasAttributes(array_unique(array_merge($attributes, array($this->primaryKeyAttribute))));
+        $attributes = $this->aliasAttributes(array_unique(array_merge($attributes, [$this->primaryKeyAttribute])));
         $criteria->select = implode(', ', $attributes);
 
         $command = $this->createFindCommand($criteria);
@@ -212,10 +213,11 @@ class DCategoryBehavior extends CActiveRecordBehavior
         return $command;
     }
 
-    protected function cached($model=null)
+    protected function cached($model = null)
     {
-        if ($model === null)
+        if ($model === null) {
             $model = $this->getOwner();
+        }
 
         $connection = $model->getDbConnection();
         return $model->cache($connection->queryCachingDuration);
@@ -223,7 +225,7 @@ class DCategoryBehavior extends CActiveRecordBehavior
 
     protected function aliasAttributes($attributes)
     {
-        $aliasesAttributes = array();
+        $aliasesAttributes = [];
         foreach ($attributes as $attribute) {
             $aliasesAttributes[] = 't.' . $attribute;
         }
@@ -232,22 +234,25 @@ class DCategoryBehavior extends CActiveRecordBehavior
 
     protected function getPrimaryKeyAttribute()
     {
-        if ($this->_primaryKey === null)
+        if ($this->_primaryKey === null) {
             $this->_primaryKey = $this->tableSchema->primaryKey;
+        }
         return $this->_primaryKey;
     }
 
     protected function getTableSchema()
     {
-        if ($this->_tableSchema === null)
+        if ($this->_tableSchema === null) {
             $this->_tableSchema = $this->getOwner()->getMetaData()->tableSchema;
+        }
         return $this->_tableSchema;
     }
 
     protected function getTableName()
     {
-        if ($this->_tableName === null)
+        if ($this->_tableName === null) {
             $this->_tableName = $this->getOwner()->tableName();
+        }
         return $this->_tableName;
     }
 

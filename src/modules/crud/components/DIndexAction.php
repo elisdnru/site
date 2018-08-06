@@ -30,24 +30,21 @@ class DIndexAction extends DCrudAction
 
         $provider = $this->providerClass;
 
-        $dataProvider = new $provider($model, array(
-            'pagination'=>array(
-                'pageSize'=>$this->pageSize,
-                'pageVar'=>'page',
-            )
-        ));
+        $dataProvider = new $provider($model, [
+            'pagination' => [
+                'pageSize' => $this->pageSize,
+                'pageVar' => 'page',
+            ]
+        ]);
 
-        if ($this->ajaxView && Yii::app()->request->isAjaxRequest)
-        {
-            $this->controller->renderPartial($this->ajaxView, array(
-                'dataProvider'=>$dataProvider,
-            ));
-        }
-        else
-        {
-            $this->controller->render($this->view, array(
-                'dataProvider'=>$dataProvider,
-            ));
+        if ($this->ajaxView && Yii::app()->request->isAjaxRequest) {
+            $this->controller->renderPartial($this->ajaxView, [
+                'dataProvider' => $dataProvider,
+            ]);
+        } else {
+            $this->controller->render($this->view, [
+                'dataProvider' => $dataProvider,
+            ]);
         }
     }
 }

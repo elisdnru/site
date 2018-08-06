@@ -6,29 +6,29 @@ class ProfileController extends DController
 {
     public function filters()
     {
-        return array(
+        return [
             'accessControl',
-        );
+        ];
     }
 
     public function accessRules()
     {
-        return array(
-            array('allow',
-                'roles'=>array(Access::ROLE_USER),
-            ),
-            array('deny',
-                'users'=>array('*'),
-            ),
-        );
+        return [
+            ['allow',
+                'roles' => [Access::ROLE_USER],
+            ],
+            ['deny',
+                'users' => ['*'],
+            ],
+        ];
     }
 
     public function actions()
     {
-        return array(
-            'index'=>'DUpdateAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => 'DUpdateAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     /**
@@ -37,8 +37,7 @@ class ProfileController extends DController
      */
     public function performAjaxValidation($model)
     {
-        if(isset($_POST['ajax']) && $_POST['ajax']==='settings-form')
-        {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'settings-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
@@ -48,8 +47,9 @@ class ProfileController extends DController
     {
         $model = User::model()->findByPk(Yii::app()->user->id);
         $model->scenario = 'settings';
-        if($model===null)
+        if ($model === null) {
             throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
+        }
         return $model;
     }
 }

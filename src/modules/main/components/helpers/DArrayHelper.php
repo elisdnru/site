@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -23,10 +24,8 @@ class DArrayHelper
     {
         $request = new StdClass;
 
-        foreach ($attributesMap as $fromAttr=>$toAttr)
-        {
-            if (is_int($fromAttr))
-            {
+        foreach ($attributesMap as $fromAttr => $toAttr) {
+            if (is_int($fromAttr)) {
                 $fromAttr = $toAttr;
                 $toAttr = null;
             }
@@ -37,13 +36,14 @@ class DArrayHelper
 
             $val = $array;
 
-            while ($sub = trim(array_shift($subs), ']'))
-            {
+            while ($sub = trim(array_shift($subs), ']')) {
                 $attrName = $sub;
                 $val = isset($val[$sub]) ? $val[$sub] : null;
             }
 
-            if (!$toAttr) $toAttr = $attrName;
+            if (!$toAttr) {
+                $toAttr = $attrName;
+            }
 
             $request->$toAttr = $val;
         }
@@ -53,10 +53,9 @@ class DArrayHelper
 
     public static function extract($array, $attributes)
     {
-        $resultArray = array();
+        $resultArray = [];
 
-        foreach ($attributes as $attr)
-        {
+        foreach ($attributes as $attr) {
             $resultArray[$attr] = isset($array[$attr]) ? $array[$attr] : null;
         }
 
@@ -65,10 +64,12 @@ class DArrayHelper
 
     public static function clean($array)
     {
-        $resultArray = array();
+        $resultArray = [];
 
-        foreach ($array as $attr=>$val){
-            if ($val) $resultArray[$attr] = $val;
+        foreach ($array as $attr => $val) {
+            if ($val) {
+                $resultArray[$attr] = $val;
+            }
         }
 
         return $resultArray;

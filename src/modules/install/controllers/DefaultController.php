@@ -8,13 +8,14 @@ class DefaultController extends DController
 {
     public function filters()
     {
-        return array();
+        return [];
     }
 
     protected function beforeAction($action)
     {
-        if (Yii::app()->config->has('GENERAL.SITE_NAME'))
+        if (Yii::app()->config->has('GENERAL.SITE_NAME')) {
             throw new CHttpException(404, 'Not found');
+        }
 
         Yii::app()->setTheme('');
 
@@ -29,43 +30,37 @@ class DefaultController extends DController
     public function actionRegister()
     {
         $user = new User(User::SCENARIO_ADMIN_CREATE);
-        if (isset($_POST['User']))
-        {
+        if (isset($_POST['User'])) {
             $user->attributes = $_POST['User'];
             $user->role = Access::ROLE_ADMIN;
             $user->active = 1;
 
-            if ($user->save())
-            {
-                Yii::app()->user->setFlash('success','Регистрация завершена');
-                $this->redirect(array('index'));
+            if ($user->save()) {
+                Yii::app()->user->setFlash('success', 'Регистрация завершена');
+                $this->redirect(['index']);
             }
         }
 
-        $this->render('register', array(
-            'model'=>$user,
-        ));
+        $this->render('register', [
+            'model' => $user,
+        ]);
     }
 
     public function actionModules()
-	{
-        if (count(Yii::app()->modules))
-        {
-            foreach (Yii::app()->modules as $key => $value)
-            {
+    {
+        if (count(Yii::app()->modules)) {
+            foreach (Yii::app()->modules as $key => $value) {
                 $key = strtolower($key);
                 $module = Yii::app()->getModule($key);
 
-                if ($module)
-                {
-                    if (is_a($module, 'DWebModule'))
-                    {
+                if ($module) {
+                    if (is_a($module, 'DWebModule')) {
                         Yii::app()->moduleManager->install($module->id);
                     }
                 }
             }
         }
 
-        $this->redirect(array('index'));
-	}
+        $this->redirect(['index']);
+    }
 }

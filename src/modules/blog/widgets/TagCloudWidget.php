@@ -9,7 +9,7 @@ class TagCloudWidget extends DWidget
 
     public function run()
     {
-        $tags = BlogTag::model()->with('frequency')->cache(0, new Tags('blog'))->findAll(array('order'=>'title ASC'));
-        $this->render($this->tpl ,array('tags'=>$tags));
+        $tags = BlogTag::model()->with('frequency')->cache(0, new Tags('blog'))->findAll(['order' => 'title ASC']);
+        $this->render($this->tpl, ['tags' => $tags]);
     }
 }

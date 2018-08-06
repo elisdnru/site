@@ -15,24 +15,23 @@ class OtherPostsWidget extends DWidget
     public function run()
     {
         $criteria = new CDbCriteria;
-        $criteria->scopes = array('published');
+        $criteria->scopes = ['published'];
         $criteria->limit = $this->limit;
 
-        if ($this->category)
-        {
+        if ($this->category) {
             $category = BlogCategory::model()->findByPk(trim($this->category));
 
-            if (!$category)
+            if (!$category) {
                 return false;
+            }
 
             $criteria->addCondition('category_id=:cat');
             $criteria->params[':cat'] = $category->id;
-        }
-        else
+        } else {
             $category = new BlogCategory;
+        }
 
-        if ($this->skip)
-        {
+        if ($this->skip) {
             $criteria->params[':skip'] = $this->skip;
 
             $prevCriteria = clone $criteria;
@@ -47,20 +46,17 @@ class OtherPostsWidget extends DWidget
                 array_reverse(BlogPost::model()->findAll($nextCriteria)),
                 BlogPost::model()->findAll($prevCriteria)
             );
-        }
-        else
-        {
+        } else {
             $posts = BlogPost::model()->findAll($criteria);
         }
 
 
-        $this->render($this->tpl ,array(
-            'posts'=>$posts,
-            'title'=>$this->title,
-            'label'=>$this->label,
-            'class'=>$this->class,
-            'category'=>$category,
-        ));
+        $this->render($this->tpl, [
+            'posts' => $posts,
+            'title' => $this->title,
+            'label' => $this->label,
+            'class' => $this->class,
+            'category' => $category,
+        ]);
     }
-
 }

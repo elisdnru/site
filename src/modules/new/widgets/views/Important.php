@@ -1,1 +1,12 @@
-<div class="page_widget_important">    <div class="wrapper">        <?php foreach ($news as $new): ?>            <p class="pub_title"><a href="<?php echo $new->url; ?>"><?php echo $new->title; ?></a></p>            <div class="pub_short"><?php echo $new->short; ?></div>            <p class="pub_link"><a rel="nofollow" href="<?php echo $url; ?>">Подробнее</a></p>            <div class="clear"></div>        <?php endforeach; ?>    </div></div>
+<div class="page_widget_important">
+    <div class="wrapper">
+
+        <?php foreach ($news as $new) : ?>
+            <p class="pub_title"><a href="<?php echo $new->url; ?>"><?php echo $new->title; ?></a></p>
+            <div class="pub_short"><?php echo $new->short; ?></div>
+            <p class="pub_link"><a rel="nofollow" href="<?php echo $url; ?>">Подробнее</a></p>
+            <div class="clear"></div>
+
+        <?php endforeach; ?>
+    </div>
+</div>

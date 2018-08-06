@@ -7,26 +7,26 @@ class User extends UserBase
 {
     protected $_salt = '%#w_wrb13&p';
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @return User the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * @return User the static model class
+     */
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
 
     /**
      * @return array validation rules for model attributes.
      */
     public function rules()
     {
-        return array_merge(parent::rules(), array(
+        return array_merge(parent::rules(), [
             // Settings
             // array('old_password', 'required', 'on' => 'settings'),
-            array('old_password', 'DCurrentPassword', 'className'=>'User', 'validateMethod'=>'validatePassword', 'dependsOnAttributes'=>array('new_password'), 'on'=>'settings'),
-		));
-	}
+            ['old_password', 'DCurrentPassword', 'className' => 'User', 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
+        ]);
+    }
 
     public function getDefaultAvatarUrl($width)
     {

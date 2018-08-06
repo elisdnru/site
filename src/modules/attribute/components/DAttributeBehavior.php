@@ -11,7 +11,7 @@ class DAttributeBehavior extends CActiveRecordBehavior
     protected $attributeLabels;
     protected $attributeValues;
 
-	public function canGetProperty($name)
+    public function canGetProperty($name)
     {
         return $this->validProperty($name) || parent::canGetProperty($name);
     }
@@ -28,37 +28,37 @@ class DAttributeBehavior extends CActiveRecordBehavior
 
     public function __get($name)
     {
-        if ($this->validProperty($name))
-        {
-            if (!isset($this->attributeValues[$name]))
+        if ($this->validProperty($name)) {
+            if (!isset($this->attributeValues[$name])) {
                 $this->attributeValues[$name] = '';
+            }
 
             return $this->attributeValues[$name];
-        }
-        else
+        } else {
             return parent::__get($name);
+        }
     }
 
     public function __set($name, $value)
     {
-        if ($this->validProperty($name))
+        if ($this->validProperty($name)) {
             $this->attributeValues[$name] = $value;
-        else
+        } else {
             parent::__set($name, $value);
+        }
     }
 
-    public function getAttrDetailView($autoVisible=true)
+    public function getAttrDetailView($autoVisible = true)
     {
         $this->initValues();
 
-        $items = array();
-        foreach ($this->attributeValues as $name=>$value)
-        {
-             $items[] = array(
-                 'label'=>$this->attributeLabels[$name],
-                 'value'=>$value,
-                 'visible'=>$autoVisible ? $value : 1,
-             );
+        $items = [];
+        foreach ($this->attributeValues as $name => $value) {
+            $items[] = [
+                'label' => $this->attributeLabels[$name],
+                'value' => $value,
+                'visible' => $autoVisible ? $value : 1,
+            ];
         }
 
         return $items;
@@ -85,14 +85,14 @@ class DAttributeBehavior extends CActiveRecordBehavior
     protected function loadAttributesNames()
     {
         if ($this->attributeNames === null) {
-            $this->attributeNames = array();
-            $this->attributeLabels = array();
+            $this->attributeNames = [];
+            $this->attributeLabels = [];
 
-            $attrs = UserAttribute::model()->cache(0, new Tags('attribute'))->findAll(array(
+            $attrs = UserAttribute::model()->cache(0, new Tags('attribute'))->findAll([
                 'condition' => 'class = :class',
-                'params' => array(':class' => get_class($this->getOwner())),
+                'params' => [':class' => get_class($this->getOwner())],
                 'order' => 'sort',
-            ));
+            ]);
 
             foreach ($attrs as $attr) {
                 $this->attributeNames[] = $attr->name;
@@ -103,25 +103,23 @@ class DAttributeBehavior extends CActiveRecordBehavior
 
     protected function loadAttributesValues()
     {
-        if ($this->attributeValues === null)
-        {
-            $this->attributeValues = array();
+        if ($this->attributeValues === null) {
+            $this->attributeValues = [];
 
-            $attrs = UserAttributeValue::model()->findAllByAttributes(array('owner_id' => $this->getOwner()->getPrimaryKey()));
+            $attrs = UserAttributeValue::model()->findAllByAttributes(['owner_id' => $this->getOwner()->getPrimaryKey()]);
 
             foreach ($attrs as $attr) {
-                if ($attr->attribute)
+                if ($attr->attribute) {
                     $this->attributeValues[$attr->attribute->name] = $attr->value;
+                }
             }
         }
     }
 
     protected function saveAttributesValues()
     {
-        if ($this->attributeValues !== null)
-        {
-            foreach ($this->attributeValues as $name=>$value)
-            {
+        if ($this->attributeValues !== null) {
+            foreach ($this->attributeValues as $name => $value) {
                 $model = $this->loadOrCreateValueModel($name, $this->getOwner()->getPrimaryKey());
                 $model->value = $value;
                 $model->save();
@@ -131,17 +129,16 @@ class DAttributeBehavior extends CActiveRecordBehavior
 
     protected function loadOrCreateValueModel($name, $ownerId)
     {
-        $attribute = UserAttribute::model()->findByAttributes(array(
+        $attribute = UserAttribute::model()->findByAttributes([
             'name' => $name,
-        ));
+        ]);
 
-        $model = UserAttributeValue::model()->findByAttributes(array(
+        $model = UserAttributeValue::model()->findByAttributes([
             'owner_id' => $ownerId,
             'attribute_id' => $attribute->id,
-        ));
+        ]);
 
-        if ($model === null)
-        {
+        if ($model === null) {
             $model = new UserAttributeValue();
             $model->owner_id = $ownerId;
             $model->attribute_id = $attribute->id;

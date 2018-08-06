@@ -4,7 +4,7 @@ class m130328_122419_create_portfolio_work extends EDbMigration
 {
     public function safeUp()
     {
-        $this->createTable('{{portfolio_work}}', array(
+        $this->createTable('{{portfolio_work}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'sort' => 'int(11) NOT NULL',
             'date' => 'datetime NOT NULL',
@@ -23,7 +23,7 @@ class m130328_122419_create_portfolio_work extends EDbMigration
             'image_height' => 'int(11) NOT NULL',
             'image_show' => 'tinyint(1) NOT NULL',
             'public' => 'tinyint(1) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('category_id', '{{portfolio_work}}', 'category_id');
 
@@ -32,7 +32,7 @@ class m130328_122419_create_portfolio_work extends EDbMigration
         $this->createIndex('alias', '{{portfolio_work}}', 'alias');
         $this->createIndex('public', '{{portfolio_work}}', 'public');
 
-        $this->createTable('{{portfolio_work_lang}}', array(
+        $this->createTable('{{portfolio_work_lang}}', [
             'l_id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'owner_id' => 'int(11) NOT NULL',
             'lang_id' => 'varchar(6) NOT NULL',
@@ -44,7 +44,7 @@ class m130328_122419_create_portfolio_work extends EDbMigration
             'l_pagetitle' => 'varchar(255) NOT NULL',
             'l_description' => 'text NOT NULL',
             'l_keywords' => 'varchar(255) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('lang_id', '{{portfolio_work_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{portfolio_work_lang}}', 'owner_id');

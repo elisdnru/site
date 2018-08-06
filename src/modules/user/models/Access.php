@@ -9,21 +9,26 @@ class Access extends CModel
 
     public function attributeNames()
     {
-        return array();
+        return [];
     }
 
     public static function getRoles()
     {
-        return CHtml::listData(Yii::app()->authManager->roles,'name','description');
+        return CHtml::listData(Yii::app()->authManager->roles, 'name', 'description');
     }
 
     public static function getRoleName($role)
     {
-        switch ($role)
-        {
-            case self::ROLE_USER: return 'Пользователь'; break;
-            case self::ROLE_MANAGER: return 'Контент-менеджер'; break;
-            case self::ROLE_ADMIN: return 'Администратор'; break;
+        switch ($role) {
+            case self::ROLE_USER:
+                return 'Пользователь';
+                break;
+            case self::ROLE_MANAGER:
+                return 'Контент-менеджер';
+                break;
+            case self::ROLE_ADMIN:
+                return 'Администратор';
+                break;
         };
         return false;
     }

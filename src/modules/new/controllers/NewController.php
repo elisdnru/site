@@ -2,23 +2,25 @@
 
 class NewController extends DController
 {
-	public function actionShow($id)
-	{
-		$model = $this->loadModel($id);
+    public function actionShow($id)
+    {
+        $model = $this->loadModel($id);
         $this->checkUrl($model->url);
 
-        if (!$layout = NewsPage::model()->getShowLayout($model->page->id))
+        if (!$layout = NewsPage::model()->getShowLayout($model->page->id)) {
             $layout = 'default';
+        }
 
         $this->layout = '//layouts/page/' . $layout;
 
-        if (!$view = NewsPage::model()->getShowView($model->page->id))
+        if (!$view = NewsPage::model()->getShowView($model->page->id)) {
             $view = 'default';
+        }
 
-		$this->render($view, array(
-            'model'=>$model,
-        ));
-	}
+        $this->render($view, [
+            'model' => $model,
+        ]);
+    }
 
     protected function loadModel($id)
     {
@@ -29,10 +31,10 @@ class NewController extends DController
         }
 
         $model = News::model()->findByPk($id, $condition);
-        if($model===null)
+        if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
+        }
 
         return $model;
     }
-
 }

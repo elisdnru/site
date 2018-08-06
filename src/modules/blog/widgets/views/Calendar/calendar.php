@@ -1,4 +1,3 @@
-
 <div class="Calendar">
     <?php
     include_once(__DIR__ . '/generate_calendar.php');

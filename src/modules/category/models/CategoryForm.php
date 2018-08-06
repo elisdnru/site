@@ -24,21 +24,20 @@ class CategoryForm extends CFormModel
     public $keywords;
     public $parent_id;
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		return Category::staticRules();
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        return Category::staticRules();
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		
-		return Category::staticAtributeLabels();
-	}
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
 
+        return Category::staticAtributeLabels();
+    }
 }

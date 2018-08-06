@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @property string $title
  * @property string $text
@@ -8,7 +9,7 @@
  */
 class Search extends CActiveRecord
 {
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
@@ -22,8 +23,8 @@ class Search extends CActiveRecord
 
     public function getMaterial()
     {
-        if ($this->_material === null){
-            if ($this->material_import){
+        if ($this->_material === null) {
+            if ($this->material_import) {
                 Yii::import($this->material_import);
             }
             $this->_material = CActiveRecord::model($this->material_class)->findByPk($this->material_id);

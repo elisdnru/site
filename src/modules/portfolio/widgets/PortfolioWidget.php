@@ -6,11 +6,11 @@ DUrlRulesHelper::import('portfolio');
 class PortfolioWidget extends DWidget
 {
     public $tpl = 'Portfolio';
-	public $class = '';
-	public $limit = 4;
+    public $class = '';
+    public $limit = 4;
 
-	public function run()
-	{
+    public function run()
+    {
         PortfolioModule::registerScripts();
 
         $criteria = new CDbCriteria;
@@ -19,8 +19,8 @@ class PortfolioWidget extends DWidget
 
         $items = PortfolioWork::model()->published()->cache(0, new Tags('portfolio'))->findAll($criteria);
 
-		$this->render($this->tpl ,array(
-            'items'=>$items,
-        ));
-	}
+        $this->render($this->tpl, [
+            'items' => $items,
+        ]);
+    }
 }

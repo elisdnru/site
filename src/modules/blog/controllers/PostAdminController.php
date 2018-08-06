@@ -6,27 +6,26 @@ class PostAdminController extends DAdminController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'create'=>'DCreateAction',
-            'update'=>'DUpdateAction',
-            'toggle'=>array(
-                'class'=>'DToggleAction',
-                'attributes'=>array('public')
-            ),
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'create' => 'DCreateAction',
+            'update' => 'DUpdateAction',
+            'toggle' => [
+                'class' => 'DToggleAction',
+                'attributes' => ['public']
+            ],
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
     public function actionAutoCompleteTags($term)
     {
-        if ($term)
-        {
+        if ($term) {
             $tags = BlogTag::model()->getArrayByMatch($term);
             echo CJSON::encode($tags);
             Yii::app()->end();
@@ -45,13 +44,15 @@ class PostAdminController extends DAdminController
 
     public function loadModel($id)
     {
-        if (DMultilangHelper::enabled())
+        if (DMultilangHelper::enabled()) {
             $model = BlogPost::model()->multilang()->findByPk($id);
-        else
+        } else {
             $model = BlogPost::model()->findByPk($id);
+        }
 
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

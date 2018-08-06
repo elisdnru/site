@@ -6,9 +6,9 @@ class SitemapModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.sitemap.components.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -23,9 +23,9 @@ class SitemapModule extends DWebModule
 
     public static function rules()
     {
-        return array(
-			'sitemap'=>'sitemap/default/index',
-            array('sitemap/default/xml', 'pattern'=>'sitemap.xml', 'urlSuffix'=>''),
-        );
+        return [
+            'sitemap' => 'sitemap/default/index',
+            ['sitemap/default/xml', 'pattern' => 'sitemap.xml', 'urlSuffix' => ''],
+        ];
     }
 }

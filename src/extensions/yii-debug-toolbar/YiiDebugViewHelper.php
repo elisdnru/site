@@ -29,6 +29,6 @@ class YiiDebugViewHelper
                 . join("</div><div>", $lines)
                 . "</div></div>\n";
         }
-        return '<div>' . $first ."</div>\n" . $details;
+        return '<div>' . $first . "</div>\n" . $details;
     }
 }

@@ -8,14 +8,14 @@
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('CActiveForm', array(
-    'id'=>'page-form',
-    'enableClientValidation'=>true,
-    'clientOptions'=>array(
-        'validateOnSubmit'=>true,
-    ),
-    'htmlOptions'=>array('enctype'=>'multipart/form-data')
-)); ?>
+    <?php $form = $this->beginWidget('CActiveForm', [
+        'id' => 'page-form',
+        'enableClientValidation' => true,
+        'clientOptions' => [
+            'validateOnSubmit' => true,
+        ],
+        'htmlOptions' => ['enctype' => 'multipart/form-data']
+    ]); ?>
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
@@ -27,14 +27,15 @@
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model,'title'); ?><br />
-            <?php echo $form->textField($model,'title',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'title'); ?>
+            <?php echo $form->labelEx($model, 'title'); ?><br/>
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'title'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('NewsGallery_title', 'NewsGallery_alias')">Транслит наименования</a><br />
-            <?php echo $form->textField($model,'alias',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'alias'); ?>
+            <?php echo $form->labelEx($model, 'alias'); ?>
+            &nbsp;<a href="javascript:transliterate('NewsGallery_title', 'NewsGallery_alias')">Транслит наименования</a><br/>
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'alias'); ?>
         </div>
     </fieldset>
 

@@ -8,19 +8,22 @@ $this->description = '';
 $this->keywords = '';
 
 
-$this->breadcrumbs=array(
+$this->breadcrumbs = [
     'Блог' => $this->createUrl('/blog/default/index'),
     'Записи от ' . $date->date,
-);
+];
 
-if ($this->is(Access::ROLE_CONTROL)){
-
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Редактировать записи', 'url'=>$this->createUrl('/blog/postAdmin'));
-    if ($this->moduleAllowed('blog')) $this->admin[] = array('label'=>'Добавить запись', 'url'=> $this->createUrl('/blog/postAdmin/create'));
+if ($this->is(Access::ROLE_CONTROL)) {
+    if ($this->moduleAllowed('blog')) {
+        $this->admin[] = ['label' => 'Редактировать записи', 'url' => $this->createUrl('/blog/postAdmin')];
+    }
+    if ($this->moduleAllowed('blog')) {
+        $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/postAdmin/create')];
+    }
     $this->info = 'Здесь собраны записи по дате';
 }
 ?>
 
-<h1>Записи от <?php echo $date->date; ?></h1>
+    <h1>Записи от <?php echo $date->date; ?></h1>
 
-<?php $this->renderPartial('_loop', array('dataProvider'=>$dataProvider)); ?>
+<?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

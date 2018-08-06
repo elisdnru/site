@@ -16,60 +16,61 @@
  * DCategoryBehavior
  * @method mixed getArray()
  * @method Category findByAlias($alias)
- * @method mixed getAssocList($parent=0)
- * @method mixed getAliasList($parent=0)
- * @method mixed getMenuList($sub=0, $parent=0)
+ * @method mixed getAssocList($parent = 0)
+ * @method mixed getAliasList($parent = 0)
+ * @method mixed getMenuList($sub = 0, $parent = 0)
  */
 abstract class Category extends CActiveRecord
 {
     public $urlRoute = '';
     public $multiLanguage = false;
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Category the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return Category the static model class
+     */
+    public static function model($className = __CLASS__)
+    {
         return parent::model($className);
-	}
-
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return self::staticRules();
-	}
-
-    public static function staticRules(){
-        return array(
-            array('alias, title', 'required'),
-            array('alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
-            //array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Элемент с таким URL уже существует'),
-            array('sort', 'numerical', 'integerOnly'=>true),
-            array('alias, title, pagetitle, keywords', 'length', 'max'=>255),
-            array('text, description', 'safe'),
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            array('id, sort, alias, title, text, pagetitle, description, keywords', 'safe', 'on'=>'search'),
-        );
     }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return self::staticAtributeLabels();
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return self::staticRules();
+    }
+
+    public static function staticRules()
+    {
+        return [
+            ['alias, title', 'required'],
+            ['alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            //array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Элемент с таким URL уже существует'),
+            ['sort', 'numerical', 'integerOnly' => true],
+            ['alias, title, pagetitle, keywords', 'length', 'max' => 255],
+            ['text, description', 'safe'],
+            // The following rule is used by search().
+            // Please remove those attributes that should not be searched.
+            ['id, sort, alias, title, text, pagetitle, description, keywords', 'safe', 'on' => 'search'],
+        ];
+    }
+
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return self::staticAtributeLabels();
+    }
 
     public static function staticAtributeLabels()
     {
-        return array(
+        return [
             'id' => 'ID',
             'sort' => 'Позиция',
             'alias' => 'URL транслитом',
@@ -78,76 +79,76 @@ abstract class Category extends CActiveRecord
             'pagetitle' => 'Заголовок окна',
             'description' => 'Описание',
             'keywords' => 'Ключевые слова',
-        );
+        ];
     }
 
     /**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search($pageSize=10)
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search($pageSize = 10)
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
 
-		$criteria=new CDbCriteria;
+        $criteria = new CDbCriteria;
 
-		$criteria->compare('t.id',$this->id);
-		$criteria->compare('t.alias',$this->alias,true);
-		$criteria->compare('t.title',$this->title,true);
-		$criteria->compare('t.text',$this->text,true);
-		$criteria->compare('t.pagetitle',$this->pagetitle,true);
-		$criteria->compare('t.description',$this->description,true);
-		$criteria->compare('t.keywords',$this->keywords,true);
+        $criteria->compare('t.id', $this->id);
+        $criteria->compare('t.alias', $this->alias, true);
+        $criteria->compare('t.title', $this->title, true);
+        $criteria->compare('t.text', $this->text, true);
+        $criteria->compare('t.pagetitle', $this->pagetitle, true);
+        $criteria->compare('t.description', $this->description, true);
+        $criteria->compare('t.keywords', $this->keywords, true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
-            'sort'=>array(
-                'defaultOrder'=>'t.sort ASC, t.title ASC',
-            ),
-            'pagination'=>array(
-                'pageSize'=>$pageSize,
-                'pageVar'=>'page',
-            ),
-		));
-	}
+        return new CActiveDataProvider($this, [
+            'criteria' => $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+            'sort' => [
+                'defaultOrder' => 't.sort ASC, t.title ASC',
+            ],
+            'pagination' => [
+                'pageSize' => $pageSize,
+                'pageVar' => 'page',
+            ],
+        ]);
+    }
+
     public function behaviors()
     {
-        $behaviors = array(
-            'CategoryBehavior'=>array(
-                'class'=>'category.components.DCategoryBehavior',
-                'titleAttribute'=>'title',
-                'aliasAttribute'=>'alias',
-                'requestPathAttribute'=>'category',
-                'defaultCriteria'=>$this->multiLanguage && DMultilangHelper::enabled() ? array(
-                    'with'=>'i18n' . get_class($this),
-                    'order'=>'t.sort ASC, t.title ASC'
-                ) : array(
-                    'order'=>'t.sort ASC, t.title ASC'
-                ),
-            ),
-        );
+        $behaviors = [
+            'CategoryBehavior' => [
+                'class' => 'category.components.DCategoryBehavior',
+                'titleAttribute' => 'title',
+                'aliasAttribute' => 'alias',
+                'requestPathAttribute' => 'category',
+                'defaultCriteria' => $this->multiLanguage && DMultilangHelper::enabled() ? [
+                    'with' => 'i18n' . get_class($this),
+                    'order' => 't.sort ASC, t.title ASC'
+                ] : [
+                    'order' => 't.sort ASC, t.title ASC'
+                ],
+            ],
+        ];
 
-        if ($this->multiLanguage && DMultilangHelper::enabled())
-        {
-            $behaviors = array_merge($behaviors, array(
-                'ml' => array(
+        if ($this->multiLanguage && DMultilangHelper::enabled()) {
+            $behaviors = array_merge($behaviors, [
+                'ml' => [
                     'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => array(
+                    'localizedAttributes' => [
                         'title',
                         'text',
                         'pagetitle',
                         'description',
                         'keywords',
-                    ),
-                    'langTableName' => str_replace(array('{{', '}}'), '', $this->tableName()) . '_lang',
+                    ],
+                    'langTableName' => str_replace(['{{', '}}'], '', $this->tableName()) . '_lang',
                     'languages' => Yii::app()->params['translatedLanguages'],
                     'defaultLanguage' => Yii::app()->params['defaultLanguage'],
                     'langForeignKey' => 'owner_id',
                     'localizedRelation' => 'i18n' . get_class($this),
                     'dynamicLangClass' => true,
-                ),
-            ));
+                ],
+            ]);
         }
 
         return $behaviors;
@@ -155,13 +156,12 @@ abstract class Category extends CActiveRecord
 
     public function defaultScope()
     {
-        return $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
+        return $this->multiLanguage && DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     protected function beforeSave()
     {
-        if (parent::beforeSave())
-        {
+        if (parent::beforeSave()) {
             $this->fillDefaultValues();
             return true;
         }
@@ -170,17 +170,24 @@ abstract class Category extends CActiveRecord
 
     private function fillDefaultValues()
     {
-        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
-        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
-        if (!$this->description) $this->description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
+        if (!$this->alias) {
+            $this->alias = DTextHelper::strToChpu($this->title);
+        }
+        if (!$this->pagetitle) {
+            $this->pagetitle = strip_tags($this->title);
+        }
+        if (!$this->description) {
+            $this->description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
+        }
     }
 
     private $_url;
 
     public function getUrl()
     {
-        if ($this->_url === null)
-            $this->_url = Yii::app()->createUrl($this->urlRoute, array('category'=>$this->alias));
+        if ($this->_url === null) {
+            $this->_url = Yii::app()->createUrl($this->urlRoute, ['category' => $this->alias]);
+        }
 
         return $this->_url;
     }

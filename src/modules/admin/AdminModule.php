@@ -14,9 +14,9 @@ class AdminModule extends DWebModule
 
     public static function rules()
     {
-        return array(
-            'admin/clearCache'=>'admin/default/clearCache',
-            'admin'=>'admin/default/index',
-        );
+        return [
+            'admin/clearCache' => 'admin/default/clearCache',
+            'admin' => 'admin/default/index',
+        ];
     }
 }

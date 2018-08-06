@@ -6,9 +6,9 @@ class UploaderModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.uploader.components.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -18,9 +18,9 @@ class UploaderModule extends DWebModule
 
     public static function rules()
     {
-        return array(
-            'upload/resize'=>'uploader/resize/index',
-            'upload/images/<image:.+\/[a-f0-9]+_[0-9]+x[0-9]+\..+>'=>'uploader/download/thumb',
-        );
+        return [
+            'upload/resize' => 'uploader/resize/index',
+            'upload/images/<image:.+\/[a-f0-9]+_[0-9]+x[0-9]+\..+>' => 'uploader/download/thumb',
+        ];
     }
 }

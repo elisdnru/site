@@ -6,9 +6,9 @@ class BlockModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.block.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -28,9 +28,9 @@ class BlockModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Блоки', 'url'=>array('/block/blockAdmin/index'), 'icon'=>'code.png'),
-            array('label'=>'Добавить блок', 'url'=>array('/block/blockAdmin/create'), 'icon'=>'add.png'),
-        );
+        return [
+            ['label' => 'Блоки', 'url' => ['/block/blockAdmin/index'], 'icon' => 'code.png'],
+            ['label' => 'Добавить блок', 'url' => ['/block/blockAdmin/create'], 'icon' => 'add.png'],
+        ];
     }
 }

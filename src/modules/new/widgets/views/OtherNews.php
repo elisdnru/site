@@ -1,1 +1,12 @@
-<?php if ($news): ?><p class="nomargin"><strong>Другие записи раздела:</strong></p><div class="other_news"><ul>    <?php $i=0; foreach ($news as $new): ?>        <li><a href="<?php echo $new->url; ?>"><?php echo $new->title; ?></a></li>    <?php endforeach; ?></ul></div><?php endif; ?>
+<?php if ($news) : ?>
+    <p class="nomargin"><strong>Другие записи раздела:</strong></p>
+    <div class="other_news">
+        <ul>
+            <?php $i = 0;
+            foreach ($news as $new) : ?>
+                <li><a href="<?php echo $new->url; ?>"><?php echo $new->title; ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+

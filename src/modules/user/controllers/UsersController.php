@@ -7,32 +7,33 @@ class UsersController extends DController
 {
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DIndexAction',
-                'view'=>'index',
-                'ajaxView'=>'_loop'
-            ),
-        );
+        return [
+            'index' => [
+                'class' => 'DIndexAction',
+                'view' => 'index',
+                'ajaxView' => '_loop'
+            ],
+        ];
     }
 
     public function actionSelf()
     {
         $user = $this->getUser();
 
-        if ($user)
+        if ($user) {
             $this->redirect($user->url);
-        else
+        } else {
             throw new CHttpException(403, 'Необходимо авторизоваться');
+        }
     }
 
     public function actionShow($username)
     {
         $model = $this->loadModel($username);
 
-        $this->render('show', array(
-            'model'=>$model,
-        ));
+        $this->render('show', [
+            'model' => $model,
+        ]);
     }
 
     public function getIndexProviderModel()
@@ -42,9 +43,10 @@ class UsersController extends DController
 
     public function loadModel($username)
     {
-        $model = User::model()->findByAttributes(array('username'=>$username));
-        if($model===null)
+        $model = User::model()->findByAttributes(['username' => $username]);
+        if ($model === null) {
             throw new CHttpException(404, 'Пользователь не найден');
+        }
         return $model;
     }
 }

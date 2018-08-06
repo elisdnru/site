@@ -79,7 +79,7 @@ class DMultiplyListBehavior extends CActiveRecordBehavior
     public function attach($owner)
     {
         $validator = new CSafeValidator;
-        $validator->attributes = array($this->attribute);
+        $validator->attributes = [$this->attribute];
         $owner->getValidatorList()->add($validator);
         parent::attach($owner);
     }
@@ -96,29 +96,35 @@ class DMultiplyListBehavior extends CActiveRecordBehavior
 
     public function __get($name)
     {
-        if (!$this->validProperty($name))
+        if (!$this->validProperty($name)) {
             return null;
+        }
 
-        if ($this->value === null)
+        if ($this->value === null) {
             $this->value = CHtml::listData($this->getOwner()->{$this->relation}, $this->relationPk, $this->relationPk);
+        }
 
         return $this->value;
     }
 
     public function __set($name, $value)
     {
-        if ($this->validProperty($name))
+        if ($this->validProperty($name)) {
             $this->value = $value;
+        }
     }
 
     protected function validProperty($name)
     {
-        if (empty($this->attribute))
+        if (empty($this->attribute)) {
             throw new CException(__CLASS__ . '::attribute is empty');
-        if (empty($this->relation))
+        }
+        if (empty($this->relation)) {
             throw new CException(__CLASS__ . '::relation is empty');
-        if (empty($this->relationPk))
+        }
+        if (empty($this->relationPk)) {
             throw new CException(__CLASS__ . '::relationPk is empty');
+        }
 
         return $name == $this->attribute;
     }

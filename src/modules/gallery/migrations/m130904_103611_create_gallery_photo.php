@@ -4,7 +4,7 @@ class m130904_103611_create_gallery_photo extends EDbMigration
 {
     public function safeUp()
     {
-        $this->createTable('{{gallery_photo}}', array(
+        $this->createTable('{{gallery_photo}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'date' => 'datetime NOT NULL',
             'update_date' => 'datetime NOT NULL',
@@ -23,7 +23,7 @@ class m130904_103611_create_gallery_photo extends EDbMigration
             'public' => 'tinyint(1) NOT NULL',
             'comments_count' => 'int(11) NOT NULL',
             'comments_new_count' => 'int(11) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('category_id', '{{gallery_photo}}', 'category_id');
 

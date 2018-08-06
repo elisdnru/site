@@ -39,20 +39,21 @@ class YiiDebugToolbarPanelRequest extends YiiDebugToolbarPanel
      * {@inheritdoc}
      */
     public function init()
-    {}
+    {
+    }
 
     /**
      * {@inheritdoc}
      */
     public function run()
     {
-        $this->render('request', array(
+        $this->render('request', [
             'server' => $_SERVER,
             'cookies' => $_COOKIE,
             'session' => isset($_SESSION) ? $_SESSION : null,
             'post' => $_POST,
             'get' => $_GET,
             'files' => $_FILES,
-        ));
+        ]);
     }
 }

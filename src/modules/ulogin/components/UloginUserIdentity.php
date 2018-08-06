@@ -9,37 +9,34 @@ class UloginUserIdentity extends CUserIdentity
 
     public function authenticate($uloginModel = null)
     {
-        $user = User::model()->find(array(
+        $user = User::model()->find([
             'condition' => 'identity=:identity AND network=:network',
-            'params' => array(
+            'params' => [
                 ':identity' => $uloginModel->identity,
                 ':network' => $uloginModel->network,
-            )
-        ));
+            ]
+        ]);
 
-        if (!$user)
-        {
-            $user = User::model()->find(array(
+        if (!$user) {
+            $user = User::model()->find([
                 'condition' => 'email=:email',
-                'params' => array(
+                'params' => [
                     ':email' => $uloginModel->email,
-                )
-            ));
-            if ($user)
+                ]
+            ]);
+            if ($user) {
                 return false;
+            }
         }
 
-        if ($user)
-        {
+        if ($user) {
             $this->id = $user->id;
             $this->username = $user->username;
             $this->isAuthenticated = true;
-        }
-        else
-        {
+        } else {
             $user = new User('ulogin');
 
-            $user->username = $uloginModel->identity ? $uloginModel->network . '_' . array_pop(explode('/',  trim($uloginModel->identity, '/'))) : 'user_' . time();
+            $user->username = $uloginModel->identity ? $uloginModel->network . '_' . array_pop(explode('/', trim($uloginModel->identity, '/'))) : 'user_' . time();
             $user->identity = $uloginModel->identity;
             $user->network = $uloginModel->network;
             $user->email = $uloginModel->email;
@@ -50,15 +47,14 @@ class UloginUserIdentity extends CUserIdentity
             $user->name = $uloginModel->name;
             $user->avatar = !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $uloginModel->photo) ? $uloginModel->photo : '';
 
-            if ($user->save())
-            {
+            if ($user->save()) {
                 $this->id = $user->getPrimaryKey();
                 $this->username = $user->username;
                 $this->password = $user->new_password;
                 $this->isAuthenticated = true;
-            }
-            else
+            } else {
                 return false;
+            }
         }
 
         return true;

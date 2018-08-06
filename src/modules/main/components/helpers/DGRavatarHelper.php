@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -14,7 +15,7 @@ class DGRavatarHelper
     const DEFAULT_RETRO = 'retro';
     const DEFAULT_BLANK = 'blank';
 
-    public static function get($email, $width=0, $default=self::DEFAULT_GRAVATAR)
+    public static function get($email, $width = 0, $default = self::DEFAULT_GRAVATAR)
     {
         $id = md5(strtolower(trim($email)));
         $default = '?d=' . urlencode($default);

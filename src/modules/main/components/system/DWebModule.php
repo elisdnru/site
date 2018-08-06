@@ -23,12 +23,12 @@ class DWebModule extends CWebModule
 
     public static function adminMenu()
     {
-        return array();
+        return [];
     }
 
     public static function notifications()
     {
-        return array();
+        return [];
     }
 
     public function install()

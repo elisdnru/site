@@ -10,12 +10,12 @@ class SearchFormWidget extends DWidget
     {
         $form = new SearchForm;
 
-        if (isset($_REQUEST['q'])){
+        if (isset($_REQUEST['q'])) {
             $form->q = $_REQUEST['q'];
         }
 
-        $this->render($this->tpl ,array(
-            'form'=>$form,
-        ));
+        $this->render($this->tpl, [
+            'form' => $form,
+        ]);
     }
 }

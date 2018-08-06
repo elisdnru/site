@@ -1,5 +1,4 @@
-
-<?php $this->widget('DListView', array(
-    'dataProvider'=>$dataProvider,
-    'itemView'=>'comment.views.commentAdmin._view',
-)); ?>
+<?php $this->widget('DListView', [
+    'dataProvider' => $dataProvider,
+    'itemView' => 'comment.views.commentAdmin._view',
+]);

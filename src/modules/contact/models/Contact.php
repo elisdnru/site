@@ -20,136 +20,136 @@ class Contact extends CActiveRecord
     const STATUS_NEW = 0;
     const STATUS_READED = 1;
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @return Contact the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * @return Contact the static model class
+     */
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{contact}}';
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName()
+    {
+        return '{{contact}}';
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('name, email, text', 'required'),
-			array('name', 'length', 'max'=>200),
-			array('email, phone', 'length', 'max'=>100),
-            array('email', 'email'),
-			array('date, status', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, pagetitle, date, name, email, phone, text, label, status', 'safe', 'on'=>'search')
-		);
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return [
+            ['name, email, text', 'required'],
+            ['name', 'length', 'max' => 200],
+            ['email, phone', 'length', 'max' => 100],
+            ['email', 'email'],
+            ['date, status', 'safe'],
+            // The following rule is used by search().
+            // Please remove those attributes that should not be searched.
+            ['id, pagetitle, date, name, email, phone, text, label, status', 'safe', 'on' => 'search']
+        ];
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'pagetitle' => 'Со страницы',
-			'date' => 'Дата',
-			'name' => 'Имя',
-			'email' => 'Email',
-			'phone' => 'Телефон',
-			'text' => 'Текст',
-			'label' => 'Примечание',
-			'status' => 'Прочитано',
-		);
-	}
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'pagetitle' => 'Со страницы',
+            'date' => 'Дата',
+            'name' => 'Имя',
+            'email' => 'Email',
+            'phone' => 'Телефон',
+            'text' => 'Текст',
+            'label' => 'Примечание',
+            'status' => 'Прочитано',
+        ];
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search($pageSize=10)
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search($pageSize = 10)
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
 
-		$criteria=new CDbCriteria;
+        $criteria = new CDbCriteria;
 
-		$criteria->compare('t.id',$this->id);
-		$criteria->compare('t.pagetitle',$this->pagetitle,true);
-		$criteria->compare('t.date',$this->date,true);
-		$criteria->compare('t.name',$this->name,true);
-		$criteria->compare('t.email',$this->email,true);
-		$criteria->compare('t.phone',$this->phone,true);
-		$criteria->compare('t.text',$this->text,true);
-		$criteria->compare('t.label',$this->label,true);
-		$criteria->compare('t.status',$this->status,true);
+        $criteria->compare('t.id', $this->id);
+        $criteria->compare('t.pagetitle', $this->pagetitle, true);
+        $criteria->compare('t.date', $this->date, true);
+        $criteria->compare('t.name', $this->name, true);
+        $criteria->compare('t.email', $this->email, true);
+        $criteria->compare('t.phone', $this->phone, true);
+        $criteria->compare('t.text', $this->text, true);
+        $criteria->compare('t.label', $this->label, true);
+        $criteria->compare('t.status', $this->status, true);
 
-        return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria,
-            'sort'=>array(
-                'defaultOrder'=>'t.date DESC, t.id DESC',
-                'attributes'=>array(
-                    'date'=>array(
-                        'asc'=>'t.date ASC',
-                        'desc'=>'t.date DESC',
-                    ),
+        return new CActiveDataProvider($this, [
+            'criteria' => $criteria,
+            'sort' => [
+                'defaultOrder' => 't.date DESC, t.id DESC',
+                'attributes' => [
+                    'date' => [
+                        'asc' => 't.date ASC',
+                        'desc' => 't.date DESC',
+                    ],
                     'pagetitle',
                     'name',
                     'email',
                     'text',
                     'status',
-                )
-            ),
-            'pagination'=>array(
-                'pageSize'=>$pageSize,
-                'pageVar'=>'page',
-            ),
-        ));
-	}
+                ]
+            ],
+            'pagination' => [
+                'pageSize' => $pageSize,
+                'pageVar' => 'page',
+            ],
+        ]);
+    }
 
     protected function beforeSave()
     {
-        if (parent::beforeSave())
-        {
-            if ($this->isNewRecord)
+        if (parent::beforeSave()) {
+            if ($this->isNewRecord) {
                 $this->date = date('Y-m-d H:i:s');
+            }
             return true;
         }
         return false;
     }
-    
+
     protected function afterSave()
     {
-        if ($this->isNewRecord)
+        if ($this->isNewRecord) {
             $this->sendAdminNotify();
+        }
 
         parent::afterSave();
     }
 
     private function sendAdminNotify()
     {
-        if (Yii::app()->config->get('CONTACT.SEND_ADMIN_EMAILS'))
-        {
+        if (Yii::app()->config->get('CONTACT.SEND_ADMIN_EMAILS')) {
             $email = Yii::app()->email;
             $email->to = Yii::app()->config->get('GENERAL.ADMIN_EMAIL');
-            $email->replyTo = $this->name.' <'.$this->email.'>';
-            $email->subject = 'Сообщение №'.$this->id.' на сайте '.$_SERVER['SERVER_NAME'];
+            $email->replyTo = $this->name . ' <' . $this->email . '>';
+            $email->subject = 'Сообщение №' . $this->id . ' на сайте ' . $_SERVER['SERVER_NAME'];
             $email->message = '';
             $email->view = 'contact';
-            $email->viewVars = array(
-                'contact'=>$this,
-            );
+            $email->viewVars = [
+                'contact' => $this,
+            ];
             $email->send();
         }
     }

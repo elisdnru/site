@@ -32,7 +32,7 @@ class YiiDebugToolbarPanelServer extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return YiiDebug::t('Yii {n}', array(Yii::getVersion()));
+        return YiiDebug::t('Yii {n}', [Yii::getVersion()]);
     }
 
     /**
@@ -64,22 +64,17 @@ class YiiDebugToolbarPanelServer extends YiiDebugToolbarPanel
 
         preg_match('/<body>(.*?)<\/body>/msS', $info, $matches);
 
-        if (isset($matches[1]))
-        {
+        if (isset($matches[1])) {
             $content = preg_replace('/\s?class\="\w+"/', '', $matches[1]);
             $content = str_replace(' border="0" cellpadding="3" width="600"', ' class="phpinfo"', $content);
             $content = explode("\n", $content);
             $counter = 0;
-            foreach($content as &$row)
-            {
-                if (0 === strpos($row, '<tr>'))
-                {
-                    $replace = '<tr class="'.($counter % 2 ? 'even' : 'odd') . '">';
+            foreach ($content as &$row) {
+                if (0 === strpos($row, '<tr>')) {
+                    $replace = '<tr class="' . ($counter % 2 ? 'even' : 'odd') . '">';
                     $row = str_replace('<tr>', $replace, $row);
                     $counter++;
-                }
-                else
-                {
+                } else {
                     $counter = 0;
                 }
             }
@@ -88,5 +83,4 @@ class YiiDebugToolbarPanelServer extends YiiDebugToolbarPanel
 
         return;
     }
-
 }

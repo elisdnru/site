@@ -2,9 +2,9 @@
 
 class m130328_084945_create_blog_post extends EDbMigration
 {
-	public function safeUp()
-	{
-        $this->createTable('{{blog_post}}', array(
+    public function safeUp()
+    {
+        $this->createTable('{{blog_post}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'date' => 'datetime NOT NULL',
             'update_date' => 'datetime NOT NULL',
@@ -29,7 +29,7 @@ class m130328_084945_create_blog_post extends EDbMigration
             'public' => 'tinyint(1) NOT NULL',
             'comments_count' => 'int(11) NOT NULL',
             'comments_new_count' => 'int(11) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('category_id', '{{blog_post}}', 'category_id');
         $this->createIndex('gallery_id', '{{blog_post}}', 'gallery_id');
@@ -41,7 +41,7 @@ class m130328_084945_create_blog_post extends EDbMigration
         $this->createIndex('public', '{{blog_post}}', 'public');
         $this->createIndex('comments_count', '{{blog_post}}', 'comments_count');
 
-        $this->createTable('{{blog_post_lang}}', array(
+        $this->createTable('{{blog_post_lang}}', [
             'l_id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'owner_id' => 'int(11) NOT NULL',
             'lang_id' => 'varchar(6) NOT NULL',
@@ -53,16 +53,16 @@ class m130328_084945_create_blog_post extends EDbMigration
             'l_pagetitle' => 'varchar(255) NOT NULL',
             'l_description' => 'text NOT NULL',
             'l_keywords' => 'varchar(255) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('lang_id', '{{blog_post_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{blog_post_lang}}', 'owner_id');
 
         $this->addForeignKey('blog_post_lang_owner', '{{blog_post_lang}}', 'owner_id', '{{blog_post}}', 'id', 'CASCADE', 'CASCADE');
-	}
+    }
 
-	public function safeDown()
-	{
+    public function safeDown()
+    {
         $this->dropForeignKey('blog_post_lang_owner', '{{blog_post_lang}}');
 
         $this->dropTable('{{blog_post}}');

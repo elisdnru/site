@@ -2,15 +2,15 @@
 
 class PostController extends DController
 {
-	public function actionShow($id)
-	{
+    public function actionShow($id)
+    {
         $model = $this->loadModel($id);
         $this->checkUrl($model->url);
 
-		$this->render('show', array(
-            'model'=>$model,
-        ));
-	}
+        $this->render('show', [
+            'model' => $model,
+        ]);
+    }
 
     protected function loadModel($id)
     {
@@ -21,8 +21,9 @@ class PostController extends DController
         }
 
         $model = BlogPost::model()->findByPk($id, $condition);
-        if($model===null)
+        if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
+        }
 
         return $model;
     }

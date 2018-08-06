@@ -6,9 +6,9 @@ class MenuModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.menu.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -28,9 +28,9 @@ class MenuModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Пункты', 'url'=>array('/menu/menuAdmin/index'), 'icon'=>'fileicon.jpg'),
-            array('label'=>'Добавить пункт', 'url'=>array('/menu/menuAdmin/create'), 'icon'=>'add.png'),
-        );
+        return [
+            ['label' => 'Пункты', 'url' => ['/menu/menuAdmin/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить пункт', 'url' => ['/menu/menuAdmin/create'], 'icon' => 'add.png'],
+        ];
     }
 }

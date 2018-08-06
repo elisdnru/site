@@ -22,7 +22,7 @@ class PageFile extends FileModel
      * Returns the static model of the specified AR class.
      * @return NewsFile the static model class
      */
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
@@ -32,9 +32,9 @@ class PageFile extends FileModel
      */
     public function relations()
     {
-        return array(
-            'material' => array(self::BELONGS_TO, 'Page', 'material_id'),
-        );
+        return [
+            'material' => [self::BELONGS_TO, 'Page', 'material_id'],
+        ];
     }
 
     public function init()

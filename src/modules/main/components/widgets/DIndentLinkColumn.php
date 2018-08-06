@@ -14,7 +14,7 @@ class DIndentLinkColumn extends DLinkColumn
      * @param integer $row the row number (zero-based)
      * @param mixed $data the data associated with the row
      */
-    protected function renderDataCellContent($row,$data)
+    protected function renderDataCellContent($row, $data)
     {
         $url = $this->getItemUrl($row, $data);
         $value = $this->getItemValue($row, $data);
@@ -26,8 +26,9 @@ class DIndentLinkColumn extends DLinkColumn
 
     protected function getItemIndent($data, $row)
     {
-        if (!empty($this->indent))
-            return $this->evaluateExpression($this->indent, array('data' => $data, 'row' => $row));
+        if (!empty($this->indent)) {
+            return $this->evaluateExpression($this->indent, ['data' => $data, 'row' => $row]);
+        }
 
         return 0;
     }

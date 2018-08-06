@@ -18,7 +18,7 @@ class DToggleAction extends DCrudAction
     /**
      * @var mixed toggable attributes
      */
-    public $attributes = array('public');
+    public $attributes = ['public'];
 
     public function run()
     {
@@ -32,23 +32,26 @@ class DToggleAction extends DCrudAction
 
         $model->$attribute = $model->$attribute ? 0 : 1;
 
-        if ($model->save())
+        if ($model->save()) {
             $this->success($this->success);
-        else
+        } else {
             $this->error($this->error);
+        }
 
         $this->redirectToView($model);
     }
 
     protected function getAttribute()
     {
-        if (empty($this->attributes))
+        if (empty($this->attributes)) {
             throw new CHttpException(400, Yii::t('CrudModule.crud', 'DToggleAction::attributes is empty'));
+        }
 
         $attribute = Yii::app()->request->getParam('attribute');
 
-        if (!in_array($attribute, $this->attributes))
-            throw new CHttpException(400, Yii::t('CrudModule.crud', 'Missing attribute {attribute}', array('{attribute}'=>$attribute)));
+        if (!in_array($attribute, $this->attributes)) {
+            throw new CHttpException(400, Yii::t('CrudModule.crud', 'Missing attribute {attribute}', ['{attribute}' => $attribute]));
+        }
 
         return $attribute;
     }

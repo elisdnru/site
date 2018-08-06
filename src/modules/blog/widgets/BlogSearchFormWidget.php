@@ -11,12 +11,12 @@ class BlogSearchFormWidget extends DWidget
     {
         $form = new BlogSearchForm;
 
-        if (isset($_REQUEST['word'])){
+        if (isset($_REQUEST['word'])) {
             $form->word = $_REQUEST['word'];
         }
 
-        $this->render($this->tpl ,array(
-            'form'=>$form,
-        ));
+        $this->render($this->tpl, [
+            'form' => $form,
+        ]);
     }
 }

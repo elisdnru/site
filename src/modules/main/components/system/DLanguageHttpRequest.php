@@ -10,8 +10,7 @@ class DLanguageHttpRequest extends CHttpRequest
 
     public function getRequestUri()
     {
-        if ($this->_requestUri === null)
-        {
+        if ($this->_requestUri === null) {
             try {
                 $this->_requestUri = DMultilangHelper::processLangInUrl(parent::getRequestUri());
             } catch (Exception $e) {
@@ -31,8 +30,9 @@ class DLanguageHttpRequest extends CHttpRequest
 
     public function getOriginalRequestUri()
     {
-        if ($this->_originalRequestUri == null)
+        if ($this->_originalRequestUri == null) {
             $this->_originalRequestUri = DMultilangHelper::addLangToUrl($this->getRequestUri());
+        }
         return $this->_originalRequestUri;
     }
 }

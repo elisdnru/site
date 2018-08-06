@@ -7,15 +7,16 @@
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('CActiveForm',
-    array(
-        'id'=>'new-form',
-        'enableClientValidation'=>true,
-        'clientOptions'=>array(
-            'validateOnSubmit'=>true,
-        ),
-        'htmlOptions'=>array('enctype'=>'multipart/form-data')
-    )
+    <?php $form = $this->beginWidget(
+        'CActiveForm',
+        [
+            'id' => 'new-form',
+            'enableClientValidation' => true,
+            'clientOptions' => [
+                'validateOnSubmit' => true,
+            ],
+            'htmlOptions' => ['enctype' => 'multipart/form-data']
+        ]
     ); ?>
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
@@ -31,67 +32,69 @@
 
         <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
             <div class="row">
-                <?php echo $form->labelEx($model,'title'); ?> <?php echo $lang; ?><br />
-                <?php echo $form->textField($model, 'title' . $suffix, array('size'=>60, 'maxlength'=>255)); ?><br />
+                <?php echo $form->labelEx($model, 'title'); ?> <?php echo $lang; ?><br/>
+                <?php echo $form->textField($model, 'title' . $suffix, ['size' => 60, 'maxlength' => 255]); ?><br/>
                 <?php echo $form->error($model, 'title' . $suffix); ?>
             </div>
         <?php endforeach; ?>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'alias'); ?>&nbsp;<a href="javascript:transliterate('PortfolioWork_title', 'PortfolioWork_alias')">Транслит наименования</a><br />
-            <?php echo $form->textField($model,'alias',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'alias'); ?>
+            <?php echo $form->labelEx($model, 'alias'); ?>
+            &nbsp;<a href="javascript:transliterate('PortfolioWork_title', 'PortfolioWork_alias')">Транслит
+                наименования</a><br/>
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'alias'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'category_id'); ?><br />
-            <?php echo $form->dropDownList($model,'category_id',array(''=>'') + PortfolioCategory::model()->getTabList()); ?><br />
-            <?php echo $form->error($model,'category_id'); ?>
+            <?php echo $form->labelEx($model, 'category_id'); ?><br/>
+            <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + PortfolioCategory::model()->getTabList()); ?>
+            <br/>
+            <?php echo $form->error($model, 'category_id'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'date'); ?><br />
-            <?php echo $form->textField($model,'date',array('size'=>60, 'maxlength'=>255)); ?><br />
-            <?php echo $form->error($model,'date'); ?>
+            <?php echo $form->labelEx($model, 'date'); ?><br/>
+            <?php echo $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->error($model, 'date'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->checkBox($model,'public'); ?>
-            <?php echo $form->labelEx($model,'public'); ?><br />
-            <?php echo $form->error($model,'public'); ?>
+            <?php echo $form->checkBox($model, 'public'); ?>
+            <?php echo $form->labelEx($model, 'public'); ?><br/>
+            <?php echo $form->error($model, 'public'); ?>
         </div>
     </fieldset>
 
     <fieldset>
         <h4>Изображение</h4>
 
-        <?php if ($model->image): ?>
-
-        <div class="image">
-            <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt="" /></a>
-        </div>
-        <div class="row">
-            <?php echo $form->checkBox($model,'del_image'); ?> <?php echo $form->labelEx($model,'del_image'); ?>
-        </div>
+        <?php if ($model->image) : ?>
+            <div class="image">
+                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt=""/></a>
+            </div>
+            <div class="row">
+                <?php echo $form->checkBox($model, 'del_image'); ?><?php echo $form->labelEx($model, 'del_image'); ?>
+            </div>
 
         <?php endif; ?>
 
         <div class="row">
-            <?php echo $form->labelEx($model,'image'); ?><br />
-            <?php echo $form->fileField($model,'image'); ?><br />
-            <?php echo $form->error($model,'image'); ?>
+            <?php echo $form->labelEx($model, 'image'); ?><br/>
+            <?php echo $form->fileField($model, 'image'); ?><br/>
+            <?php echo $form->error($model, 'image'); ?>
         </div>
         <div class="row">
-            <?php echo $form->checkbox($model,'image_show'); ?>
-            <?php echo $form->labelEx($model,'image_show'); ?>
+            <?php echo $form->checkbox($model, 'image_show'); ?>
+            <?php echo $form->labelEx($model, 'image_show'); ?>
         </div>
     </fieldset>
 
     <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
         <fieldset class="editor">
             <div class="row">
-                <?php echo $form->labelEx($model,'short'); ?> <?php echo $lang; ?><br />
-                <?php echo $form->textArea($model, 'short' . $suffix, array('rows'=>16, 'cols'=>80, 'class'=>'tinymce')); ?>
+                <?php echo $form->labelEx($model, 'short'); ?> <?php echo $lang; ?><br/>
+                <?php echo $form->textArea($model, 'short' . $suffix, ['rows' => 16, 'cols' => 80, 'class' => 'tinymce']); ?>
                 <?php echo $form->error($model, 'short' . $suffix); ?>
             </div>
         </fieldset>
@@ -100,17 +103,17 @@
     <?php foreach (DMultilangHelper::suffixList() as $suffix => $lang) : ?>
         <fieldset class="editor">
             <div class="row">
-                <?php echo $form->labelEx($model,'text'); ?> <?php echo $lang; ?><br />
-                <?php echo $form->textArea($model, 'text' . $suffix, array('rows'=>40, 'cols'=>80, 'class'=>'tinymce')); ?>
+                <?php echo $form->labelEx($model, 'text'); ?> <?php echo $lang; ?><br/>
+                <?php echo $form->textArea($model, 'text' . $suffix, ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
                 <?php echo $form->error($model, 'text' . $suffix); ?>
             </div>
         </fieldset>
     <?php endforeach; ?>
 
-    <?php echo $this->renderPartial('//common/forms/_lang_meta', array(
-        'form'=>$form,
-        'model'=>$model,
-    )); ?>
+    <?php echo $this->renderPartial('//common/forms/_lang_meta', [
+        'form' => $form,
+        'model' => $model,
+    ]); ?>
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Сохранить'); ?>

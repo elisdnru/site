@@ -3,14 +3,14 @@
 class WorkController extends PortfolioBaseController
 {
     public function actionShow($id)
-	{
+    {
         $model = $this->loadModel($id);
         $this->checkUrl($model->url);
 
-		$this->render('show', array(
-            'model'=>$model,
-        ));
-	}
+        $this->render('show', [
+            'model' => $model,
+        ]);
+    }
 
     protected function loadModel($id)
     {
@@ -22,8 +22,9 @@ class WorkController extends PortfolioBaseController
 
         $model = PortfolioWork::model()->cache(0, new Tags('portfolio'))->findByPk($id, $condition);
 
-        if($model===null)
-            throw new CHttpException(404,'Страница не найдена');
+        if ($model === null) {
+            throw new CHttpException(404, 'Страница не найдена');
+        }
 
         return $model;
     }

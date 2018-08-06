@@ -4,29 +4,25 @@ class DefaultController extends DAdminController
 {
     public function accessRules()
     {
-        return array(
-            array('allow',
-                'roles'=>array(Access::ROLE_CONTROL),
-            ),
-            array('deny',
-                'users'=>array('*'),
-            ),
-        );
+        return [
+            ['allow',
+                'roles' => [Access::ROLE_CONTROL],
+            ],
+            ['deny',
+                'users' => ['*'],
+            ],
+        ];
     }
 
-	public function actionIndex()
-	{
-        if (count(Yii::app()->modules))
-        {
-            foreach (Yii::app()->modules as $key => $value)
-            {
+    public function actionIndex()
+    {
+        if (count(Yii::app()->modules)) {
+            foreach (Yii::app()->modules as $key => $value) {
                 $key = strtolower($key);
                 $module = Yii::app()->getModule($key);
 
-                if ($module)
-                {
-                    if (is_a($module, 'DWebModule') && Yii::app()->moduleManager->active($module->id) && Yii::app()->moduleManager->allowed($module->id))
-                    {
+                if ($module) {
+                    if (is_a($module, 'DWebModule') && Yii::app()->moduleManager->active($module->id) && Yii::app()->moduleManager->allowed($module->id)) {
                         $modules[isset($module->group) ? $module->group : 'Прочее'][$module->name] = $module;
                     }
                 }
@@ -35,16 +31,16 @@ class DefaultController extends DAdminController
 
         ksort($modules);
 
-		$this->render('index', array(
-            'modules'=>$modules,
-            'user'=>$this->getUser(),
-        ));
-	}
+        $this->render('index', [
+            'modules' => $modules,
+            'user' => $this->getUser(),
+        ]);
+    }
 
     public function actionClearCache()
     {
         Yii::app()->cache->flush();
         Yii::app()->user->setFlash('success', 'Кэш очищен');
-        $this->redirect(array('index'));
+        $this->redirect(['index']);
     }
 }

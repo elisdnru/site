@@ -1,15 +1,17 @@
 <?php
-$this->pageTitle='Редактор шаблона';
-$this->breadcrumbs=array(
-	'Панель управления'=>array('/admin'),
-	'Страницы'=>array('/page/pageAdmin/index'),
-	'Шаблоны'=>array('index'),
-	'Редактор',
-);
+$this->pageTitle = 'Редактор шаблона';
+$this->breadcrumbs = [
+    'Панель управления' => ['/admin'],
+    'Страницы' => ['/page/pageAdmin/index'],
+    'Шаблоны' => ['index'],
+    'Редактор',
+];
 
-$this->admin[] = array('label'=>'Просмотр', 'url'=>$this->createUrl('view', array('id'=>$model->id)));
-$this->admin[] = array('label'=>'Шаблоны', 'url'=>$this->createUrl('index'));
-if ($this->moduleAllowed('page')) $this->admin[] = array('label'=>'Страницы', 'url'=>$this->createUrl('/page/pageAdmin/index'));
+$this->admin[] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
+$this->admin[] = ['label' => 'Шаблоны', 'url' => $this->createUrl('index')];
+if ($this->moduleAllowed('page')) {
+    $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin/index')];
+}
 
 $this->info = 'После создания страницы Вы можете привязать её к любому пункту меню';
 
@@ -17,5 +19,5 @@ $this->info = 'После создания страницы Вы можете п
 
 <h1>Редактирование шаблона</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', ['model' => $model]); ?>
 

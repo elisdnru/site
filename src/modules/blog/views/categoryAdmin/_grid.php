@@ -1,33 +1,32 @@
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'posts-grid',
-    'dataProvider'=>$model->search(30),
-    'filter'=>$model,
-    'columns'=>array(
-        array(
-            'name'=>'sort',
-            'htmlOptions'=>array('style'=>'width:50px;text-align:center'),
-        ),
-        array(
-            'class'=>'DIndentLinkColumn',
-            'name'=>'title',
-        ),
-        array(
-            'class'=>'DLinkColumn',
-            'name'=>'alias',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{view}',
-            'viewButtonUrl'=>'$data->url',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{update}',
-        ),
-        array(
-            'class'=>'DButtonColumn',
-            'template'=>'{delete}',
-        ),
-    ),
-)); ?>
+<?php $this->widget('zii.widgets.grid.CGridView', [
+    'id' => 'posts-grid',
+    'dataProvider' => $model->search(30),
+    'filter' => $model,
+    'columns' => [
+        [
+            'name' => 'sort',
+            'htmlOptions' => ['style' => 'width:50px;text-align:center'],
+        ],
+        [
+            'class' => 'DIndentLinkColumn',
+            'name' => 'title',
+        ],
+        [
+            'class' => 'DLinkColumn',
+            'name' => 'alias',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{view}',
+            'viewButtonUrl' => '$data->url',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{update}',
+        ],
+        [
+            'class' => 'DButtonColumn',
+            'template' => '{delete}',
+        ],
+    ],
+]);

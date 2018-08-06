@@ -14,7 +14,6 @@
  * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
 class YiiDebug extends CComponent
 {
 
@@ -24,7 +23,7 @@ class YiiDebug extends CComponent
      * but is more robust when handling complex objects such as Yii controllers.
      * @param mixed $var variable to be dumped
      */
-    public static function dump($var, $depth=10)
+    public static function dump($var, $depth = 10)
     {
         is_string($var) && $var = trim($var);
         echo str_replace('&nbsp;', ' ', CVarDumper::dumpAsString($var, $depth, true));
@@ -44,7 +43,7 @@ class YiiDebug extends CComponent
         return new ReflectionClass($class);
     }
 
-    public static function getClassMethod($class,$name)
+    public static function getClassMethod($class, $name)
     {
         $class = self::getClass($class);
         $method = $class->getMethod($name);
@@ -52,7 +51,8 @@ class YiiDebug extends CComponent
         return $method;
     }
 
-    public static function t($str,$params=array(),$dic='yii-debug-toolbar') {
-        return Yii::t("YiiDebug.".$dic, $str, $params);
+    public static function t($str, $params = [], $dic = 'yii-debug-toolbar')
+    {
+        return Yii::t("YiiDebug." . $dic, $str, $params);
     }
 }

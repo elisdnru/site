@@ -24,23 +24,23 @@ class CommentForm extends CFormModel
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
-        return array(
-            array('text', 'required', 'message' => 'Напишите текст комментария.'),
-            array('parent_id', 'numerical', 'integerOnly'=>true),
+        return [
+            ['text', 'required', 'message' => 'Напишите текст комментария.'],
+            ['parent_id', 'numerical', 'integerOnly' => true],
 
-            array('name', 'length', 'max'=>255),
-            array('name', 'required', 'message' => 'Представьтесь, пожалуйста.', 'on'=>'anonim'),
+            ['name', 'length', 'max' => 255],
+            ['name', 'required', 'message' => 'Представьтесь, пожалуйста.', 'on' => 'anonim'],
 
-            array('email', 'length', 'max'=>255),
-            array('email', 'email', 'message' => 'Неверный формат E-mail адреса.'),
-            array('email', 'required', 'message' => 'Введите Email', 'on'=>'anonim'),
+            ['email', 'length', 'max' => 255],
+            ['email', 'email', 'message' => 'Неверный формат E-mail адреса.'],
+            ['email', 'required', 'message' => 'Введите Email', 'on' => 'anonim'],
 
-            array('site', 'url'),
-            array('site', 'length', 'max'=>255),
+            ['site', 'url'],
+            ['site', 'length', 'max' => 255],
 
-            array('yqe1', 'in', 'range'=>array(1), 'message' => 'Отметьте, что Вы человек.'),
-            array('yqe2', 'in', 'range'=>array(0), 'message' => 'Вы уверены, что Вы бот?'),
-        );
+            ['yqe1', 'in', 'range' => [1], 'message' => 'Отметьте, что Вы человек.'],
+            ['yqe2', 'in', 'range' => [0], 'message' => 'Вы уверены, что Вы бот?'],
+        ];
     }
 
     /**
@@ -48,22 +48,22 @@ class CommentForm extends CFormModel
      */
     public function attributeLabels()
     {
-        return array(
+        return [
             'name' => 'Ваше имя',
             'email' => 'Ваш Email',
             'site' => 'Ваш сайт',
             'text' => 'Комментарий',
             'yqe1' => 'Я – человек разумный',
             'yqe2' => 'Судью на мыло',
-        );
+        ];
     }
-    
+
     protected function beforeValidate()
     {
-        if (parent::beforeValidate())
-        {
-            if ($this->site)
+        if (parent::beforeValidate()) {
+            if ($this->site) {
                 $this->checkSite();
+            }
             return true;
         }
         return false;
@@ -71,9 +71,11 @@ class CommentForm extends CFormModel
 
     protected function checkSite()
     {
-        if (!preg_match('|^http:\/\/|', $this->site))
+        if (!preg_match('|^http:\/\/|', $this->site)) {
             $this->site = 'http://' . $this->site;
-        if ($this->site == 'http://')
+        }
+        if ($this->site == 'http://') {
             $this->site = '';
+        }
     }
 }

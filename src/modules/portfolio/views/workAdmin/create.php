@@ -1,17 +1,17 @@
 <?php
-$this->pageTitle='Редактор работы';
-$this->breadcrumbs=array(
-	'Панель управления'=>array('/admin'),
-	'Портфолио'=>array('index'),
-	'Редактор',
-);
+$this->pageTitle = 'Редактор работы';
+$this->breadcrumbs = [
+    'Панель управления' => ['/admin'],
+    'Портфолио' => ['index'],
+    'Редактор',
+];
 
-$this->admin[] = array('label'=>'Работы', 'url'=>$this->createUrl('index'));
-$this->admin[] = array('label'=>'Категории', 'url'=>$this->createUrl('/portfolio/categoryAdmin/index'));
+$this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('index')];
+$this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/categoryAdmin/index')];
 
 $this->info = 'Портфолио';
 ?>
 
-<h1>Добавление работы</h1>
+    <h1>Добавление работы</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', ['model' => $model]); ?>

@@ -8,45 +8,45 @@ class ContactAdminController extends DAdminController
 
     public function actions()
     {
-        return array(
-            'index'=>array(
-                'class'=>'DAdminAction',
-                'view'=>'index',
-                'ajaxView'=>'_grid'
-            ),
-            'toggle'=>array('class'=>'DToggleAction', 'attributes'=>array('status')),
-            'delete'=>'DDeleteAction',
-            'view'=>'DViewAction',
-        );
+        return [
+            'index' => [
+                'class' => 'DAdminAction',
+                'view' => 'index',
+                'ajaxView' => '_grid'
+            ],
+            'toggle' => ['class' => 'DToggleAction', 'attributes' => ['status']],
+            'delete' => 'DDeleteAction',
+            'view' => 'DViewAction',
+        ];
     }
 
-	public function actionView($id)
-	{
-		$model = $this->loadModel($id);
+    public function actionView($id)
+    {
+        $model = $this->loadModel($id);
 
         $model->status = 1;
         $model->save();
 
-        $prev = Contact::model()->find(array(
+        $prev = Contact::model()->find([
             'condition' => 'id < ?',
-            'params' => array($id),
+            'params' => [$id],
             'order' => 'id DESC',
             'limit' => 1
-        ));
+        ]);
 
-        $next = Contact::model()->find(array(
+        $next = Contact::model()->find([
             'condition' => 'id > ?',
-            'params' => array($id),
+            'params' => [$id],
             'order' => 'id ASC',
             'limit' => 1
-        ));
+        ]);
 
-		$this->render('view',array(
-            'model'=>$model,
-            'prev'=>$prev,
-            'next'=>$next,
-        ));
-	}
+        $this->render('view', [
+            'model' => $model,
+            'prev' => $prev,
+            'next' => $next,
+        ]);
+    }
 
     public function createModel()
     {
@@ -57,8 +57,9 @@ class ContactAdminController extends DAdminController
     public function loadModel($id)
     {
         $model = Contact::model()->findByPk($id);
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
+        }
         return $model;
     }
 }

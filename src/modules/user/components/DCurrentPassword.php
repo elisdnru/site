@@ -13,54 +13,64 @@ class DCurrentPassword extends CValidator
     public $validateMethod = 'validatePassword';
     public $idAttribute = 'id';
     public $allowEmpty = true;
-    public $dependsOnAttributes = array();
+    public $dependsOnAttributes = [];
     public $emptyMessage = 'Current password required';
     public $notValidMessage = 'Current password is not correct';
 
-    protected function validateAttribute($object,$attribute)
+    protected function validateAttribute($object, $attribute)
     {
         $this->checkDependsOnAttributes($object);
 
         $value = $object->$attribute;
-        if($this->allowEmpty && $this->isEmpty($value))
+        if ($this->allowEmpty && $this->isEmpty($value)) {
             return;
+        }
 
         $model = $this->loadModel($object);
 
-        if (!$value)
+        if (!$value) {
             $this->addError($object, $attribute, $this->emptyMessage);
-        elseif (!$model->{$this->validateMethod}($value))
-            $this->addError($object, $attribute, $this->notValidMessage, array('{value}' => CHtml::encode($value)));
+        } elseif (!$model->{$this->validateMethod}($value)) {
+            $this->addError($object, $attribute, $this->notValidMessage, ['{value}' => CHtml::encode($value)]);
+        }
     }
 
     protected function checkDependsOnAttributes($object)
     {
-        foreach ($this->dependsOnAttributes as $attr)
-            if (!empty($object->$attr))
+        foreach ($this->dependsOnAttributes as $attr) {
+            if (!empty($object->$attr)) {
                 $this->allowEmpty = false;
+            }
+        }
     }
 
     protected function loadModel($object)
     {
-        if (empty($this->idAttribute))
+        if (empty($this->idAttribute)) {
             throw new CException('Attribute idAttribute is not defined');
+        }
 
-        if (empty($object->{$this->idAttribute}))
+        if (empty($object->{$this->idAttribute})) {
             throw new CException('Attribute ' . $this->idAttribute . ' not found');
+        }
 
-        if (empty($this->validateMethod))
+        if (empty($this->validateMethod)) {
             throw new CException('Attribute validateMethod is not defined');
+        }
 
-        if (empty($this->className))
+        if (empty($this->className)) {
             $this->className = get_class($object);
+        }
 
         $model = CActiveRecord::model($this->className)->findByPk($object->{$this->idAttribute});
 
-        if (is_null($model))
+        if (is_null($model)) {
             throw new CException('Model not found');
+        }
 
-        if (!method_exists($model, $this->validateMethod))
+        if (!method_exists($model, $this->validateMethod)) {
             throw new CException('Method ' . $this->className . '::' . $this->validateMethod . '() not found');
+        }
 
         return $model;
     }

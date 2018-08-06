@@ -4,7 +4,7 @@ class m130328_115629_create_new extends EDbMigration
 {
     public function safeUp()
     {
-        $this->createTable('{{new}}', array(
+        $this->createTable('{{new}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'date' => 'datetime NOT NULL',
             'page_id' => 'int(11) NOT NULL',
@@ -31,7 +31,7 @@ class m130328_115629_create_new extends EDbMigration
             'actual' => 'tinyint(1) NOT NULL',
             'comments_count' => 'int(11) NOT NULL',
             'comments_new_count' => 'int(11) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('page_id', '{{new}}', 'page_id');
         $this->createIndex('gallery_id', '{{new}}', 'gallery_id');
@@ -46,7 +46,7 @@ class m130328_115629_create_new extends EDbMigration
         $this->createIndex('actual', '{{new}}', 'actual');
         $this->createIndex('comments_count', '{{new}}', 'comments_count');
 
-        $this->createTable('{{new_lang}}', array(
+        $this->createTable('{{new_lang}}', [
             'l_id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'owner_id' => 'int(11) NOT NULL',
             'lang_id' => 'varchar(6) NOT NULL',
@@ -58,7 +58,7 @@ class m130328_115629_create_new extends EDbMigration
             'l_pagetitle' => 'varchar(255) NOT NULL',
             'l_description' => 'text NOT NULL',
             'l_keywords' => 'varchar(255) NOT NULL',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('lang_id', '{{new_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{new_lang}}', 'owner_id');

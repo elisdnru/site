@@ -10,17 +10,16 @@ class DAdminlinksWidget extends CWidget
 {
 
     public $title = '';
-    public $links = array();
+    public $links = [];
     public $info = '';
-	
-	public function run()
-	{
-		if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL))
-        {
-			$this->render('Adminlinks',array(
-                'links'=>$this->links,
-                'info'=>$this->info
-            ));
-		}
-	}
+
+    public function run()
+    {
+        if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+            $this->render('Adminlinks', [
+                'links' => $this->links,
+                'info' => $this->info
+            ]);
+        }
+    }
 }

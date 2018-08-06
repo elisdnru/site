@@ -19,9 +19,9 @@ class InstallModule extends DWebModule
 
     public static function rules()
     {
-        return array(
-            'install'=>'install/default/index',
-            'install/<action:\w+>'=>'install/default/<action>',
-        );
+        return [
+            'install' => 'install/default/index',
+            'install/<action:\w+>' => 'install/default/<action>',
+        ];
     }
 }

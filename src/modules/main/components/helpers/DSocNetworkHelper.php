@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -9,8 +10,7 @@ class DSocNetworkHelper
 
     public static function getIcon($network)
     {
-        switch ($network)
-        {
+        switch ($network) {
             case 'facebook':
             case 'flickr':
             case 'google':
@@ -30,8 +30,9 @@ class DSocNetworkHelper
             case 'yandex':
             case 'youtube':
                 $icon = $network . '.png';
-            break;
-            default: return false;
+                break;
+            default:
+                return false;
         }
         return Yii::app()->request->baseUrl . '/' . self::IMAGE_PATH . $icon;
     }

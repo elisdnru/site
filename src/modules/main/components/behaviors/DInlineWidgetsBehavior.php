@@ -90,7 +90,7 @@ class DInlineWidgetsBehavior extends CBehavior
     /**
      * @var array of allowed widgets
      */
-    public $widgets = array();
+    public $widgets = [];
 
     protected $_widgetToken;
 
@@ -107,8 +107,8 @@ class DInlineWidgetsBehavior extends CBehavior
      */
     public function decodeWidgets($text)
     {
-		$text = $this->_clearAutoParagraphs($text);
-		$text = $this->_replaceBlocks($text);
+        $text = $this->_clearAutoParagraphs($text);
+        $text = $this->_replaceBlocks($text);
         $text = $this->_processWidgets($text);
         return $text;
     }
@@ -121,22 +121,19 @@ class DInlineWidgetsBehavior extends CBehavior
      */
     public function clearWidgets($text)
     {
-		$text = $this->_clearAutoParagraphs($text);
-		$text = $this->_replaceBlocks($text);
+        $text = $this->_clearAutoParagraphs($text);
+        $text = $this->_replaceBlocks($text);
         $text = $this->_clearWidgets($text);
         return $text;
     }
 
     protected function _processWidgets($text)
     {
-        if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text))
-        {
-            foreach ($this->widgets as $alias)
-            {
+        if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text)) {
+            foreach ($this->widgets as $alias) {
                 $widget = $this->_getClassByAlias($alias);
 
-                while (preg_match('#\{' . $this->_widgetToken . ':' . $widget . '(\|([^}]*)?)?' . $this->_widgetToken . '\}#is', $text, $p))
-                {
+                while (preg_match('#\{' . $this->_widgetToken . ':' . $widget . '(\|([^}]*)?)?' . $this->_widgetToken . '\}#is', $text, $p)) {
                     $text = str_replace($p[0], $this->_loadWidget($alias, isset($p[2]) ? $p[2] : ''), $text);
                 }
             }
@@ -169,19 +166,16 @@ class DInlineWidgetsBehavior extends CBehavior
         return $output;
     }
 
-    protected function _loadWidget($name, $attributes='')
+    protected function _loadWidget($name, $attributes = '')
     {
         $attrs = $this->_parseAttributes($attributes);
         $cache = $this->_extractCacheExpireTime($attrs);
 
         $index = 'widget_' . $name . '_' . serialize($attrs);
 
-        if ($cache && $cachedHtml = Yii::app()->cache->get($index))
-        {
+        if ($cache && $cachedHtml = Yii::app()->cache->get($index)) {
             $html = $cachedHtml;
-        }
-        else
-        {
+        } else {
             ob_start();
             $widgetClass = $this->_getFullClassName($name);
             $widget = Yii::app()->getWidgetFactory()->createWidget($this->owner, $widgetClass, $attrs);
@@ -197,14 +191,14 @@ class DInlineWidgetsBehavior extends CBehavior
     protected function _parseAttributes($attributesString)
     {
         $params = explode(';', $attributesString);
-        $attrs = array();
+        $attrs = [];
 
-        foreach ($params as $param)
-        {
-            if ($param)
-            {
+        foreach ($params as $param) {
+            if ($param) {
                 list($attribute, $value) = explode('=', $param);
-                if ($value) $attrs[$attribute] = trim($value);
+                if ($value) {
+                    $attrs[$attribute] = trim($value);
+                }
             }
         }
 
@@ -215,8 +209,7 @@ class DInlineWidgetsBehavior extends CBehavior
     protected function _extractCacheExpireTime(&$attrs)
     {
         $cache = 0;
-        if (isset($attrs['cache']))
-        {
+        if (isset($attrs['cache'])) {
             $cache = (int)$attrs['cache'];
             unset($attrs['cache']);
         }
@@ -226,8 +219,9 @@ class DInlineWidgetsBehavior extends CBehavior
     protected function _getFullClassName($name)
     {
         $widgetClass = $name . $this->classSuffix;
-        if ($this->_getClassByAlias($widgetClass) == $widgetClass && $this->location)
+        if ($this->_getClassByAlias($widgetClass) == $widgetClass && $this->location) {
             $widgetClass = $this->location . '.' . $widgetClass;
+        }
         return $widgetClass;
     }
 

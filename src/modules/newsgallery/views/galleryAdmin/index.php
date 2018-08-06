@@ -2,12 +2,12 @@
 /* @var $this DAdminController */
 /* @var $model NewsGallery */
 
-$this->pageTitle='Фотогалереи';
-$this->breadcrumbs=array(
-	'Панель управления'=>array('/admin'),
-	'Фотогалереи',
-);
-$this->admin[] = array('label'=>'Добавить фотогалерею', 'url'=>$this->createUrl('create'));
+$this->pageTitle = 'Фотогалереи';
+$this->breadcrumbs = [
+    'Панель управления' => ['/admin'],
+    'Фотогалереи',
+];
+$this->admin[] = ['label' => 'Добавить фотогалерею', 'url' => $this->createUrl('create')];
 
 $this->info = 'Вы можете прикреплять галереи к новостям, выбирая нужную в списке при редактировании новости';
 ?>
@@ -16,4 +16,4 @@ $this->info = 'Вы можете прикреплять галереи к нов
 
 <h1>Фотогалереи</h1>
 
-<?php $this->renderPartial('_grid', array('model'=>$model)); ?>
+<?php $this->renderPartial('_grid', ['model' => $model]); ?>

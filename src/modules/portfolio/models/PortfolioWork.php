@@ -35,83 +35,83 @@ class PortfolioWork extends CActiveRecord
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/portfolio';
 
-	public $del_image = false;
+    public $del_image = false;
 
     /**
      * Returns the static model of the specified AR class.
      * @param string $className
      * @return BlogPost the static model class
      */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-	
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{portfolio_work}}';
-	}
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('date, category_id, alias, title', 'required'),
-			array('sort, public, image_show', 'numerical', 'integerOnly'=>true),
-            array('category_id', 'DExistOrEmpty', 'className' => 'PortfolioCategory', 'attributeName' => 'id'),
-			array('short, text, description, del_image', 'safe'),
-            array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss'),
-            array('title, alias, pagetitle, keywords', 'length', 'max'=>'255'),
-            array('alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'),
-            array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'),
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName()
+    {
+        return '{{portfolio_work}}';
+    }
+
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return [
+            ['date, category_id, alias, title', 'required'],
+            ['sort, public, image_show', 'numerical', 'integerOnly' => true],
+            ['category_id', 'DExistOrEmpty', 'className' => 'PortfolioCategory', 'attributeName' => 'id'],
+            ['short, text, description, del_image', 'safe'],
+            ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
+            ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
+            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, date, category_id, title, pagetitle, description, keywords, text, public', 'safe', 'on'=>'search'),
-		);
-	}
+            ['id, date, category_id, title, pagetitle, description, keywords, text, public', 'safe', 'on' => 'search'],
+        ];
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'category' => array(self::BELONGS_TO, 'PortfolioCategory', 'category_id'),
-		);
-	}
+    /**
+     * @return array relational rules.
+     */
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return [
+            'category' => [self::BELONGS_TO, 'PortfolioCategory', 'category_id'],
+        ];
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'sort' => 'Порядок',
-			'date' => 'Дата',
-			'category_id' => 'Раздел',
-			'title' => 'Заголовок',
-			'alias' => 'URL транслитом',
-			'pagetitle' => 'Заголовок страницы (title)',
-			'description' => 'Описание (description)',
-			'keywords' => 'Ключевые слова (keywords)',
-			'short' => 'Превью',
-			'text' => 'Текст',
-			'image' => 'Картинка для статьи',
-			'del_image' => 'Удалить изображение',
-			'image_show' => 'Отображать при открытии',
-			'public' => 'Опубликовано',
-		);
-	}
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'sort' => 'Порядок',
+            'date' => 'Дата',
+            'category_id' => 'Раздел',
+            'title' => 'Заголовок',
+            'alias' => 'URL транслитом',
+            'pagetitle' => 'Заголовок страницы (title)',
+            'description' => 'Описание (description)',
+            'keywords' => 'Ключевые слова (keywords)',
+            'short' => 'Превью',
+            'text' => 'Текст',
+            'image' => 'Картинка для статьи',
+            'del_image' => 'Удалить изображение',
+            'image_show' => 'Отображать при открытии',
+            'public' => 'Опубликовано',
+        ];
+    }
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
@@ -122,87 +122,86 @@ class PortfolioWork extends CActiveRecord
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
 
-        $criteria=new CDbCriteria;
+        $criteria = new CDbCriteria;
 
-        $criteria->compare('t.id',$this->id);
-        $criteria->compare('t.sort',$this->sort);
-        $criteria->compare('t.date',$this->date,true);
-        $criteria->compare('t.category_id',$this->category_id);
-        $criteria->compare('t.alias',$this->alias,true);
-        $criteria->compare('t.title',$this->title,true);
-        $criteria->compare('t.pagetitle',$this->pagetitle,true);
-        $criteria->compare('t.description',$this->description,true);
-        $criteria->compare('t.keywords',$this->keywords,true);
-        $criteria->compare('t.short',$this->short,true);
-        $criteria->compare('t.text',$this->text,true);
-        $criteria->compare('t.image',$this->image,true);
-        $criteria->compare('t.image_show',$this->image_show);
-        $criteria->compare('t.public',$this->public);
+        $criteria->compare('t.id', $this->id);
+        $criteria->compare('t.sort', $this->sort);
+        $criteria->compare('t.date', $this->date, true);
+        $criteria->compare('t.category_id', $this->category_id);
+        $criteria->compare('t.alias', $this->alias, true);
+        $criteria->compare('t.title', $this->title, true);
+        $criteria->compare('t.pagetitle', $this->pagetitle, true);
+        $criteria->compare('t.description', $this->description, true);
+        $criteria->compare('t.keywords', $this->keywords, true);
+        $criteria->compare('t.short', $this->short, true);
+        $criteria->compare('t.text', $this->text, true);
+        $criteria->compare('t.image', $this->image, true);
+        $criteria->compare('t.image_show', $this->image_show);
+        $criteria->compare('t.public', $this->public);
 
-        return new CActiveDataProvider($this, array(
-            'criteria'=>DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
-        ));
+        return new CActiveDataProvider($this, [
+            'criteria' => DMultilangHelper::enabled() ? $this->ml->modifySearchCriteria($criteria) : $criteria,
+        ]);
     }
 
     public function defaultScope()
     {
-        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : array();
+        return DMultilangHelper::enabled() ? $this->ml->localizedCriteria() : [];
     }
 
     public function scopes()
     {
-        return array(
-            'published'=>array(
-                'condition'=>'t.public=1',
-            ),
-        );
+        return [
+            'published' => [
+                'condition' => 't.public=1',
+            ],
+        ];
     }
 
     public function behaviors()
     {
-        $behaviors = array(
-            'PurifyShort'=>array(
-                'class'=>'DPurifyTextBehavior',
-                'sourceAttribute'=>'short',
-                'destinationAttribute'=>'short_purified',
-                'purifierOptions'=> array(
-                    'Attr.AllowedRel'=>array('nofollow'),
-                ),
-                'processOnBeforeSave'=>true,
-            ),
-            'PurifyText'=>array(
-                'class'=>'DPurifyTextBehavior',
-                'sourceAttribute'=>'text',
-                'destinationAttribute'=>'text_purified',
-                'purifierOptions'=> array(
-                    'Attr.AllowedRel'=>array('nofollow'),
-                    'HTML.SafeObject'=>true,
-                    'Output.FlashCompat'=>true,
-                ),
-                'processOnBeforeSave'=>true,
-            ),
-            'ImageUpload'=>array(
-                'class'=>'uploader.components.DFileUploadBehavior',
-                'fileAttribute'=>'image',
-                'deleteAttribute'=>'del_image',
-                'enableWatermark'=>true,
-                'filePath'=>self::IMAGE_PATH,
-                'defaultThumbWidth'=>self::IMAGE_WIDTH,
-                'imageWidthAttribute'=>'image_width',
-                'imageHeightAttribute'=>'image_height',
-            ),
-            'PingBehavior'=>array(
-                'class'=>'DPingBehavior',
-                'urlAttribute'=>'url',
-            ),
-        );
+        $behaviors = [
+            'PurifyShort' => [
+                'class' => 'DPurifyTextBehavior',
+                'sourceAttribute' => 'short',
+                'destinationAttribute' => 'short_purified',
+                'purifierOptions' => [
+                    'Attr.AllowedRel' => ['nofollow'],
+                ],
+                'processOnBeforeSave' => true,
+            ],
+            'PurifyText' => [
+                'class' => 'DPurifyTextBehavior',
+                'sourceAttribute' => 'text',
+                'destinationAttribute' => 'text_purified',
+                'purifierOptions' => [
+                    'Attr.AllowedRel' => ['nofollow'],
+                    'HTML.SafeObject' => true,
+                    'Output.FlashCompat' => true,
+                ],
+                'processOnBeforeSave' => true,
+            ],
+            'ImageUpload' => [
+                'class' => 'uploader.components.DFileUploadBehavior',
+                'fileAttribute' => 'image',
+                'deleteAttribute' => 'del_image',
+                'enableWatermark' => true,
+                'filePath' => self::IMAGE_PATH,
+                'defaultThumbWidth' => self::IMAGE_WIDTH,
+                'imageWidthAttribute' => 'image_width',
+                'imageHeightAttribute' => 'image_height',
+            ],
+            'PingBehavior' => [
+                'class' => 'DPingBehavior',
+                'urlAttribute' => 'url',
+            ],
+        ];
 
-        if (DMultilangHelper::enabled())
-        {
-            $behaviors = array_merge($behaviors, array(
-                'ml' => array(
+        if (DMultilangHelper::enabled()) {
+            $behaviors = array_merge($behaviors, [
+                'ml' => [
                     'class' => 'ext.multilangual.MultilingualBehavior',
-                    'localizedAttributes' => array(
+                    'localizedAttributes' => [
                         'title',
                         'short',
                         'short_purified',
@@ -211,15 +210,15 @@ class PortfolioWork extends CActiveRecord
                         'pagetitle',
                         'description',
                         'keywords',
-                    ),
+                    ],
                     'langClassName' => 'PortfolioWorkLang',
                     'langTableName' => 'portfolio_work_lang',
                     'languages' => Yii::app()->params['translatedLanguages'],
                     'defaultLanguage' => Yii::app()->params['defaultLanguage'],
                     'langForeignKey' => 'owner_id',
                     'dynamicLangClass' => false,
-                ),
-            ));
+                ],
+            ]);
         }
 
         return $behaviors;
@@ -227,8 +226,7 @@ class PortfolioWork extends CActiveRecord
 
     protected function beforeSave()
     {
-        if (parent::beforeSave())
-        {
+        if (parent::beforeSave()) {
             $this->fillDefaultValues();
             return true;
         }
@@ -237,16 +235,21 @@ class PortfolioWork extends CActiveRecord
 
     private function fillDefaultValues()
     {
-        if (!$this->alias) $this->alias = DTextHelper::strToChpu($this->title);
-        if (!$this->pagetitle) $this->pagetitle = strip_tags($this->title);
-        if (!$this->description) $this->description = strip_tags($this->short);
+        if (!$this->alias) {
+            $this->alias = DTextHelper::strToChpu($this->title);
+        }
+        if (!$this->pagetitle) {
+            $this->pagetitle = strip_tags($this->title);
+        }
+        if (!$this->description) {
+            $this->description = strip_tags($this->short);
+        }
     }
 
     protected function afterSave()
     {
-        if (!$this->sort)
-        {
-            Yii::app()->db->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE `id`=:id')->execute(array(':id'=>$this->id));
+        if (!$this->sort) {
+            Yii::app()->db->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE `id`=:id')->execute([':id' => $this->id]);
             $this->sort = $this->id;
         }
         parent::afterSave();
@@ -254,25 +257,27 @@ class PortfolioWork extends CActiveRecord
 
     public function getAssocList($only_public = false)
     {
-        if ($only_public)
-            $items = self::model()->published()->findAll(array('order'=>'date DESC'));
-        else
-            $items = self::model()->findAll(array('order'=>'date DESC'));
+        if ($only_public) {
+            $items = self::model()->published()->findAll(['order' => 'date DESC']);
+        } else {
+            $items = self::model()->findAll(['order' => 'date DESC']);
+        }
 
-        $result = array();
+        $result = [];
 
-        foreach ($items as $item)
+        foreach ($items as $item) {
             $result[$item['id']] = $item['title'];
+        }
 
         return $result;
     }
 
     public function findByAlias($alias)
     {
-        $model = $this->find(array(
-            'condition'=>'alias = :alias',
-            'params'=>array(':alias'=>$alias)
-        ));
+        $model = $this->find([
+            'condition' => 'alias = :alias',
+            'params' => [':alias' => $alias]
+        ]);
         return $model;
     }
 
@@ -280,11 +285,10 @@ class PortfolioWork extends CActiveRecord
 
     public function getUrl()
     {
-        if ($this->_url === null)
-		{
-			DUrlRulesHelper::import('portfolio');
-			$this->_url = Yii::app()->createUrl('/portfolio/work/show', array('category'=>$this->category->path, 'id'=>$this->getPrimaryKey(), 'alias'=>$this->alias));
-		}
+        if ($this->_url === null) {
+            DUrlRulesHelper::import('portfolio');
+            $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->path, 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+        }
         return $this->_url;
     }
 }

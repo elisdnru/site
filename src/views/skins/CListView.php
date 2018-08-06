@@ -1,10 +1,10 @@
 <?php
 
-return array(
-    'default'=>array(
+return [
+    'default' => [
         'enableHistory' => false,
         'ajaxUpdate' => true,
         'template' => "{items}\n{pager}",
         'cssFile' => false,
-    ),
-);
+    ],
+];

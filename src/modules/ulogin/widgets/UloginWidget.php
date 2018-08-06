@@ -6,14 +6,14 @@ class UloginWidget extends DWidget
 {
     private static $once = false;
 
-    private $params = array(
-        'display'       =>  'panel',
-        'fields'        =>  'first_name,last_name,email,photo',
-        'providers'     =>  'vkontakte,twitter,facebook,google',
-        'hidden'        =>  'other',
-        'redirect'      =>  '',
-        'logout_url'    =>  '/logout'
-    );
+    private $params = [
+        'display' => 'panel',
+        'fields' => 'first_name,last_name,email,photo',
+        'providers' => 'vkontakte,twitter,facebook,google',
+        'hidden' => 'other',
+        'redirect' => '',
+        'logout_url' => '/logout'
+    ];
 
     public function run()
     {

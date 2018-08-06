@@ -6,10 +6,10 @@ class UloginModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.ulogin.components.*',
             'application.modules.ulogin.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -19,8 +19,8 @@ class UloginModule extends DWebModule
 
     public static function rules()
     {
-        return array(
-            'ulogin'=>'ulogin/default/login',
-        );
+        return [
+            'ulogin' => 'ulogin/default/login',
+        ];
     }
 }

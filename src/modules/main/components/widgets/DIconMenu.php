@@ -31,18 +31,18 @@ class DIconMenu extends CMenu
     protected function renderMenuItem($item)
     {
         $icon = !empty($item['icon']) ? CHtml::image($this->iconsPath . $item['icon'], $item['label']) : '';
-        $options = isset($item['linkOptions']) ? $item['linkOptions'] : array();
+        $options = isset($item['linkOptions']) ? $item['linkOptions'] : [];
 
-        if(isset($item['url']))
-        {
-            if ($this->linkLabelWrapper !== null)
+        if (isset($item['url'])) {
+            if ($this->linkLabelWrapper !== null) {
                 $label = '<' . $this->linkLabelWrapper . '>' . $item['label'] . '</' . $this->linkLabelWrapper . '>';
-            else
+            } else {
                 $label = $item['label'];
+            }
 
             return $icon . CHtml::link($label, $item['url'], $options);
-        }
-        else
+        } else {
             return $icon . CHtml::tag('span', $options, $item['label']);
+        }
     }
 }

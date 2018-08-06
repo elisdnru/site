@@ -1,28 +1,32 @@
 <?php
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
  */
 class DDateHelper
 {
-    public static function normdate($date, $showTime=false, $showMonth=true) {
+    public static function normdate($date, $showTime = false, $showMonth = true)
+    {
 
-        if (is_numeric($date))
+        if (is_numeric($date)) {
             $time = $date;
-        else
-            if (!$time = strtotime($date))
-                throw new CException('Invalid Date');
+        } elseif (!$time = strtotime($date)) {
+            throw new CException('Invalid Date');
+        }
 
-        $months = array('','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря');
+        $months = ['', 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
-        if ($showMonth)
+        if ($showMonth) {
             $resultDate = intval(date('d', $time)) . ' ' . $months[intval(date('m', $time))] . ' ' . date('Y', $time);
-        else
+        } else {
             $resultDate = date('d', $time) . '-' . date('m', $time) . '-' . date('Y', $time);
+        }
 
-        if ($showTime)
+        if ($showTime) {
             $resultDate .= ' ' . date('H', $time) . ':' . date('i', $time);
-        
+        }
+
         return $resultDate;
     }
 }

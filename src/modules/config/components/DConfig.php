@@ -11,7 +11,7 @@ class DConfig extends CApplicationComponent
     public $cache = 0;
     public $dependency = null;
 
-    protected $data = array();
+    protected $data = [];
 
     public function init()
     {
@@ -19,10 +19,10 @@ class DConfig extends CApplicationComponent
 
         $items = $db->createCommand('SELECT * FROM {{config}}')->queryAll();
 
-        foreach ($items as $item)
-        {
-            if ($item['param'])
-                $this->data[$item['param']] = $item['value'] === '' ?  $item['default'] : $item['value'];
+        foreach ($items as $item) {
+            if ($item['param']) {
+                $this->data[$item['param']] = $item['value'] === '' ? $item['default'] : $item['value'];
+            }
         }
 
         parent::init();
@@ -35,64 +35,67 @@ class DConfig extends CApplicationComponent
 
     public function get($key)
     {
-        if (isset($this->data[$key]))
+        if (isset($this->data[$key])) {
             return $this->data[$key];
-        else
+        } else {
             throw new CException('Undefined parameter ' . $key);
+        }
     }
 
     public function set($key, $value)
     {
-        $model = Config::model()->findByAttributes(array('param'=>$key));
-        if (!$model)
+        $model = Config::model()->findByAttributes(['param' => $key]);
+        if (!$model) {
             throw new CException('Undefined parameter ' . $key);
+        }
 
         $model->value = $value;
 
-        if ($model->save())
+        if ($model->save()) {
             $this->data[$key] = $value;
-
+        }
     }
 
     public function add($params)
     {
-        if (is_array($params))
-        {
-            foreach ($params as $item)
+        if (is_array($params)) {
+            foreach ($params as $item) {
                 $this->createParameter($item);
-        }
-        elseif ($params)
+            }
+        } elseif ($params) {
             $this->createParameter($params);
+        }
     }
 
     public function delete($key)
     {
-        if (is_array($key))
-        {
-            foreach ($key as $item)
+        if (is_array($key)) {
+            foreach ($key as $item) {
                 $this->removeParameter($item);
-        }
-        elseif ($key)
+            }
+        } elseif ($key) {
             $this->removeParameter($key);
+        }
     }
 
     protected function getDbConnection()
     {
-        if ($this->cache)
+        if ($this->cache) {
             $db = Yii::app()->db->cache($this->cache, $this->dependency);
-        else
+        } else {
             $db = Yii::app()->db;
+        }
 
         return $db;
     }
 
     protected function createParameter($param)
     {
-        if (!empty($param['param']))
-        {
-            $model = Config::model()->findByAttributes(array('param' => $param['param']));
-            if ($model === null)
+        if (!empty($param['param'])) {
+            $model = Config::model()->findByAttributes(['param' => $param['param']]);
+            if ($model === null) {
                 $model = new Config();
+            }
 
             $model->param = $param['param'];
             $model->label = isset($param['label']) ? $param['label'] : $param['param'];
@@ -106,11 +109,11 @@ class DConfig extends CApplicationComponent
 
     protected function removeParameter($key)
     {
-        if (!empty($key))
-        {
-            $model = Config::model()->findByAttributes(array('param'=>$key));
-            if ($model)
+        if (!empty($key)) {
+            $model = Config::model()->findByAttributes(['param' => $key]);
+            if ($model) {
                 $model->delete();
+            }
         }
     }
 }

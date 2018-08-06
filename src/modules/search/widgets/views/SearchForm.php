@@ -1,11 +1,11 @@
 <div class="search_form form">
-<?php DUrlRulesHelper::import('search'); ?>
-<?php echo CHtml::beginForm(Yii::app()->createUrl('/search/default/index'), 'get'); ?>
+    <?php DUrlRulesHelper::import('search'); ?>
+    <?php echo CHtml::beginForm(Yii::app()->createUrl('/search/default/index'), 'get'); ?>
     <div class="row search_word">
-        <?php echo CHtml::textField('q', $form->q, array('placeholder'=>'Поиск')); ?>
+        <?php echo CHtml::textField('q', $form->q, ['placeholder' => 'Поиск']); ?>
     </div>
     <div class="row buttons search_button">
-        <?php echo CHtml::submitButton('', array('name'=>'')); ?>
+        <?php echo CHtml::submitButton('', ['name' => '']); ?>
     </div>
-<?php echo CHtml::endForm(); ?>
+    <?php echo CHtml::endForm(); ?>
 </div>

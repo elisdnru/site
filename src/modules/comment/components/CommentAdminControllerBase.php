@@ -14,55 +14,53 @@ class CommentAdminControllerBase extends DAdminController
 
     public function filters()
     {
-        return array_merge(parent::filters(), array(
+        return array_merge(parent::filters(), [
             'PostOnly + delete, moder, moderAll',
-        ));
+        ]);
     }
 
     public function actions()
     {
-        return array(
-            'update'=>'DUpdateAction',
-            'toggle'=>array(
-                'class'=>'DToggleAction',
-                'attributes'=>array('public', 'moder')
-            ),
-            'view'=>'DViewAction',
-        );
+        return [
+            'update' => 'DUpdateAction',
+            'toggle' => [
+                'class' => 'DToggleAction',
+                'attributes' => ['public', 'moder']
+            ],
+            'view' => 'DViewAction',
+        ];
     }
 
-    public function actionIndex($id=0)
+    public function actionIndex($id = 0)
     {
         $criteria = new CDbCriteria;
 
-        if ($id && $material = $this->loadMaterialModel($id))
+        if ($id && $material = $this->loadMaterialModel($id)) {
             $criteria->compare('material_id', $id);
-        else
+        } else {
             $material = null;
-
-        $dataProvider = new CActiveDataProvider(call_user_func(array($this->getModelName(), 'model'))->lang(Yii::app()->language), array(
-            'criteria'=>$criteria,
-            'sort'=>array(
-                'defaultOrder'=>'t.date DESC'
-            ),
-            'pagination'=>array(
-                'pageSize'=>self::COMMENTS_PER_PAGE,
-                'pageVar'=>'page',
-            )
-        ));
-
-        if (Yii::app()->request->isAjaxRequest)
-        {
-            $this->renderPartial('comment.views.commentAdmin._list',array(
-                'dataProvider'=>$dataProvider,
-            ));
         }
-        else
-        {
-            $this->render('index',array(
-                'dataProvider'=>$dataProvider,
-                'material'=>$material,
-            ));
+
+        $dataProvider = new CActiveDataProvider(call_user_func([$this->getModelName(), 'model'])->lang(Yii::app()->language), [
+            'criteria' => $criteria,
+            'sort' => [
+                'defaultOrder' => 't.date DESC'
+            ],
+            'pagination' => [
+                'pageSize' => self::COMMENTS_PER_PAGE,
+                'pageVar' => 'page',
+            ]
+        ]);
+
+        if (Yii::app()->request->isAjaxRequest) {
+            $this->renderPartial('comment.views.commentAdmin._list', [
+                'dataProvider' => $dataProvider,
+            ]);
+        } else {
+            $this->render('index', [
+                'dataProvider' => $dataProvider,
+                'material' => $material,
+            ]);
         }
     }
 
@@ -70,16 +68,16 @@ class CommentAdminControllerBase extends DAdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->child_items)
-        {
+        if ($model->child_items) {
             $model->public = false;
             $success = $model->save(false);
-        }
-        else
+        } else {
             $success = $model->delete();
+        }
 
-        if (!$success)
-            throw new CHttpException (400, 'Error');
+        if (!$success) {
+            throw new CHttpException(400, 'Error');
+        }
 
         $this->redirectOrAjax();
     }
@@ -90,18 +88,18 @@ class CommentAdminControllerBase extends DAdminController
 
         $model->moder = !$model->moder;
 
-        if (!$model->save())
-            throw new CHttpException (400, 'Error');
+        if (!$model->save()) {
+            throw new CHttpException(400, 'Error');
+        }
 
         $this->redirectOrAjax();
     }
 
     public function actionModerAll()
     {
-        $items = CActiveRecord::model($this->getModelName())->findAllByAttributes(array('moder'=>0));
+        $items = CActiveRecord::model($this->getModelName())->findAllByAttributes(['moder' => 0]);
 
-        foreach ($items as $item)
-        {
+        foreach ($items as $item) {
             $item->moder = 1;
             $item->save();
         }
@@ -112,8 +110,9 @@ class CommentAdminControllerBase extends DAdminController
     public function loadModel($id)
     {
         $model = CActiveRecord::model($this->getModelName())->findByPk($id);
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Комментарий не найден');
+        }
         return $model;
     }
 

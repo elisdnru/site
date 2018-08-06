@@ -8,16 +8,18 @@ class WebUser extends CWebUser
 
     function getRole()
     {
-        if($user = $this->getModel())
+        if ($user = $this->getModel()) {
             return $user->role;
-        else
+        } else {
             return 'role_guest';
+        }
     }
 
     private function getModel()
     {
-        if (!$this->isGuest && $this->_model === null)
-            $this->_model = User::model()->findByPk($this->id, array('select' => 'role'));
+        if (!$this->isGuest && $this->_model === null) {
+            $this->_model = User::model()->findByPk($this->id, ['select' => 'role']);
+        }
 
         return $this->_model;
     }

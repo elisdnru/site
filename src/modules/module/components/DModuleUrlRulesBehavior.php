@@ -6,14 +6,14 @@
 
 class DModuleUrlRulesBehavior extends CBehavior
 {
-    public $beforeCurrentModule = array();
-    public $afterCurrentModule = array();
+    public $beforeCurrentModule = [];
+    public $afterCurrentModule = [];
 
     public function events()
     {
-        return array_merge(parent::events(),array(
-            'onBeginRequest'=>'beginRequest',
-        ));
+        return array_merge(parent::events(), [
+            'onBeginRequest' => 'beginRequest',
+        ]);
     }
 
     public function beginRequest($event)
@@ -24,12 +24,13 @@ class DModuleUrlRulesBehavior extends CBehavior
 
         $list = array_merge(
             $this->beforeCurrentModule,
-            array($module),
+            [$module],
             $this->afterCurrentModule
         );
 
-        foreach ($list as $name)
+        foreach ($list as $name) {
             DUrlRulesHelper::import($name);
+        }
     }
 
     protected function _getCurrentModuleName()

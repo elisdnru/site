@@ -4,7 +4,7 @@
  * В классе EMailer необходимо заменить private $_myMailer на protected $_myMailer
  */
 
-require_once(__DIR__.DIRECTORY_SEPARATOR.'EMailer.php');
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'EMailer.php');
 
 class MyEMailer extends EMailer
 {
@@ -12,12 +12,13 @@ class MyEMailer extends EMailer
     {
         parent:: __call($method, $params);
 
-        if (strtolower($method) == 'send')
+        if (strtolower($method) == 'send') {
             $this->reset();
+        }
     }
 
-	public function reset()
-	{
+    public function reset()
+    {
         $this->ClearAddresses();
         $this->ClearCCs();
         $this->ClearBCCs();
@@ -25,5 +26,5 @@ class MyEMailer extends EMailer
         $this->ClearAllRecipients();
         $this->ClearAttachments();
         $this->ClearCustomHeaders();
-	}
+    }
 }

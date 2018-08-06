@@ -2,9 +2,9 @@
 
 class m130328_094620_create_comment extends EDbMigration
 {
-	public function safeUp()
-	{
-        $this->createTable('{{comment}}', array(
+    public function safeUp()
+    {
+        $this->createTable('{{comment}}', [
             'id' => 'int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'type' => 'varchar(64) NOT NULL',
             'lang_id' => 'varchar(6) NOT NULL',
@@ -20,7 +20,7 @@ class m130328_094620_create_comment extends EDbMigration
             'public' => 'smallint(1) NOT NULL',
             'moder' => 'smallint(1) NOT NULL DEFAULT 0',
             'likes' => 'int(11) NOT NULL DEFAULT 0',
-        ), 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('material_id', '{{comment}}', 'material_id');
         $this->createIndex('user_id', '{{comment}}', 'user_id');
@@ -30,10 +30,10 @@ class m130328_094620_create_comment extends EDbMigration
         $this->createIndex('date', '{{comment}}', 'date');
         $this->createIndex('public', '{{comment}}', 'public');
         $this->createIndex('moder', '{{comment}}', 'moder');
-	}
+    }
 
-	public function safeDown()
-	{
-		$this->dropTable('{{comment}}');
-	}
+    public function safeDown()
+    {
+        $this->dropTable('{{comment}}');
+    }
 }

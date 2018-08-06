@@ -19,18 +19,18 @@ class ModuleModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Модули', 'url'=>array('/module/moduleAdmin/index'), 'icon'=>'settings.png'),
-        );
+        return [
+            ['label' => 'Модули', 'url' => ['/module/moduleAdmin/index'], 'icon' => 'settings.png'],
+        ];
     }
 
     public static function rules()
     {
-        return array(
-            'admin'=>'admin/default/index',
-            '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
-            '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
-            '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
-        );
+        return [
+            'admin' => 'admin/default/index',
+            '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+            '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>' => '<module>/<controller>/index',
+            '<module:' . MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>' => '<module>/<controller>/<action>',
+        ];
     }
 }

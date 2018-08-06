@@ -1,10 +1,10 @@
 <?php
 
-return array(
-    'default'=>array(
+return [
+    'default' => [
         'enableHistory' => false,
-        'ajaxUpdate'=>false,
+        'ajaxUpdate' => false,
         'cssFile' => Yii::app()->request->baseUrl . '/css/gridview.css',
         'summaryText' => '{start}&ndash;{end} из {count}',
-    ),
-);
+    ],
+];

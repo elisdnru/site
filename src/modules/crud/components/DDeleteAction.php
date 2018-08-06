@@ -24,10 +24,11 @@ class DDeleteAction extends DCrudAction
 
         $this->clientCallback('beforeDelete', $model);
 
-        if ($model->delete())
+        if ($model->delete()) {
             $this->success($this->success);
-        else
+        } else {
             $this->error($this->error);
+        }
 
         $this->redirectToReferrer();
     }

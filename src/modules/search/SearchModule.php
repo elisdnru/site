@@ -6,10 +6,10 @@ class SearchModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.search.components.*',
             'application.modules.search.models.*',
-        ));
+        ]);
     }
 
 
@@ -25,31 +25,31 @@ class SearchModule extends DWebModule
 
     public static function rules()
     {
-        return array(
-            'search'=>'search/default/index',
-        );
+        return [
+            'search' => 'search/default/index',
+        ];
     }
 
     public function install()
     {
-        Yii::app()->config->add(array(
-            array(
-                'param'=>'SEARCH.ITEMS_PER_PAGE',
-                'label'=>'Результатов на странице поиска',
-                'value'=>'10',
-                'type'=>'string',
-                'default'=>'10',
-            ),
-        ));
+        Yii::app()->config->add([
+            [
+                'param' => 'SEARCH.ITEMS_PER_PAGE',
+                'label' => 'Результатов на странице поиска',
+                'value' => '10',
+                'type' => 'string',
+                'default' => '10',
+            ],
+        ]);
 
         return parent::install();
     }
 
     public function uninstall()
     {
-        Yii::app()->config->delete(array(
+        Yii::app()->config->delete([
             'SEARCH.ITEMS_PER_PAGE',
-        ));
+        ]);
 
         return parent::uninstall();
     }

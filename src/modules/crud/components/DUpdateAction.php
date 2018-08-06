@@ -26,24 +26,22 @@ class DUpdateAction extends DCrudAction
 
         $modelName = get_class($model);
 
-        if(isset($_POST[$modelName]))
-        {
+        if (isset($_POST[$modelName])) {
             $model->attributes = $_POST[$modelName];
 
             $this->clientCallback('beforeUpdate', $model);
             $this->clientCallback('performAjaxValidation', $model);
 
-            if($model->save())
-            {
+            if ($model->save()) {
                 $this->success($this->success);
                 $this->redirectToView($model);
-            }
-            else
+            } else {
                 $this->error($this->error);
+            }
         }
 
-        $this->controller->render($this->view, array(
-            'model'=>$model,
-        ));
+        $this->controller->render($this->view, [
+            'model' => $model,
+        ]);
     }
 }

@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle='Пользователи';
-$this->breadcrumbs=array(
-	'Панель управления'=>array('/admin'),
-	'Пользователи',
-);
+$this->pageTitle = 'Пользователи';
+$this->breadcrumbs = [
+    'Панель управления' => ['/admin'],
+    'Пользователи',
+];
 
-$this->admin[] = array('label'=>'Добавить пользователя', 'url'=>$this->createUrl('create'));
+$this->admin[] = ['label' => 'Добавить пользователя', 'url' => $this->createUrl('create')];
 
 $this->info = 'Пользователи';
 ?>
@@ -13,4 +13,4 @@ $this->info = 'Пользователи';
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
 <h1>Пользователи</h1>
 
-<?php $this->renderPartial('_grid', array('model'=>$model)); ?>
+<?php $this->renderPartial('_grid', ['model' => $model]); ?>

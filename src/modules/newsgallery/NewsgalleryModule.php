@@ -6,9 +6,9 @@ class NewsgalleryModule extends DWebModule
     {
         parent::init();
 
-        $this->setImport(array(
+        $this->setImport([
             'application.modules.newsgallery.models.*',
-        ));
+        ]);
     }
 
     public static function system()
@@ -28,9 +28,9 @@ class NewsgalleryModule extends DWebModule
 
     public static function adminMenu()
     {
-        return array(
-            array('label'=>'Галереи', 'url'=>array('/newsgallery/galleryAdmin/index'), 'icon'=>'images.png'),
-            array('label'=>'Добавить галерею', 'url'=>array('/newsgallery/galleryAdmin/create'), 'icon'=>'add.png'),
-        );
+        return [
+            ['label' => 'Галереи', 'url' => ['/newsgallery/galleryAdmin/index'], 'icon' => 'images.png'],
+            ['label' => 'Добавить галерею', 'url' => ['/newsgallery/galleryAdmin/create'], 'icon' => 'add.png'],
+        ];
     }
 }

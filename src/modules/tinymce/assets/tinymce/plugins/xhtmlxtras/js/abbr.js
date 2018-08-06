@@ -8,21 +8,25 @@
  * Contributing: http://tinymce.moxiecode.com/contributing
  */
 
-function init() {
-	SXE.initElementDialog('abbr');
-	if (SXE.currentAction == "update") {
-		SXE.showRemoveButton();
-	}
+function init()
+{
+    SXE.initElementDialog('abbr');
+    if (SXE.currentAction == "update") {
+        SXE.showRemoveButton();
+    }
 }
 
-function insertAbbr() {
-	SXE.insertElement('abbr');
-	tinyMCEPopup.close();
+function insertAbbr()
+{
+    SXE.insertElement('abbr');
+    tinyMCEPopup.close();
 }
 
-function removeAbbr() {
-	SXE.removeElement('abbr');
-	tinyMCEPopup.close();
+function removeAbbr()
+{
+    SXE.removeElement('abbr');
+    tinyMCEPopup.close();
 }
 
 tinyMCEPopup.onInit.add(init);
+

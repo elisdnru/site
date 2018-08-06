@@ -16,15 +16,12 @@ class DViewAction extends DCrudAction
 
         $this->clientCallback('beforeView', $model);
 
-        if ($this->json && isset($_GET['json']))
-        {
+        if ($this->json && isset($_GET['json'])) {
             echo CJSON::encode($model);
-        }
-        else
-        {
-            $this->controller->render($this->view, array(
-                'model'=>$model,
-            ));
+        } else {
+            $this->controller->render($this->view, [
+                'model' => $model,
+            ]);
         }
     }
 }

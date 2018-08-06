@@ -7,8 +7,9 @@ class CommentAdminController extends CommentAdminControllerBase
     protected function loadMaterialModel($id)
     {
         $model = News::model()->findByPk($id);
-        if($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'Материал не найден');
+        }
         return $model;
     }
 
