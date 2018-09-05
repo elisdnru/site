@@ -31,9 +31,9 @@
 				url: 'https://vk.com/elisdnru'
 			},
 			{
-				name: 'Google+',
-				image: '/32/googleplus.png',
-				url: 'https://plus.google.com/116153200022401064957'
+				name: 'Facebook',
+				image: '/32/facebook.png',
+				url: 'https://www.facebook.com/elisdnru/'
 			},
 		];
 
