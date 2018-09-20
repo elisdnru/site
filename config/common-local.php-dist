@@ -3,11 +3,11 @@
 return array(
     'components'=>array(
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=dbname',
+            'connectionString' => 'mysql:host=mysql;dbname=app',
             'enableProfiling' => false,
             'emulatePrepare' => true,
-            'username' => 'username',
-            'password' => 'password',
+            'username' => 'app',
+            'password' => 'secret',
             'tablePrefix' => 'tbl_',
             'charset' => 'utf8',
             'schemaCachingDuration'=>3600,
