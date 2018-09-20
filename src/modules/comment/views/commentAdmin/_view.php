@@ -39,6 +39,7 @@ $moderurl = $this->createUrl('toggle', ['attribute' => 'moder', 'id' => $data->i
         <?php if ($data->user && $data->user->network) : ?>
             <a target="_blank" rel="nofollow" href="<?php echo $data->user->identity; ?>">
             <img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($data->user->network); ?>"/>
+            </a>
         <?php endif; ?>
 
         <span class="author">
