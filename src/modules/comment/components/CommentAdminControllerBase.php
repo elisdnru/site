@@ -52,16 +52,10 @@ class CommentAdminControllerBase extends DAdminController
             ]
         ]);
 
-        if (Yii::app()->request->isAjaxRequest) {
-            $this->renderPartial('comment.views.commentAdmin._list', [
-                'dataProvider' => $dataProvider,
-            ]);
-        } else {
-            $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'material' => $material,
-            ]);
-        }
+        $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'material' => $material,
+        ]);
     }
 
     public function actionDelete($id)
