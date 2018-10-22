@@ -22,7 +22,7 @@ class DefaultController extends DAdminController
                 $module = Yii::app()->getModule($key);
 
                 if ($module) {
-                    if (is_a($module, 'DWebModule') && Yii::app()->moduleManager->active($module->id) && Yii::app()->moduleManager->allowed($module->id)) {
+                    if (is_a($module, 'DWebModule') && Yii::app()->moduleManager->allowed($module->id)) {
                         $modules[isset($module->group) ? $module->group : 'Прочее'][$module->name] = $module;
                     }
                 }

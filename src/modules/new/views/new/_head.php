@@ -24,9 +24,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     }
     $this->admin[] = ['label' => 'Новости', 'url' => $this->createUrl('/new/newAdmin/index')];
     if ($this->moduleAllowed('comment')) {
-        if (Yii::app()->moduleManager->active('comment')) {
-            $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . DNumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/new/commentAdmin/index', ['id' => $model->id])];
-        }
+        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . DNumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/new/commentAdmin/index', ['id' => $model->id])];
     }
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';

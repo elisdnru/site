@@ -24,7 +24,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog') && $page->id) {
         $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/update', ['id' => $page->id])];
     }
-    if ($this->moduleAllowed('blog') && Yii::app()->moduleManager->active('comment') && $this->moduleAllowed('comment')) {
+    if ($this->moduleAllowed('blog') && $this->moduleAllowed('comment')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications($this->module->id));
     }
 

@@ -23,7 +23,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('gallery')) $this->admin[] = array('label' => 'Редактировать', 'url' => $this->createUrl('/gallery/photoAdmin/update', array('id' => $model->id)));
     if ($this->moduleAllowed('gallery')) $this->admin[] = array('label' => 'Материалы', 'url' => $this->createUrl('/gallery/photoAdmin/index'));
     if ($this->moduleAllowed('gallery') && $model->category) $this->admin[] = array('label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', array('id' => $model->category_id)));
-    if ($this->moduleAllowed('comment') && Yii::app()->moduleManager->active('comment'))
+    if ($this->moduleAllowed('comment'))
         $this->admin[] = array('label' => 'Комментарии (' . $model->comments_new_count . ' ' . DNumberHelper::Plural($model->comments_new_count, array('новый', 'новых', 'новых')) . ')', 'url' => $this->createUrl('/gallery/commentAdmin/index', array('id' => $model->id)));
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить материал';
@@ -114,10 +114,8 @@ CTextHighlighter::registerCssFile();
 
     </aside>
 
-<?php if (Yii::app()->moduleManager->active('comment')): ?>
-    <?php $this->widget('comment.widgets.CommentsWidget', array(
-        'material_id' => $model->id,
-        'type' => GalleryPhotoComment::TYPE_OF_COMMENT,
-        'url' => $model->url,
-    )); ?>
-<?php endif; ?>
+<?php $this->widget('comment.widgets.CommentsWidget', array(
+    'material_id' => $model->id,
+    'type' => GalleryPhotoComment::TYPE_OF_COMMENT,
+    'url' => $model->url,
+)); ?>

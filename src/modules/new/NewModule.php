@@ -11,11 +11,6 @@ class NewModule extends DWebModule
         ]);
     }
 
-    public static function system()
-    {
-        return true;
-    }
-
     public function getGroup()
     {
         return 'Контент';
@@ -38,10 +33,6 @@ class NewModule extends DWebModule
 
     public static function notifications()
     {
-        if (!Yii::app()->moduleManager->active('comment')) {
-            return [];
-        }
-
         $comments = NewsComment::model()->count([
             'condition' => 'moder=0 AND type=:type',
             'params' => [':type' => NewsComment::TYPE_OF_COMMENT],

@@ -11,11 +11,6 @@ class SitemapModule extends DWebModule
         ]);
     }
 
-    public static function system()
-    {
-        return true;
-    }
-
     public function getName()
     {
         return 'Карта сайта';

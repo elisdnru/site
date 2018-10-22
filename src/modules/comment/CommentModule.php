@@ -10,11 +10,8 @@ class CommentModule extends DWebModule
             'application.modules.comment.components.*',
             'application.modules.comment.models.*',
             'application.modules.new.models.*',
+            'blog.models.BlogComment'
         ]);
-
-        if (Yii::app()->moduleManager->installed('blog')) {
-            $this->setImport(['blog.models.BlogComment']);
-        }
     }
 
     public function getName()

@@ -15,10 +15,6 @@ class CommentsWidget extends DWidget
 
     public function run()
     {
-        if (!Yii::app()->moduleManager->active('comment')) {
-            return;
-        }
-
         if (!$this->user) {
             $this->user = User::model()->findByPk(Yii::app()->user->getId());
         }
@@ -40,7 +36,7 @@ class CommentsWidget extends DWidget
             $form->attributes = $this->loadFormState();
         }
 
-        if (isset($_POST['CommentForm']) && Yii::app()->moduleManager->active('comment')) {
+        if (isset($_POST['CommentForm'])) {
             $form->attributes = $_POST['CommentForm'];
 
             $this->saveFormState([

@@ -11,11 +11,6 @@ class UploaderModule extends DWebModule
         ]);
     }
 
-    public static function system()
-    {
-        return true;
-    }
-
     public static function rules()
     {
         return [

@@ -1,6 +1,5 @@
 <?php
 
-Yii::import('application.modules.config.models.*');
 Yii::import('application.modules.blog.models.*');
 
 class BlogCategoryTest extends DbTestCase
@@ -11,7 +10,6 @@ class BlogCategoryTest extends DbTestCase
     protected $category;
 
     public $fixtures = [
-        'config'=>'Config',
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',

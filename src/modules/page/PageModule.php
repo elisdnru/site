@@ -12,11 +12,6 @@ class PageModule extends DWebModule
         ]);
     }
 
-    public static function system()
-    {
-        return true;
-    }
-
     public function getGroup()
     {
         return 'Контент';

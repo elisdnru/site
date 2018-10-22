@@ -2,11 +2,6 @@
 
 class CategoryModule extends DWebModule
 {
-    public static function system()
-    {
-        return true;
-    }
-
     public function init()
     {
         parent::init();

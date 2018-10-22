@@ -25,10 +25,7 @@
 
         <div class="clear"></div>
         <footer>
-            <?php if (Yii::app()->moduleManager->active('comment')) :
-                ?><p class="comments">
-                Комментариев: <?php echo $new->comments_count; ?><p><?php
-            endif; ?>
+            <p class="comments">Комментариев: <?php echo $new->comments_count; ?><p>
             <p>&nbsp;</p>
         </footer>
         <div class="clear"></div>

@@ -11,7 +11,7 @@ abstract class DAdminController extends DController
     public function filters()
     {
         return array_merge(parent::filters(), [
-            ['module.components.DModuleAdminFilter'],
+            ['application.components.module.DModuleAdminFilter'],
             'postOnly + delete, toggle',
         ]);
     }

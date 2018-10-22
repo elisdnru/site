@@ -36,7 +36,7 @@ return [
         'application.modules.main.components.*',
         'application.modules.user.components.*',
         'application.modules.user.models.*',
-        'application.modules.module.components.DUrlRulesHelper',
+        'application.components.module.DUrlRulesHelper',
         'application.extensions.cachetagging.Tags',
     ],
 
@@ -103,7 +103,7 @@ return [
         ],
 
         'moduleManager'=>[
-            'class'=>'application.modules.module.components.DModuleManager',
+            'class'=>'application.components.module.DModuleManager',
         ],
 
         'errorHandler'=>[
@@ -232,7 +232,7 @@ return [
 
     'behaviors'=> [
         [
-            'class'=>'application.modules.module.components.DModuleUrlRulesBehavior',
+            'class'=>'application.components.module.DModuleUrlRulesBehavior',
             'beforeCurrentModule'=>[
                 'main',
                 'uploader',

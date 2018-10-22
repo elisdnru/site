@@ -45,14 +45,8 @@ class DefaultController extends DController
 
         $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.page.models.Page' AS material_import, 'Page' AS material_class FROM {{page}}";
         $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.new.models.News' AS material_import, 'News' AS material_class FROM {{new}} WHERE public=1";
-
-        if (Yii::app()->moduleManager->active('blog')) {
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.blog.models.BlogPost' AS material_import, 'BlogPost' AS material_class FROM {{blog_post}} WHERE public=1";
-        }
-
-        if (Yii::app()->moduleManager->active('portfolio')) {
-            $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}} WHERE public=1";
-        }
+        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.blog.models.BlogPost' AS material_import, 'BlogPost' AS material_class FROM {{blog_post}} WHERE public=1";
+        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}} WHERE public=1";
 
         Yii::app()->db->createCommand($query . implode(' UNION ', $tables))->execute();
     }

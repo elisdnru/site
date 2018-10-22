@@ -16,7 +16,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
     $notifications = [];
     foreach ($modules as $group) {
         foreach ($group as $module) {
-            if (Yii::app()->moduleManager->active($module->id) && Yii::app()->moduleManager->notifications($module->id)) {
+            if (Yii::app()->moduleManager->notifications($module->id)) {
                 $notifications = array_merge($notifications, Yii::app()->moduleManager->notifications($module->id));
             }
         }
@@ -38,7 +38,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <?php
         $has = false;
         foreach ($groupModules as $module) {
-            if (Yii::app()->moduleManager->active($module->id) && Yii::app()->moduleManager->adminMenu($module->id)) {
+            if (Yii::app()->moduleManager->adminMenu($module->id)) {
                 $has = true;
                 break;
             }
@@ -50,7 +50,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
                 <h2><?php echo $group; ?></h2>
                 <ul class="adminlist">
                     <?php foreach ($groupModules as $module) : ?>
-                        <?php if (Yii::app()->moduleManager->active($module->id) && Yii::app()->moduleManager->adminMenu($module->id)) : ?>
+                        <?php if (Yii::app()->moduleManager->adminMenu($module->id)) : ?>
                             <li>
                                 <?php if ($module->name != $group) : ?>
                                     <h3><?php echo $module->name; ?></h3><?php

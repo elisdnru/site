@@ -12,11 +12,6 @@ class GalleryModule extends DWebModule
         ]);
     }
 
-    public static function system()
-    {
-        return false;
-    }
-
     public function getGroup()
     {
         return 'Контент';
@@ -38,10 +33,6 @@ class GalleryModule extends DWebModule
 
     public static function notifications()
     {
-        if (!Yii::app()->moduleManager->active('comment')) {
-            return [];
-        }
-
         Yii::import('application.modules.gallery.models.GalleryPhotoComment');
         $comments = GalleryPhotoComment::model()->count([
             'condition' => 'moder=0 AND type=:type',

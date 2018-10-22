@@ -39,7 +39,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog') && $model->category) {
         $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
     }
-    if ($this->moduleAllowed('comment') && Yii::app()->moduleManager->active('comment')) {
+    if ($this->moduleAllowed('comment')) {
         $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . DNumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/commentAdmin/index', ['id' => $model->id])];
     }
 
@@ -167,11 +167,9 @@ CTextHighlighter::registerCssFile();
 
 </aside>
 
-<?php if (Yii::app()->moduleManager->active('comment')) : ?>
-    <?php $this->widget('comment.widgets.CommentsWidget', [
-        'material_id' => $model->id,
-        'authorId' => $model->author_id,
-        'type' => BlogPostComment::TYPE_OF_COMMENT,
-        'url' => $model->url,
-    ]); ?>
-<?php endif; ?>
+<?php $this->widget('comment.widgets.CommentsWidget', [
+    'material_id' => $model->id,
+    'authorId' => $model->author_id,
+    'type' => BlogPostComment::TYPE_OF_COMMENT,
+    'url' => $model->url,
+]); ?>

@@ -21,23 +21,19 @@ class DefaultController extends DController
             'order' => 'title ASC',
         ]);
 
-        if (Yii::app()->moduleManager->active('blog')) {
-            Yii::import('application.modules.blog.models.*');
-            DUrlRulesHelper::import('blog');
+        Yii::import('application.modules.blog.models.*');
+        DUrlRulesHelper::import('blog');
 
-            $models['BlogPost'] = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll([
-                'order' => 'title ASC',
-            ]);
-        }
+        $models['BlogPost'] = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll([
+            'order' => 'title ASC',
+        ]);
 
-        if (Yii::app()->moduleManager->active('portfolio')) {
-            Yii::import('application.modules.portfolio.models.*');
-            DUrlRulesHelper::import('portfolio');
+        Yii::import('application.modules.portfolio.models.*');
+        DUrlRulesHelper::import('portfolio');
 
-            $models['PortfolioWork'] = PortfolioWork::model()->cache(0, new Tags('portfolio'))->published()->findAll([
-                'order' => 'title ASC',
-            ]);
-        }
+        $models['PortfolioWork'] = PortfolioWork::model()->cache(0, new Tags('portfolio'))->published()->findAll([
+            'order' => 'title ASC',
+        ]);
 
         $this->render('index', [
             'items' => $models,
@@ -60,19 +56,15 @@ class DefaultController extends DController
 
             $sitemap->addModels(News::model()->published()->findAll(), DSitemap::WEEKLY);
 
-            if (Yii::app()->moduleManager->active('blog')) {
-                Yii::import('application.modules.blog.models.*');
-                DUrlRulesHelper::import('blog');
+            Yii::import('application.modules.blog.models.*');
+            DUrlRulesHelper::import('blog');
 
-                $sitemap->addModels(BlogPost::model()->published()->findAll(), DSitemap::DAILY, 0.8);
-            }
+            $sitemap->addModels(BlogPost::model()->published()->findAll(), DSitemap::DAILY, 0.8);
 
-            if (Yii::app()->moduleManager->active('portfolio')) {
-                Yii::import('application.modules.portfolio.models.*');
-                DUrlRulesHelper::import('portfolio');
+            Yii::import('application.modules.portfolio.models.*');
+            DUrlRulesHelper::import('portfolio');
 
-                $sitemap->addModels(PortfolioWork::model()->findAll(), DSitemap::WEEKLY);
-            }
+            $sitemap->addModels(PortfolioWork::model()->findAll(), DSitemap::WEEKLY);
 
             $xml = $sitemap->render();
 

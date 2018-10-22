@@ -38,17 +38,10 @@ class DController extends Controller
     public $description = '';
     public $keywords = '';
 
-    public function filters()
-    {
-        return [
-            ['application.modules.module.components.DModuleFilter']
-        ];
-    }
-
     public function behaviors()
     {
         return array_merge(parent::behaviors(), [
-            'DModuleAccessBehavior' => ['class' => 'application.modules.module.components.DModuleAccessBehavior'],
+            'DModuleAccessBehavior' => ['class' => 'application.components.module.DModuleAccessBehavior'],
             'DUserBehavior' => ['class' => 'DUserBehavior'],
             'DFlashSessionBehavior' => ['class' => 'DFlashSessionBehavior'],
             'DLiveLayoutBehavior' => ['class' => 'DLiveLayoutBehavior'],

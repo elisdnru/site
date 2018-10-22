@@ -11,11 +11,6 @@ class ContactModule extends DWebModule
         ]);
     }
 
-    public static function system()
-    {
-        return true;
-    }
-
     public function getName()
     {
         return 'Обратная связь';

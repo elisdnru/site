@@ -11,11 +11,9 @@
                         <span><a rel="nofollow" href="<?php echo $data->page->url; ?>"><?php echo CHtml::encode($data->page->title); ?></a></span>
                     </p>
                 <?php endif; ?>
-                <?php if (Yii::app()->moduleManager->active('comment')) : ?>
-                    <p class="comments">
-                        <span><a rel="nofollow" href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></a></span>
-                    </p>
-                <?php endif; ?>
+                <p class="comments">
+                    <span><a rel="nofollow" href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></a></span>
+                </p>
             </div>
             <?php if ($data->image) : ?>
                 <?php

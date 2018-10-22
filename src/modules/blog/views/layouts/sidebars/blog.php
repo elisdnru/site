@@ -23,41 +23,35 @@
 <?php if ($this->route == 'blog/post/show') : ?>
     <!--noindex-->
 <?php endif; ?>
-<?php if (Yii::app()->moduleManager->active('blog')) : ?>
-    <?php Yii::import('blog.models.*'); ?>
-    <?php if ($this->route == 'blog/post/show') : ?>
-        <?php $this->beginWidget('DNofollowWidget'); ?>
-    <?php endif; ?>
-    <?php $this->beginWidget('DPortlet', ['title' => 'Разделы блога']); ?>
-    <?php $this->widget('zii.widgets.CMenu', ['items' => BlogCategory::model()->cache(0, new Tags('blog'))->getMenuList(1000), 'htmlOptions' => ['class' => 'collapsed']]); ?>
+<?php Yii::import('blog.models.*'); ?>
+<?php if ($this->route == 'blog/post/show') : ?>
+    <?php $this->beginWidget('DNofollowWidget'); ?>
+<?php endif; ?>
+<?php $this->beginWidget('DPortlet', ['title' => 'Разделы блога']); ?>
+<?php $this->widget('zii.widgets.CMenu', ['items' => BlogCategory::model()->cache(0, new Tags('blog'))->getMenuList(1000), 'htmlOptions' => ['class' => 'collapsed']]); ?>
+<?php $this->endWidget(); ?>
+<?php if ($this->route == 'blog/post/show') :  ?>
     <?php $this->endWidget(); ?>
-    <?php if ($this->route == 'blog/post/show') :  ?>
-        <?php $this->endWidget(); ?>
-    <?php endif; ?>
 <?php endif; ?>
 <?php if ($this->route == 'blog/post/show') : ?>
     <!--/noindex-->
 <?php endif; ?>
 
 <!--noindex-->
-<?php if (Yii::app()->moduleManager->active('blog')) : ?>
-    <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->beginWidget('DPortlet', ['title' => 'Метки']); ?>
-        <?php $this->widget('blog.widgets.TagCloudWidget'); ?>
-        <?php $this->endWidget(); ?>
-        <?php $this->endCache(); ?>
-    <?php endif; ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
+    <?php $this->beginWidget('DPortlet', ['title' => 'Метки']); ?>
+    <?php $this->widget('blog.widgets.TagCloudWidget'); ?>
+    <?php $this->endWidget(); ?>
+    <?php $this->endCache(); ?>
 <?php endif; ?>
 <!--/noindex-->
 
 <!--noindex-->
-<?php if (Yii::app()->moduleManager->active('blog')) : ?>
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->beginWidget('DPortlet'); ?>
-        <?php $this->widget('blog.widgets.BlogCalendarWidget'); ?>
-        <?php $this->endWidget(); ?>
-        <?php $this->endCache(); ?>
-    <?php endif; ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
+    <?php $this->beginWidget('DPortlet'); ?>
+    <?php $this->widget('blog.widgets.BlogCalendarWidget'); ?>
+    <?php $this->endWidget(); ?>
+    <?php $this->endCache(); ?>
 <?php endif; ?>
 <!--/noindex-->
 

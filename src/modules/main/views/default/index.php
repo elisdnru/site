@@ -28,17 +28,14 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
 
-<?php if (Yii::app()->moduleManager->active('blog')) : ?>
-    <?php DUrlRulesHelper::import('blog'); ?>
+<?php DUrlRulesHelper::import('blog'); ?>
 
-    <h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
-    <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->widget('blog.widgets.LastPostsWidget', ['tpl' => 'home', 'limit' => Yii::app()->params['BLOG.POSTS_PER_HOME']]); ?>
-        <?php $this->endCache(); ?>
-    <?php endif; ?>
-
-    <div class="clear"></div>
-    <p class="nomargin"><span data-href="<?php echo $this->createUrl('/blog/default/index', ['page' => 2]); ?>">Остальные записи &rarr;</span>
-    </p>
-
+<h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
+    <?php $this->widget('blog.widgets.LastPostsWidget', ['tpl' => 'home', 'limit' => Yii::app()->params['BLOG.POSTS_PER_HOME']]); ?>
+    <?php $this->endCache(); ?>
 <?php endif; ?>
+
+<div class="clear"></div>
+<p class="nomargin"><span data-href="<?php echo $this->createUrl('/blog/default/index', ['page' => 2]); ?>">Остальные записи &rarr;</span>
+</p>
