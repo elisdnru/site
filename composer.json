@@ -4,7 +4,12 @@
     "type": "project",
     "require": {
         "php": ">7.1.0",
+        "ext-PDO": "^7.1",
+        "ext-dom": "20031129",
         "ext-gd": "^7.1",
+        "ext-iconv": "^7.1",
+        "ext-json": "^1.5",
+        "ext-mbstring": "^7.1",
         "symfony/dotenv": "^4.1",
         "yiisoft/yii": "^1.1"
     },
