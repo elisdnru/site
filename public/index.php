@@ -4,9 +4,6 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-require_once(__DIR__.'/../src/components/DTimer.php');
-DTimer::run();
-
 if (file_exists(__DIR__ . '/../.env')) {
     (new Dotenv())->load(__DIR__ . '/../.env');
 }
