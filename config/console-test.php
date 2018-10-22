@@ -16,5 +16,14 @@ return array_replace_recursive(
                 'connectionID'=>'db',
             ],
         ],
+
+        'components' => [
+            'db'=>[
+                'connectionString' => 'mysql:host=mysql-test;dbname=test',
+                'username' => 'test',
+                'password' => 'secret',
+                'tablePrefix' => '',
+            ],
+        ],
     ]
 );
