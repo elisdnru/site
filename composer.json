@@ -4,6 +4,7 @@
     "type": "project",
     "require": {
         "php": ">7.1.0",
+        "ext-gd": "^7.1",
         "symfony/dotenv": "^4.1",
         "yiisoft/yii": "^1.1"
     },
