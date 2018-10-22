@@ -25,6 +25,7 @@ services:
             dockerfile: php-cli.docker
         volumes:
             - .:/var/www
+            - ./var/docker/composer:/root/.composer/
         depends_on:
             - mysql
             - mysql-test
