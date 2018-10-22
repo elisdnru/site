@@ -36,7 +36,8 @@ class UloginUserIdentity extends CUserIdentity
         } else {
             $user = new User('ulogin');
 
-            $user->username = $uloginModel->identity ? $uloginModel->network . '_' . array_pop(explode('/', trim($uloginModel->identity, '/'))) : 'user_' . time();
+            $identity = explode('/', trim($uloginModel->identity, '/'));
+            $user->username = $uloginModel->identity ? $uloginModel->network . '_' . array_pop($identity) : 'user_' . time();
             $user->identity = $uloginModel->identity;
             $user->network = $uloginModel->network;
             $user->email = $uloginModel->email;
