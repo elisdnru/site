@@ -40,13 +40,7 @@ return [
         'application.extensions.cachetagging.Tags',
     ],
 
-    'modules'=>array_replace($modules, [
-        /*'gii'=>array(
-            'class'=>'system.gii.GiiModule',
-            'password'=>'admin',
-            'ipFilters'=>array('127.0.0.1','::1'),
-        ),*/
-    ]),
+    'modules'=> $modules,
 
     'components'=>[
 
@@ -57,9 +51,6 @@ return [
             'useStrictParsing'=>true,
             'urlSuffix'=>'',
             'rules'=>[
-                /*'gii'=>'gii/default/index',
-                'gii/<controller:\w+>'=>'gii/<controller>/index',
-                'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',*/
                 '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
                 '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
                 '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
@@ -77,8 +68,6 @@ return [
                 'modernizr.js'=>'/js/modernizr.min.js',
                 'core-site.js'=>'/js/core-site.js',
                 'core-end.js'=>'/js/core-end.js',
-                //'jquery.js'=>'http://code.jquery.com/jquery-latest.min.js',
-                //'jquery.min.js'=>'http://code.jquery.com/jquery-latest.min.js',
                 'jquery.easing.js'=>'/js/jquery.easing.js',
                 'jquery.mousewheel.js'=>'/js/jquery.mousewheel.js',
                 'jquery.plugins.js'=>'/js/jquery.plugins.js',
