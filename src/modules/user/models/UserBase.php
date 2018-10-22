@@ -28,11 +28,7 @@ Yii::import('application.modules.attribute.components.*');
  * @property string $lastname
  * @property string $name
  * @property string $middlename
- * @property string $zip
- * @property string $address
- * @property string $phone
  * @property string $site
- * @property string $googleplus
  *
  * @property Page[] $access_pages
  * @property int $comments_count
@@ -238,26 +234,6 @@ abstract class UserBase extends CActiveRecord
                 'max' => 255
             ],
 
-            // Zip
-            [
-                'zip',
-                'length',
-                'max' => 255
-            ],
-
-            // Address
-            [
-                'address',
-                'safe'
-            ],
-
-            // Phone
-            [
-                'phone',
-                'length',
-                'max' => 255
-            ],
-
             // Site
             [
                 'site',
@@ -265,17 +241,6 @@ abstract class UserBase extends CActiveRecord
             ],
             [
                 'site',
-                'length',
-                'max' => 255
-            ],
-
-            // GooglePlus
-            [
-                'googleplus',
-                'url'
-            ],
-            [
-                'googleplus',
                 'length',
                 'max' => 255
             ],
@@ -337,11 +302,7 @@ abstract class UserBase extends CActiveRecord
             'lastname' => 'Фамилия',
             'middlename' => 'Отчество',
             'fio' => 'ФИО',
-            'zip' => 'Почтовый индекс',
-            'address' => 'Адрес',
-            'phone' => 'Телефон',
             'site' => 'Сайт',
-            'googleplus' => 'Профиль в Google+',
         ];
     }
 
@@ -375,9 +336,6 @@ abstract class UserBase extends CActiveRecord
         $criteria->compare('t.lastname', $this->lastname, true);
         $criteria->compare('t.name', $this->name, true);
         $criteria->compare('t.middlename', $this->middlename, true);
-        $criteria->compare('t.zip', $this->zip, true);
-        $criteria->compare('t.address', $this->address, true);
-        $criteria->compare('t.phone', $this->phone, true);
         $criteria->compare('t.site', $this->site, true);
 
         return new CActiveDataProvider($this, [

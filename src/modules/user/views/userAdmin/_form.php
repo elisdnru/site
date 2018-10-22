@@ -99,34 +99,6 @@
                 <?php echo $form->error($model, 'site'); ?>
             </div>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'googleplus'); ?><br/>
-                <?php echo $form->textField($model, 'googleplus', ['size' => 50, 'maxlength' => 255]); ?>
-                <?php echo $form->error($model, 'googleplus'); ?>
-            </div>
-
-        </fieldset>
-
-        <fieldset>
-            <h4>Адрес и телефон</h4>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'zip'); ?><br/>
-                <?php echo $form->textField($model, 'zip'); ?>
-                <?php echo $form->error($model, 'zip'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'address'); ?><br/>
-                <?php echo $form->textArea($model, 'address', ['cols' => 60, 'rows' => 3, 'maxlength' => 255]); ?>
-                <?php echo $form->error($model, 'address'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'phone'); ?><br/>
-                <?php echo $form->textField($model, 'phone'); ?>
-                <?php echo $form->error($model, 'phone'); ?>
-            </div>
         </fieldset>
 
         <div class="row buttons">

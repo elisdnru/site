@@ -47,32 +47,10 @@ if ($this->is(Access::ROLE_CONTROL)) {
                 <?php echo $form->error($model, 'middlename'); ?>
             </div>
 
-            <hr/>
-            <h4>Публичный профиль</h4>
-
             <div class="row">
                 <?php echo $form->labelEx($model, 'site'); ?><br/>
                 <?php echo $form->textField($model, 'site', ['size' => 40, 'maxlength' => 255]); ?>
                 <?php echo $form->error($model, 'site'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'googleplus'); ?><br/>
-                <?php echo $form->textField($model, 'googleplus', ['size' => 40, 'maxlength' => 255]); ?>
-                <?php echo $form->error($model, 'googleplus'); ?>
-            </div>
-
-            <hr/>
-            <h4>Адрес и телефон</h4>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'phone'); ?><br/>
-                <?php echo $form->textField($model, 'phone', ['size' => 40, 'maxlength' => 255]); ?>
-                <?php echo $form->error($model, 'phone'); ?>
-            </div>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'address'); ?><br/>
-                <?php echo $form->textArea($model, 'address', ['cols' => 60, 'rows' => 3, 'maxlength' => 255]); ?>
-                <?php echo $form->error($model, 'address'); ?>
             </div>
 
             <hr/>

@@ -55,12 +55,6 @@ $this->widget('zii.widgets.CDetailView', [
             'visible' => $model->site,
         ],
         [
-            'label' => 'Google+',
-            'type' => 'html',
-            'value' => CHtml::link(CHtml::image(DSocNetworkHelper::getIcon('google')), $model->googleplus),
-            'visible' => $model->googleplus,
-        ],
-        [
             'label' => 'Комментариев',
             'type' => 'html',
             'value' => $model->comments_count,

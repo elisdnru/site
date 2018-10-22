@@ -20,11 +20,7 @@ return [
         'lastname' => '',
         'name' => '',
         'middlename' => '',
-        'zip' => '',
-        'address' => '',
-        'phone' => '',
         'site' => '',
-        'googleplus' => '',
         'comments_count' => 0,
     ],
     [
@@ -46,11 +42,7 @@ return [
         'lastname' => '',
         'name' => '',
         'middlename' => '',
-        'zip' => '',
-        'address' => '',
-        'phone' => '',
         'site' => '',
-        'googleplus' => '',
         'comments_count' => 0,
     ],
 ];
