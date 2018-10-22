@@ -2,7 +2,6 @@
 
 return array_replace_recursive(
     require(__DIR__ . '/common.php'),
-    require(__DIR__ . '/common-local.php'),
     [
         'commandMap' => [
             'migrate' => [
@@ -17,6 +16,5 @@ return array_replace_recursive(
                 'connectionID'=>'db',
             ],
         ],
-    ],
-    require(__DIR__ . '/console-local.php')
+    ]
 );

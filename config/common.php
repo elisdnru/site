@@ -91,6 +91,17 @@ return [
             'cache'=>3600,
         ],
 
+        'db'=>[
+            'connectionString' => getenv('APP_DB_DSN'),
+            'enableProfiling' => false,
+            'emulatePrepare' => true,
+            'username' => getenv('APP_DB_USERNAME'),
+            'password' => getenv('APP_DB_PASSWORD'),
+            'tablePrefix' => getenv('APP_DB_PREFIX'),
+            'charset' => 'utf8',
+            'schemaCachingDuration'=>3600,
+        ],
+
         'authManager'=>[
             'class'=>'application.modules.user.components.PhpAuthManager',
             'defaultRoles'=>['role_guest'],
@@ -203,7 +214,7 @@ return [
         ],
 
         'cache'=>[
-            'class'=>'system.caching.CDummyCache',
+            'class'=>'system.caching.CFileCache',
             'behaviors'=>[
                 'tagging'=>[
                     'class'=>'ext.cachetagging.TaggingBehavior',

@@ -2,7 +2,6 @@
 
 return array_replace_recursive(
     require(__DIR__ . '/common.php'),
-    require(__DIR__ . '/common-local.php'),
     [
         'components'=>[
             'request'=>[
@@ -18,8 +17,11 @@ return array_replace_recursive(
             ],
             'session'=> [
                 'class'=>'system.web.CHttpSession',
+                'timeout'=>3600*24*10,
+                'cookieParams'=>[
+                    'lifetime'=>3600*24*10,
+                ],
             ],
         ],
-    ],
-    require(__DIR__ . '/web-local.php')
+    ]
 );
