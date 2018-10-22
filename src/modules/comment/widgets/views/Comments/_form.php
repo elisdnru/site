@@ -20,7 +20,7 @@
     <?php if ($user && $user->id) : ?>
         <a href="<?php echo $user->url; ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?php echo $user->avatarUrl; ?>"/></a>
 
-        <p class='exit floatright'><a href="<?php echo Yii::app()->createUrl('/user/profile'); ?>">профиль</a> |
+        <p class='exit floatright'><a href="<?php echo $user->url; ?>">профиль</a> |
             <a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>">выход</a></p>
         <p class="nomargin">
             <?php if ($user->site) : ?>
