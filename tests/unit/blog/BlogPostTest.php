@@ -11,6 +11,7 @@ class BlogPostTest extends DbTestCase
     protected $post;
 
     public $fixtures = [
+        'comment'=>'BlogPostComment',
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
@@ -62,7 +63,9 @@ class BlogPostTest extends DbTestCase
 
     public function testCreateAndUpdateDate()
     {
-        $source = BlogPost::model()->findByPk(1);
+        $source = BlogPost::model()->findByPk(2);
+
+        $update_date = $source->update_date;
 
         $post = new BlogPost();
 
@@ -83,13 +86,7 @@ class BlogPostTest extends DbTestCase
         $this->assertStringMatchesFormat('%d-%d-%d %d:%d:%d', $post->date, 'Create date format');
         $this->assertStringMatchesFormat('%d-%d-%d %d:%d:%d', $post->update_date, 'Update date format');
 
-        $update_date = $source->update_date;
-
-        $this->assertTrue($source->update(), 'Update model');
-
-        $source = BlogPost::model()->findByPk($source->getPrimaryKey());
-
-        $this->assertNotEquals($update_date, $source->update_date, 'New updated date');
+        $this->assertNotEquals($update_date, $post->update_date, 'New updated date');
     }
 
     public function testCategoryIdIsExist()
