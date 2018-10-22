@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f760ebd329cc2e6a3467cff8e7bee95a",
+    "content-hash": "9e59a7d1609a01b4fc62e6d8bd8ee44d",
     "packages": [
         {
             "name": "symfony/dotenv",
@@ -65,20 +65,28 @@
         },
         {
             "name": "yiisoft/yii",
-            "version": "1.1.17",
+            "version": "1.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii.git",
-                "reference": "467ff50a77bf7030a168defc1d47f446136d6228"
+                "reference": "6ed38411e7568f7a13c4aab8bcd38bff2a6f2390"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii/zipball/467ff50a77bf7030a168defc1d47f446136d6228",
-                "reference": "467ff50a77bf7030a168defc1d47f446136d6228",
+                "url": "https://api.github.com/repos/yiisoft/yii/zipball/6ed38411e7568f7a13c4aab8bcd38bff2a6f2390",
+                "reference": "6ed38411e7568f7a13c4aab8bcd38bff2a6f2390",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.1.0"
+            },
+            "require-dev": {
+                "phing/phing": "2.*",
+                "phpunit/phpunit": "~4.8.34",
+                "phpunit/phpunit-selenium": "~1.4.0"
+            },
+            "suggest": {
+                "ext-mcrypt": "Required by encrypt and decrypt methods of CSecurityManager"
             },
             "bin": [
                 "framework/yiic"
@@ -151,7 +159,7 @@
                 "framework",
                 "yii"
             ],
-            "time": "2016-01-13T16:23:58+00:00"
+            "time": "2018-07-06T17:18:25+00:00"
         }
     ],
     "packages-dev": [
