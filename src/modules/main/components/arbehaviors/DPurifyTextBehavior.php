@@ -136,8 +136,12 @@ class DPurifyTextBehavior extends CActiveRecordBehavior
      */
     public function markdownText($text)
     {
+        $pre = preg_replace('#(~~~[\r\n]+\[php\][\r\n]+)#', '$1<?php' . PHP_EOL, $text);
+
         $md = new CMarkdownParser;
-        return $md->transform($text);
+        $transform = $md->transform($pre);
+
+        return str_replace('<pre><span class="php-hl-inlinetags">&lt;?php</span>' . PHP_EOL, '<pre>', $transform);
     }
 
     /**
