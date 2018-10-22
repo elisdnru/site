@@ -52,3 +52,10 @@ services:
             - "MYSQL_DATABASE=test"
         ports:
             - "33062:3306"
+
+    mailer:
+        image: mailhog/mailhog
+        restart: unless-stopped
+        ports:
+            - "1025:1025"
+            - "8081:8025"

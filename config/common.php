@@ -176,7 +176,15 @@ return [
         'mailer'=>[
             'class'=>'ext.mailer.MyEMailer',
             'pathViews'=>'//email',
-            'pathLayouts'=>'//email/layouts'
+            'pathLayouts'=>'//email/layouts',
+            'Mailer' => 'smtp',
+            'Host' => getenv('APP_MAILER_HOST'),
+            'Port' => getenv('APP_MAILER_PORT'),
+            'SMTPSecure' => getenv('APP_MAILER_ENCRYPTION'),
+            'SMTPAuth' => true,
+            'AuthType' => 'PLAIN',
+            'Username' => getenv('APP_MAILER_USERNAME'),
+            'Password' => getenv('APP_MAILER_PASSWORD'),
         ],
 
         'rpcManager'=>[
