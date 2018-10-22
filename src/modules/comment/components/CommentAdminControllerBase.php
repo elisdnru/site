@@ -113,7 +113,6 @@ class CommentAdminControllerBase extends DAdminController
     protected function loadMaterialModel($id)
     {
         throw new CException('Undefined material model');
-        return null;
     }
 
     protected function getModelName()

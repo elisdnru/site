@@ -172,7 +172,7 @@ interface Driver
 
 class FileDriver implements Driver
 {
-    private $path = '';
+    private $path;
 
     public function __construct()
     {

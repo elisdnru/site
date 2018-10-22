@@ -801,7 +801,6 @@ class CFile extends CApplicationComponent
             }
         } else {
             throw new CHttpException(500, 'Unable to get directory contents for "' . $directory . DIRECTORY_SEPARATOR . '"');
-            return false;
         }
 
         return $descendants;

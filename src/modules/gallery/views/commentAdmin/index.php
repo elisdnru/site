@@ -47,9 +47,6 @@ $this->info = 'Неопубликованные комментарии выде�
 
 <?php endif; ?>
 
-<?php if ($this->is(Access::ROLE_CONTROL)) {
-} ?>
-
 <?php $this->renderPartial('comment.views.commentAdmin._list', ['dataProvider' => $dataProvider]); ?>
 
 
