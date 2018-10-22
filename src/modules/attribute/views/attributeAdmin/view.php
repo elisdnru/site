@@ -1,1 +1,0 @@
-<?php $this->redirect(['index']);

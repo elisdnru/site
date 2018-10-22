@@ -82,7 +82,7 @@ abstract class UserBase extends CActiveRecord
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
-        return array_merge([
+        return [
 
             // Login
             [
@@ -292,7 +292,7 @@ abstract class UserBase extends CActiveRecord
             ],
 
             ['id, username, password, email, fio, create_datetime, last_modify_datetime, last_visit_datetime, active, identity, network, lastname, name, middlename, role', 'safe', 'on' => 'search'],
-        ], DAttributeHelper::rules('User'));
+        ];
     }
 
     /**
@@ -314,7 +314,7 @@ abstract class UserBase extends CActiveRecord
      */
     public function attributeLabels()
     {
-        return array_merge([
+        return [
             'id' => 'ID',
             'username' => 'Логин',
             'password' => 'Пароль',
@@ -342,7 +342,7 @@ abstract class UserBase extends CActiveRecord
             'phone' => 'Телефон',
             'site' => 'Сайт',
             'googleplus' => 'Профиль в Google+',
-        ], DAttributeHelper::attributeLabels('User'));
+        ];
     }
 
     /**
@@ -420,9 +420,6 @@ abstract class UserBase extends CActiveRecord
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
-            ],
-            'DAttribute' => [
-                'class' => 'attribute.components.DAttributeBehavior',
             ],
         ];
     }

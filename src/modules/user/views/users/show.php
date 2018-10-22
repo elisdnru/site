@@ -46,32 +46,27 @@ $this->widget('zii.widgets.CDetailView', [
     'itemTemplate' => "<tr><th style=\"width:150px; text-align:left\">{label}</th><td>{value}</td></tr>\n",
     'htmlOptions' => ['class' => 'detail-view nomargin'],
     'cssFile' => false,
-    'attributes' => array_merge(
+    'attributes' => [
+        'username',
         [
-            'username',
-            [
-                'label' => 'Сайт',
-                'type' => 'html',
-                'value' => CHtml::link(CHtml::encode($model->site), $model->site),
-                'visible' => $model->site,
-            ],
-            [
-                'label' => 'Google+',
-                'type' => 'html',
-                'value' => CHtml::link(CHtml::image(DSocNetworkHelper::getIcon('google')), $model->googleplus),
-                'visible' => $model->googleplus,
-            ],
+            'label' => 'Сайт',
+            'type' => 'html',
+            'value' => CHtml::link(CHtml::encode($model->site), $model->site),
+            'visible' => $model->site,
         ],
-        $model->getAttrDetailView(),
         [
-            [
-                'label' => 'Комментариев',
-                'type' => 'html',
-                'value' => $model->comments_count,
-                'visible' => $model->comments_count,
-            ],
-        ]
-    ),
+            'label' => 'Google+',
+            'type' => 'html',
+            'value' => CHtml::link(CHtml::image(DSocNetworkHelper::getIcon('google')), $model->googleplus),
+            'visible' => $model->googleplus,
+        ],
+        [
+            'label' => 'Комментариев',
+            'type' => 'html',
+            'value' => $model->comments_count,
+            'visible' => $model->comments_count,
+        ],
+    ],
 ]);
 ?>
 

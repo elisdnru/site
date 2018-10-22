@@ -105,17 +105,6 @@
                 <?php echo $form->error($model, 'googleplus'); ?>
             </div>
 
-            <?php foreach (DAttributeHelper::attributes(get_class($model)) as $attr) : ?>
-                <div class="row">
-                    <?php echo $form->labelEx($model, $attr->name); ?><br/>
-                    <?php if ($attr->type == 'text') : ?>
-                        <?php echo $form->textArea($model, $attr->name, ['rows' => 5]); ?>
-                    <?php else : ?>
-                        <?php echo $form->textField($model, $attr->name, ['size' => 50, 'maxlength' => 255]); ?>
-                    <?php endif; ?>
-                    <?php echo $form->error($model, $attr->name); ?>
-                </div>
-            <?php endforeach; ?>
         </fieldset>
 
         <fieldset>

@@ -62,18 +62,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
                 <?php echo $form->error($model, 'googleplus'); ?>
             </div>
 
-            <?php foreach (DAttributeHelper::attributes(get_class($model)) as $attr) : ?>
-                <div class="row">
-                    <?php echo $form->labelEx($model, $attr->name); ?><br/>
-                    <?php if ($attr->type == 'text') : ?>
-                        <?php echo $form->textArea($model, $attr->name, ['cols' => 60, 'rows' => 3]); ?>
-                    <?php else : ?>
-                        <?php echo $form->textField($model, $attr->name, ['size' => 40, 'maxlength' => 255]); ?>
-                    <?php endif; ?>
-                    <?php echo $form->error($model, $attr->name); ?>
-                </div>
-            <?php endforeach; ?>
-
             <hr/>
             <h4>Адрес и телефон</h4>
             <div class="row">
