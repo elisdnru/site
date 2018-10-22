@@ -87,19 +87,19 @@ class BlogCategoryTest extends DbTestCase
     public function testPostsRelation()
     {
         $category = $this->blog_category('category_with_posts');
-        $this->assertEquals(3, count($category->posts));
+        $this->assertCount(3, $category->posts);
 
         $category = $this->blog_category('category_without_posts');
-        $this->assertEquals(0, count($category->posts));
+        $this->assertCount(0, $category->posts);
     }
 
     public function testChildRelation()
     {
         $category = $this->blog_category('parent_category');
-        $this->assertEquals(1, count($category->child_items));
+        $this->assertCount(1, $category->child_items);
 
         $category = $this->blog_category('child_category');
-        $this->assertEquals(0, count($category->child_items));
+        $this->assertCount(0, $category->child_items);
     }
 
     public function testPublicItemsCountRelation()
