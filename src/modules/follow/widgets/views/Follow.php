@@ -3,10 +3,10 @@
 <script type="text/javascript">
     /*<![CDATA[*/
     jQuery('#followMe').follow({
-        rss: '<?php echo Yii::app()->config->get('GENERAL.FEED_URL'); ?>',
-        twitter: '<?php echo Yii::app()->config->get('FOLLOW.TWITTER'); ?>',
-        livejournal: '<?php echo Yii::app()->config->get('FOLLOW.LIVEJOURNAL'); ?>',
-        github: '<?php echo Yii::app()->config->get('FOLLOW.GITHUB'); ?>',
+        rss: '<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>',
+        twitter: '<?php echo Yii::app()->params['FOLLOW.TWITTER']; ?>',
+        livejournal: '<?php echo Yii::app()->params['FOLLOW.LIVEJOURNAL']; ?>',
+        github: '<?php echo Yii::app()->params['FOLLOW.GITHUB']; ?>',
         assets_url: '<?php echo $assetsUrl; ?>'
     });
     /*]]>*/

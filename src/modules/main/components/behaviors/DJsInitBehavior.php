@@ -10,7 +10,7 @@ class DJsInitBehavior extends CBehavior
     {
         Yii::app()->clientScript->registerScript('constants', "
     function getCSRFToken(){ return '" . Yii::app()->request->csrfToken . "'; }
-    function getVKApiId(){ return '" . (Yii::app()->config->has('GENERAL.SOCIAL_VK_APIID') ? Yii::app()->config->get('GENERAL.SOCIAL_VK_APIID') : '') . "'; }
+    function getVKApiId(){ return '" . Yii::app()->params['GENERAL.SOCIAL_VK_APIID'] . "'; }
     function getFBApiId(){ return ''; }
         ", CClientScript::POS_HEAD);
     }

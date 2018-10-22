@@ -13,7 +13,7 @@ class DefaultController extends DController
 
     protected function beforeAction($action)
     {
-        if (Yii::app()->config->has('GENERAL.SITE_NAME')) {
+        if (Yii::app()->params['GENERAL.SITE_NAME']) {
             throw new CHttpException(404, 'Not found');
         }
 

@@ -66,36 +66,4 @@ class BlogModule extends DWebModule
             'blog' => 'blog/default/index',
         ];
     }
-
-    public function install()
-    {
-        Yii::app()->config->add([
-            [
-                'param' => 'BLOG.POSTS_PER_PAGE',
-                'label' => 'Записей на странице',
-                'value' => '10',
-                'type' => 'string',
-                'default' => '10',
-            ],
-            [
-                'param' => 'BLOG.POSTS_PER_HOME',
-                'label' => 'Записей на главной странице',
-                'value' => '10',
-                'type' => 'string',
-                'default' => '10',
-            ],
-        ]);
-
-        return parent::install();
-    }
-
-    public function uninstall()
-    {
-        Yii::app()->config->delete([
-            'BLOG.POSTS_PER_PAGE',
-            'BLOG.POSTS_PER_HOME',
-        ]);
-
-        return parent::uninstall();
-    }
 }

@@ -140,9 +140,9 @@ class Contact extends CActiveRecord
 
     private function sendAdminNotify()
     {
-        if (Yii::app()->config->get('CONTACT.SEND_ADMIN_EMAILS')) {
+        if (Yii::app()->params['CONTACT.SEND_ADMIN_EMAILS']) {
             $email = Yii::app()->email;
-            $email->to = Yii::app()->config->get('GENERAL.ADMIN_EMAIL');
+            $email->to = Yii::app()->params['GENERAL.ADMIN_EMAIL'];
             $email->replyTo = $this->name . ' <' . $this->email . '>';
             $email->subject = 'Сообщение №' . $this->id . ' на сайте ' . $_SERVER['SERVER_NAME'];
             $email->message = '';

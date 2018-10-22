@@ -15,7 +15,7 @@
     <?php Yii::app()->clientScript->registerScriptFile('jquery.plugins.js'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('core-site.js'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
-    <title><?php echo CHtml::encode($this->pageTitle) . ' - ' . Yii::app()->config->get('GENERAL.SITE_NAME'); ?></title>
+    <title><?php echo CHtml::encode($this->pageTitle) . ' - ' . Yii::app()->params['GENERAL.SITE_NAME']; ?></title>
 </head>
 <body>
 <?php echo $content; ?>

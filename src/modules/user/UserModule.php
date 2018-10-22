@@ -47,28 +47,4 @@ class UserModule extends DWebModule
             'users/show/<username:[\w\d_-]+>' => 'user/users/show',
         ];
     }
-
-    public function install()
-    {
-        Yii::app()->config->add([
-            [
-                'param' => 'USER.REGISTER_COMMIT',
-                'label' => 'Требовать подтверждение регистрации',
-                'value' => '1',
-                'type' => 'checkbox',
-                'default' => '1',
-            ],
-        ]);
-
-        return parent::install();
-    }
-
-    public function uninstall()
-    {
-        Yii::app()->config->delete([
-            'USER.REGISTER_COMMIT',
-        ]);
-
-        return parent::uninstall();
-    }
 }

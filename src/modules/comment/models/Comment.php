@@ -301,11 +301,11 @@ class Comment extends CActiveRecord
 
     private function sendNotify($current)
     {
-        if (Yii::app()->config->get('COMMENT.SEND_REPLY_EMAILS')) {
+        if (Yii::app()->params['COMMENT.SEND_REPLY_EMAILS']) {
             if ($this->email != $current->email) {
                 $email = Yii::app()->email;
                 $email->to = $this->email;
-                $email->replyTo = Yii::app()->config->get('GENERAL.ADMIN_EMAIL');
+                $email->replyTo = Yii::app()->params['GENERAL.ADMIN_EMAIL'];
                 $email->subject = 'Новый комментарий на сайте ' . $_SERVER['SERVER_NAME'];
                 $email->message = '';
                 $email->view = 'comment/comment';

@@ -14,12 +14,12 @@ class DRPCManager extends CApplicationComponent
             return;
         }
 
-        $pingServers = preg_split('/\r?\n/', Yii::app()->config->get('GENERAL.PING_SERVERS'));
-        $siteName = Yii::app()->config->get('GENERAL.SITE_NAME');
+        $pingServers = Yii::app()->params['GENERAL.PING_SERVERS'];
+        $siteName = Yii::app()->params['GENERAL.SITE_NAME'];
         $siteHost = Yii::app()->request->getHostInfo();
         $fullPageUrl = $siteHost . $pageURL;
 
-        if (Yii::app()->config->get('GENERAL.PING_ENABLE')) {
+        if (Yii::app()->params['GENERAL.PING_ENABLE']) {
             foreach ($pingServers as $serverUrl) {
                 if (preg_match('|(?P<host>\w+://[\w\d\._-]+)/?(?P<uri>.*)|i', $serverUrl, $matches)) {
                     $client = new IXR_Client($matches['host'], $matches['uri']);

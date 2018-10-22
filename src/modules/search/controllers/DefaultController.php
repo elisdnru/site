@@ -24,7 +24,7 @@ class DefaultController extends DController
             $dataProvider = new CActiveDataProvider('Search', [
                 'criteria' => $criteria,
                 'pagination' => [
-                    'pageSize' => Yii::app()->config->get('SEARCH.ITEMS_PER_PAGE'),
+                    'pageSize' => Yii::app()->params['SEARCH.ITEMS_PER_PAGE'],
                     'pageVar' => 'page',
                 ]
             ]);

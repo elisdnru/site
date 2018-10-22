@@ -12,7 +12,7 @@
     <meta name="keywords" content="<?php echo CHtml::encode($this->keywords); ?>"/>
 
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->config->get('GENERAL.FEED_TITLE')); ?>" href="<?php echo Yii::app()->config->get('GENERAL.FEED_URL'); ?>"/>
+    <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->params['GENERAL.FEED_TITLE']); ?>" href="<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>"/>
     <?php if ($this->route == 'main/default/index') : ?>
         <link rel="author" href="https://plus.google.com/116153200022401064957"/>
     <?php endif; ?>
@@ -38,7 +38,7 @@
         endif; ?>
         <div class="logo">
         <span data-href="<?php echo Yii::app()->request->baseUrl; ?>/">
-            <img src="<?php echo Yii::app()->baseUrl; ?>/images/logo.png" alt="<?php echo Yii::app()->config->get('GENERAL.SITE_NAME'); ?>"/>
+            <img src="<?php echo Yii::app()->baseUrl; ?>/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>"/>
         </span>
         </div>
         <div class="slogan"><?php $this->widget('block.widgets.BlockWidget', ['id' => 'header']); ?></div>

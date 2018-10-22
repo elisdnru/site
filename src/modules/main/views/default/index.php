@@ -33,7 +33,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
     <h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
     <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->widget('blog.widgets.LastPostsWidget', ['tpl' => 'home', 'limit' => Yii::app()->config->get('BLOG.POSTS_PER_HOME')]); ?>
+        <?php $this->widget('blog.widgets.LastPostsWidget', ['tpl' => 'home', 'limit' => Yii::app()->params['BLOG.POSTS_PER_HOME']]); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 

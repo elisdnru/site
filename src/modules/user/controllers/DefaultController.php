@@ -57,7 +57,7 @@ class DefaultController extends DController
                 $model->role = Access::ROLE_USER;
 
                 if ($model->save()) {
-                    if (Yii::app()->config->get('USER.REGISTER_COMMIT')) {
+                    if (Yii::app()->params['USER.REGISTER_COMMIT']) {
                         $model->sendCommit();
                         Yii::app()->user->setFlash('register-form', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
                     } else {

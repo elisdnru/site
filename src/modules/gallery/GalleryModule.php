@@ -68,28 +68,4 @@ class GalleryModule extends DWebModule
     {
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/modules/gallery.css');
     }
-
-    public function install()
-    {
-        Yii::app()->config->add([
-            [
-                'param' => 'GALLERY.PHOTOS_PER_PAGE',
-                'label' => 'Материалов на странице',
-                'value' => '20',
-                'type' => 'string',
-                'default' => '20',
-            ],
-        ]);
-
-        return parent::install();
-    }
-
-    public function uninstall()
-    {
-        Yii::app()->config->delete([
-            'GALLERY.PHOTOS_PER_PAGE',
-        ]);
-
-        return parent::uninstall();
-    }
 }

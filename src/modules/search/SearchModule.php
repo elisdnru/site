@@ -29,28 +29,4 @@ class SearchModule extends DWebModule
             'search' => 'search/default/index',
         ];
     }
-
-    public function install()
-    {
-        Yii::app()->config->add([
-            [
-                'param' => 'SEARCH.ITEMS_PER_PAGE',
-                'label' => 'Результатов на странице поиска',
-                'value' => '10',
-                'type' => 'string',
-                'default' => '10',
-            ],
-        ]);
-
-        return parent::install();
-    }
-
-    public function uninstall()
-    {
-        Yii::app()->config->delete([
-            'SEARCH.ITEMS_PER_PAGE',
-        ]);
-
-        return parent::uninstall();
-    }
 }

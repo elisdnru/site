@@ -11,7 +11,7 @@ class DefaultController extends PortfolioBaseController
         $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(0, new Tags('portfolio')), [
             'criteria' => $criteria,
             'pagination' => [
-                'pageSize' => Yii::app()->config->get('PORTFOLIO.ITEMS_PER_PAGE'),
+                'pageSize' => Yii::app()->params['PORTFOLIO.ITEMS_PER_PAGE'],
                 'pageVar' => 'page',
             ],
         ]);
@@ -46,7 +46,7 @@ class DefaultController extends PortfolioBaseController
         $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(0, new Tags('portfolio')), [
             'criteria' => $criteria,
             'pagination' => [
-                'pageSize' => Yii::app()->config->get('PORTFOLIO.ITEMS_PER_PAGE'),
+                'pageSize' => Yii::app()->params['PORTFOLIO.ITEMS_PER_PAGE'],
                 'pageVar' => 'page',
             ],
         ]);

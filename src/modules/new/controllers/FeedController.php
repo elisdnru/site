@@ -13,8 +13,8 @@ class FeedController extends DController
 
         $feed = new EFeed();
 
-        $feed->title = Yii::app()->config->get('GENERAL.FEED_TITLE') . ' - Новости';
-        $feed->description = Yii::app()->config->get('GENERAL.SITE_NAME');
+        $feed->title = Yii::app()->params['GENERAL.FEED_TITLE'] . ' - Новости';
+        $feed->description = Yii::app()->params['GENERAL.SITE_NAME'];
 
         $feed->addChannelTag('language', 'ru');
         $feed->addChannelTag('pubDate', date(DATE_RSS, time()));
