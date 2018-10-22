@@ -206,7 +206,7 @@ return [
         ],
 
         'cache'=>[
-            'class'=>'system.caching.CFileCache',
+            'class'=>!getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
             'behaviors'=>[
                 'tagging'=>[
                     'class'=>'ext.cachetagging.TaggingBehavior',
