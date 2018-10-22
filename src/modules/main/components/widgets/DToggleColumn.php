@@ -94,38 +94,41 @@ class DToggleColumn extends CGridColumn
     /**
      * Renders the filter cell content.
      */
-    protected function renderFilterCellContent()
+    public function getFilterCellContent()
     {
         if (is_string($this->filter)) {
-            echo $this->filter;
-        } elseif ($this->filter !== false && $this->grid->filter !== null && $this->name !== null && strpos($this->name, '.') === false) {
-            if (is_array($this->filter)) {
-                echo CHtml::activeDropDownList($this->grid->filter, $this->name, $this->filter, ['id' => false, 'prompt' => '']);
-            } elseif ($this->filter === null) {
-                echo CHtml::activeTextField($this->grid->filter, $this->name, ['id' => false]);
-            }
-        } else {
-            parent::renderFilterCellContent();
+            return $this->filter;
         }
+
+        if ($this->filter !== false && $this->grid->filter !== null && $this->name !== null && strpos($this->name, '.') === false) {
+            if (is_array($this->filter)) {
+                return CHtml::activeDropDownList($this->grid->filter, $this->name, $this->filter, ['id' => false, 'prompt' => '']);
+            }
+
+            if ($this->filter === null) {
+                return CHtml::activeTextField($this->grid->filter, $this->name, ['id' => false]);
+            }
+        }
+
+        return parent::getFilterCellContent();
     }
 
     /**
      * Renders the header cell content.
      * This method will render a link that can trigger the sorting if the column is sortable.
      */
-    protected function renderHeaderCellContent()
+    public function getHeaderCellContent()
     {
         if ($this->grid->enableSorting && $this->sortable && $this->name !== null) {
-            echo $this->grid->dataProvider->getSort()->link($this->name, $this->header, ['class' => 'sort-link']);
-        } elseif ($this->name !== null && $this->header === null) {
-            if ($this->grid->dataProvider instanceof CActiveDataProvider) {
-                echo CHtml::encode($this->grid->dataProvider->model->getAttributeLabel($this->name));
-            } else {
-                echo CHtml::encode($this->name);
-            }
-        } else {
-            parent::renderHeaderCellContent();
+            return $this->grid->dataProvider->getSort()->link($this->name, $this->header, ['class' => 'sort-link']);
         }
+        if ($this->name !== null && $this->header === null) {
+            if ($this->grid->dataProvider instanceof CActiveDataProvider) {
+                return CHtml::encode($this->grid->dataProvider->model->getAttributeLabel($this->name));
+            }
+            return CHtml::encode($this->name);
+        }
+        return parent::getHeaderCellContent();
     }
 
     /**
