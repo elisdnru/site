@@ -41,7 +41,10 @@
             <img src="<?php echo Yii::app()->baseUrl; ?>/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>"/>
         </span>
         </div>
-        <div class="slogan"><?php $this->widget('block.widgets.BlockWidget', ['id' => 'header']); ?></div>
+        <div class="slogan">
+            <p>Дмитрий Елисеев</p>
+            <p>Разработка сайтов и интернет-сервисов</p>
+        </div>
         <?php if ($this->route != 'main/default/index') :
             ?><!--/noindex--><?php
         endif; ?>
@@ -116,13 +119,27 @@
         <?php if ($this->route != 'main/default/index') :
             ?><!--noindex--><?php
         endif; ?>
-        <div class="info"><?php $this->widget('block.widgets.BlockWidget', ['id' => 'footer']); ?></div>
+        <div class="info">
+            <p>
+                © ИП Елисеев Дмитрий Николаевич</span>, 2009-<?php echo date('Y') ?><br />
+                ОГРН: 309574636200019; ИНН: 570600870325<br />
+                <a rel="nofollow" href="/privacy">Политика конфиденциальности</a><br />
+                Email: <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>');</script>
+            </p>
+        </div>
         <?php if ($this->route != 'main/default/index') :
             ?><!--/noindex--><?php
         endif; ?>
 
         <!--noindex-->
-        <div class="copy"><?php $this->widget('block.widgets.BlockWidget', ['id' => 'copyright']); ?></div>
+        <div class="copy">
+            <p>
+                Права на все материалы, опубликованные на сайте, принадлежат автору.<br />
+                Незаконное копирование материалов преследуется по закону.<br />
+                Использование материалов возможно лишь при наличии<br />
+                активной ссылки на источник. <a rel="nofollow" href="/copyright">Использование материалов</a>
+            </p>
+        </div>
         <!--/noindex-->
 
         <div class="clear"></div>
