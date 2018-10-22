@@ -3,8 +3,8 @@
     "description": "",
     "type": "project",
     "require": {
-        "php": ">=5.6.0",
-        "symfony/dotenv": "^3.4",
+        "php": ">7.1.0",
+        "symfony/dotenv": "^4.1",
         "yiisoft/yii": "^1.1"
     },
     "require-dev": {
