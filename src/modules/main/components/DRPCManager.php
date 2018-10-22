@@ -4,7 +4,7 @@
  * @link http://www.elisdn.ru
  */
 
-Yii::import('application.vendors.IXR_Library', true);
+Yii::import('application.components.IXR_Library', true);
 
 class DRPCManager extends CApplicationComponent
 {
