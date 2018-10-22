@@ -19,6 +19,7 @@
         "sort-packages": true
     },
     "scripts": {
+        "app": "php bin/yiic.php",
         "test": "phpunit --colors=always",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf"
