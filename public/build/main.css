@@ -416,7 +416,7 @@ iframe { margin-bottom: 20px; }
 .portlet-content .subscribe-form-horizontal:after { content: ''; display: block; clear: both; }
 .portlet-content .subscribe-form-horizontal p.title { margin: 0 0 15px 0; color: #333; font-size: 14px; font-weight: bold; line-height: 1.2; }
 .portlet-content .subscribe-form-horizontal .row { margin: 0 20px 10px 0; padding: 0; float: left; }
-.portlet-content .subscribe-form-horizontal .row input { width: 240px; padding: 10px 8px; }
+.portlet-content .subscribe-form-horizontal .row input { width: 236px; padding: 10px 8px; }
 .portlet-content .subscribe-form-horizontal .button { margin: 0 0 10px 0; float: left; }
 .portlet-content .subscribe-form-horizontal .button input { width: auto; padding:10px 18px; color:#fff; cursor: pointer; background: #dd3333; background: -moz-linear-gradient(#ff8d3b, #dd3333); background: -webkit-linear-gradient(#ff8d3b, #dd3333); background: -o-linear-gradient(#ff8d3b, #dd3333); background: -ms-linear-gradient(#ff8d3b, #dd3333); border: none; border-radius:30px; }
 .what-there { text-align: center; margin: 10px 0; color: #999; }
