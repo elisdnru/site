@@ -50,8 +50,6 @@ CTextHighlighter::registerCssFile();
 
 ?>
 
-<?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
-
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
 <?php endif; ?>

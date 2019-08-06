@@ -8,7 +8,7 @@
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_page_' . $page->id, ['dependency' => new Tags('page')])) : ?>
         <?php if ($page->image) : ?>
-            <p class="thumb"><a class="lightbox" href="<?php echo $page->imageUrl; ?>">
+            <p class="thumb"><a href="<?php echo $page->imageUrl; ?>">
                     <?php echo CHtml::image($page->imageThumbUrl, $page->image_alt, ['class' => 'page']); ?>
                 </a></p>
 

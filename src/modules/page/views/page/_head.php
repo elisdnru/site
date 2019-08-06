@@ -24,4 +24,3 @@ if ($this->is(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<?php $this->widget('colorbox.widgets.ColorboxWidget');

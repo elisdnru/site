@@ -30,8 +30,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
 } ?>
 
-<?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
-
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
 <?php endif; ?>

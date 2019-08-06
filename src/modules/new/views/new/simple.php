@@ -7,7 +7,7 @@
                 <h1><?php echo CHtml::encode($model->title); ?></h1>
 
                 <?php if ($model->image && $model->image_show) : ?>
-                    <p class="thumb"><a class="lightbox" href="<?php echo $model->imageUrl; ?>">
+                    <p class="thumb"><a href="<?php echo $model->imageUrl; ?>">
                             <?php echo CHtml::image($model->imageThumbUrl, $model->image_alt); ?>
                         </a></p>
 
