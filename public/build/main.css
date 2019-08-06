@@ -316,9 +316,6 @@ div.breadcrumbs a:hover { text-decoration:none; color: #098ff4; }
 .smart .item.item_program:after { display:block; content:''; height:56px; width:30px; position:absolute; z-index:1; left:245px; top:135px; border-radius:0 0 4px 0; background:#333; opacity:0.1; }
 .smart .item.item_site { left:685px; top:150px; z-index:1; }
 .smart .item.item_site .title { background: #2547cc; background: -moz-linear-gradient(#0c61cc, #2547cc); background: -webkit-linear-gradient(#0c61cc, #2547cc); background: -o-linear-gradient(#0c61cc, #2547cc); background: -ms-linear-gradient(#0c61cc, #2547cc); }
-.other_news ul { margin:0 0 30px 0; list-style:none; }
-.other_news li { margin:6px 0; font-size: 13px; }
-.other_news li a:visited { color:#80359f; }
 .subpages { margin:0 0 10px 0; }
 .subpages ul { list-style:none; margin:0; padding: 0; }
 .subpages li { margin:0 0 10px 0; font-size:13px; float: left; padding: 0 10px 0 0; }

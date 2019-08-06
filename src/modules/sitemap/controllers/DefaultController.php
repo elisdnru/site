@@ -14,13 +14,6 @@ class DefaultController extends DController
             'order' => 'title ASC',
         ]);
 
-        Yii::import('application.modules.new.models.*');
-        DUrlRulesHelper::import('new');
-
-        $models['News'] = News::model()->cache(0, new Tags('news'))->published()->findAll([
-            'order' => 'title ASC',
-        ]);
-
         Yii::import('application.modules.blog.models.*');
         DUrlRulesHelper::import('blog');
 
@@ -50,11 +43,6 @@ class DefaultController extends DController
             DUrlRulesHelper::import('page');
 
             $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), DSitemap::WEEKLY);
-
-            Yii::import('application.modules.new.models.*');
-            DUrlRulesHelper::import('new');
-
-            $sitemap->addModels(News::model()->published()->findAll(), DSitemap::WEEKLY);
 
             Yii::import('application.modules.blog.models.*');
             DUrlRulesHelper::import('blog');

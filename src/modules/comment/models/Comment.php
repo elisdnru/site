@@ -2,7 +2,6 @@
 
 Yii::import('application.modules.user.models.*');
 Yii::import('application.modules.blog.models.BlogPostComment');
-Yii::import('application.modules.new.models.NewsComment');
 
 /**
  * This is the model class for table "{{comment}}".

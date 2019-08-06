@@ -26,7 +26,7 @@ class GroupAdminController extends DAdminController
         $this->renderTableForm([
             'class' => 'BlogPostGroup',
             'order' => 'title ASC',
-            'form' => 'NewsGroupForm',
+            'form' => 'BlogPostGroupForm',
             'view' => 'index',
         ]);
     }

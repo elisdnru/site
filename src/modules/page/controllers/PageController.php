@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.new.models.*');
-
 class PageController extends DController
 {
     public function actionShow($path = 'index')

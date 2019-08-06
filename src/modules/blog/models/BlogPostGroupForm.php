@@ -1,13 +1,10 @@
 <?php
 
 /**
- * This is the model class for table "{{new_group}}".
- *
- * The followings are the available columns in table '{{new_group}}':
  * @property integer $id
  * @property string $title
  */
-class NewsGroupForm extends CFormModel
+class BlogPostGroupForm extends CFormModel
 {
     public $title;
 

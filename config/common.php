@@ -121,16 +121,6 @@ return [
                     '100x100',
                     '50x50',
                 ]],
-                ['upload/images/news', [
-                    '200x180', // list
-                    '198x180', // greed
-                ]],
-
-                ['upload/images/news', [
-                    '250x0', // default
-                    '200x180', // list
-                    '198x180', // greed
-                ]],
                 ['upload/images/portfolio', [
                     '198x0', // greed
                     '190x0', // homepage
@@ -239,8 +229,6 @@ return [
 
     'params'=>[
         'runtimeWidgets'=>[
-            'new.widgets.News',
-            'new.widgets.LastNews',
             'blog.widgets.LastPosts',
             'page.widgets.SubPages',
             'page.widgets.Page',

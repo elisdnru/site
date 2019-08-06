@@ -9,7 +9,6 @@ class CommentModule extends DWebModule
         $this->setImport([
             'application.modules.comment.components.*',
             'application.modules.comment.models.*',
-            'application.modules.new.models.*',
             'blog.models.BlogComment'
         ]);
     }
