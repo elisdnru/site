@@ -1,6 +1,6 @@
 FROM php:7.1-cli
 
-RUN apt-get update && apt-get install -y libmcrypt-dev mysql-client zlib1g-dev wget \
+RUN apt-get update && apt-get install -y libmcrypt-dev mariadb-client zlib1g-dev wget \
     && docker-php-ext-install mcrypt pdo_mysql zip
 
 RUN apt-get install -y libjpeg-dev libpng-dev libfreetype6-dev \
