@@ -7,11 +7,6 @@ $this->breadcrumbs = [
 ];
 
 $this->admin[] = ['label' => 'Новости', 'url' => $this->createUrl('index')];
-if ($this->moduleAllowed('newsgallery')) {
-    if ($model->id) {
-        $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
-    }
-}
 
 $this->info = 'Выберите из существующих страниц';
 ?>

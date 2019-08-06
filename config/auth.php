@@ -73,20 +73,6 @@ return [
         'data' => null
     ],
 
-    'module_gallery' => [
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление галереями',
-        'bizRule' => null,
-        'data' => null
-    ],
-
-    'module_newsgallery' => [
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление галереями новостей',
-        'bizRule' => null,
-        'data' => null
-    ],
-
     'module_menu' => [
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление меню',
@@ -139,8 +125,6 @@ return [
             'module_admin',
             'module_comment',
             'module_file',
-            'module_gallery',
-            'module_newsgallery',
             'module_menu',
             'module_new',
             'module_page',
@@ -160,8 +144,6 @@ return [
             'module_contact',
             'module_comment',
             'module_file',
-            'module_gallery',
-            'module_newsgallery',
             'module_menu',
             'module_new',
             'module_page',

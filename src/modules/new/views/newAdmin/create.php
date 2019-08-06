@@ -7,11 +7,6 @@ $this->breadcrumbs = [
 ];
 
 $this->admin[] = ['label' => 'Новости', 'url' => $this->createUrl('index')];
-if ($this->moduleAllowed('newsgallery')) {
-    if ($model->id) {
-        $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
-    }
-}
 
 $this->info = 'В поле «Раздел» перечислены страницы с типом «Новости/Статьи»';
 ?>

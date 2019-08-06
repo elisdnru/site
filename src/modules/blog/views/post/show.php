@@ -33,9 +33,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin/index')];
     }
-    if ($this->moduleAllowed('newsgallery')) {
-        $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
-    }
     if ($this->moduleAllowed('blog') && $model->category) {
         $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
     }
@@ -85,13 +82,6 @@ CTextHighlighter::registerCssFile();
     </div>
 
     <div class="clear"></div>
-
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new Tags('newsgallery')])) : ?>
-        <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', [
-            'id' => $model->gallery_id,
-        ]); ?>
-        <?php $this->endCache(); ?>
-    <?php endif; ?>
 
 </article>
 

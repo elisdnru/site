@@ -2,8 +2,6 @@
 /* @var $this DAdminController */
 /* @var $model BlogPost */
 
-Yii::import('application.modules.gallery.models.*');
-
 $this->pageTitle = 'Редактор записи блога';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
@@ -14,9 +12,6 @@ $this->breadcrumbs = [
 $this->admin[] = ['label' => 'Все записи', 'url' => $this->createUrl('index')];
 $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/categoryAdmin/index')];
 $this->admin[] = ['label' => 'Метки', 'url' => $this->createUrl('/blog/tagAdmin/index')];
-if ($this->moduleAllowed('newsgallery')) {
-    $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
-}
 
 ?>
 

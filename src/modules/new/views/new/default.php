@@ -30,11 +30,7 @@
 
         <div class="clear"></div>
 
-        <?php if ($this->beginCache(__FILE__ . __LINE__ . '_newpage_' . $model->id, ['dependency' => new Tags('newsgallery')])) : ?>
-            <?php $this->widget('newsgallery.widgets.NewsGalleryWidget', [
-                'id' => $model->gallery_id,
-            ]); ?>
-
+        <?php if ($this->beginCache(__FILE__ . __LINE__ . '_newpage_' . $model->id, ['dependency' => new Tags('new')])) : ?>
             <?php foreach ($model->files as $file) : ?>
                 <p>
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fileicon.jpg" alt=""/>

@@ -11,14 +11,6 @@ $this->breadcrumbs[] = $model->title;
 
 if ($this->is(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/new/newAdmin/update', ['id' => $model->id])];
-    if ($this->moduleAllowed('newsgallery')) {
-        $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
-    }
-    if ($this->moduleAllowed('newsgallery')) {
-        if ($model->gallery) {
-            $this->admin[] = ['label' => 'Редактировать галерею', 'url' => $this->createUrl('/newsgallery/galleryAdmin/files', ['id' => $model->gallery_id])];
-        }
-    }
     if ($this->moduleAllowed('page')) {
         $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/update', ['id' => $model->page_id])];
     }

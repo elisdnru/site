@@ -1,7 +1,6 @@
 <?php
 
 Yii::import('application.modules.page.models.*');
-Yii::import('application.modules.gallery.models.*');
 Yii::import('application.modules.crud.components.*');
 
 class NewAdminController extends DAdminController

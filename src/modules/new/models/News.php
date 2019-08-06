@@ -5,7 +5,6 @@ Yii::import('application.modules.comment.models.Comment');
 Yii::import('application.modules.new.models.*');
 Yii::import('application.modules.page.models.Page');
 Yii::import('application.modules.user.models.User');
-Yii::import('application.modules.newsgallery.models.NewsGallery');
 
 /**
  * This is the model class for table "{{new}}".
@@ -29,7 +28,6 @@ Yii::import('application.modules.newsgallery.models.NewsGallery');
  * @property string $image_height
  * @property string $image_alt
  * @property integer $image_show
- * @property integer $gallery_id
  * @property integer $group_id
  * @property integer $public
  * @property integer $inhome
@@ -84,7 +82,6 @@ class News extends CActiveRecord implements DICommentDepends
             ['public, inhome, important, actual, image_show', 'numerical', 'integerOnly' => true],
             ['author_id', 'exist', 'className' => 'User', 'attributeName' => 'id'],
             ['page_id', 'exist', 'className' => 'Page', 'attributeName' => 'id'],
-            ['gallery_id', 'DExistOrEmpty', 'className' => 'NewsGallery', 'attributeName' => 'id'],
             ['group_id', 'DExistOrEmpty', 'className' => 'NewsGroup', 'attributeName' => 'id'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
@@ -93,7 +90,7 @@ class News extends CActiveRecord implements DICommentDepends
             ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, date, page_id, author_id, title, pagetitle, description, keywords, image_alt, text, public, inhome, important, actual, gallery_id, group_id', 'safe', 'on' => 'search'],
+            ['id, date, page_id, author_id, title, pagetitle, description, keywords, image_alt, text, public, inhome, important, actual, group_id', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -107,7 +104,6 @@ class News extends CActiveRecord implements DICommentDepends
         return [
             'page' => [self::BELONGS_TO, 'Page', 'page_id'],
             'author' => [self::BELONGS_TO, 'User', 'author_id'],
-            'gallery' => [self::BELONGS_TO, 'NewsGallery', 'gallery_id'],
             'group' => [self::BELONGS_TO, 'NewsGroup', 'group_id'],
             'files' => [self::HAS_MANY, 'NewsFile', 'material_id',
                 'order' => 'files.title DESC'
@@ -138,7 +134,6 @@ class News extends CActiveRecord implements DICommentDepends
             'image_alt' => 'Описание изображения (по умолчанию как заголовок)',
             'image_show' => 'Отображать при открытии новости',
             'files' => 'Приложенные файлы',
-            'gallery_id' => 'Фотогалерея',
             'group_id' => 'Выберите тематическую группу',
             'newgroup' => '...или введите имя новой',
             'public' => 'Опубликовано',
@@ -192,7 +187,6 @@ class News extends CActiveRecord implements DICommentDepends
         $criteria->compare('t.image_show', $this->image_show);
         $criteria->compare('t.public', $this->public);
         $criteria->compare('t.inhome', $this->inhome);
-        $criteria->compare('t.gallery_id', $this->gallery_id);
         $criteria->compare('t.group_id', $this->group_id);
         $criteria->compare('t.important', $this->important);
 

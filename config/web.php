@@ -8,7 +8,6 @@ return array_replace_recursive(
                 'class'=>'DHttpRequest',
                 'baseUrl'=>'',
                 'noCsrfValidationUris'=>[
-                    '^newsgallery/galleryAdmin/(upload|checkexists).*$',
                     '^file/fileAdmin/(upload|checkexists).*$',
                     '^ulogin.*$',
                 ],

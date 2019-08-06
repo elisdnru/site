@@ -2,7 +2,6 @@
 
 Yii::import('application.modules.blog.models.*');
 Yii::import('application.modules.user.models.User');
-Yii::import('application.modules.newsgallery.models.NewsGallery');
 Yii::import('application.modules.comment.components.DICommentDepends');
 
 /**
@@ -28,7 +27,6 @@ Yii::import('application.modules.comment.components.DICommentDepends');
  * @property string $image_height
  * @property string $image_alt
  * @property integer $image_show
- * @property integer $gallery_id
  * @property integer $group_id
  * @property integer $public
  *
@@ -78,9 +76,8 @@ class BlogPost extends CActiveRecord implements DICommentDepends
             ['category_id, alias, title', 'required'],
             ['author_id', 'DExistOrEmpty', 'className' => 'User', 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => 'BlogCategory', 'attributeName' => 'id'],
-            ['gallery_id', 'DExistOrEmpty', 'className' => 'NewsGallery', 'attributeName' => 'id'],
             ['group_id', 'DExistOrEmpty', 'className' => 'BlogPostGroup', 'attributeName' => 'id'],
-            ['public, image_show, gallery_id', 'numerical', 'integerOnly' => true],
+            ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
             ['title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max' => '255'],
@@ -90,7 +87,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
             ['author_id', 'default', 'value' => Yii::app()->user->id],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, date, category_id, author_id, title, pagetitle, description, keywords, image_alt, text, public, gallery_id', 'safe', 'on' => 'search'],
+            ['id, date, category_id, author_id, title, pagetitle, description, keywords, image_alt, text, public', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -104,7 +101,6 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         return [
             'category' => [self::BELONGS_TO, 'BlogCategory', 'category_id'],
             'author' => [self::BELONGS_TO, 'User', 'author_id'],
-            'gallery' => [self::BELONGS_TO, 'NewsGallery', 'gallery_id'],
             'group' => [self::BELONGS_TO, 'BlogPostGroup', 'group_id'],
             'posttags' => [self::HAS_MANY, 'BlogPostTag', 'post_id'],
             'tags' => [self::MANY_MANY, 'BlogTag', '{{blog_post_tag}}(post_id, tag_id)', 'order' => 'tags.title'],
@@ -133,7 +129,6 @@ class BlogPost extends CActiveRecord implements DICommentDepends
             'del_image' => 'Удалить изображение',
             'image_alt' => 'Описание изображения (по умолчанию как заголовок)',
             'image_show' => 'Отображать при открытии новости',
-            'gallery_id' => 'Фотогалерея',
             'group_id' => 'Выберите тематическую группу',
             'newgroup' => '...или введите имя новой',
             'public' => 'Опубликовано',

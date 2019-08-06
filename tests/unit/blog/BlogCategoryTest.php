@@ -13,7 +13,6 @@ class BlogCategoryTest extends DbTestCase
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
-        'new_gallery'=>'NewsGallery',
         'user'=>'User',
     ];
 
@@ -78,7 +77,7 @@ class BlogCategoryTest extends DbTestCase
     public function testPostsCountRelation()
     {
         $category = $this->blog_category('category_with_posts');
-        $this->assertEquals(3, $category->posts_count);
+        $this->assertEquals(2, $category->posts_count);
 
         $category = $this->blog_category('category_without_posts');
         $this->assertEquals(0, $category->posts_count);
@@ -87,7 +86,7 @@ class BlogCategoryTest extends DbTestCase
     public function testPostsRelation()
     {
         $category = $this->blog_category('category_with_posts');
-        $this->assertCount(3, $category->posts);
+        $this->assertCount(2, $category->posts);
 
         $category = $this->blog_category('category_without_posts');
         $this->assertCount(0, $category->posts);

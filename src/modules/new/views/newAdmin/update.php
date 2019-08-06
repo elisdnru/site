@@ -10,11 +10,6 @@ if ($model->url) {
     $this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];
 }
 $this->admin[] = ['label' => 'Новости', 'url' => $this->createUrl('index')];
-if ($this->moduleAllowed('newsgallery')) {
-    if ($model->id) {
-        $this->admin[] = ['label' => 'Галереи', 'url' => $this->createUrl('/newsgallery/galleryAdmin/index')];
-    }
-}
 if ($model->id && $model->page) {
     $this->admin[] = ['label' => 'Просмотр страницы', 'url' => $model->page->url];
 }

@@ -242,8 +242,6 @@ return [
             'new.widgets.News',
             'new.widgets.LastNews',
             'blog.widgets.LastPosts',
-            'newsgallery.widgets.NewsGallery',
-            'gallery.widgets.Gallery',
             'page.widgets.SubPages',
             'page.widgets.Page',
             'menu.widgets.Menu',

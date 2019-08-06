@@ -8,7 +8,6 @@ class BlogProcessingTest extends DbTestCase
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
-        'new_gallery'=>'NewsGallery',
         'user'=>'User',
     ];
 

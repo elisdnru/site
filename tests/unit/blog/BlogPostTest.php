@@ -15,7 +15,6 @@ class BlogPostTest extends DbTestCase
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
         'blog_postGroup'=>'BlogPostGroup',
-        'new_gallery'=>'NewsGallery',
         'user'=>'User',
     ];
 
@@ -113,18 +112,6 @@ class BlogPostTest extends DbTestCase
         $this->assertFalse($this->post->validate(['author_id']), 'Other author');
     }
 
-    public function testGalleryIdIsExist()
-    {
-        $this->post->gallery_id = 0;
-        $this->assertTrue($this->post->validate(['gallery_id']), 'Empty gallery');
-
-        $this->post->gallery_id = 1;
-        $this->assertTrue($this->post->validate(['gallery_id']), 'Existing gallery');
-
-        $this->post->gallery_id = 100;
-        $this->assertFalse($this->post->validate(['gallery_id']), 'Other gallery');
-    }
-
     public function testGroupIdIsExist()
     {
         $this->post->group_id = 0;
@@ -149,12 +136,6 @@ class BlogPostTest extends DbTestCase
         $this->assertInstanceOf('User', $post->author);
     }
 
-    public function testBelongsToGallery()
-    {
-        $post = $this->blog_post('post_with_gallery');
-        $this->assertInstanceOf('NewsGallery', $post->gallery);
-    }
-
     public function testBelongsToGroup()
     {
         $post = $this->blog_post('post_with_group');
@@ -173,7 +154,6 @@ class BlogPostTest extends DbTestCase
             'title',
             'text',
             'public',
-            'gallery_id',
             'group_id',
         ];
 
