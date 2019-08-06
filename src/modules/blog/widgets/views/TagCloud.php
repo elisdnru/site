@@ -12,14 +12,14 @@
             $size = 16;
         }
 
-        $items[] = json_encode([
+        $items[] = [
             'title' => CHtml::encode($tag->title),
             'url' => $tag->url,
             'frequency' => (int)$tag->frequency,
-        ]);
+        ];
     }
     ?>
-    var tags = [<?php echo implode(',', $items); ?>];
+    var tags = <?php echo json_encode($items); ?>;
     var cloud = jQuery('#tag_cloud');
     var links = jQuery('<span>');
     jQuery.each(tags, function (i, t) {
