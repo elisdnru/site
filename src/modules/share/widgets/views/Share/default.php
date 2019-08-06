@@ -6,7 +6,7 @@
         var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
         s.type = 'text/javascript';
         s.async = true;
-        s.src = ('//share.pluso.ru/pluso-like.js';
+        s.src = ('//share.pluso.ru/pluso-like.js');
         var h = d[g]('body')[0];
         h.appendChild(s);
     }
