@@ -14,4 +14,10 @@ $yii=__DIR__.'/../vendor/yiisoft/yii/framework/yii.php';
 $config=__DIR__.'/../config/web.php';
 
 require_once($yii);
+
+ob_start();
 Yii::createWebApplication($config)->run();
+$html = ob_get_clean();
+
+echo str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
+
