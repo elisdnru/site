@@ -19,6 +19,7 @@ services:
         depends_on:
             - mysql
             - mysql-test
+            - mailer
     php-cli:
         build:
             context: ./docker
@@ -29,8 +30,8 @@ services:
         depends_on:
             - mysql
             - mysql-test
+            - mailer
         working_dir: /var/www
-        tty: true
     mysql:
         image: mysql:5.7
         volumes:
@@ -56,7 +57,5 @@ services:
 
     mailer:
         image: mailhog/mailhog
-        restart: unless-stopped
         ports:
-            - "1025:1025"
             - "8081:8025"
