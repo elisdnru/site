@@ -15,4 +15,6 @@ ADD ./php/defaults.ini /usr/local/etc/php/conf.d/defaults.ini
 
 RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet
 
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
 WORKDIR /var/www
