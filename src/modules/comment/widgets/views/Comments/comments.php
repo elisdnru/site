@@ -23,7 +23,7 @@
 
 </div>
 
-<script type="text/javascript">
+<script>
 
     jQuery(document).on('click', '.ajax_like', function () {
         var t = jQuery(this);

@@ -1,4 +1,4 @@
-<script type="text/javascript">(function () {
+<script>(function () {
         if (window.pluso) if (typeof window.pluso.start == "function") return;
         if (window.ifpluso == undefined) {
             window.ifpluso = 1;

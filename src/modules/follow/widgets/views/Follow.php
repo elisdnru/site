@@ -1,6 +1,6 @@
 <p id="followMe" class="follow center"></p>
 
-<script type="text/javascript">
+<script>
     /*<![CDATA[*/
     jQuery('#followMe').follow({
         rss: '<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>',

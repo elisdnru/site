@@ -154,7 +154,7 @@ $cs->registerCssFile($url . '/tags.css');
         </div>
     </fieldset>
 
-    <script type="text/javascript">
+    <script>
         (function ($) {
             var tagsInput = $('#BlogPost_tagsString');
             var tagsVariants = $('#BlogPost_tagsVariants li');

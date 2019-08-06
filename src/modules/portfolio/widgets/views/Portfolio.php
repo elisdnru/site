@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<script>
     $(function () {
         $(".portfolioSlider").jCarouselLite({
             circular: false,

@@ -81,7 +81,7 @@
 
     <?php $this->endWidget(); ?>
 
-    <script type="text/javascript">
+    <script>
         /*<![CDATA[*/
         if (!$('.m_urlfield').val()) $('.m_urlfield').val('#');
         $('.m_selector').change(function () {

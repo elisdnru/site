@@ -136,7 +136,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/images/admin/code.pn
     <?php echo CHtml::submitButton('OK'); ?>
 </p>
 
-<script type="text/javascript">
+<script>
     $('.allfiles_checkbox').click(function () {
         $('.file_checkbox').attr('checked', $(this).attr('checked') ? true : false);
     });
@@ -193,7 +193,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/images/admin/code.pn
     <?php echo CHtml::endForm(); ?>
 </div>
 
-<script type="text/javascript">
+<script>
     //<![CDATA[
     $('.upload-box').show();
     $('.upload-box').css('margin', 0);
@@ -218,7 +218,7 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/images/admin/code.pn
     </div>
 </div>
 
-<script type="text/javascript">
+<script>
     //<![CDATA[
     jQuery('#renameLink').colorbox({
         'initialWidth': 186,
