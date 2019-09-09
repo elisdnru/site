@@ -5,7 +5,7 @@ services:
             context: ./docker
             dockerfile: nginx.docker
         volumes:
-            - ./:/var/www
+            - ./:/app
         ports:
             - "8080:80"
         depends_on:
@@ -15,7 +15,7 @@ services:
             context: ./docker
             dockerfile: php-fpm.docker
         volumes:
-            - ./:/var/www
+            - ./:/app
         depends_on:
             - mysql
             - mysql-test
@@ -25,13 +25,13 @@ services:
             context: ./docker
             dockerfile: php-cli.docker
         volumes:
-            - .:/var/www
+            - .:/app
             - ./var/docker/composer:/root/.composer/
         depends_on:
             - mysql
             - mysql-test
             - mailer
-        working_dir: /var/www
+        working_dir: /app
     mysql:
         image: mysql:5.7
         volumes:

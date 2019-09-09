@@ -11,6 +11,6 @@ RUN apt-get install -y libjpeg-dev libpng-dev libfreetype6-dev \
         --with-freetype-dir=/usr/include/freetype2 \
     && docker-php-ext-install gd
 
-ADD ./php/defaults.ini /usr/local/etc/php/conf.d/defaults.ini
+COPY ./php/conf.d /usr/local/etc/php/conf.d/conf.d
 
-WORKDIR /var/www
+WORKDIR /app
