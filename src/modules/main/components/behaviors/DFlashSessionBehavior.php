@@ -14,6 +14,5 @@ class DFlashSessionBehavior extends CBehavior
             $session->sessionID = $_POST['SESSION_ID'];
             $session->open();
         }
-        header('X-Programmer: ElisDN (www.elisdn.ru)');
     }
 }

@@ -18,6 +18,9 @@
  * DFlashSessionBehavior
  * @method initFlashSession()
  *
+ * DHeadersBehavior
+ * @method initHeaders()
+ *
  * DLiveLayoutBehavior
  * @method initLayout()
  *
@@ -44,6 +47,7 @@ class DController extends Controller
             'DModuleAccessBehavior' => ['class' => 'application.components.module.DModuleAccessBehavior'],
             'DUserBehavior' => ['class' => 'DUserBehavior'],
             'DFlashSessionBehavior' => ['class' => 'DFlashSessionBehavior'],
+            'DHeadersBehavior' => ['class' => 'DHeadersBehavior'],
             'DLiveLayoutBehavior' => ['class' => 'DLiveLayoutBehavior'],
             'DJsInitBehavior' => ['class' => 'DJsInitBehavior'],
             'DInlineWidgetsBehavior' => [
@@ -60,6 +64,7 @@ class DController extends Controller
     public function init()
     {
         $this->initFlashSession();
+        $this->initHeaders();
         parent::init();
     }
 
