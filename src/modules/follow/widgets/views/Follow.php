@@ -3,10 +3,10 @@
 <script>
     /*<![CDATA[*/
     jQuery('#followMe').follow({
-        rss: '<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>',
-        twitter: '<?php echo Yii::app()->params['FOLLOW.TWITTER']; ?>',
-        livejournal: '<?php echo Yii::app()->params['FOLLOW.LIVEJOURNAL']; ?>',
-        github: '<?php echo Yii::app()->params['FOLLOW.GITHUB']; ?>',
+        rss: 'http://feeds.feedburner.com/elisdn',
+        twitter: 'elisdnru',
+        livejournal: 'elisdn',
+        github: 'ElisDN',
         assets_url: '<?php echo $assetsUrl; ?>'
     });
     /*]]>*/

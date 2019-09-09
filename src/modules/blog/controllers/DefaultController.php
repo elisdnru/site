@@ -140,7 +140,7 @@ class DefaultController extends DController
         $dataProvider = new CActiveDataProvider(BlogPost::model()->cache(0, new Tags('blog')), [
             'criteria' => $criteria,
             'pagination' => [
-                'pageSize' => Yii::app()->params['BLOG.POSTS_PER_PAGE'],
+                'pageSize' => 10,
                 'pageVar' => 'page',
             ]
         ]);
