@@ -64,6 +64,12 @@ return [
         ],
 
         'clientScript'=>[
+            'packages' => [
+                'jquery' => [
+                    'basePath' => 'application.assets.jquery',
+                    'js'=>[YII_DEBUG ? 'jquery.js' : 'jquery.min.js'],
+                ],
+            ],
             'scriptMap'=>[
                 'modernizr.js'=>'/js/modernizr.min.js',
                 'core-site.js'=>'/js/core-site.js',
