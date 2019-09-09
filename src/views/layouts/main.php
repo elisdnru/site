@@ -16,9 +16,9 @@
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>"/>
 
     <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
-    <link type="text/css" rel="stylesheet" href="/build/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>.css"/>
+    <link type="text/css" rel="stylesheet" href="/build/main.css?v=<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>"/>
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('/build/all-' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css') . '.js'); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/build/main.js?v=' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.js')); ?>
     <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
