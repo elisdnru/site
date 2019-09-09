@@ -11,15 +11,14 @@
     <meta name="description" content="<?php echo CHtml::encode($this->description); ?>"/>
     <meta name="keywords" content="<?php echo CHtml::encode($this->keywords); ?>"/>
 
-    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->params['GENERAL.FEED_TITLE']); ?>" href="<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>"/>
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>"/>
 
-    <!--[if lt IE 9]>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5.js"></script><![endif]-->
-    <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/build/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>.css"/>
+    <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
+    <link type="text/css" rel="stylesheet" href="/build/all-<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>.css"/>
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/build/all-' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css') . '.js'); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/build/all-' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css') . '.js'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
@@ -33,8 +32,8 @@
             ?><!--noindex--><?php
         endif; ?>
         <div class="logo">
-        <span data-href="<?php echo Yii::app()->request->baseUrl; ?>/">
-            <img src="<?php echo Yii::app()->baseUrl; ?>/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>"/>
+        <span data-href="/">
+            <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>"/>
         </span>
         </div>
         <div class="slogan">

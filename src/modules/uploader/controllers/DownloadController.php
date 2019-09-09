@@ -10,6 +10,6 @@ class DownloadController extends DController
             throw new CHttpException(404, 'Not found');
         }
 
-        $this->redirect(Yii::app()->request->baseUrl . '/' . $file);
+        $this->redirect('/' . $file);
     }
 }

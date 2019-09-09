@@ -4,7 +4,7 @@
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <?php Yii::app()->clientScript->registerScript('/js/jcarousellite.min.js', CClientScript::POS_HEAD); ?>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/jcarousellite.min.js', CClientScript::POS_HEAD); ?>
+<?php Yii::app()->clientScript->registerScriptFile('/js/jcarousellite.min.js', CClientScript::POS_HEAD); ?>
 
 <div class="portfolio ribbed">
     <div class="carousel_link carouselPrevLink"></div>
@@ -17,7 +17,7 @@
                 </li>
             <?php endforeach; ?>
             <li>
-                <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/portfolio/default/index'); ?>"><span class="thumb" style="background-image: url('<?php echo Yii::app()->baseUrl; ?>/images/portfolio.png')"></span></a>
+                <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/portfolio/default/index'); ?>"><span class="thumb" style="background-image: url('/images/portfolio.png')"></span></a>
             </li>
         </ul>
     </div>

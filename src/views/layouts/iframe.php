@@ -4,12 +4,11 @@
 
     <meta charset="utf-8"/>
 
-    <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/_system.css"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/_typo.css"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/_style.css"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/iframe.css"/>
-    <!--[if lt IE 9]>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5.js"></script><![endif]-->
+    <link type="text/css" rel="stylesheet" href="/css/_system.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/_typo.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/_style.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/iframe.css"/>
+    <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
 
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('jquery.plugins.js'); ?>

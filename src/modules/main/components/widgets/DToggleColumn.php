@@ -77,11 +77,11 @@ class DToggleColumn extends CGridColumn
         }
 
         if (empty($this->onImageUrl)) {
-            $this->onImageUrl = Yii::app()->request->baseUrl . '/images/admin/yes.png';
+            $this->onImageUrl = '/images/admin/yes.png';
         }
 
         if (empty($this->offImageUrl)) {
-            $this->offImageUrl = Yii::app()->request->baseUrl . '/images/admin/no.png';
+            $this->offImageUrl = '/images/admin/no.png';
         }
 
         if (empty($this->name) && empty($this->value)) {

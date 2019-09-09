@@ -51,7 +51,7 @@ $nav = '';
 
 <?php
 $dir = Yii::app()->file->set($root . '/' . $path);
-$renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
+$renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
 ?>
 
 <?php echo CHtml::beginForm($this->createUrl('process', ['path' => $path])); ?>
@@ -154,8 +154,6 @@ $renameIcon = CHtml::image(Yii::app()->request->baseUrl . '/images/admin/code.pn
 <?php echo CHtml::endForm(); ?>
 
 <hr/>
-
-<?php $baseurl = Yii::app()->request->baseUrl; ?>
 
 <div class="upload-box">
 

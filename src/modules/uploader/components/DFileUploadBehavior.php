@@ -84,7 +84,7 @@ class DFileUploadBehavior extends CActiveRecordBehavior
     {
         $this->initAttributes();
         if ($this->_imageUrl === null) {
-            $this->_imageUrl = Yii::app()->request->baseUrl . '/' . Yii::app()->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
+            $this->_imageUrl = '/' . Yii::app()->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
         }
         return $this->_imageUrl;
     }
@@ -105,7 +105,7 @@ class DFileUploadBehavior extends CActiveRecordBehavior
 
         if (!isset($this->_imageThumbUrl[$index])) {
             $fileName = Yii::app()->uploader->getThumbUrl($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
-            $this->_imageThumbUrl[$index] = Yii::app()->request->baseUrl . '/' . $fileName;
+            $this->_imageThumbUrl[$index] = '/' . $fileName;
         }
         return $this->_imageThumbUrl[$index];
     }

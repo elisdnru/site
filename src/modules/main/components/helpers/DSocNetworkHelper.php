@@ -34,6 +34,6 @@ class DSocNetworkHelper
             default:
                 return false;
         }
-        return Yii::app()->request->baseUrl . '/' . self::IMAGE_PATH . $icon;
+        return '/' . self::IMAGE_PATH . $icon;
     }
 }

@@ -19,7 +19,7 @@ class FileAdminController extends DAdminController
     public function actionIndex($path = '')
     {
         $root = Yii::getPathOfAlias('webroot') . '/' . $this->getFileDir();
-        $htmlroot = Yii::app()->request->baseUrl . '/' . $this->getFileDir();
+        $htmlroot = '/' . $this->getFileDir();
 
         $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
 

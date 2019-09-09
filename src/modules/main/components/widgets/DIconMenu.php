@@ -11,7 +11,7 @@ Yii::import('zii.widgets.CMenu');
  *
  * <pre>
  * <?php $this->widget('DIconMenu', array(
- *     'iconPath'=>Yii::app()->request->baseUrl . '/icons/',
+ *     'iconPath'=>'/icons/',
  *     'items'=>array(
  *         array(
  *             'label'=>'Home',

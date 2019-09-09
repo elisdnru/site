@@ -473,7 +473,7 @@ abstract class UserBase extends CActiveRecord
             if (preg_match('|^https?:\/\/|', $this->avatar)) {
                 $this->_avatarUrl = $this->avatar;
             } elseif ($this->avatar) {
-                $this->_avatarUrl = Yii::app()->request->baseUrl . '/' . Yii::app()->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
+                $this->_avatarUrl = '/' . Yii::app()->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
             } else {
                 $this->_avatarUrl = $this->getDefaultAvatarUrl($width);
             }

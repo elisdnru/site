@@ -30,7 +30,7 @@
             'filter' => [1 => 'Прочитано', 0 => 'Новое'],
             'titles' => [1 => 'Прочитано', 0 => 'Новое'],
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
-            'offImageUrl' => Yii::app()->request->baseUrl . '/images/admin/message.png',
+            'offImageUrl' => '/images/admin/message.png',
         ],
         [
             'class' => 'DButtonColumn',

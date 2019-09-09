@@ -4,7 +4,7 @@
     </div>
     <div class="adminlinks">
         <p class="floatright nomargin">
-            <a href="<?php echo Yii::app()->createUrl('/admin/default/index'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/admin/settings.png" title="Панель управления" alt="Панель управления"/></a><a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/admin/del.png" alt="Выход" title="Выход"/></a>
+            <a href="<?php echo Yii::app()->createUrl('/admin/default/index'); ?>"><img src="/images/admin/settings.png" title="Панель управления" alt="Панель управления"/></a><a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>"><img src="/images/admin/del.png" alt="Выход" title="Выход"/></a>
         </p>
 
         <?php
