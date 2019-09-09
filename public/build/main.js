@@ -103,14 +103,7 @@ jQuery.fn.doConfirm2 = function () {
 				url: 'http://www.livejournal.com/update.bml?event=' + data.enc_desc + '%3Cbr+%2F%3E' + data.enc_url + '&subject=' + data.enc_title + '&body=' + data.enc_desc,
 				width: 626,
 				height: 436
-			},
-			{
-				name: 'Google+',
-				image: '/32/googleplus.png',
-				url: 'https://plus.google.com/share?url=?' + data.enc_url,
-				width: 626,
-				height: 436
-			},
+			}
 		];
 		return this.each(function () {
 			var links = [];

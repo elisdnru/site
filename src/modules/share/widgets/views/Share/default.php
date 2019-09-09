@@ -15,6 +15,6 @@
 <div class="pluso" style="margin-left: -4px"
      data-background="transparent"
      data-options="big,round,line,horizontal,nocounter,theme=04"
-     data-services="vkontakte,twitter,facebook,google,odnoklassniki,evernote,email"
+     data-services="vkontakte,twitter,facebook,odnoklassniki,evernote,email"
      data-url="<?php echo Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo(); ?>"
 ></div>

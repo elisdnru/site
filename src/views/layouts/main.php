@@ -13,10 +13,6 @@
 
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->params['GENERAL.FEED_TITLE']); ?>" href="<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>"/>
-    <?php if ($this->route == 'main/default/index') : ?>
-        <link rel="author" href="https://plus.google.com/116153200022401064957"/>
-    <?php endif; ?>
-    <link rel="publisher" href="https://plus.google.com/116153200022401064957"/>
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>"/>
 
     <!--[if lt IE 9]>

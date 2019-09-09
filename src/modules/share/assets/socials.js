@@ -11,11 +11,6 @@
         facebook.type = 'text/javascript';
         facebook.async = true;
         facebook.src = 'http://connect.facebook.net/ru_RU/all.js';
-        // Google +1 code
-        var po = document.createElement('script');
-        po.type = 'text/javascript';
-        po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
         // Vkontakte Like code
         var vkontakte = document.createElement('script');
         vkontakte.type = 'text/javascript';
