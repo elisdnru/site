@@ -124,16 +124,16 @@ if (count($notify['type']) > 0) {
 <div class="tabs">
     <ul>
         <li id="browse_tab">
-            <span><a href="tinybrowser.php?type=<?php echo $typenow . $passfeid; ?>&path=<? echo $pathnow; ?>"><?php echo TB_BROWSE; ?></a></span>
+            <span><a href="tinybrowser.php?type=<?php echo $typenow . $passfeid; ?>&path=<?php echo $pathnow; ?>"><?php echo TB_BROWSE; ?></a></span>
         </li>
         <li id="upload_tab" class="current">
-            <span><a href="upload.php?type=<?php echo $typenow . $passfeid; ?>&path=<? echo $pathnow; ?>"><?php echo TB_UPLOAD; ?></a></span>
+            <span><a href="upload.php?type=<?php echo $typenow . $passfeid; ?>&path=<?php echo $pathnow; ?>"><?php echo TB_UPLOAD; ?></a></span>
         </li>
         <?php
         if ($tinybrowser['allowedit'] || $tinybrowser['allowdelete']) {
             ?>
             <li id="edit_tab">
-            <span><a href="edit.php?type=<?php echo $typenow . $passfeid; ?>&path=<? echo $pathnow; ?>"><?php echo TB_EDIT; ?></a></span>
+            <span><a href="edit.php?type=<?php echo $typenow . $passfeid; ?>&path=<?php echo $pathnow; ?>"><?php echo TB_EDIT; ?></a></span>
             </li>
         <?php } ?>
     </ul>

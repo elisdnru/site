@@ -2,8 +2,8 @@
 
 class m180806_104328_remove_unused_modules extends EDbMigration
 {
-	public function safeUp()
-	{
+    public function safeUp()
+    {
         if (!$this->getDbConnection()->getSchema()->getTable('{{callme}}')) {
             return;
         }
@@ -51,11 +51,11 @@ class m180806_104328_remove_unused_modules extends EDbMigration
         $this->dropTable('{{slideshow}}');
 
         $this->dropTable('{{user_photo}}');
-	}
+    }
 
-	public function safeDown()
-	{
-		echo "m180806_104328_remove_unused_modules does not support migration down.\n";
-		return false;
-	}
+    public function safeDown()
+    {
+        echo "m180806_104328_remove_unused_modules does not support migration down.\n";
+        return false;
+    }
 }

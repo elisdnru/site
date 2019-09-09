@@ -52,14 +52,14 @@
                     ed.onSetContent.add(function (ed) {
                         t._count(ed);
                     });
-                    function checkKeys(key)
-                {
-                    return key !== last && (key === VK.ENTER || last === VK.SPACEBAR || checkDelOrBksp(last));
-                }
-                function checkDelOrBksp(key)
+                function checkKeys(key)
                     {
+                    return key !== last && (key === VK.ENTER || last === VK.SPACEBAR || checkDelOrBksp(last));
+                    }
+                    function checkDelOrBksp(key)
+                {
                     return key === VK.DELETE || key === VK.BACKSPACE;
-                }
+                    }
                     ed.onKeyUp.add(function (ed, e) {
                         if (checkKeys(e.keyCode) || t.update_on_delete && checkDelOrBksp(e.keyCode)) {
                             t._count(ed);
@@ -67,8 +67,8 @@
 
                         last = e.keyCode;
                     });
-            },
-                    _getCount: function (ed) {
+                    },
+                _getCount: function (ed) {
                     var tc = 0;
                     var tx = ed.getContent({format: 'raw'});
                     if (tx) {
@@ -85,8 +85,8 @@
                         }
                     }
                     return tc;
-                    },
-                    _count: function (ed) {
+                },
+                _count: function (ed) {
                     var t = this;
                     // Keep multiple calls from happening at the same time
                     if (t.block) {
@@ -103,8 +103,8 @@
                             }, t.update_rate);
                         }
                     }, 1);
-                    },
-                    getInfo: function () {
+                },
+                getInfo: function () {
                     return {
                         longname: 'Word Count plugin',
                         author: 'Moxiecode Systems AB',
@@ -112,10 +112,10 @@
                         infourl: 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/wordcount',
                         version: tinymce.majorVersion + "." + tinymce.minorVersion
                     };
+                }
                     }
-                    }
-                );
+        );
         tinymce.PluginManager.add('wordcount', tinymce.plugins.WordCount);
-}
+        }
     )();
 

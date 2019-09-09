@@ -8,7 +8,7 @@
                 </ul>
                 <p class="letter"><?php echo $letter; ?></p>
                 <ul>
-            <? endif; ?>
+            <?php endif; ?>
 
             <li><a href="<?php echo $page->url; ?>"><?php echo $page->title; ?></a></li>
 

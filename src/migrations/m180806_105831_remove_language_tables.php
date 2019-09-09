@@ -2,8 +2,8 @@
 
 class m180806_105831_remove_language_tables extends EDbMigration
 {
-	public function safeUp()
-	{
+    public function safeUp()
+    {
         if (!$this->getDbConnection()->getSchema()->getTable('{{block_lang}}')) {
             return;
         }
@@ -18,11 +18,11 @@ class m180806_105831_remove_language_tables extends EDbMigration
         $this->dropTable('{{portfolio_category_lang}}');
 
         $this->dropColumn('{{comment}}', 'lang_id');
-	}
+    }
 
-	public function safeDown()
-	{
+    public function safeDown()
+    {
         echo "m180806_105831_remove_language_tables does not support migration down.\n";
         return false;
-	}
+    }
 }

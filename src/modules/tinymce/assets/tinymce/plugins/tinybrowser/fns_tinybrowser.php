@@ -13,7 +13,11 @@ function createfolder($dir, $perm)
 // *************************VALIDATE FILE EXTENSIONS**********************************
 function validateExtension($extension, $types)
 {
-    if (in_array($extension, $types)) return false; else return true;
+    if (in_array($extension, $types)) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 //*************************************Display Alert Notifications*********************************
@@ -60,14 +64,21 @@ function resizeimage($im, $maxwidth, $maxheight, $urlandname, $comp)
         if ($maxwidth && $width > $maxwidth) {
             $widthratio = $maxwidth / $width;
             $resizewidth = true;
-        } else $resizewidth = false;
+        } else {
+            $resizewidth = false;
+        }
         if ($maxheight && $height > $maxheight) {
             $heightratio = $maxheight / $height;
             $resizeheight = true;
-        } else $resizeheight = false;
+        } else {
+            $resizeheight = false;
+        }
         if ($resizewidth && $resizeheight) {
-            if ($widthratio < $heightratio) $ratio = $widthratio;
-            else $ratio = $heightratio;
+            if ($widthratio < $heightratio) {
+                $ratio = $widthratio;
+            } else {
+                $ratio = $heightratio;
+            }
         } elseif ($resizewidth) {
             $ratio = $widthratio;
         } elseif ($resizeheight) {
@@ -104,17 +115,22 @@ function convert_image($imagetemp, $imagetype)
 }
 
 // **************************GENERATE FORM OPEN*****************************
-function form_open($name, $class, $url, $parameters){
-?>
+function form_open($name, $class, $url, $parameters)
+{
+    ?>
 <form name="<?php echo $name; ?>" class="<?php echo $class; ?>" method="post" action="<?php echo $url . $parameters; ?>">
     <?php
-    }
+}
 
     // **************************GENERATE FORM SELECT ELEMENT*****************************
-    function form_select($options, $name, $label, $current, $auto)
-    {
-        if ($label) { ?><label for="<?php echo $name; ?>"><?php echo $label; ?></label><?php }
-        ?><select name="<?php echo $name; ?>" <?php if ($auto) { ?>onchange="this.form.submit();"<?php } ?>>
+function form_select($options, $name, $label, $current, $auto)
+{
+    if ($label) {
+        ?><label for="<?php echo $name; ?>"><?php echo $label; ?></label><?php
+    }
+    ?><select name="<?php echo $name; ?>" <?php if ($auto) {
+    ?>onchange="this.form.submit();"<?php
+    } ?>>
         <?php
         $loopnum = count($options);
         for ($i = 0; $i < $loopnum; $i++) {
@@ -122,28 +138,33 @@ function form_open($name, $class, $url, $parameters){
             echo '<option value="' . $options[$i][0] . '"' . $selected . '>' . $options[$i][1] . '</option>';
         }
         ?></select><?php
-    }
+}
 
     // **************************GENERATE FORM HIDDEN ELEMENT*****************************
-    function form_hidden_input($name, $value)
-    {
-        ?><input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>" />
+function form_hidden_input($name, $value)
+{
+    ?><input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>" />
         <?php
-    }
+}
 
     // **************************GENERATE FORM TEXT ELEMENT*****************************
-    function form_text_input($name, $label, $value, $size, $maxlength)
-    {
-        if ($label) { ?><label for="<?php echo $name; ?>"><?php echo $label; ?></label><?php } ?>
+function form_text_input($name, $label, $value, $size, $maxlength)
+{
+    if ($label) {
+        ?><label for="<?php echo $name; ?>"><?php echo $label; ?></label><?php
+    } ?>
         <input type="text" name="<?php echo $name; ?>" size="<?php echo $size; ?>" maxlength="<?php echo $maxlength; ?>" value="<?php echo $value; ?>" /><?php
-    }
+}
 
     // **************************GENERATE FORM SUBMIT BUTTON*****************************
-    function form_submit_button($name, $label, $class) {
+function form_submit_button($name, $label, $class)
+{
     ?>
-    <button <?php if ($class) { ?>class="<?php echo $class; ?>" <?php } ?>type="submit" name="<?php echo $name; ?>"><?php echo $label; ?></button>
+    <button <?php if ($class) {
+        ?>class="<?php echo $class; ?>" <?php
+            } ?>type="submit" name="<?php echo $name; ?>"><?php echo $label; ?></button>
 </form>
-<?php
+    <?php
 }
 
 //********************************Returns True if Number is Odd**************************************
@@ -170,10 +191,12 @@ function truncate_text($textstring, $length)
  */
 function bytestostring($size, $precision = 0)
 {
-    $sizes = array('YB', 'ZB', 'EB', 'PB', 'TB', 'GB', 'MB', 'KB', 'B');
+    $sizes = ['YB', 'ZB', 'EB', 'PB', 'TB', 'GB', 'MB', 'KB', 'B'];
     $total = count($sizes);
 
-    while ($total-- && $size > 1024) $size /= 1024;
+    while ($total-- && $size > 1024) {
+        $size /= 1024;
+    }
     return round($size, $precision) . ' ' . $sizes[$total];
 }
 
@@ -190,95 +213,95 @@ function returnMIMEType($filename)
     preg_match("|\.([a-z0-9]{2,4})$|i", $filename, $fileSuffix);
 
     switch (strtolower($fileSuffix[1])) {
-        case "js" :
+        case "js":
             return "application/x-javascript";
 
-        case "json" :
+        case "json":
             return "application/json";
 
-        case "jpg" :
-        case "jpeg" :
-        case "jpe" :
+        case "jpg":
+        case "jpeg":
+        case "jpe":
             return "image/jpg";
 
-        case "png" :
-        case "gif" :
-        case "bmp" :
-        case "tiff" :
+        case "png":
+        case "gif":
+        case "bmp":
+        case "tiff":
             return "image/" . strtolower($fileSuffix[1]);
 
-        case "css" :
+        case "css":
             return "text/css";
 
-        case "xml" :
+        case "xml":
             return "application/xml";
 
-        case "doc" :
-        case "docx" :
+        case "doc":
+        case "docx":
             return "application/msword";
 
-        case "xls" :
-        case "xlt" :
-        case "xlm" :
-        case "xld" :
-        case "xla" :
-        case "xlc" :
-        case "xlw" :
-        case "xll" :
+        case "xls":
+        case "xlt":
+        case "xlm":
+        case "xld":
+        case "xla":
+        case "xlc":
+        case "xlw":
+        case "xll":
             return "application/vnd.ms-excel";
 
-        case "ppt" :
-        case "pps" :
+        case "ppt":
+        case "pps":
             return "application/vnd.ms-powerpoint";
 
-        case "rtf" :
+        case "rtf":
             return "application/rtf";
 
-        case "pdf" :
+        case "pdf":
             return "application/pdf";
 
-        case "html" :
-        case "htm" :
-        case "php" :
+        case "html":
+        case "htm":
+        case "php":
             return "text/html";
 
-        case "txt" :
+        case "txt":
             return "text/plain";
 
-        case "mpeg" :
-        case "mpg" :
-        case "mpe" :
+        case "mpeg":
+        case "mpg":
+        case "mpe":
             return "video/mpeg";
 
-        case "mp3" :
+        case "mp3":
             return "audio/mpeg3";
 
-        case "wav" :
+        case "wav":
             return "audio/wav";
 
-        case "aiff" :
-        case "aif" :
+        case "aiff":
+        case "aif":
             return "audio/aiff";
 
-        case "avi" :
+        case "avi":
             return "video/msvideo";
 
-        case "wmv" :
+        case "wmv":
             return "video/x-ms-wmv";
 
-        case "mov" :
+        case "mov":
             return "video/quicktime";
 
-        case "zip" :
+        case "zip":
             return "application/zip";
 
-        case "tar" :
+        case "tar":
             return "application/x-tar";
 
-        case "swf" :
+        case "swf":
             return "application/x-shockwave-flash";
 
-        default :
+        default:
             if (function_exists("mime_content_type")) {
                 $fileSuffix = mime_content_type($filename);
             }
