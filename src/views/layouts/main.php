@@ -1,7 +1,6 @@
 <?php /** @var $this DController */ ?><!doctype html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
-    <script language="JavaScript" type="text/javascript">var my_hop_host = 'elisdn.justclick.ru';</script>
     <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>
 
     <meta charset="utf-8"/>
