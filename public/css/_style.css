@@ -99,7 +99,7 @@ div.breadcrumbs a:hover {
 	text-align: center;
     margin:0 0 10px 0;
     padding:6px;
-    background:#fff url('../images/loading.gif') center center no-repeat;
+    background:#fff url('/images/loading.gif') center center no-repeat;
     border:#ccc 1px solid;
     border-radius:4px;
 
@@ -339,7 +339,7 @@ div.breadcrumbs a:hover {
 }
 
 .smart {
-    background:#f3f3f3 url('../images/smart.png') 0px 10px no-repeat;
+    background:#f3f3f3 url('/images/smart.png') 0px 10px no-repeat;
     box-shadow:1px 2px 2px #ddd;
     border:#ddd 1px solid;
     border-radius:4px;
