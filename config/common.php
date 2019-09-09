@@ -75,7 +75,6 @@ return [
                 'core-site.js'=>'/js/core-site.js',
                 'core-end.js'=>'/js/core-end.js',
                 'jquery.easing.js'=>'/js/jquery.easing.js',
-                'jquery.mousewheel.js'=>'/js/jquery.mousewheel.js',
                 'jquery.plugins.js'=>'/js/jquery.plugins.js',
                 'swfobject.js'=>'/js/swfobject.js',
             ]
