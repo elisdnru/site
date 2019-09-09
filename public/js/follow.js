@@ -2,10 +2,6 @@
 	$.fn.follow = function (data) {
 
 		data = $.extend({
-			rss: '',
-			twitter: '',
-			livejournal: '',
-			github: '',
 			assets_url: ''
 		}, data || {});
 
@@ -13,12 +9,12 @@
 			{
 				name: 'RSS',
 				image: '/32/feed.png',
-				url: data.rss
+				url: 'https://feeds.feedburner.com/elisdn'
 			},
 			{
 				name: 'Twitter',
 				image: '/32/twitter.png',
-				url: 'http://twitter.com/' + data.twitter
+				url: 'https://twitter.com/elisdnru'
 			},
 			{
 				name: 'GitHub',
