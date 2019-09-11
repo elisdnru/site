@@ -13,7 +13,7 @@ return array_replace_recursive(
                     'admin',
                 ],
                 'migrationSubPath' => 'migrations',
-                'connectionID'=>'db',
+                'connectionID' => 'db',
             ],
         ],
 

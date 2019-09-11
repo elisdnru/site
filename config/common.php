@@ -7,40 +7,40 @@
 // CWebApplication properties can be configured here.
 
 $modules = [
-    'admin' => ['class'=>'application.modules.admin.AdminModule'],
-    'block' => ['class'=>'application.modules.block.BlockModule'],
-    'blog' => ['class'=>'application.modules.blog.BlogModule'],
-    'category' => ['class'=>'application.modules.category.CategoryModule'],
-    'colorbox' => ['class'=>'application.modules.colorbox.ColorboxModule'],
-    'comment' => ['class'=>'application.modules.comment.CommentModule'],
-    'contact' => ['class'=>'application.modules.contact.ContactModule'],
-    'crud' => ['class'=>'application.modules.crud.CrudModule'],
-    'file' => ['class'=>'application.modules.file.FileModule'],
-    'follow' => ['class'=>'application.modules.follow.FollowModule'],
-    'main' => ['class'=>'application.modules.main.MainModule'],
-    'menu' => ['class'=>'application.modules.menu.MenuModule'],
-    'page' => ['class'=>'application.modules.page.PageModule'],
-    'portfolio' => ['class'=>'application.modules.portfolio.PortfolioModule'],
-    'share' => ['class'=>'application.modules.share.ShareModule'],
-    'search' => ['class'=>'application.modules.search.SearchModule'],
-    'sitemap' => ['class'=>'application.modules.sitemap.SitemapModule'],
-    'tinymce' => ['class'=>'application.modules.tinymce.TinymceModule'],
-    'ulogin' => ['class'=>'application.modules.ulogin.UloginModule'],
-    'uploader' => ['class'=>'application.modules.uploader.UploaderModule'],
-    'user' => ['class'=>'application.modules.user.UserModule'],
+    'admin' => ['class' => 'application.modules.admin.AdminModule'],
+    'block' => ['class' => 'application.modules.block.BlockModule'],
+    'blog' => ['class' => 'application.modules.blog.BlogModule'],
+    'category' => ['class' => 'application.modules.category.CategoryModule'],
+    'colorbox' => ['class' => 'application.modules.colorbox.ColorboxModule'],
+    'comment' => ['class' => 'application.modules.comment.CommentModule'],
+    'contact' => ['class' => 'application.modules.contact.ContactModule'],
+    'crud' => ['class' => 'application.modules.crud.CrudModule'],
+    'file' => ['class' => 'application.modules.file.FileModule'],
+    'follow' => ['class' => 'application.modules.follow.FollowModule'],
+    'main' => ['class' => 'application.modules.main.MainModule'],
+    'menu' => ['class' => 'application.modules.menu.MenuModule'],
+    'page' => ['class' => 'application.modules.page.PageModule'],
+    'portfolio' => ['class' => 'application.modules.portfolio.PortfolioModule'],
+    'share' => ['class' => 'application.modules.share.ShareModule'],
+    'search' => ['class' => 'application.modules.search.SearchModule'],
+    'sitemap' => ['class' => 'application.modules.sitemap.SitemapModule'],
+    'tinymce' => ['class' => 'application.modules.tinymce.TinymceModule'],
+    'ulogin' => ['class' => 'application.modules.ulogin.UloginModule'],
+    'uploader' => ['class' => 'application.modules.uploader.UploaderModule'],
+    'user' => ['class' => 'application.modules.user.UserModule'],
 ];
 
 $MODULES_MATCHES = implode('|', array_keys($modules));
 
 return [
 
-    'basePath'=>dirname(__DIR__).'/src',
-    'runtimePath'=>dirname(__DIR__) . '/var',
-    'name'=>'Site',
-    'sourceLanguage'=>'en',
-    'language'=>'ru',
+    'basePath' => dirname(__DIR__) . '/src',
+    'runtimePath' => dirname(__DIR__) . '/var',
+    'name' => 'Site',
+    'sourceLanguage' => 'en',
+    'language' => 'ru',
 
-    'import'=>[
+    'import' => [
         'application.components.*',
         'application.modules.main.components.actions.*',
         'application.modules.main.components.arbehaviors.*',
@@ -55,47 +55,47 @@ return [
         'application.extensions.cachetagging.Tags',
     ],
 
-    'modules'=> $modules,
+    'modules' => $modules,
 
-    'components'=>[
+    'components' => [
 
-        'urlManager'=>[
-            'class'=>'DUrlManager',
-            'urlFormat'=>'path',
-            'showScriptName'=>false,
-            'useStrictParsing'=>true,
-            'urlSuffix'=>'',
-            'rules'=>[
-                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>'=>'<module>/<controller>/<action>',
-                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>'=>'<module>/<controller>/index',
-                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>'=>'<module>/<controller>/<action>',
+        'urlManager' => [
+            'class' => 'DUrlManager',
+            'urlFormat' => 'path',
+            'showScriptName' => false,
+            'useStrictParsing' => true,
+            'urlSuffix' => '',
+            'rules' => [
+                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
+                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>' => '<module>/<controller>/index',
+                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>' => '<module>/<controller>/<action>',
             ],
         ],
 
-        'user'=>[
-            'class'=>'application.modules.user.components.WebUser',
-            'allowAutoLogin'=>true,
-            'loginUrl'=>['/user/default/login'],
+        'user' => [
+            'class' => 'application.modules.user.components.WebUser',
+            'allowAutoLogin' => true,
+            'loginUrl' => ['/user/default/login'],
         ],
 
-        'clientScript'=>[
+        'clientScript' => [
             'packages' => [
                 'jquery' => [
                     'basePath' => 'application.assets.jquery',
-                    'js'=>[YII_DEBUG ? 'jquery.js' : 'jquery.min.js'],
+                    'js' => [YII_DEBUG ? 'jquery.js' : 'jquery.min.js'],
                 ],
             ],
-            'scriptMap'=>[
-                'modernizr.js'=>'/js/modernizr.min.js',
-                'core-site.js'=>'/js/core-site.js',
-                'core-end.js'=>'/js/core-end.js',
-                'jquery.easing.js'=>'/js/jquery.easing.js',
-                'jquery.plugins.js'=>'/js/jquery.plugins.js',
-                'swfobject.js'=>'/js/swfobject.js',
+            'scriptMap' => [
+                'modernizr.js' => '/js/modernizr.min.js',
+                'core-site.js' => '/js/core-site.js',
+                'core-end.js' => '/js/core-end.js',
+                'jquery.easing.js' => '/js/jquery.easing.js',
+                'jquery.plugins.js' => '/js/jquery.plugins.js',
+                'swfobject.js' => '/js/swfobject.js',
             ]
         ],
 
-        'db'=>[
+        'db' => [
             'connectionString' => getenv('APP_DB_DSN'),
             'enableProfiling' => false,
             'emulatePrepare' => true,
@@ -103,36 +103,36 @@ return [
             'password' => getenv('APP_DB_PASSWORD'),
             'tablePrefix' => getenv('APP_DB_PREFIX'),
             'charset' => 'utf8',
-            'schemaCachingDuration'=>3600,
+            'schemaCachingDuration' => 3600,
         ],
 
-        'authManager'=>[
-            'class'=>'application.modules.user.components.PhpAuthManager',
-            'defaultRoles'=>['role_guest'],
+        'authManager' => [
+            'class' => 'application.modules.user.components.PhpAuthManager',
+            'defaultRoles' => ['role_guest'],
         ],
 
-        'moduleManager'=>[
-            'class'=>'application.components.module.DModuleManager',
+        'moduleManager' => [
+            'class' => 'application.components.module.DModuleManager',
         ],
 
-        'errorHandler'=>[
-            'errorAction'=>'/main/error/index',
+        'errorHandler' => [
+            'errorAction' => '/main/error/index',
         ],
 
-        'image'=>[
-            'class'=>'ext.image.CImageHandler',
+        'image' => [
+            'class' => 'ext.image.CImageHandler',
         ],
 
-        'file'=>[
-            'class'=>'ext.file.CFile',
+        'file' => [
+            'class' => 'ext.file.CFile',
         ],
 
-        'uploader'=>[
-            'class'=>'application.modules.uploader.components.DUploadManager',
-            'origFileSalt'=>'adFxt0de',
-            'rootPath'=>'upload',
-            'emptyImage'=>'images/nophoto.png',
-            'allowedThumbnailResolutions'=>[
+        'uploader' => [
+            'class' => 'application.modules.uploader.components.DUploadManager',
+            'origFileSalt' => 'adFxt0de',
+            'rootPath' => 'upload',
+            'emptyImage' => 'images/nophoto.png',
+            'allowedThumbnailResolutions' => [
                 // general
                 ['upload/images', [
                     '250x0',
@@ -162,63 +162,63 @@ return [
             ],
         ],
 
-        'email'=>[
-            'class'=>'ext.email.Email',
-            'delivery'=>'php', //'php'|'debug'
+        'email' => [
+            'class' => 'ext.email.Email',
+            'delivery' => 'php', //'php'|'debug'
         ],
 
-        'rpcManager'=>[
-            'class'=>'DRPCManager',
+        'rpcManager' => [
+            'class' => 'DRPCManager',
         ],
 
-        'widgetFactory'=>[
-            'enableSkin'=>true,
+        'widgetFactory' => [
+            'enableSkin' => true,
         ],
 
         'syntaxHighlighter' => [
-            'class'=>'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
-            'theme'=>'Eclipse',
+            'class' => 'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
+            'theme' => 'Eclipse',
         ],
 
-        'log'=>[
-            'class'=>'CLogRouter',
-            'routes'=>[
+        'log' => [
+            'class' => 'CLogRouter',
+            'routes' => [
                 [
-                    'class'=>'CFileLogRoute',
-                    'levels'=>'error',
-                    'logFile'=>'log_error.log',
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'error',
+                    'logFile' => 'log_error.log',
                 ],
                 [
-                    'class'=>'CFileLogRoute',
-                    'levels'=>'warning',
-                    'logFile'=>'log_warning.log',
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'warning',
+                    'logFile' => 'log_warning.log',
                 ],
                 [
-                    'class'=>'CFileLogRoute',
-                    'levels'=>'info',
-                    'logFile'=>'log_info.log',
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'info',
+                    'logFile' => 'log_info.log',
                 ],
             ],
         ],
 
-        'cache'=>[
-            'class'=>!getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
-            'behaviors'=>[
-                'tagging'=>[
-                    'class'=>'ext.cachetagging.TaggingBehavior',
+        'cache' => [
+            'class' => !getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
+            'behaviors' => [
+                'tagging' => [
+                    'class' => 'ext.cachetagging.TaggingBehavior',
                 ],
             ],
         ],
     ],
 
-    'preload'=>[
+    'preload' => [
         'log',
     ],
 
-    'behaviors'=> [
+    'behaviors' => [
         [
-            'class'=>'application.components.module.DModuleUrlRulesBehavior',
-            'beforeCurrentModule'=>[
+            'class' => 'application.components.module.DModuleUrlRulesBehavior',
+            'beforeCurrentModule' => [
                 'main',
                 'uploader',
                 'sitemap',
@@ -226,15 +226,15 @@ return [
                 'user',
                 'ulogin',
             ],
-            'afterCurrentModule'=>[
+            'afterCurrentModule' => [
                 'page',
                 'new',
             ]
         ]
     ],
 
-    'params'=>[
-        'runtimeWidgets'=>[
+    'params' => [
+        'runtimeWidgets' => [
             'blog.widgets.LastPosts',
             'page.widgets.SubPages',
             'page.widgets.Page',

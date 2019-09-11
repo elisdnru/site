@@ -13,12 +13,12 @@ return array_replace_recursive(
                     'admin',
                 ],
                 'migrationSubPath' => 'migrations',
-                'connectionID'=>'db',
+                'connectionID' => 'db',
             ],
         ],
 
         'components' => [
-            'db'=>[
+            'db' => [
                 'connectionString' => 'mysql:host=mysql-test;dbname=test',
                 'username' => 'test',
                 'password' => 'secret',
