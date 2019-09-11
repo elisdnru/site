@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\crud\CrudModule;
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -33,14 +36,14 @@ class DCrudAction extends CAction
     protected function success($message)
     {
         if (!Yii::app()->request->isAjaxRequest) {
-            Yii::app()->user->setFlash($this->flashSuccess, Yii::t('CrudModule.crud', $message));
+            Yii::app()->user->setFlash($this->flashSuccess, Yii::t(CrudModule::class . '.crud', $message));
         }
     }
 
     protected function error($message)
     {
         if (!Yii::app()->request->isAjaxRequest) {
-            Yii::app()->user->setFlash($this->flashError, Yii::t('CrudModule.crud', $message));
+            Yii::app()->user->setFlash($this->flashError, Yii::t(CrudModule::class . '.crud', $message));
         } else {
             throw new CHttpException(400, $message);
         }

@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\crud\CrudModule;
+
 /**
  * @author ElisDN <mail@elisdn.ru>
  * @link http://www.elisdn.ru
@@ -44,13 +47,13 @@ class DToggleAction extends DCrudAction
     protected function getAttribute()
     {
         if (empty($this->attributes)) {
-            throw new CHttpException(400, Yii::t('CrudModule.crud', 'DToggleAction::attributes is empty'));
+            throw new CHttpException(400, Yii::t(CrudModule::class . '.crud', 'DToggleAction::attributes is empty'));
         }
 
         $attribute = Yii::app()->request->getParam('attribute');
 
         if (!in_array($attribute, $this->attributes)) {
-            throw new CHttpException(400, Yii::t('CrudModule.crud', 'Missing attribute {attribute}', ['{attribute}' => $attribute]));
+            throw new CHttpException(400, Yii::t(CrudModule::class . '.crud', 'Missing attribute {attribute}', ['{attribute}' => $attribute]));
         }
 
         return $attribute;
