@@ -34,20 +34,9 @@ class DModuleManager extends CApplicationComponent
     private function getModuleClass($module)
     {
         if (isset(Yii::app()->modules[$module])) {
-            $alias = Yii::app()->modules[$module]['class'];
-
-            if (empty($alias)) {
-                $alias = ucfirst($module) . 'Module';
-            }
-
-            Yii::import($alias);
-
-            $domains = explode('.', $alias);
-            $class = array_pop($domains);
-        } else {
-            $class = '';
+            return Yii::app()->modules[$module]['class'];
         }
 
-        return $class;
+        return '';
     }
 }
