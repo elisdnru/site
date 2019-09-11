@@ -12,6 +12,6 @@ $this->info = 'Комментарии';
 
 ?>
 
-    <h1>Просмотр комментария</h1>
+<h1>Просмотр комментария</h1>
 
 <?php $this->renderPartial('comment.views.commentAdmin._view', ['data' => $model]); ?>

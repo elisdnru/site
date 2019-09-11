@@ -20,10 +20,10 @@
 /**
  * EFeedItemRSS2 is an element of an RSS 2.0 Feed
  *
- * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
+ * @throws        CException
  * @package    rss
  * @uses        CUrlValidator
- * @throws        CException
+ * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
  */
 class EFeedItemRSS2 extends EFeedItemAbstract
 {
@@ -109,9 +109,9 @@ class EFeedItemRSS2 extends EFeedItemAbstract
      *
      * Set the 'encloser' element of feed item
      *
-     * @param    string  The url attribute of encloser tag
-     * @param    string  The length attribute of encloser tag
-     * @param    string  The type attribute of encloser tag
+     * @param string  The url attribute of encloser tag
+     * @param string  The length attribute of encloser tag
+     * @param string  The type attribute of encloser tag
      */
     public function setEncloser($url, $length, $type)
     {

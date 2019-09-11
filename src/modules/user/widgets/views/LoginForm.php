@@ -1,13 +1,13 @@
 <?php if ($user) : ?>
     <div style="float:left;">
         <a href="<?php echo $user->url; ?>">
-            <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50"/>
+            <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50" />
         </a>
     </div>
     <div style="margin-left:60px;">
         <p class="nomargin"><strong>
                 <?php if ($user->network) : ?>
-                    <a href="<?php echo $user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($user->network); ?>"/></a>
+                    <a href="<?php echo $user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($user->network); ?>" /></a>
                 <?php endif; ?>
                 <?php echo CHtml::encode($user->fio); ?>
             </strong>
@@ -39,7 +39,7 @@
 
     </div>
     <?php echo CHtml::endForm(); ?>
-    <hr/>
+    <hr />
     <div class="center" style="padding-left:10px">
         <?php $this->widget('ulogin.widgets.UloginWidget', [
             'params' => [

@@ -20,10 +20,10 @@
 /**
  * EFeedItemRSS1 is an element of an RSS 1.0 Feed
  *
- * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
+ * @throws        CException
  * @package    rss
  * @uses        CUrlValidator
- * @throws        CException
+ * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
  */
 class EFeedItemRSS1 extends EFeedItemAbstract
 {

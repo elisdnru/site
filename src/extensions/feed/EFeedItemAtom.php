@@ -20,10 +20,10 @@
 /**
  * EFeedItemAtom is an element of an ATOM Feed
  *
- * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
+ * @throws        CException
  * @package    rss
  * @uses        CUrlValidator
- * @throws        CException
+ * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
  */
 class EFeedItemAtom extends EFeedItemAbstract
 {
@@ -94,8 +94,8 @@ class EFeedItemAtom extends EFeedItemAbstract
 
     /**
      *
-     * @return a well formatted XML element
      * @param EFeedTag $tag
+     * @return a well formatted XML element
      */
     private function getElement(EFeedTag $tag)
     {

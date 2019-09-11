@@ -27,26 +27,26 @@
     <fieldset>
         <h4>Основное</h4>
         <div class="row">
-            <?php echo $form->checkBox($model, 'hidetitle'); ?> <?php echo $form->labelEx($model, 'hidetitle'); ?><br/>
+            <?php echo $form->checkBox($model, 'hidetitle'); ?> <?php echo $form->labelEx($model, 'hidetitle'); ?><br />
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br/>
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'title'); ?><br />
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'title'); ?>
         </div>
 
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
-            &nbsp;<a href="javascript:transliterate('Page_title', 'Page_alias')">Транслит наименования</a><br/>
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            &nbsp;<a href="javascript:transliterate('Page_title', 'Page_alias')">Транслит наименования</a><br />
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
-        <hr/>
+        <hr />
         <div class="row">
-            <?php echo $form->labelEx($model, 'parent_id'); ?><br/>
+            <?php echo $form->labelEx($model, 'parent_id'); ?><br />
             <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Page::model()->getTabList(), $model->getAssocList()) : Page::model()->getTabList())); ?>
-            <br/>
+            <br />
             <?php echo $form->error($model, 'parent_id'); ?>
         </div>
     </fieldset>
@@ -54,15 +54,15 @@
     <fieldset>
         <h4>Шаблоны отображения</h4>
         <div class="row">
-            <?php echo $form->labelEx($model, 'layout_id'); ?><br/>
+            <?php echo $form->labelEx($model, 'layout_id'); ?><br />
             <?php echo $form->dropDownList($model, 'layout_id', [0 => 'По умолчанию'] + PageLayout::model()->getAssocList()); ?>
-            <br/>
+            <br />
             <?php echo $form->error($model, 'layout_id'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'layout_subpages_id'); ?><br/>
+            <?php echo $form->labelEx($model, 'layout_subpages_id'); ?><br />
             <?php echo $form->dropDownList($model, 'layout_subpages_id', [0 => 'Не отображать (по умолчанию)'] + PageLayoutSubpages::model()->getAssocList()); ?>
-            <br/>
+            <br />
             <?php echo $form->error($model, 'layout_subpages_id'); ?>
         </div>
     </fieldset>
@@ -72,7 +72,7 @@
 
         <?php if ($model->image) : ?>
             <div class="image">
-                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt=""/></a>
+                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt="" /></a>
             </div>
             <div class="row">
                 <?php echo $form->checkBox($model, 'del_image'); ?><?php echo $form->labelEx($model, 'del_image'); ?>
@@ -81,13 +81,13 @@
         <?php endif; ?>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'image'); ?><br/>
-            <?php echo $form->fileField($model, 'image'); ?><br/>
+            <?php echo $form->labelEx($model, 'image'); ?><br />
+            <?php echo $form->fileField($model, 'image'); ?><br />
             <?php echo $form->error($model, 'image'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'image_alt'); ?><br/>
-            <?php echo $form->textField($model, 'image_alt', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'image_alt'); ?><br />
+            <?php echo $form->textField($model, 'image_alt', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'image_alt'); ?>
         </div>
     </fieldset>
@@ -98,23 +98,23 @@
         <?php foreach ($model->files as $file) : ?>
             <?php if ($file->file) : ?>
                 <p id="file_<?php echo $file->id; ?>">
-                    <img src="/images/admin/fileicon.jpg" alt=""/>
+                    <img src="/images/admin/fileicon.jpg" alt="" />
                     <a target="_blank" href="<?php echo '/' . PageFile::FILE_PATH . '/' . $file->file; ?>"><?php echo $file->title; ?></a>
-                    <a class="ajax_del" data-del="file_<?php echo $file->id; ?>" title="Удалить файл" href="<?php echo $this->createUrl('admin/pages/filedel', ['id' => $file->id]); ?>"><img src="/images/admin/del.png" alt="Удалить"/></a>
+                    <a class="ajax_del" data-del="file_<?php echo $file->id; ?>" title="Удалить файл" href="<?php echo $this->createUrl('admin/pages/filedel', ['id' => $file->id]); ?>"><img src="/images/admin/del.png" alt="Удалить" /></a>
                 </p>
             <?php endif; ?>
         <?php endforeach; ?>
         <div class="row">
-            <?php echo $form->labelEx($model, 'file'); ?><br/>
+            <?php echo $form->labelEx($model, 'file'); ?><br />
             <?php for ($i = 1; $i < PageFile::FILES_LIMIT + 1; $i++) : ?>
-                <?php echo $form->fileField($model, 'file_' . $i); ?><br/>
+                <?php echo $form->fileField($model, 'file_' . $i); ?><br />
             <?php endfor; ?>
         </div>
     </fieldset>
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br/>
+            <?php echo $form->labelEx($model, 'text'); ?><br />
             <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
             <?php echo $form->error($model, 'text'); ?>
         </div>
@@ -128,8 +128,8 @@
     <fieldset>
         <h4>Индексация</h4>
         <div class="row">
-            <?php echo $form->labelEx($model, 'robots'); ?><br/>
-            <?php echo $form->dropDownList($model, 'robots', Page::model()->getRobotsList()); ?><br/>
+            <?php echo $form->labelEx($model, 'robots'); ?><br />
+            <?php echo $form->dropDownList($model, 'robots', Page::model()->getRobotsList()); ?><br />
             <?php echo $form->error($model, 'robots'); ?>
         </div>
     </fieldset>

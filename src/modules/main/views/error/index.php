@@ -10,9 +10,9 @@ $this->breadcrumbs = [
     $this->info = 'Страница ошибки';
 } ?>
 
-    <h2>Ошибка <?php echo isset($error['code']) ? $error['code'] : ''; ?></h2>
+<h2>Ошибка <?php echo isset($error['code']) ? $error['code'] : ''; ?></h2>
 
-    <p><?php echo isset($error['message']) ? CHtml::encode($error['message']) : ''; ?></p>
+<p><?php echo isset($error['message']) ? CHtml::encode($error['message']) : ''; ?></p>
 
 <?php if (YII_DEBUG) : ?>
     <p>File: <?php echo isset($error['file']) ? CHtml::encode($error['file']) : ''; ?></p>

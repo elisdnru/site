@@ -12,6 +12,6 @@ $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/p
 $this->info = 'Портфолио';
 ?>
 
-    <h1>Добавление работы</h1>
+<h1>Добавление работы</h1>
 
 <?php $this->renderPartial('_form', ['model' => $model]); ?>

@@ -26,36 +26,36 @@
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br/>
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'title'); ?><br />
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'title'); ?>
         </div>
 
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
             &nbsp;<a href="javascript:transliterate('BlogCategory_title', 'BlogCategory_alias')">Транслит
-                наименования</a><br/>
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+                наименования</a><br />
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'parent_id'); ?><br/>
+            <?php echo $form->labelEx($model, 'parent_id'); ?><br />
             <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(BlogCategory::model()->getTabList(), $model->getAssocList()) : BlogCategory::model()->getTabList())); ?>
-            <br/>
+            <br />
             <?php echo $form->error($model, 'parent_id'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'sort'); ?><br/>
-            <?php echo $form->textField($model, 'sort', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'sort'); ?><br />
+            <?php echo $form->textField($model, 'sort', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'sort'); ?>
         </div>
     </fieldset>
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br/>
+            <?php echo $form->labelEx($model, 'text'); ?><br />
             <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
             <?php echo $form->error($model, 'text'); ?>
         </div>

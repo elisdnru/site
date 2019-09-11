@@ -17,7 +17,7 @@ class CArray
      * Return a callback array from a string, eg: limit[10,20] would become
      * array('limit', array('10', '20'))
      *
-     * @param   string  callback string
+     * @param string  callback string
      * @return  array
      */
     public static function callback_string($str)
@@ -45,8 +45,8 @@ class CArray
      * Rotates a 2D array clockwise.
      * Example, turns a 2x3 array into a 3x2 array.
      *
-     * @param   array    array to rotate
-     * @param   boolean  keep the keys in the final rotated array. the sub arrays of the source array need to have the same key values.
+     * @param array    array to rotate
+     * @param boolean  keep the keys in the final rotated array. the sub arrays of the source array need to have the same key values.
      *                   if your subkeys might not match, you need to pass FALSE here!
      * @return  array
      */
@@ -66,8 +66,8 @@ class CArray
     /**
      * Removes a key from an array and returns the value.
      *
-     * @param   string  key to return
-     * @param   array   array to work on
+     * @param string  key to return
+     * @param array   array to work on
      * @return  mixed   value of the requested array key
      */
     public static function remove($key, & $array)
@@ -88,8 +88,8 @@ class CArray
      * argument (the array) will be extracted. Keys that do not exist in the
      * search array will be NULL in the extracted data.
      *
-     * @param   array   array to search
-     * @param   string  key name
+     * @param array   array to search
+     * @param string  key name
      * @return  array
      */
     public static function extract(array $search, $keys)
@@ -112,9 +112,9 @@ class CArray
     /**
      * Because PHP does not have this function.
      *
-     * @param   array   array to unshift
-     * @param   string  key to unshift
-     * @param   mixed   value to unshift
+     * @param array   array to unshift
+     * @param string  key to unshift
+     * @param mixed   value to unshift
      * @return  array
      */
     public static function unshift_assoc(array & $array, $key, $val)
@@ -130,8 +130,8 @@ class CArray
      * Because PHP does not have this function, and array_walk_recursive creates
      * references in arrays and is not truly recursive.
      *
-     * @param   mixed  callback to apply to each member of the array
-     * @param   array  array to map to
+     * @param mixed  callback to apply to each member of the array
+     * @param array  array to map to
      * @return  array
      */
     public static function map_recursive($callback, array $array)
@@ -147,10 +147,10 @@ class CArray
     /**
      * Binary search algorithm.
      *
-     * @param   mixed    the value to search for
-     * @param   array    an array of values to search in
-     * @param   boolean  return false, or the nearest value
-     * @param   mixed    sort the array before searching it
+     * @param mixed    the value to search for
+     * @param array    an array of values to search in
+     * @param boolean  return false, or the nearest value
+     * @param mixed    sort the array before searching it
      * @return  integer
      */
     public static function binary_search($needle, $haystack, $nearest = false, $sort = false)
@@ -190,7 +190,7 @@ class CArray
      * Emulates array_merge_recursive, but appends numeric keys and replaces
      * associative keys, instead of appending all keys.
      *
-     * @param   array  any number of arrays
+     * @param array  any number of arrays
      * @return  array
      */
     public static function merge()
@@ -225,8 +225,8 @@ class CArray
      * Overwrites an array with values from input array(s).
      * Non-existing keys will not be appended!
      *
-     * @param   array   key array
-     * @param   array   input array(s) that will overwrite key array values
+     * @param array   key array
+     * @param array   input array(s) that will overwrite key array values
      * @return  array
      */
     public static function overwrite($array1)
@@ -245,8 +245,8 @@ class CArray
     /**
      * Fill an array with a range of numbers.
      *
-     * @param   integer  stepping
-     * @param   integer  ending number
+     * @param integer  stepping
+     * @param integer  ending number
      * @return  array
      */
     public static function range($step = 10, $max = 100)
@@ -266,7 +266,7 @@ class CArray
     /**
      * Recursively convert an array to an object.
      *
-     * @param   array   array to convert
+     * @param array   array to convert
      * @return  object
      */
     public static function to_object(array $array, $class = 'stdClass')

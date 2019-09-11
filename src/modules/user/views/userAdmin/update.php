@@ -20,7 +20,7 @@ $this->info = 'Вы можете назначать администраторо
 
 <?php $this->renderPartial('_form', ['model' => $model]); ?>
 
-<hr/>
+<hr />
 
 <?php $this->renderPartial('_access', ['model' => $model]); ?>
 

@@ -3,19 +3,21 @@
 <head>
     <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>
 
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
-    <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB"/>
+    <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB" />
 
-    <meta name="description" content="<?php echo CHtml::encode($this->description); ?>"/>
-    <meta name="keywords" content="<?php echo CHtml::encode($this->keywords); ?>"/>
+    <meta name="description" content="<?php echo CHtml::encode($this->description); ?>" />
+    <meta name="keywords" content="<?php echo CHtml::encode($this->keywords); ?>" />
 
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->params['GENERAL.FEED_TITLE']); ?>" href="<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>"/>
-    <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>"/>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->params['GENERAL.FEED_TITLE']); ?>" href="<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>" />
+    <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
 
-    <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
-    <link type="text/css" rel="stylesheet" href="/build/main.css?v=<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>"/>
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="/build/main.css?v=<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>" />
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('/build/main.js?v=' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.js')); ?>
     <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
@@ -28,11 +30,11 @@
 
     <header id="header">
         <?php if ($this->route != 'main/default/index') :
-            ?><!--noindex--><?php
+        ?><!--noindex--><?php
         endif; ?>
         <div class="logo">
         <span data-href="/">
-            <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>"/>
+            <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>" />
         </span>
         </div>
         <div class="slogan">
@@ -40,8 +42,8 @@
             <p>Разработка сайтов и интернет-сервисов</p>
         </div>
         <?php if ($this->route != 'main/default/index') :
-            ?><!--/noindex--><?php
-        endif; ?>
+        ?><!--/noindex--><?php
+    endif; ?>
 
         <div class="search">
             <?php $this->widget('search.widgets.SearchFormWidget'); ?>
@@ -51,7 +53,7 @@
             <?php Yii::import('menu.models.*'); ?>
 
             <?php $this->widget('zii.widgets.CMenu', [
-                    'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
+                'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
         </nav>
     </header>
 
@@ -97,7 +99,7 @@
         <div class="nav">
             <?php $this->beginWidget('DNofollowWidget'); ?>
             <?php $this->widget('zii.widgets.CMenu', [
-                    'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
+                'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
             <?php $this->endWidget(); ?>
         </div>
         <!--/noindex-->
@@ -111,19 +113,20 @@
         </div>
 
         <?php if ($this->route != 'main/default/index') :
-            ?><!--noindex--><?php
+        ?><!--noindex--><?php
         endif; ?>
         <div class="info">
             <p>
                 © ИП Елисеев Дмитрий Николаевич</span>, 2009-<?php echo date('Y') ?><br />
                 ОГРН: 309574636200019; ИНН: 570600870325<br />
                 <a rel="nofollow" href="/privacy">Политика конфиденциальности</a><br />
-                Email: <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>');</script>
+                Email:
+                <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>')</script>
             </p>
         </div>
         <?php if ($this->route != 'main/default/index') :
-            ?><!--/noindex--><?php
-        endif; ?>
+        ?><!--/noindex--><?php
+    endif; ?>
 
         <!--noindex-->
         <div class="copy">

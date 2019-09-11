@@ -10,7 +10,7 @@ $this->info = 'Для вставки на страницу какого-либо
 
 ?>
 
-    <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
-    <h1>HTML-Блоки</h1>
+<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<h1>HTML-Блоки</h1>
 
 <?php $this->renderPartial('_grid', ['model' => $model]); ?>

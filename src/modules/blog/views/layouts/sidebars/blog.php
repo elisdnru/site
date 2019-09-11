@@ -30,7 +30,7 @@
 <?php $this->beginWidget('DPortlet', ['title' => 'Разделы блога']); ?>
 <?php $this->widget('zii.widgets.CMenu', ['items' => BlogCategory::model()->cache(0, new Tags('blog'))->getMenuList(1000), 'htmlOptions' => ['class' => 'collapsed']]); ?>
 <?php $this->endWidget(); ?>
-<?php if ($this->route == 'blog/post/show') :  ?>
+<?php if ($this->route == 'blog/post/show') : ?>
     <?php $this->endWidget(); ?>
 <?php endif; ?>
 <?php if ($this->route == 'blog/post/show') : ?>

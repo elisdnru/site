@@ -24,7 +24,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 }
 ?>
 
-    <h1>Поиск по сайту</h1>
+<h1>Поиск по сайту</h1>
 
 <?php $this->widget('application.modules.search.widgets.SearchFormWidget'); ?>
 

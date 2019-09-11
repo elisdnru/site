@@ -16,8 +16,8 @@ $this->admin[] = ['label' => 'Добавить пункт', 'url' => $this->crea
 $this->info = 'Используйте псевдонимы, чтобы выводить нужные меню на страницу с помощью команды [*menu|parent=&lt;alias&gt;*]';
 ?>
 
-    <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
 
-    <h1>Пункты меню</h1>
+<h1>Пункты меню</h1>
 
 <?php $this->renderPartial('_grid', ['model' => $model]); ?>

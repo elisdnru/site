@@ -1,1 +1,1 @@
-fancy_init();
+fancy_init()

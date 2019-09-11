@@ -430,7 +430,8 @@ class CImageHandler extends CApplicationComponent
         $offsetX = 0,
         $offsetY = 0,
         $angle = 0
-    ) {
+    )
+    {
         $this->checkLoaded();
 
         $bBox = imagettfbbox($size, $angle, $fontFile, $text);

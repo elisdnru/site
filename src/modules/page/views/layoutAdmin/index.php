@@ -14,8 +14,8 @@ $this->admin[] = ['label' => 'Добавить шаблон', 'url' => $this->cr
 $this->info = 'Шаблоны';
 ?>
 
-    <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
 
-    <h1>Шаблоны</h1>
+<h1>Шаблоны</h1>
 
 <?php $this->renderPartial('_grid', ['model' => $model]); ?>

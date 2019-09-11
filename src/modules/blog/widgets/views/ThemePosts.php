@@ -1,4 +1,4 @@
-<br/>
+<br />
 <h4>Материалы по теме:</h4>
 <ul class="noliststyle nomargin">
     <?php foreach ($group->posts as $item) : ?>

@@ -17,7 +17,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 <?php $this->beginWidget('DPortlet', ['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
-    <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50"/>
+    <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50" />
 </div>
 
 <div style="margin-left:60px;">
@@ -31,7 +31,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
     <h3>
         <?php if ($model->network) : ?>
-            <a rel="nofollow" href="<?php echo $model->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($model->network); ?>"/></a>
+            <a rel="nofollow" href="<?php echo $model->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($model->network); ?>" /></a>
         <?php endif; ?>
         <?php echo CHtml::encode($model->fio); ?>
     </h3>

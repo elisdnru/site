@@ -1,4 +1,3 @@
-
 <?php if (isset($comments[$parent])) : ?>
     <?php foreach ($comments[$parent] as $comment) : ?>
         <?php $this->render('Comments/_comment', [

@@ -62,14 +62,14 @@ class UloginModel extends CModel
     {
         return [
             'identity'
-        , 'network'
-        , 'email'
-        , 'lastname'
-        , 'name'
-        , 'photo'
-        , 'token'
-        , 'error_type'
-        , 'error_message'
+            , 'network'
+            , 'email'
+            , 'lastname'
+            , 'name'
+            , 'photo'
+            , 'token'
+            , 'error_type'
+            , 'error_message'
         ];
     }
 }

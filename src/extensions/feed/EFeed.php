@@ -20,11 +20,11 @@
 /**
  * EFeed is the RSS writer
  *
- * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
- * @package    rss
- * @uses        CComponent, CUrlValidator
  * @throws        CException
  *
+ * @package    rss
+ * @uses        CComponent, CUrlValidator
+ * @author        Antonio Ramirez <ramirez.cobos@gmail.com>
  * @property string $title
  * @property string $description
  * @property string $link
@@ -153,7 +153,7 @@ class EFeed extends CComponent
     /**
      * Property setter the 'title' channel element
      *
-     * @param    string  value of 'title' channel tag
+     * @param string  value of 'title' channel tag
      */
     public function setTitle($title)
     {
@@ -177,7 +177,7 @@ class EFeed extends CComponent
     /**
      * Property setter 'description' channel element
      *
-     * @param    string  value of 'description' channel tag
+     * @param string  value of 'description' channel tag
      */
     public function setDescription($description)
     {
@@ -201,7 +201,7 @@ class EFeed extends CComponent
     /**
      * Property setter 'link' channel element
      *
-     * @param    string  value of 'link' channel tag
+     * @param string  value of 'link' channel tag
      * @throws   CException
      */
     public function setLink($link)
@@ -233,9 +233,9 @@ class EFeed extends CComponent
      *
      * Cannot be used as property setter
      *
-     * @param  string  title of image
-     * @param  string  link url of the image
-     * @param  string  path url of the image
+     * @param string  title of image
+     * @param string  link url of the image
+     * @param string  path url of the image
      */
     public function setImage($title, $link, $url)
     {
@@ -264,7 +264,7 @@ class EFeed extends CComponent
      *
      * Property setter the 'about' RSS 1.0 channel element
      *
-     * @param  string  value of 'about' channel tag
+     * @param string  value of 'about' channel tag
      */
     public function setRSS1ChannelAbout($url)
     {
@@ -293,7 +293,7 @@ class EFeed extends CComponent
      *
      * Add a FeedItem to the main class
      *
-     * @param  object  instance of EFeedItemAbstract class
+     * @param object  instance of EFeedItemAbstract class
      */
     public function addItem(EFeedItemAbstract $item)
     {
@@ -307,9 +307,9 @@ class EFeed extends CComponent
     /**
      * Generates an UUID
      *
-     * @author     Anis uddin Ahmad <admin@ajaxray.com>
-     * @param      string  an optional prefix
+     * @param string  an optional prefix
      * @return     string  the formated uuid
+     * @author     Anis uddin Ahmad <admin@ajaxray.com>
      */
     public static function uuid($key = null, $prefix = '')
     {
@@ -457,9 +457,9 @@ class EFeed extends CComponent
      * Creates a single node as xml format
      *
      * @access   private
-     * @param    string  name of the tag
-     * @param    mixed   tag value as string or array of nested tags in 'tagName' => 'tagValue' format
-     * @param    array   Attributes(if any) in 'attrName' => 'attrValue' format
+     * @param string  name of the tag
+     * @param mixed   tag value as string or array of nested tags in 'tagName' => 'tagValue' format
+     * @param array   Attributes(if any) in 'attrName' => 'attrValue' format
      * @return   string  formatted xml tag
      */
     private function makeNode($tagName, $tagContent, $attributes = [])

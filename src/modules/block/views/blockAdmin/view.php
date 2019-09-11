@@ -12,6 +12,6 @@ $this->info = 'Блоки';
 
 ?>
 
-    <h1>Просмотр блока &laquo;<?php echo CHtml::encode($model->title); ?>&raquo;</h1>
+<h1>Просмотр блока &laquo;<?php echo CHtml::encode($model->title); ?>&raquo;</h1>
 
 <?php echo $model->text; ?>

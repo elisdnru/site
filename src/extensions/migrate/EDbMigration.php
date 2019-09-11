@@ -26,9 +26,9 @@ class EDbMigration extends CDbMigration
     }
 
     /**
-     * @see CConsoleCommand::confirm()
      * @param string $message
      * @return bool
+     * @see CConsoleCommand::confirm()
      */
     public function confirm($message)
     {
@@ -39,10 +39,10 @@ class EDbMigration extends CDbMigration
     }
 
     /**
-     * @see CConsoleCommand::prompt()
      * @param string $message
      * @param mixed $defaultValue will be returned when interactive is false
      * @return string
+     * @see CConsoleCommand::prompt()
      */
     public function prompt($message, $defaultValue)
     {

@@ -27,6 +27,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 }
 ?>
 
-    <h1><?php echo CHtml::encode($category->title); ?></h1>
+<h1><?php echo CHtml::encode($category->title); ?></h1>
 
 <?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

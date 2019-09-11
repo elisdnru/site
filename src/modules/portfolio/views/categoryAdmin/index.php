@@ -11,7 +11,7 @@ $this->admin[] = ['label' => 'Добавить категорию', 'url' => $th
 $this->info = 'Категории работ';
 ?>
 
-    <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
-    <h1>Категории работ</h1>
+<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<h1>Категории работ</h1>
 
 <?php $this->renderPartial('_grid', ['model' => $model]); ?>

@@ -24,13 +24,13 @@
         <?php echo $this->decodeWidgets($page->text_purified); ?>
     </div>
 
-    <?php if (Yii::app()->request->getParam('page', 1) > 1) :?>
+    <?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
         </noindex>
     <?php endif; ?>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_page_' . $page->id, ['dependency' => new Tags('blog')])) : ?>
         <?php foreach ($page->files as $file) : ?>
-            <p><img src="/images/fileicon.jpg" alt=""/>
+            <p><img src="/images/fileicon.jpg" alt="" />
                 <a href="<?php echo '/' . PageFile::FILE_PATH . '/' . $file->file; ?>"><?php echo str_replace('_', ' ', $file->title); ?></a>
             </p>
         <?php endforeach; ?>

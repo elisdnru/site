@@ -20,9 +20,9 @@ foreach ($data->cache(1000)->tags as $tag) {
                 </p>
             <?php endif; ?>
             <p class="tags"><span><?php echo implode(', ', $links); ?></span></p>
-              <p class="comments">
-                  <span><span data-href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></span></span>
-              </p>
+            <p class="comments">
+                <span><span data-href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></span></span>
+            </p>
         </div>
         <?php if ($data->image) : ?>
             <?php

@@ -86,7 +86,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="rename('<?php echo $file->basename; ?>'); return false;"><?php echo $renameIcon; ?></a>
-                        <img src="/images/admin/foldericon.jpg"/>
+                        <img src="/images/admin/foldericon.jpg" />
                         <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->basename]); ?>"><?php echo $file->basename; ?></a>
                     </td>
                     <td></td>
@@ -94,7 +94,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
                     </td>
                     <td class="center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить директорию &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"/></a>
+                        <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить директорию &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                     </td>
                 </tr>
 
@@ -107,7 +107,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="rename('<?php echo $file->basename; ?>')"><?php echo $renameIcon; ?></a>
-                        <img src="/images/admin/fileicon.jpg"/>
+                        <img src="/images/admin/fileicon.jpg" />
                         <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->basename; ?>"><?php echo $file->basename; ?></a>
                     </td>
                     <td class="center">
@@ -117,7 +117,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
                     </td>
                     <td class="center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить файл &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"/></a>
+                        <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить файл &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                     </td>
                 </tr>
 
@@ -137,14 +137,14 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 </p>
 
 <script>
-    $('.allfiles_checkbox').click(function () {
-        $('.file_checkbox').attr('checked', $(this).attr('checked') ? true : false);
-    });
+$('.allfiles_checkbox').click(function () {
+    $('.file_checkbox').attr('checked', $(this).attr('checked') ? true : false)
+})
 </script>
 
 <?php echo CHtml::endForm(); ?>
 
-<hr/>
+<hr />
 
 <?php echo CHtml::beginForm(''); ?>
 
@@ -153,7 +153,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 
 <?php echo CHtml::endForm(); ?>
 
-<hr/>
+<hr />
 
 <div class="upload-box">
 
@@ -171,7 +171,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
         }",
     ]); ?>
 
-    <hr/>
+    <hr />
 </div>
 
 <div class="upload-alternate">
@@ -183,7 +183,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 
     <p>
         <?php for ($i = 1; $i <= $upload_count; $i++) : ?>
-            <?php echo CHtml::fileField('file_' . $i, '', ['size' => 31]); ?><br/>
+            <?php echo CHtml::fileField('file_' . $i, '', ['size' => 31]); ?><br />
         <?php endfor; ?>
     </p>
     <?php echo CHtml::submitButton('Загрузить файлы'); ?>
@@ -192,10 +192,10 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 </div>
 
 <script>
-    //<![CDATA[
-    $('.upload-box').show();
-    $('.upload-box').css('margin', 0);
-    //]]>
+//<![CDATA[
+$('.upload-box').show()
+$('.upload-box').css('margin', 0)
+//]]>
 </script>
 
 <?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
@@ -217,19 +217,19 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 </div>
 
 <script>
-    //<![CDATA[
-    jQuery('#renameLink').colorbox({
-        'initialWidth': 186,
-        'initialHeight': 67,
-        inline: true,
-        'opacity': 0
-    });
+//<![CDATA[
+jQuery('#renameLink').colorbox({
+    'initialWidth': 186,
+    'initialHeight': 67,
+    inline: true,
+    'opacity': 0
+})
 
-    function rename($name) {
-        jQuery('#sourceName').val($name);
-        jQuery('#destName').val($name);
-        jQuery('#renameLink').click();
-    }
+function rename ($name) {
+    jQuery('#sourceName').val($name)
+    jQuery('#destName').val($name)
+    jQuery('#renameLink').click()
+}
 
-    //]]>
+//]]>
 </script>

@@ -22,8 +22,8 @@
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br/>
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'title'); ?><br />
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'title'); ?>
         </div>
     </fieldset>

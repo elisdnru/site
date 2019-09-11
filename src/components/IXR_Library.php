@@ -1117,10 +1117,10 @@ class IXR_ClientSSL extends IXR_Client
     /**
      * Set the client side certificates to communicate with the server.
      *
-     * @since 0.1.0
      * @param string $certificateFile Filename of the client side certificate to use
      * @param string $keyFile Filename of the client side certificate's private key
      * @param string $keyPhrase Passphrase to unlock the private key
+     * @since 0.1.0
      */
     function setCertificate($certificateFile, $keyFile, $keyPhrase = '')
     {

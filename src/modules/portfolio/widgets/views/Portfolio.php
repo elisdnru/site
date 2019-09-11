@@ -24,14 +24,14 @@
 </div>
 
 <script>
-    $(function () {
-        $(".portfolioSlider").jCarouselLite({
-            circular: false,
-            speed: 800,
-            scroll: 2,
-            visible: 4,
-            btnNext: ".carouselNextLink",
-            btnPrev: ".carouselPrevLink"
-        });
-    });
+$(function () {
+    $('.portfolioSlider').jCarouselLite({
+        circular: false,
+        speed: 800,
+        scroll: 2,
+        visible: 4,
+        btnNext: '.carouselNextLink',
+        btnPrev: '.carouselPrevLink'
+    })
+})
 </script>

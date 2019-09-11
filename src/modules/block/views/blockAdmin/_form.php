@@ -25,22 +25,22 @@
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br/>
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'title'); ?><br />
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'title'); ?>
         </div>
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
-            &nbsp;<a href="javascript:transliterate('Block_title', 'Block_alias')">Транслит наименования</a><br/>
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            &nbsp;<a href="javascript:transliterate('Block_title', 'Block_alias')">Транслит наименования</a><br />
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
     </fieldset>
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br/>
-            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?><br/>
+            <?php echo $form->labelEx($model, 'text'); ?><br />
+            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?><br />
             <?php echo $form->error($model, 'text'); ?>
         </div>
     </fieldset>

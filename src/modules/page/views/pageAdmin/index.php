@@ -18,8 +18,8 @@ if ($this->moduleAllowed('new')) {
 $this->info = 'После создания страницы Вы можете привязать её к любому пункту меню';
 ?>
 
-    <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
 
-    <h1>Страницы</h1>
+<h1>Страницы</h1>
 
 <?php $this->renderPartial('_grid', ['model' => $model]); ?>

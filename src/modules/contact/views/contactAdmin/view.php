@@ -49,12 +49,12 @@ $this->info = 'Вы можете настроить отправку сообщ�
     </tr>
 </table>
 <?php if ($next) :
-    ?><p class="nomargin floatright">
+?><p class="nomargin floatright">
     <a href="<?php echo $this->createUrl('view', ['id' => $next->id]); ?>">следующее сообщение &rarr;</a>
-<?php endif; ?>
+    <?php endif; ?>
 <?php if ($prev) :
-    ?><p class="nomargin floatleft">
+?><p class="nomargin floatleft">
     <a href="<?php echo $this->createUrl('view', ['id' => $prev->id]); ?>">&larr; предыдущее сообщение</a>
-<?php endif; ?>
+    <?php endif; ?>
 
 <div class="clear"></div>

@@ -17,7 +17,7 @@ $this->admin = [
 $this->info = 'Блоги';
 ?>
 
-    <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
-    <h1>Записи блога</h1>
+<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<h1>Записи блога</h1>
 
 <?php $this->renderPartial('_grid', ['model' => $model]); ?>

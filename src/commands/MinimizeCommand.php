@@ -62,11 +62,11 @@ class Handler
     private $sources = [];
     /** @var string */
     private $target = '';
-    /** @var \Driver */
+    /** @var Driver */
     private $driver;
-    /** @var \Logger */
+    /** @var Logger */
     private $log;
-    /** @var \TextProcessor */
+    /** @var TextProcessor */
     private $processor;
 
     public function __construct(Driver $driver, Logger $log)

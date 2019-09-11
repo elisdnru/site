@@ -11,7 +11,8 @@
             <div class="title"><a href="<?php echo $data->url; ?>"><?php echo CHtml::encode($data->title); ?></a></div>
             <!--noindex-->
             <div class="info">
-                <p class="date"><span class="enc-date" data-date="<?php echo DDateHelper::normdate($data->date); ?>">&nbsp;</span>
+                <p class="date">
+                    <span class="enc-date" data-date="<?php echo DDateHelper::normdate($data->date); ?>">&nbsp;</span>
                 </p>
                 <?php if ($data->category) : ?>
                     <p class="category">

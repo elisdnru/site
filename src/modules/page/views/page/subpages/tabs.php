@@ -12,9 +12,9 @@
                     ?>
                     <?php if (Yii::app()->request->requestUri == $url) : ?>
                     <li class="active"><a href="<?php echo $url; ?>"><?php echo $child->title; ?></a></li>
-                    <?php else : ?>
+                <?php else : ?>
                     <li><a href="<?php echo $url; ?>"><?php echo $child->title; ?></a></li>
-                    <?php endif; ?>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>

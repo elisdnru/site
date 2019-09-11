@@ -25,13 +25,13 @@
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model, 'date'); ?><br/>
-            <?php echo $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'date'); ?><br />
+            <?php echo $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'date'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'parent_id'); ?><br/>
-            <?php echo $form->textField($model, 'parent_id', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'parent_id'); ?><br />
+            <?php echo $form->textField($model, 'parent_id', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'parent_id'); ?>
         </div>
         <?php if ($model->user) : ?>
@@ -40,18 +40,18 @@
             </p>
         <?php else : ?>
             <div class="row">
-                <?php echo $form->labelEx($model, 'name'); ?><br/>
-                <?php echo $form->textField($model, 'name', ['size' => 60, 'maxlength' => 255]); ?><br/>
+                <?php echo $form->labelEx($model, 'name'); ?><br />
+                <?php echo $form->textField($model, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
                 <?php echo $form->error($model, 'name'); ?>
             </div>
             <div class="row">
-                <?php echo $form->labelEx($model, 'email'); ?><br/>
-                <?php echo $form->textField($model, 'email', ['size' => 60, 'maxlength' => 255]); ?><br/>
+                <?php echo $form->labelEx($model, 'email'); ?><br />
+                <?php echo $form->textField($model, 'email', ['size' => 60, 'maxlength' => 255]); ?><br />
                 <?php echo $form->error($model, 'email'); ?>
             </div>
             <div class="row">
-                <?php echo $form->labelEx($model, 'site'); ?><br/>
-                <?php echo $form->textField($model, 'site', ['size' => 60, 'maxlength' => 255]); ?><br/>
+                <?php echo $form->labelEx($model, 'site'); ?><br />
+                <?php echo $form->textField($model, 'site', ['size' => 60, 'maxlength' => 255]); ?><br />
                 <?php echo $form->error($model, 'site'); ?>
             </div>
         <?php endif; ?>
@@ -59,8 +59,8 @@
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br/>
-            <?php echo $form->textArea($model, 'text', ['rows' => 20, 'cols' => 80]); ?><br/>
+            <?php echo $form->labelEx($model, 'text'); ?><br />
+            <?php echo $form->textArea($model, 'text', ['rows' => 20, 'cols' => 80]); ?><br />
             <?php echo $form->error($model, 'text'); ?>
         </div>
     </fieldset>

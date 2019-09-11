@@ -22,9 +22,9 @@ class PageController extends DController
         $layout_subpages = 'subpages/' . ($page->layout_subpages ? $page->layout_subpages->alias : 'default');
 
         $this->render('show', [
-                'page' => $page,
-                'layout_subpages' => $layout_subpages,
-            ]);
+            'page' => $page,
+            'layout_subpages' => $layout_subpages,
+        ]);
     }
 
     protected function loadModel($path)

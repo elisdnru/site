@@ -22,13 +22,13 @@
     <fieldset>
         <h4>Основное</h4>
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br/>
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'title'); ?><br />
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'title'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'alias'); ?><br/>
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'alias'); ?><br />
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
     </fieldset>

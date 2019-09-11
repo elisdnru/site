@@ -38,7 +38,7 @@ $this->info = 'Нельзя удалить группу, пока в ней ес
                 <td class="center"><a href="<?php echo $postsurl; ?>">Записи</a></td>
                 <td class="center"><?php if ($item->posts_count == 0) : ?>
                         <a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить группу &laquo;<?php echo CHtml::encode($item->title); ?>&raquo;" href="<?php echo $delurl; ?>">
-                            <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"/>
+                            <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" />
                         </a>       <?php endif; ?></td>
             </tr>
 
@@ -50,7 +50,7 @@ $this->info = 'Нельзя удалить группу, пока в ней ес
     <?php echo CHtml::endForm(); ?>
 </div><!-- form -->
 
-<br/>
+<br />
 <div class="form">
 
     <?php $form = $this->beginWidget('CActiveForm', [
@@ -71,7 +71,7 @@ $this->info = 'Нельзя удалить группу, пока в ней ес
 
         <tr>
             <td><?php echo $form->textField($categoryForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]); ?>
-                <br/></td>
+                <br /></td>
             <td></td>
         </tr>
     </table>

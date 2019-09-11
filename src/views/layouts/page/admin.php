@@ -1,12 +1,12 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
-    <section class="main" id="admin">
+<section class="main" id="admin">
 
-        <?php $this->widget('main.widgets.DBreadcrumbsWidget'); ?>
-        <?php $this->widget('main.widgets.DMessagesWidget'); ?>
+    <?php $this->widget('main.widgets.DBreadcrumbsWidget'); ?>
+    <?php $this->widget('main.widgets.DMessagesWidget'); ?>
 
-        <?php echo $content; ?>
+    <?php echo $content; ?>
 
-    </section>
+</section>
 
 <?php $this->endContent(); ?>

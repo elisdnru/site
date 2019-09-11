@@ -16,27 +16,27 @@ $this->breadcrumbs = [
 <?php endif; ?>
 
 
-    <div class="form">
-        <?php $form = $this->beginWidget('CActiveForm', [
-            'id' => 'login-form',
-            'enableAjaxValidation' => true,
-            'enableClientValidation' => true,
-            'clientOptions' => [
-                'validateOnSubmit' => true,
-            ],
-        ]); ?>
+<div class="form">
+    <?php $form = $this->beginWidget('CActiveForm', [
+        'id' => 'login-form',
+        'enableAjaxValidation' => true,
+        'enableClientValidation' => true,
+        'clientOptions' => [
+            'validateOnSubmit' => true,
+        ],
+    ]); ?>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'email'); ?><br/>
-            <?php echo $form->textField($model, 'email', ['size' => 30]); ?><br/>
-            <?php echo $form->error($model, 'email'); ?>
-        </div>
+    <div class="row">
+        <?php echo $form->labelEx($model, 'email'); ?><br />
+        <?php echo $form->textField($model, 'email', ['size' => 30]); ?><br />
+        <?php echo $form->error($model, 'email'); ?>
+    </div>
 
-        <div class="row buttons">
-            <?php echo CHtml::submitButton('Восстановить пароль'); ?>
-        </div>
+    <div class="row buttons">
+        <?php echo CHtml::submitButton('Восстановить пароль'); ?>
+    </div>
 
-        <?php $this->endWidget(); ?>
-    </div><!-- form -->
+    <?php $this->endWidget(); ?>
+</div><!-- form -->
 
 <?php $this->endWidget(); ?>

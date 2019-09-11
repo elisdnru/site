@@ -32,53 +32,53 @@ if ($this->is(Access::ROLE_CONTROL)) {
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
 <?php endif; ?>
 
-    <article class="entry">
+<article class="entry">
 
-        <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new Tags('portfolio')])) : ?>
-            <header>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new Tags('portfolio')])) : ?>
+        <header>
 
-                <h1><?php echo CHtml::encode($model->title); ?></h1>
+            <h1><?php echo CHtml::encode($model->title); ?></h1>
 
-                <?php if ($model->image && $model->image_show) : ?>
-                    <?php
-                    $properties = [];
-                    if ($model->image_width) {
-                        $properties['width'] = $model->image_width;
-                    }
-                    if ($model->image_height) {
-                        $properties['height'] = $model->image_height;
-                    }
-                    ?>
+            <?php if ($model->image && $model->image_show) : ?>
+                <?php
+                $properties = [];
+                if ($model->image_width) {
+                    $properties['width'] = $model->image_width;
+                }
+                if ($model->image_height) {
+                    $properties['height'] = $model->image_height;
+                }
+                ?>
 
-                    <p class="thumb">
-                        <a class="lightbox" href="<?php echo $model->imageUrl; ?>"><?php echo CHtml::image($model->getImageThumbUrl(), $model->title, $properties); ?></a>
-                    </p>
+                <p class="thumb">
+                    <a class="lightbox" href="<?php echo $model->imageUrl; ?>"><?php echo CHtml::image($model->getImageThumbUrl(), $model->title, $properties); ?></a>
+                </p>
 
-                <?php endif; ?>
+            <?php endif; ?>
 
-                <div class="info">
-                    <p class="category">
-                        <span><a href="<?php echo $model->category->url; ?>"><?php echo CHtml::encode($model->category->title); ?></a></span>
-                    </p>
-                </div>
+            <div class="info">
+                <p class="category">
+                    <span><a href="<?php echo $model->category->url; ?>"><?php echo CHtml::encode($model->category->title); ?></a></span>
+                </p>
+            </div>
 
-                <div class="short">
-                    <?php echo trim($model->short_purified); ?>
-                </div>
+            <div class="short">
+                <?php echo trim($model->short_purified); ?>
+            </div>
 
-            </header>
-            <?php $this->endCache(); ?>
-        <?php endif; ?>
+        </header>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
-        <div class="clear"></div>
+    <div class="clear"></div>
 
-        <div class="text">
-            <?php echo $this->decodeWidgets(trim($model->text_purified)); ?>
-        </div>
+    <div class="text">
+        <?php echo $this->decodeWidgets(trim($model->text_purified)); ?>
+    </div>
 
-        <div class="clear"></div>
+    <div class="clear"></div>
 
-    </article>
+</article>
 
 <?php $this->widget('share.widgets.ShareWidget', [
     'title' => $model->title,

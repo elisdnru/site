@@ -31,35 +31,35 @@
         <h4>Основное</h4>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br/>
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'title'); ?><br />
+            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'title'); ?>
         </div>
 
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
             &nbsp;<a href="javascript:transliterate('PortfolioWork_title', 'PortfolioWork_alias')">Транслит
-                наименования</a><br/>
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br/>
+                наименования</a><br />
+            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'category_id'); ?><br/>
+            <?php echo $form->labelEx($model, 'category_id'); ?><br />
             <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + PortfolioCategory::model()->getTabList()); ?>
-            <br/>
+            <br />
             <?php echo $form->error($model, 'category_id'); ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'date'); ?><br/>
-            <?php echo $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]); ?><br/>
+            <?php echo $form->labelEx($model, 'date'); ?><br />
+            <?php echo $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'date'); ?>
         </div>
 
         <div class="row">
             <?php echo $form->checkBox($model, 'public'); ?>
-            <?php echo $form->labelEx($model, 'public'); ?><br/>
+            <?php echo $form->labelEx($model, 'public'); ?><br />
             <?php echo $form->error($model, 'public'); ?>
         </div>
     </fieldset>
@@ -69,7 +69,7 @@
 
         <?php if ($model->image) : ?>
             <div class="image">
-                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt=""/></a>
+                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt="" /></a>
             </div>
             <div class="row">
                 <?php echo $form->checkBox($model, 'del_image'); ?><?php echo $form->labelEx($model, 'del_image'); ?>
@@ -78,8 +78,8 @@
         <?php endif; ?>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'image'); ?><br/>
-            <?php echo $form->fileField($model, 'image'); ?><br/>
+            <?php echo $form->labelEx($model, 'image'); ?><br />
+            <?php echo $form->fileField($model, 'image'); ?><br />
             <?php echo $form->error($model, 'image'); ?>
         </div>
         <div class="row">
@@ -90,7 +90,7 @@
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'short'); ?><br/>
+            <?php echo $form->labelEx($model, 'short'); ?><br />
             <?php echo $form->textArea($model, 'short', ['rows' => 16, 'cols' => 80, 'class' => 'tinymce']); ?>
             <?php echo $form->error($model, 'short'); ?>
         </div>
@@ -98,7 +98,7 @@
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br/>
+            <?php echo $form->labelEx($model, 'text'); ?><br />
             <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
             <?php echo $form->error($model, 'text'); ?>
         </div>
