@@ -18,6 +18,16 @@
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^3.3"
     },
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "tests/"
+        }
+    },
     "config": {
         "preferred-install": {
             "*": "dist"
