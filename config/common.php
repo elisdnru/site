@@ -6,14 +6,29 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
-$dirs = scandir(__DIR__.'/../src/modules');
-
-$modules = [];
-foreach ($dirs as $name) {
-    if ($name[0] != '.') {
-        $modules[$name] = ['class'=>'application.modules.' . $name . '.' . ucfirst($name) . 'Module'];
-    }
-}
+$modules = [
+    'admin' => ['class'=>'application.modules.admin.AdminModule'],
+    'block' => ['class'=>'application.modules.block.BlockModule'],
+    'blog' => ['class'=>'application.modules.blog.BlogModule'],
+    'category' => ['class'=>'application.modules.category.CategoryModule'],
+    'colorbox' => ['class'=>'application.modules.colorbox.ColorboxModule'],
+    'comment' => ['class'=>'application.modules.comment.CommentModule'],
+    'contact' => ['class'=>'application.modules.contact.ContactModule'],
+    'crud' => ['class'=>'application.modules.crud.CrudModule'],
+    'file' => ['class'=>'application.modules.file.FileModule'],
+    'follow' => ['class'=>'application.modules.follow.FollowModule'],
+    'main' => ['class'=>'application.modules.main.MainModule'],
+    'menu' => ['class'=>'application.modules.menu.MenuModule'],
+    'page' => ['class'=>'application.modules.page.PageModule'],
+    'portfolio' => ['class'=>'application.modules.portfolio.PortfolioModule'],
+    'share' => ['class'=>'application.modules.share.ShareModule'],
+    'search' => ['class'=>'application.modules.search.SearchModule'],
+    'sitemap' => ['class'=>'application.modules.sitemap.SitemapModule'],
+    'tinymce' => ['class'=>'application.modules.tinymce.TinymceModule'],
+    'ulogin' => ['class'=>'application.modules.ulogin.UloginModule'],
+    'uploader' => ['class'=>'application.modules.uploader.UploaderModule'],
+    'user' => ['class'=>'application.modules.user.UserModule'],
+];
 
 $MODULES_MATCHES = implode('|', array_keys($modules));
 
