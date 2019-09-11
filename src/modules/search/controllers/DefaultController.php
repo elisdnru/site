@@ -7,6 +7,14 @@
  * To change this template use File | Settings | File Templates.
  */
 
+namespace app\modules\search\controllers;
+
+use CActiveDataProvider;
+use CDbCriteria;
+use DController;
+use SearchForm;
+use Yii;
+
 class DefaultController extends DController
 {
     public function actionIndex($q)

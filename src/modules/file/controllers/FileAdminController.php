@@ -1,5 +1,14 @@
 <?php
 
+namespace app\modules\file\controllers;
+
+use Access;
+use CHttpException;
+use DAdminController;
+use DFileHelper;
+use DTextHelper;
+use Yii;
+
 Yii::import('application.modules.uploader.components.DFileHelper');
 
 class FileAdminController extends DAdminController

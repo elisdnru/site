@@ -1,5 +1,15 @@
 <?php
 
+namespace app\modules\user\controllers;
+
+use CActiveForm;
+use CHttpException;
+use DAdminController;
+use Page;
+use User;
+use UserPage;
+use Yii;
+
 Yii::import('application.modules.page.models.*');
 Yii::import('application.modules.crud.components.*');
 

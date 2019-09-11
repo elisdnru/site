@@ -1,5 +1,18 @@
 <?php
 
+namespace app\modules\portfolio\controllers;
+
+use CActiveDataProvider;
+use CArray;
+use CDbCriteria;
+use CHttpException;
+use Page;
+use PortfolioBaseController;
+use PortfolioCategory;
+use PortfolioWork;
+use Tags;
+use Yii;
+
 Yii::import('application.modules.page.models.*');
 
 class DefaultController extends PortfolioBaseController

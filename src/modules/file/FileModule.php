@@ -6,6 +6,8 @@ use DWebModule;
 
 class FileModule extends DWebModule
 {
+    public $controllerNamespace = __NAMESPACE__ . '\controllers';
+
     public function init()
     {
         parent::init();

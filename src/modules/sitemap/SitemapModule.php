@@ -4,6 +4,8 @@ namespace app\modules\sitemap;
 
 class SitemapModule extends \DWebModule
 {
+    public $controllerNamespace = __NAMESPACE__ . '\controllers';
+
     public function init()
     {
         parent::init();

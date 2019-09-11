@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\page\controllers;
+
+use CHttpException;
+use DAdminController;
+use Page;
+use PageFile;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class PageAdminController extends DAdminController

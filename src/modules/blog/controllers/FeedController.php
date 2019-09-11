@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\blog\controllers;
+
+use BlogPost;
+use Chtml;
+use DController;
+use EFeed;
+use Yii;
+
 Yii::import('application.extensions.feed.*');
 
 class FeedController extends DController

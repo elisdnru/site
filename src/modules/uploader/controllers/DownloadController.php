@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\uploader\controllers;
+
+use CHttpException;
+use DController;
+use Yii;
+
 class DownloadController extends DController
 {
     public function actionThumb()

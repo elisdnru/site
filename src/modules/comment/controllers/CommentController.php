@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\comment\controllers;
+
+use CHttpException;
+use Comment;
+use CommentForm;
+use DController;
+use Yii;
+
 Yii::import('application.modules.comment.components.CommentAdminControllerBase');
 
 class CommentController extends DController

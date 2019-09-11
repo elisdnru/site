@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\admin\controllers;
+
+use Access;
+use DAdminController;
+use Yii;
+use function is_a;
+
 class DefaultController extends DAdminController
 {
     public function accessRules()

@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\portfolio\controllers;
+
+use CHttpException;
+use PortfolioBaseController;
+use PortfolioWork;
+use Tags;
+
 class WorkController extends PortfolioBaseController
 {
     public function actionShow($id)

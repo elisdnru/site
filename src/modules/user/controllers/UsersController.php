@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\user\controllers;
+
+use CHttpException;
+use DController;
+use Tags;
+use User;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 Yii::import('application.modules.user.models.*');
 

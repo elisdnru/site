@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\menu\controllers;
+
+use CHttpException;
+use DAdminController;
+use Menu;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 Yii::import('application.modules.page.models.*');
 

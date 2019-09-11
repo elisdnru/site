@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\block\controllers;
+
+use Block;
+use CHttpException;
+use DAdminController;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class BlockAdminController extends DAdminController

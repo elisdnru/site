@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\page\controllers;
+
+use CHttpException;
+use DController;
+use Page;
+use Tags;
+
 class PageController extends DController
 {
     public function actionShow($path = 'index')

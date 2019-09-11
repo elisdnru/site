@@ -1,5 +1,14 @@
 <?php
 
+namespace app\modules\user\controllers;
+
+use Access;
+use CActiveForm;
+use CHttpException;
+use DController;
+use User;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class ProfileController extends DController
@@ -31,10 +40,6 @@ class ProfileController extends DController
         ];
     }
 
-    /**
-     * Performs the AJAX validation.
-     * @param CModel $model the model to be validated
-     */
     public function performAjaxValidation($model)
     {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'settings-form') {

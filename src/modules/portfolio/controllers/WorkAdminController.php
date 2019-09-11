@@ -1,5 +1,14 @@
 <?php
 
+namespace app\modules\portfolio\controllers;
+
+use CDbCriteria;
+use CHttpException;
+use CPagination;
+use DAdminController;
+use PortfolioWork;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class WorkAdminController extends DAdminController

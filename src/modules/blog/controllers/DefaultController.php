@@ -1,5 +1,21 @@
 <?php
 
+namespace app\modules\blog\controllers;
+
+use BlogCategory;
+use BlogPost;
+use BlogSearchForm;
+use BlogTag;
+use CActiveDataProvider;
+use CArray;
+use CDbCriteria;
+use CHttpException;
+use DController;
+use DDateLimiter;
+use Page;
+use Tags;
+use Yii;
+
 Yii::import('application.modules.page.models.*');
 
 class DefaultController extends DController

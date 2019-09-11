@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\blog\controllers;
+
+use BlogPost;
+use BlogPostGroup;
+use CHttpException;
+use DAdminController;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 /**

@@ -1,5 +1,16 @@
 <?php
 
+namespace app\modules\user\controllers;
+
+use Access;
+use CActiveForm;
+use DController;
+use DUrlRulesHelper;
+use LoginForm;
+use RemindForm;
+use User;
+use Yii;
+
 DUrlRulesHelper::import('user');
 
 class DefaultController extends DController

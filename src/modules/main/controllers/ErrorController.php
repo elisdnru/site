@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\main\controllers;
+
+use CHttpException;
+use DController;
+use Page;
+use Yii;
+
 Yii::import('application.modules.page.models.Page');
 
 class ErrorController extends DController
@@ -21,9 +28,6 @@ class ErrorController extends DController
         }
     }
 
-    /**
-     * @return CActiveRecord
-     */
     protected function loadPage()
     {
         if (!$page = Page::model()->findByAlias('error')) {

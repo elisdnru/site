@@ -1,5 +1,16 @@
 <?php
 
+namespace app\modules\sitemap\controllers;
+
+use BlogPost;
+use DController;
+use DSitemap;
+use DUrlRulesHelper;
+use Page;
+use PortfolioWork;
+use Tags;
+use Yii;
+
 class DefaultController extends DController
 {
     public function actionIndex()
@@ -37,7 +48,7 @@ class DefaultController extends DController
     public function actionXml()
     {
         if (!$xml = Yii::app()->cache->get('sitemap_xml')) {
-            $sitemap = new DSitemap;
+            $sitemap = new DSitemap();
 
             Yii::import('application.modules.page.models.*');
             DUrlRulesHelper::import('page');

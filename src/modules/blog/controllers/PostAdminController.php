@@ -1,5 +1,14 @@
 <?php
 
+namespace app\modules\blog\controllers;
+
+use BlogPost;
+use BlogTag;
+use CHttpException;
+use CJSON;
+use DAdminController;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class PostAdminController extends DAdminController

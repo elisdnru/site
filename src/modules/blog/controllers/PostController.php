@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\blog\controllers;
+
+use BlogPost;
+use CHttpException;
+use DController;
+
 class PostController extends DController
 {
     public function actionShow($id)

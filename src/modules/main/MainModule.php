@@ -6,6 +6,8 @@ use DWebModule;
 
 class MainModule extends DWebModule
 {
+    public $controllerNamespace = __NAMESPACE__ . '\controllers';
+
     public static function rules()
     {
         return [

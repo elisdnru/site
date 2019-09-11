@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\comment\controllers;
+
+use CHttpException;
+use Comment;
+use DController;
+use Yii;
+
 class AjaxController extends DController
 {
     public function filters()

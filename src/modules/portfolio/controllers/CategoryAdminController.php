@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\portfolio\controllers;
+
+use CHttpException;
+use DAdminController;
+use PortfolioCategory;
+use PortfolioWork;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class CategoryAdminController extends DAdminController

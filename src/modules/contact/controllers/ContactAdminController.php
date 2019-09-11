@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\contact\controllers;
+
+use CHttpException;
+use Contact;
+use DAdminController;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class ContactAdminController extends DAdminController

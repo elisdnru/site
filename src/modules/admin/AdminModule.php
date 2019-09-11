@@ -6,6 +6,8 @@ use DWebModule;
 
 class AdminModule extends DWebModule
 {
+    public $controllerNamespace = __NAMESPACE__ . '\controllers';
+
     public function getName()
     {
         return 'Панель управления';

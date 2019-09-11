@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\blog\controllers;
+
+use BlogTag;
+use CHttpException;
+use DAdminController;
+use Yii;
+
 Yii::import('application.modules.crud.components.*');
 
 class TagAdminController extends DAdminController

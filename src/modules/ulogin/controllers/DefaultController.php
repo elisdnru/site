@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\ulogin\controllers;
+
+use DController;
+use UloginModel;
+use Yii;
+
 class DefaultController extends DController
 {
     public function actionLogin()

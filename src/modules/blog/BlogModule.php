@@ -8,6 +8,8 @@ use Yii;
 
 class BlogModule extends DWebModule
 {
+    public $controllerNamespace = __NAMESPACE__ . '\controllers';
+
     public function init()
     {
         parent::init();
