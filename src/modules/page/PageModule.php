@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\page;
+
+use DWebModule;
+
 class PageModule extends DWebModule
 {
     public function init()

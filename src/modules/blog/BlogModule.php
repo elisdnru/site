@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\blog;
+
+use BlogPostComment;
+use DWebModule;
+use Yii;
+
 class BlogModule extends DWebModule
 {
     public function init()

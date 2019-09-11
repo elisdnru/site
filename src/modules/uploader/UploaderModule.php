@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\uploader;
+
+use DWebModule;
+
 class UploaderModule extends DWebModule
 {
     public function init()

@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\follow;
+
+use DWebModule;
+
 class FollowModule extends DWebModule
 {
     public function getGroup()

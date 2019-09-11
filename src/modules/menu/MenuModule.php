@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\menu;
+
+use DWebModule;
+
 class MenuModule extends DWebModule
 {
     public function init()

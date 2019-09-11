@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\contact;
+
+use Contact;
+use DWebModule;
+use Yii;
+
 class ContactModule extends DWebModule
 {
     public function init()

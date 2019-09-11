@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\user;
+
+use DWebModule;
+
 class UserModule extends DWebModule
 {
     public function init()

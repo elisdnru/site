@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\comment;
+
+use Comment;
+use DWebModule;
+use Yii;
+
 class CommentModule extends DWebModule
 {
     public function init()

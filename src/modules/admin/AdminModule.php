@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\admin;
+
+use DWebModule;
+
 class AdminModule extends DWebModule
 {
     public function getName()

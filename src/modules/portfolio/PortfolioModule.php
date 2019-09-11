@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\portfolio;
+
+use DWebModule;
+use Yii;
+
 class PortfolioModule extends DWebModule
 {
     public function init()

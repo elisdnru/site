@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\colorbox;
+
+use DWebModule;
+
 class ColorboxModule extends DWebModule
 {
     public function getGroup()

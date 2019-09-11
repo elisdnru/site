@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\ulogin;
+
+use DWebModule;
+
 class UloginModule extends DWebModule
 {
     public function init()

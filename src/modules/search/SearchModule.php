@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\search;
+
+use DWebModule;
+
 class SearchModule extends DWebModule
 {
     public function init()

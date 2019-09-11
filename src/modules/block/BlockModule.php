@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\block;
+
+use DWebModule;
+
 class BlockModule extends DWebModule
 {
     public function init()

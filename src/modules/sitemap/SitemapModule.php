@@ -1,6 +1,8 @@
 <?php
 
-class SitemapModule extends DWebModule
+namespace app\modules\sitemap;
+
+class SitemapModule extends \DWebModule
 {
     public function init()
     {

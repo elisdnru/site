@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\file;
+
+use DWebModule;
+
 class FileModule extends DWebModule
 {
     public function init()

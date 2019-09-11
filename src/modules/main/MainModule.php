@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main;
+
+use DWebModule;
+
 class MainModule extends DWebModule
 {
     public static function rules()

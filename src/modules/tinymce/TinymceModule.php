@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\tinymce;
+
+use DWebModule;
+
 class TinymceModule extends DWebModule
 {
     public function getGroup()
