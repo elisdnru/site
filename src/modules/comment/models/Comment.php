@@ -1,8 +1,5 @@
 <?php
 
-Yii::import('application.modules.user.models.*');
-Yii::import('application.modules.blog.models.BlogPostComment');
-
 /**
  * This is the model class for table "{{comment}}".
  *
@@ -85,8 +82,8 @@ class Comment extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'user' => [self::BELONGS_TO, 'User', 'user_id'],
-            'parent' => [self::BELONGS_TO, 'Comment', 'parent_id'],
+            'user' => [self::BELONGS_TO, \User::class, 'user_id'],
+            'parent' => [self::BELONGS_TO, \Comment::class, 'parent_id'],
         ];
     }
 
@@ -159,7 +156,7 @@ class Comment extends CActiveRecord
                 'setUpdateOnCreate' => false,
             ],
             'PurifyText' => [
-                'class' => 'DPurifyTextBehavior',
+                'class' => \DPurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'encodePreContent' => true,

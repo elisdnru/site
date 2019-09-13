@@ -8,19 +8,19 @@
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => 'DIndentLinkColumn',
+            'class' => \DIndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => 'DLinkColumn',
+            'class' => \DLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

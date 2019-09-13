@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.file.models.*');
-
 /**
  * This is the model class for table "{{profsoyuz_category}}".
  *
@@ -33,7 +31,7 @@ class PageFile extends FileModel
     public function relations()
     {
         return [
-            'material' => [self::BELONGS_TO, 'Page', 'material_id'],
+            'material' => [self::BELONGS_TO, \Page::class, 'material_id'],
         ];
     }
 

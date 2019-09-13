@@ -12,7 +12,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 ?>
 
-<?php $this->beginWidget('DPortlet', ['title' => 'Пользователи']); ?>
+<?php $this->beginWidget(\DPortlet::class, ['title' => 'Пользователи']); ?>
 
 <?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
 

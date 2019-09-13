@@ -6,7 +6,7 @@ $this->breadcrumbs = [
 ];
 ?>
 
-<?php $this->beginWidget('DPortlet', ['title' => 'Восстановление пароля']); ?>
+<?php $this->beginWidget(\DPortlet::class, ['title' => 'Восстановление пароля']); ?>
 
 <?php if (Yii::app()->user->hasFlash('remind-message')) : ?>
     <div class="flash-success">
@@ -17,7 +17,7 @@ $this->breadcrumbs = [
 
 
 <div class="form">
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'login-form',
         'enableAjaxValidation' => true,
         'enableClientValidation' => true,

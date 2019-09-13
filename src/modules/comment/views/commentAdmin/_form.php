@@ -6,7 +6,7 @@
 
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'block-form',
         'enableClientValidation' => true,
         'clientOptions' => [

@@ -8,8 +8,6 @@ use CommentForm;
 use DController;
 use Yii;
 
-Yii::import('application.modules.comment.components.CommentAdminControllerBase');
-
 class CommentController extends DController
 {
     public function filters()

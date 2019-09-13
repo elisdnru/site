@@ -1,7 +1,6 @@
 <?php
 
 DUrlRulesHelper::import('blog');
-Yii::import('application.modules.category.models.*');
 
 /**
  * This is the model class for table "{{blog_category}}".
@@ -37,13 +36,13 @@ class BlogCategory extends TreeCategory
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array_merge(parent::relations(), [
-            'parent' => [self::BELONGS_TO, 'BlogCategory', 'parent_id'],
-            'posts_count' => [self::STAT, 'BlogPost', 'category_id'],
-            'posts' => [self::HAS_MANY, 'BlogPost', 'category_id'],
-            'child_items' => [self::HAS_MANY, 'BlogCategory', 'parent_id',
+            'parent' => [self::BELONGS_TO, \BlogCategory::class, 'parent_id'],
+            'posts_count' => [self::STAT, \BlogPost::class, 'category_id'],
+            'posts' => [self::HAS_MANY, \BlogPost::class, 'category_id'],
+            'child_items' => [self::HAS_MANY, \BlogCategory::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, 'BlogPost', 'category_id',
+            'items_count' => [self::STAT, \BlogPost::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

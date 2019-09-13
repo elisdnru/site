@@ -28,8 +28,6 @@ class CommentModule extends DWebModule
 
     public static function notifications()
     {
-        Yii::import('application.modules.comment.models.Comment');
-
         $comments = Comment::model()->count([
             'condition' => 'moder=0',
         ]);

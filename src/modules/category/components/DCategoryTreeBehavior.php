@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.category.components.DCategoryBehavior');
-
 /**
  * @property string $parentAttribute
  * @property string $parentRelation

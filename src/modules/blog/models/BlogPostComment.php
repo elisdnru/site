@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
-Yii::import('application.modules.comment.models.*');
 DUrlRulesHelper::import('blog');
 
 class BlogPostComment extends Comment

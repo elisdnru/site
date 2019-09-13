@@ -1,11 +1,5 @@
 <?php
 
-Yii::import('application.modules.uploader.components.*');
-
-
-
-Yii::import('ext.image.CImageHandler');
-
 class DUploadManager extends CApplicationComponent
 {
     public $rootPath = 'upload';

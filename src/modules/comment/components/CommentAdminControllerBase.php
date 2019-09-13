@@ -1,6 +1,5 @@
 <?php
 
-Yii::import('application.modules.crud.components.*');
 DUrlRulesHelper::import('users');
 
 class CommentAdminControllerBase extends DAdminController
@@ -22,12 +21,12 @@ class CommentAdminControllerBase extends DAdminController
     public function actions()
     {
         return [
-            'update' => 'DUpdateAction',
+            'update' => \DUpdateAction::class,
             'toggle' => [
-                'class' => 'DToggleAction',
+                'class' => \DToggleAction::class,
                 'attributes' => ['public', 'moder']
             ],
-            'view' => 'DViewAction',
+            'view' => \DViewAction::class,
         ];
     }
 

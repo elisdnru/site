@@ -1,7 +1,6 @@
 <?php
 
 DUrlRulesHelper::import('portfolio');
-Yii::import('application.modules.category.models.*');
 
 /**
  * This is the model class for table "{{portfolio_category}}".
@@ -31,7 +30,7 @@ class PortfolioCategory extends TreeCategory
     public function rules()
     {
         return array_merge(parent::rules(), [
-            ['parent_id', 'DExistOrEmpty', 'className' => 'PortfolioCategory', 'attributeName' => 'id'],
+            ['parent_id', DExistOrEmpty::class, 'className' => self::class, 'attributeName' => 'id'],
         ]);
     }
 
@@ -43,11 +42,11 @@ class PortfolioCategory extends TreeCategory
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array_merge(parent::relations(), [
-            'parent' => [self::BELONGS_TO, 'PortfolioCategory', 'parent_id'],
-            'child_items' => [self::HAS_MANY, 'PortfolioCategory', 'parent_id',
+            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
+            'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, 'PortfolioWork', 'category_id',
+            'items_count' => [self::STAT, \PortfolioWork::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

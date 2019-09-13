@@ -42,7 +42,7 @@ class PageModule extends DWebModule
         return [
             'page/page/show' => 'site/error',
             'page/page' => 'site/error',
-            ['class' => 'page.components.DPageUrlRule', 'cache' => 3600 * 24],
+            ['class' => \DPageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 }

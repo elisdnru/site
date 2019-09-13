@@ -9,26 +9,24 @@ use CJSON;
 use DAdminController;
 use Yii;
 
-Yii::import('application.modules.crud.components.*');
-
 class PostAdminController extends DAdminController
 {
     public function actions()
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
             'toggle' => [
-                'class' => 'DToggleAction',
+                'class' => \DToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

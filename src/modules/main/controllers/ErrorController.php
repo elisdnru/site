@@ -7,8 +7,6 @@ use DController;
 use Page;
 use Yii;
 
-Yii::import('application.modules.page.models.Page');
-
 class ErrorController extends DController
 {
     public function actionIndex()

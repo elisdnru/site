@@ -14,9 +14,6 @@ use DController;
 use DDateLimiter;
 use Page;
 use Tags;
-use Yii;
-
-Yii::import('application.modules.page.models.*');
 
 class DefaultController extends DController
 {

@@ -10,7 +10,7 @@
  * {
  *     return array(
  *         'PurifyText'=>array(
- *             'class'=>'DPurifyTextBehavior',
+ *             'class'=>\DPurifyTextBehavior::class,
  *             'sourceAttribute'=>'text',
  *             'destinationAttribute'=>'purified_text',
  *             'purifierOptions'=> array(

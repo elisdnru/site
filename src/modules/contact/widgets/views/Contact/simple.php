@@ -1,4 +1,4 @@
-<?php $form = $this->beginWidget('DPortlet', ['title' => 'Обратная связь']); ?>
+<?php $form = $this->beginWidget(\DPortlet::class, ['title' => 'Обратная связь']); ?>
 
 <?php if (Yii::app()->user->hasFlash('contactForm')) : ?>
     <div class="flash-success">
@@ -9,7 +9,7 @@
 
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'action' => '#contact-form',
         'id' => 'contact-form',
         'enableClientValidation' => false,

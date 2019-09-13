@@ -6,11 +6,11 @@ $this->breadcrumbs = [
 ];
 ?>
 
-<?php $this->beginWidget('DPortlet', ['title' => 'Регистрация']); ?>
+<?php $this->beginWidget(\DPortlet::class, ['title' => 'Регистрация']); ?>
 
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'register-form',
         'enableAjaxValidation' => false,
     ]); ?>

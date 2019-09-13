@@ -1,13 +1,11 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
-
 class BlogProcessingTest extends DbTestCase
 {
     public $fixtures = [
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>'BlogPostGroup',
+        'blog_postGroup'=>\BlogPostGroup::class,
         'user'=>'User',
     ];
 

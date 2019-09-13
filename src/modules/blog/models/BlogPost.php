@@ -1,9 +1,5 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
-Yii::import('application.modules.user.models.User');
-Yii::import('application.modules.comment.components.DICommentDepends');
-
 /**
  * This is the model class for table "{{new}}".
  *
@@ -74,9 +70,9 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', 'DExistOrEmpty', 'className' => 'User', 'attributeName' => 'id'],
-            ['category_id', 'exist', 'className' => 'BlogCategory', 'attributeName' => 'id'],
-            ['group_id', 'DExistOrEmpty', 'className' => 'BlogPostGroup', 'attributeName' => 'id'],
+            ['author_id', \DExistOrEmpty::class, 'className' => \User::class, 'attributeName' => 'id'],
+            ['category_id', 'exist', 'className' => \BlogCategory::class, 'attributeName' => 'id'],
+            ['group_id', \DExistOrEmpty::class, 'className' => \BlogPostGroup::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
@@ -99,11 +95,11 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, 'BlogCategory', 'category_id'],
-            'author' => [self::BELONGS_TO, 'User', 'author_id'],
-            'group' => [self::BELONGS_TO, 'BlogPostGroup', 'group_id'],
-            'posttags' => [self::HAS_MANY, 'BlogPostTag', 'post_id'],
-            'tags' => [self::MANY_MANY, 'BlogTag', '{{blog_post_tag}}(post_id, tag_id)', 'order' => 'tags.title'],
+            'category' => [self::BELONGS_TO, \BlogCategory::class, 'category_id'],
+            'author' => [self::BELONGS_TO, \User::class, 'author_id'],
+            'group' => [self::BELONGS_TO, \BlogPostGroup::class, 'group_id'],
+            'posttags' => [self::HAS_MANY, \BlogPostTag::class, 'post_id'],
+            'tags' => [self::MANY_MANY, \BlogTag::class, '{{blog_post_tag}}(post_id, tag_id)', 'order' => 'tags.title'],
         ];
     }
 
@@ -206,7 +202,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'updateAttribute' => 'update_date',
             ],
             'PurifyShort' => [
-                'class' => 'DPurifyTextBehavior',
+                'class' => \DPurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -216,7 +212,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => 'DPurifyTextBehavior',
+                'class' => \DPurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
@@ -231,7 +227,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => 'uploader.components.DFileUploadBehavior',
+                'class' => \DFileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -241,7 +237,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'imageHeightAttribute' => 'image_height',
             ],
             'PingBehavior' => [
-                'class' => 'DPingBehavior',
+                'class' => \DPingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

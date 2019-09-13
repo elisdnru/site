@@ -13,8 +13,6 @@ use PortfolioWork;
 use Tags;
 use Yii;
 
-Yii::import('application.modules.page.models.*');
-
 class DefaultController extends PortfolioBaseController
 {
     private const PER_PAGE = 9;

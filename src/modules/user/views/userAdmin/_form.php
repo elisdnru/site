@@ -1,6 +1,6 @@
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'user-form',
         'enableAjaxValidation' => true,
         'enableClientValidation' => true,

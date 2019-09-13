@@ -1,6 +1,5 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
 DUrlRulesHelper::import('blog');
 
 class BlogSearchFormWidget extends DWidget

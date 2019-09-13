@@ -6,9 +6,6 @@ use BlogPost;
 use BlogPostGroup;
 use CHttpException;
 use DAdminController;
-use Yii;
-
-Yii::import('application.modules.crud.components.*');
 
 /**
  * @method renderTableForm($params)
@@ -18,23 +15,23 @@ class GroupAdminController extends DAdminController
     public function actions()
     {
         return [
-            'delete' => 'DDeleteAction',
+            'delete' => \DDeleteAction::class,
         ];
     }
 
     public function behaviors()
     {
         return array_replace(parent::behaviors(), [
-            'tableInputBehavior' => ['class' => 'DTableInputBehavior'],
+            'tableInputBehavior' => ['class' => \DTableInputBehavior::class],
         ]);
     }
 
     public function actionIndex()
     {
         $this->renderTableForm([
-            'class' => 'BlogPostGroup',
+            'class' => BlogPostGroup::class,
             'order' => 'title ASC',
-            'form' => 'BlogPostGroupForm',
+            'form' => \BlogPostGroupForm::class,
             'view' => 'index',
         ]);
     }

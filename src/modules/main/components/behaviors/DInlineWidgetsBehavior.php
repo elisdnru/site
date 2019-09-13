@@ -129,11 +129,9 @@ class DInlineWidgetsBehavior extends CBehavior
     protected function _processWidgets($text)
     {
         if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text)) {
-            foreach ($this->widgets as $alias) {
-                $widget = $this->_getClassByAlias($alias);
-
-                while (preg_match('#\{' . $this->_widgetToken . ':' . $widget . '(\|([^}]*)?)?' . $this->_widgetToken . '\}#is', $text, $p)) {
-                    $text = str_replace($p[0], $this->_loadWidget($alias, isset($p[2]) ? $p[2] : ''), $text);
+            foreach ($this->widgets as $alias => $class) {
+                while (preg_match('#\{' . $this->_widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->_widgetToken . '\}#is', $text, $p)) {
+                    $text = str_replace($p[0], $this->_loadWidget($class, isset($p[2]) ? $p[2] : ''), $text);
                 }
             }
             return $text;
@@ -165,18 +163,17 @@ class DInlineWidgetsBehavior extends CBehavior
         return $output;
     }
 
-    protected function _loadWidget($name, $attributes = '')
+    protected function _loadWidget($widgetClass, $attributes = '')
     {
         $attrs = $this->_parseAttributes($attributes);
         $cache = $this->_extractCacheExpireTime($attrs);
 
-        $index = 'widget_' . $name . '_' . serialize($attrs);
+        $index = 'widget_' . $widgetClass . '_' . serialize($attrs);
 
         if ($cache && $cachedHtml = Yii::app()->cache->get($index)) {
             $html = $cachedHtml;
         } else {
             ob_start();
-            $widgetClass = $this->_getFullClassName($name);
             $widget = Yii::app()->getWidgetFactory()->createWidget($this->owner, $widgetClass, $attrs);
             $widget->init();
             $widget->run();
@@ -213,20 +210,5 @@ class DInlineWidgetsBehavior extends CBehavior
             unset($attrs['cache']);
         }
         return $cache;
-    }
-
-    protected function _getFullClassName($name)
-    {
-        $widgetClass = $name . $this->classSuffix;
-        if ($this->_getClassByAlias($widgetClass) == $widgetClass && $this->location) {
-            $widgetClass = $this->location . '.' . $widgetClass;
-        }
-        return $widgetClass;
-    }
-
-    protected function _getClassByAlias($alias)
-    {
-        $paths = explode('.', $alias);
-        return array_pop($paths);
     }
 }

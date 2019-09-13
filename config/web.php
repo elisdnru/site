@@ -5,7 +5,7 @@ return array_replace_recursive(
     [
         'components' => [
             'request' => [
-                'class' => 'DHttpRequest',
+                'class' => \DHttpRequest::class,
                 'baseUrl' => '',
                 'noCsrfValidationUris' => [
                     '^file/fileAdmin/(upload|checkexists).*$',

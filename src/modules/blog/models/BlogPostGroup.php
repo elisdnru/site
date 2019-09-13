@@ -32,11 +32,11 @@ class BlogPostGroup extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'posts' => [self::HAS_MANY, 'BlogPost', 'group_id',
+            'posts' => [self::HAS_MANY, \BlogPost::class, 'group_id',
                 'condition' => 'posts.public=1',
                 'order' => 'posts.date DESC, posts.id DESC'
             ],
-            'posts_count' => [self::STAT, 'BlogPost', 'group_id'],
+            'posts_count' => [self::STAT, \BlogPost::class, 'group_id'],
         ];
     }
 
@@ -90,7 +90,7 @@ class BlogPostGroup extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => 'category.components.DCategoryBehavior',
+                'class' => \DCategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'defaultCriteria' => [
                     'order' => 't.title ASC'

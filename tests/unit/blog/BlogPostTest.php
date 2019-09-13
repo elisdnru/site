@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
-
 class BlogPostTest extends DbTestCase
 {
 
@@ -14,7 +12,7 @@ class BlogPostTest extends DbTestCase
         'comment'=>'BlogPostComment',
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>'BlogPostGroup',
+        'blog_postGroup'=>\BlogPostGroup::class,
         'user'=>'User',
     ];
 
@@ -139,7 +137,7 @@ class BlogPostTest extends DbTestCase
     public function testBelongsToGroup()
     {
         $post = $this->blog_post('post_with_group');
-        $this->assertInstanceOf('BlogPostGroup', $post->group);
+        $this->assertInstanceOf(\BlogPostGroup::class, $post->group);
     }
 
     public function testSafeAttributesOnSearchScenario()

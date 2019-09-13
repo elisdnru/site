@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.search.models.*');
-
 class SearchFormWidget extends DWidget
 {
     public $tpl = 'SearchForm';

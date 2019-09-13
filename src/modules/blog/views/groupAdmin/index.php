@@ -53,7 +53,7 @@ $this->info = 'Нельзя удалить группу, пока в ней ес
 <br />
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'category-form',
         'enableClientValidation' => true,
         'clientOptions' => [

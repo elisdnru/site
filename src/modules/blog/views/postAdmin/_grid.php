@@ -14,7 +14,7 @@
         ],
         [
             'name' => 'title',
-            'class' => 'DLinkColumn',
+            'class' => \DLinkColumn::class,
         ],
         [
             'name' => 'category_id',
@@ -34,7 +34,7 @@
             'value' => '$data->group ? $data->group->title : ""',
         ],
         [
-            'class' => 'DToggleColumn',
+            'class' => \DToggleColumn::class,
             'name' => 'public',
             'header' => 'О',
             'filter' => [1 => 'Опубликовано', 0 => 'Не опубликовано'],
@@ -42,15 +42,15 @@
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

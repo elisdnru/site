@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.user.components.*');
-
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping

@@ -9,8 +9,6 @@ use DFileHelper;
 use DTextHelper;
 use Yii;
 
-Yii::import('application.modules.uploader.components.DFileHelper');
-
 class FileAdminController extends DAdminController
 {
     const THUMB_IMAGE_WIDTH = 84;

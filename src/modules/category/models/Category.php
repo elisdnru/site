@@ -116,7 +116,7 @@ abstract class Category extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => 'category.components.DCategoryBehavior',
+                'class' => \DCategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'requestPathAttribute' => 'category',

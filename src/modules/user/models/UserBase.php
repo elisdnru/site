@@ -1,8 +1,5 @@
 <?php
 
-Yii::import('application.modules.comment.models.*');
-Yii::import('application.modules.attribute.components.*');
-
 /**
  * This is the model class for table "{{user}}".
  *
@@ -115,7 +112,7 @@ abstract class UserBase extends CActiveRecord
                 'username',
                 'unique',
                 'caseSensitive' => false,
-                'className' => 'User',
+                'className' => \User::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -158,7 +155,7 @@ abstract class UserBase extends CActiveRecord
                 'email',
                 'unique',
                 'caseSensitive' => false,
-                'className' => 'User',
+                'className' => \User::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -266,9 +263,9 @@ abstract class UserBase extends CActiveRecord
     public function relations()
     {
         return [
-            'access_pages' => [self::HAS_MANY, 'UserPage', 'user_id'],
-            'access_pages_full' => [self::MANY_MANY, 'Page', 'user_page(user_id, page_id)'],
-            'comments_count_real' => [self::STAT, 'Comment', 'user_id',
+            'access_pages' => [self::HAS_MANY, \UserPage::class, 'user_id'],
+            'access_pages_full' => [self::MANY_MANY, \Page::class, 'user_page(user_id, page_id)'],
+            'comments_count_real' => [self::STAT, \Comment::class, 'user_id',
                 'condition' => 'public=1',
             ],
         ];
@@ -373,7 +370,7 @@ abstract class UserBase extends CActiveRecord
                 'setUpdateOnCreate' => true,
             ],
             'ImageUpload' => [
-                'class' => 'uploader.components.DFileUploadBehavior',
+                'class' => \DFileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,

@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.block.models.*');
-
 class BlockWidget extends DWidget
 {
     public $tpl = 'default';

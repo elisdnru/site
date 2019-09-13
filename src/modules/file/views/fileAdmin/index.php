@@ -159,7 +159,7 @@ $('.allfiles_checkbox').click(function () {
 
     <p id="status-message">Выберите файлы для загрузки (щелкнув по кнопке):</p>
 
-    <?php $this->widget('file.extensions.uploadify.MUploadify', [
+    <?php $this->widget(\MUploadify::class, [
         'name' => 'Filedata',
         'script' => $this->createUrl('upload', ['path' => $path]),
         'checkScript' => $this->createUrl('checkexists', ['path' => $path]),

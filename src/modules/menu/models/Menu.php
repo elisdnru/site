@@ -70,7 +70,7 @@ class Menu extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'child_items' => [self::HAS_MANY, 'Menu', 'parent_id',
+            'child_items' => [self::HAS_MANY, \Menu::class, 'parent_id',
                 'order' => 'child_items.sort ASC, child_items.title ASC'
             ],
         ];
@@ -125,7 +125,7 @@ class Menu extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => 'category.components.DCategoryTreeBehavior',
+                'class' => \DCategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

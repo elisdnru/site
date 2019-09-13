@@ -8,8 +8,6 @@ use DController;
 use EFeed;
 use Yii;
 
-Yii::import('application.extensions.feed.*');
-
 class FeedController extends DController
 {
     public function actionIndex()

@@ -1,8 +1,5 @@
 <?php
 
-
-Yii::import('application.modules.user.models.*');
-
 class DUserBehavior extends CBehavior
 {
     protected $_user;

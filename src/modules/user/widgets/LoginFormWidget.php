@@ -1,6 +1,5 @@
 <?php
 
-Yii::import('application.modules.user.models.*');
 DUrlRulesHelper::import('user');
 DUrlRulesHelper::import('users');
 

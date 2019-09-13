@@ -1,8 +1,5 @@
 <?php
 
-
-Yii::import('application.components.IXR_Library', true);
-
 class DRPCManager extends CApplicationComponent
 {
     public function pingPage($pageURL)

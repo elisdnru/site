@@ -2,7 +2,6 @@
 
 use app\modules\portfolio\PortfolioModule;
 
-Yii::import('application.modules.portfolio.models.*');
 DUrlRulesHelper::import('portfolio');
 
 class PortfolioWidget extends DWidget

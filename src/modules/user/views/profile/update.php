@@ -10,11 +10,11 @@ if ($this->is(Access::ROLE_CONTROL)) {
     $this->info = 'Управлять пользователями Вы можете в панели управления';
 } ?>
 
-<?php $this->beginWidget('DPortlet', ['title' => 'Редактировать профиль']); ?>
+<?php $this->beginWidget(\DPortlet::class, ['title' => 'Редактировать профиль']); ?>
 
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', [
+    <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'settings-form',
         'enableClientValidation' => true,
         'clientOptions' => [

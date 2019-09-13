@@ -49,8 +49,8 @@ class UserPage extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'user' => [self::BELONGS_TO, 'User', 'user_id'],
-            'page' => [self::BELONGS_TO, 'Page', 'page_id'],
+            'user' => [self::BELONGS_TO, \User::class, 'user_id'],
+            'page' => [self::BELONGS_TO, \Page::class, 'page_id'],
         ];
     }
 

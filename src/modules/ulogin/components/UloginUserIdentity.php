@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.user.models.*');
-
 class UloginUserIdentity extends CUserIdentity
 {
     private $id;

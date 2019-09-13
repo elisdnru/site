@@ -8,19 +8,19 @@
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => 'DIndentLinkColumn',
+            'class' => \DIndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => 'DLinkColumn',
+            'class' => \DLinkColumn::class,
             'name' => 'link',
         ],
         [
-            'class' => 'DLinkColumn',
+            'class' => \DLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => 'DToggleColumn',
+            'class' => \DToggleColumn::class,
             'name' => 'visible',
             'header' => 'В',
             'filter' => [1 => 'Видимые', 0 => 'Скрытые'],
@@ -28,16 +28,16 @@
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->link',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

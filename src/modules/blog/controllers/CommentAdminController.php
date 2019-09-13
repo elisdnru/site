@@ -5,9 +5,6 @@ namespace app\modules\blog\controllers;
 use BlogPost;
 use CHttpException;
 use CommentAdminControllerBase;
-use Yii;
-
-Yii::import('application.modules.comment.components.*');
 
 class CommentAdminController extends CommentAdminControllerBase
 {

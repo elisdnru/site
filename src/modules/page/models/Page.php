@@ -1,8 +1,5 @@
 <?php
 
-Yii::import('application.modules.category.components.*');
-Yii::import('application.modules.page.models.*');
-
 /**
  * This is the model class for table "{{page}}".
  *
@@ -98,14 +95,14 @@ class Page extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'layout' => [self::BELONGS_TO, 'PageLayout', 'layout_id'],
-            'layout_subpages' => [self::BELONGS_TO, 'PageLayoutSubpages', 'layout_subpages_id'],
-            'parent' => [self::BELONGS_TO, 'Page', 'parent_id'],
-            'child_pages' => [self::HAS_MANY, 'Page', 'parent_id',
+            'layout' => [self::BELONGS_TO, \PageLayout::class, 'layout_id'],
+            'layout_subpages' => [self::BELONGS_TO, \PageLayoutSubpages::class, 'layout_subpages_id'],
+            'parent' => [self::BELONGS_TO, \Page::class, 'parent_id'],
+            'child_pages' => [self::HAS_MANY, \Page::class, 'parent_id',
                 'order' => 'child_pages.id ASC'
             ],
-            'child_pages_count' => [self::STAT, 'Page', 'parent_id'],
-            'files' => [self::HAS_MANY, 'PageFile', 'material_id',
+            'child_pages_count' => [self::STAT, \Page::class, 'parent_id'],
+            'files' => [self::HAS_MANY, \PageFile::class, 'material_id',
                 'order' => 'files.title DESC'
             ],
         ];
@@ -181,7 +178,7 @@ class Page extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => 'DCategoryTreeBehavior',
+                'class' => \DCategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
@@ -192,7 +189,7 @@ class Page extends CActiveRecord
                 ],
             ],
             'PurifyText' => [
-                'class' => 'DPurifyTextBehavior',
+                'class' => \DPurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -205,7 +202,7 @@ class Page extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => 'uploader.components.DFileUploadBehavior',
+                'class' => \DFileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -213,7 +210,7 @@ class Page extends CActiveRecord
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
             ],
             'PingBehavior' => [
-                'class' => 'DPingBehavior',
+                'class' => \DPingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

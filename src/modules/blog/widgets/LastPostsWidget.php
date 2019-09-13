@@ -1,6 +1,5 @@
 <?php
 
-Yii::import('application.modules.blog.models.BlogPost');
 DUrlRulesHelper::import('blog');
 
 class LastPostsWidget extends DWidget

@@ -50,8 +50,6 @@
         </div>
 
         <nav id="main_nav">
-            <?php Yii::import('menu.models.*'); ?>
-
             <?php $this->widget('zii.widgets.CMenu', [
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
         </nav>
@@ -97,7 +95,7 @@
 
         <!--noindex-->
         <div class="nav">
-            <?php $this->beginWidget('DNofollowWidget'); ?>
+            <?php $this->beginWidget(\DNofollowWidget::class); ?>
             <?php $this->widget('zii.widgets.CMenu', [
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
             <?php $this->endWidget(); ?>

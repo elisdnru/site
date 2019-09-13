@@ -1,7 +1,6 @@
 <?php
 
 /**
-
  *
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.
@@ -43,14 +42,14 @@ class DController extends Controller
     public function behaviors()
     {
         return array_merge(parent::behaviors(), [
-            'DModuleAccessBehavior' => ['class' => 'application.components.module.DModuleAccessBehavior'],
-            'DUserBehavior' => ['class' => 'DUserBehavior'],
-            'DFlashSessionBehavior' => ['class' => 'DFlashSessionBehavior'],
-            'DHeadersBehavior' => ['class' => 'DHeadersBehavior'],
-            'DLiveLayoutBehavior' => ['class' => 'DLiveLayoutBehavior'],
-            'DJsInitBehavior' => ['class' => 'DJsInitBehavior'],
+            'DModuleAccessBehavior' => ['class' => \DModuleAccessBehavior::class],
+            'DUserBehavior' => ['class' => \DUserBehavior::class],
+            'DFlashSessionBehavior' => ['class' => \DFlashSessionBehavior::class],
+            'DHeadersBehavior' => ['class' => \DHeadersBehavior::class],
+            'DLiveLayoutBehavior' => ['class' => \DLiveLayoutBehavior::class],
+            'DJsInitBehavior' => ['class' => \DJsInitBehavior::class],
             'DInlineWidgetsBehavior' => [
-                'class' => 'DInlineWidgetsBehavior',
+                'class' => \DInlineWidgetsBehavior::class,
                 'location' => 'application.widgets',
                 'widgets' => Yii::app()->params['runtimeWidgets'],
                 'classSuffix' => 'Widget',

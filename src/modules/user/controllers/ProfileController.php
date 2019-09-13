@@ -9,8 +9,6 @@ use DController;
 use User;
 use Yii;
 
-Yii::import('application.modules.crud.components.*');
-
 class ProfileController extends DController
 {
     public function filters()
@@ -35,8 +33,8 @@ class ProfileController extends DController
     public function actions()
     {
         return [
-            'index' => 'DUpdateAction',
-            'view' => 'DViewAction',
+            'index' => \DUpdateAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

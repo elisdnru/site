@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.ulogin.components.UloginUserIdentity');
-
 class UloginModel extends CModel
 {
 

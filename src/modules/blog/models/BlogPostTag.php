@@ -52,7 +52,7 @@ class BlogPostTag extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'tag' => [self::BELONGS_TO, 'BlogTag', 'tag_id'],
+            'tag' => [self::BELONGS_TO, \BlogTag::class, 'tag_id'],
         ];
     }
 

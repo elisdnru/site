@@ -1,6 +1,5 @@
 <?php
 
-Yii::import('application.modules.menu.models.*');
 DUrlRulesHelper::import('menu');
 
 class MenuWidget extends DWidget

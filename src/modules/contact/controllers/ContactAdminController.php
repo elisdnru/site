@@ -5,9 +5,6 @@ namespace app\modules\contact\controllers;
 use CHttpException;
 use Contact;
 use DAdminController;
-use Yii;
-
-Yii::import('application.modules.crud.components.*');
 
 class ContactAdminController extends DAdminController
 {
@@ -17,13 +14,13 @@ class ContactAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'toggle' => ['class' => 'DToggleAction', 'attributes' => ['status']],
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'toggle' => ['class' => \DToggleAction::class, 'attributes' => ['status']],
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

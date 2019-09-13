@@ -24,7 +24,7 @@
             'name' => 'pagetitle',
         ],
         [
-            'class' => 'DToggleColumn',
+            'class' => \DToggleColumn::class,
             'name' => 'status',
             'header' => 'П',
             'filter' => [1 => 'Прочитано', 0 => 'Новое'],
@@ -33,11 +33,11 @@
             'offImageUrl' => '/images/admin/message.png',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

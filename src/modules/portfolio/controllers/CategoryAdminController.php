@@ -6,9 +6,6 @@ use CHttpException;
 use DAdminController;
 use PortfolioCategory;
 use PortfolioWork;
-use Yii;
-
-Yii::import('application.modules.crud.components.*');
 
 class CategoryAdminController extends DAdminController
 {
@@ -16,14 +13,14 @@ class CategoryAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

@@ -42,7 +42,6 @@ class BlogModule extends DWebModule
 
     public static function notifications()
     {
-        Yii::import('application.modules.blog.models.BlogPostComment');
         $comments = BlogPostComment::model()->count([
             'condition' => 'moder=0 AND type=:type',
             'params' => [':type' => BlogPostComment::TYPE_OF_COMMENT],

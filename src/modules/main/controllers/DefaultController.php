@@ -7,8 +7,6 @@ use Page;
 use Tags;
 use Yii;
 
-Yii::import('application.modules.page.models.Page');
-
 class DefaultController extends DController
 {
     public function actionIndex()

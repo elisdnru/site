@@ -1,5 +1,5 @@
 <?php if (count($posts)) : ?>
-    <?php $this->beginWidget('DPortlet', ['title' => null]); ?>
+    <?php $this->beginWidget(\DPortlet::class, ['title' => null]); ?>
     <h4>Последние записи:</h4>
 
     <?php foreach ($posts as $post) : ?>

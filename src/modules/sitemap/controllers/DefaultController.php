@@ -17,7 +17,6 @@ class DefaultController extends DController
     {
         $models = [];
 
-        Yii::import('application.modules.page.models.*');
         DUrlRulesHelper::import('page');
 
         $models['Page'] = Page::model()->cache(0, new Tags('page'))->findAll([
@@ -25,14 +24,12 @@ class DefaultController extends DController
             'order' => 'title ASC',
         ]);
 
-        Yii::import('application.modules.blog.models.*');
         DUrlRulesHelper::import('blog');
 
         $models['BlogPost'] = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll([
             'order' => 'title ASC',
         ]);
 
-        Yii::import('application.modules.portfolio.models.*');
         DUrlRulesHelper::import('portfolio');
 
         $models['PortfolioWork'] = PortfolioWork::model()->cache(0, new Tags('portfolio'))->published()->findAll([
@@ -50,17 +47,14 @@ class DefaultController extends DController
         if (!$xml = Yii::app()->cache->get('sitemap_xml')) {
             $sitemap = new DSitemap();
 
-            Yii::import('application.modules.page.models.*');
             DUrlRulesHelper::import('page');
 
             $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), DSitemap::WEEKLY);
 
-            Yii::import('application.modules.blog.models.*');
             DUrlRulesHelper::import('blog');
 
             $sitemap->addModels(BlogPost::model()->published()->findAll(), DSitemap::DAILY, 0.8);
 
-            Yii::import('application.modules.portfolio.models.*');
             DUrlRulesHelper::import('portfolio');
 
             $sitemap->addModels(PortfolioWork::model()->findAll(), DSitemap::WEEKLY);

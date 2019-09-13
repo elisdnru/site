@@ -5,9 +5,6 @@ namespace app\modules\block\controllers;
 use Block;
 use CHttpException;
 use DAdminController;
-use Yii;
-
-Yii::import('application.modules.crud.components.*');
 
 class BlockAdminController extends DAdminController
 {
@@ -15,14 +12,14 @@ class BlockAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

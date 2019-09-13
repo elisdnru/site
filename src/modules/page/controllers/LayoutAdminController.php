@@ -5,10 +5,6 @@ namespace app\modules\page\controllers;
 use CHttpException;
 use DAdminController;
 use PageLayout;
-use Yii;
-
-Yii::import('application.modules.page.models.*');
-Yii::import('application.modules.crud.components.*');
 
 class LayoutAdminController extends DAdminController
 {
@@ -16,14 +12,14 @@ class LayoutAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

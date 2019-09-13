@@ -41,7 +41,7 @@ abstract class TreeCategory extends Category
     public function rules()
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', 'DExistOrEmpty', 'className' => get_class($this), 'attributeName' => 'id'],
+            ['parent_id', \DExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
             ['parent_id', 'safe', 'on' => 'search'],
         ]);
     }
@@ -92,7 +92,7 @@ abstract class TreeCategory extends Category
     {
         return array_replace(parent::behaviors(), [
             'CategoryBehavior' => [
-                'class' => 'category.components.DCategoryTreeBehavior',
+                'class' => \DCategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

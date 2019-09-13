@@ -19,7 +19,7 @@ class DefaultController extends DController
     {
         return [
             'captcha' => [
-                'class' => 'DCaptchaAction',
+                'class' => \DCaptchaAction::class,
             ],
         ];
     }

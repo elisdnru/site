@@ -5,10 +5,6 @@ namespace app\modules\menu\controllers;
 use CHttpException;
 use DAdminController;
 use Menu;
-use Yii;
-
-Yii::import('application.modules.crud.components.*');
-Yii::import('application.modules.page.models.*');
 
 class MenuAdminController extends DAdminController
 {
@@ -16,18 +12,18 @@ class MenuAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
             'toggle' => [
-                'class' => 'DToggleAction',
+                'class' => \DToggleAction::class,
                 'attributes' => ['visible']
             ],
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

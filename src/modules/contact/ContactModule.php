@@ -4,7 +4,6 @@ namespace app\modules\contact;
 
 use Contact;
 use DWebModule;
-use Yii;
 
 class ContactModule extends DWebModule
 {
@@ -26,8 +25,6 @@ class ContactModule extends DWebModule
 
     public static function notifications()
     {
-        Yii::import('application.modules.contact.models.Contact');
-
         $messages = Contact::model()->count('status=' . Contact::STATUS_NEW);
 
         return [

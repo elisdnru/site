@@ -24,7 +24,7 @@ class User extends UserBase
         return array_merge(parent::rules(), [
             // Settings
             // array('old_password', 'required', 'on' => 'settings'),
-            ['old_password', 'DCurrentPassword', 'className' => 'User', 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
+            ['old_password', \DCurrentPassword::class, 'className' => \User::class, 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
         ]);
     }
 

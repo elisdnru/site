@@ -6,10 +6,6 @@ use CHttpException;
 use DController;
 use Tags;
 use User;
-use Yii;
-
-Yii::import('application.modules.crud.components.*');
-Yii::import('application.modules.user.models.*');
 
 class UsersController extends DController
 {
@@ -17,7 +13,7 @@ class UsersController extends DController
     {
         return [
             'index' => [
-                'class' => 'DIndexAction',
+                'class' => \DIndexAction::class,
                 'view' => 'index',
                 'ajaxView' => '_loop'
             ],

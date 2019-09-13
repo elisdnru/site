@@ -5,7 +5,7 @@ Yii::app()->clientScript->registerCssFile($url);
 
 <div id="comment-form" class="form">
 
-    <?php $f = $this->beginWidget('CActiveForm', [
+    <?php $f = $this->beginWidget(\CActiveForm::class, [
         'action' => '#comment-form',
         'enableClientValidation' => false,
         'clientOptions' => [

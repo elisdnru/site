@@ -9,8 +9,6 @@ use DAdminController;
 use PortfolioWork;
 use Yii;
 
-Yii::import('application.modules.crud.components.*');
-
 class WorkAdminController extends DAdminController
 {
     const ITEMS_PER_PAGE = 50;
@@ -25,14 +23,14 @@ class WorkAdminController extends DAdminController
     public function actions()
     {
         return [
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
             'toggle' => [
-                'class' => 'DToggleAction',
+                'class' => \DToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

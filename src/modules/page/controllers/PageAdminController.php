@@ -8,8 +8,6 @@ use Page;
 use PageFile;
 use Yii;
 
-Yii::import('application.modules.crud.components.*');
-
 class PageAdminController extends DAdminController
 {
     public function filters()
@@ -23,14 +21,14 @@ class PageAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => 'DAdminAction',
+                'class' => \DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => 'DCreateAction',
-            'update' => 'DUpdateAction',
-            'delete' => 'DDeleteAction',
-            'view' => 'DViewAction',
+            'create' => \DCreateAction::class,
+            'update' => \DUpdateAction::class,
+            'delete' => \DDeleteAction::class,
+            'view' => \DViewAction::class,
         ];
     }
 

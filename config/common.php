@@ -42,6 +42,31 @@ return [
 
     'import' => [
         'application.components.*',
+        'application.components.module.*',
+        'application.extensions.cachetagging.*',
+        'application.extensions.email.*',
+        'application.extensions.feed.*',
+        'application.extensions.file.*',
+        'application.extensions.image.*',
+        'application.extensions.JMSyntaxHighlighter.*',
+        'application.extensions.migrate.*',
+        'application.modules.block.models.*',
+        'application.modules.block.widgets.*',
+        'application.modules.blog.extensions.multicomplete.*',
+        'application.modules.blog.models.*',
+        'application.modules.blog.widgets.*',
+        'application.modules.category.components.*',
+        'application.modules.category.models.*',
+        'application.modules.colorbox.widgets.*',
+        'application.modules.comment.components.*',
+        'application.modules.comment.models.*',
+        'application.modules.comment.widgets.*',
+        'application.modules.contact.models.*',
+        'application.modules.contact.widgets.*',
+        'application.modules.crud.components.*',
+        'application.modules.file.models.*',
+        'application.modules.file.extensions.uploadify.*',
+        'application.modules.follow.widgets.*',
         'application.modules.main.components.actions.*',
         'application.modules.main.components.arbehaviors.*',
         'application.modules.main.components.behaviors.*',
@@ -49,10 +74,28 @@ return [
         'application.modules.main.components.system.*',
         'application.modules.main.components.widgets.*',
         'application.modules.main.components.*',
+        'application.modules.main.widgets.*',
+        'application.modules.menu.models.*',
+        'application.modules.menu.widgets.*',
+        'application.modules.page.components.*',
+        'application.modules.page.models.*',
+        'application.modules.page.widgets.*',
+        'application.modules.portfolio.components.*',
+        'application.modules.portfolio.models.*',
+        'application.modules.portfolio.widgets.*',
+        'application.modules.search.components.*',
+        'application.modules.search.models.*',
+        'application.modules.search.widgets.*',
+        'application.modules.share.widgets.*',
+        'application.modules.sitemap.components.*',
+        'application.modules.tinymce.widgets.*',
+        'application.modules.ulogin.components.*',
+        'application.modules.ulogin.models.*',
+        'application.modules.ulogin.widgets.*',
+        'application.modules.uploader.components.*',
         'application.modules.user.components.*',
         'application.modules.user.models.*',
-        'application.components.module.DUrlRulesHelper',
-        'application.extensions.cachetagging.Tags',
+        'application.modules.user.widgets.*',
     ],
 
     'modules' => $modules,
@@ -60,7 +103,7 @@ return [
     'components' => [
 
         'urlManager' => [
-            'class' => 'DUrlManager',
+            'class' => \DUrlManager::class,
             'urlFormat' => 'path',
             'showScriptName' => false,
             'useStrictParsing' => true,
@@ -73,7 +116,7 @@ return [
         ],
 
         'user' => [
-            'class' => 'application.modules.user.components.WebUser',
+            'class' => \WebUser::class,
             'allowAutoLogin' => true,
             'loginUrl' => ['/user/default/login'],
         ],
@@ -107,12 +150,12 @@ return [
         ],
 
         'authManager' => [
-            'class' => 'application.modules.user.components.PhpAuthManager',
+            'class' => \PhpAuthManager::class,
             'defaultRoles' => ['role_guest'],
         ],
 
         'moduleManager' => [
-            'class' => 'application.components.module.DModuleManager',
+            'class' => \DModuleManager::class,
         ],
 
         'errorHandler' => [
@@ -120,15 +163,15 @@ return [
         ],
 
         'image' => [
-            'class' => 'ext.image.CImageHandler',
+            'class' => CImageHandler::class,
         ],
 
         'file' => [
-            'class' => 'ext.file.CFile',
+            'class' => CFile::class,
         ],
 
         'uploader' => [
-            'class' => 'application.modules.uploader.components.DUploadManager',
+            'class' => \DUploadManager::class,
             'origFileSalt' => 'adFxt0de',
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',
@@ -163,12 +206,12 @@ return [
         ],
 
         'email' => [
-            'class' => 'ext.email.Email',
+            'class' => \Email::class,
             'delivery' => 'php', //'php'|'debug'
         ],
 
         'rpcManager' => [
-            'class' => 'DRPCManager',
+            'class' => \DRPCManager::class,
         ],
 
         'widgetFactory' => [
@@ -176,25 +219,25 @@ return [
         ],
 
         'syntaxHighlighter' => [
-            'class' => 'ext.JMSyntaxHighlighter.JMSyntaxHighlighter',
+            'class' => \JMSyntaxHighlighter::class,
             'theme' => 'Eclipse',
         ],
 
         'log' => [
-            'class' => 'CLogRouter',
+            'class' => \CLogRouter::class,
             'routes' => [
                 [
-                    'class' => 'CFileLogRoute',
+                    'class' => \CFileLogRoute::class,
                     'levels' => 'error',
                     'logFile' => 'log_error.log',
                 ],
                 [
-                    'class' => 'CFileLogRoute',
+                    'class' => \CFileLogRoute::class,
                     'levels' => 'warning',
                     'logFile' => 'log_warning.log',
                 ],
                 [
-                    'class' => 'CFileLogRoute',
+                    'class' => \CFileLogRoute::class,
                     'levels' => 'info',
                     'logFile' => 'log_info.log',
                 ],
@@ -205,7 +248,7 @@ return [
             'class' => !getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
             'behaviors' => [
                 'tagging' => [
-                    'class' => 'ext.cachetagging.TaggingBehavior',
+                    'class' => \TaggingBehavior::class,
                 ],
             ],
         ],
@@ -217,7 +260,7 @@ return [
 
     'behaviors' => [
         [
-            'class' => 'application.components.module.DModuleUrlRulesBehavior',
+            'class' => \DModuleUrlRulesBehavior::class,
             'beforeCurrentModule' => [
                 'main',
                 'uploader',
@@ -235,13 +278,13 @@ return [
 
     'params' => [
         'runtimeWidgets' => [
-            'blog.widgets.LastPosts',
-            'page.widgets.SubPages',
-            'page.widgets.Page',
-            'menu.widgets.Menu',
-            'block.widgets.Block',
-            'contact.widgets.Contact',
-            'portfolio.widgets.Portfolio',
+            'lastPosts' => LastPostsWidget::class,
+            'subPages' => SubPagesWidget::class,
+            'page' => PageWidget::class,
+            'menu' => MenuWidget::class,
+            'block' => BlockWidget::class,
+            'contact' => ContactWidget::class,
+            'portfolio' => PortfolioWidget::class,
         ],
         'minimize_styles' => [],
         'minimize_scripts' => [],

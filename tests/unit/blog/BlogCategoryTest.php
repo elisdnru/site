@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.blog.models.*');
-
 class BlogCategoryTest extends DbTestCase
 {
     /**
@@ -12,7 +10,7 @@ class BlogCategoryTest extends DbTestCase
     public $fixtures = [
         'blog_post'=>'BlogPost',
         'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>'BlogPostGroup',
+        'blog_postGroup'=>\BlogPostGroup::class,
         'user'=>'User',
     ];
 

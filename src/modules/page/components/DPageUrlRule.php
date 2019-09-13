@@ -1,7 +1,5 @@
 <?php
 
-Yii::import('application.modules.page.models.*');
-
 class DPageUrlRule extends CBaseUrlRule
 {
     public $connectionID = 'db';

@@ -4,23 +4,23 @@
     'filter' => $model,
     'columns' => [
         [
-            'class' => 'DLinkColumn',
+            'class' => \DLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => 'DLinkColumn',
+            'class' => \DLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => 'DButtonColumn',
+            'class' => \DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],
