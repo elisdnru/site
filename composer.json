@@ -10,6 +10,7 @@
         "ext-iconv": "^7.1",
         "ext-json": "^1.5",
         "ext-mbstring": "^7.1",
+        "ext-xml": "^7.1",
         "symfony/dotenv": "^4.1",
         "yiisoft/yii": "^1.1"
     },
