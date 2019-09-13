@@ -1,8 +1,5 @@
 <?php
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 
 class DTreeActiveDataProvider extends CActiveDataProvider
 {

@@ -51,8 +51,7 @@
  * and manually process new values in Post::afterSave() method
  * or process in your controller after line $model->attributes=$_POST['Post'].
  *
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
+
  * @version 1.1
  */
 

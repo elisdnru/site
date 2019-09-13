@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
 class DUrlRulesHelper
 {
     protected static $data = [];

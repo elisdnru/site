@@ -1,8 +1,4 @@
 <?php
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
 
 class DModuleUrlRulesBehavior extends CBehavior
 {

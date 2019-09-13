@@ -1,8 +1,5 @@
 <?php
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 
 Yii::import('zii.widgets.grid.CDataColumn');
 

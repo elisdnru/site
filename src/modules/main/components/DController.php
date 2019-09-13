@@ -1,8 +1,7 @@
 <?php
 
 /**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
+
  *
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.

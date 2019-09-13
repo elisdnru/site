@@ -2,10 +2,7 @@
 
 Yii::import('application.modules.uploader.components.*');
 
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 
 Yii::import('ext.image.CImageHandler');
 

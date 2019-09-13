@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 class DSocNetworkHelper
 {
     const IMAGE_PATH = 'images/soc16/';

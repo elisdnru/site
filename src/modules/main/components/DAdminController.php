@@ -1,8 +1,5 @@
 <?php
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 
 abstract class DAdminController extends DController
 {

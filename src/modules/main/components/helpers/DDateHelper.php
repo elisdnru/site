@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 class DDateHelper
 {
     public static function normdate($date, $showTime = false, $showMonth = true)

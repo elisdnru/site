@@ -1,7 +1,6 @@
 <?php
 /**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
+
  *
  * @property string $year
  * @property string $month

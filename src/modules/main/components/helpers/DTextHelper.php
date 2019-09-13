@@ -3,8 +3,7 @@
 /*
  * Do not convert encoding of this file! Only cp-1251!
  *
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
+
  */
 
 class DTextHelper

@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 class DTableInputBehavior extends CBehavior
 {
     public function renderTableForm($params)

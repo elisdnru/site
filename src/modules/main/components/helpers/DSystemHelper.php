@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- */
+
 class DSystemHelper
 {
     public static function importRecursive($alias)

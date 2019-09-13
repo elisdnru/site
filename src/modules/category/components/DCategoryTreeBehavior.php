@@ -3,10 +3,6 @@
 Yii::import('application.modules.category.components.DCategoryBehavior');
 
 /**
- * @author ElisDN <mail@elisdn.ru>
- * @link http://www.elisdn.ru
- * @version 1.4
- *
  * @property string $parentAttribute
  * @property string $parentRelation
  *
