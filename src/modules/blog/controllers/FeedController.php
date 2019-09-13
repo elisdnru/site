@@ -3,7 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use BlogPost;
-use Chtml;
+use CHtml;
 use DController;
 use EFeed;
 use Yii;
@@ -40,7 +40,7 @@ class FeedController extends DController
 
             $description = '';
             if ($model->image) {
-                $description .= CHtml::link(Chtml::image($image, $model->title, ['style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
+                $description .= CHtml::link(CHtml::image($image, $model->title, ['style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
             }
             $description .= $model->short_purified;
             $description .= CHtml::tag('p', [], CHtml::link('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
