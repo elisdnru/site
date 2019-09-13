@@ -1,5 +1,8 @@
 <?php
 /* @var $this DController */
+
+use app\modules\main\components\DController;
+
 /* @var $models Page[] */
 ?>
 <ul>

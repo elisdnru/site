@@ -4,7 +4,7 @@ namespace app\modules\blog\controllers;
 
 use BlogTag;
 use CHttpException;
-use DAdminController;
+use app\modules\main\components\DAdminController;
 
 class TagAdminController extends DAdminController
 {
@@ -12,14 +12,14 @@ class TagAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => \DAdminAction::class,
+                'class' => \app\modules\crud\components\DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => \DCreateAction::class,
-            'update' => \DUpdateAction::class,
-            'delete' => \DDeleteAction::class,
-            'view' => \DViewAction::class,
+            'create' => \app\modules\crud\components\DCreateAction::class,
+            'update' => \app\modules\crud\components\DUpdateAction::class,
+            'delete' => \app\modules\crud\components\DDeleteAction::class,
+            'view' => \app\modules\crud\components\DViewAction::class,
         ];
     }
 

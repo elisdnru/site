@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\main\components\helpers\DNumberHelper;
+
 $this->pageTitle = $page->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $page->description . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $page->keywords;

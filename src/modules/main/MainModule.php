@@ -2,7 +2,7 @@
 
 namespace app\modules\main;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class MainModule extends DWebModule
 {

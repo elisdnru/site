@@ -4,7 +4,7 @@ namespace app\modules\blog\controllers;
 
 use BlogPost;
 use CHttpException;
-use CommentAdminControllerBase;
+use app\modules\comment\components\CommentAdminControllerBase;
 
 class CommentAdminController extends CommentAdminControllerBase
 {

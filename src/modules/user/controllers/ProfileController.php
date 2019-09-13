@@ -5,7 +5,7 @@ namespace app\modules\user\controllers;
 use Access;
 use CActiveForm;
 use CHttpException;
-use DController;
+use app\modules\main\components\DController;
 use User;
 use Yii;
 
@@ -33,8 +33,8 @@ class ProfileController extends DController
     public function actions()
     {
         return [
-            'index' => \DUpdateAction::class,
-            'view' => \DViewAction::class,
+            'index' => \app\modules\crud\components\DUpdateAction::class,
+            'view' => \app\modules\crud\components\DViewAction::class,
         ];
     }
 

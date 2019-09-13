@@ -3,9 +3,9 @@
 namespace app\modules\sitemap\controllers;
 
 use BlogPost;
-use DController;
-use DSitemap;
-use DUrlRulesHelper;
+use app\modules\main\components\DController;
+use app\modules\sitemap\components\DSitemap;
+use app\components\module\DUrlRulesHelper;
 use Page;
 use PortfolioWork;
 use Tags;

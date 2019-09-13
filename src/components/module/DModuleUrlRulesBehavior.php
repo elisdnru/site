@@ -1,5 +1,11 @@
 <?php
 
+namespace app\components\module;
+
+use CBehavior;
+use CConsoleApplication;
+use Yii;
+
 class DModuleUrlRulesBehavior extends CBehavior
 {
     public $beforeCurrentModule = [];

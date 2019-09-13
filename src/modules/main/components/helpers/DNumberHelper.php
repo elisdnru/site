@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\main\components\helpers;
+
+use Yii;
 
 class DNumberHelper
 {

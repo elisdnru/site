@@ -1,5 +1,8 @@
 <?php
 
+use app\components\ConsoleLogger;
+use app\components\Logger;
+
 /**
  * Class MinimizeCommand
  *

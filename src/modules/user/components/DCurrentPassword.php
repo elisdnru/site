@@ -1,11 +1,18 @@
 <?php
+
+namespace app\modules\user\components;
+
+use CActiveRecord;
+use CException;
+use CHtml;
+use CValidator;
+
 /**
  * DCurrentPassword validates that the old password is correct.
  *
-/blog/10
+ * /blog/10
  * @version 1.0
  */
-
 class DCurrentPassword extends CValidator
 {
     public $className = null;

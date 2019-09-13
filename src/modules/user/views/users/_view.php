@@ -1,6 +1,8 @@
 <div style="float:left; margin-bottom:10px">
 
-    <a href="<?php echo $data->url; ?>"><img src="<?php echo $data->avatarUrl; ?>" alt="" width="50" /></a>
+    <a href="<?php use app\modules\main\components\helpers\DSocNetworkHelper;
+
+    echo $data->url; ?>"><img src="<?php echo $data->avatarUrl; ?>" alt="" width="50" /></a>
 
 </div>
 

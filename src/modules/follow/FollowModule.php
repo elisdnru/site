@@ -2,7 +2,7 @@
 
 namespace app\modules\follow;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class FollowModule extends DWebModule
 {

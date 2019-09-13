@@ -1,5 +1,9 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\DTreeActiveDataProvider;
+use app\modules\main\components\helpers\DTextHelper;
+
 /**
  * This is the model class for table "{{page}}".
  *
@@ -178,7 +182,7 @@ class Page extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \DCategoryTreeBehavior::class,
+                'class' => \app\modules\category\components\DCategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
@@ -189,7 +193,7 @@ class Page extends CActiveRecord
                 ],
             ],
             'PurifyText' => [
-                'class' => \DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -202,7 +206,7 @@ class Page extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -210,7 +214,7 @@ class Page extends CActiveRecord
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
             ],
             'PingBehavior' => [
-                'class' => \DPingBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\DPingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

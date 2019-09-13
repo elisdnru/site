@@ -1,4 +1,6 @@
-<?php foreach ($posts as $data) : ?>
+<?php use app\modules\main\components\helpers\DDateHelper;
+
+foreach ($posts as $data) : ?>
     <?php
     $links = [];
     foreach ($data->cache(1000)->tags as $tag) {

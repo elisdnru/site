@@ -2,7 +2,7 @@
 
 namespace app\modules\file;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class FileModule extends DWebModule
 {

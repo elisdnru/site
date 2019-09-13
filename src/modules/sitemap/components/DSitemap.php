@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\sitemap\components;
+
+use CActiveRecord;
+use DOMDocument;
+use Yii;
 
 class DSitemap
 {

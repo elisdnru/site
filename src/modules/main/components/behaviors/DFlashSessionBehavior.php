@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\components\behaviors;
+
+use CBehavior;
+use Yii;
 
 class DFlashSessionBehavior extends CBehavior
 {

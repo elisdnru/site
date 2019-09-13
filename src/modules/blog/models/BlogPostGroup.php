@@ -90,7 +90,7 @@ class BlogPostGroup extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \DCategoryBehavior::class,
+                'class' => \app\modules\category\components\DCategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'defaultCriteria' => [
                     'order' => 't.title ASC'

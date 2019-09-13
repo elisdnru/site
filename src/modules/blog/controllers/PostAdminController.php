@@ -6,7 +6,7 @@ use BlogPost;
 use BlogTag;
 use CHttpException;
 use CJSON;
-use DAdminController;
+use app\modules\main\components\DAdminController;
 use Yii;
 
 class PostAdminController extends DAdminController
@@ -15,18 +15,18 @@ class PostAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => \DAdminAction::class,
+                'class' => \app\modules\crud\components\DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => \DCreateAction::class,
-            'update' => \DUpdateAction::class,
+            'create' => \app\modules\crud\components\DCreateAction::class,
+            'update' => \app\modules\crud\components\DUpdateAction::class,
             'toggle' => [
-                'class' => \DToggleAction::class,
+                'class' => \app\modules\crud\components\DToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => \DDeleteAction::class,
-            'view' => \DViewAction::class,
+            'delete' => \app\modules\crud\components\DDeleteAction::class,
+            'view' => \app\modules\crud\components\DViewAction::class,
         ];
     }
 

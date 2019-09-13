@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\page\components;
+
+use CBaseUrlRule;
+use Page;
+use Yii;
+
 class DPageUrlRule extends CBaseUrlRule
 {
     public $connectionID = 'db';

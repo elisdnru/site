@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\components\helpers;
+
+use Yii;
+
 class DSystemHelper
 {
     public static function importRecursive($alias)

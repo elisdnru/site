@@ -1,4 +1,13 @@
 <?php
+
+namespace app\modules\main\components\arbehaviors;
+
+use CActiveRecordBehavior;
+use CHtml;
+use CHtmlPurifier;
+use CMarkdownParser;
+use CModelEvent;
+
 /**
  * DPurifyTextBehavior will automatically purify
  * content from source attribute to destination attribute.
@@ -23,10 +32,8 @@
  * }
  * </pre>
  *
-
  * @version 1.3
  */
-
 class DPurifyTextBehavior extends CActiveRecordBehavior
 {
     /**

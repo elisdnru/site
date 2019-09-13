@@ -1,5 +1,14 @@
 <?php
 
+namespace app\modules\uploader\components;
+
+use CApplicationComponent;
+use CFile;
+use CImageHandler;
+use CUploadedFile;
+use StdClass;
+use Yii;
+
 class DUploadManager extends CApplicationComponent
 {
     public $rootPath = 'upload';

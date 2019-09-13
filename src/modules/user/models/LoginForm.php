@@ -1,5 +1,7 @@
 <?php
 
+use app\modules\user\components\UserIdentity;
+
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping

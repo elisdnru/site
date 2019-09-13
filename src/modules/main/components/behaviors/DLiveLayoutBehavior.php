@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\main\components\behaviors;
+
+use CBehavior;
+use CController;
+use Yii;
 
 class DLiveLayoutBehavior extends CBehavior
 {

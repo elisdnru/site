@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\user\components;
+
+use CPhpAuthManager;
+use Yii;
+
 class PhpAuthManager extends CPhpAuthManager
 {
     public function init()

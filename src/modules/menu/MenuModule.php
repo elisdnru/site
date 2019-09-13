@@ -2,7 +2,7 @@
 
 namespace app\modules\menu;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class MenuModule extends DWebModule
 {

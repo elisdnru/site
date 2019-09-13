@@ -1,6 +1,8 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\main\components\DAdminController;
+
 $this->pageTitle = 'Категории записей';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],

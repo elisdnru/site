@@ -2,7 +2,7 @@
 
 namespace app\modules\main\controllers;
 
-use DController;
+use app\modules\main\components\DController;
 use Page;
 use Tags;
 use Yii;

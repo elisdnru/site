@@ -2,7 +2,7 @@
 
 namespace app\modules\comment\controllers;
 
-use CommentAdminControllerBase;
+use app\modules\comment\components\CommentAdminControllerBase;
 
 class CommentAdminController extends CommentAdminControllerBase
 {

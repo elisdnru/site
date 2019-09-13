@@ -1,4 +1,10 @@
 <?php
+
+namespace app\modules\main\components\behaviors;
+
+use CBehavior;
+use Yii;
+
 /**
  * DInlineWidgetsBehavior allows render widgets in page content
  *
@@ -64,10 +70,8 @@
  * echo $this->decodeWidgets($text);
  * </code>
  *
-
  * @version 1.2
  */
-
 class DInlineWidgetsBehavior extends CBehavior
 {
     /**

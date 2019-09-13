@@ -1,5 +1,7 @@
 <?php
 
+use app\modules\ulogin\components\UloginUserIdentity;
+
 class UloginModel extends CModel
 {
 

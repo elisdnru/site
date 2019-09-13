@@ -1,5 +1,7 @@
 <?php
 
+namespace app\modules\crud\components;
+
 class DDeleteAction extends DCrudAction
 {
     /**

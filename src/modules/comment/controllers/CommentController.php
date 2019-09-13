@@ -5,7 +5,7 @@ namespace app\modules\comment\controllers;
 use CHttpException;
 use Comment;
 use CommentForm;
-use DController;
+use app\modules\main\components\DController;
 use Yii;
 
 class CommentController extends DController

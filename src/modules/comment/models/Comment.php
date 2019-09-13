@@ -1,5 +1,8 @@
 <?php
 
+use app\modules\comment\components\DICommentDepends;
+use app\modules\main\components\helpers\DGRavatarHelper;
+
 /**
  * This is the model class for table "{{comment}}".
  *
@@ -156,7 +159,7 @@ class Comment extends CActiveRecord
                 'setUpdateOnCreate' => false,
             ],
             'PurifyText' => [
-                'class' => \DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'encodePreContent' => true,

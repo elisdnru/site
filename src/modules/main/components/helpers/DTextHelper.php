@@ -6,6 +6,8 @@
 
  */
 
+namespace app\modules\main\components\helpers;
+
 class DTextHelper
 {
     public static function translit($st)
@@ -55,7 +57,7 @@ class DTextHelper
 
     public static function fixBR($text)
     {
-        $text = preg_replace_callback('@(<p>.*?</p>)@s', ['DTextHelper', 'pregCallback'], $text);
+        $text = preg_replace_callback('@(<p>.*?</p>)@s', ['app\modules\main\components\helpers\DTextHelper', 'pregCallback'], $text);
         return $text;
     }
 

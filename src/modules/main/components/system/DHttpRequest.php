@@ -4,6 +4,11 @@
  * http://creative-territory.net/post/view/id/25/
  */
 
+namespace app\modules\main\components\system;
+
+use CHttpRequest;
+use Yii;
+
 class DHttpRequest extends CHttpRequest
 {
     public $noCsrfValidationUris = [];

@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\crud\components;
+
 use app\modules\crud\CrudModule;
+use CHttpException;
+use Yii;
 
 class DToggleAction extends DCrudAction
 {

@@ -1,5 +1,8 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\DTreeActiveDataProvider;
+
 /**
  * This is the model class for table "{{menu}}".
  *
@@ -125,7 +128,7 @@ class Menu extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \DCategoryTreeBehavior::class,
+                'class' => \app\modules\category\components\DCategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

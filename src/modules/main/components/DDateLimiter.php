@@ -1,6 +1,10 @@
 <?php
-/**
 
+namespace app\modules\main\components;
+
+use CComponent;
+
+/**
  *
  * @property string $year
  * @property string $month
@@ -8,7 +12,6 @@
  * @property string $searchString
  * @property string $date
  */
-
 class DDateLimiter extends CComponent
 {
     protected $year = 0;

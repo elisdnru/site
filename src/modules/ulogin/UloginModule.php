@@ -2,7 +2,7 @@
 
 namespace app\modules\ulogin;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class UloginModule extends DWebModule
 {

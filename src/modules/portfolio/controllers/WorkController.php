@@ -3,7 +3,7 @@
 namespace app\modules\portfolio\controllers;
 
 use CHttpException;
-use PortfolioBaseController;
+use app\modules\portfolio\components\PortfolioBaseController;
 use PortfolioWork;
 use Tags;
 

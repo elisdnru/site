@@ -3,7 +3,7 @@
 namespace app\modules\contact;
 
 use Contact;
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class ContactModule extends DWebModule
 {

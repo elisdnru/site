@@ -1,5 +1,11 @@
 <?php
 
+namespace app\components\module;
+
+use CFilter;
+use CHttpException;
+use Yii;
+
 class DModuleAdminFilter extends CFilter
 {
     protected function preFilter($filterChain)

@@ -2,7 +2,7 @@
 
 namespace app\modules\block;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class BlockModule extends DWebModule
 {

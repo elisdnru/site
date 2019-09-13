@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\main\components\system;
+
+use CWebModule;
 
 class DWebModule extends CWebModule
 {

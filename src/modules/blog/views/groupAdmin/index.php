@@ -1,5 +1,8 @@
 <?php
 /* @var $this DController */
+
+use app\modules\main\components\DController;
+
 /* @var $items BlogPostGroup[] */
 /* @var $categoryForm BlogCategoryForm */
 /* @var $form CActiveForm */

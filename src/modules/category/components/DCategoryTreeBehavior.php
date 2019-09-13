@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\category\components;
+
+use CActiveRecord;
+use Yii;
+
 /**
  * @property string $parentAttribute
  * @property string $parentRelation

@@ -1,5 +1,7 @@
 <?php
 
+namespace app\modules\search\components;
+
 class SearchHighlighter
 {
     public static function getFragment($text, $word)

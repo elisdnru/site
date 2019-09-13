@@ -4,7 +4,7 @@ namespace app\modules\contact\controllers;
 
 use CHttpException;
 use Contact;
-use DAdminController;
+use app\modules\main\components\DAdminController;
 
 class ContactAdminController extends DAdminController
 {
@@ -14,13 +14,13 @@ class ContactAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => \DAdminAction::class,
+                'class' => \app\modules\crud\components\DAdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'toggle' => ['class' => \DToggleAction::class, 'attributes' => ['status']],
-            'delete' => \DDeleteAction::class,
-            'view' => \DViewAction::class,
+            'toggle' => ['class' => \app\modules\crud\components\DToggleAction::class, 'attributes' => ['status']],
+            'delete' => \app\modules\crud\components\DDeleteAction::class,
+            'view' => \app\modules\crud\components\DViewAction::class,
         ];
     }
 

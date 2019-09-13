@@ -2,7 +2,7 @@
 
 namespace app\modules\sitemap;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class SitemapModule extends DWebModule
 {

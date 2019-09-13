@@ -3,8 +3,7 @@
 namespace app\modules\blog;
 
 use BlogPostComment;
-use DWebModule;
-use Yii;
+use app\modules\main\components\system\DWebModule;
 
 class BlogModule extends DWebModule
 {

@@ -1,5 +1,8 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\helpers\DTextHelper;
+
 /**
  * This is the model class for table "{{new}}".
  *
@@ -62,7 +65,7 @@ class PortfolioWork extends CActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \DExistOrEmpty::class, 'className' => \PortfolioCategory::class, 'attributeName' => 'id'],
+            ['category_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \PortfolioCategory::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
@@ -154,7 +157,7 @@ class PortfolioWork extends CActiveRecord
     {
         return [
             'PurifyShort' => [
-                'class' => \DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -163,7 +166,7 @@ class PortfolioWork extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -174,7 +177,7 @@ class PortfolioWork extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -184,7 +187,7 @@ class PortfolioWork extends CActiveRecord
                 'imageHeightAttribute' => 'image_height',
             ],
             'PingBehavior' => [
-                'class' => \DPingBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\DPingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

@@ -1,4 +1,8 @@
 <?php
+
+use app\modules\main\components\helpers\DSocNetworkHelper;
+use app\modules\main\components\helpers\DTextHelper;
+
 $groupurl = $this->createUrl('index', ['id' => $data->material_id]);
 $editurl = $this->createUrl('update', ['id' => $data->id]);
 $delurl = $this->createUrl('delete', ['id' => $data->id]);

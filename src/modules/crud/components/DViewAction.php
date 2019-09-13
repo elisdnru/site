@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\crud\components;
+
+use CJSON;
 
 class DViewAction extends DCrudAction
 {

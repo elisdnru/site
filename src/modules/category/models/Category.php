@@ -1,5 +1,7 @@
 <?php
 
+use app\modules\main\components\helpers\DTextHelper;
+
 /**
  * This is the model class for table "{{category}}".
  *
@@ -116,7 +118,7 @@ abstract class Category extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \DCategoryBehavior::class,
+                'class' => \app\modules\category\components\DCategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'requestPathAttribute' => 'category',

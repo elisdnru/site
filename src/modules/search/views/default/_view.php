@@ -1,5 +1,9 @@
 <?php
 /* @var $this DController */
+
+use app\modules\main\components\DController;
+use app\modules\search\components\SearchHighlighter;
+
 /* @var $data Search */
 ?>
 

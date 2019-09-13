@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\crud\components;
+
+use Yii;
+
 class DIndexAction extends DCrudAction
 {
     /**

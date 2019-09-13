@@ -1,5 +1,7 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
+
 DUrlRulesHelper::import('menu');
 
 class TableMenuWidget extends DWidget

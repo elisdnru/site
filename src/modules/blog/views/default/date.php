@@ -1,5 +1,10 @@
 <?php
 /* @var $this DController */
+
+use app\modules\main\components\DController;
+use app\modules\main\components\DDateLimiter;
+use app\modules\main\components\helpers\DNumberHelper;
+
 /* @var $date DDateLimiter */
 /* @var $dataProvider CActiveDataProvider */
 

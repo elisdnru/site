@@ -1,6 +1,8 @@
 <?php
 /* @var $data BlogPost */
 
+use app\modules\main\components\helpers\DDateHelper;
+
 $links = [];
 foreach ($data->cache(1000)->tags as $tag) {
     $links[] = '<span data-href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</span>';

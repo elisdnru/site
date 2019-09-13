@@ -2,7 +2,7 @@
 
 namespace app\modules\admin;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class AdminModule extends DWebModule
 {

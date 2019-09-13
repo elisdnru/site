@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\blog\extensions\multicomplete;
+
+use CHtml;
+use CJavaScript;
+use CJuiAutoComplete;
+use Yii;
+
 Yii::import('zii.widgets.jui.CJuiAutoComplete');
 
 class MultiComplete extends CJuiAutoComplete

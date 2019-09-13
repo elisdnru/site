@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\main\components;
+
+use CExistValidator;
 
 class DExistOrEmpty extends CExistValidator
 {

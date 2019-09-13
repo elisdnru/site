@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\main\components\helpers\DNumberHelper;
+
 $this->pageTitle = 'Портфолио - ' . $category->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $category->description . $category->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;

@@ -7,11 +7,11 @@ use BlogPost;
 use BlogSearchForm;
 use BlogTag;
 use CActiveDataProvider;
-use CArray;
+use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
-use DController;
-use DDateLimiter;
+use app\modules\main\components\DController;
+use app\modules\main\components\DDateLimiter;
 use Page;
 use Tags;
 

@@ -4,9 +4,9 @@ namespace app\modules\file\controllers;
 
 use Access;
 use CHttpException;
-use DAdminController;
-use DFileHelper;
-use DTextHelper;
+use app\modules\main\components\DAdminController;
+use app\modules\uploader\components\DFileHelper;
+use app\modules\main\components\helpers\DTextHelper;
 use Yii;
 
 class FileAdminController extends DAdminController

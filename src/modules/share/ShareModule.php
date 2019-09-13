@@ -2,7 +2,7 @@
 
 namespace app\modules\share;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class ShareModule extends DWebModule
 {

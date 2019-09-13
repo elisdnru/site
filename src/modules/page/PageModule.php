@@ -2,7 +2,7 @@
 
 namespace app\modules\page;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class PageModule extends DWebModule
 {
@@ -42,7 +42,7 @@ class PageModule extends DWebModule
         return [
             'page/page/show' => 'site/error',
             'page/page' => 'site/error',
-            ['class' => \DPageUrlRule::class, 'cache' => 3600 * 24],
+            ['class' => components\DPageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 }

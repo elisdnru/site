@@ -45,7 +45,7 @@ return [
     'components' => [
 
         'urlManager' => [
-            'class' => \DUrlManager::class,
+            'class' => \app\modules\main\components\system\DUrlManager::class,
             'urlFormat' => 'path',
             'showScriptName' => false,
             'useStrictParsing' => true,
@@ -58,7 +58,7 @@ return [
         ],
 
         'user' => [
-            'class' => \WebUser::class,
+            'class' => \app\modules\user\components\WebUser::class,
             'allowAutoLogin' => true,
             'loginUrl' => ['/user/default/login'],
         ],
@@ -92,12 +92,12 @@ return [
         ],
 
         'authManager' => [
-            'class' => \PhpAuthManager::class,
+            'class' => \app\modules\user\components\PhpAuthManager::class,
             'defaultRoles' => ['role_guest'],
         ],
 
         'moduleManager' => [
-            'class' => \DModuleManager::class,
+            'class' => \app\components\module\DModuleManager::class,
         ],
 
         'errorHandler' => [
@@ -113,7 +113,7 @@ return [
         ],
 
         'uploader' => [
-            'class' => \DUploadManager::class,
+            'class' => \app\modules\uploader\components\DUploadManager::class,
             'origFileSalt' => 'adFxt0de',
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',
@@ -153,7 +153,7 @@ return [
         ],
 
         'rpcManager' => [
-            'class' => \DRPCManager::class,
+            'class' => \app\modules\main\components\DRPCManager::class,
         ],
 
         'widgetFactory' => [
@@ -202,7 +202,7 @@ return [
 
     'behaviors' => [
         [
-            'class' => \DModuleUrlRulesBehavior::class,
+            'class' => \app\components\module\DModuleUrlRulesBehavior::class,
             'beforeCurrentModule' => [
                 'main',
                 'uploader',

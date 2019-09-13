@@ -1,5 +1,6 @@
 <?php
 
+namespace app\modules\crud\components;
 
 class DUpdateAction extends DCrudAction
 {

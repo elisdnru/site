@@ -3,11 +3,11 @@
 namespace app\modules\portfolio\controllers;
 
 use CActiveDataProvider;
-use CArray;
+use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
 use Page;
-use PortfolioBaseController;
+use app\modules\portfolio\components\PortfolioBaseController;
 use PortfolioCategory;
 use PortfolioWork;
 use Tags;

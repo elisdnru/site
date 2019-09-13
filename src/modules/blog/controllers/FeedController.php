@@ -4,7 +4,7 @@ namespace app\modules\blog\controllers;
 
 use BlogPost;
 use CHtml;
-use DController;
+use app\modules\main\components\DController;
 use EFeed;
 use Yii;
 

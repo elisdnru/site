@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\main\components\behaviors;
+
+use CBehavior;
+use CHttpException;
+use User;
+use Yii;
+
 class DUserBehavior extends CBehavior
 {
     protected $_user;

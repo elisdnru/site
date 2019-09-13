@@ -1,5 +1,6 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
 
 DUrlRulesHelper::import('portfolio');

@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 use Yii;
 
 class PortfolioModule extends DWebModule

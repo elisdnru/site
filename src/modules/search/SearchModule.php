@@ -2,7 +2,7 @@
 
 namespace app\modules\search;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class SearchModule extends DWebModule
 {

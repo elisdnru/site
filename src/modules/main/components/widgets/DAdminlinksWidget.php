@@ -1,5 +1,6 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
 
 DUrlRulesHelper::import('admin');
 

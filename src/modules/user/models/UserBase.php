@@ -1,5 +1,8 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\helpers\DGRavatarHelper;
+
 /**
  * This is the model class for table "{{user}}".
  *
@@ -370,7 +373,7 @@ abstract class UserBase extends CActiveRecord
                 'setUpdateOnCreate' => true,
             ],
             'ImageUpload' => [
-                'class' => \DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,

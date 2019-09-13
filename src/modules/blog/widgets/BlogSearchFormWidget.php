@@ -1,5 +1,7 @@
 <?php
 
+use app\components\module\DUrlRulesHelper;
+
 DUrlRulesHelper::import('blog');
 
 class BlogSearchFormWidget extends DWidget

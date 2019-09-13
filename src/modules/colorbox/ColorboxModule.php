@@ -2,7 +2,7 @@
 
 namespace app\modules\colorbox;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class ColorboxModule extends DWebModule
 {

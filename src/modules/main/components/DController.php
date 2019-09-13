@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\main\components;
+
+use app\components\Controller;
+use CHttpException;
+use User;
+use Yii;
+
 /**
  *
  * Controller is the customized base controller class.
@@ -42,14 +49,14 @@ class DController extends Controller
     public function behaviors()
     {
         return array_merge(parent::behaviors(), [
-            'DModuleAccessBehavior' => ['class' => \DModuleAccessBehavior::class],
-            'DUserBehavior' => ['class' => \DUserBehavior::class],
-            'DFlashSessionBehavior' => ['class' => \DFlashSessionBehavior::class],
-            'DHeadersBehavior' => ['class' => \DHeadersBehavior::class],
-            'DLiveLayoutBehavior' => ['class' => \DLiveLayoutBehavior::class],
-            'DJsInitBehavior' => ['class' => \DJsInitBehavior::class],
+            'DModuleAccessBehavior' => ['class' => \app\components\module\DModuleAccessBehavior::class],
+            'DUserBehavior' => ['class' => behaviors\DUserBehavior::class],
+            'DFlashSessionBehavior' => ['class' => behaviors\DFlashSessionBehavior::class],
+            'DHeadersBehavior' => ['class' => behaviors\DHeadersBehavior::class],
+            'DLiveLayoutBehavior' => ['class' => behaviors\DLiveLayoutBehavior::class],
+            'DJsInitBehavior' => ['class' => behaviors\DJsInitBehavior::class],
             'DInlineWidgetsBehavior' => [
-                'class' => \DInlineWidgetsBehavior::class,
+                'class' => behaviors\DInlineWidgetsBehavior::class,
                 'location' => 'application.widgets',
                 'widgets' => Yii::app()->params['runtimeWidgets'],
                 'classSuffix' => 'Widget',

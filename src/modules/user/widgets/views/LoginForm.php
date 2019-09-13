@@ -1,4 +1,6 @@
-<?php if ($user) : ?>
+<?php use app\modules\main\components\helpers\DSocNetworkHelper;
+
+if ($user) : ?>
     <div style="float:left;">
         <a href="<?php echo $user->url; ?>">
             <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50" />

@@ -3,7 +3,7 @@
 namespace app\modules\user\controllers;
 
 use CHttpException;
-use DController;
+use app\modules\main\components\DController;
 use Tags;
 use User;
 
@@ -13,7 +13,7 @@ class UsersController extends DController
     {
         return [
             'index' => [
-                'class' => \DIndexAction::class,
+                'class' => \app\modules\crud\components\DIndexAction::class,
                 'view' => 'index',
                 'ajaxView' => '_loop'
             ],

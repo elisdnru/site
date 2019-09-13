@@ -1,5 +1,9 @@
 <?php
 /* @var $this DController */
+
+use app\modules\main\components\DController;
+use app\modules\main\components\helpers\DNumberHelper;
+
 /* @var $page Page */
 /* @var $category BlogCategory */
 /* @var $dataProvider CActiveDataProvider */

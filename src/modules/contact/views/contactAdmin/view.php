@@ -1,5 +1,8 @@
 <?php
 /* @var $this DAdminController */
+
+use app\modules\main\components\DAdminController;
+
 /* @var $next Contact */
 /* @var $prev Contact */
 

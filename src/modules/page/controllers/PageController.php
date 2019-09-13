@@ -3,7 +3,7 @@
 namespace app\modules\page\controllers;
 
 use CHttpException;
-use DController;
+use app\modules\main\components\DController;
 use Page;
 use Tags;
 

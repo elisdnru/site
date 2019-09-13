@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\user\components;
+
+use CWebUser;
+use User;
+
 class WebUser extends CWebUser
 {
     private $_model = null;

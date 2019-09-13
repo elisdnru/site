@@ -5,7 +5,7 @@ namespace app\modules\blog\controllers;
 use BlogPost;
 use BlogPostGroup;
 use CHttpException;
-use DAdminController;
+use app\modules\main\components\DAdminController;
 
 /**
  * @method renderTableForm($params)
@@ -15,14 +15,14 @@ class GroupAdminController extends DAdminController
     public function actions()
     {
         return [
-            'delete' => \DDeleteAction::class,
+            'delete' => \app\modules\crud\components\DDeleteAction::class,
         ];
     }
 
     public function behaviors()
     {
         return array_replace(parent::behaviors(), [
-            'tableInputBehavior' => ['class' => \DTableInputBehavior::class],
+            'tableInputBehavior' => ['class' => \app\modules\crud\components\DTableInputBehavior::class],
         ]);
     }
 

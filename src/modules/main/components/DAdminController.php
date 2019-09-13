@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\components;
+
+use CHttpException;
+use Yii;
 
 abstract class DAdminController extends DController
 {

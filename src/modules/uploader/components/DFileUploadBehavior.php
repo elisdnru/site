@@ -1,4 +1,16 @@
 <?php
+
+namespace app\modules\uploader\components;
+
+use CActiveRecordBehavior;
+use CComponent;
+use CFile;
+use CImageHandler;
+use CModelEvent;
+use CUploadedFile;
+use CValidator;
+use Yii;
+
 /**
  * DFileUploadBehavior will automatically load image to model.
  *
@@ -22,9 +34,7 @@
  * }
  * </pre>
  *
-
  */
-
 class DFileUploadBehavior extends CActiveRecordBehavior
 {
     public $fileAttribute = 'file';

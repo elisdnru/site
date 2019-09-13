@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\crud\components;
+
+use CActiveRecord;
+use CBehavior;
+use Yii;
 
 class DTableInputBehavior extends CBehavior
 {

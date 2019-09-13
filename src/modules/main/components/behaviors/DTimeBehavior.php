@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\main\components\behaviors;
+
+use CBehavior;
+use CHttpException;
+use DateTime;
+use Yii;
 
 class DTimeBehavior extends CBehavior
 {

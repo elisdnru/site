@@ -2,7 +2,7 @@
 
 namespace app\modules\category;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class CategoryModule extends DWebModule
 {

@@ -3,7 +3,7 @@
 namespace app\modules\uploader\controllers;
 
 use CHttpException;
-use DController;
+use app\modules\main\components\DController;
 use Yii;
 
 class DownloadController extends DController

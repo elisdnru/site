@@ -3,8 +3,7 @@
 namespace app\modules\comment;
 
 use Comment;
-use DWebModule;
-use Yii;
+use app\modules\main\components\system\DWebModule;
 
 class CommentModule extends DWebModule
 {

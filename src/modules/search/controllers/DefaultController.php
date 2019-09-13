@@ -11,7 +11,7 @@ namespace app\modules\search\controllers;
 
 use CActiveDataProvider;
 use CDbCriteria;
-use DController;
+use app\modules\main\components\DController;
 use SearchForm;
 use Yii;
 

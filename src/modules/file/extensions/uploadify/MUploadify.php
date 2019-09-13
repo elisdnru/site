@@ -1,5 +1,14 @@
 <?php
 
+namespace app\modules\file\extensions\uploadify;
+use CClientScript;
+use CHtml;
+use CInputWidget;
+use CJavaScript;
+use CJSON;
+use exception;
+use Yii;
+
 /**
  * widget that integrates uploadify uploader in your application
  *

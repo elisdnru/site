@@ -1,5 +1,7 @@
 <div class="search_form form">
-    <?php DUrlRulesHelper::import('search'); ?>
+    <?php use app\components\module\DUrlRulesHelper;
+
+    DUrlRulesHelper::import('search'); ?>
     <?php echo CHtml::beginForm(Yii::app()->createUrl('/search/default/index'), 'get'); ?>
     <div class="row search_word">
         <?php echo CHtml::textField('q', $form->q, ['placeholder' => 'Поиск']); ?>

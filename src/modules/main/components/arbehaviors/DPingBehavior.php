@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\components\arbehaviors;
+
+use CActiveRecordBehavior;
+use Yii;
 
 class DPingBehavior extends CActiveRecordBehavior
 {

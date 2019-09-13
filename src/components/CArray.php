@@ -1,5 +1,7 @@
 <?php
 
+namespace app\components;
+
 /**
  * Array helper class.
  *

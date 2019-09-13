@@ -1,5 +1,8 @@
 <?php
 /* @var $this DController */
+
+use app\modules\main\components\DController;
+
 /* @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = 'Поиск по сайту';

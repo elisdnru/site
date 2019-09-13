@@ -1,4 +1,5 @@
-<?php /** @var $this DController */ ?><!doctype html>
+<?php /** @var $this DController */
+use app\modules\main\components\DController; ?><!doctype html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
     <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>

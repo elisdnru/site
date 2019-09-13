@@ -4,7 +4,7 @@ namespace app\modules\comment\controllers;
 
 use CHttpException;
 use Comment;
-use DController;
+use app\modules\main\components\DController;
 use Yii;
 
 class AjaxController extends DController

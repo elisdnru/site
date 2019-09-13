@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\uploader\components;
+
+use app\modules\main\components\helpers\DTextHelper;
 
 class DFileHelper
 {

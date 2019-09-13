@@ -1,5 +1,10 @@
 <?php
 
+namespace app\components\module;
+
+use CApplicationComponent;
+use Yii;
+
 class DModuleManager extends CApplicationComponent
 {
     public function allowed($module)

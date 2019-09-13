@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\category\components;
+
+use CActiveRecord;
+use CActiveRecordBehavior;
+use CDbCommandBuilder;
+use CDbCriteria;
+use Yii;
+
 /**
  * @property string $urlAttribute
  * @property string $titleAttribute

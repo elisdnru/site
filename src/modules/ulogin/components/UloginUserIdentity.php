@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\ulogin\components;
+
+use Access;
+use CUserIdentity;
+use User;
+
 class UloginUserIdentity extends CUserIdentity
 {
     private $id;

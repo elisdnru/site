@@ -1,5 +1,8 @@
 <?php
 /* @var $this DAdminController */
+
+use app\modules\main\components\DAdminController;
+
 /* @var $model Contact */
 /* @var $htmlroot string */
 /* @var $root string */
@@ -159,7 +162,7 @@ $('.allfiles_checkbox').click(function () {
 
     <p id="status-message">Выберите файлы для загрузки (щелкнув по кнопке):</p>
 
-    <?php $this->widget(\MUploadify::class, [
+    <?php $this->widget(\app\modules\file\extensions\uploadify\MUploadify::class, [
         'name' => 'Filedata',
         'script' => $this->createUrl('upload', ['path' => $path]),
         'checkScript' => $this->createUrl('checkexists', ['path' => $path]),

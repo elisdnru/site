@@ -1,5 +1,9 @@
 <?php
 /* @var $this DController */
+
+use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\DController;
+
 /* @var $page Page */
 
 $this->pageTitle = $page->pagetitle;

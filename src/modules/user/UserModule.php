@@ -2,7 +2,7 @@
 
 namespace app\modules\user;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class UserModule extends DWebModule
 {

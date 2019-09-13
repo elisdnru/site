@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\main\components\helpers\DSocNetworkHelper;
+
 $this->pageTitle = 'Профиль пользователя ' . $model->username;
 $this->breadcrumbs = [
     'Пользователи' => $this->createUrl('index'),

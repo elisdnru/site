@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\main\components;
+
+use CActiveDataProvider;
 
 class DTreeActiveDataProvider extends CActiveDataProvider
 {

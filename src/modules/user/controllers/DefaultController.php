@@ -4,8 +4,8 @@ namespace app\modules\user\controllers;
 
 use Access;
 use CActiveForm;
-use DController;
-use DUrlRulesHelper;
+use app\modules\main\components\DController;
+use app\components\module\DUrlRulesHelper;
 use LoginForm;
 use RemindForm;
 use User;
@@ -19,7 +19,7 @@ class DefaultController extends DController
     {
         return [
             'captcha' => [
-                'class' => \DCaptchaAction::class,
+                'class' => \app\modules\main\components\actions\DCaptchaAction::class,
             ],
         ];
     }

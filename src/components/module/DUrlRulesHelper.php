@@ -1,5 +1,9 @@
 <?php
 
+namespace app\components\module;
+
+use Yii;
+
 class DUrlRulesHelper
 {
     protected static $data = [];

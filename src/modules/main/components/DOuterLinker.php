@@ -1,5 +1,7 @@
 <?php
 
+namespace app\modules\main\components;
+
 /**
  * Replaces outer links like '<a href="http://..."></a>'
  * to redirection URL like '<a href="/link?url=http..."></a>'
@@ -19,7 +21,6 @@
  *     echo $linker->process($html);
  * </pre>
  *
-
  */
 class DOuterLinker
 {

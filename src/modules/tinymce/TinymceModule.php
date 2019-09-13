@@ -2,7 +2,7 @@
 
 namespace app\modules\tinymce;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class TinymceModule extends DWebModule
 {

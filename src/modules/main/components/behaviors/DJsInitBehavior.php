@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\main\components\behaviors;
+
+use CBehavior;
+use CClientScript;
+use Yii;
 
 class DJsInitBehavior extends CBehavior
 {

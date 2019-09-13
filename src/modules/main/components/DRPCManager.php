@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\main\components;
+
+use CApplicationComponent;
+use CLogger;
+use Yii;
+
 class DRPCManager extends CApplicationComponent
 {
     public function pingPage($pageURL)
@@ -16,7 +22,7 @@ class DRPCManager extends CApplicationComponent
         if (Yii::app()->params['GENERAL.PING_ENABLE']) {
             foreach ($pingServers as $serverUrl) {
                 if (preg_match('|(?P<host>\w+://[\w\d\._-]+)/?(?P<uri>.*)|i', $serverUrl, $matches)) {
-                    $client = new IXR_Client($matches['host'], $matches['uri']);
+                    $client = new \app\components\IXR_Client($matches['host'], $matches['uri']);
                     if (!$client->query('weblogUpdates.ping', [$siteName, $siteHost, $fullPageUrl])) {
                         Yii::log('Ping error for ' . $serverUrl, CLogger::LEVEL_WARNING);
                     }

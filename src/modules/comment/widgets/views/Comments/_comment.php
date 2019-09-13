@@ -1,4 +1,8 @@
-<article class="comment<?php if ($authorId == $comment->user_id) :
+<article class="comment<?php use app\modules\main\components\helpers\DDateHelper;
+use app\modules\main\components\helpers\DSocNetworkHelper;
+use app\modules\main\components\helpers\DTextHelper;
+
+if ($authorId == $comment->user_id) :
     ?> author<?php
 endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php echo $indent < 8 ? $indent * 20 : 8 * 20; ?>px">
 

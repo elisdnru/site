@@ -2,7 +2,7 @@
 
 namespace app\modules\uploader;
 
-use DWebModule;
+use app\modules\main\components\system\DWebModule;
 
 class UploaderModule extends DWebModule
 {

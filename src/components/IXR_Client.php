@@ -38,6 +38,7 @@
  * @link       http://scripts.incutio.com/xmlrpc/ Site/manual
  */
 
+namespace app\components;
 
 class IXR_Value
 {
@@ -77,10 +78,10 @@ class IXR_Value
         }
 
         // Deal with IXR object types base64 and date
-        if (is_object($this->data) && is_a($this->data, 'IXR_Date')) {
+        if (is_object($this->data) && $this->data instanceof IXR_Date) {
             return 'date';
         }
-        if (is_object($this->data) && is_a($this->data, 'IXR_Base64')) {
+        if (is_object($this->data) && $this->data instanceof IXR_Base64) {
             return 'base64';
         }
 
@@ -384,7 +385,7 @@ class IXR_Server
         $result = $this->call($this->message->methodName, $this->message->params);
 
         // Is the result an error?
-        if (is_a($result, 'IXR_Error')) {
+        if ($result instanceof IXR_Error) {
             $this->error($result);
         }
 
@@ -524,7 +525,7 @@ EOD;
             } else {
                 $result = $this->call($method, $params);
             }
-            if (is_a($result, 'IXR_Error')) {
+            if ($result instanceof IXR_Error) {
                 $return[] = [
                     'faultCode' => $result->code,
                     'faultString' => $result->message
@@ -962,7 +963,7 @@ class IXR_IntrospectionServer extends IXR_Server
                     break;
                 case 'date':
                 case 'dateTime.iso8601':
-                    if (!is_a($arg, 'IXR_Date')) {
+                    if (!$arg instanceof IXR_Date) {
                         $ok = false;
                     }
                     break;

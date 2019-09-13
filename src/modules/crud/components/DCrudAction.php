@@ -1,6 +1,14 @@
 <?php
 
+namespace app\modules\crud\components;
+
 use app\modules\crud\CrudModule;
+use CAction;
+use CActiveRecord;
+use CException;
+use CHttpException;
+use CModel;
+use Yii;
 
 class DCrudAction extends CAction
 {

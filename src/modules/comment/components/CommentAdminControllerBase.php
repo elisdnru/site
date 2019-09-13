@@ -1,5 +1,17 @@
 <?php
 
+namespace app\modules\comment\components;
+
+use app\components\module\DUrlRulesHelper;
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use CException;
+use CHtml;
+use CHttpException;
+use app\modules\main\components\DAdminController;
+use Yii;
+
 DUrlRulesHelper::import('users');
 
 class CommentAdminControllerBase extends DAdminController
@@ -21,12 +33,12 @@ class CommentAdminControllerBase extends DAdminController
     public function actions()
     {
         return [
-            'update' => \DUpdateAction::class,
+            'update' => \app\modules\crud\components\DUpdateAction::class,
             'toggle' => [
-                'class' => \DToggleAction::class,
+                'class' => \app\modules\crud\components\DToggleAction::class,
                 'attributes' => ['public', 'moder']
             ],
-            'view' => \DViewAction::class,
+            'view' => \app\modules\crud\components\DViewAction::class,
         ];
     }
 

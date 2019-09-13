@@ -1,5 +1,6 @@
 <?php
 
+namespace app\modules\main\components\helpers;
 
 class DSocNetworkHelper
 {
