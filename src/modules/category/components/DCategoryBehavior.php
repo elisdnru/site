@@ -172,8 +172,8 @@ class DCategoryBehavior extends CActiveRecordBehavior
     }
 
     /**
-     * Optional redeclare this method in your model for use (@link getMenuList())
-     * or define in (@link requestPathAttribute) your $_GET attribute for url matching
+     * Optional redeclare this method in your model for use getMenuList()
+     * or define in requestPathAttribute your $_GET attribute for url matching
      * @return bool true if current request url matches with category alias
      */
     public function getLinkActive()
@@ -182,7 +182,7 @@ class DCategoryBehavior extends CActiveRecordBehavior
     }
 
     /**
-     * Redeclare this method in your model for use of (@link getMenuList()) method
+     * Redeclare this method in your model for use of getMenuList() method
      * @return string
      */
     public function getUrl()

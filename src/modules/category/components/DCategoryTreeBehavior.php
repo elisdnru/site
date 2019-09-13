@@ -384,7 +384,7 @@ class DCategoryTreeBehavior extends DCategoryBehavior
 
     /**
      * Optional redeclare this method in your model for use (@link getMenuList())
-     * or define in (@link requestPathAttribute) your $_GET attribute for url matching
+     * or define in requestPathAttribute your $_GET attribute for url matching
      * @return bool true if current request url matches with category path
      */
     public function getLinkActive()
