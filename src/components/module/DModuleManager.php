@@ -33,10 +33,6 @@ class DModuleManager extends CApplicationComponent
 
     private function getModuleClass($module)
     {
-        if (isset(Yii::app()->modules[$module])) {
-            return Yii::app()->modules[$module]['class'];
-        }
-
-        return '';
+        return Yii::app()->modules[$module]['class'] ?? '';
     }
 }
