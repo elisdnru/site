@@ -26,7 +26,7 @@ services:
             dockerfile: php-cli.docker
         volumes:
             - .:/app
-            - ./var/docker/composer:/root/.composer/
+            - ./volumes/composer:/root/.composer/
         depends_on:
             - mysql
             - mysql-test
@@ -35,7 +35,7 @@ services:
     mysql:
         image: mysql:5.7
         volumes:
-            - ./var/docker/mysql:/var/lib/mysql
+            - ./volumes/mysql:/var/lib/mysql
         environment:
             - "MYSQL_ROOT_PASSWORD=secret"
             - "MYSQL_USER=app"
