@@ -2,7 +2,7 @@
 
 <section class="main left_main">
 
-    <?php $this->widget('main.widgets.DMessagesWidget'); ?>
+    <?php $this->widget(\DMessagesWidget::class); ?>
 
     <?php echo $content; ?>
 

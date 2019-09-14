@@ -43,7 +43,7 @@ if ($user) : ?>
     <?php echo CHtml::endForm(); ?>
     <hr />
     <div class="center" style="padding-left:10px">
-        <?php $this->widget('ulogin.widgets.UloginWidget', [
+        <?php $this->widget(\UloginWidget::class, [
             'params' => [
                 'display' => 'small',
                 'redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])

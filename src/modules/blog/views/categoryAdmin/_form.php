@@ -7,7 +7,7 @@ use app\modules\main\components\DAdminController;
 /* @var $form CActiveForm */
 ?>
 
-<?php $this->widget('tinymce.widgets.TinyMCEWidget'); ?>
+<?php $this->widget(\TinyMCEWidget::class); ?>
 
 <div class="form">
 

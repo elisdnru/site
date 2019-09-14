@@ -2,8 +2,8 @@
 
 <section class="main left_main">
 
-    <?php $this->widget('main.widgets.DBreadcrumbsWidget'); ?>
-    <?php $this->widget('main.widgets.DMessagesWidget'); ?>
+    <?php $this->widget(\DBreadcrumbsWidget::class); ?>
+    <?php $this->widget(\DMessagesWidget::class); ?>
 
     <?php echo $content; ?>
 

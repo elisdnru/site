@@ -47,7 +47,7 @@ use app\modules\main\components\DController; ?><!doctype html>
     endif; ?>
 
         <div class="search">
-            <?php $this->widget('search.widgets.SearchFormWidget'); ?>
+            <?php $this->widget(\SearchFormWidget::class); ?>
         </div>
 
         <nav id="main_nav">
@@ -58,7 +58,7 @@ use app\modules\main\components\DController; ?><!doctype html>
 
     <?php if (count($this->admin)) : ?>
         <div class="adminbar">
-            <?php $this->widget('DAdminlinksWidget', [
+            <?php $this->widget(\DAdminlinksWidget::class, [
                 'links' => $this->admin,
                 'info' => $this->info
             ]); ?>
@@ -89,7 +89,7 @@ use app\modules\main\components\DController; ?><!doctype html>
 
         <div class="counters">
             <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
-                <?php $this->widget('block.widgets.BlockWidget', ['id' => 'counters']); ?>
+                <?php $this->widget(\BlockWidget::class, ['id' => 'counters']); ?>
             <?php endif; ?>
 
         </div>

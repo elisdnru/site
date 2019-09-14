@@ -83,7 +83,7 @@ $this->info = 'Портфолио';
 
 </div>
 
-<?php $this->widget('CLinkPager', [
+<?php $this->widget(\CLinkPager::class, [
     'pages' => $pages,
 ]); ?>
 

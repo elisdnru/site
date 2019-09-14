@@ -30,7 +30,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по сайту</h1>
 
-<?php $this->widget('application.modules.search.widgets.SearchFormWidget'); ?>
+<?php $this->widget(\SearchFormWidget::class); ?>
 
 <?php $this->renderPartial('_loop', [
     'dataProvider' => $dataProvider,

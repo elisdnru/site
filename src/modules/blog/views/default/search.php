@@ -30,6 +30,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по блогу</h1>
 
-<?php $this->widget('blog.widgets.BlogSearchFormWidget'); ?>
+<?php $this->widget(BlogSearchFormWidget::class); ?>
 
 <?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

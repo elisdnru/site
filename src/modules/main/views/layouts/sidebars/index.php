@@ -1,6 +1,6 @@
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\DPortlet::class, ['title' => 'Также я здесь']); ?>
-    <?php $this->widget('follow.widgets.FollowWidget'); ?>
+    <?php $this->widget(\FollowWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
@@ -13,7 +13,7 @@
 
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\DPortlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
-    <?php $this->widget('application.modules.block.widgets.BlockWidget', ['id' => 'banner_sidebar']); ?>
+    <?php $this->widget(\BlockWidget::class, ['id' => 'banner_sidebar']); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
@@ -24,7 +24,7 @@
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
     <?php $this->beginWidget(\DPortlet::class, ['title' => 'Метки']); ?>
-    <?php $this->widget('blog.widgets.TagCloudWidget'); ?>
+    <?php $this->widget(\TagCloudWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
@@ -32,24 +32,24 @@
 <!--noindex-->
 <?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
     <?php $this->beginWidget(\DPortlet::class); ?>
-    <?php $this->widget('blog.widgets.BlogCalendarWidget'); ?>
+    <?php $this->widget(\BlogCalendarWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 <!--/noindex-->
 
 <?php $this->beginWidget(\DPortlet::class, ['title' => 'Профиль']); ?>
-<?php $this->widget('user.widgets.LoginFormWidget'); ?>
+<?php $this->widget(\LoginFormWidget::class); ?>
 <?php $this->endWidget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
     <?php $this->beginWidget(\DPortlet::class, ['title' => 'Недавно обновившиеся записи']); ?>
-    <?php $this->widget('blog.widgets.UpdatedPostsWidget', ['limit' => 5]); ?>
+    <?php $this->widget(\UpdatedPostsWidget::class, ['limit' => 5]); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
 <?php if ($this->beginCache('banner_sidebar_second', ['dependency' => new Tags('block')])) : ?>
-    <?php $this->widget('application.modules.block.widgets.BlockWidget', ['id' => 'banner_sidebar_second']); ?>
+    <?php $this->widget(\BlockWidget::class, ['id' => 'banner_sidebar_second']); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

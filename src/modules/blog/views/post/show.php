@@ -62,7 +62,7 @@ CTextHighlighter::registerCssFile();
 
         <!--noindex-->
         <?php if ($this->beginCache('banner_post_before', ['dependency' => new Tags('block')])) : ?>
-            <?php $this->widget('application.modules.block.widgets.BlockWidget', ['id' => 'banner_post_before']); ?>
+            <?php $this->widget(\BlockWidget::class, ['id' => 'banner_post_before']); ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
         <!--/noindex-->
@@ -93,7 +93,7 @@ CTextHighlighter::registerCssFile();
 <aside>
 
     <?php if ($this->beginCache('banner_post_after', ['dependency' => new Tags('block')])) : ?>
-        <?php $this->widget('application.modules.block.widgets.BlockWidget', ['id' => 'banner_post_after']); ?>
+        <?php $this->widget(\BlockWidget::class, ['id' => 'banner_post_after']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
@@ -133,7 +133,7 @@ CTextHighlighter::registerCssFile();
 
     <div class="donate-btn" style=""><a href="/donate">Поддержать проект</a></div>
 
-    <?php $this->widget('share.widgets.ShareWidget', [
+    <?php $this->widget(\ShareWidget::class, [
         'title' => $model->title,
         'description' => $model->description,
         'image' => $model->imageUrl,
@@ -142,7 +142,7 @@ CTextHighlighter::registerCssFile();
     <div class="clear"></div>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->widget('blog.widgets.ThemePostsWidget', [
+        <?php $this->widget(\ThemePostsWidget::class, [
             'current' => $model->id,
             'group' => $model->group_id,
         ]); ?>
@@ -150,7 +150,7 @@ CTextHighlighter::registerCssFile();
     <?php endif; ?>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->widget('blog.widgets.OtherPostsWidget', [
+        <?php $this->widget(\OtherPostsWidget::class, [
             //'category'=>$model->category_id,
             'skip' => $model->id,
             'limit' => 2,
@@ -160,7 +160,7 @@ CTextHighlighter::registerCssFile();
 
 </aside>
 
-<?php $this->widget('comment.widgets.CommentsWidget', [
+<?php $this->widget(\CommentsWidget::class, [
     'material_id' => $model->id,
     'authorId' => $model->author_id,
     'type' => BlogPostComment::TYPE_OF_COMMENT,

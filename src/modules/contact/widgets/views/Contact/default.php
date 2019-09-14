@@ -49,7 +49,7 @@
         <?php echo $form->textField($model, 'verifyCode', ['size' => 22]); ?>
         <?php echo $form->error($model, 'verifyCode'); ?>
         <div>
-            <?php $this->widget('CCaptcha', ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
+            <?php $this->widget(\CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
         </div>
     </div>
 

@@ -7,7 +7,7 @@ Yii::import('zii.widgets.CMenu');
  * DIconMenu
  *
  * <pre>
- * <?php $this->widget('DIconMenu', array(
+ * <?php $this->widget(\DIconMenu::class, array(
  *     'iconPath'=>'/icons/',
  *     'items'=>array(
  *         array(

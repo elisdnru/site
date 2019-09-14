@@ -201,7 +201,7 @@ $('.upload-box').css('margin', 0)
 //]]>
 </script>
 
-<?php $this->widget('colorbox.widgets.ColorboxWidget'); ?>
+<?php $this->widget(\ColorboxWidget::class); ?>
 
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>

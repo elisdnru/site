@@ -1,6 +1,7 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\blog\extensions\multicomplete\MultiComplete;
 use app\modules\main\components\DAdminController;
 
 /* @var $model BlogPost */
@@ -13,7 +14,7 @@ $url = CHtml::asset(Yii::getPathOfAlias('application.modules.blog.assets'));
 $cs->registerCssFile($url . '/tags.css');
 ?>
 
-<?php $this->widget('tinymce.widgets.TinyMCEWidget'); ?>
+<?php $this->widget(\TinyMCEWidget::class); ?>
 
 <div class="form">
 
@@ -136,7 +137,7 @@ $cs->registerCssFile($url . '/tags.css');
     <fieldset>
         <h4>Метки</h4>
         <div class="row">
-            <?php $this->widget('blog.extensions.multicomplete.MultiComplete', [
+            <?php $this->widget(MultiComplete::class, [
                 'model' => $model,
                 'attribute' => 'tagsString',
                 'splitter' => ',',

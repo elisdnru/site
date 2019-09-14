@@ -73,7 +73,7 @@ $this->breadcrumbs = [
                 <?php echo $form->textField($model, 'verifyCode', ['size' => 20]); ?>
                 <?php echo $form->error($model, 'verifyCode'); ?>
                 <div>
-                    <?php $this->widget('CCaptcha', ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
+                    <?php $this->widget(\CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
                 </div>
             </div>
         <?php endif; ?>
