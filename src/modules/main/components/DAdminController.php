@@ -2,6 +2,7 @@
 
 namespace app\modules\main\components;
 
+use app\components\module\DModuleAdminFilter;
 use CHttpException;
 use Yii;
 
@@ -12,7 +13,7 @@ abstract class DAdminController extends DController
     public function filters()
     {
         return array_merge(parent::filters(), [
-            ['application.components.module.DModuleAdminFilter'],
+            [DModuleAdminFilter::class],
             'postOnly + delete, toggle',
         ]);
     }
