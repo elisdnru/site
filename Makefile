@@ -30,14 +30,14 @@ site-composer-install:
 	docker-compose run --rm php-cli composer install
 
 site-wait-db:
-	until docker-compose exec mysql mysqladmin ping --silent; do sleep 1 ; done
+	until docker-compose exec -T mysql mysqladmin ping --silent; do sleep 1 ; done
 	sleep 1
 
 site-migrations:
 	docker-compose run --rm php-cli composer app migrate -- --interactive=0
 
 site-wait-db-test:
-	until docker-compose exec mysql-test mysqladmin ping --silent; do sleep 1 ; done
+	until docker-compose exec -T mysql-test mysqladmin ping --silent; do sleep 1 ; done
 	sleep 1
 
 site-migrations-test:
