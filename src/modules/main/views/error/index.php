@@ -12,9 +12,9 @@ $this->breadcrumbs = [
 
 <h2>Ошибка <?php echo isset($error['code']) ? $error['code'] : ''; ?></h2>
 
-<p><?php echo isset($error['message']) ? CHtml::encode($error['message']) : ''; ?></p>
-
 <?php if (YII_DEBUG) : ?>
+    <p><?php echo isset($error['message']) ? CHtml::encode($error['message']) : ''; ?></p>
+
     <p>File: <?php echo isset($error['file']) ? CHtml::encode($error['file']) : ''; ?></p>
     <p>Line: <?php echo isset($error['line']) ? CHtml::encode($error['line']) : ''; ?></p>
 <?php endif; ?>
