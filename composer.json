@@ -45,6 +45,7 @@
     },
     "scripts": {
         "app": "php bin/yiic.php",
+        "app-test": "php bin/yiit.php",
         "test": "phpunit --colors=always",
         "lint": "phplint",
         "cs-check": "phpcs",
