@@ -14,6 +14,17 @@ services:
         build:
             context: ./docker
             dockerfile: php-fpm.docker
+        environment:
+            APP_DEBUG: 1
+            APP_DB_DSN: mysql:host=mysql;dbname=app
+            APP_DB_USERNAME: app
+            APP_DB_PASSWORD: secret
+            APP_DB_PREFIX: elisdn_
+            APP_MAILER_HOST: mailer
+            APP_MAILER_PORT: 1025
+            APP_MAILER_USERNAME: ~
+            APP_MAILER_PASSWORD: ~
+            APP_MAILER_ENCRYPTION: tcp
         volumes:
             - ./:/app
         depends_on:
@@ -24,6 +35,17 @@ services:
         build:
             context: ./docker
             dockerfile: php-cli.docker
+        environment:
+            APP_DEBUG: 1
+            APP_DB_DSN: mysql:host=mysql;dbname=app
+            APP_DB_USERNAME: app
+            APP_DB_PASSWORD: secret
+            APP_DB_PREFIX: elisdn_
+            APP_MAILER_HOST: mailer
+            APP_MAILER_PORT: 1025
+            APP_MAILER_USERNAME: ~
+            APP_MAILER_PASSWORD: ~
+            APP_MAILER_ENCRYPTION: tcp
         volumes:
             - .:/app
             - ./volumes/composer:/root/.composer/
