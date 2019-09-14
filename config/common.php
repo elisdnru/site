@@ -40,10 +40,16 @@ $modules = [
 
 $MODULES_MATCHES = implode('|', array_keys($modules));
 
+$runtime = dirname(__DIR__) . '/var/' . PHP_SAPI;
+
+if (!is_dir($runtime)) {
+    CFileHelper::createDirectory($runtime);
+}
+
 return [
 
     'basePath' => dirname(__DIR__) . '/src',
-    'runtimePath' => dirname(__DIR__) . '/var',
+    'runtimePath' => $runtime,
     'name' => 'Site',
     'sourceLanguage' => 'en',
     'language' => 'ru',
