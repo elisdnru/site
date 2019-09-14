@@ -47,7 +47,7 @@ use app\modules\main\components\DController; ?><!doctype html>
     endif; ?>
 
         <div class="search">
-            <?php $this->widget(\SearchFormWidget::class); ?>
+            <?php $this->widget(\app\modules\search\widgets\SearchFormWidget::class); ?>
         </div>
 
         <nav id="main_nav">
@@ -89,7 +89,7 @@ use app\modules\main\components\DController; ?><!doctype html>
 
         <div class="counters">
             <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
-                <?php $this->widget(\BlockWidget::class, ['id' => 'counters']); ?>
+                <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'counters']); ?>
             <?php endif; ?>
 
         </div>

@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\colorbox\widgets;
+
+use CClientScript;
+use CHtml;
+use DWidget;
+use Yii;
+
 class ColorboxWidget extends DWidget
 {
     public function run()

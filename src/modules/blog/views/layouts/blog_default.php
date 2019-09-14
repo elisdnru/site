@@ -2,14 +2,14 @@
 
 <section class="main left_main">
 
-    <?php $this->widget(\BlockWidget::class, ['id' => 'banner_blog_top']); ?>
+    <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_blog_top']); ?>
 
-    <?php $this->widget(\DBreadcrumbsWidget::class); ?>
-    <?php $this->widget(\DMessagesWidget::class); ?>
+    <?php $this->widget(\app\modules\main\widgets\DBreadcrumbsWidget::class); ?>
+    <?php $this->widget(\app\modules\main\widgets\DMessagesWidget::class); ?>
 
     <?php echo $content; ?>
 
-    <?php $this->widget(\BlockWidget::class, ['id' => 'banner_blog_bottom']); ?>
+    <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_blog_bottom']); ?>
 
 </section>
 

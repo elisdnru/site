@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\search\widgets;
+
+use DWidget;
+use SearchForm;
+
 class SearchFormWidget extends DWidget
 {
     public $tpl = 'SearchForm';

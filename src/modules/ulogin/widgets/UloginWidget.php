@@ -1,6 +1,11 @@
 <?php
 
+namespace app\modules\ulogin\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use CClientScript;
+use DWidget;
+use Yii;
 
 DUrlRulesHelper::import('ulogin');
 

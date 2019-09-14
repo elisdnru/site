@@ -6,6 +6,14 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
+use app\modules\block\widgets\BlockWidget;
+use app\modules\blog\widgets\LastPostsWidget;
+use app\modules\contact\widgets\ContactWidget;
+use app\modules\menu\widgets\MenuWidget;
+use app\modules\page\widgets\PageWidget;
+use app\modules\page\widgets\SubPagesWidget;
+use app\modules\portfolio\widgets\PortfolioWidget;
+
 $modules = [
     'admin' => ['class' => app\modules\admin\AdminModule::class],
     'block' => ['class' => app\modules\block\BlockModule::class],

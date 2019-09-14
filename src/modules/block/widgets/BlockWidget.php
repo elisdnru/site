@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\block\widgets;
+
+use Block;
+use DWidget;
+use Tags;
+
 class BlockWidget extends DWidget
 {
     public $tpl = 'default';

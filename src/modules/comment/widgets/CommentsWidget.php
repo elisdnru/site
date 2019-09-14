@@ -1,6 +1,16 @@
 <?php
 
+namespace app\modules\comment\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use CException;
+use CHtml;
+use CHttpCookie;
+use Comment;
+use CommentForm;
+use DWidget;
+use User;
+use Yii;
 
 DUrlRulesHelper::import('users');
 DUrlRulesHelper::import('comment');

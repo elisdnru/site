@@ -1,6 +1,11 @@
 <?php
 
+namespace app\modules\blog\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use BlogTag;
+use DWidget;
+use Tags;
 
 DUrlRulesHelper::import('blog');
 

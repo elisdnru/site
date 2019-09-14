@@ -1,6 +1,12 @@
 <?php
 
+namespace app\modules\blog\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use BlogCategory;
+use BlogPost;
+use CDbCriteria;
+use DWidget;
 
 DUrlRulesHelper::import('blog');
 

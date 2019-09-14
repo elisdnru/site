@@ -1,6 +1,7 @@
 <?php
 /* @var $this DController */
 
+use app\modules\blog\widgets\BlogSearchFormWidget;
 use app\modules\main\components\DController;
 use app\modules\main\components\helpers\DNumberHelper;
 

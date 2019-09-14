@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\tinymce\widgets;
+
+use CClientScript;
+use CHtml;
+use DWidget;
+use Yii;
+
 class TinyMCEWidget extends DWidget
 {
     public function run()

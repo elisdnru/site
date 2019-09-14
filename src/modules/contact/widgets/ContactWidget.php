@@ -1,6 +1,12 @@
 <?php
 
+namespace app\modules\contact\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use Contact;
+use ContactForm;
+use DWidget;
+use Yii;
 
 DUrlRulesHelper::import('contact');
 

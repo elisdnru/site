@@ -29,6 +29,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по сайту</h1>
 
-<?php $this->widget(\SearchFormWidget::class); ?>
+<?php $this->widget(\app\modules\search\widgets\SearchFormWidget::class); ?>
 
 <p>Введите запрос</p>

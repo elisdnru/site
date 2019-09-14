@@ -1,6 +1,12 @@
 <?php
 
+namespace app\modules\user\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use DWidget;
+use LoginForm;
+use User;
+use Yii;
 
 DUrlRulesHelper::import('user');
 DUrlRulesHelper::import('users');

@@ -6,7 +6,7 @@ use app\modules\main\components\DAdminController;
 /* @var $model PortfolioWork */
 /* @var $form CActiveForm */
 ?>
-<?php $this->widget(\TinyMCEWidget::class); ?>
+<?php $this->widget(\app\modules\tinymce\widgets\TinyMCEWidget::class); ?>
 
 <div class="form">
 

@@ -1,7 +1,13 @@
 <?php
 
+namespace app\modules\portfolio\widgets;
+
 use app\components\module\DUrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
+use CDbCriteria;
+use DWidget;
+use PortfolioWork;
+use Tags;
 
 DUrlRulesHelper::import('portfolio');
 

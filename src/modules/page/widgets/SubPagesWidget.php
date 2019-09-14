@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\page\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use DWidget;
+use Page;
 
 DUrlRulesHelper::import('page');
 

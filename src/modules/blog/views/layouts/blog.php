@@ -1,4 +1,7 @@
-<?php $this->beginContent('//layouts/main'); ?>
+<?php use app\modules\main\widgets\DBreadcrumbsWidget;
+use app\modules\main\widgets\DMessagesWidget;
+
+$this->beginContent('//layouts/main'); ?>
 
 <section class="main left_main">
 

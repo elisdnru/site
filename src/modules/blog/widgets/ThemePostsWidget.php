@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\blog\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use BlogPostGroup;
+use DWidget;
 
 DUrlRulesHelper::import('blog');
 

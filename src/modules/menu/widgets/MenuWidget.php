@@ -1,6 +1,11 @@
 <?php
 
+namespace app\modules\menu\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use DWidget;
+use Menu;
+use Yii;
 
 DUrlRulesHelper::import('menu');
 

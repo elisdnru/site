@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\share\widgets;
+
+use DWidget;
+use Yii;
+
 class ShareWidget extends DWidget
 {
     public $tpl = 'default';

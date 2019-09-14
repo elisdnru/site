@@ -14,7 +14,7 @@ $url = CHtml::asset(Yii::getPathOfAlias('application.modules.blog.assets'));
 $cs->registerCssFile($url . '/tags.css');
 ?>
 
-<?php $this->widget(\TinyMCEWidget::class); ?>
+<?php $this->widget(\app\modules\tinymce\widgets\TinyMCEWidget::class); ?>
 
 <div class="form">
 

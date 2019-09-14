@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\menu\widgets;
+
 use app\components\module\DUrlRulesHelper;
+use CHtml;
+use DWidget;
 
 DUrlRulesHelper::import('menu');
 

@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\follow\widgets;
+
+use CHtml;
+use DWidget;
+use Yii;
+
 class FollowWidget extends DWidget
 {
     public $tpl = 'Follow';

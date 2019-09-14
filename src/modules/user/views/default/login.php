@@ -50,7 +50,7 @@ $this->breadcrumbs = [
 <?php $this->endWidget(); ?>
 
 <?php $this->beginWidget(\DPortlet::class, ['title' => 'Вход через аккаунт в соцсети']); ?>
-<?php $this->widget(\UloginWidget::class, [
+<?php $this->widget(\app\modules\ulogin\widgets\UloginWidget::class, [
     'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])]
 ]); ?>
 

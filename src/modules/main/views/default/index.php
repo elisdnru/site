@@ -36,7 +36,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->widget(\LastPostsWidget::class, ['tpl' => 'home', 'limit' => 10]); ?>
+    <?php $this->widget(\app\modules\blog\widgets\LastPostsWidget::class, ['tpl' => 'home', 'limit' => 10]); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 

@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\widgets;
+
+use DWidget;
+
 class FlashWidget extends DWidget
 {
     public $width = 0;

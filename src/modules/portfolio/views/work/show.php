@@ -26,7 +26,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     $this->info = '<p>Нажмите «Редактировать» чтобы изменить статью</p>';
 } ?>
 
-<?php $this->widget(\ColorboxWidget::class); ?>
+<?php $this->widget(\app\modules\colorbox\widgets\ColorboxWidget::class); ?>
 
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
@@ -80,7 +80,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 </article>
 
-<?php $this->widget(\ShareWidget::class, [
+<?php $this->widget(\app\modules\share\widgets\ShareWidget::class, [
     'title' => $model->title,
     'description' => $model->description,
     'image' => $model->imageUrl,
