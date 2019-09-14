@@ -4,11 +4,9 @@ class m181022_111111_remove_config extends EDbMigration
 {
     public function safeUp()
     {
-        if (!$this->getDbConnection()->getSchema()->getTable('{{config}}')) {
-            return;
+        if ($this->getDbConnection()->getSchema()->getTable('{{config}}')) {
+            $this->dropTable('{{config}}');
         }
-
-        $this->dropTable('{{config}}');
     }
 
     public function safeDown()

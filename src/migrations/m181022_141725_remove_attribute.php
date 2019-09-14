@@ -4,12 +4,10 @@ class m181022_141725_remove_attribute extends EDbMigration
 {
     public function safeUp()
     {
-        if (!$this->getDbConnection()->getSchema()->getTable('{{attribute}}')) {
-            return;
+        if ($this->getDbConnection()->getSchema()->getTable('{{attribute}}')) {
+            $this->dropTable('{{attribute_value}}');
+            $this->dropTable('{{attribute}}');
         }
-
-        $this->dropTable('{{attribute_value}}');
-        $this->dropTable('{{attribute}}');
     }
 
     public function safeDown()

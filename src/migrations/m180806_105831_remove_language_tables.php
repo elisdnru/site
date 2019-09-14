@@ -4,15 +4,18 @@ class m180806_105831_remove_language_tables extends EDbMigration
 {
     public function safeUp()
     {
-        if (!$this->getDbConnection()->getSchema()->getTable('{{block_lang}}')) {
-            return;
+        if ($this->getDbConnection()->getSchema()->getTable('{{block_lang}}')) {
+            $this->dropTable('{{block_lang}}');
         }
 
-        $this->dropTable('{{block_lang}}');
         $this->dropTable('{{blog_post_lang}}');
         $this->dropTable('{{blog_category_lang}}');
         $this->dropTable('{{menu_lang}}');
-        $this->dropTable('{{new_lang}}');
+
+        if ($this->getDbConnection()->getSchema()->getTable('{{new_lang}}')) {
+           $this->dropTable('{{new_lang}}');
+        }
+
         $this->dropTable('{{page_lang}}');
         $this->dropTable('{{portfolio_work_lang}}');
         $this->dropTable('{{portfolio_category_lang}}');

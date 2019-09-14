@@ -4,15 +4,16 @@ class m190806_190155_remove_gallery_tables extends EDbMigration
 {
     public function safeUp()
     {
-        if (!$this->getDbConnection()->getSchema()->getTable('{{gallery_photo}}')) {
-            return;
+        if ($this->getDbConnection()->getSchema()->getTable('{{new}}')) {
+            $this->dropColumn('{{new}}', 'gallery_id');
         }
 
-        $this->dropColumn('{{new}}', 'gallery_id');
         $this->dropColumn('{{blog_post}}', 'gallery_id');
 
-        $this->dropTable('{{gallery_photo}}');
-        $this->dropTable('{{gallery_category}}');
+        if ($this->getDbConnection()->getSchema()->getTable('{{gallery_photo}}')) {
+            $this->dropTable('{{gallery_photo}}');
+            $this->dropTable('{{gallery_category}}');
+        }
     }
 
     public function safeDown()
