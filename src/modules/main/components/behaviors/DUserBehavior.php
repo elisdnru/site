@@ -4,7 +4,7 @@ namespace app\modules\main\components\behaviors;
 
 use CBehavior;
 use CHttpException;
-use User;
+use app\modules\user\models\User;
 use Yii;
 
 class DUserBehavior extends CBehavior

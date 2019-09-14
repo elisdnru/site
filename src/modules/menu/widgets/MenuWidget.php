@@ -4,7 +4,7 @@ namespace app\modules\menu\widgets;
 
 use app\components\module\DUrlRulesHelper;
 use DWidget;
-use Menu;
+use app\modules\menu\models\Menu;
 use Yii;
 
 DUrlRulesHelper::import('menu');

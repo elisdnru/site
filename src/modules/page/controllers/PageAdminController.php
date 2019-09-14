@@ -4,8 +4,8 @@ namespace app\modules\page\controllers;
 
 use CHttpException;
 use app\modules\main\components\DAdminController;
-use Page;
-use PageFile;
+use app\modules\page\models\Page;
+use app\modules\page\models\PageFile;
 use Yii;
 
 class PageAdminController extends DAdminController

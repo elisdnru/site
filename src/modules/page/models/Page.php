@@ -1,8 +1,15 @@
 <?php
 
+namespace app\modules\page\models;
+
 use app\components\module\DUrlRulesHelper;
 use app\modules\main\components\DTreeActiveDataProvider;
 use app\modules\main\components\helpers\DTextHelper;
+use CActiveRecord;
+use CDbCriteria;
+use CUploadedFile;
+use app\modules\user\models\User;
+use Yii;
 
 /**
  * This is the model class for table "{{page}}".
@@ -99,14 +106,14 @@ class Page extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'layout' => [self::BELONGS_TO, \PageLayout::class, 'layout_id'],
-            'layout_subpages' => [self::BELONGS_TO, \PageLayoutSubpages::class, 'layout_subpages_id'],
-            'parent' => [self::BELONGS_TO, \Page::class, 'parent_id'],
-            'child_pages' => [self::HAS_MANY, \Page::class, 'parent_id',
+            'layout' => [self::BELONGS_TO, \app\modules\page\models\PageLayout::class, 'layout_id'],
+            'layout_subpages' => [self::BELONGS_TO, \app\modules\page\models\PageLayoutSubpages::class, 'layout_subpages_id'],
+            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
+            'child_pages' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_pages.id ASC'
             ],
-            'child_pages_count' => [self::STAT, \Page::class, 'parent_id'],
-            'files' => [self::HAS_MANY, \PageFile::class, 'material_id',
+            'child_pages_count' => [self::STAT, self::class, 'parent_id'],
+            'files' => [self::HAS_MANY, \app\modules\page\models\PageFile::class, 'material_id',
                 'order' => 'files.title DESC'
             ],
         ];

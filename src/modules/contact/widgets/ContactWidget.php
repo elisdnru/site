@@ -3,8 +3,8 @@
 namespace app\modules\contact\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use Contact;
-use ContactForm;
+use app\modules\contact\models\Contact;
+use app\modules\contact\models\ContactForm;
 use DWidget;
 use Yii;
 

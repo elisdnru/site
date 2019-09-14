@@ -1,8 +1,15 @@
 <?php
 
+namespace app\modules\blog\models;
+
 use app\components\module\DUrlRulesHelper;
 use app\modules\comment\components\DICommentDepends;
 use app\modules\main\components\helpers\DTextHelper;
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use CHtml;
+use Yii;
 
 /**
  * This is the model class for table "{{new}}".
@@ -74,9 +81,9 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \User::class, 'attributeName' => 'id'],
-            ['category_id', 'exist', 'className' => \BlogCategory::class, 'attributeName' => 'id'],
-            ['group_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \BlogPostGroup::class, 'attributeName' => 'id'],
+            ['author_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
+            ['category_id', 'exist', 'className' => \app\modules\blog\models\BlogCategory::class, 'attributeName' => 'id'],
+            ['group_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \app\modules\blog\models\BlogPostGroup::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
@@ -99,11 +106,11 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, \BlogCategory::class, 'category_id'],
-            'author' => [self::BELONGS_TO, \User::class, 'author_id'],
-            'group' => [self::BELONGS_TO, \BlogPostGroup::class, 'group_id'],
-            'posttags' => [self::HAS_MANY, \BlogPostTag::class, 'post_id'],
-            'tags' => [self::MANY_MANY, \BlogTag::class, '{{blog_post_tag}}(post_id, tag_id)', 'order' => 'tags.title'],
+            'category' => [self::BELONGS_TO, \app\modules\blog\models\BlogCategory::class, 'category_id'],
+            'author' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'author_id'],
+            'group' => [self::BELONGS_TO, \app\modules\blog\models\BlogPostGroup::class, 'group_id'],
+            'posttags' => [self::HAS_MANY, \app\modules\blog\models\BlogPostTag::class, 'post_id'],
+            'tags' => [self::MANY_MANY, \app\modules\blog\models\BlogTag::class, '{{blog_post_tag}}(post_id, tag_id)', 'order' => 'tags.title'],
         ];
     }
 

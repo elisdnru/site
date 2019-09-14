@@ -2,6 +2,8 @@
 /* @var $this DController */
 
 use app\modules\main\components\DController;
+use app\modules\page\models\Page;
+use app\modules\user\models\Access;
 
 /* @var $page Page */
 /* @var $items CModel[] */

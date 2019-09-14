@@ -1,6 +1,7 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\comment\models\Comment;
 use app\modules\main\components\DAdminController;
 
 /* @var $model Comment */

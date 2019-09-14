@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use BlogSearchForm;
+use app\modules\blog\models\BlogSearchForm;
 use DWidget;
 
 DUrlRulesHelper::import('blog');

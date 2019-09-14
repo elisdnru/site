@@ -6,7 +6,7 @@ use CDbCriteria;
 use CHttpException;
 use CPagination;
 use app\modules\main\components\DAdminController;
-use PortfolioWork;
+use app\modules\portfolio\models\PortfolioWork;
 use Yii;
 
 class WorkAdminController extends DAdminController

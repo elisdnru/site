@@ -3,6 +3,7 @@
 
 use app\modules\main\components\DController;
 use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\user\models\Access;
 
 /* @var $dataProvider CActiveDataProvider */
 

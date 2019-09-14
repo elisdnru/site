@@ -2,13 +2,13 @@
 
 namespace app\modules\user\controllers;
 
-use Access;
+use app\modules\user\models\Access;
 use CActiveForm;
 use app\modules\main\components\DController;
 use app\components\module\DUrlRulesHelper;
-use LoginForm;
-use RemindForm;
-use User;
+use app\modules\user\models\LoginForm;
+use app\modules\user\models\RemindForm;
+use app\modules\user\models\User;
 use Yii;
 
 DUrlRulesHelper::import('user');

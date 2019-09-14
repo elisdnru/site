@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\main\components\helpers\DSocNetworkHelper;
+use app\modules\user\models\Access;
 
 $this->pageTitle = 'Профиль пользователя ' . $model->username;
 $this->breadcrumbs = [

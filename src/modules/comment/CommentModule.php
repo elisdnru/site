@@ -2,7 +2,7 @@
 
 namespace app\modules\comment;
 
-use Comment;
+use app\modules\comment\models\Comment;
 use app\modules\main\components\system\DWebModule;
 
 class CommentModule extends DWebModule

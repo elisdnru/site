@@ -2,6 +2,10 @@
 /* @var $this DAdminController */
 
 use app\modules\blog\extensions\multicomplete\MultiComplete;
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\BlogTag;
 use app\modules\main\components\DAdminController;
 
 /* @var $model BlogPost */

@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\user\models\Access;
+
 $this->pageTitle = $model->title;
 $this->description = $model->description;
 $this->keywords = $model->keywords;

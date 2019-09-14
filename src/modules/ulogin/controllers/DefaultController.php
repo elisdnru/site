@@ -3,7 +3,7 @@
 namespace app\modules\ulogin\controllers;
 
 use app\modules\main\components\DController;
-use UloginModel;
+use app\modules\ulogin\models\UloginModel;
 use Yii;
 
 class DefaultController extends DController

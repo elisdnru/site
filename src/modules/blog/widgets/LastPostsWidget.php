@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use BlogPost;
+use app\modules\blog\models\BlogPost;
 use CDbCriteria;
 use DWidget;
 use Tags;

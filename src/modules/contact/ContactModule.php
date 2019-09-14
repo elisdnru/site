@@ -2,7 +2,7 @@
 
 namespace app\modules\contact;
 
-use Contact;
+use app\modules\contact\models\Contact;
 use app\modules\main\components\system\DWebModule;
 
 class ContactModule extends DWebModule

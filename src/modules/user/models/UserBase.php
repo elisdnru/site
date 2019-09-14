@@ -1,7 +1,16 @@
 <?php
 
+namespace app\modules\user\models;
+
 use app\components\module\DUrlRulesHelper;
 use app\modules\main\components\helpers\DGRavatarHelper;
+use app\modules\page\models\Page;
+use CActiveDataProvider;
+use CActiveRecord;
+use CCaptcha;
+use CDbCriteria;
+use CDbExpression;
+use Yii;
 
 /**
  * This is the model class for table "{{user}}".
@@ -115,7 +124,7 @@ abstract class UserBase extends CActiveRecord
                 'username',
                 'unique',
                 'caseSensitive' => false,
-                'className' => \User::class,
+                'className' => \app\modules\user\models\User::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -158,7 +167,7 @@ abstract class UserBase extends CActiveRecord
                 'email',
                 'unique',
                 'caseSensitive' => false,
-                'className' => \User::class,
+                'className' => \app\modules\user\models\User::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -266,9 +275,9 @@ abstract class UserBase extends CActiveRecord
     public function relations()
     {
         return [
-            'access_pages' => [self::HAS_MANY, \UserPage::class, 'user_id'],
-            'access_pages_full' => [self::MANY_MANY, \Page::class, 'user_page(user_id, page_id)'],
-            'comments_count_real' => [self::STAT, \Comment::class, 'user_id',
+            'access_pages' => [self::HAS_MANY, \app\modules\user\models\UserPage::class, 'user_id'],
+            'access_pages_full' => [self::MANY_MANY, \app\modules\page\models\Page::class, 'user_page(user_id, page_id)'],
+            'comments_count_real' => [self::STAT, \app\modules\comment\models\Comment::class, 'user_id',
                 'condition' => 'public=1',
             ],
         ];

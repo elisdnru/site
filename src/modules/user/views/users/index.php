@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\user\models\Access;
+
 $this->pageTitle = 'Пользователи';
 $this->breadcrumbs = [
     'Пользователи',

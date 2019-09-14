@@ -6,10 +6,10 @@ use CActiveDataProvider;
 use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
-use Page;
+use app\modules\page\models\Page;
 use app\modules\portfolio\components\PortfolioBaseController;
-use PortfolioCategory;
-use PortfolioWork;
+use app\modules\portfolio\models\PortfolioCategory;
+use app\modules\portfolio\models\PortfolioWork;
 use Tags;
 use Yii;
 

@@ -3,7 +3,7 @@
 namespace app\modules\page\components;
 
 use CBaseUrlRule;
-use Page;
+use app\modules\page\models\Page;
 use Yii;
 
 class DPageUrlRule extends CBaseUrlRule

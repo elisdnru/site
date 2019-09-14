@@ -3,7 +3,7 @@
 namespace app\modules\search\widgets;
 
 use DWidget;
-use SearchForm;
+use app\modules\search\models\SearchForm;
 
 class SearchFormWidget extends DWidget
 {

@@ -1,4 +1,6 @@
-<?php $this->widget('zii.widgets.grid.CGridView', [
+<?php use app\modules\user\models\Access;
+
+$this->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(50),
     'filter' => $model,

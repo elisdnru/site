@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\blog\models;
+
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+
 /**
  * This is the model class for table "{{blog_post_tag}}".
  *
@@ -52,7 +58,7 @@ class BlogPostTag extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'tag' => [self::BELONGS_TO, \BlogTag::class, 'tag_id'],
+            'tag' => [self::BELONGS_TO, \app\modules\blog\models\BlogTag::class, 'tag_id'],
         ];
     }
 

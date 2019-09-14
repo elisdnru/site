@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\search\models;
+
+use CActiveRecord;
+use Yii;
+
 /**
  * @property string $title
  * @property string $text

@@ -3,7 +3,7 @@
 namespace app\modules\user\components;
 
 use CUserIdentity;
-use User;
+use app\modules\user\models\User;
 
 /**
  * UserIdentity represents the data needed to identity a user.

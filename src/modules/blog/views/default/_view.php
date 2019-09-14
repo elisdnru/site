@@ -1,6 +1,7 @@
 <?php
 /* @var $data BlogPost */
 
+use app\modules\blog\models\BlogPost;
 use app\modules\main\components\helpers\DDateHelper;
 
 $links = [];

@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\contact\models;
+
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use Yii;
+
 /**
  * This is the model class for table "{{contact}}".
  *

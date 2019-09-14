@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\ulogin\models;
+
 use app\modules\ulogin\components\UloginUserIdentity;
+use CModel;
+use Yii;
 
 class UloginModel extends CModel
 {

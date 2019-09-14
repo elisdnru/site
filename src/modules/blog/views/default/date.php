@@ -4,6 +4,7 @@
 use app\modules\main\components\DController;
 use app\modules\main\components\DDateLimiter;
 use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\user\models\Access;
 
 /* @var $date DDateLimiter */
 /* @var $dataProvider CActiveDataProvider */

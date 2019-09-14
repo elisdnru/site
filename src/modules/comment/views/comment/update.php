@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\user\models\Access;
+
 $this->pageTitle = 'Редактор комментариев';
 $this->breadcrumbs = [
     'Редактор комментария',

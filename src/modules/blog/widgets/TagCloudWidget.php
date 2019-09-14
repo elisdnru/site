@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use BlogTag;
+use app\modules\blog\models\BlogTag;
 use DWidget;
 use Tags;
 

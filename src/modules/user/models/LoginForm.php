@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\user\models;
+
 use app\modules\user\components\UserIdentity;
+use CFormModel;
+use Yii;
 
 /**
  * LoginForm class.

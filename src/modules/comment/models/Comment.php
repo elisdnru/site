@@ -1,7 +1,14 @@
 <?php
 
+namespace app\modules\comment\models;
+
 use app\modules\comment\components\DICommentDepends;
 use app\modules\main\components\helpers\DGRavatarHelper;
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use app\modules\user\models\User;
+use Yii;
 
 /**
  * This is the model class for table "{{comment}}".
@@ -85,8 +92,8 @@ class Comment extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'user' => [self::BELONGS_TO, \User::class, 'user_id'],
-            'parent' => [self::BELONGS_TO, \Comment::class, 'parent_id'],
+            'user' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'user_id'],
+            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
         ];
     }
 

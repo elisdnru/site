@@ -1,12 +1,17 @@
 <?php
 
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostGroup;
+use app\modules\user\models\User;
+
 class BlogProcessingTest extends DbTestCase
 {
     public $fixtures = [
-        'blog_post'=>'BlogPost',
-        'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>\BlogPostGroup::class,
-        'user'=>'User',
+        'blog_post'=> BlogPost::class,
+        'blog_category'=> BlogCategory::class,
+        'blog_postGroup'=> BlogPostGroup::class,
+        'user'=> User::class,
     ];
 
     public function testShort()

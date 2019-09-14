@@ -2,9 +2,9 @@
 
 namespace app\modules\ulogin\components;
 
-use Access;
+use app\modules\user\models\Access;
 use CUserIdentity;
-use User;
+use app\modules\user\models\User;
 
 class UloginUserIdentity extends CUserIdentity
 {

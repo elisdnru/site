@@ -1,6 +1,9 @@
 <?php
 
+namespace app\modules\user\models;
+
 use app\modules\main\components\helpers\DGRavatarHelper;
+use Yii;
 
 /**
  * This is the model class for table "{{user}}".
@@ -26,7 +29,7 @@ class User extends UserBase
         return array_merge(parent::rules(), [
             // Settings
             // array('old_password', 'required', 'on' => 'settings'),
-            ['old_password', \app\modules\user\components\DCurrentPassword::class, 'className' => \User::class, 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
+            ['old_password', \app\modules\user\components\DCurrentPassword::class, 'className' => self::class, 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
         ]);
     }
 

@@ -2,7 +2,7 @@
 
 namespace app\modules\blog;
 
-use BlogPostComment;
+use app\modules\blog\models\BlogPostComment;
 use app\modules\main\components\system\DWebModule;
 
 class BlogModule extends DWebModule

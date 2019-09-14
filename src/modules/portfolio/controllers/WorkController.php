@@ -4,7 +4,7 @@ namespace app\modules\portfolio\controllers;
 
 use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
-use PortfolioWork;
+use app\modules\portfolio\models\PortfolioWork;
 use Tags;
 
 class WorkController extends PortfolioBaseController

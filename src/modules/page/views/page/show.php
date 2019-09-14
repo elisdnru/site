@@ -1,4 +1,6 @@
-<?php if ($page->layout->alias == 'blank') : ?>
+<?php use app\modules\page\models\PageFile;
+
+if ($page->layout->alias == 'blank') : ?>
     <?php echo $this->decodeWidgets($page->text_purified); ?>
 <?php else : ?>
     <header>

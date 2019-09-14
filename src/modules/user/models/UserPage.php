@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\user\models;
+
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+
 /**
  * @property string $id
  * @property string $user_id
@@ -49,8 +55,8 @@ class UserPage extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'user' => [self::BELONGS_TO, \User::class, 'user_id'],
-            'page' => [self::BELONGS_TO, \Page::class, 'page_id'],
+            'user' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'user_id'],
+            'page' => [self::BELONGS_TO, \app\modules\page\models\Page::class, 'page_id'],
         ];
     }
 

@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\user\models;
+
+use CHtml;
+use CModel;
+use Yii;
+
 class Access extends CModel
 {
     const ROLE_ADMIN = 'role_admin';

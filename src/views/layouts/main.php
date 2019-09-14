@@ -1,5 +1,5 @@
 <?php /** @var $this DController */
-use app\modules\main\components\DController; ?><!doctype html>
+use app\modules\main\components\DController;use app\modules\menu\models\Menu;use app\modules\user\models\Access; ?><!doctype html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
     <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>

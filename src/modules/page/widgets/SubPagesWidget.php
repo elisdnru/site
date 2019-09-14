@@ -4,7 +4,7 @@ namespace app\modules\page\widgets;
 
 use app\components\module\DUrlRulesHelper;
 use DWidget;
-use Page;
+use app\modules\page\models\Page;
 
 DUrlRulesHelper::import('page');
 

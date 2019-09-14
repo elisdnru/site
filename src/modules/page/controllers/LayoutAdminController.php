@@ -4,7 +4,7 @@ namespace app\modules\page\controllers;
 
 use CHttpException;
 use app\modules\main\components\DAdminController;
-use PageLayout;
+use app\modules\page\models\PageLayout;
 
 class LayoutAdminController extends DAdminController
 {

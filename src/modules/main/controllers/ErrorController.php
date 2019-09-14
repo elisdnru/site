@@ -4,7 +4,7 @@ namespace app\modules\main\controllers;
 
 use CHttpException;
 use app\modules\main\components\DController;
-use Page;
+use app\modules\page\models\Page;
 use Yii;
 
 class ErrorController extends DController

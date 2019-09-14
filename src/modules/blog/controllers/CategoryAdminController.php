@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\controllers;
 
-use BlogCategory;
-use BlogPost;
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
 use CHttpException;
 use app\modules\main\components\DAdminController;
 

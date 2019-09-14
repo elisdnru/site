@@ -1,5 +1,7 @@
 <?php
 
+namespace app\modules\page\models;
+
 /**
  * This is the model class for table "{{pagelayout}}".
  *

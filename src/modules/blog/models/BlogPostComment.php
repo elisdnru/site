@@ -1,12 +1,15 @@
 <?php
 
+namespace app\modules\blog\models;
+
 use app\components\module\DUrlRulesHelper;
+use app\modules\comment\models\Comment;
 
 DUrlRulesHelper::import('blog');
 
 class BlogPostComment extends Comment
 {
-    const TYPE_OF_COMMENT = 'BlogPost';
+    const TYPE_OF_COMMENT = BlogPost::class;
 
     /**
      * Returns the static model of the specified AR class.
@@ -29,8 +32,8 @@ class BlogPostComment extends Comment
     public function relations()
     {
         return array_merge(parent::relations(), [
-            'child_items' => [self::HAS_MANY, self::TYPE_OF_COMMENT . 'Comment', 'parent_id'],
-            'material' => [self::BELONGS_TO, self::TYPE_OF_COMMENT, 'material_id'],
+            'child_items' => [self::HAS_MANY, self::class, 'parent_id'],
+            'material' => [self::BELONGS_TO, BlogPost::class, 'material_id'],
         ]);
     }
 }

@@ -1,5 +1,13 @@
 <?php
 
+namespace app\modules\file\models;
+
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use CUploadedFile;
+use Yii;
+
 /**
  * This is the model class for table "{{comment}}".
  *

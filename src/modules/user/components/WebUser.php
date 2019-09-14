@@ -3,7 +3,7 @@
 namespace app\modules\user\components;
 
 use CWebUser;
-use User;
+use app\modules\user\models\User;
 
 class WebUser extends CWebUser
 {

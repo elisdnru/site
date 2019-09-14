@@ -1,6 +1,7 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\contact\models\Contact;
 use app\modules\main\components\DAdminController;
 
 /* @var $next Contact */

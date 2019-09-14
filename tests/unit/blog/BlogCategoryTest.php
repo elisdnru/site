@@ -1,5 +1,10 @@
 <?php
 
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostGroup;
+use app\modules\user\models\User;
+
 class BlogCategoryTest extends DbTestCase
 {
     /**
@@ -8,10 +13,10 @@ class BlogCategoryTest extends DbTestCase
     protected $category;
 
     public $fixtures = [
-        'blog_post'=>'BlogPost',
-        'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>\BlogPostGroup::class,
-        'user'=>'User',
+        'blog_post' => BlogPost::class,
+        'blog_category' => BlogCategory::class,
+        'blog_postGroup' => BlogPostGroup::class,
+        'user' => User::class,
     ];
 
     protected function setUp()
@@ -69,7 +74,7 @@ class BlogCategoryTest extends DbTestCase
     public function testParentRelation()
     {
         $category = $this->blog_category('child_category');
-        $this->assertInstanceOf('BlogCategory', $category->parent);
+        $this->assertInstanceOf(BlogCategory::class, $category->parent);
     }
 
     public function testPostsCountRelation()

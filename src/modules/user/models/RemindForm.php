@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\user\models;
+
+use CFormModel;
+
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping

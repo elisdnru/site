@@ -1,6 +1,12 @@
 <?php
 
+namespace app\modules\blog\models;
+
 use app\components\module\DUrlRulesHelper;
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use Yii;
 
 DUrlRulesHelper::import('blog');
 
@@ -55,8 +61,8 @@ class BlogTag extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'frequency' => [self::STAT, \BlogPostTag::class, 'tag_id'],
-            'posttags' => [self::HAS_MANY, \BlogPostTag::class, 'tag_id'],
+            'frequency' => [self::STAT, \app\modules\blog\models\BlogPostTag::class, 'tag_id'],
+            'posttags' => [self::HAS_MANY, \app\modules\blog\models\BlogPostTag::class, 'tag_id'],
         ];
     }
 

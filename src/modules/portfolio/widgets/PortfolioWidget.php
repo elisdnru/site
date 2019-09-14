@@ -6,7 +6,7 @@ use app\components\module\DUrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
 use CDbCriteria;
 use DWidget;
-use PortfolioWork;
+use app\modules\portfolio\models\PortfolioWork;
 use Tags;
 
 DUrlRulesHelper::import('portfolio');

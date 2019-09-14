@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\user\models\Access;
+
 $this->pageTitle = 'Регистрация';
 $this->breadcrumbs = [
     'Вход на сайт' => $this->createUrl('login'),

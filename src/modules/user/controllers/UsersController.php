@@ -5,7 +5,7 @@ namespace app\modules\user\controllers;
 use CHttpException;
 use app\modules\main\components\DController;
 use Tags;
-use User;
+use app\modules\user\models\User;
 
 class UsersController extends DController
 {

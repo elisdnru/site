@@ -1,6 +1,7 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\block\models\Block;
 use app\modules\main\components\DAdminController;
 
 /* @var $model Block */

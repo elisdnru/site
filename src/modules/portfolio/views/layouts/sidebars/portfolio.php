@@ -1,4 +1,6 @@
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
+<?php use app\modules\portfolio\models\PortfolioCategory;
+
+if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\DPortlet::class, ['title' => 'Также я здесь']); ?>
     <?php $this->widget(\app\modules\follow\widgets\FollowWidget::class); ?>
     <?php $this->endWidget(); ?>

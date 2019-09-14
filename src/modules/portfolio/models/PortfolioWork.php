@@ -1,7 +1,14 @@
 <?php
 
+namespace app\modules\portfolio\models;
+
 use app\components\module\DUrlRulesHelper;
+use app\modules\blog\models\BlogPost;
 use app\modules\main\components\helpers\DTextHelper;
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use Yii;
 
 /**
  * This is the model class for table "{{new}}".
@@ -65,7 +72,7 @@ class PortfolioWork extends CActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \PortfolioCategory::class, 'attributeName' => 'id'],
+            ['category_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \app\modules\portfolio\models\PortfolioCategory::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
@@ -85,7 +92,7 @@ class PortfolioWork extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, \PortfolioCategory::class, 'category_id'],
+            'category' => [self::BELONGS_TO, \app\modules\portfolio\models\PortfolioCategory::class, 'category_id'],
         ];
     }
 

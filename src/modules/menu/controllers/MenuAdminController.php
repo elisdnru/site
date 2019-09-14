@@ -4,7 +4,7 @@ namespace app\modules\menu\controllers;
 
 use CHttpException;
 use app\modules\main\components\DAdminController;
-use Menu;
+use app\modules\menu\models\Menu;
 
 class MenuAdminController extends DAdminController
 {

@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
-use Access;
+use app\modules\user\models\Access;
 use app\modules\main\components\DAdminController;
 use Yii;
 use function is_a;

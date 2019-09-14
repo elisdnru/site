@@ -14,6 +14,10 @@ use app\modules\page\widgets\PageWidget;
 use app\modules\page\widgets\SubPagesWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 
+CHtml::setModelNameConverter(static function ($model) {
+    return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;
+});
+
 $modules = [
     'admin' => ['class' => app\modules\admin\AdminModule::class],
     'block' => ['class' => app\modules\block\BlockModule::class],

@@ -5,9 +5,9 @@ namespace app\modules\user\controllers;
 use CActiveForm;
 use CHttpException;
 use app\modules\main\components\DAdminController;
-use Page;
-use User;
-use UserPage;
+use app\modules\page\models\Page;
+use app\modules\user\models\User;
+use app\modules\user\models\UserPage;
 use Yii;
 
 class UserAdminController extends DAdminController

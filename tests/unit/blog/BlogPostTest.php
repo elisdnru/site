@@ -1,19 +1,24 @@
 <?php
 
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostComment;
+use app\modules\blog\models\BlogPostGroup;
+use app\modules\user\models\User;
+
 class BlogPostTest extends DbTestCase
 {
-
     /**
      * @var BlogPost
      */
     protected $post;
 
     public $fixtures = [
-        'comment'=>'BlogPostComment',
-        'blog_post'=>'BlogPost',
-        'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>\BlogPostGroup::class,
-        'user'=>'User',
+        'comment'=> BlogPostComment::class,
+        'blog_post'=> BlogPost::class,
+        'blog_category'=> BlogCategory::class,
+        'blog_postGroup'=> BlogPostGroup::class,
+        'user'=> User::class,
     ];
 
     protected function setUp()
@@ -125,19 +130,19 @@ class BlogPostTest extends DbTestCase
     public function testBelongsToCategory()
     {
         $post = $this->blog_post('post_with_category');
-        $this->assertInstanceOf('BlogCategory', $post->category);
+        $this->assertInstanceOf(BlogCategory::class, $post->category);
     }
 
     public function testBelongsToAuthor()
     {
         $post = $this->blog_post('post_with_author');
-        $this->assertInstanceOf('User', $post->author);
+        $this->assertInstanceOf(User::class, $post->author);
     }
 
     public function testBelongsToGroup()
     {
         $post = $this->blog_post('post_with_group');
-        $this->assertInstanceOf(\BlogPostGroup::class, $post->group);
+        $this->assertInstanceOf(BlogPostGroup::class, $post->group);
     }
 
     public function testSafeAttributesOnSearchScenario()

@@ -2,6 +2,8 @@
 /* @var $this DAdminController */
 
 use app\modules\main\components\DAdminController;
+use app\modules\portfolio\models\PortfolioCategory;
+use app\modules\portfolio\models\PortfolioWork;
 
 /* @var $model PortfolioWork */
 /* @var $form CActiveForm */

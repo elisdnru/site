@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\comment\models;
+
+use CFormModel;
+
 /**
  * This is the model class for table "{{comment}}".
  *

@@ -6,10 +6,10 @@ use app\components\module\DUrlRulesHelper;
 use CException;
 use CHtml;
 use CHttpCookie;
-use Comment;
-use CommentForm;
+use app\modules\comment\models\Comment;
+use app\modules\comment\models\CommentForm;
 use DWidget;
-use User;
+use app\modules\user\models\User;
 use Yii;
 
 DUrlRulesHelper::import('users');

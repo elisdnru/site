@@ -2,17 +2,17 @@
 
 namespace app\modules\blog\controllers;
 
-use BlogCategory;
-use BlogPost;
-use BlogSearchForm;
-use BlogTag;
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogSearchForm;
+use app\modules\blog\models\BlogTag;
 use CActiveDataProvider;
 use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
 use app\modules\main\components\DController;
 use app\modules\main\components\DDateLimiter;
-use Page;
+use app\modules\page\models\Page;
 use Tags;
 
 class DefaultController extends DController

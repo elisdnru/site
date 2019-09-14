@@ -3,7 +3,7 @@
 namespace app\modules\main\controllers;
 
 use app\modules\main\components\DController;
-use Page;
+use app\modules\page\models\Page;
 use Tags;
 use Yii;
 

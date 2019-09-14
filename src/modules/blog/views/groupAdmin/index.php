@@ -1,6 +1,8 @@
 <?php
 /* @var $this DController */
 
+use app\modules\blog\models\BlogCategoryForm;
+use app\modules\blog\models\BlogPostGroup;
 use app\modules\main\components\DController;
 
 /* @var $items BlogPostGroup[] */

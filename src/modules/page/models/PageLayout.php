@@ -1,5 +1,12 @@
 <?php
 
+namespace app\modules\page\models;
+
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use CHtml;
+
 /**
  * This is the model class for table "{{pagelayout}}".
  *

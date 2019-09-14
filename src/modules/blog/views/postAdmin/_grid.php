@@ -1,7 +1,11 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostGroup;
 use app\modules\main\components\DAdminController;
+use app\modules\user\models\User;
 
 /* @var $model BlogPost */
 ?>

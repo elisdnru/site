@@ -2,6 +2,7 @@
 /* @var $this DAdminController */
 
 use app\modules\main\components\DAdminController;
+use app\modules\user\models\User;
 
 /* @var $model User */
 /* @var $form CActiveForm */

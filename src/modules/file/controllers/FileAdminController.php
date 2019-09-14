@@ -2,7 +2,7 @@
 
 namespace app\modules\file\controllers;
 
-use Access;
+use app\modules\user\models\Access;
 use CHttpException;
 use app\modules\main\components\DAdminController;
 use app\modules\uploader\components\DFileHelper;

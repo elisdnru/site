@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use BlogPostGroup;
+use app\modules\blog\models\BlogPostGroup;
 use DWidget;
 
 DUrlRulesHelper::import('blog');

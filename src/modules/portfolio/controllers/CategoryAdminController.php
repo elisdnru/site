@@ -4,8 +4,8 @@ namespace app\modules\portfolio\controllers;
 
 use CHttpException;
 use app\modules\main\components\DAdminController;
-use PortfolioCategory;
-use PortfolioWork;
+use app\modules\portfolio\models\PortfolioCategory;
+use app\modules\portfolio\models\PortfolioWork;
 
 class CategoryAdminController extends DAdminController
 {

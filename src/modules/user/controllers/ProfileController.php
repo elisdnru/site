@@ -2,11 +2,11 @@
 
 namespace app\modules\user\controllers;
 
-use Access;
+use app\modules\user\models\Access;
 use CActiveForm;
 use CHttpException;
 use app\modules\main\components\DController;
-use User;
+use app\modules\user\models\User;
 use Yii;
 
 class ProfileController extends DController

@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\controllers;
 
-use BlogPost;
-use BlogPostGroup;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostGroup;
 use CHttpException;
 use app\modules\main\components\DAdminController;
 
@@ -31,7 +31,7 @@ class GroupAdminController extends DAdminController
         $this->renderTableForm([
             'class' => BlogPostGroup::class,
             'order' => 'title ASC',
-            'form' => \BlogPostGroupForm::class,
+            'form' => \app\modules\blog\models\BlogPostGroupForm::class,
             'view' => 'index',
         ]);
     }

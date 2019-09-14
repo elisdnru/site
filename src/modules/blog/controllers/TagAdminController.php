@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
-use BlogTag;
+use app\modules\blog\models\BlogTag;
 use CHttpException;
 use app\modules\main\components\DAdminController;
 

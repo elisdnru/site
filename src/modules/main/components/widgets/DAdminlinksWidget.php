@@ -1,6 +1,7 @@
 <?php
 
 use app\components\module\DUrlRulesHelper;
+use app\modules\user\models\Access;
 
 DUrlRulesHelper::import('admin');
 

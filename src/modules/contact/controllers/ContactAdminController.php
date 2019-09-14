@@ -3,7 +3,7 @@
 namespace app\modules\contact\controllers;
 
 use CHttpException;
-use Contact;
+use app\modules\contact\models\Contact;
 use app\modules\main\components\DAdminController;
 
 class ContactAdminController extends DAdminController

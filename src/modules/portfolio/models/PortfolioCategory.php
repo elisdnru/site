@@ -1,7 +1,11 @@
 <?php
 
+namespace app\modules\portfolio\models;
+
 use app\components\module\DUrlRulesHelper;
+use app\modules\blog\models\BlogCategory;
 use app\modules\main\components\DExistOrEmpty;
+use TreeCategory;
 
 DUrlRulesHelper::import('portfolio');
 
@@ -49,7 +53,7 @@ class PortfolioCategory extends TreeCategory
             'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, \PortfolioWork::class, 'category_id',
+            'items_count' => [self::STAT, \app\modules\portfolio\models\PortfolioWork::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

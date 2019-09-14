@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\user\models\Access;
+
 $this->pageTitle = 'Error';
 $this->breadcrumbs = [
     'Ошибка ' . (isset($error['code']) ? $error['code'] : ''),

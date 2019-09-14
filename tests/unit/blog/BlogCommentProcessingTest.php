@@ -1,13 +1,19 @@
 <?php
 
+use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\BlogPostComment;
+use app\modules\blog\models\BlogPostGroup;
+use app\modules\user\models\User;
+
 class BlogCommentProcessingTest extends DbTestCase
 {
     public $fixtures = [
-        'comment'=>'BlogPostComment',
-        'blog_post'=>'BlogPost',
-        'blog_category'=>'BlogCategory',
-        'blog_postGroup'=>\BlogPostGroup::class,
-        'user'=>'User',
+        'comment'=> BlogPostComment::class,
+        'blog_post'=> BlogPost::class,
+        'blog_category'=> BlogCategory::class,
+        'blog_postGroup'=> BlogPostGroup::class,
+        'user'=> User::class,
     ];
 
     public function testComment()

@@ -2,6 +2,8 @@
 /* @var $this DAdminController */
 
 use app\modules\main\components\DAdminController;
+use app\modules\menu\models\Menu;
+use app\modules\page\models\Page;
 
 /* @var $model Menu */
 /* @var $form CActiveForm */

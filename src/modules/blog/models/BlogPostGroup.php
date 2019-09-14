@@ -1,5 +1,11 @@
 <?php
 
+namespace app\modules\blog\models;
+
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+
 /**
  * @property integer $id
  * @property string $title
@@ -32,11 +38,11 @@ class BlogPostGroup extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'posts' => [self::HAS_MANY, \BlogPost::class, 'group_id',
+            'posts' => [self::HAS_MANY, \app\modules\blog\models\BlogPost::class, 'group_id',
                 'condition' => 'posts.public=1',
                 'order' => 'posts.date DESC, posts.id DESC'
             ],
-            'posts_count' => [self::STAT, \BlogPost::class, 'group_id'],
+            'posts_count' => [self::STAT, \app\modules\blog\models\BlogPost::class, 'group_id'],
         ];
     }
 

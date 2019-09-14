@@ -3,6 +3,7 @@
 
 use app\modules\main\components\DController;
 use app\modules\search\components\SearchHighlighter;
+use app\modules\search\models\Search;
 
 /* @var $data Search */
 ?>

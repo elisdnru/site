@@ -2,12 +2,12 @@
 
 namespace app\modules\sitemap\controllers;
 
-use BlogPost;
+use app\modules\blog\models\BlogPost;
 use app\modules\main\components\DController;
 use app\modules\sitemap\components\DSitemap;
 use app\components\module\DUrlRulesHelper;
-use Page;
-use PortfolioWork;
+use app\modules\page\models\Page;
+use app\modules\portfolio\models\PortfolioWork;
 use Tags;
 use Yii;
 

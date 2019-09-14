@@ -2,7 +2,7 @@
 
 namespace app\modules\block\controllers;
 
-use Block;
+use app\modules\block\models\Block;
 use CHttpException;
 use app\modules\main\components\DAdminController;
 

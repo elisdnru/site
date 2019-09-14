@@ -1,8 +1,10 @@
 <?php
 /* @var $this DController */
 
+use app\modules\blog\models\BlogTag;
 use app\modules\main\components\DController;
 use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\user\models\Access;
 
 /* @var $tag BlogTag */
 /* @var $dataProvider CActiveDataProvider */

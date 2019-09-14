@@ -1,7 +1,13 @@
 <?php
 
+namespace app\modules\menu\models;
+
 use app\components\module\DUrlRulesHelper;
 use app\modules\main\components\DTreeActiveDataProvider;
+use CActiveRecord;
+use Category;
+use CDbCriteria;
+use Yii;
 
 /**
  * This is the model class for table "{{menu}}".
@@ -73,7 +79,7 @@ class Menu extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'child_items' => [self::HAS_MANY, \Menu::class, 'parent_id',
+            'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC, child_items.title ASC'
             ],
         ];

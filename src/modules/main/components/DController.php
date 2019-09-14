@@ -4,7 +4,7 @@ namespace app\modules\main\components;
 
 use app\components\Controller;
 use CHttpException;
-use User;
+use app\modules\user\models\User;
 use Yii;
 
 /**

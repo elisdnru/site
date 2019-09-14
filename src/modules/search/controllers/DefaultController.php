@@ -12,7 +12,7 @@ namespace app\modules\search\controllers;
 use CActiveDataProvider;
 use CDbCriteria;
 use app\modules\main\components\DController;
-use SearchForm;
+use app\modules\search\models\SearchForm;
 use Yii;
 
 class DefaultController extends DController

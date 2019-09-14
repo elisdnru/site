@@ -3,6 +3,7 @@
 namespace app\modules\comment\components;
 
 use app\components\module\DUrlRulesHelper;
+use app\modules\comment\models\Comment;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -128,7 +129,7 @@ class CommentAdminControllerBase extends DAdminController
 
     protected function getModelName()
     {
-        return 'Comment';
+        return Comment::class;
     }
 
     protected function registerScripts()

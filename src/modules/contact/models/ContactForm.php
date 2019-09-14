@@ -1,6 +1,10 @@
 <?php
 
+namespace app\modules\contact\models;
+
 use app\components\module\DUrlRulesHelper;
+use CCaptcha;
+use CFormModel;
 
 DUrlRulesHelper::import('contact');
 

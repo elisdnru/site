@@ -1,6 +1,9 @@
 <?php
 
+namespace app\modules\blog\models;
+
 use app\components\module\DUrlRulesHelper;
+use TreeCategory;
 
 DUrlRulesHelper::import('blog');
 
@@ -38,13 +41,13 @@ class BlogCategory extends TreeCategory
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array_merge(parent::relations(), [
-            'parent' => [self::BELONGS_TO, \BlogCategory::class, 'parent_id'],
-            'posts_count' => [self::STAT, \BlogPost::class, 'category_id'],
-            'posts' => [self::HAS_MANY, \BlogPost::class, 'category_id'],
-            'child_items' => [self::HAS_MANY, \BlogCategory::class, 'parent_id',
+            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
+            'posts_count' => [self::STAT, \app\modules\blog\models\BlogPost::class, 'category_id'],
+            'posts' => [self::HAS_MANY, \app\modules\blog\models\BlogPost::class, 'category_id'],
+            'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, \BlogPost::class, 'category_id',
+            'items_count' => [self::STAT, \app\modules\blog\models\BlogPost::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

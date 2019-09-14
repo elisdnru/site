@@ -2,6 +2,7 @@
 /* @var $this DAdminController */
 
 use app\modules\main\components\DAdminController;
+use app\modules\page\models\PageLayout;
 
 /* @var $model PageLayout */
 /* @var $form CActiveForm */

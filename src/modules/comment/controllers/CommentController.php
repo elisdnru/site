@@ -3,8 +3,8 @@
 namespace app\modules\comment\controllers;
 
 use CHttpException;
-use Comment;
-use CommentForm;
+use app\modules\comment\models\Comment;
+use app\modules\comment\models\CommentForm;
 use app\modules\main\components\DController;
 use Yii;
 

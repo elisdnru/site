@@ -3,7 +3,7 @@
 namespace app\modules\comment\controllers;
 
 use CHttpException;
-use Comment;
+use app\modules\comment\models\Comment;
 use app\modules\main\components\DController;
 use Yii;
 

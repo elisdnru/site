@@ -2,7 +2,7 @@
 
 namespace app\modules\block\widgets;
 
-use Block;
+use app\modules\block\models\Block;
 use DWidget;
 use Tags;
 

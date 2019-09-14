@@ -1,6 +1,7 @@
 <?php
 /* @var $this DAdminController */
 
+use app\modules\blog\models\BlogCategory;
 use app\modules\main\components\DAdminController;
 
 /* @var $model BlogCategory */

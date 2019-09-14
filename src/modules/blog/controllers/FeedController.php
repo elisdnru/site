@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
-use BlogPost;
+use app\modules\blog\models\BlogPost;
 use CHtml;
 use app\modules\main\components\DController;
 use EFeed;

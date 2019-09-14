@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\blog\models;
+
+use CFormModel;
+
 /**
  * @property integer $word
  */

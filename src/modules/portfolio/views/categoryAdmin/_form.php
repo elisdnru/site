@@ -2,6 +2,7 @@
 /* @var $this DAdminController */
 
 use app\modules\main\components\DAdminController;
+use app\modules\portfolio\models\PortfolioCategory;
 
 /* @var $model PortfolioCategory */
 /* @var $form CActiveForm */

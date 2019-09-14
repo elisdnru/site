@@ -1,5 +1,8 @@
 <?php
 /* @var $items PortfolioWork */
+
+use app\modules\portfolio\models\PortfolioWork;
+
 ?>
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
