@@ -40,6 +40,8 @@ use Yii;
  * @property string $url
  * @property string $imageUrl
  * @property string $imageThumdUrl
+ * @property integer $comments_count
+ * @property integer $comments_new_count
  *
  * @method BlogPost published()
  */

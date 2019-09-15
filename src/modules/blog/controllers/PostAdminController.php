@@ -44,8 +44,11 @@ class PostAdminController extends DAdminController
         $model = new BlogPost();
         $model->public = 1;
         $model->image_show = 1;
+        $model->image = '';
         $model->category_id = Yii::app()->request->getParam('category');
         $model->date = date('Y-m-d H:i:s');
+        $model->comments_count = 0;
+        $model->comments_new_count = 0;
         return $model;
     }
 
