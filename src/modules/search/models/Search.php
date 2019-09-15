@@ -29,9 +29,6 @@ class Search extends CActiveRecord
     public function getMaterial()
     {
         if ($this->_material === null) {
-            if ($this->material_import) {
-                Yii::import($this->material_import);
-            }
             $this->_material = CActiveRecord::model($this->material_class)->findByPk($this->material_id);
         }
 

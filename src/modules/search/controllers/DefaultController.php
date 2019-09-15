@@ -9,6 +9,7 @@
 
 namespace app\modules\search\controllers;
 
+use app\modules\search\models\Search;
 use CActiveDataProvider;
 use CDbCriteria;
 use app\modules\main\components\DController;
@@ -29,7 +30,7 @@ class DefaultController extends DController
             $criteria->addSearchCondition('title', $model->q);
             $criteria->addSearchCondition('text', $model->q, true, 'OR');
 
-            $dataProvider = new CActiveDataProvider('Search', [
+            $dataProvider = new CActiveDataProvider(Search::class, [
                 'criteria' => $criteria,
                 'pagination' => [
                     'pageSize' => 10,
@@ -51,9 +52,9 @@ class DefaultController extends DController
         $query = 'CREATE OR REPLACE VIEW {{search}} AS ';
         $tables = [];
 
-        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.page.models.Page' AS material_import, 'Page' AS material_class FROM {{page}}";
-        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.blog.models.BlogPost' AS material_import, 'BlogPost' AS material_class FROM {{blog_post}} WHERE public=1";
-        $tables[] = "SELECT title, text_purified AS text, id AS material_id, 'application.modules.portfolio.models.PortfolioWork' AS material_import, 'PortfolioWork' AS material_class FROM {{portfolio_work}} WHERE public=1";
+        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\page\\\\models\\\\Page\' AS material_class FROM {{page}}';
+        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\blog\\\\models\\\\BlogPost\' AS material_class FROM {{blog_post}} WHERE public=1';
+        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\portfolio\\\\models\\\\PortfolioWork\' AS material_class FROM {{portfolio_work}} WHERE public=1';
 
         Yii::app()->db->createCommand($query . implode(' UNION ', $tables))->execute();
     }
