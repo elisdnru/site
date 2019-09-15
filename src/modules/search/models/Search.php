@@ -8,7 +8,6 @@ use Yii;
 /**
  * @property string $title
  * @property string $text
- * @property string $material_import
  * @property string $material_class
  * @property integer $material_id
  */
