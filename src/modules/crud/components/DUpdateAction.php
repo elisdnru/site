@@ -21,10 +21,10 @@ class DUpdateAction extends DCrudAction
     {
         $model = $this->loadModel();
 
-        $modelName = get_class($model);
+        $formName = (new \ReflectionObject($model))->getShortName();
 
-        if (isset($_POST[$modelName])) {
-            $model->attributes = $_POST[$modelName];
+        if (isset($_POST[$formName])) {
+            $model->attributes = $_POST[$formName];
 
             $this->clientCallback('beforeUpdate', $model);
             $this->clientCallback('performAjaxValidation', $model);

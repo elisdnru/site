@@ -214,7 +214,7 @@ class MUploadify extends CInputWidget
             'uploader' => $this->getBaseUrl() . '/uploadify.swf',
             'expressInstall' => $this->getBaseUrl() . '/expressInstall.swf',
             'cancelImg' => $this->getBaseUrl() . '/cancel.png',
-            'fileDataName' => $this->hasModel() ? get_class($this->model) . "[{$this->attribute}]" : $this->getInputName(),
+            'fileDataName' => $this->hasModel() ? (new \ReflectionObject($this->model))->getShortName() . "[{$this->attribute}]" : $this->getInputName(),
             'buttonText' => Yii::t('application', 'Select a file'),
             'scriptData' => [$this->getInputName() => ' '],
             'folder' => $this->getBaseUrl()

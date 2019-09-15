@@ -17,10 +17,10 @@ class DCreateAction extends DCrudAction
     {
         $model = $this->createModel();
 
-        $modelName = get_class($model);
+        $formName = (new \ReflectionObject($model))->getShortName();
 
-        if (isset($_POST[$modelName])) {
-            $model->attributes = $_POST[$modelName];
+        if (isset($_POST[$formName])) {
+            $model->attributes = $_POST[$formName];
 
             $this->clientCallback('beforeCreate', $model);
             $this->clientCallback('performAjaxValidation', $model);
