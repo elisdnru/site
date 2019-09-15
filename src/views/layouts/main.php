@@ -12,7 +12,7 @@ use app\modules\main\components\DController;use app\modules\menu\models\Menu;use
     <meta name="keywords" content="<?php echo CHtml::encode($this->keywords); ?>" />
 
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="<?php echo CHtml::encode(Yii::app()->params['GENERAL.FEED_TITLE']); ?>" href="<?php echo Yii::app()->params['GENERAL.FEED_URL']; ?>" />
+    <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
 
     <!--[if lt IE 9]>
