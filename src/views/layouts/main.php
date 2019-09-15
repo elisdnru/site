@@ -89,9 +89,8 @@ use app\modules\main\components\DController;use app\modules\menu\models\Menu;use
 
         <div class="counters">
             <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
-                <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'counters']); ?>
+                <?php $this->renderPartial('//layouts/_counters'); ?>
             <?php endif; ?>
-
         </div>
 
         <!--noindex-->
