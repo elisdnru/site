@@ -1,0 +1,22 @@
+.home-hello {
+    background: #eee;
+    padding: 10px;
+    border: #eee 1px dashed;
+    margin-bottom: 20px;
+}
+
+.home-hello p {
+    font-family: verdana, serif;
+    margin-bottom: 2px;
+    line-height: 1.4;
+}
+
+.home-hello p:after {
+    content: '';
+    display: block;
+    clear: left;
+}
+
+.home-hello p img {
+    float: left; margin: 0 10px 0 0; border: #ccc 1px solid;
+}

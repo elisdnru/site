@@ -6,11 +6,8 @@ use app\modules\main\components\DController;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-/* @var $page Page */
-
-$this->pageTitle = $page->pagetitle;
-$this->description = $page->description;
-$this->keywords = $page->keywords;
+$this->pageTitle = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
+$this->description = 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.';
 
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('contact')) {
@@ -19,20 +16,22 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('comment')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('comment'));
     }
-    if ($this->moduleAllowed('page')) {
-        if ($page->id) {
-            $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/update', ['id' => $page->id])];
-        }
-    }
     $this->info = 'Стартовая страница';
 }
 ?>
 
-<?php if (!$page->hidetitle) : ?>
-    <h1><?php echo $page->title; ?></h1>
-<?php endif; ?>
+<div class="home-hello">
+    <p>
+        <img width="150" src="/images/photo-150-150.jpg" alt="Дмитрий Елисеев" />
+        Приветствую посетителей моего официального сайта. Мне есть о чём вам рассказать, а вам предоставляется
+        возможность ознакомиться с техническими и философскими размышлениями ещё одного живого программиста.
+        Жизнь не стоит на месте, и время от времени в ней появляется что-то новое и неизведанное.
+        То, что предстоит осмыслить силами личного либо коллективного разума. Возможно, вы найдёте это здесь.
+        В любом случае не останавливайтесь. Ищите новые задачи и присоединяйтесь к диалогу.
+    </p>
+</div>
 
-<?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
+<?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_index_top']); ?>
 
 <?php DUrlRulesHelper::import('blog'); ?>
 
