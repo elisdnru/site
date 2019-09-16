@@ -83,38 +83,6 @@ use app\modules\user\models\Access;
         <!-- /Контент -->
 
         <div class="clear"></div>
-
-        <script>
-        <?php ob_start() ?>
-
-        jQuery(function($){
-            var portlet = $('.sidebar .portlet-fixed');
-            var marker = $('.bottom-marker');
-            var wrapper = $('#wrapper');
-            if (portlet.length && marker.length) {
-                $(window).scroll(function() {
-                    var offset = marker.offset().top;
-                    var scrollYpos = $(document).scrollTop();
-                    var width = wrapper.width();
-                    if (scrollYpos > offset && width >= 780) {
-                        portlet.css({
-                            'width': '258px',
-                            'top': '10px',
-                            'position': 'fixed'
-                        });
-                    } else {
-                        portlet.css({
-                            'top': 'auto',
-                            'position': 'relative'
-                        });
-                    }
-                });
-            }
-        });
-
-        <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
-        </script>
-
     </div>
     <div id="clearfooter"></div>
 </div>

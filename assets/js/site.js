@@ -30,6 +30,31 @@ function transliterate (fromid, toid) {
   }
 }
 
+jQuery(function($){
+  var portlet = $('.sidebar .portlet-fixed');
+  var marker = $('.bottom-marker');
+  var wrapper = $('#wrapper');
+  if (portlet.length && marker.length) {
+    $(window).scroll(function() {
+      var offset = marker.offset().top;
+      var scrollYpos = $(document).scrollTop();
+      var width = wrapper.width();
+      if (scrollYpos > offset && width >= 780) {
+        portlet.css({
+          'width': '258px',
+          'top': '10px',
+          'position': 'fixed'
+        });
+      } else {
+        portlet.css({
+          'top': 'auto',
+          'position': 'relative'
+        });
+      }
+    });
+  }
+});
+
 jQuery(function ($) {
   $('.tdruller').tdRuller()
   $('.confirm').doConfirm()
