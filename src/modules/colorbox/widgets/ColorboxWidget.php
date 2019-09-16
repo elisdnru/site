@@ -14,7 +14,6 @@ class ColorboxWidget extends DWidget
         $cs = Yii::app()->getClientScript();
 
         $cs->registerCoreScript('jquery');
-        $cs->registerScriptFile('jquery.easing.js');
 
         $url = CHtml::asset(Yii::getPathOfAlias('colorbox.assets'));
 
