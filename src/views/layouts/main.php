@@ -25,7 +25,7 @@ use app\modules\user\models\Access;
 
     <link type="text/css" rel="stylesheet" href="/build/main.css?v=<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.css'); ?>" />
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('/build/main.js?v=' . @filemtime(Yii::getPathOfAlias('webroot') . '/build/main.js')); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/js/main.js?v=' . @filemtime(Yii::getPathOfAlias('webroot') . '/js/main.js')); ?>
     <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 

@@ -51,3 +51,6 @@ site-lint:
 
 site-test:
 	docker-compose run --rm php-cli vendor/bin/phpunit
+
+assets-build:
+	docker-compose run --rm node-cli npm run build

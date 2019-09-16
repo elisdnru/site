@@ -1,0 +1,41 @@
+@import "_system.css";
+@import "_typo.css";
+@import "_style.css";
+
+html {
+  width:100%;
+  height:auto;
+  background:#fff;
+}
+
+body  {
+  position:relative;
+  height:auto;
+  min-height:0;
+  background:#fff;
+  font-family:arial;
+  font-size:13px;
+}
+
+select, input, textarea {
+  margin:0 !important;
+}
+
+table.noborder td {
+  padding:1px 0  !important;
+}
+
+div.form label
+{
+  color:#444;
+  font-size:13px;
+  font-weight:normal;
+}
+
+h1 {
+  margin:0 0 10px 0 !important;
+  padding:4px 10px !important;
+  background:#eee !important;
+  font-size:16px !important;
+
+}
