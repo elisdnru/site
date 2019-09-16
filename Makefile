@@ -21,13 +21,16 @@ docker-pull:
 docker-build:
 	docker-compose build
 
-site-init: site-composer-install site-wait-db site-migrations site-wait-db-test site-migrations-test
+site-init: site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
 site-clear:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine sh -c 'rm -rf var/*'
 
 site-composer-install:
 	docker-compose run --rm php-cli composer install
+
+site-assets-install:
+	docker-compose run --rm node-cli yarn install
 
 site-wait-db:
 	until docker-compose exec -T mysql mysqladmin ping --silent; do sleep 1 ; done

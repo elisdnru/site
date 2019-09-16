@@ -54,6 +54,11 @@ services:
             - mysql-test
             - mailer
         working_dir: /app
+    node-cli:
+        image: node:12.7-alpine
+        volumes:
+            - ./:/app
+        working_dir: /app
     mysql:
         image: mysql:5.7
         volumes:
