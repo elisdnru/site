@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\category\models;
+
+use CFormModel;
+
 /**
  * @property string $id
  * @property string $sort

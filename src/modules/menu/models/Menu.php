@@ -5,7 +5,7 @@ namespace app\modules\menu\models;
 use app\components\module\DUrlRulesHelper;
 use app\modules\main\components\DTreeActiveDataProvider;
 use CActiveRecord;
-use Category;
+use app\modules\category\models\Category;
 use CDbCriteria;
 use Yii;
 

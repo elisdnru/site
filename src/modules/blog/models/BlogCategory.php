@@ -3,7 +3,7 @@
 namespace app\modules\blog\models;
 
 use app\components\module\DUrlRulesHelper;
-use TreeCategory;
+use app\modules\category\models\TreeCategory;
 
 DUrlRulesHelper::import('blog');
 

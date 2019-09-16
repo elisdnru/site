@@ -1,6 +1,12 @@
 <?php
 
+namespace app\modules\category\models;
+
 use app\modules\main\components\helpers\DTextHelper;
+use CActiveDataProvider;
+use CActiveRecord;
+use CDbCriteria;
+use Yii;
 
 /**
  * This is the model class for table "{{category}}".

@@ -1,6 +1,11 @@
 <?php
 
+namespace app\modules\category\models;
+
 use app\modules\main\components\DTreeActiveDataProvider;
+use CActiveDataProvider;
+use CDbCriteria;
+use Yii;
 
 /**
  * This is the model class for table "{{category}}".
