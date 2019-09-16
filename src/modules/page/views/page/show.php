@@ -20,17 +20,9 @@ if ($page->layout->alias == 'blank') : ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
 
-        <?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
-            <noindex>
-        <?php endif; ?>
-
         <div class="text">
             <?php echo $this->decodeWidgets($page->text_purified); ?>
         </div>
-
-        <?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
-            </noindex>
-        <?php endif; ?>
     </section>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_page_' . $page->id, ['dependency' => new Tags('blog')])) : ?>
