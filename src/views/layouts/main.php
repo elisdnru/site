@@ -8,7 +8,9 @@ use app\modules\user\models\Access;
 ?><!doctype html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
-    <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>
+    <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
+        <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>
+    <?php endif; ?>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
