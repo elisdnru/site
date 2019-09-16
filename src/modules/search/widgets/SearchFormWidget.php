@@ -2,7 +2,7 @@
 
 namespace app\modules\search\widgets;
 
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use app\modules\search\models\SearchForm;
 
 class SearchFormWidget extends DWidget

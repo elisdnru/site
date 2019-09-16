@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m130328_112156_create_menu extends EDbMigration
 {
     public function safeUp()

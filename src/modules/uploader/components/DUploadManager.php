@@ -3,8 +3,8 @@
 namespace app\modules\uploader\components;
 
 use CApplicationComponent;
-use CFile;
-use CImageHandler;
+use app\extensions\file\CFile;
+use app\extensions\image\CImageHandler;
 use CUploadedFile;
 use StdClass;
 use Yii;

@@ -17,6 +17,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace app\extensions\feed;
+
+use CException;
+use CHtml;
+use Yii;
+
 /**
  * EFeedItemRSS1 is an element of an RSS 1.0 Feed
  *

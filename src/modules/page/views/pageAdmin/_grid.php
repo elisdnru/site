@@ -4,24 +4,24 @@
     'filter' => $model,
     'columns' => [
         [
-            'class' => \DIndentLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DIndentLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->url',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

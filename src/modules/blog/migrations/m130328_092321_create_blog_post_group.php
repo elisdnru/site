@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m130328_092321_create_blog_post_group extends EDbMigration
 {
     public function safeUp()

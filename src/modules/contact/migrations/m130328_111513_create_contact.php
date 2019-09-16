@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m130328_111513_create_contact extends EDbMigration
 {
     public function safeUp()

@@ -13,7 +13,7 @@ use CHttpException;
 use app\modules\main\components\DController;
 use app\modules\main\components\DDateLimiter;
 use app\modules\page\models\Page;
-use Tags;
+use app\extensions\cachetagging\Tags;
 
 class DefaultController extends DController
 {

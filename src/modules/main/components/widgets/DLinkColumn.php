@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
+use CDataColumn;
+use CHtml;
+use Yii;
 
 Yii::import('zii.widgets.grid.CDataColumn');
 

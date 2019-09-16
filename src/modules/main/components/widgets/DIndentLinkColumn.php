@@ -1,5 +1,8 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
+use CHtml;
 
 class DIndentLinkColumn extends DLinkColumn
 {

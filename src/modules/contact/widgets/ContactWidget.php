@@ -5,7 +5,7 @@ namespace app\modules\contact\widgets;
 use app\components\module\DUrlRulesHelper;
 use app\modules\contact\models\Contact;
 use app\modules\contact\models\ContactForm;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use Yii;
 
 DUrlRulesHelper::import('contact');

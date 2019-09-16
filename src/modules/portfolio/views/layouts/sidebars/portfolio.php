@@ -1,18 +1,19 @@
-<?php use app\modules\portfolio\models\PortfolioCategory;
+<?php use app\extensions\cachetagging\Tags;
+use app\modules\portfolio\models\PortfolioCategory;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
-    <?php $this->beginWidget(\DPortlet::class, ['title' => 'Также я здесь']); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Также я здесь']); ?>
     <?php $this->widget(\app\modules\follow\widgets\FollowWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
 <?php if ($this->menu) : ?>
-    <?php $this->beginWidget(\DPortlet::class, ['title' => 'Управление']); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Управление']); ?>
     <?php $this->widget('zii.widgets.CMenu', ['items' => $this->menu]); ?>
     <?php $this->endWidget(); ?>
 <?php endif; ?>
 
-<?php $this->beginWidget(\DPortlet::class, ['title' => 'Разделы портфолио']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Разделы портфолио']); ?>
 <?php $this->widget('zii.widgets.CMenu', ['items' => PortfolioCategory::model()->cache(0, new Tags('portfolio'))->getMenuList(1000), 'htmlOptions' => ['class' => 'collapsed']]); ?>
 <?php $this->endWidget(); ?>

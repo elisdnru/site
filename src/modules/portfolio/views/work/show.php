@@ -1,5 +1,6 @@
 <?php
 
+use app\extensions\cachetagging\Tags;
 use app\modules\user\models\Access;
 
 $this->pageTitle = $model->title;

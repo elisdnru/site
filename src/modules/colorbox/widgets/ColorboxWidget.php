@@ -4,7 +4,7 @@ namespace app\modules\colorbox\widgets;
 
 use CClientScript;
 use CHtml;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use Yii;
 
 class ColorboxWidget extends DWidget

@@ -1,5 +1,7 @@
 <!-- Подстраницы (табы) -->
-<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new Tags('page')])) : ?>
+<?php use app\extensions\cachetagging\Tags;
+
+if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new Tags('page')])) : ?>
     <?php if ($page->parent) : ?>
         <?php if (!$page->hidetitle) : ?>
             <h1><?php echo CHtml::link($page->parent->title, $page->parent->url); ?></h1>

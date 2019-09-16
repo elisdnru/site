@@ -2,7 +2,7 @@
 
 namespace app\modules\main\widgets;
 
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 
 class FlashWidget extends DWidget
 {

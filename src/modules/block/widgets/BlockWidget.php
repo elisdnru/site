@@ -3,8 +3,8 @@
 namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;
-use DWidget;
-use Tags;
+use app\modules\main\components\widgets\DWidget;
+use app\extensions\cachetagging\Tags;
 
 class BlockWidget extends DWidget
 {

@@ -1,4 +1,4 @@
-<?php $this->beginWidget(\DPortlet::class, ['title' => 'Отправить сообщение']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Отправить сообщение']); ?>
 
 <?php if (Yii::app()->user->hasFlash('contactForm')) : ?>
     <div class="flash-success">

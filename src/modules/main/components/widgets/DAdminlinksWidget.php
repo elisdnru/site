@@ -1,7 +1,11 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
 use app\components\module\DUrlRulesHelper;
 use app\modules\user\models\Access;
+use CWidget;
+use Yii;
 
 DUrlRulesHelper::import('admin');
 

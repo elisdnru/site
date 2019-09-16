@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
+use CPortlet;
+use Yii;
+
 Yii::import('zii.widgets.CPortlet');
 
 class DPortlet extends CPortlet

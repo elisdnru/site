@@ -1,5 +1,9 @@
 <?php
 
+namespace app\extensions\cachetagging;
+
+use CBehavior;
+
 class TaggingBehavior extends CBehavior
 {
     const PREFIX = '__tag__';

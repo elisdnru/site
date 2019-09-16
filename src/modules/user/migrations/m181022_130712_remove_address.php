@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m181022_130712_remove_address extends EDbMigration
 {
     public function safeUp()

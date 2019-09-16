@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m190806_200155_remove_new_tables extends EDbMigration
 {
     public function safeUp()

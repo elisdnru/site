@@ -17,6 +17,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace app\extensions\feed;
+
+use CException;
+use CHtml;
+
 /**
  * EFeedItemRSS2 is an element of an RSS 2.0 Feed
  *

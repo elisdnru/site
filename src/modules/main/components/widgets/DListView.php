@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
+use CListView;
+use Yii;
 
 Yii::import('zii.widgets.CListView');
 

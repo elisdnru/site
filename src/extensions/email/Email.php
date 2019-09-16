@@ -1,5 +1,10 @@
 <?php
 
+namespace app\extensions\email;
+
+use CApplicationComponent;
+use Yii;
+
 /**
  * Email class file.
  *

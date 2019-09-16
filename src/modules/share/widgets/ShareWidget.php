@@ -2,7 +2,7 @@
 
 namespace app\modules\share\widgets;
 
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use Yii;
 
 class ShareWidget extends DWidget

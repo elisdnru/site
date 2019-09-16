@@ -5,7 +5,7 @@ namespace app\modules\portfolio\controllers;
 use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\PortfolioWork;
-use Tags;
+use app\extensions\cachetagging\Tags;
 
 class WorkController extends PortfolioBaseController
 {

@@ -3,7 +3,7 @@
 namespace app\modules\follow\widgets;
 
 use CHtml;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use Yii;
 
 class FollowWidget extends DWidget

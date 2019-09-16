@@ -4,7 +4,7 @@ namespace app\modules\tinymce\widgets;
 
 use CClientScript;
 use CHtml;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use Yii;
 
 class TinyMCEWidget extends DWidget

@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m131126_163952_added_robots_field extends EDbMigration
 {
     public function safeUp()

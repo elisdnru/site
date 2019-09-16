@@ -17,6 +17,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace app\extensions\feed;
+
+use CComponent;
+use CException;
+use CTypedMap;
+use CUrlValidator;
+use Yii;
+
 /**
  * EFeedItemAbstract is the base class for all Feed Items Adapters
  *

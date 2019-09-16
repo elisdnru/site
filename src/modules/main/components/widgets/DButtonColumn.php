@@ -1,5 +1,9 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
+use CButtonColumn;
+use Yii;
 
 Yii::import('zii.widgets.grid.CButtonColumn');
 

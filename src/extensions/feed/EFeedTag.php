@@ -17,6 +17,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace app\extensions\feed;
+
 /**
  * EFeedTag is the class for the Feed Items
  *

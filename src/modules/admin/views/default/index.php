@@ -1,4 +1,7 @@
 <?php
+
+use app\modules\main\components\widgets\DIconMenu;
+
 $this->pageTitle = 'Панель управления';
 $this->breadcrumbs = [
     'Панель управления',
@@ -27,7 +30,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(\DIconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
+                    <?php $this->widget(\app\modules\main\components\widgets\DIconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
                 </ul>
                 <div class="clear"></div>
             </li>
@@ -72,7 +75,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(\DIconMenu::class, ['items' => [
+                    <?php $this->widget(\app\modules\main\components\widgets\DIconMenu::class, ['items' => [
                         ['label' => 'Очистить кэш', 'url' => ['/admin/default/clearCache'], 'icon' => 'clear.png'],
                     ], 'iconsPath' => '/images/admin/']); ?>
                 </ul>

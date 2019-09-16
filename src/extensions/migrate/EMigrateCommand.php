@@ -20,8 +20,16 @@
  * @version 0.8.0-dev
  */
 
+namespace app\extensions\migrate;
+
+use CDbCommand;
+use CDbConnection;
+use CDbCriteria;
+use CHtml;
+use MigrateCommand;
+use Yii;
+
 Yii::import('system.cli.commands.MigrateCommand');
-require_once(__DIR__ . DIRECTORY_SEPARATOR . 'EDbMigration.php');
 
 /**
  * EMigrateCommand manages the database migrations.
@@ -504,7 +512,7 @@ EOD;
         if ($this->templateFile !== null) {
             return parent::getTemplate();
         } else {
-            return str_replace('CDbMigration', 'EDbMigration', parent::getTemplate());
+            return str_replace('CDbMigration', '\\' . EDbMigration::class, parent::getTemplate());
         }
     }
 }

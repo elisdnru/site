@@ -8,19 +8,19 @@
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => \DIndentLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DIndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
             'name' => 'link',
         ],
         [
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \DToggleColumn::class,
+            'class' => \app\modules\main\components\widgets\DToggleColumn::class,
             'name' => 'visible',
             'header' => 'В',
             'filter' => [1 => 'Видимые', 0 => 'Скрытые'],
@@ -28,16 +28,16 @@
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->link',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

@@ -5,9 +5,9 @@ namespace app\modules\portfolio\widgets;
 use app\components\module\DUrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
 use CDbCriteria;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use app\modules\portfolio\models\PortfolioWork;
-use Tags;
+use app\extensions\cachetagging\Tags;
 
 DUrlRulesHelper::import('portfolio');
 

@@ -4,7 +4,7 @@ namespace app\modules\user\controllers;
 
 use CHttpException;
 use app\modules\main\components\DController;
-use Tags;
+use app\extensions\cachetagging\Tags;
 use app\modules\user\models\User;
 
 class UsersController extends DController

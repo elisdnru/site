@@ -4,8 +4,8 @@ namespace app\modules\uploader\components;
 
 use CActiveRecordBehavior;
 use CComponent;
-use CFile;
-use CImageHandler;
+use app\extensions\file\CFile;
+use app\extensions\image\CImageHandler;
 use CModelEvent;
 use CUploadedFile;
 use CValidator;

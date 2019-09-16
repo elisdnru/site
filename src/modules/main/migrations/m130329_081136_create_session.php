@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m130329_081136_create_session extends EDbMigration
 {
     public function safeUp()

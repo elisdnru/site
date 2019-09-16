@@ -10,7 +10,7 @@ use app\modules\page\models\Page;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\PortfolioCategory;
 use app\modules\portfolio\models\PortfolioWork;
-use Tags;
+use app\extensions\cachetagging\Tags;
 use Yii;
 
 class DefaultController extends PortfolioBaseController

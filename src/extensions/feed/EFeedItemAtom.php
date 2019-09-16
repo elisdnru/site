@@ -17,6 +17,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace app\extensions\feed;
+
+use CException;
+use CHtml;
+use CUrlValidator;
+use Yii;
+
 /**
  * EFeedItemAtom is an element of an ATOM Feed
  *

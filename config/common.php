@@ -6,6 +6,8 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
+use app\extensions\file\CFile;
+use app\extensions\image\CImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
@@ -166,7 +168,7 @@ return [
         ],
 
         'email' => [
-            'class' => \Email::class,
+            'class' => \app\extensions\email\Email::class,
             'delivery' => 'php', //'php'|'debug'
         ],
 
@@ -179,7 +181,7 @@ return [
         ],
 
         'syntaxHighlighter' => [
-            'class' => \JMSyntaxHighlighter::class,
+            'class' => \app\extensions\JMSyntaxHighlighter\JMSyntaxHighlighter::class,
             'theme' => 'Eclipse',
         ],
 
@@ -208,7 +210,7 @@ return [
             'class' => !getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
             'behaviors' => [
                 'tagging' => [
-                    'class' => \TaggingBehavior::class,
+                    'class' => \app\extensions\cachetagging\TaggingBehavior::class,
                 ],
             ],
         ],

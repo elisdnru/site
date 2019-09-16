@@ -5,7 +5,7 @@ namespace app\modules\portfolio\models;
 use app\components\module\DUrlRulesHelper;
 use app\modules\blog\models\BlogCategory;
 use app\modules\main\components\DExistOrEmpty;
-use TreeCategory;
+use app\modules\category\models\TreeCategory;
 
 DUrlRulesHelper::import('portfolio');
 

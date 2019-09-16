@@ -5,7 +5,7 @@ return array_replace_recursive(
     [
         'commandMap' => [
             'migrate' => [
-                'class' => \EMigrateCommand::class,
+                'class' => \app\extensions\migrate\EMigrateCommand::class,
                 'migrationPath' => 'application.migrations',
                 'migrationTable' => '{{migration}}',
                 'applicationModuleName' => 'core',

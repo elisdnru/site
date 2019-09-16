@@ -21,7 +21,7 @@ use app\modules\user\models\User;
         ],
         [
             'name' => 'title',
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
         ],
         [
             'name' => 'category_id',
@@ -41,7 +41,7 @@ use app\modules\user\models\User;
             'value' => '$data->group ? $data->group->title : ""',
         ],
         [
-            'class' => \DToggleColumn::class,
+            'class' => \app\modules\main\components\widgets\DToggleColumn::class,
             'name' => 'public',
             'header' => 'О',
             'filter' => [1 => 'Опубликовано', 0 => 'Не опубликовано'],
@@ -49,15 +49,15 @@ use app\modules\user\models\User;
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m180806_105831_remove_language_tables extends EDbMigration
 {
     public function safeUp()

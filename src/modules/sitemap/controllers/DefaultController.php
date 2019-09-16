@@ -8,7 +8,7 @@ use app\modules\sitemap\components\DSitemap;
 use app\components\module\DUrlRulesHelper;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\PortfolioWork;
-use Tags;
+use app\extensions\cachetagging\Tags;
 use Yii;
 
 class DefaultController extends DController

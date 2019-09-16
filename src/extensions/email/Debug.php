@@ -1,5 +1,11 @@
 <?php
 
+namespace app\extensions\email;
+
+use CHtml;
+use CWidget;
+use Yii;
+
 class Debug extends CWidget
 {
     public function run()

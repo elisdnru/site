@@ -1,5 +1,10 @@
 <?php
 
+namespace app\extensions\migrate;
+
+use CDbMigration;
+use CException;
+
 /**
  * EDbMigration
  *

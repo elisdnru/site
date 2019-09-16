@@ -1,5 +1,7 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
 class DNofollowWidget extends DWidget
 {
     public function init()

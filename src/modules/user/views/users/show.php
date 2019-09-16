@@ -18,7 +18,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 ?>
 
 
-<?php $this->beginWidget(\DPortlet::class, ['title' => 'Профиль пользователя']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
     <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50" />

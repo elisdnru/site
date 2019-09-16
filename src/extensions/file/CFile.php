@@ -1,5 +1,15 @@
 <?php
 
+namespace app\extensions\file;
+
+use CApplicationComponent;
+use CException;
+use CHttpException;
+use CUploadedFile;
+use file;
+use Yii;
+use YiiBase;
+
 /**
  * CFile class file.
  *

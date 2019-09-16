@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m181022_141825_remove_unused_blocks extends EDbMigration
 {
     public function safeUp()

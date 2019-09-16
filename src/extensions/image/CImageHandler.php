@@ -1,4 +1,10 @@
 <?php
+
+namespace app\extensions\image;
+
+use CApplicationComponent;
+use Exception;
+
 /**
  * Image handler
  * @author Yaroslav Pelesh aka Tokolist http://tokolist.com
@@ -6,7 +12,6 @@
  * @version 1.2
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-
 class CImageHandler extends CApplicationComponent
 {
     private $originalImage = null;

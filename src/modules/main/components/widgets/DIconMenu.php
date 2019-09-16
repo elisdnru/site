@@ -1,5 +1,10 @@
 <?php
 
+namespace app\modules\main\components\widgets;
+
+use CHtml;
+use CMenu;
+use Yii;
 
 Yii::import('zii.widgets.CMenu');
 

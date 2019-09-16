@@ -4,6 +4,16 @@
  * @version 1.2
  */
 
+namespace app\modules\main\components\widgets;
+
+use CActiveDataProvider;
+use CException;
+use CGridColumn;
+use CHtml;
+use CJavaScript;
+use CJavaScriptExpression;
+use Yii;
+
 Yii::import('zii.widgets.grid.CGridColumn');
 
 class DToggleColumn extends CGridColumn

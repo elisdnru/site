@@ -4,7 +4,7 @@ namespace app\modules\blog\widgets;
 
 use app\components\module\DUrlRulesHelper;
 use app\modules\blog\models\BlogPostGroup;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 
 DUrlRulesHelper::import('blog');
 

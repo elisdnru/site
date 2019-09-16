@@ -4,7 +4,7 @@ namespace app\modules\ulogin\widgets;
 
 use app\components\module\DUrlRulesHelper;
 use CClientScript;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use Yii;
 
 DUrlRulesHelper::import('ulogin');

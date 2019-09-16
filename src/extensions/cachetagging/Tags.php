@@ -1,5 +1,10 @@
 <?php
 
+namespace app\extensions\cachetagging;
+
+use ICacheDependency;
+use Yii;
+
 class Tags implements ICacheDependency
 {
     protected $timestamp;

@@ -8,7 +8,7 @@ use CHtml;
 use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\models\CommentForm;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use app\modules\user\models\User;
 use Yii;
 

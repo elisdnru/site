@@ -1,5 +1,11 @@
 <?php
 
+namespace app\extensions\JMSyntaxHighlighter;
+
+use CApplicationComponent;
+use CClientScript;
+use Yii;
+
 class JMSyntaxHighlighter extends CApplicationComponent
 {
 

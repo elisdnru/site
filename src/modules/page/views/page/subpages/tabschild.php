@@ -1,5 +1,7 @@
 <!-- Подстраницы (дочерние табы) -->
-<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page->id, ['dependency' => new Tags('page')])) : ?>
+<?php use app\extensions\cachetagging\Tags;
+
+if ($this->beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page->id, ['dependency' => new Tags('page')])) : ?>
     <?php if ($page->child_pages) : ?>
         <?php if (!$page->hidetitle) : ?>
             <h1><?php echo $page->title; ?></h1>

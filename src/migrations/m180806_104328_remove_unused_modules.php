@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m180806_104328_remove_unused_modules extends EDbMigration
 {
     public function safeUp()

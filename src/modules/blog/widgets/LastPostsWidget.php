@@ -5,8 +5,8 @@ namespace app\modules\blog\widgets;
 use app\components\module\DUrlRulesHelper;
 use app\modules\blog\models\BlogPost;
 use CDbCriteria;
-use DWidget;
-use Tags;
+use app\modules\main\components\widgets\DWidget;
+use app\extensions\cachetagging\Tags;
 
 DUrlRulesHelper::import('blog');
 

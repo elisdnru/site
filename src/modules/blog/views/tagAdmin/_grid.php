@@ -4,25 +4,25 @@
     'filter' => $model,
     'columns' => [
         [
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
             'name' => 'frequency',
             'htmlOptions' => ['style' => 'width:130px;text-align:center'],
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->url',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

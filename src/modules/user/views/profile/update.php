@@ -13,7 +13,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     $this->info = 'Управлять пользователями Вы можете в панели управления';
 } ?>
 
-<?php $this->beginWidget(\DPortlet::class, ['title' => 'Редактировать профиль']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Редактировать профиль']); ?>
 
 <div class="form">
 

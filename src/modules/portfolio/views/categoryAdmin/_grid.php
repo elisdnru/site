@@ -8,19 +8,19 @@
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => \DIndentLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DIndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

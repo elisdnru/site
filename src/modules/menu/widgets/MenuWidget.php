@@ -3,7 +3,7 @@
 namespace app\modules\menu\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use app\modules\menu\models\Menu;
 use Yii;
 

@@ -6,7 +6,7 @@ use app\components\module\DUrlRulesHelper;
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use CDbCriteria;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 
 DUrlRulesHelper::import('blog');
 

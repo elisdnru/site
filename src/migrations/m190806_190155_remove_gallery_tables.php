@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m190806_190155_remove_gallery_tables extends EDbMigration
 {
     public function safeUp()

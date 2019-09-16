@@ -1,6 +1,7 @@
 <?php
 /* @var $this DController */
 
+use app\extensions\cachetagging\Tags;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostComment;
 use app\modules\main\components\DController;

@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m130328_123107_create_portfolio_category extends EDbMigration
 {
     public function safeUp()

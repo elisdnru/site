@@ -2,8 +2,8 @@
 /* @var $this DController */
 
 use app\components\module\DUrlRulesHelper;
+use app\extensions\cachetagging\Tags;
 use app\modules\main\components\DController;
-use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
 $this->pageTitle = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';

@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m181022_141725_remove_attribute extends EDbMigration
 {
     public function safeUp()

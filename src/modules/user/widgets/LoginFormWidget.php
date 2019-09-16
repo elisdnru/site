@@ -3,7 +3,7 @@
 namespace app\modules\user\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\User;
 use Yii;

@@ -17,6 +17,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace app\extensions\feed;
+
+use CComponent;
+use CException;
+use CHtml;
+use CMap;
+use CTypedList;
+use CUrlValidator;
+use Yii;
+
 /**
  * EFeed is the RSS writer
  *

@@ -1,8 +1,9 @@
 <!--noindex-->
-<?php use app\modules\blog\models\BlogCategory;
+<?php use app\extensions\cachetagging\Tags;
+use app\modules\blog\models\BlogCategory;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
-    <?php $this->beginWidget(\DPortlet::class, ['title' => 'Также я здесь']); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Также я здесь']); ?>
     <?php $this->widget(\app\modules\follow\widgets\FollowWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
@@ -10,13 +11,13 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <!--/noindex-->
 
 <?php if ($this->menu) : ?>
-    <?php $this->beginWidget(\DPortlet::class, ['title' => 'Управление']); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Управление']); ?>
     <?php $this->widget('zii.widgets.CMenu', ['items' => $this->menu]); ?>
     <?php $this->endWidget(); ?>
 <?php endif; ?>
 
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
-    <?php $this->beginWidget(\DPortlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
     <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_sidebar']); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
@@ -26,9 +27,9 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
     <!--noindex-->
 <?php endif; ?>
 <?php if ($this->route == 'blog/post/show') : ?>
-    <?php $this->beginWidget(\DNofollowWidget::class); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DNofollowWidget::class); ?>
 <?php endif; ?>
-<?php $this->beginWidget(\DPortlet::class, ['title' => 'Разделы блога']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Разделы блога']); ?>
 <?php $this->widget('zii.widgets.CMenu', ['items' => BlogCategory::model()->cache(0, new Tags('blog'))->getMenuList(1000), 'htmlOptions' => ['class' => 'collapsed']]); ?>
 <?php $this->endWidget(); ?>
 <?php if ($this->route == 'blog/post/show') : ?>
@@ -40,7 +41,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 
 <!--noindex-->
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->beginWidget(\DPortlet::class, ['title' => 'Метки']); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Метки']); ?>
     <?php $this->widget(\app\modules\blog\widgets\TagCloudWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
@@ -49,7 +50,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 
 <!--noindex-->
 <?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->beginWidget(\DPortlet::class); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class); ?>
     <?php $this->widget(\app\modules\blog\widgets\BlogCalendarWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
@@ -57,7 +58,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <!--/noindex-->
 
 <!--noindex-->
-<?php $this->beginWidget(\DPortlet::class, ['title' => 'Профиль']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Профиль']); ?>
 <?php $this->widget(\app\modules\user\widgets\LoginFormWidget::class); ?>
 <?php $this->endWidget(); ?>
 <!--/noindex-->

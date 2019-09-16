@@ -3,9 +3,9 @@
 namespace app\modules\page\widgets;
 
 use app\components\module\DUrlRulesHelper;
-use DWidget;
+use app\modules\main\components\widgets\DWidget;
 use app\modules\page\models\Page;
-use Tags;
+use app\extensions\cachetagging\Tags;
 
 DUrlRulesHelper::import('page');
 

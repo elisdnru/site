@@ -1,5 +1,7 @@
 <?php
 
+use app\extensions\migrate\EDbMigration;
+
 class m130717_065918_add_author_link extends EDbMigration
 {
     public function safeUp()
