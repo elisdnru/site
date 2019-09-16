@@ -95,7 +95,7 @@ class EFeedItemAtom extends EFeedItemAbstract
     /**
      *
      * @param EFeedTag $tag
-     * @return a well formatted XML element
+     * @return mixed a well formatted XML element
      */
     private function getElement(EFeedTag $tag)
     {

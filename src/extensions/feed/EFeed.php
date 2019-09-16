@@ -66,7 +66,7 @@ class EFeed extends CComponent
     /**
      * Constructor
      *
-     * @param constant the type constant (RSS1/RSS2/ATOM).
+     * @param string constant the type constant (RSS1/RSS2/ATOM).
      */
     function __construct($type = self::RSS2)
     {
@@ -123,7 +123,7 @@ class EFeed extends CComponent
      * <pre>
      *    array('tagname'=>'tagcontent')
      * </pre>
-     * @param unknown_type $tags
+     * @param mixed $tags
      * @throws CException
      */
     public function addChannelTagsArray($tags)
@@ -164,7 +164,7 @@ class EFeed extends CComponent
      *
      * Property getter 'title'
      *
-     * @return value of title channel tag | null
+     * @return string|null value of title channel tag | null
      */
     public function getTitle()
     {
@@ -188,7 +188,7 @@ class EFeed extends CComponent
      *
      * Property getter 'description'
      *
-     * @return value of description channel tag | null
+     * @return string|null value of description channel tag | null
      */
     public function getDescription()
     {
@@ -218,7 +218,7 @@ class EFeed extends CComponent
      *
      * Property getter 'link'
      *
-     * @return value of link channel tag | null
+     * @return string|null value of link channel tag | null
      */
     public function getLink()
     {
@@ -250,7 +250,7 @@ class EFeed extends CComponent
     /**
      *
      * Property getter image
-     * @return value of the image channel tag | null
+     * @return string|null value of the image channel tag | null
      */
     public function getImage()
     {
@@ -279,7 +279,7 @@ class EFeed extends CComponent
     /**
      *
      * Property getter the 'about' RSS 1.0 channel
-     * @return value of 'about' channel tag | null
+     * @return string|null value of 'about' channel tag | null
      */
     public function getRSS1ChannelAbout()
     {

@@ -136,7 +136,7 @@ abstract class EFeedItemAbstract extends CComponent
 
     /**
      *
-     * @return link tag
+     * @return string|null link tag
      */
     public function getLink()
     {
@@ -146,7 +146,7 @@ abstract class EFeedItemAbstract extends CComponent
     /**
      *
      * Abstract property setter Ddte
-     * @param time() integer|string $date
+     * @param mixed time() integer|string $date
      */
     abstract public function setDate($date);
 

@@ -45,7 +45,7 @@ class EFeedItemRSS2 extends EFeedItemAbstract
     /**
      *
      * Property getter date
-     * @return value of date | null
+     * @return mixed value of date | null
      */
     public function getDate()
     {
@@ -73,7 +73,7 @@ class EFeedItemRSS2 extends EFeedItemAbstract
 
     /**
      *
-     * @returns well formatted xml element
+     * @returns mixed well formatted xml element
      * @param EFeedTag $tag
      */
     private function getElement(EFeedTag $tag)
