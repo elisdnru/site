@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
     <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
-        <script language="JavaScript" type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>
+        <script type="text/javascript" src="//elisdn.justclick.ru/jsapi/click.js"></script>
     <?php endif; ?>
 
     <meta charset="utf-8" />
