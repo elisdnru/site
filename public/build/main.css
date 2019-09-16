@@ -427,6 +427,20 @@ ul.paginator .first, ul.paginator .last { display: none; }
 .follow a span.follow-vkontakte { background-image: url('/images/soc32/vkontakte.png'); }
 .follow a span.follow-facebook { background-image: url('/images/soc32/facebook.png'); }
 
+div.Calendar { display: inline; }
+div.Calendar .calendar-month a:link, div.Calendar .calendar-month a:visited { padding: 2px 5px; text-decoration: none; }
+div.Calendar .calendar-month { margin-bottom: 10px; text-align: center; }
+div.Calendar .calendar-prev { float: left; }
+div.Calendar .calendar-next { float: right; }
+div.Calendar .page a { font-weight: normal; }
+div.Calendar #today { color: #990000; font-weight: bold; }
+div.Calendar table { margin-bottom: 0; width: 100%; border: none; }
+div.Calendar table th { background: #fff; text-align: center; padding: 5px 0; border: #eee 1px solid; color: #333; width: 1%; background: -moz-linear-gradient(#fff, #eee); background: -webkit-linear-gradient(#fff, #eee); background: -o-linear-gradient(#fff, #eee); background: -ms-linear-gradient(#fff, #eee); }
+div.Calendar table td { text-align: center; padding: 6px 0; border: #eee 1px solid; background: -moz-linear-gradient(#fff, #eee); background: -webkit-linear-gradient(#fff, #eee); background: -o-linear-gradient(#fff, #eee); background: -ms-linear-gradient(#fff, #eee); }
+div.Calendar table td[colspan] { background: #fff; }
+div.Calendar table td a { text-decoration: underline; font-weight: bold; }
+div.Calendar table td a:hover { text-decoration: underline; font-weight: bold; background: transparent; }
+
 .home-hello { background: #eee; padding: 10px; border: #eee 1px dashed; margin-bottom: 20px; }
 .home-hello p { font-family: verdana, serif; margin-bottom: 2px; line-height: 1.4; }
 .home-hello p:after { content: ''; display: block; clear: left; }

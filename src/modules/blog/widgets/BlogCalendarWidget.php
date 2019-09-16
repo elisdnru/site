@@ -17,10 +17,6 @@ class BlogCalendarWidget extends DWidget
 
     public function run()
     {
-        // Prepare the css style within the calendar widget
-        $url = CHtml::asset(Yii::getPathOfAlias('blog.assets.calendar') . '.css');
-        Yii::app()->clientScript->registerCssFile($url);
-
         if (!empty($_GET['date'])) {
             $month = date('m', strtotime($_GET['date']));
             $year = date('Y', strtotime($_GET['date']));
