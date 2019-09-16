@@ -2,7 +2,7 @@
     'dataProvider' => $dataProvider,
     'itemView' => '_view',
     'id' => 'worklist',
-    'afterAjaxUpdate' => 'function(){$("html, body").animate({scrollTop: $("#worklist").position().top + 250 }, 100);}',
+    'noScript' => true,
     'htmlOptions' => [
         'class' => 'list-view greed_container'
     ],
