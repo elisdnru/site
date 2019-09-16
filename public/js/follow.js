@@ -1,33 +1,29 @@
-jQuery.fn.follow = function (data) {
-
-  data = jQuery.extend({
-    assets_url: ''
-  }, data || {})
+jQuery.fn.follow = function () {
 
   var blocks = [
     {
       name: 'RSS',
-      image: '/32/feed.png',
+      class: 'feed',
       url: 'https://feeds.feedburner.com/elisdn'
     },
     {
       name: 'Twitter',
-      image: '/32/twitter.png',
+      class: 'twitter',
       url: 'https://twitter.com/elisdnru'
     },
     {
       name: 'GitHub',
-      image: '/32/github.png',
+      class: 'github',
       url: 'https://github.com/ElisDN'
     },
     {
       name: 'ВКонтакте',
-      image: '/32/vkontakte.png',
+      class: 'vkontakte',
       url: 'https://vk.com/elisdnru'
     },
     {
       name: 'Facebook',
-      image: '/32/facebook.png',
+      class: 'facebook',
       url: 'https://www.facebook.com/elisdnru/'
     },
   ]
@@ -39,7 +35,7 @@ jQuery.fn.follow = function (data) {
     for (var i = 0; i < blocks.length; i++) {
       curr = blocks[i]
       url = curr.url.split('&').join('&amp;')
-      links.push('<a rel="nofollow" href="' + url + '" title="' + curr.name + '"><span style="background-image:url(\'' + data.assets_url + curr.image + '\');"></span></a>')
+      links.push('<a rel="nofollow" href="' + url + '" title="' + curr.name + '"><span class="follow-' + curr.class + '"></span></a>')
     }
     $(this).html(links.join('\r\n'))
   })

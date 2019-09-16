@@ -32,6 +32,7 @@ return array_replace_recursive(
                     '../public/css/_typo.css',
                     '../public/css/_portlet.css',
                     '../public/css/_pager.css',
+                    '../public/css/_follow.css',
                     '../public/css/_home.css',
                     '../public/css/_media.css',
                 ],

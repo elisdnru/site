@@ -4,9 +4,7 @@
 <?php ob_start(); ?>
 
 jQuery(function($) {
-    $('#followMe').follow({
-        assets_url: '<?php echo $assetsUrl; ?>'
-    })
+    $('#followMe').follow()
 });
 
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>

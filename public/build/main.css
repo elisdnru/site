@@ -419,6 +419,14 @@ ul.paginator .previous a, ul.paginator .next a { text-decoration: underline; }
 ul.paginator .previous, ul.paginator .next { display: none; }
 ul.paginator .first, ul.paginator .last { display: none; }
 
+.follow { height: 38px; }
+.follow a span { display: inline-block; width: 38px; height: 39px; margin-right: 4px; background-position: 0 0; background-repeat: no-repeat; }
+.follow a span.follow-feed { background-image: url('/images/soc32/feed.png'); }
+.follow a span.follow-twitter { background-image: url('/images/soc32/twitter.png'); }
+.follow a span.follow-github { background-image: url('/images/soc32/github.png'); }
+.follow a span.follow-vkontakte { background-image: url('/images/soc32/vkontakte.png'); }
+.follow a span.follow-facebook { background-image: url('/images/soc32/facebook.png'); }
+
 .home-hello { background: #eee; padding: 10px; border: #eee 1px dashed; margin-bottom: 20px; }
 .home-hello p { font-family: verdana, serif; margin-bottom: 2px; line-height: 1.4; }
 .home-hello p:after { content: ''; display: block; clear: left; }
