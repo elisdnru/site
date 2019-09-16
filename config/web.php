@@ -21,6 +21,9 @@ return array_replace_recursive(
                     'lifetime' => 3600 * 24 * 10,
                 ],
             ],
+            'assetManager' => [
+                'linkAssets' => true,
+            ],
         ],
     ]
 );
