@@ -3,14 +3,14 @@ use app\modules\main\widgets\DMessagesWidget;
 
 $this->beginContent('//layouts/main'); ?>
 
-<section class="main left_main">
+<div class="main left_main">
 
     <?php $this->widget(DBreadcrumbsWidget::class); ?>
     <?php $this->widget(DMessagesWidget::class); ?>
 
     <?php echo $content; ?>
 
-</section>
+</div>
 
 <aside class="sidebar right_sidebar">
 

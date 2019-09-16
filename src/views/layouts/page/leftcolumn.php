@@ -7,13 +7,13 @@
     <div class="clear bottom-marker"></div>
 </aside>
 
-<section class="main right_main">
+<div class="main right_main">
 
     <?php $this->widget(\app\modules\main\widgets\DBreadcrumbsWidget::class); ?>
     <?php $this->widget(\app\modules\main\widgets\DMessagesWidget::class); ?>
 
     <?php echo $content; ?>
 
-</section>
+</div>
 
 <?php $this->endContent(); ?>

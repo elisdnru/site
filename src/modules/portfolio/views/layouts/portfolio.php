@@ -1,13 +1,13 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
-<section class="main left_main">
+<div class="main left_main">
 
     <?php $this->widget(\app\modules\main\widgets\DBreadcrumbsWidget::class); ?>
     <?php $this->widget(\app\modules\main\widgets\DMessagesWidget::class); ?>
 
     <?php echo $content; ?>
 
-</section>
+</div>
 
 <aside class="sidebar right_sidebar">
 
