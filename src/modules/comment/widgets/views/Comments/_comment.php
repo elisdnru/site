@@ -45,12 +45,11 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
 
         <h2 class="date enc-date" data-date="<?php echo DDateHelper::normdate($comment->date, true); ?>">&nbsp;</h2>
 
-        <?php if ($comment->user && $comment->user->network) :
-        ?>
-        <span data-href="<?php echo $comment->user->identity; ?>">
-            <img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($comment->user->network); ?>" />
-            <?php
-            endif; ?>
+        <?php if ($comment->user && $comment->user->network): ?>
+            <span data-href="<?php echo $comment->user->identity; ?>">
+                <img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($comment->user->network); ?>" alt="" />
+            </span>
+        <?php endif; ?>
 
         <span class="author">
             <?php if ($comment->site) :
