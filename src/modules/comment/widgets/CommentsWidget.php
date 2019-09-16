@@ -39,8 +39,6 @@ class CommentsWidget extends DWidget
             throw new CException('Not setted a TYPE of comments');
         }
 
-        $this->registerScripts();
-
         $form = new CommentForm();
 
         if (!$this->user) {
@@ -97,12 +95,6 @@ class CommentsWidget extends DWidget
             'type' => $this->type,
             'authorId' => $this->authorId,
         ]);
-    }
-
-    protected function registerScripts()
-    {
-        $url = CHtml::asset(Yii::getPathOfAlias('comment.assets.comments') . '.css');
-        Yii::app()->clientScript->registerCssFile($url);
     }
 
     protected function saveFormState($attributes)

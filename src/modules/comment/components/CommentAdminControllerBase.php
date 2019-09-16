@@ -19,11 +19,6 @@ class CommentAdminControllerBase extends DAdminController
 {
     const COMMENTS_PER_PAGE = 20;
 
-    public function init()
-    {
-        $this->registerScripts();
-    }
-
     public function filters()
     {
         return array_merge(parent::filters(), [
@@ -130,11 +125,5 @@ class CommentAdminControllerBase extends DAdminController
     protected function getModelName()
     {
         return Comment::class;
-    }
-
-    protected function registerScripts()
-    {
-        $url = CHtml::asset(Yii::getPathOfAlias('comment.assets.comments') . '.css');
-        Yii::app()->clientScript->registerCssFile($url);
     }
 }

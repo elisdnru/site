@@ -1,8 +1,3 @@
-<?php
-$url = CHtml::asset(Yii::getPathOfAlias('comment.assets.comments') . '.css');
-Yii::app()->clientScript->registerCssFile($url);
-?>
-
 <div id="comment-form" class="form">
 
     <?php $f = $this->beginWidget(\CActiveForm::class, [
