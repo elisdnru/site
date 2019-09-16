@@ -100,29 +100,35 @@ $this->info = 'Портфолио';
 </style>
 
 <script>
-jQuery(function () {
-    jQuery('#listBlock').sortable({
-        placeholder: 'ui-state-highlight',
-        items: '>table',
-        opacity: 0.5,
-        cursor: 'move',
-        axis: 'y',
-        update: function (event, ui) {
-            jQuery('#saving').show()
-            var items = $('#listBlock').sortable('serialize')
-            jQuery.ajax({
-                type: 'POST',
-                url: '<?php echo $this->createUrl('sort'); ?>',
-                data: items + '&YII_CSRF_TOKEN=' + getCSRFToken(),
-                success: function (data) {
-                    $('#saving').hide()
-                },
-                error: function (XHR) {
-                    alert(XHR.responseText)
-                }
-            })
-        }
+<?php ob_start() ?>
+
+jQuery(function($) {
+    $(function () {
+        $('#listBlock').sortable({
+            placeholder: 'ui-state-highlight',
+            items: '>table',
+            opacity: 0.5,
+            cursor: 'move',
+            axis: 'y',
+            update: function (event, ui) {
+                $('#saving').show()
+                var items = $('#listBlock').sortable('serialize')
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo $this->createUrl('sort'); ?>',
+                    data: items + '&YII_CSRF_TOKEN=' + getCSRFToken(),
+                    success: function (data) {
+                        $('#saving').hide()
+                    },
+                    error: function (XHR) {
+                        alert(XHR.responseText)
+                    }
+                })
+            }
+        })
+        $('#listBlock').disableSelection()
     })
-    jQuery('#listBlock').disableSelection()
 })
+
+<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>

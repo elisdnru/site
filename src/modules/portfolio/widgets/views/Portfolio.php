@@ -26,14 +26,20 @@ use app\modules\portfolio\models\PortfolioWork;
 </div>
 
 <script>
-$(function () {
-    $('.portfolioSlider').jCarouselLite({
-        circular: false,
-        speed: 800,
-        scroll: 2,
-        visible: 4,
-        btnNext: '.carouselNextLink',
-        btnPrev: '.carouselPrevLink'
+<?php ob_start() ?>
+
+jQuery(function($) {
+    $(function () {
+        $('.portfolioSlider').jCarouselLite({
+            circular: false,
+            speed: 800,
+            scroll: 2,
+            visible: 4,
+            btnNext: '.carouselNextLink',
+            btnPrev: '.carouselPrevLink'
+        })
     })
 })
+
+<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>

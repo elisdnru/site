@@ -13,6 +13,7 @@
 
     <?php $this->renderPartial('/layouts/sidebars/portfolio'); ?>
 
+    <div class="clear bottom-marker"></div>
 </aside>
 
 <?php $this->endContent(); ?>

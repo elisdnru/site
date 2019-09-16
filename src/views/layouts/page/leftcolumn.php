@@ -4,6 +4,7 @@
 
     <?php $this->renderPartial('//layouts/page/sidebars/default'); ?>
 
+    <div class="clear bottom-marker"></div>
 </aside>
 
 <section class="main right_main">

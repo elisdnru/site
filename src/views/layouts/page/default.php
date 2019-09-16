@@ -13,6 +13,7 @@
 
     <?php $this->renderPartial('//layouts/page/sidebars/default'); ?>
 
+    <div class="clear bottom-marker"></div>
 </aside>
 
 <?php $this->endContent(); ?>

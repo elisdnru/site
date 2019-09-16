@@ -87,19 +87,23 @@ use app\modules\page\models\Page;
     <?php $this->endWidget(); ?>
 
     <script>
-    /*<![CDATA[*/
-    if (!$('.m_urlfield').val()) $('.m_urlfield').val('#')
-    $('.m_selector').change(function () {
-        var val = $(this).val()
-        if (val == '') {
-            $('.m_urlfield').val('#')
-        } else {
-            $('.m_urlfield').val($(this).val())
-        }
-        $('.m_selector').val('')
-        $(this).val(val)
-    })
-    /*]]>*/
+    <?php ob_start() ?>
+
+    jQuery(function($){
+        if (!$('.m_urlfield').val()) $('.m_urlfield').val('#')
+        $('.m_selector').change(function () {
+            var val = $(this).val()
+            if (val == '') {
+                $('.m_urlfield').val('#')
+            } else {
+                $('.m_urlfield').val($(this).val())
+            }
+            $('.m_selector').val('')
+            $(this).val(val)
+        })
+    });
+
+    <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
     </script>
 
 </div><!-- form -->

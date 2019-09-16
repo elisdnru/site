@@ -12,7 +12,7 @@
 
     <?php $this->renderPartial('/layouts/sidebars/index'); ?>
 
-    <div class="clear"></div>
+    <div class="clear bottom-marker"></div>
 </aside>
 
 <?php $this->endContent(); ?>

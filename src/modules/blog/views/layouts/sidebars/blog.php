@@ -3,7 +3,7 @@
 use app\modules\blog\models\BlogCategory;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Также я здесь']); ?>
+    <?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
     <?php $this->widget(\app\modules\follow\widgets\FollowWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>

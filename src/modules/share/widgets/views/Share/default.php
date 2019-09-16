@@ -1,4 +1,6 @@
 <script>
+<?php ob_start() ?>
+
 (function () {
     if (window.pluso) if (typeof window.pluso.start == 'function') return
     if (window.ifpluso === undefined) {
@@ -11,7 +13,10 @@
         h.appendChild(s)
     }
 })()
+
+<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>
+
 <div class="pluso" style="margin-left: -4px"
      data-background="transparent"
      data-options="big,round,line,horizontal,nocounter,theme=04"

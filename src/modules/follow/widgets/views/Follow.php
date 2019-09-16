@@ -1,11 +1,15 @@
 <p id="followMe" class="follow center"></p>
 
 <script>
-/*<![CDATA[*/
-jQuery('#followMe').follow({
-    assets_url: '<?php echo $assetsUrl; ?>'
-})
-/*]]>*/
+<?php ob_start(); ?>
+
+jQuery(function($) {
+    $('#followMe').follow({
+        assets_url: '<?php echo $assetsUrl; ?>'
+    })
+});
+
+<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>
 
 <div class="subscribe-form">

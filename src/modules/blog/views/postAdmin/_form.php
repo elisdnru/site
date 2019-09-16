@@ -163,7 +163,9 @@ $cs->registerCssFile($url . '/tags.css');
     </fieldset>
 
     <script>
-    (function ($) {
+    <?php ob_start(); ?>
+
+    jQuery(function ($) {
         var tagsInput = $('#BlogPost_tagsString')
         var tagsVariants = $('#BlogPost_tagsVariants li')
 
@@ -199,7 +201,9 @@ $cs->registerCssFile($url . '/tags.css');
             e.stopPropagation()
             return false
         })
-    })(jQuery)
+    })
+
+    <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
     </script>
 
     <?php echo $this->renderPartial('//common/forms/_meta', [

@@ -89,7 +89,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <?php //echo CHtml::checkBox('del_'.md5($file->basename), false, array('class'=>'folder_checkbox')); ?>
                     </td>
                     <td>
-                        <a class="renameLink floatright" href="#" onclick="rename('<?php echo $file->basename; ?>'); return false;"><?php echo $renameIcon; ?></a>
+                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->basename; ?>'); return false;"><?php echo $renameIcon; ?></a>
                         <img src="/images/admin/foldericon.jpg" />
                         <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->basename]); ?>"><?php echo $file->basename; ?></a>
                     </td>
@@ -110,7 +110,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <?php echo CHtml::checkBox('del_' . md5($file->basename), false, ['class' => 'file_checkbox']); ?>
                     </td>
                     <td>
-                        <a class="renameLink floatright" href="#" onclick="rename('<?php echo $file->basename; ?>')"><?php echo $renameIcon; ?></a>
+                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->basename; ?>')"><?php echo $renameIcon; ?></a>
                         <img src="/images/admin/fileicon.jpg" />
                         <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->basename; ?>"><?php echo $file->basename; ?></a>
                     </td>
@@ -141,9 +141,15 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 </p>
 
 <script>
-$('.allfiles_checkbox').click(function () {
-    $('.file_checkbox').attr('checked', $(this).attr('checked') ? true : false)
+<?php ob_start() ?>
+
+jQuery(function ($) {
+    $('.allfiles_checkbox').click(function () {
+        $('.file_checkbox').attr('checked', !!$(this).attr('checked'))
+    })
 })
+
+<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>
 
 <?php echo CHtml::endForm(); ?>
@@ -193,19 +199,22 @@ $('.allfiles_checkbox').click(function () {
 </div>
 
 <script>
-//<![CDATA[
-jQuery('#renameLink').colorbox({
-    'initialWidth': 186,
-    'initialHeight': 67,
-    inline: true,
-    'opacity': 0
-})
+<?php ob_start() ?>
 
-function rename ($name) {
+jQuery(function($) {
+    $('#renameLink').colorbox({
+        'initialWidth': 186,
+        'initialHeight': 67,
+        inline: true,
+        'opacity': 0
+    })
+});
+
+function renameBox($name) {
     jQuery('#sourceName').val($name)
     jQuery('#destName').val($name)
     jQuery('#renameLink').click()
 }
 
-//]]>
+<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>

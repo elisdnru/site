@@ -17,6 +17,7 @@
 
     <?php $this->renderPartial('/layouts/sidebars/blog'); ?>
 
+    <div class="clear bottom-marker"></div>
 </aside>
 
 <?php $this->endContent(); ?>
