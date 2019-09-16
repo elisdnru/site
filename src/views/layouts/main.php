@@ -91,7 +91,7 @@ use app\modules\user\models\Access;
             var portlet = $('.sidebar .portlet-fixed');
             var marker = $('.bottom-marker');
             var wrapper = $('#wrapper');
-            if (portlet && marker) {
+            if (portlet.length && marker.length) {
                 $(window).scroll(function() {
                     var offset = marker.offset().top;
                     var scrollYpos = $(document).scrollTop();
