@@ -99,30 +99,6 @@ class FileAdminController extends DAdminController
         $this->redirectOrAjax($this->createUrl('index', ['path' => $path]));
     }
 
-    public function actionUpload($path)
-    {
-        $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
-
-        if (!empty($_FILES)) {
-            $up = $this->uploadPostFile('Filedata', $curpath);
-            echo $up === 1 ? 1 : $up;
-        }
-
-        Yii::app()->end();
-    }
-
-    public function actionCheckexists($path)
-    {
-        if (isset($_POST['filename'])) {
-            $file = $this->getFileDir() . ($path ? '/' . $path : '') . '/' . $_POST['filename'];
-            echo Yii::app()->file->set($file)->exists ? 1 : 0;
-        } else {
-            echo 0;
-        }
-
-        Yii::app()->end();
-    }
-
     protected function uploadPostFile($field, $curpath)
     {
         $success = false;

@@ -159,48 +159,20 @@ $('.allfiles_checkbox').click(function () {
 
 <hr />
 
-<div class="upload-box">
-
-    <p id="status-message">Выберите файлы для загрузки (щелкнув по кнопке):</p>
-
-    <?php $this->widget(\app\modules\file\extensions\uploadify\MUploadify::class, [
-        'name' => 'Filedata',
-        'script' => $this->createUrl('upload', ['path' => $path]),
-        'checkScript' => $this->createUrl('checkexists', ['path' => $path]),
-        'multi' => true,
-        'auto' => true,
-        'removeCompleted' => true,
-        'onAllComplete' => "js:function (event, data) {
-            window.location.reload();
-        }",
-    ]); ?>
-
-    <hr />
-</div>
-
 <div class="upload-alternate">
     <?php echo CHtml::beginForm('', 'post', [
         'enctype' => 'multipart/form-data'
     ]); ?>
 
-    <p>Классический загрузчик:</p>
-
     <p>
         <?php for ($i = 1; $i <= $upload_count; $i++) : ?>
-            <?php echo CHtml::fileField('file_' . $i, '', ['size' => 31]); ?><br />
+            <?php echo CHtml::fileField('file_' . $i); ?><br />
         <?php endfor; ?>
     </p>
     <?php echo CHtml::submitButton('Загрузить файлы'); ?>
 
     <?php echo CHtml::endForm(); ?>
 </div>
-
-<script>
-//<![CDATA[
-$('.upload-box').show()
-$('.upload-box').css('margin', 0)
-//]]>
-</script>
 
 <?php $this->widget(\app\modules\colorbox\widgets\ColorboxWidget::class); ?>
 
