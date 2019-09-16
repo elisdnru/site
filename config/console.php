@@ -39,7 +39,6 @@ return array_replace_recursive(
             'minimize_scripts' => [
                 '../public/build/main.js' => [
                     '../public/js/jquery.plugins.js',
-                    '../public/js/share.js',
                     '../public/js/follow.js',
                     '../public/js/justclick.js',
                     '../public/js/core-site.js',
