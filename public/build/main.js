@@ -49,8 +49,6 @@ jQuery.fn.doConfirm = function () {
     })
   })
 }
-jQuery.fn.doConfirm2 = function () {
-}
 
 jQuery.fn.follow = function (data) {
   data = jQuery.extend({
@@ -92,7 +90,7 @@ jQuery.fn.follow = function (data) {
       url = curr.url.split('&').join('&amp;')
       links.push('<a rel="nofollow" href="' + url + '" title="' + curr.name + '"><span style="background-image:url(\'' + data.assets_url + curr.image + '\');"></span></a>')
     }
-    jQuery(this).html(links.join('\r\n'))
+    $(this).html(links.join('\r\n'))
   })
 }
 

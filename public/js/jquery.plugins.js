@@ -1,5 +1,4 @@
 jQuery.fn.grayText = function () {
-
   return this.each(function () {
     if ($(this).attr('type') == 'password') {
       document.getElementById($(this).attr('id')).setAttribute('type', 'text')
@@ -30,7 +29,6 @@ jQuery.fn.grayText = function () {
       }
     })
   })
-
 }
 
 jQuery.fn.tdRuller = function () {
@@ -55,8 +53,4 @@ jQuery.fn.doConfirm = function () {
       return window.confirm(lbl)
     })
   })
-}
-
-jQuery.fn.doConfirm2 = function () {
-
 }
