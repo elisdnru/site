@@ -1,6 +1,4 @@
 (function ($) {
-  $('.graytext').grayText()
-
   $('.tdruller').tdRuller()
   $('.confirm').doConfirm()
 
