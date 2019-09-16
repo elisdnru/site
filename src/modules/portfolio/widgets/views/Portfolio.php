@@ -6,7 +6,6 @@ use app\modules\portfolio\models\PortfolioWork;
 ?>
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-<?php Yii::app()->clientScript->registerScript('/js/jcarousellite.min.js', CClientScript::POS_HEAD); ?>
 <?php Yii::app()->clientScript->registerScriptFile('/js/jcarousellite.min.js', CClientScript::POS_HEAD); ?>
 
 <div class="portfolio ribbed">
