@@ -52,6 +52,8 @@ if (!is_dir($runtime)) {
     CFileHelper::createDirectory($runtime);
 }
 
+$assetsVersion = @filemtime(dirname(__DIR__) . '/public/build');
+
 return [
 
     'basePath' => dirname(__DIR__) . '/src',
@@ -86,14 +88,15 @@ return [
         'clientScript' => [
             'packages' => [
                 'jquery' => [
-                    'basePath' => 'application.assets.jquery',
-                    'js' => [YII_DEBUG ? 'jquery.js' : 'jquery.min.js'],
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'js' => ['vendor.js?v=' . $assetsVersion],
                 ],
             ],
             'scriptMap' => [
-                'core-site.js' => '/js/core-site.js',
-                'core-end.js' => '/js/core-end.js',
-                'jquery.plugins.js' => '/js/jquery.plugins.js',
+                'main.css' => '/build/main.css?v=' . $assetsVersion,
+                'iframe.css' => '/build/iframe.css?v=' . $assetsVersion,
+                'site.js' => '/build/site.js?v=' . $assetsVersion,
             ]
         ],
 

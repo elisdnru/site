@@ -2,12 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
-    <link type="text/css" rel="stylesheet" href="/build/iframe.css?v=<?php echo @filemtime(Yii::getPathOfAlias('webroot') . '/build/iframe.css'); ?>" />
 
+    <?php Yii::app()->clientScript->registerCssFile('iframe.css'); ?>
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('jquery.plugins.js'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('core-site.js'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('core-end.js', CClientScript::POS_END); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('site.js', CClientScript::POS_END); ?>
+
     <title><?php echo CHtml::encode($this->pageTitle) . ' - ' . Yii::app()->params['GENERAL.SITE_NAME']; ?></title>
 </head>
 <body>

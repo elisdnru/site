@@ -7,9 +7,6 @@ return array_replace_recursive(
             'cache' => [
                 'class' => \app\commands\CacheCommand::class,
             ],
-            'minimize' => [
-                'class' => \app\commands\minimize\MinimizeCommand::class,
-            ],
             'migrate' => [
                 'class' => \app\extensions\migrate\EMigrateCommand::class,
                 'migrationPath' => 'application.migrations',
