@@ -1,36 +1,36 @@
 ul.tags_list {
-    list-style: none;
-    margin: 0;
-    padding: 6px 6px 0 6px;
-    background: #fff;
-    float: left;
-    border: #ddd 1px solid;
+  list-style: none;
+  margin: 0;
+  padding: 6px 6px 0 6px;
+  background: #fff;
+  float: left;
+  border: #ddd 1px solid;
 }
 
 .tags_list li {
-    margin: 0 6px 6px 0;
-    padding: 0;
-    background: #e6e6e6;
-    float: left;
-    border-radius: 20px;
+  margin: 0 6px 6px 0;
+  padding: 0;
+  background: #e6e6e6;
+  float: left;
+  border-radius: 20px;
 }
 
 .tags_list li a {
-    display: block;
-    padding: 2px 8px 3px 8px;
-    color: #fff;
-    text-decoration: none;
+  display: block;
+  padding: 2px 8px 3px 8px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .tags_list li.active {
-    background: #0965c0;
+  background: #0965c0;
 }
 
 .tags_list li .tag {
-    float: left;
-    color: #111;
+  float: left;
+  color: #111;
 }
 
 .tags_list li.active .tag {
-    color: #fff;
+  color: #fff;
 }
