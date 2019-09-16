@@ -149,7 +149,7 @@ use app\modules\user\models\Access;
         endif; ?>
         <div class="info">
             <p>
-                © ИП Елисеев Дмитрий Николаевич</span>, 2009-<?php echo date('Y') ?><br />
+                © ИП Елисеев Дмитрий Николаевич, 2009-<?php echo date('Y') ?><br />
                 ОГРН: 309574636200019; ИНН: 570600870325<br />
                 <a rel="nofollow" href="/privacy">Политика конфиденциальности</a><br />
                 Email:
