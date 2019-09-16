@@ -22,10 +22,6 @@
     },
     "autoload": {
         "classmap": [
-            "src/commands/",
-            "src/components/",
-            "src/extensions/",
-            "src/modules/",
             "src/views/skins"
         ],
         "psr-4": {
