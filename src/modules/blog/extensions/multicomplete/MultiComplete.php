@@ -103,6 +103,7 @@ class MultiComplete extends CJuiAutoComplete
         })';
 
         $cs = Yii::app()->getClientScript();
+        $cs->registerCoreScript('jquery');
         $cs->registerScript(__CLASS__ . '#' . $id, $js);
     }
 }

@@ -18,6 +18,8 @@ if ($this->moduleAllowed('portfolio')) {
 }
 
 $this->info = 'Портфолио';
+
+Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create', ['category' => $category]); ?>">Добавить</a>

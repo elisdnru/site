@@ -7,6 +7,8 @@ use app\modules\page\models\Page;
 
 /* @var $model Menu */
 /* @var $form CActiveForm */
+
+Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <div class="form">

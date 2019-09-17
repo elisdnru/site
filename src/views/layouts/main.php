@@ -23,7 +23,6 @@ use app\modules\user\models\Access;
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
     <?php Yii::app()->clientScript->registerCssFile('main.css'); ?>
-    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('site.js', CClientScript::POS_END); ?>
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>

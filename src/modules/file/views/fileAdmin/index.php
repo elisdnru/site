@@ -24,6 +24,7 @@ if ($this->moduleAllowed('page')) {
 
 $this->info = 'Чтобы скопировать адрес ссылки на файл щёлкните по нему правой кнопкой мыши';
 
+Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <h1>Файловый менеджер</h1>

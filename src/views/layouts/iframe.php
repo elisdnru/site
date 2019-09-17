@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
 
     <?php Yii::app()->clientScript->registerCssFile('iframe.css'); ?>
-    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('site.js', CClientScript::POS_END); ?>
 
     <title><?php echo CHtml::encode($this->pageTitle) . ' - ' . Yii::app()->params['GENERAL.SITE_NAME']; ?></title>

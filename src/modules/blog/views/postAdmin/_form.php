@@ -15,6 +15,7 @@ use app\modules\main\components\AdminController;
 <?php
 $cs = Yii::app()->getClientScript();
 $url = CHtml::asset(Yii::getPathOfAlias('application.modules.blog.assets'));
+$cs->registerCoreScript('jquery');
 $cs->registerCssFile($url . '/tags.css');
 ?>
 
