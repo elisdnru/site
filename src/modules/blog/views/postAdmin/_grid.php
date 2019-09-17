@@ -26,19 +26,25 @@ use app\modules\user\models\User;
         [
             'name' => 'category_id',
             'filter' => BlogCategory::model()->getTabList(),
-            'value' => '$data->category ? $data->category->fullTitle : ""',
+            'value' => function ($data) {
+                return $data->category ? $data->category->fullTitle : '';
+            }
         ],
         [
             'name' => 'author_id',
             'htmlOptions' => ['style' => 'text-align:center'],
             'filter' => CHtml::listData(User::model()->findAll(), 'id', 'username'),
-            'value' => '$data->author->username',
+            'value' => function ($data) {
+                return $data->author->username;
+            },
         ],
         [
             'name' => 'group_id',
             'header' => 'Группа',
             'filter' => BlogPostGroup::model()->getAssocList(),
-            'value' => '$data->group ? $data->group->title : ""',
+            'value' => function ($data) {
+                return $data->group ? $data->group->title : '';
+            }
         ],
         [
             'class' => \app\modules\main\components\widgets\ToggleColumn::class,

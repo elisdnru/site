@@ -7,7 +7,9 @@ $this->widget('zii.widgets.grid.CGridView', [
     'columns' => [
         [
             'class' => \app\modules\main\components\widgets\ImageLinkColumn::class,
-            'value' => '$data->getAvatarUrl(50, 50)',
+            'value' => function ($data) {
+                return $data->getAvatarUrl(50, 50);
+            },
             'width' => 50,
             'htmlOptions' => ['style' => 'width:32px;text-align:center'],
         ],

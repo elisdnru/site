@@ -6,11 +6,15 @@
         [
             'name' => 'alias',
             'header' => 'Код для вставки',
-            'value' => 'Yii::app()->controller->InlineWidgetsBehavior->startBlock . "block|id=" . $data->alias . Yii::app()->controller->InlineWidgetsBehavior->endBlock',
+            'value' => function ($data) {
+                return Yii::app()->controller->InlineWidgetsBehavior->startBlock . 'block|id=' . $data->alias . Yii::app()->controller->InlineWidgetsBehavior->endBlock;
+            },
         ],
         [
             'name' => 'title',
-            'value' => 'CHtml::link(CHtml::encode($data->title), Yii::app()->controller->createUrl("update", array("id"=>$data->id)))',
+            'value' => function ($data) {
+                return CHtml::link(CHtml::encode($data->title), Yii::app()->controller->createUrl('update', ['id' => $data->id]));
+            },
             'type' => 'html',
         ],
         [
