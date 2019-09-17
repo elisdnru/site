@@ -42,7 +42,7 @@ jQuery(function ($) {
         })
 
         return false
-    })
+    });
 
     function setParentComment (id) {
         var parentField = $('#comment-parent-id')
@@ -93,7 +93,7 @@ jQuery(function ($) {
     }
 
     initComments()
-})
+});
 
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>

@@ -12,7 +12,7 @@
         var h = d[g]('body')[0]
         h.appendChild(s)
     }
-})()
+})();
 
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>
