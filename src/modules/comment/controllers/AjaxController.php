@@ -79,12 +79,8 @@ class AjaxController extends Controller
             throw new CHttpException(400, 'Ошибка');
         }
 
-        if (Yii::app()->request->isAjaxRequest) {
-            echo $model->likes;
-            Yii::app()->end();
-        }
-
-        $this->redirectOrAjax(Yii::app()->request->urlReferrer ? Yii::app()->request->urlReferrer : '/');
+        echo $model->likes;
+        Yii::app()->end();
     }
 
     protected function loadModel($id)

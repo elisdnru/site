@@ -42,11 +42,13 @@ module.exports = {
           'assets/js/site.js'
         ],
         "vendor.js": [
-          'assets/js/jquery.min.js'
+          'assets/js/jquery.min.js',
+          'node_modules/axios/dist/axios.min.js'
         ]
       },
       transform: {
         'site.js': code => require("uglify-js").minify(code).code,
+        'vendor.js': code => require("uglify-js").minify(code).code
       }
     })
   ],

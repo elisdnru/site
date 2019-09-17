@@ -26,74 +26,86 @@
 <script>
 <?php ob_start() ?>
 
-jQuery(function ($) {
-    $(document).on('click', '.ajax_like', function () {
-        var t = $(this)
-        $.ajax({
-            type: 'POST',
-            url: $(this).data('url'),
-            data: { 'YII_CSRF_TOKEN': getCSRFToken() },
-            success: function (data) {
-                $('#' + t.data('load')).html(data)
-            },
-            error: function (XHR) {
-                alert(XHR.responseText)
-            }
-        })
+(function () {
+    document.addEventListener('click', function (event) {
+        if (!event.target.matches('.ajax_like')) {
+            return;
+        }
 
-        return false
+        event.preventDefault();
+
+        var data = new FormData();
+        data.set('YII_CSRF_TOKEN', getCSRFToken());
+        axios({
+            method: 'post',
+            url: event.target.dataset.url,
+            data: data,
+            config: { headers: {
+                'Content-Type': 'multipart/form-data'
+            }}
+        })
+            .then(function (response) {
+                document.querySelector('#' + event.target.dataset.load).innerHTML = response.data
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     });
 
     function setParentComment (id) {
-        var parentField = $('#comment-parent-id')
+        var parentField = document.querySelector('#comment-parent-id')
         if (typeof parentField != 'undefined') {
-            parentField.val(id)
+            parentField.value = id
         }
     }
 
     function initComments () {
-        $('.comment .reply').each(function () {
-            var span = $(this)
-            span.replaceWith($('<a/>')
-                .addClass('reply')
-                .attr('data-id', span.data('id'))
-                .attr('href', '#comment-form')
-                .html(span.html())
-            )
+        var form = document.querySelector('#comment-form')
+
+        var replySpans = document.querySelectorAll('.comment .reply');
+
+        [].forEach.call(replySpans, function (span) {
+            var a = document.createElement('a')
+            a.classList.add('reply')
+            a.dataset.id = span.dataset.id
+            a.href = '#comment-form'
+            a.innerText = span.innerText
+            span.parentNode.replaceChild(a, span)
         })
 
-        $('.comment .reply').click(function () {
-            var comment = $(this).parent().parent()
-            var form = $('#comment-form')
+        var replyLinks = document.querySelectorAll('.comment .reply');
+        [].forEach.call(replyLinks, function (link) {
+            link.addEventListener('click', function () {
+                var comment = link.parentNode.parentNode
 
-            form.detach()
-            form.css('margin-left', parseInt(comment.css('margin-left')) + 20)
-            comment.after(form)
+                form.parentElement.removeChild(form)
+                form.style['margin-left'] = (parseInt(comment.style['margin-left']) + 20) + 'px'
+                comment.after(form)
 
-            var id = parseInt($(this).data('id'))
+                var id = parseInt(this.dataset.id)
 
-            form.find('form').attr('action', '#comment_' + id)
+                form.querySelector('form').setAttribute('action', '#comment_' + id)
 
-            setParentComment(id)
+                setParentComment(id)
 
-            return false
+                return false
+            })
         })
 
-        $('.reply-comment').click(function () {
-            var form = $('#comment-form')
-            form.detach()
-            form.css('margin-left', 0)
-
-            $(this).after(form)
-
-            setParentComment(0)
-
-            return false
-        })
+        var replyToAll = document.querySelector('.reply-comment');
+        if (replyToAll) {
+            replyToAll.addEventListener('click', function () {
+                form.parentElement.removeChild(form)
+                form.style['margin-left'] = 0
+                this.after(form)
+                setParentComment(0)
+                return false
+            })
+        }
     }
 
     initComments()
-});
+})();
 
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>
