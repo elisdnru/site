@@ -28,7 +28,7 @@ $this->widget('zii.widgets.grid.CGridView', [
         ],
         [
             'name' => 'role',
-            'value' => 'Access::getRoleName($data->role)',
+            'value' => function ($data) { return Access::getRoleName($data->role); },
             'htmlOptions' => ['style' => 'text-align:center'],
             'filter' => Access::getRoles(),
         ],
