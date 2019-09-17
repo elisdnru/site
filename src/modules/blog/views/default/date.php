@@ -1,15 +1,15 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
-use app\modules\main\components\DController;
-use app\modules\main\components\DDateLimiter;
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\Controller;
+use app\modules\main\components\DateLimiter;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $date DDateLimiter */
+/* @var $date DateLimiter */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = 'Записи за ' . $date->date . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = 'Записи за ' . $date->date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = '';
 $this->keywords = '';
 

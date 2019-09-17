@@ -2,7 +2,7 @@
 
 namespace app\modules\category\models;
 
-use app\modules\main\components\helpers\DTextHelper;
+use app\modules\main\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -124,7 +124,7 @@ abstract class Category extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\DCategoryBehavior::class,
+                'class' => \app\modules\category\components\CategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'requestPathAttribute' => 'category',
@@ -147,7 +147,7 @@ abstract class Category extends CActiveRecord
     private function fillDefaultValues()
     {
         if (!$this->alias) {
-            $this->alias = DTextHelper::strToChpu($this->title);
+            $this->alias = TextHelper::strToChpu($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

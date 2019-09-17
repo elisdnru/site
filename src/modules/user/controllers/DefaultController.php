@@ -4,22 +4,22 @@ namespace app\modules\user\controllers;
 
 use app\modules\user\models\Access;
 use CActiveForm;
-use app\modules\main\components\DController;
-use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\Controller;
+use app\components\module\UrlRulesHelper;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\RemindForm;
 use app\modules\user\models\User;
 use Yii;
 
-DUrlRulesHelper::import('user');
+UrlRulesHelper::import('user');
 
-class DefaultController extends DController
+class DefaultController extends Controller
 {
     public function actions()
     {
         return [
             'captcha' => [
-                'class' => \app\modules\main\components\actions\DCaptchaAction::class,
+                'class' => \app\modules\main\components\actions\CaptchaAction::class,
             ],
         ];
     }

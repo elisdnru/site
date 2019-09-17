@@ -1,16 +1,16 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
 use app\modules\blog\models\BlogTag;
-use app\modules\main\components\DController;
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\Controller;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 /* @var $tag BlogTag */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = 'Записи с меткой ' . $tag->title . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = 'Записи с меткой ' . $tag->title . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->description = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $tag->title;
 
 Yii::app()->clientScript->registerMetaTag('noindex, follow', 'robots');

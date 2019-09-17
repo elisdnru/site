@@ -2,9 +2,9 @@
 
 namespace app\modules\colorbox;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class ColorboxModule extends DWebModule
+class ColorboxModule extends WebModule
 {
     public function getGroup()
     {

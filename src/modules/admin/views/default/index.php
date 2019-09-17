@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\main\components\widgets\DIconMenu;
+use app\modules\main\components\widgets\IconMenu;
 
 $this->pageTitle = 'Панель управления';
 $this->breadcrumbs = [
@@ -30,7 +30,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(\app\modules\main\components\widgets\DIconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
+                    <?php $this->widget(\app\modules\main\components\widgets\IconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
                 </ul>
                 <div class="clear"></div>
             </li>
@@ -59,7 +59,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
                                     <h3><?php echo $module->name; ?></h3><?php
                                 endif; ?>
                                 <ul>
-                                    <?php $this->widget(DIconMenu::class, ['items' => array_merge(Yii::app()->moduleManager->adminMenu($module->id), Yii::app()->moduleManager->notifications($module->id)), 'iconsPath' => '/images/admin/']); ?>
+                                    <?php $this->widget(IconMenu::class, ['items' => array_merge(Yii::app()->moduleManager->adminMenu($module->id), Yii::app()->moduleManager->notifications($module->id)), 'iconsPath' => '/images/admin/']); ?>
                                 </ul>
                                 <div class="clear"></div>
                             </li>
@@ -75,7 +75,7 @@ $this->info = 'Здесь Вы можете управлять содержим�
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(\app\modules\main\components\widgets\DIconMenu::class, ['items' => [
+                    <?php $this->widget(\app\modules\main\components\widgets\IconMenu::class, ['items' => [
                         ['label' => 'Очистить кэш', 'url' => ['/admin/default/clearCache'], 'icon' => 'clear.png'],
                     ], 'iconsPath' => '/images/admin/']); ?>
                 </ul>

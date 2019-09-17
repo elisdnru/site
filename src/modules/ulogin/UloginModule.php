@@ -2,9 +2,9 @@
 
 namespace app\modules\ulogin;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class UloginModule extends DWebModule
+class UloginModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

@@ -15,7 +15,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 ?>
 
-<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Пользователи']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Пользователи']); ?>
 
 <?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
 

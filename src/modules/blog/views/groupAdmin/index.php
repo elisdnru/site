@@ -1,9 +1,9 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
 use app\modules\blog\models\BlogCategoryForm;
 use app\modules\blog\models\BlogPostGroup;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 
 /* @var $items BlogPostGroup[] */
 /* @var $categoryForm BlogCategoryForm */

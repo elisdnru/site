@@ -9,7 +9,7 @@ $this->breadcrumbs = [
 ];
 ?>
 
-<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Регистрация']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Регистрация']); ?>
 
 <div class="form">
 

@@ -14,15 +14,15 @@
             'type' => 'html',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

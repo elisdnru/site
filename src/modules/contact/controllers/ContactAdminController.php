@@ -4,9 +4,9 @@ namespace app\modules\contact\controllers;
 
 use CHttpException;
 use app\modules\contact\models\Contact;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 
-class ContactAdminController extends DAdminController
+class ContactAdminController extends AdminController
 {
     const CONTACTS_PER_PAGE = 50;
 
@@ -14,13 +14,13 @@ class ContactAdminController extends DAdminController
     {
         return [
             'index' => [
-                'class' => \app\modules\crud\components\DAdminAction::class,
+                'class' => \app\modules\crud\components\AdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'toggle' => ['class' => \app\modules\crud\components\DToggleAction::class, 'attributes' => ['status']],
-            'delete' => \app\modules\crud\components\DDeleteAction::class,
-            'view' => \app\modules\crud\components\DViewAction::class,
+            'toggle' => ['class' => \app\modules\crud\components\ToggleAction::class, 'attributes' => ['status']],
+            'delete' => \app\modules\crud\components\DeleteAction::class,
+            'view' => \app\modules\crud\components\ViewAction::class,
         ];
     }
 

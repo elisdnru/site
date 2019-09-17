@@ -2,13 +2,13 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPostGroup;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
-class ThemePostsWidget extends DWidget
+class ThemePostsWidget extends Widget
 {
     public $tpl = 'ThemePosts';
     public $current = 0;

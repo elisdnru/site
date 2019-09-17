@@ -2,8 +2,8 @@
 
 <div class="main left_main">
 
-    <?php $this->widget(\app\modules\main\widgets\DBreadcrumbsWidget::class); ?>
-    <?php $this->widget(\app\modules\main\widgets\DMessagesWidget::class); ?>
+    <?php $this->widget(\app\modules\main\widgets\BreadcrumbsWidget::class); ?>
+    <?php $this->widget(\app\modules\main\widgets\MessagesWidget::class); ?>
 
     <?php echo $content; ?>
 

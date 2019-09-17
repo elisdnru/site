@@ -2,9 +2,9 @@
 
 namespace app\modules\tinymce;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class TinymceModule extends DWebModule
+class TinymceModule extends WebModule
 {
     public function getGroup()
     {

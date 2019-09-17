@@ -4,12 +4,12 @@ namespace app\modules\file\controllers;
 
 use app\modules\user\models\Access;
 use CHttpException;
-use app\modules\main\components\DAdminController;
-use app\modules\uploader\components\DFileHelper;
-use app\modules\main\components\helpers\DTextHelper;
+use app\modules\main\components\AdminController;
+use app\modules\uploader\components\FileHelper;
+use app\modules\main\components\helpers\TextHelper;
 use Yii;
 
-class FileAdminController extends DAdminController
+class FileAdminController extends AdminController
 {
     const THUMB_IMAGE_WIDTH = 84;
     const FILES_UPLOAD_COUNT = 7;
@@ -61,7 +61,7 @@ class FileAdminController extends DAdminController
 
     public function actionDelete($name)
     {
-        $name = DFileHelper::escape($name);
+        $name = FileHelper::escape($name);
         $file = Yii::app()->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
@@ -77,8 +77,8 @@ class FileAdminController extends DAdminController
 
     public function actionRename($path)
     {
-        $name = DFileHelper::escape(Yii::app()->request->getParam('name'));
-        $to = DFileHelper::escape(Yii::app()->request->getParam('to'));
+        $name = FileHelper::escape(Yii::app()->request->getParam('name'));
+        $to = FileHelper::escape(Yii::app()->request->getParam('to'));
 
         if (!$name || !$to) {
             throw new CHttpException(400, 'Некорректный запрос');
@@ -109,7 +109,7 @@ class FileAdminController extends DAdminController
                 return 'Отказано в доступе к загрузке файла .htaccess';
             }
 
-            $file = $curpath . '/' . DTextHelper::strToChpu($uploaded->filename) . '.' . $uploaded->extension;
+            $file = $curpath . '/' . TextHelper::strToChpu($uploaded->filename) . '.' . $uploaded->extension;
 
             if (!$uploaded->Move($file)) {
                 $success = true;
@@ -119,7 +119,7 @@ class FileAdminController extends DAdminController
                 $orig = Yii::app()->image->load($file);
 
                 if ($orig->width > self::THUMB_IMAGE_WIDTH) {
-                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . DTextHelper::strToChpu($uploaded->filename) . '_prev.' . $uploaded->extension);
+                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::strToChpu($uploaded->filename) . '_prev.' . $uploaded->extension);
                 }
             }
         }

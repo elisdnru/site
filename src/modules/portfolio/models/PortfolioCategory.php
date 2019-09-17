@@ -2,12 +2,12 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogCategory;
-use app\modules\main\components\DExistOrEmpty;
+use app\modules\main\components\ExistOrEmpty;
 use app\modules\category\models\TreeCategory;
 
-DUrlRulesHelper::import('portfolio');
+UrlRulesHelper::import('portfolio');
 
 /**
  * This is the model class for table "{{portfolio_category}}".
@@ -37,7 +37,7 @@ class PortfolioCategory extends TreeCategory
     public function rules()
     {
         return array_merge(parent::rules(), [
-            ['parent_id', DExistOrEmpty::class, 'className' => self::class, 'attributeName' => 'id'],
+            ['parent_id', ExistOrEmpty::class, 'className' => self::class, 'attributeName' => 'id'],
         ]);
     }
 

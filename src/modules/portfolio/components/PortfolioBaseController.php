@@ -2,10 +2,10 @@
 
 namespace app\modules\portfolio\components;
 
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\portfolio\PortfolioModule;
 
-abstract class PortfolioBaseController extends DController
+abstract class PortfolioBaseController extends Controller
 {
     protected function beforeAction($action)
     {

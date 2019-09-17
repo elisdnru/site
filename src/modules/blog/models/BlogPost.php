@@ -2,9 +2,9 @@
 
 namespace app\modules\blog\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\comment\components\DICommentDepends;
-use app\modules\main\components\helpers\DTextHelper;
+use app\modules\main\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -83,9 +83,9 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
+            ['author_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => \app\modules\blog\models\BlogCategory::class, 'attributeName' => 'id'],
-            ['group_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \app\modules\blog\models\BlogPostGroup::class, 'attributeName' => 'id'],
+            ['group_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\BlogPostGroup::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
@@ -215,7 +215,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'updateAttribute' => 'update_date',
             ],
             'PurifyShort' => [
-                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -225,7 +225,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
@@ -240,7 +240,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -250,7 +250,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'imageHeightAttribute' => 'image_height',
             ],
             'PingBehavior' => [
-                'class' => \app\modules\main\components\arbehaviors\DPingBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];
@@ -280,7 +280,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
     private function fillDefaultValues()
     {
         if (!$this->alias) {
-            $this->alias = DTextHelper::strToChpu($this->title);
+            $this->alias = TextHelper::strToChpu($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);
@@ -370,7 +370,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
     public function getUrl()
     {
         if ($this->_url === null) {
-            DUrlRulesHelper::import('blog');
+            UrlRulesHelper::import('blog');
             $this->_url = Yii::app()->createUrl('/blog/post/show', ['id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;

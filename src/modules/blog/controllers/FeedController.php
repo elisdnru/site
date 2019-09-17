@@ -4,11 +4,11 @@ namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\BlogPost;
 use CHtml;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\extensions\feed\EFeed;
 use Yii;
 
-class FeedController extends DController
+class FeedController extends Controller
 {
     public function actionIndex()
     {

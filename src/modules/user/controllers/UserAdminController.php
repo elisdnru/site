@@ -4,30 +4,30 @@ namespace app\modules\user\controllers;
 
 use CActiveForm;
 use CHttpException;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use app\modules\page\models\Page;
 use app\modules\user\models\User;
 use app\modules\user\models\UserPage;
 use Yii;
 
-class UserAdminController extends DAdminController
+class UserAdminController extends AdminController
 {
     public function actions()
     {
         return [
             'index' => [
-                'class' => \app\modules\crud\components\DAdminAction::class,
+                'class' => \app\modules\crud\components\AdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => \app\modules\crud\components\DCreateAction::class,
-            'update' => \app\modules\crud\components\DUpdateAction::class,
+            'create' => \app\modules\crud\components\CreateAction::class,
+            'update' => \app\modules\crud\components\UpdateAction::class,
             'toggle' => [
-                'class' => \app\modules\crud\components\DToggleAction::class,
+                'class' => \app\modules\crud\components\ToggleAction::class,
                 'attributes' => ['active']
             ],
-            'delete' => \app\modules\crud\components\DDeleteAction::class,
-            'view' => \app\modules\crud\components\DViewAction::class,
+            'delete' => \app\modules\crud\components\DeleteAction::class,
+            'view' => \app\modules\crud\components\ViewAction::class,
         ];
     }
 

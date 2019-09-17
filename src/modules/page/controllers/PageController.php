@@ -3,11 +3,11 @@
 namespace app\modules\page\controllers;
 
 use CHttpException;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
 
-class PageController extends DController
+class PageController extends Controller
 {
     public function actionShow($path = 'index')
     {

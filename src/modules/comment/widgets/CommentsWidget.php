@@ -2,20 +2,20 @@
 
 namespace app\modules\comment\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use CException;
 use CHtml;
 use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\models\CommentForm;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use app\modules\user\models\User;
 use Yii;
 
-DUrlRulesHelper::import('users');
-DUrlRulesHelper::import('comment');
+UrlRulesHelper::import('users');
+UrlRulesHelper::import('comment');
 
-class CommentsWidget extends DWidget
+class CommentsWidget extends Widget
 {
     public $material_id;
     public $authorId;

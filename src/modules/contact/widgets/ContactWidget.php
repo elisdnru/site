@@ -2,15 +2,15 @@
 
 namespace app\modules\contact\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\contact\models\Contact;
 use app\modules\contact\models\ContactForm;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use Yii;
 
-DUrlRulesHelper::import('contact');
+UrlRulesHelper::import('contact');
 
-class ContactWidget extends DWidget
+class ContactWidget extends Widget
 {
     public $tpl = 'default';
     public $scenario = '';

@@ -5,11 +5,11 @@ namespace app\modules\user\controllers;
 use app\modules\user\models\Access;
 use CActiveForm;
 use CHttpException;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\user\models\User;
 use Yii;
 
-class ProfileController extends DController
+class ProfileController extends Controller
 {
     public function filters()
     {
@@ -33,8 +33,8 @@ class ProfileController extends DController
     public function actions()
     {
         return [
-            'index' => \app\modules\crud\components\DUpdateAction::class,
-            'view' => \app\modules\crud\components\DViewAction::class,
+            'index' => \app\modules\crud\components\UpdateAction::class,
+            'view' => \app\modules\crud\components\ViewAction::class,
         ];
     }
 

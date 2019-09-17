@@ -1,12 +1,12 @@
 <?php
-/* @var $this DAdminController */
+/* @var $this AdminController */
 
 use app\modules\blog\extensions\multicomplete\MultiComplete;
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostGroup;
 use app\modules\blog\models\BlogTag;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 
 /* @var $model BlogPost */
 /* @var $form CActiveForm */

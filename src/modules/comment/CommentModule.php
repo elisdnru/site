@@ -3,9 +3,9 @@
 namespace app\modules\comment;
 
 use app\modules\comment\models\Comment;
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class CommentModule extends DWebModule
+class CommentModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

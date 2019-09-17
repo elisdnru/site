@@ -2,9 +2,9 @@
 
 namespace app\modules\uploader;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class UploaderModule extends DWebModule
+class UploaderModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

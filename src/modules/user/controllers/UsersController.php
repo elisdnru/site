@@ -3,17 +3,17 @@
 namespace app\modules\user\controllers;
 
 use CHttpException;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\extensions\cachetagging\Tags;
 use app\modules\user\models\User;
 
-class UsersController extends DController
+class UsersController extends Controller
 {
     public function actions()
     {
         return [
             'index' => [
-                'class' => \app\modules\crud\components\DIndexAction::class,
+                'class' => \app\modules\crud\components\IndexAction::class,
                 'view' => 'index',
                 'ajaxView' => '_loop'
             ],

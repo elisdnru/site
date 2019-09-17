@@ -1,16 +1,16 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
-use app\modules\main\components\DController;
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\Controller;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
 /* @var $page Page */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = $page->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = $page->description . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->description = $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $page->keywords;
 
 $this->breadcrumbs = [

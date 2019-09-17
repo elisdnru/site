@@ -2,9 +2,9 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\helpers\DTextHelper;
+use app\modules\main\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -72,7 +72,7 @@ class PortfolioWork extends CActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => \app\modules\portfolio\models\PortfolioCategory::class, 'attributeName' => 'id'],
+            ['category_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\PortfolioCategory::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
@@ -164,7 +164,7 @@ class PortfolioWork extends CActiveRecord
     {
         return [
             'PurifyShort' => [
-                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -173,7 +173,7 @@ class PortfolioWork extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -184,7 +184,7 @@ class PortfolioWork extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -194,7 +194,7 @@ class PortfolioWork extends CActiveRecord
                 'imageHeightAttribute' => 'image_height',
             ],
             'PingBehavior' => [
-                'class' => \app\modules\main\components\arbehaviors\DPingBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];
@@ -212,7 +212,7 @@ class PortfolioWork extends CActiveRecord
     private function fillDefaultValues()
     {
         if (!$this->alias) {
-            $this->alias = DTextHelper::strToChpu($this->title);
+            $this->alias = TextHelper::strToChpu($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);
@@ -262,7 +262,7 @@ class PortfolioWork extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            DUrlRulesHelper::import('portfolio');
+            UrlRulesHelper::import('portfolio');
             $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->path, 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;

@@ -67,7 +67,7 @@ return [
     'components' => [
 
         'urlManager' => [
-            'class' => \app\modules\main\components\system\DUrlManager::class,
+            'class' => \app\modules\main\components\system\UrlManager::class,
             'urlFormat' => 'path',
             'showScriptName' => false,
             'useStrictParsing' => true,
@@ -117,7 +117,7 @@ return [
         ],
 
         'moduleManager' => [
-            'class' => \app\components\module\DModuleManager::class,
+            'class' => \app\components\module\ModuleManager::class,
         ],
 
         'errorHandler' => [
@@ -133,7 +133,7 @@ return [
         ],
 
         'uploader' => [
-            'class' => \app\modules\uploader\components\DUploadManager::class,
+            'class' => \app\modules\uploader\components\UploadManager::class,
             'origFileSalt' => 'adFxt0de',
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',
@@ -173,7 +173,7 @@ return [
         ],
 
         'rpcManager' => [
-            'class' => \app\modules\main\components\DRPCManager::class,
+            'class' => \app\modules\main\components\RPCManager::class,
         ],
 
         'widgetFactory' => [
@@ -222,7 +222,7 @@ return [
 
     'behaviors' => [
         [
-            'class' => \app\components\module\DModuleUrlRulesBehavior::class,
+            'class' => \app\components\module\ModuleUrlRulesBehavior::class,
             'beforeCurrentModule' => [
                 'main',
                 'uploader',

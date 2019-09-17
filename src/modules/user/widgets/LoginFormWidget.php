@@ -2,16 +2,16 @@
 
 namespace app\modules\user\widgets;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\widgets\DWidget;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\widgets\Widget;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\User;
 use Yii;
 
-DUrlRulesHelper::import('user');
-DUrlRulesHelper::import('users');
+UrlRulesHelper::import('user');
+UrlRulesHelper::import('users');
 
-class LoginFormWidget extends DWidget
+class LoginFormWidget extends Widget
 {
     public $tpl = 'LoginForm';
 

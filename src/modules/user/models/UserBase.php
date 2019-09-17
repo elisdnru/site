@@ -2,8 +2,8 @@
 
 namespace app\modules\user\models;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\helpers\DGRavatarHelper;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\helpers\GravatarHelper;
 use app\modules\page\models\Page;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -382,7 +382,7 @@ abstract class UserBase extends CActiveRecord
                 'setUpdateOnCreate' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\FileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,
@@ -468,7 +468,7 @@ abstract class UserBase extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            DUrlRulesHelper::import('user');
+            UrlRulesHelper::import('user');
             $this->_url = Yii::app()->createUrl('/user/users/show', ['username' => $this->username]);
         }
         return $this->_url;
@@ -493,7 +493,7 @@ abstract class UserBase extends CActiveRecord
 
     public function getDefaultAvatarUrl($width)
     {
-        return DGRavatarHelper::get($this->email, $width);
+        return GravatarHelper::get($this->email, $width);
     }
 
     public function sendCommit()

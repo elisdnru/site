@@ -2,14 +2,14 @@
 
 namespace app\modules\page\widgets;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\widgets\DWidget;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\widgets\Widget;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
 
-DUrlRulesHelper::import('page');
+UrlRulesHelper::import('page');
 
-class PageWidget extends DWidget
+class PageWidget extends Widget
 {
     public $alias;
 

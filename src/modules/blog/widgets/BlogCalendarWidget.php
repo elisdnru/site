@@ -2,16 +2,16 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPost;
 use CHtml;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
 use Yii;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
-class BlogCalendarWidget extends DWidget
+class BlogCalendarWidget extends Widget
 {
     public $title = 'Calendar';
 

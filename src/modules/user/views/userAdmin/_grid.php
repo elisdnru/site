@@ -6,23 +6,23 @@ $this->widget('zii.widgets.grid.CGridView', [
     'filter' => $model,
     'columns' => [
         [
-            'class' => \app\modules\main\components\widgets\DImageLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\ImageLinkColumn::class,
             'value' => '$data->getAvatarUrl(50, 50)',
             'width' => 50,
             'htmlOptions' => ['style' => 'width:32px;text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\LinkColumn::class,
             'name' => 'username',
             'htmlOptions' => ['style' => 'text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\LinkColumn::class,
             'name' => 'email',
             'htmlOptions' => ['style' => 'text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\LinkColumn::class,
             'name' => 'fio',
             'htmlOptions' => ['style' => 'text-align:center'],
         ],
@@ -38,11 +38,11 @@ $this->widget('zii.widgets.grid.CGridView', [
             'htmlOptions' => ['style' => 'width:130px;text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

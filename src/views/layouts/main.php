@@ -1,10 +1,10 @@
 <?php
 use app\extensions\cachetagging\Tags;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\menu\models\Menu;
 use app\modules\user\models\Access;
 
-/** @var $this DController */
+/** @var $this Controller */
 ?><!doctype html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
@@ -61,7 +61,7 @@ use app\modules\user\models\Access;
 
     <?php if (count($this->admin)) : ?>
         <div class="adminbar">
-            <?php $this->widget(\app\modules\main\components\widgets\DAdminlinksWidget::class, [
+            <?php $this->widget(\app\modules\main\components\widgets\AdminLinksWidget::class, [
                 'links' => $this->admin,
                 'info' => $this->info
             ]); ?>
@@ -97,7 +97,7 @@ use app\modules\user\models\Access;
 
         <!--noindex-->
         <div class="nav">
-            <?php $this->beginWidget(\app\modules\main\components\widgets\DNofollowWidget::class); ?>
+            <?php $this->beginWidget(\app\modules\main\components\widgets\NofollowWidget::class); ?>
             <?php $this->widget('zii.widgets.CMenu', [
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
             <?php $this->endWidget(); ?>

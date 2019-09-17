@@ -2,13 +2,13 @@
 
 namespace app\modules\page\widgets;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\widgets\DWidget;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\widgets\Widget;
 use app\modules\page\models\Page;
 
-DUrlRulesHelper::import('page');
+UrlRulesHelper::import('page');
 
-class SubPagesWidget extends DWidget
+class SubPagesWidget extends Widget
 {
     public $tpl = 'default';
     public $class = '';

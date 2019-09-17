@@ -2,9 +2,9 @@
 
 namespace app\modules\share;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class ShareModule extends DWebModule
+class ShareModule extends WebModule
 {
     public function getGroup()
     {

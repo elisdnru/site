@@ -2,9 +2,9 @@
 
 namespace app\modules\block;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class BlockModule extends DWebModule
+class BlockModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

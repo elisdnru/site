@@ -24,7 +24,7 @@
             'name' => 'pagetitle',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DToggleColumn::class,
+            'class' => \app\modules\main\components\widgets\ToggleColumn::class,
             'name' => 'status',
             'header' => 'П',
             'filter' => [1 => 'Прочитано', 0 => 'Новое'],
@@ -33,11 +33,11 @@
             'offImageUrl' => '/images/admin/message.png',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

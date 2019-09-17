@@ -1,7 +1,7 @@
 <?php
-/* @var $this DAdminController */
+/* @var $this AdminController */
 
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 
 $this->pageTitle = 'Метки записей';
 $this->breadcrumbs = [

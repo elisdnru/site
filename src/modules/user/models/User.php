@@ -2,7 +2,7 @@
 
 namespace app\modules\user\models;
 
-use app\modules\main\components\helpers\DGRavatarHelper;
+use app\modules\main\components\helpers\GravatarHelper;
 use Yii;
 
 /**
@@ -29,12 +29,12 @@ class User extends UserBase
         return array_merge(parent::rules(), [
             // Settings
             // array('old_password', 'required', 'on' => 'settings'),
-            ['old_password', \app\modules\user\components\DCurrentPassword::class, 'className' => self::class, 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
+            ['old_password', \app\modules\user\components\CurrentPasswordValidator::class, 'className' => self::class, 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
         ]);
     }
 
     public function getDefaultAvatarUrl($width)
     {
-        return DGRavatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . '/images/noavatar.png');
+        return GravatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . '/images/noavatar.png');
     }
 }

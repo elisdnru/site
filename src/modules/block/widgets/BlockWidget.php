@@ -3,10 +3,10 @@
 namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
 
-class BlockWidget extends DWidget
+class BlockWidget extends Widget
 {
     public $tpl = 'default';
     public $id = '';

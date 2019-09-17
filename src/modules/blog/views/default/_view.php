@@ -2,7 +2,7 @@
 /* @var $data BlogPost */
 
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\helpers\DDateHelper;
+use app\modules\main\components\helpers\DateHelper;
 
 $links = [];
 foreach ($data->cache(1000)->tags as $tag) {
@@ -16,7 +16,7 @@ foreach ($data->cache(1000)->tags as $tag) {
         <!--noindex-->
         <div class="info">
             <p class="date">
-                <span class="enc-date" data-date="<?php echo DDateHelper::normdate($data->date); ?>">&nbsp;</span></p>
+                <span class="enc-date" data-date="<?php echo DateHelper::normdate($data->date); ?>">&nbsp;</span></p>
             <?php if ($data->category) : ?>
                 <p class="category">
                     <span><span data-href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></span></span>

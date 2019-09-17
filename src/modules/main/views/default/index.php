@@ -1,9 +1,9 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\extensions\cachetagging\Tags;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\user\models\Access;
 
 $this->pageTitle = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
@@ -33,7 +33,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_index_top']); ?>
 
-<?php DUrlRulesHelper::import('blog'); ?>
+<?php UrlRulesHelper::import('blog'); ?>
 
 <h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>

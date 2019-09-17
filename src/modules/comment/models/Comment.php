@@ -3,7 +3,7 @@
 namespace app\modules\comment\models;
 
 use app\modules\comment\components\DICommentDepends;
-use app\modules\main\components\helpers\DGRavatarHelper;
+use app\modules\main\components\helpers\GravatarHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -166,7 +166,7 @@ class Comment extends CActiveRecord
                 'setUpdateOnCreate' => false,
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'encodePreContent' => true,
@@ -352,7 +352,7 @@ class Comment extends CActiveRecord
             if ($this->cache(1000)->user) {
                 $this->_avatarUrl[$index] = $this->user->getAvatarUrl($width, $height);
             } else {
-                $this->_avatarUrl[$index] = DGRavatarHelper::get($this->email, $width);
+                $this->_avatarUrl[$index] = GravatarHelper::get($this->email, $width);
             }
         }
         return $this->_avatarUrl[$index];

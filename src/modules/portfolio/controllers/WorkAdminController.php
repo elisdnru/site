@@ -5,11 +5,11 @@ namespace app\modules\portfolio\controllers;
 use CDbCriteria;
 use CHttpException;
 use CPagination;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use app\modules\portfolio\models\PortfolioWork;
 use Yii;
 
-class WorkAdminController extends DAdminController
+class WorkAdminController extends AdminController
 {
     const ITEMS_PER_PAGE = 50;
 
@@ -23,14 +23,14 @@ class WorkAdminController extends DAdminController
     public function actions()
     {
         return [
-            'create' => \app\modules\crud\components\DCreateAction::class,
-            'update' => \app\modules\crud\components\DUpdateAction::class,
+            'create' => \app\modules\crud\components\CreateAction::class,
+            'update' => \app\modules\crud\components\UpdateAction::class,
             'toggle' => [
-                'class' => \app\modules\crud\components\DToggleAction::class,
+                'class' => \app\modules\crud\components\ToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => \app\modules\crud\components\DDeleteAction::class,
-            'view' => \app\modules\crud\components\DViewAction::class,
+            'delete' => \app\modules\crud\components\DeleteAction::class,
+            'view' => \app\modules\crud\components\ViewAction::class,
         ];
     }
 

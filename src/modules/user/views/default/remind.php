@@ -6,7 +6,7 @@ $this->breadcrumbs = [
 ];
 ?>
 
-<?php $this->beginWidget(\app\modules\main\components\widgets\DPortlet::class, ['title' => 'Восстановление пароля']); ?>
+<?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Восстановление пароля']); ?>
 
 <?php if (Yii::app()->user->hasFlash('remind-message')) : ?>
     <div class="flash-success">

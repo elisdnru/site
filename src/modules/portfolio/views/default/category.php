@@ -1,10 +1,10 @@
 <?php
 
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-$this->pageTitle = 'Портфолио - ' . $category->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = $category->description . $category->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->description = $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;
 
 $this->breadcrumbs = [

@@ -4,9 +4,9 @@ namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\BlogPost;
 use CHttpException;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 
-class PostController extends DController
+class PostController extends Controller
 {
     public function actionShow($id)
     {

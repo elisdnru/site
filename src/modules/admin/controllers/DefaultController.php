@@ -3,11 +3,11 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\user\models\Access;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use Yii;
 use function is_a;
 
-class DefaultController extends DAdminController
+class DefaultController extends AdminController
 {
     public function accessRules()
     {
@@ -29,7 +29,7 @@ class DefaultController extends DAdminController
                 $module = Yii::app()->getModule($key);
 
                 if ($module) {
-                    if (is_a($module, 'app\modules\main\components\system\DWebModule') && Yii::app()->moduleManager->allowed($module->id)) {
+                    if (is_a($module, 'app\modules\main\components\system\WebModule') && Yii::app()->moduleManager->allowed($module->id)) {
                         $modules[isset($module->group) ? $module->group : 'Прочее'][$module->name] = $module;
                     }
                 }

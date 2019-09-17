@@ -4,10 +4,10 @@ namespace app\modules\colorbox\widgets;
 
 use CClientScript;
 use CHtml;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use Yii;
 
-class ColorboxWidget extends DWidget
+class ColorboxWidget extends Widget
 {
     public function run()
     {

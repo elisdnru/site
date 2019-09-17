@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\components\helpers\DSocNetworkHelper;
-use app\modules\main\components\helpers\DTextHelper;
+use app\modules\main\components\helpers\SocNetworkHelper;
+use app\modules\main\components\helpers\TextHelper;
 
 $groupurl = $this->createUrl('index', ['id' => $data->material_id]);
 $editurl = $this->createUrl('update', ['id' => $data->id]);
@@ -42,7 +42,7 @@ endif; ?>" id="comment_<?php echo $data->id; ?>">
 
         <?php if ($data->user && $data->user->network) : ?>
             <a target="_blank" rel="nofollow" href="<?php echo $data->user->identity; ?>">
-                <img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($data->user->network); ?>" />
+                <img style="vertical-align: middle" src="<?php echo SocNetworkHelper::getIcon($data->user->network); ?>" />
             </a>
         <?php endif; ?>
 
@@ -59,7 +59,7 @@ endif; ?>" id="comment_<?php echo $data->id; ?>">
     </header>
 
     <div class="text">
-        <?php echo DTextHelper::fixBR($data->text_purified); ?>
+        <?php echo TextHelper::fixBR($data->text_purified); ?>
         <p>
             <?php if ($data->material) : ?>
                 <a href="<?php echo $data->url; ?>"><?php echo CHtml::encode($data->material->title); ?></a><?php

@@ -2,11 +2,11 @@
 
 namespace app\modules\ulogin\controllers;
 
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\ulogin\models\UloginModel;
 use Yii;
 
-class DefaultController extends DController
+class DefaultController extends Controller
 {
     public function actionLogin()
     {

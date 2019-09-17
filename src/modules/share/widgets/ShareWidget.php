@@ -2,10 +2,10 @@
 
 namespace app\modules\share\widgets;
 
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use Yii;
 
-class ShareWidget extends DWidget
+class ShareWidget extends Widget
 {
     public $tpl = 'default';
     public $url = '';

@@ -2,10 +2,10 @@
 
 namespace app\modules\blog\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\category\models\TreeCategory;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
 /**
  * This is the model class for table "{{blog_category}}".

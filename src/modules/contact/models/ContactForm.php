@@ -2,11 +2,11 @@
 
 namespace app\modules\contact\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use CCaptcha;
 use CFormModel;
 
-DUrlRulesHelper::import('contact');
+UrlRulesHelper::import('contact');
 
 /**
  * ContactForm class.

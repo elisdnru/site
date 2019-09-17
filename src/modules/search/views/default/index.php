@@ -1,14 +1,14 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
-use app\modules\main\components\DController;
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\Controller;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = 'Поиск по сайту' . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = 'Поиск по сайту' . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = '';
 
 $this->breadcrumbs = [

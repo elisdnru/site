@@ -10,12 +10,12 @@ use CActiveDataProvider;
 use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
-use app\modules\main\components\DController;
-use app\modules\main\components\DDateLimiter;
+use app\modules\main\components\Controller;
+use app\modules\main\components\DateLimiter;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
 
-class DefaultController extends DController
+class DefaultController extends Controller
 {
     public function actionIndex()
     {
@@ -120,12 +120,12 @@ class DefaultController extends DController
 
     /**
      * @param string $date
-     * @return DDateLimiter
+     * @return DateLimiter
      * @throws CHttpException
      */
     protected function getDateLimiter($date)
     {
-        $dateLimiter = new DDateLimiter($date);
+        $dateLimiter = new DateLimiter($date);
         if (!$dateLimiter->validate()) {
             throw new CHttpException('404', 'Страница не найдена');
         }

@@ -1,12 +1,12 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
 use app\extensions\cachetagging\Tags;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostComment;
-use app\modules\main\components\DController;
-use app\modules\main\components\helpers\DDateHelper;
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\Controller;
+use app\modules\main\components\helpers\DateHelper;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 /* @var $model BlogPost */
@@ -46,7 +46,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
         $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
     }
     if ($this->moduleAllowed('comment')) {
-        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . DNumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/commentAdmin/index', ['id' => $model->id])];
+        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/commentAdmin/index', ['id' => $model->id])];
     }
 
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
@@ -129,7 +129,7 @@ CTextHighlighter::registerCssFile();
         $links[] = '<span data-href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</span>';
     }
     ?>
-    <p class="entry_date">Дата: <span class="enc-date" data-date="<?php echo DDateHelper::normdate($model->date); ?>">&nbsp;</span>
+    <p class="entry_date">Дата: <span class="enc-date" data-date="<?php echo DateHelper::normdate($model->date); ?>">&nbsp;</span>
     </p>
     <p class="entry_tags">Метки: <?php echo implode('', $links); ?></p>
     <div class="clear"></div>

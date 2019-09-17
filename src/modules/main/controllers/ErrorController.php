@@ -3,11 +3,11 @@
 namespace app\modules\main\controllers;
 
 use CHttpException;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\page\models\Page;
 use Yii;
 
-class ErrorController extends DController
+class ErrorController extends Controller
 {
     public function actionIndex()
     {

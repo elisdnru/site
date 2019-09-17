@@ -2,9 +2,9 @@
 
 namespace app\modules\page;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class PageModule extends DWebModule
+class PageModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -42,7 +42,7 @@ class PageModule extends DWebModule
         return [
             'page/page/show' => 'site/error',
             'page/page' => 'site/error',
-            ['class' => components\DPageUrlRule::class, 'cache' => 3600 * 24],
+            ['class' => components\PageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 }

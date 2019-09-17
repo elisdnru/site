@@ -1,7 +1,7 @@
 <?php
-/* @var $this DAdminController */
+/* @var $this AdminController */
 
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use app\modules\page\models\Page;
 use app\modules\page\models\PageFile;
 use app\modules\page\models\PageLayout;

@@ -3,10 +3,10 @@
 namespace app\modules\uploader\controllers;
 
 use CHttpException;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use Yii;
 
-class DownloadController extends DController
+class DownloadController extends Controller
 {
     public function actionThumb()
     {

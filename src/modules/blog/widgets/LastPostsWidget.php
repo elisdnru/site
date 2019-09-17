@@ -2,15 +2,15 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPost;
 use CDbCriteria;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
-class LastPostsWidget extends DWidget
+class LastPostsWidget extends Widget
 {
     public $tpl = 'default';
     public $class = '';

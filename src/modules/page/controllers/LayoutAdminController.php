@@ -3,23 +3,23 @@
 namespace app\modules\page\controllers;
 
 use CHttpException;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use app\modules\page\models\PageLayout;
 
-class LayoutAdminController extends DAdminController
+class LayoutAdminController extends AdminController
 {
     public function actions()
     {
         return [
             'index' => [
-                'class' => \app\modules\crud\components\DAdminAction::class,
+                'class' => \app\modules\crud\components\AdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => \app\modules\crud\components\DCreateAction::class,
-            'update' => \app\modules\crud\components\DUpdateAction::class,
-            'delete' => \app\modules\crud\components\DDeleteAction::class,
-            'view' => \app\modules\crud\components\DViewAction::class,
+            'create' => \app\modules\crud\components\CreateAction::class,
+            'update' => \app\modules\crud\components\UpdateAction::class,
+            'delete' => \app\modules\crud\components\DeleteAction::class,
+            'view' => \app\modules\crud\components\ViewAction::class,
         ];
     }
 

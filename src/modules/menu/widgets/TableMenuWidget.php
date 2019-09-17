@@ -2,13 +2,13 @@
 
 namespace app\modules\menu\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use CHtml;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 
-DUrlRulesHelper::import('menu');
+UrlRulesHelper::import('menu');
 
-class TableMenuWidget extends DWidget
+class TableMenuWidget extends Widget
 {
     public $items = [];
 

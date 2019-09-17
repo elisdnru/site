@@ -5,10 +5,10 @@ namespace app\modules\comment\controllers;
 use CHttpException;
 use app\modules\comment\models\Comment;
 use app\modules\comment\models\CommentForm;
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use Yii;
 
-class CommentController extends DController
+class CommentController extends Controller
 {
     public function filters()
     {

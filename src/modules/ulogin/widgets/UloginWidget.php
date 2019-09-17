@@ -2,14 +2,14 @@
 
 namespace app\modules\ulogin\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use CClientScript;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use Yii;
 
-DUrlRulesHelper::import('ulogin');
+UrlRulesHelper::import('ulogin');
 
-class UloginWidget extends DWidget
+class UloginWidget extends Widget
 {
     private static $once = false;
 

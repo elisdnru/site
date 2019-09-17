@@ -2,16 +2,16 @@
 
 namespace app\modules\portfolio\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
 use CDbCriteria;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use app\modules\portfolio\models\PortfolioWork;
 use app\extensions\cachetagging\Tags;
 
-DUrlRulesHelper::import('portfolio');
+UrlRulesHelper::import('portfolio');
 
-class PortfolioWidget extends DWidget
+class PortfolioWidget extends Widget
 {
     public $tpl = 'Portfolio';
     public $class = '';

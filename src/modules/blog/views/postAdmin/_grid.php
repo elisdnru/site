@@ -1,10 +1,10 @@
 <?php
-/* @var $this DAdminController */
+/* @var $this AdminController */
 
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostGroup;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use app\modules\user\models\User;
 
 /* @var $model BlogPost */
@@ -21,7 +21,7 @@ use app\modules\user\models\User;
         ],
         [
             'name' => 'title',
-            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\LinkColumn::class,
         ],
         [
             'name' => 'category_id',
@@ -41,7 +41,7 @@ use app\modules\user\models\User;
             'value' => '$data->group ? $data->group->title : ""',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DToggleColumn::class,
+            'class' => \app\modules\main\components\widgets\ToggleColumn::class,
             'name' => 'public',
             'header' => 'О',
             'filter' => [1 => 'Опубликовано', 0 => 'Не опубликовано'],
@@ -49,15 +49,15 @@ use app\modules\user\models\User;
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

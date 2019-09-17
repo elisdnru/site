@@ -2,7 +2,7 @@
 
 namespace app\modules\comment\components;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\comment\models\Comment;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -10,12 +10,12 @@ use CDbCriteria;
 use CException;
 use CHtml;
 use CHttpException;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 use Yii;
 
-DUrlRulesHelper::import('users');
+UrlRulesHelper::import('users');
 
-class CommentAdminControllerBase extends DAdminController
+class CommentAdminControllerBase extends AdminController
 {
     const COMMENTS_PER_PAGE = 20;
 
@@ -29,12 +29,12 @@ class CommentAdminControllerBase extends DAdminController
     public function actions()
     {
         return [
-            'update' => \app\modules\crud\components\DUpdateAction::class,
+            'update' => \app\modules\crud\components\UpdateAction::class,
             'toggle' => [
-                'class' => \app\modules\crud\components\DToggleAction::class,
+                'class' => \app\modules\crud\components\ToggleAction::class,
                 'attributes' => ['public', 'moder']
             ],
-            'view' => \app\modules\crud\components\DViewAction::class,
+            'view' => \app\modules\crud\components\ViewAction::class,
         ];
     }
 

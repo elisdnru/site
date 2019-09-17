@@ -2,14 +2,14 @@
 
 namespace app\modules\menu\widgets;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\widgets\DWidget;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\widgets\Widget;
 use app\modules\menu\models\Menu;
 use Yii;
 
-DUrlRulesHelper::import('menu');
+UrlRulesHelper::import('menu');
 
-class MenuWidget extends DWidget
+class MenuWidget extends Widget
 {
     public $parent;
 

@@ -3,34 +3,34 @@
 namespace app\modules\sitemap\controllers;
 
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\DController;
-use app\modules\sitemap\components\DSitemap;
-use app\components\module\DUrlRulesHelper;
+use app\modules\main\components\Controller;
+use app\modules\sitemap\components\Sitemap;
+use app\components\module\UrlRulesHelper;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\PortfolioWork;
 use app\extensions\cachetagging\Tags;
 use Yii;
 
-class DefaultController extends DController
+class DefaultController extends Controller
 {
     public function actionIndex()
     {
         $models = [];
 
-        DUrlRulesHelper::import('page');
+        UrlRulesHelper::import('page');
 
         $models['Page'] = Page::model()->cache(0, new Tags('page'))->findAll([
             'condition' => 'system = 0',
             'order' => 'title ASC',
         ]);
 
-        DUrlRulesHelper::import('blog');
+        UrlRulesHelper::import('blog');
 
         $models['BlogPost'] = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll([
             'order' => 'title ASC',
         ]);
 
-        DUrlRulesHelper::import('portfolio');
+        UrlRulesHelper::import('portfolio');
 
         $models['PortfolioWork'] = PortfolioWork::model()->cache(0, new Tags('portfolio'))->published()->findAll([
             'order' => 'title ASC',
@@ -45,19 +45,19 @@ class DefaultController extends DController
     public function actionXml()
     {
         if (!$xml = Yii::app()->cache->get('sitemap_xml')) {
-            $sitemap = new DSitemap();
+            $sitemap = new Sitemap();
 
-            DUrlRulesHelper::import('page');
+            UrlRulesHelper::import('page');
 
-            $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), DSitemap::WEEKLY);
+            $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), Sitemap::WEEKLY);
 
-            DUrlRulesHelper::import('blog');
+            UrlRulesHelper::import('blog');
 
-            $sitemap->addModels(BlogPost::model()->published()->findAll(), DSitemap::DAILY, 0.8);
+            $sitemap->addModels(BlogPost::model()->published()->findAll(), Sitemap::DAILY, 0.8);
 
-            DUrlRulesHelper::import('portfolio');
+            UrlRulesHelper::import('portfolio');
 
-            $sitemap->addModels(PortfolioWork::model()->findAll(), DSitemap::WEEKLY);
+            $sitemap->addModels(PortfolioWork::model()->findAll(), Sitemap::WEEKLY);
 
             $xml = $sitemap->render();
 

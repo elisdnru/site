@@ -2,8 +2,8 @@
 
 namespace app\modules\menu\models;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\DTreeActiveDataProvider;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\TreeActiveDataProvider;
 use CActiveRecord;
 use app\modules\category\models\Category;
 use CDbCriteria;
@@ -103,7 +103,7 @@ class Menu extends CActiveRecord
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
-     * @return DTreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     * @return TreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
     public function search($pageSize = 10)
     {
@@ -117,7 +117,7 @@ class Menu extends CActiveRecord
         $criteria->compare('t.parent_id', $this->parent_id);
         $criteria->compare('t.visible', $this->visible);
 
-        return new DTreeActiveDataProvider($this, [
+        return new TreeActiveDataProvider($this, [
             'childRelation' => 'child_items',
             'criteria' => $criteria,
             'sort' => [
@@ -134,7 +134,7 @@ class Menu extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\DCategoryTreeBehavior::class,
+                'class' => \app\modules\category\components\CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
@@ -209,7 +209,7 @@ class Menu extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            DUrlRulesHelper::import('main');
+            UrlRulesHelper::import('main');
             $url = $this->link ? $this->link : '#';
             if (preg_match('|^http:\/\/|', $url, $m)) {
                 $this->_url = Yii::app()->createUrl('/main/default/url', ['a' => $url]);

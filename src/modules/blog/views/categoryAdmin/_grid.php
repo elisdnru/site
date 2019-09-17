@@ -8,24 +8,24 @@
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\DIndentLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\IndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DLinkColumn::class,
+            'class' => \app\modules\main\components\widgets\LinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->url',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\DButtonColumn::class,
+            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

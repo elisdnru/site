@@ -2,9 +2,9 @@
 
 namespace app\modules\crud;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class CrudModule extends DWebModule
+class CrudModule extends WebModule
 {
 
 }

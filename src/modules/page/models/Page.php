@@ -2,9 +2,9 @@
 
 namespace app\modules\page\models;
 
-use app\components\module\DUrlRulesHelper;
-use app\modules\main\components\DTreeActiveDataProvider;
-use app\modules\main\components\helpers\DTextHelper;
+use app\components\module\UrlRulesHelper;
+use app\modules\main\components\TreeActiveDataProvider;
+use app\modules\main\components\helpers\TextHelper;
 use CActiveRecord;
 use CDbCriteria;
 use CUploadedFile;
@@ -150,7 +150,7 @@ class Page extends CActiveRecord
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
-     * @return DTreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     * @return TreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
     public function search($pageSize = 10)
     {
@@ -172,7 +172,7 @@ class Page extends CActiveRecord
         $criteria->compare('t.parent_id', $this->parent_id);
         $criteria->compare('t.robots', $this->robots);
 
-        return new DTreeActiveDataProvider($this, [
+        return new TreeActiveDataProvider($this, [
             'criteria' => $criteria,
             'childRelation' => 'child_pages',
             'sort' => [
@@ -189,7 +189,7 @@ class Page extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\DCategoryTreeBehavior::class,
+                'class' => \app\modules\category\components\CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
@@ -200,7 +200,7 @@ class Page extends CActiveRecord
                 ],
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\DPurifyTextBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -213,7 +213,7 @@ class Page extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\modules\uploader\components\DFileUploadBehavior::class,
+                'class' => \app\modules\uploader\components\FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,
@@ -221,7 +221,7 @@ class Page extends CActiveRecord
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
             ],
             'PingBehavior' => [
-                'class' => \app\modules\main\components\arbehaviors\DPingBehavior::class,
+                'class' => \app\modules\main\components\arbehaviors\PingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];
@@ -252,7 +252,7 @@ class Page extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            DUrlRulesHelper::import('page');
+            UrlRulesHelper::import('page');
             $this->_url = Yii::app()->createUrl('page/page/show', ['path' => $this->path]);
         }
         return $this->_url;
@@ -270,7 +270,7 @@ class Page extends CActiveRecord
     private function fillDefaultValues()
     {
         if (!$this->alias) {
-            $this->alias = DTextHelper::strToChpu($this->title);
+            $this->alias = TextHelper::strToChpu($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

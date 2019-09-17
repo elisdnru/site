@@ -1,7 +1,7 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
-use app\modules\main\components\DController;
+use app\modules\main\components\Controller;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 

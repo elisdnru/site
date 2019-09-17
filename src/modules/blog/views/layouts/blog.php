@@ -1,12 +1,12 @@
-<?php use app\modules\main\widgets\DBreadcrumbsWidget;
-use app\modules\main\widgets\DMessagesWidget;
+<?php use app\modules\main\widgets\BreadcrumbsWidget;
+use app\modules\main\widgets\MessagesWidget;
 
 $this->beginContent('//layouts/main'); ?>
 
 <div class="main left_main">
 
-    <?php $this->widget(DBreadcrumbsWidget::class); ?>
-    <?php $this->widget(DMessagesWidget::class); ?>
+    <?php $this->widget(BreadcrumbsWidget::class); ?>
+    <?php $this->widget(MessagesWidget::class); ?>
 
     <?php echo $content; ?>
 

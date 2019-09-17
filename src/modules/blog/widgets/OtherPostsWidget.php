@@ -2,15 +2,15 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use CDbCriteria;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
-class OtherPostsWidget extends DWidget
+class OtherPostsWidget extends Widget
 {
     public $tpl = 'OtherPosts';
     public $title = '';

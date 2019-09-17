@@ -3,10 +3,10 @@
 namespace app\modules\follow\widgets;
 
 use CHtml;
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use Yii;
 
-class FollowWidget extends DWidget
+class FollowWidget extends Widget
 {
     public function run()
     {

@@ -2,7 +2,7 @@
 
 namespace app\modules\category\models;
 
-use app\modules\main\components\DTreeActiveDataProvider;
+use app\modules\main\components\TreeActiveDataProvider;
 use CActiveDataProvider;
 use CDbCriteria;
 use Yii;
@@ -48,7 +48,7 @@ abstract class TreeCategory extends Category
     public function rules()
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', \app\modules\main\components\DExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
+            ['parent_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
             ['parent_id', 'safe', 'on' => 'search'],
         ]);
     }
@@ -83,7 +83,7 @@ abstract class TreeCategory extends Category
         $criteria->compare('t.keywords', $this->keywords, true);
         $criteria->compare('t.parent_id', $this->parent_id);
 
-        return new DTreeActiveDataProvider($this, [
+        return new TreeActiveDataProvider($this, [
             'criteria' => $criteria,
             'sort' => [
                 'defaultOrder' => 't.sort ASC, t.title ASC',
@@ -99,7 +99,7 @@ abstract class TreeCategory extends Category
     {
         return array_replace(parent::behaviors(), [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\DCategoryTreeBehavior::class,
+                'class' => \app\modules\category\components\CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

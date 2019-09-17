@@ -2,9 +2,9 @@
 
 namespace app\modules\admin;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class AdminModule extends DWebModule
+class AdminModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

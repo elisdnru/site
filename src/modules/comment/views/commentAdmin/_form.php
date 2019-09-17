@@ -1,8 +1,8 @@
 <?php
-/* @var $this DAdminController */
+/* @var $this AdminController */
 
 use app\modules\comment\models\Comment;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 
 /* @var $model Comment */
 /* @var $form CActiveForm */

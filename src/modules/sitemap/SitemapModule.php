@@ -2,9 +2,9 @@
 
 namespace app\modules\sitemap;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class SitemapModule extends DWebModule
+class SitemapModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

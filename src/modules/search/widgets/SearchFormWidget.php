@@ -2,10 +2,10 @@
 
 namespace app\modules\search\widgets;
 
-use app\modules\main\components\widgets\DWidget;
+use app\modules\main\components\widgets\Widget;
 use app\modules\search\models\SearchForm;
 
-class SearchFormWidget extends DWidget
+class SearchFormWidget extends Widget
 {
     public $tpl = 'SearchForm';
 

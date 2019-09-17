@@ -1,6 +1,6 @@
-<article class="comment<?php use app\modules\main\components\helpers\DDateHelper;
-use app\modules\main\components\helpers\DSocNetworkHelper;
-use app\modules\main\components\helpers\DTextHelper;
+<article class="comment<?php use app\modules\main\components\helpers\DateHelper;
+use app\modules\main\components\helpers\SocNetworkHelper;
+use app\modules\main\components\helpers\TextHelper;
 
 if ($authorId == $comment->user_id) :
     ?> author<?php
@@ -43,11 +43,11 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
             endif; ?>" data-load="like_<?php echo $comment->id; ?>" data-url="<?php echo Yii::app()->createUrl('comment/ajax/like', ['id' => $comment->id]); ?>" title="Мне нравится"></span>
         </span>
 
-        <h2 class="date enc-date" data-date="<?php echo DDateHelper::normdate($comment->date, true); ?>">&nbsp;</h2>
+        <h2 class="date enc-date" data-date="<?php echo DateHelper::normdate($comment->date, true); ?>">&nbsp;</h2>
 
         <?php if ($comment->user && $comment->user->network): ?>
             <span data-href="<?php echo $comment->user->identity; ?>">
-                <img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($comment->user->network); ?>" alt="" />
+                <img style="vertical-align: middle" src="<?php echo SocNetworkHelper::getIcon($comment->user->network); ?>" alt="" />
             </span>
         <?php endif; ?>
 
@@ -73,7 +73,7 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
         <?php if ($comment->public) :
             ?>
 
-            <?php echo DTextHelper::fixBR($comment->text_purified); ?>
+            <?php echo TextHelper::fixBR($comment->text_purified); ?>
 
         <?php
         else :

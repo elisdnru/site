@@ -1,4 +1,4 @@
-<?php use app\modules\main\components\helpers\DDateHelper;
+<?php use app\modules\main\components\helpers\DateHelper;
 
 foreach ($posts as $data) : ?>
     <?php
@@ -14,7 +14,7 @@ foreach ($posts as $data) : ?>
             <!--noinex-->
             <div class="info">
                 <p class="date">
-                    <span class="enc-date" data-date="<?php echo DDateHelper::normdate($data->date); ?>">&nbsp;</span>
+                    <span class="enc-date" data-date="<?php echo DateHelper::normdate($data->date); ?>">&nbsp;</span>
                 </p>
                 <?php if ($data->category) : ?>
                     <p class="category">

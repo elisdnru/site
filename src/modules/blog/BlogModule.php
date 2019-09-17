@@ -3,9 +3,9 @@
 namespace app\modules\blog;
 
 use app\modules\blog\models\BlogPostComment;
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class BlogModule extends DWebModule
+class BlogModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

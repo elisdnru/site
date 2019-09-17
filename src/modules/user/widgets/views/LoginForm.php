@@ -1,4 +1,4 @@
-<?php use app\modules\main\components\helpers\DSocNetworkHelper;
+<?php use app\modules\main\components\helpers\SocNetworkHelper;
 
 if ($user) : ?>
     <div style="float:left;">
@@ -9,7 +9,7 @@ if ($user) : ?>
     <div style="margin-left:60px;">
         <p class="nomargin"><strong>
                 <?php if ($user->network) : ?>
-                    <a href="<?php echo $user->identity; ?>"><img style="vertical-align: middle" src="<?php echo DSocNetworkHelper::getIcon($user->network); ?>" /></a>
+                    <a href="<?php echo $user->identity; ?>"><img style="vertical-align: middle" src="<?php echo SocNetworkHelper::getIcon($user->network); ?>" /></a>
                 <?php endif; ?>
                 <?php echo CHtml::encode($user->fio); ?>
             </strong>

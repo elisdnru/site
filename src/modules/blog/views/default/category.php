@@ -1,9 +1,9 @@
 <?php
-/* @var $this DController */
+/* @var $this Controller */
 
 use app\modules\blog\models\BlogCategory;
-use app\modules\main\components\DController;
-use app\modules\main\components\helpers\DNumberHelper;
+use app\modules\main\components\Controller;
+use app\modules\main\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
@@ -11,8 +11,8 @@ use app\modules\user\models\Access;
 /* @var $category BlogCategory */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = $category->pagetitle . ' - ' . $page->pagetitle . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = $category->description . DNumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->description = $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;
 
 $this->breadcrumbs = [

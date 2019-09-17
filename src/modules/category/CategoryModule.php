@@ -2,9 +2,9 @@
 
 namespace app\modules\category;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class CategoryModule extends DWebModule
+class CategoryModule extends WebModule
 {
     public function init()
     {

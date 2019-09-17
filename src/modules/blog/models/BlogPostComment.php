@@ -2,10 +2,10 @@
 
 namespace app\modules\blog\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use app\modules\comment\models\Comment;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
 class BlogPostComment extends Comment
 {

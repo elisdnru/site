@@ -1,8 +1,8 @@
 <?php
-/* @var $this DAdminController */
+/* @var $this AdminController */
 
 use app\modules\blog\models\BlogCategory;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 
 /* @var $model BlogCategory */
 /* @var $form CActiveForm */

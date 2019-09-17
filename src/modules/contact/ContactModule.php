@@ -3,9 +3,9 @@
 namespace app\modules\contact;
 
 use app\modules\contact\models\Contact;
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 
-class ContactModule extends DWebModule
+class ContactModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

@@ -2,13 +2,13 @@
 
 namespace app\modules\blog\models;
 
-use app\components\module\DUrlRulesHelper;
+use app\components\module\UrlRulesHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
-DUrlRulesHelper::import('blog');
+UrlRulesHelper::import('blog');
 
 /**
  * This is the model class for table "{{blog_tag}}".
@@ -163,7 +163,7 @@ class BlogTag extends CActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            DUrlRulesHelper::import('blog');
+            UrlRulesHelper::import('blog');
             $this->_url = Yii::app()->createUrl('/blog/default/tag', ['tag' => $this->title]);
         }
 

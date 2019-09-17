@@ -5,24 +5,24 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostGroup;
 use CHttpException;
-use app\modules\main\components\DAdminController;
+use app\modules\main\components\AdminController;
 
 /**
  * @method renderTableForm($params)
  */
-class GroupAdminController extends DAdminController
+class GroupAdminController extends AdminController
 {
     public function actions()
     {
         return [
-            'delete' => \app\modules\crud\components\DDeleteAction::class,
+            'delete' => \app\modules\crud\components\DeleteAction::class,
         ];
     }
 
     public function behaviors()
     {
         return array_replace(parent::behaviors(), [
-            'tableInputBehavior' => ['class' => \app\modules\crud\components\DTableInputBehavior::class],
+            'tableInputBehavior' => ['class' => \app\modules\crud\components\TableInputBehavior::class],
         ]);
     }
 

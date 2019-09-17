@@ -2,10 +2,10 @@
 
 namespace app\modules\portfolio;
 
-use app\modules\main\components\system\DWebModule;
+use app\modules\main\components\system\WebModule;
 use Yii;
 
-class PortfolioModule extends DWebModule
+class PortfolioModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
