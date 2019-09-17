@@ -35,20 +35,20 @@ module.exports = {
     new MergeIntoSingleFilePlugin({
       files: {
         "site.js": [
+          'node_modules/axios/dist/axios.min.js',
           'assets/js/jquery.plugins.js',
           'assets/js/follow.js',
           'assets/js/justclick.js',
           'assets/js/justclick.js',
           'assets/js/site.js'
         ],
-        "vendor.js": [
-          'assets/js/jquery.min.js',
-          'node_modules/axios/dist/axios.min.js'
+        "jquery.js": [
+          'assets/js/jquery.min.js'
         ]
       },
       transform: {
         'site.js': code => require("uglify-js").minify(code).code,
-        'vendor.js': code => require("uglify-js").minify(code).code
+        'jquery.js': code => require("uglify-js").minify(code).code
       }
     })
   ],

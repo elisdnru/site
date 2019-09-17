@@ -90,7 +90,7 @@ return [
                 'jquery' => [
                     'basePath' => null,
                     'baseUrl' => '/build',
-                    'js' => ['vendor.js?v=' . $assetsVersion],
+                    'js' => ['jquery.js?v=' . $assetsVersion],
                 ],
             ],
             'scriptMap' => [
