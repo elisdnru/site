@@ -5,7 +5,7 @@ use app\modules\menu\models\Menu;
 use app\modules\user\models\Access;
 
 /** @var $this Controller */
-?><!doctype html>
+?><!DOCTYPE html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
     <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
