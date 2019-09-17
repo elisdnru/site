@@ -6,7 +6,7 @@
         [
             'name' => 'alias',
             'header' => 'Код для вставки',
-            'value' => 'Yii::app()->controller->DInlineWidgetsBehavior->startBlock . "block|id=" . $data->alias . Yii::app()->controller->DInlineWidgetsBehavior->endBlock',
+            'value' => 'Yii::app()->controller->InlineWidgetsBehavior->startBlock . "block|id=" . $data->alias . Yii::app()->controller->InlineWidgetsBehavior->endBlock',
         ],
         [
             'name' => 'title',

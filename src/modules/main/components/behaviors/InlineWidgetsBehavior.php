@@ -6,7 +6,7 @@ use CBehavior;
 use Yii;
 
 /**
- * DInlineWidgetsBehavior allows render widgets in page content
+ * InlineWidgetsBehavior allows render widgets in page content
  *
  * Config:
  * <code>
@@ -48,7 +48,7 @@ use Yii;
  *     {
  *         return array(
  *             'InlineWidgetsBehavior'=>array(
- *                 'class'=>'DInlineWidgetsBehavior',
+ *                 'class'=>'InlineWidgetsBehavior',
  *                 'location'=>'application.components.widgets',
  *                 'widgets'=>Yii::app()->params['runtimeWidgets'],
  *              ),

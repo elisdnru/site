@@ -45,7 +45,7 @@ class ToggleAction extends CrudAction
     protected function getAttribute()
     {
         if (empty($this->attributes)) {
-            throw new CHttpException(400, Yii::t(CrudModule::class . '.crud', 'DToggleAction::attributes is empty'));
+            throw new CHttpException(400, Yii::t(CrudModule::class . '.crud', 'ToggleAction::attributes is empty'));
         }
 
         $attribute = Yii::app()->request->getParam('attribute');

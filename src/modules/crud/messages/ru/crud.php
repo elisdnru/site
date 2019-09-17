@@ -5,6 +5,6 @@ return [
     'Changed successfully' => 'Изменения сохранены',
     'Deleted successfully' => 'Запись удалена',
     'Added successfully' => 'Запись добавлена',
-    'DToggleAction::attributes is empty' => 'Не указаны атрибуты DToggleAction::attributes',
+    'ToggleAction::attributes is empty' => 'Не указаны атрибуты ToggleAction::attributes',
     'Missing attribute {attribute}' => 'Некорректный атрибут {attribute}',
 ];

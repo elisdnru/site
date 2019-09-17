@@ -12,27 +12,27 @@ use Yii;
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.
  *
- * DModuleAccessBehavior
+ * ModuleAccessBehavior
  * @method boolean moduleAllowed($module)
  *
- * DUserBehavior
+ * UserBehavior
  * @method User getUser()
  * @method boolean is($role)
  * @method check($role)
  *
- * DFlashSessionBehavior
+ * FlashSessionBehavior
  * @method initFlashSession()
  *
- * DHeadersBehavior
+ * HeadersBehavior
  * @method initHeaders()
  *
- * DLiveLayoutBehavior
+ * LiveLayoutBehavior
  * @method initLayout()
  *
- * DJsInitBehavior
+ * JsInitBehavior
  * @method initJsDefaults()
  *
- * DInlineWidgetsBehavior
+ * InlineWidgetsBehavior
  * @method string decodeWidgets($text)
  * @method string clearWidgets($text)
  */
@@ -49,13 +49,13 @@ class Controller extends BaseController
     public function behaviors()
     {
         return array_merge(parent::behaviors(), [
-            'DModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
-            'DUserBehavior' => ['class' => behaviors\UserBehavior::class],
-            'DFlashSessionBehavior' => ['class' => behaviors\FlashSessionBehavior::class],
-            'DHeadersBehavior' => ['class' => behaviors\HeadersBehavior::class],
-            'DLiveLayoutBehavior' => ['class' => behaviors\LiveLayoutBehavior::class],
-            'DJsInitBehavior' => ['class' => behaviors\JsInitBehavior::class],
-            'DInlineWidgetsBehavior' => [
+            'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
+            'UserBehavior' => ['class' => behaviors\UserBehavior::class],
+            'FlashSessionBehavior' => ['class' => behaviors\FlashSessionBehavior::class],
+            'HeadersBehavior' => ['class' => behaviors\HeadersBehavior::class],
+            'LiveLayoutBehavior' => ['class' => behaviors\LiveLayoutBehavior::class],
+            'JsInitBehavior' => ['class' => behaviors\JsInitBehavior::class],
+            'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
                 'location' => 'application.widgets',
                 'widgets' => Yii::app()->params['runtimeWidgets'],
