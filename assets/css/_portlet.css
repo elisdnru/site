@@ -104,35 +104,6 @@
   padding: 10px 0 10px 90px;
 }
 
-.portlet-content ul.collapsed > li > ul {
-  display: none;
-}
-
-.portlet-content ul.collapsed li.active > ul {
-  display: block;
-}
-
-.portlet-content ul.collapsed li.sup_active > ul {
-  display: block;
-}
-
-.portlet-content ul.collapsed li .collapse {
-  float: right;
-  padding: 12px 10px 12px 0;
-  cursor: pointer;
-}
-
-.portlet-content ul.collapsed li .collapse span {
-  display: block;
-  background: #fff;
-  border: #ccc 1px solid;
-  color: #aaa;
-  padding: 0 3px 0 3px;
-  line-height: 1;
-  font-size: 11px;
-  cursor: pointer;
-}
-
 .portlet-content ul.last_updated li a {
   white-space: nowrap;
   position: relative;

@@ -121,13 +121,4 @@ jQuery(function ($) {
 
     return false
   })
-
-  $('ul.collapsed li:has(li.active)').addClass('sup_active')
-
-  $('ul.collapsed > li:has(ul)').prepend($('<div>').addClass('collapse').prepend($('<span>').html('+')))
-
-  $('ul.collapsed > li .collapse').click(function () {
-    $(this).parent().find('>ul').slideToggle(300)
-    return false
-  })
 })

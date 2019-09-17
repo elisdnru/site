@@ -15,5 +15,5 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <?php endif; ?>
 
 <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Разделы портфолио']); ?>
-<?php $this->widget('zii.widgets.CMenu', ['items' => PortfolioCategory::model()->cache(0, new Tags('portfolio'))->getMenuList(1000), 'htmlOptions' => ['class' => 'collapsed']]); ?>
+<?php $this->widget('zii.widgets.CMenu', ['items' => PortfolioCategory::model()->cache(0, new Tags('portfolio'))->getMenuList(1000)]); ?>
 <?php $this->endWidget(); ?>
