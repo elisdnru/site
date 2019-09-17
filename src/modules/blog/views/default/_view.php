@@ -38,7 +38,7 @@ foreach ($data->cache(1000)->tags as $tag) {
             }
             ?>
             <p class="thumb">
-                <span data-href="<?php echo $data->url; ?>"><?php echo CHtml::image($data->getImageUrl(), $data->image_alt, $properties); ?></span>
+                <span data-href="<?php echo $data->url; ?>"><?php echo CHtml::image($data->getImageThumbUrl(250, 0), $data->image_alt, $properties); ?></span>
             </p>
         <?php endif; ?>
         <!--/noindex-->
