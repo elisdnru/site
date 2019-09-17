@@ -62,7 +62,6 @@ window.transliterate = function (fromid, toid) {
 })();
 
 jQuery(function ($) {
-  $('.confirm').doConfirm()
 
   $('.js_hide').hide()
 

@@ -36,7 +36,6 @@ module.exports = {
       files: {
         "site.js": [
           'node_modules/axios/dist/axios.min.js',
-          'assets/js/jquery.plugins.js',
           'assets/js/follow.js',
           'assets/js/justclick.js',
           'assets/js/justclick.js',
