@@ -34,8 +34,4 @@ if ($page->layout->alias == 'blank') : ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
-    <?php if (preg_match('|<pre\sclass=\"brush\s?:\s?\w+\">|', $page->text)) : ?>
-        <?php Yii::app()->syntaxHighlighter->addHighlighter(); ?>
-    <?php endif; ?>
-
 <?php endif; ?>

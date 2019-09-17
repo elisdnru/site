@@ -180,11 +180,6 @@ return [
             'enableSkin' => true,
         ],
 
-        'syntaxHighlighter' => [
-            'class' => \app\extensions\JMSyntaxHighlighter\JMSyntaxHighlighter::class,
-            'theme' => 'Eclipse',
-        ],
-
         'log' => [
             'class' => \CLogRouter::class,
             'routes' => [
