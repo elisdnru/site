@@ -16,7 +16,7 @@
         links.push('<a rel="nofollow" href="' + blocks[i].url + '" title="' + blocks[i].name + '"><span class="follow-' + blocks[i].class + '"></span></a>')
     }
     document.getElementById('followMe').innerHTML = links.join('\r\n')
-})()
+})();
 
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>

@@ -1,5 +1,4 @@
-function translit (str) {
-
+window.translit = function (str) {
   var txt = str.replace(/[^а-яa-z0-9\-_\s]/gi, '')
   txt = txt.replace(/ /gi, '-')
 
@@ -20,51 +19,53 @@ function translit (str) {
     }
   }
   return ru2en.translit(txt)
-}
+};
 
-function transliterate (fromid, toid) {
+window.transliterate = function (fromid, toid) {
   var _from = document.getElementById(fromid)
   var _to = document.getElementById(toid)
   if (_from && _to) {
     _to.value = translit(_from.value.toLowerCase())
   }
-}
+};
 
-jQuery(function($){
-  var portlet = $('.sidebar .portlet-fixed');
-  var marker = $('.bottom-marker');
-  var wrapper = $('#wrapper');
-  if (portlet.length && marker.length) {
-    $(window).scroll(function() {
-      var offset = marker.offset().top;
-      var scrollYpos = $(document).scrollTop();
-      var width = wrapper.width();
+(function(){
+  var portlet = document.querySelector('.sidebar .portlet-fixed');
+  var marker = document.querySelector('.bottom-marker');
+  var wrapper = document.querySelector('#wrapper');
+  if (portlet && marker) {
+    window.addEventListener('scroll', function() {
+      var offset = marker.offsetTop;
+      var scrollYpos = window.pageYOffset;
+      var width = wrapper.offsetWidth;
       if (scrollYpos > offset && width >= 780) {
-        portlet.css({
-          'width': '258px',
-          'top': '10px',
-          'position': 'fixed'
-        });
+        portlet.style.width = '258px';
+        portlet.style.top = '10px';
+        portlet.style.position = 'fixed';
       } else {
-        portlet.css({
-          'top': 'auto',
-          'position': 'relative'
-        });
+        portlet.style.width = '258px';
+        portlet.style.top = 'auto';
+        portlet.style.position = 'relative';
       }
     });
   }
-});
+})();
+
+(function () {
+  var spans = document.querySelectorAll('span[data-href]');
+  [].forEach.call(spans, function (span) {
+    var a = document.createElement('a')
+    a.href = span.dataset.href
+    a.innerHTML = span.innerHTML
+    span.parentNode.replaceChild(a, span);
+  })
+})();
 
 jQuery(function ($) {
   $('.tdruller').tdRuller()
   $('.confirm').doConfirm()
 
   $('.js_hide').hide()
-
-  $('span[data-href]').each(function () {
-    var span = $(this)
-    span.replaceWith($('<a/>').attr('href', span.data('href')).html(span.html()))
-  })
 
   $(document).on('click', 'a.ajax_del', function () {
     var t = $(this)
