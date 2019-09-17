@@ -10,10 +10,8 @@ class JsInitBehavior extends CBehavior
 {
     public function initJsDefaults()
     {
-        Yii::app()->clientScript->registerScript('constants', "
-    function getCSRFToken(){ return '" . Yii::app()->request->csrfToken . "'; }
-    function getVKApiId(){ return '" . Yii::app()->params['GENERAL.SOCIAL_VK_APIID'] . "'; }
-    function getFBApiId(){ return ''; }
-        ", CClientScript::POS_HEAD);
+        Yii::app()->clientScript->registerMetaTag(Yii::app()->request->csrfToken, 'csrf-token');
+        Yii::app()->clientScript->registerMetaTag(Yii::app()->params['GENERAL.SOCIAL_VK_APIID'], 'vk-app-id');
+        Yii::app()->clientScript->registerMetaTag('', 'fb-app-id');
     }
 }

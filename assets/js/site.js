@@ -1,3 +1,7 @@
+window.getCSRFToken = function (){ return document.querySelector('meta[name="csrf-token"').getAttribute('content'); }
+window.getVKApiId = function (){ return document.querySelector('meta[name="vk-app-id"').getAttribute('content'); }
+window.getFBApiId = function (){ return document.querySelector('meta[name="fb-app-id"').getAttribute('content'); }
+
 window.translit = function (str) {
   var txt = str.replace(/[^а-яa-z0-9\-_\s]/gi, '')
   txt = txt.replace(/ /gi, '-')
