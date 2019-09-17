@@ -61,64 +61,119 @@ window.transliterate = function (fromid, toid) {
   })
 })();
 
-jQuery(function ($) {
-
-  $('.js_hide').hide()
-
-  $(document).on('click', 'a.ajax_del', function () {
-    var t = $(this)
-    if (!confirm(t.attr('title') + '?')) return false
-
-    $.ajax({
-      type: 'POST',
-      url: $(this).attr('href'),
-      data: { 'YII_CSRF_TOKEN': getCSRFToken() },
-      success: function (data) {
-        $('#' + t.data('del')).hide(500)
-      },
-      error: function (XHR) {
-        alert(XHR.responseText)
-      }
-    })
-
-    return false
+(function () {
+  var elements = document.querySelectorAll('.js_hide');
+  [].forEach.call(elements, function (element) {
+    element.style.display = 'none'
   })
+})();
 
-  $(document).on('click', 'a.ajax_load', function () {
-    var t = $(this)
-    if (!confirm(t.attr('title') + '?')) return false
+(function () {
+  function getLink(elem, selector) {
+    if (elem.matches(selector)) {
+      return elem;
+    }
 
-    $.ajax({
-      type: 'POST',
-      url: $(this).attr('href'),
-      data: { 'YII_CSRF_TOKEN': getCSRFToken() },
-      success: function (data) {
-        $('#' + t.data('load')).html(data)
-      },
-      error: function (XHR) {
-        alert(XHR.responseText)
-      }
+    if (elem.parentNode && elem.parentNode.matches(selector)) {
+      return elem.parentNode;
+    }
+
+    return null;
+  }
+
+  document.addEventListener('click', function (event) {
+    var link = getLink(event.target, '.ajax_del');
+    if (!link) {
+      return;
+    }
+
+    var label = link.getAttribute('title') ? link.getAttribute('title') : 'Вы уверены?'
+    if (!confirm(label)) {
+      event.preventDefault();
+      return;
+    }
+
+    event.preventDefault();
+
+    var data = new FormData();
+    data.set('YII_CSRF_TOKEN', getCSRFToken());
+    axios({
+      method: 'post',
+      url: link.href,
+      data: data,
+      config: { headers: {
+          'Content-Type': 'multipart/form-data'
+        }}
     })
+      .then(function () {
+        document.querySelector('#' + link.dataset.del).style.display = 'none'
+      })
+      .catch(function (error) {
+        alert(error.response.data);
+      });
+  });
 
-    return false
-  })
+  document.addEventListener('click', function (event) {
+    var link = getLink(event.target, '.ajax_load');
+    if (!link) {
+      return;
+    }
 
-  $(document).on('click', 'a.ajax_post', function () {
-    var t = $(this)
-    if (!confirm(t.attr('title') + '?')) return false
+    var label = link.getAttribute('title') ? link.getAttribute('title') : 'Вы уверены?'
+    if (!confirm(label)) {
+      event.preventDefault();
+      return;
+    }
 
-    $.ajax({
-      type: 'POST',
-      url: $(this).attr('href'),
-      data: { 'YII_CSRF_TOKEN': getCSRFToken() },
-      success: function (data) {
+    event.preventDefault();
+
+    var data = new FormData();
+    data.set('YII_CSRF_TOKEN', getCSRFToken());
+    axios({
+      method: 'post',
+      url: link.href,
+      data: data,
+      config: { headers: {
+          'Content-Type': 'multipart/form-data'
+        }}
+    })
+      .then(function (response) {
+        document.querySelector('#' + link.dataset.del).innerHTML = response.data
+      })
+      .catch(function (error) {
+        alert(error.response.data);
+      });
+  });
+
+  document.addEventListener('click', function (event) {
+    var link = getLink(event.target, '.ajax_post');
+    if (!link) {
+      return;
+    }
+
+    var label = link.getAttribute('title') ? link.getAttribute('title') : 'Вы уверены?'
+    if (!confirm(label)) {
+      event.preventDefault();
+      return;
+    }
+
+    event.preventDefault();
+
+    var data = new FormData();
+    data.set('YII_CSRF_TOKEN', getCSRFToken());
+    axios({
+      method: 'post',
+      url: link.href,
+      data: data,
+      config: { headers: {
+          'Content-Type': 'multipart/form-data'
+        }}
+    })
+      .then(function () {
         alert('Успешно')
-      },
-      error: function (XHR) {
-        alert(XHR.responseText)
-      }
-    })
-
-    return false
-  })
-})
+      })
+      .catch(function (error) {
+        alert(error.response.data);
+      });
+  });
+})();
