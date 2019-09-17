@@ -1,9 +1,4 @@
 <div>
-    <!-- begin of Top100 code -->
-    <script id="top100Counter" type="text/javascript" src="//counter.rambler.ru/top100.jcn?2241546"></script>
-    <!-- end of Top100 code -->
-</div>
-<div>
     <!--LiveInternet counter-->
     <script type="text/javascript"><!--
     document.write('<a href=\'http://www.liveinternet.ru/click\' ' +
