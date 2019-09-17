@@ -23,10 +23,10 @@
 })
 (window, document, 'script', 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js', 'ym')
 ym(18406216, 'init', {
-    clickmap: true,
+    clickmap: false,
     trackLinks: true,
     accurateTrackBounce: true,
-    webvisor: true
+    webvisor: false
 })
 </script>
 <noscript>
