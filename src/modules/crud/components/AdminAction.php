@@ -21,13 +21,17 @@ class AdminAction extends CrudAction
 
     public function run()
     {
+        $model = $this->createModel();
+
+        $formName = (new \ReflectionObject($model))->getShortName();
+
         $modelName = get_class($this->createModel());
 
         $model = new $modelName($this->scenario);
 
         $model->unsetAttributes();
-        if (isset($_GET[$modelName])) {
-            $model->attributes = $_GET[$modelName];
+        if (isset($_GET[$formName])) {
+            $model->attributes = $_GET[$formName];
         }
 
         if ($this->ajaxView && Yii::app()->request->isAjaxRequest) {
