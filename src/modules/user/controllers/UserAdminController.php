@@ -83,6 +83,9 @@ class UserAdminController extends AdminController
             throw new CHttpException(404, 'Не найдено');
         }
         $model->scenario = User::SCENARIO_ADMIN_UPDATE;
+        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
+            $model->last_visit_datetime = null;
+        }
         return $model;
     }
 
