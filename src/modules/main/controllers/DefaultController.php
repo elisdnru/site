@@ -11,24 +11,12 @@ class DefaultController extends Controller
 {
     public function actionIndex()
     {
-        $this->render('index', [
-            'page' => $this->loadIndexPage(),
-        ]);
+        $this->render('index');
     }
 
     public function actionUrl($a)
     {
         $this->redirect($a);
         Yii::app()->end();
-    }
-
-    protected function loadIndexPage()
-    {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('index')) {
-            $page = new Page;
-            $page->title = 'Главная';
-            $page->pagetitle = $page->title;
-        }
-        return $page;
     }
 }
