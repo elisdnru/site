@@ -3,11 +3,17 @@
   margin-left: -4px
 }
 
-.share a span {
+.share a {
   display: inline-block;
   width: 40px;
   height: 40px;
-  margin-right: 4px;
+  margin-right: 6px;
+}
+
+.share a span {
+  display: block;
+  width: 40px;
+  height: 40px;
   background-position: 0 0;
   background-repeat: no-repeat;
   background-image: url('/images/share.png');
