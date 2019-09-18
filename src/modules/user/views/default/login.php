@@ -29,7 +29,7 @@ $this->breadcrumbs = [
         <?php echo $form->passwordField($model, 'password', ['size' => 30]); ?><br />
         <?php echo $form->error($model, 'password'); ?>
     </div>
-    <div class="row rememberMe">
+    <div class="row rememberMe" style="margin-bottom: 10px">
         <?php echo $form->checkBox($model, 'rememberMe'); ?>
         <?php echo $form->label($model, 'rememberMe'); ?>
         <?php echo $form->error($model, 'rememberMe'); ?>

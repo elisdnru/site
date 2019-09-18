@@ -18,6 +18,8 @@ class LoginFormWidget extends Widget
     public function run()
     {
         $model = new LoginForm();
+        $model->rememberMe = true;
+
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
 
