@@ -12,7 +12,6 @@ class MainModule extends WebModule
     {
         return [
             '' => 'main/default/index',
-            'js/config.js' => 'main/default/configjs',
             '<action:error|url>' => 'main/default/<action>',
         ];
     }

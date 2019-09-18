@@ -22,13 +22,6 @@ class DefaultController extends Controller
         Yii::app()->end();
     }
 
-    public function actionConfigjs()
-    {
-        header('Content-Type: application/x-javascript');
-        echo $this->renderPartial('config', null, true);
-        Yii::app()->end();
-    }
-
     protected function loadIndexPage()
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('index')) {
