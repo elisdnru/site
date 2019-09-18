@@ -78,7 +78,7 @@ window.transliterate = function (fromid, toid) {
       return elem;
     }
 
-    if (elem.parentNode && elem.parentNode.matches(selector)) {
+    if (elem.parentNode && elem.parentNode.matches && elem.parentNode.matches(selector)) {
       return elem.parentNode;
     }
 
