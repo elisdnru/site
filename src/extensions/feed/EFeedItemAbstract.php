@@ -42,7 +42,7 @@ abstract class EFeedItemAbstract extends CComponent
     /**
      *
      * All element tags of this item collection
-     * @var CTypedMap('EFeedTag')
+     * @var CTypedMap(EFeedTag::class)
      */
     protected $tags;
     /**
@@ -58,7 +58,7 @@ abstract class EFeedItemAbstract extends CComponent
      */
     function __construct()
     {
-        $this->tags = new CTypedMap('EFeedTag');
+        $this->tags = new CTypedMap(EFeedTag::class);
     }
 
     /**

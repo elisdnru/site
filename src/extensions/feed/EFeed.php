@@ -153,9 +153,8 @@ class EFeed extends CComponent
      */
     public function createNewItem()
     {
-
         // create EFeedItem based on selected version type
-        $class = "EFeedItem" . $this->type;
+        $class = __NAMESPACE__ . '\EFeedItem' . $this->type;
 
         return new $class;
     }
@@ -308,7 +307,7 @@ class EFeed extends CComponent
     public function addItem(EFeedItemAbstract $item)
     {
         if (null === $this->feedElements->itemAt('items')) {
-            $this->feedElements->add('items', new CTypedList('EFeedItemAbstract'));
+            $this->feedElements->add('items', new CTypedList(EFeedItemAbstract::class));
         }
 
         $this->feedElements->itemAt('items')->add($item);
