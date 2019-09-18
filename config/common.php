@@ -250,7 +250,6 @@ return [
         'GENERAL.SITE_NAME' => 'ElisDN',
         'GENERAL.FEED_TITLE' => 'Дмитрий Елисеев',
         'GENERAL.ADMIN_EMAIL' => 'mail@elisdn.ru',
-        'GENERAL.SOCIAL_VK_APIID' => '2126755',
         'GENERAL.PING_ENABLE' => true,
         'GENERAL.PING_SERVERS' => [
             'http://ping.blogs.yandex.ru/RPC2',
