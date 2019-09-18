@@ -9,7 +9,7 @@
         {name: 'Twitter', class: 'twitter', url: 'https://twitter.com/elisdnru'},
         {name: 'GitHub', class: 'github', url: 'https://github.com/ElisDN'},
         {name: 'ВКонтакте', class: 'vkontakte', url: 'https://vk.com/elisdnru'},
-        {name: 'Facebook', class: 'facebook', url: 'https://www.facebook.com/elisdnru/'},
+        {name: 'Facebook', class: 'facebook', url: 'https://www.facebook.com/elisdnru/'}
     ]
     var links = []
     for (var i = 0; i < blocks.length; i++) {
