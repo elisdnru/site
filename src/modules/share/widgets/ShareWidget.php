@@ -28,7 +28,7 @@ class ShareWidget extends Widget
     protected function initFields()
     {
         if (!trim($this->url)) {
-            $this->url = $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING'];
+            $this->url = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();
         }
         if (!trim($this->title)) {
             $this->title = Yii::app()->controller->pageTitle;
@@ -36,9 +36,8 @@ class ShareWidget extends Widget
         if (!trim($this->description)) {
             $this->description = Yii::app()->controller->description;
         }
-        $this->url = 'http://' . $_SERVER['SERVER_NAME'] . $this->url;
         if (trim($this->image)) {
-            $this->image = 'http://' . $_SERVER['SERVER_NAME'] . $this->image;
+            $this->image = Yii::app()->request->getHostInfo() . $this->image;
         }
     }
 }

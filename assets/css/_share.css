@@ -1,0 +1,26 @@
+.share {
+  height: 40px;
+  margin-left: -4px
+}
+
+.share a span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 4px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url('/images/share.png');
+}
+
+.share a span.share-vk {
+  background-position-x: 0;
+}
+
+.share a span.share-fb {
+  background-position-x: -42px;
+}
+
+.share a span.share-tw {
+  background-position-x: -84px;
+}
