@@ -17,7 +17,7 @@
   clear: left;
 }
 
-.home-hello p img {
+.home-hello p picture {
   float: left;
   margin: 0 10px 0 0;
   border: #ccc 1px solid;

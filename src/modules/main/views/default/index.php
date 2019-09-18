@@ -22,7 +22,11 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <div class="home-hello">
     <p>
-        <img width="150" src="/images/photo-150-150.jpg" alt="Дмитрий Елисеев" />
+        <picture>
+            <source srcset="/images/photo-150-150.webp" type="image/webp">
+            <source srcset="/images/photo-150-150.jpg" type="image/jpeg">
+            <img src="/images/photo-150-150.jpg" alt="Дмитрий Елисеев">
+        </picture>
         Приветствую посетителей моего официального сайта. Мне есть о чём вам рассказать, а вам предоставляется
         возможность ознакомиться с техническими и философскими размышлениями ещё одного живого программиста.
         Жизнь не стоит на месте, и время от времени в ней появляется что-то новое и неизведанное.
