@@ -8,7 +8,7 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
 
     <?php if ($comment->cache(1000)->user) :
         ?>
-        <span data-href="<?php echo $comment->user->url; ?>"><img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" alt="" /></span>
+        <img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" alt="" />
     <?php
     else :
         ?>

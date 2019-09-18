@@ -41,10 +41,8 @@ class UserModule extends WebModule
         return [
             '<action:login|logout|relogin|registration|remind|confirm>' => 'user/default/<action>',
             'users/captcha' => 'user/default/captcha',
-            'users/profile' => 'user/profile/index',
-            'users/profile/view' => 'user/profile/view',
-            'users' => 'user/users/index',
-            'users/self' => 'user/users/self',
+            'profile' => 'user/profile/view',
+            'profile/edit' => 'user/profile/edit',
             'users/show/<username:[\w\d_-]+>' => 'user/users/show',
         ];
     }

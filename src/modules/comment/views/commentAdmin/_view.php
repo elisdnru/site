@@ -17,7 +17,7 @@ endif; ?><?php if (!$data->public) :
 endif; ?>" id="comment_<?php echo $data->id; ?>">
 
     <?php if ($data->cache(1000)->user) : ?>
-        <a href="<?php echo $data->user->url; ?>"><img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>" /></a>
+        <img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>" />
     <?php else : ?>
         <img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>" />
     <?php endif; ?>

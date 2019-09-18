@@ -28,7 +28,7 @@ class DefaultController extends Controller
     {
         $user = $this->getUser();
         if ($user) {
-            $this->redirect($user->url);
+            $this->redirect(Yii::app()->createUrl('/user/profile/view'));
         }
 
         $model = new LoginForm();

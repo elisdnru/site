@@ -463,17 +463,6 @@ abstract class UserBase extends CActiveRecord
         return $array;
     }
 
-    private $_url;
-
-    public function getUrl()
-    {
-        if ($this->_url === null) {
-            UrlRulesHelper::import('user');
-            $this->_url = Yii::app()->createUrl('/user/users/show', ['username' => $this->username]);
-        }
-        return $this->_url;
-    }
-
     private $_avatarUrl;
 
     public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT)

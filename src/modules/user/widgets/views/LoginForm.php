@@ -2,7 +2,7 @@
 
 if ($user) : ?>
     <div style="float:left;">
-        <a href="<?php echo $user->url; ?>">
+        <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">
             <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50" />
         </a>
     </div>
@@ -19,7 +19,7 @@ if ($user) : ?>
             Комментариев: <?php echo CHtml::encode($user->comments_count); ?></p><?php
         endif; ?>
         <p class="nomargin" style="font-size:12px">
-            <a href="<?php echo $user->url; ?>">Профиль</a> |
+            <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">Профиль</a> |
             <a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>">Выход</a>
         </p>
 

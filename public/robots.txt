@@ -9,7 +9,6 @@ Disallow: /confirmregister
 Disallow: /error
 Disallow: /comment
 Disallow: /blog/date/
-Disallow: /users
 Disallow: /search
 Host: https://elisdn.ru
 
