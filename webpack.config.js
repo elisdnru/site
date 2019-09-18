@@ -9,7 +9,8 @@ module.exports = {
   context: __dirname,
   entry: {
     main: './assets/css/main.css',
-    iframe: './assets/css/iframe.css'
+    iframe: './assets/css/iframe.css',
+    admin: './assets/css/admin.css'
   },
   output: {
     path: __dirname + '/public/build',

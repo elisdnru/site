@@ -1,5 +1,7 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
+<?php Yii::app()->clientScript->registerCssFile('admin.css'); ?>
+
 <section class="main" id="admin">
 
     <?php $this->widget(\app\modules\main\widgets\BreadcrumbsWidget::class); ?>
