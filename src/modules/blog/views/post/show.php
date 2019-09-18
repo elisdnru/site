@@ -101,26 +101,22 @@ CTextHighlighter::registerCssFile();
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
-    <!--
-    <div class="portlet" style="background: #eee; border: 2px dashed #0e76db">
-        <div class="portlet-content">
-            <div class="subscribe-form">
-                <p style="margin: 0">Не забудьте подписаться, чтобы быть в курсе новостей и получать интересные штуки</p>
-                <form method="post" action="http://products.elisdn.ru/subscribe/process/?rid[0]=blog" target="_blank" onsubmit="return jc_chkscrfrm(this, false, false, false, false)">
-                    <div class="row" style="display: inline-block; padding-right: 20px">
-                        <input type="text" name="lead_name" placeholder="Ваше имя" style="width: 170px; padding: 9px; border-color: #aaa">
-                    </div>
-                    <div class="row" style="display: inline-block; padding-right: 20px">
-                        <input type="email" name="lead_email" placeholder="Ваш Email" style="width: 170px; padding: 9px; border-color: #aaa">
-                    </div>
-                    <div class="row button" style="display: inline-block">
-                        <input type="submit" name="" value="Подписаться">
-                    </div>
-                    <script>jc_setfrmfld()</script>
-                </form>
-            </div>
+    <div class="subscribe-after-post">
+        <p class="title">Не пропускайте новые статьи, бонусы и мастер-классы:</p>
+        <div class="subscribe-form">
+            <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=blog&tag=bottom" target="_blank"  onsubmit="return jc_chkscrfrm(this, false, false, false, false)">
+                <div class="row">
+                    <input type="text" name="lead_name" placeholder="Ваше имя" style="border-color: #aaa" />
+                </div>
+                <div class="row">
+                    <input type="email" name="lead_email" placeholder="Ваш Email" style="border-color: #aaa" />
+                </div>
+                <div class="row button">
+                    <input type="submit" name="submit" value="Подписаться" style="font-size: 13px" />
+                </div>
+            </form>
         </div>
-    </div> -->
+    </div>
 
     <!--noindex-->
     <?php

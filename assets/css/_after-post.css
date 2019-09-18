@@ -1,0 +1,68 @@
+.subscribe-after-post {
+  margin: 20px auto;
+  padding: 15px 20px 10px 20px;
+  border: 2px dashed #aabace;
+  background: #f3f6ff;
+  border-radius: 10px;
+}
+
+.subscribe-after-post p.title {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.subscribe-after-post .subscribe-form:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.subscribe-after-post input[type=text],
+.subscribe-after-post input[type=email],
+.subscribe-after-post input[type=password],
+.subscribe-after-post input[type=file],
+.subscribe-after-post textarea,
+.subscribe-after-post select {
+  max-width: 100% !important;
+  box-sizing: border-box;
+  padding: 5px 4px;
+  font-size: 13px;
+  background: #fff;
+  box-shadow: 1px 1px 2px #ddd inset;
+  border: #ccc 1px solid;
+  font-family: arial;
+  border-radius: 4px;
+}
+
+.subscribe-after-post .subscribe-form .row {
+  margin: 0 20px 10px 0;
+  padding: 0;
+  float: left;
+}
+
+.subscribe-after-post .subscribe-form .row input {
+  width: 236px;
+  padding: 10px 8px;
+}
+
+.subscribe-after-post .subscribe-form .button {
+  margin: 0 0 10px 0;
+  float: left;
+}
+
+.subscribe-after-post .subscribe-form .button input {
+  width: auto;
+  padding: 10px 18px;
+  color: #fff;
+  cursor: pointer;
+  background: #dd3333;
+  background: -moz-linear-gradient(#ff8d3b, #dd3333);
+  background: -webkit-linear-gradient(#ff8d3b, #dd3333);
+  background: -o-linear-gradient(#ff8d3b, #dd3333);
+  background: -ms-linear-gradient(#ff8d3b, #dd3333);
+  border: none;
+  border-radius: 30px;
+}
