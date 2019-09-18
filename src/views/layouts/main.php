@@ -89,7 +89,7 @@ use app\modules\user\models\Access;
     <div class="content">
 
         <div class="counters">
-            <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
+            <?php if (!YII_DEBUG && !$this->is(Access::ROLE_ADMIN)) : ?>
                 <?php $this->renderPartial('//layouts/_counters'); ?>
             <?php endif; ?>
         </div>
