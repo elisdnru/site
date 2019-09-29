@@ -1,4 +1,4 @@
-<p id="followMe" class="follow center"></p>
+<p id="follow" class="follow center"></p>
 
 <script>
 <?php ob_start(); ?>
@@ -11,11 +11,18 @@
         {name: 'ВКонтакте', class: 'vkontakte', url: 'https://vk.com/elisdnru'},
         {name: 'Facebook', class: 'facebook', url: 'https://www.facebook.com/elisdnru/'}
     ]
-    var links = []
-    for (var i = 0; i < blocks.length; i++) {
-        links.push('<a rel="nofollow" href="' + blocks[i].url + '" title="' + blocks[i].name + '"><span class="follow-' + blocks[i].class + '"></span></a>')
-    }
-    document.getElementById('followMe').innerHTML = links.join('\r\n')
+    var follow = document.querySelector('#follow');
+    blocks.forEach(function (block) {
+        var a = document.createElement('a');
+        a.rel = 'nofollow';
+        a.href = block.url;
+        a.title = block.name;
+        var span = document.createElement('span');
+        span.classList.add('follow-' + block.class);
+        a.appendChild(span);
+
+        follow.appendChild(a);
+    });
 })();
 
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
