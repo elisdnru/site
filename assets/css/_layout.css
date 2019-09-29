@@ -36,12 +36,20 @@ body {
   width: 120px;
 }
 
-#header .slogan {
+#header .title {
   display: none;
   float: left;
 }
 
-#header .slogan p {
+#header .title .name {
+  font-family: arial;
+  line-height: 1;
+  color: #555;
+  font-size: 22px;
+  margin: 0 0 5px 0;
+}
+
+#header .title .slogan {
   font-family: arial;
   font-size: 13px;
   line-height: 1;
@@ -49,9 +57,7 @@ body {
   color: #555;
 }
 
-#header .slogan p:first-child {
-  font-size: 22px;
-  margin-bottom: 5px;
+#header .title p:first-child {
 }
 
 #header .search {

@@ -39,7 +39,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <?php UrlRulesHelper::import('blog'); ?>
 
-<h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
+<div class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</div>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
     <?php $this->widget(\app\modules\blog\widgets\LastPostsWidget::class, ['tpl' => 'home', 'limit' => 10]); ?>
     <?php $this->endCache(); ?>

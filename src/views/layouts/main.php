@@ -40,9 +40,13 @@ use app\modules\user\models\Access;
             <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>" />
         </span>
         </div>
-        <div class="slogan">
-            <p>Дмитрий Елисеев</p>
-            <p>Разработка сайтов и интернет-сервисов</p>
+        <div class="title">
+            <?php if ($this->route === 'main/default/index') : ?>
+                <h1 class="name">Дмитрий Елисеев</h1>
+            <?php else: ?>
+                <div class="name">Дмитрий Елисеев</div>
+            <?php endif; ?>
+            <div class="slogan">Разработка сайтов и интернет-сервисов</div>
         </div>
         <?php if ($this->route != 'main/default/index') :
         ?><!--/noindex--><?php
