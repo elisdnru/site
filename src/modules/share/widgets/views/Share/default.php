@@ -15,7 +15,7 @@ $enc_image = urlencode($image);
         {name: 'ВКонтакте', class: 'vk', url: 'https://vk.com/share.php?url=<?php echo $enc_url; ?>&title=<?php echo $enc_title; ?>&description=<?php echo $enc_desc; ?>&image=<?php echo $enc_image; ?>'},
         {name: 'Facebook', class: 'fb', url: 'https://www.facebook.com/sharer/sharer.php?u=<?php echo $enc_url; ?>&t=<?php echo $enc_title; ?>'},
         {name: 'Twitter', class: 'tw', url: 'http://twitter.com/share?text=<?php echo $enc_title; ?>:&url=<?php echo $enc_url; ?>'}
-    ]
+    ];
     var share = document.querySelector('#share');
     blocks.forEach(function (block) {
         var a = document.createElement('a');
