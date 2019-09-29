@@ -23,7 +23,7 @@ foreach ($tags as $tag) {
 <?php ob_start(); ?>
 
 (function() {
-    var tags = <?php echo json_encode($items); ?>;
+    var tags = <?php echo json_encode($items, JSON_UNESCAPED_UNICODE); ?>;
     var cloud = document.querySelector('#tag_cloud');
     var links = document.createElement('span');
     tags.forEach(function (tag) {
