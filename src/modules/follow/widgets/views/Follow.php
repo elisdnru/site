@@ -10,7 +10,7 @@
         {name: 'GitHub', class: 'github', url: 'https://github.com/ElisDN'},
         {name: 'ВКонтакте', class: 'vkontakte', url: 'https://vk.com/elisdnru'},
         {name: 'Facebook', class: 'facebook', url: 'https://www.facebook.com/elisdnru/'}
-    ]
+    ];
     var follow = document.querySelector('#follow');
     blocks.forEach(function (block) {
         var a = document.createElement('a');
