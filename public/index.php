@@ -19,5 +19,6 @@ ob_start();
 Yii::createWebApplication($config)->run();
 $html = ob_get_clean();
 
-echo str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
+$html = str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
+echo str_replace('<script type="text/javascript"', '<script', $html);
 
