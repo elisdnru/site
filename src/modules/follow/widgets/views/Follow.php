@@ -20,7 +20,6 @@
         var span = document.createElement('span');
         span.classList.add('follow-' + block.class);
         a.appendChild(span);
-
         follow.appendChild(a);
     });
 })();
