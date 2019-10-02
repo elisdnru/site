@@ -177,9 +177,14 @@ class UploadManager extends CApplicationComponent
                 $thumb = $thumb->watermark($this->watermarkFile, $this->watermarkOffsetX, $this->watermarkOffsetY, $this->watermarkPosition);
             }
 
-            if ($thumb->save($targetName, false, 100)) {
-                return true;
+            if (!$thumb->save($targetName, false, 100)) {
+                throw new \RuntimeException('Unable to save ' . $targetName);
             }
+
+            if (!$thumb->save($targetName . '.webp', CImageHandler::IMG_WEBP, 100)) {
+                throw new \RuntimeException('Unable to save ' . $targetName . 'webp');
+            }
+
         }
 
         return false;
@@ -221,7 +226,7 @@ class UploadManager extends CApplicationComponent
     private function parseFilename(string $fileName)
     {
         $result = false;
-        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)$|', $fileName, $matches)) {
+        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)(\.webp)?$|', $fileName, $matches)) {
             $result = new StdClass;
             $result->path = $matches['path'];
             $result->fileName = $matches['name'];

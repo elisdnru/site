@@ -32,6 +32,7 @@ class CImageHandler extends CApplicationComponent
     const IMG_GIF = 1;
     const IMG_JPEG = 2;
     const IMG_PNG = 3;
+    const IMG_WEBP = 4;
 
     const CORNER_LEFT_TOP = 1;
     const CORNER_RIGHT_TOP = 2;
@@ -124,6 +125,13 @@ class CImageHandler extends CApplicationComponent
                     break;
                 case self::IMG_PNG:
                     if ($result['image'] = imagecreatefrompng($file)) {
+                        return $result;
+                    } else {
+                        throw new Exception('Invalid image png format');
+                    }
+                    break;
+                case self::IMG_WEBP:
+                    if ($result['image'] = imagecreatefromwebp($file)) {
                         return $result;
                     } else {
                         throw new Exception('Invalid image png format');
@@ -573,6 +581,10 @@ class CImageHandler extends CApplicationComponent
                 header('Content-type: image/png');
                 imagepng($this->image);
                 break;
+            case self::IMG_WEBP:
+                header('Content-type: image/webp');
+                imagewebp($this->image);
+                break;
             default:
                 throw new Exception('Invalid image format for putput');
         }
@@ -606,6 +618,11 @@ class CImageHandler extends CApplicationComponent
             case self::IMG_PNG:
                 if (!imagepng($this->image, $file)) {
                     throw new Exception('Can\'t save png file');
+                }
+                break;
+            case self::IMG_WEBP:
+                if (!imagewebp($this->image, $file)) {
+                    throw new Exception('Can\'t save webp file');
                 }
                 break;
             default:
