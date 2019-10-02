@@ -146,7 +146,7 @@ class UploadManager extends CApplicationComponent
             return false;
         }
 
-        return false;
+        return true;
     }
 
     public function createThumb(string $path, string $baseName, int $width = 0, int $height = 0): bool
