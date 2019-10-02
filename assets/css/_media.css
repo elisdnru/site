@@ -1,11 +1,3 @@
-@-ms-viewport {
-  width: device-width;
-}
-
-@viewport {
-  width: device-width;
-}
-
 .portlet input[type=text], .portlet input[type=password], .portlet input[type=email], .portlet textarea {
   max-width: 100% !important;
   box-sizing: border-box;
