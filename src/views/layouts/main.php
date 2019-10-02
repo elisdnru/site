@@ -4,6 +4,8 @@ use app\modules\main\components\Controller;
 use app\modules\menu\models\Menu;
 use app\modules\user\models\Access;
 
+$assetsVersion = @filemtime(dirname(__DIR__, 3) . '/public/build');
+
 /** @var $this Controller */
 ?><!DOCTYPE html>
 <html lang="<?php echo Yii::app()->language; ?>">
@@ -23,7 +25,7 @@ use app\modules\user\models\Access;
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
     <?php Yii::app()->clientScript->registerCssFile('main.css'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('site.js', CClientScript::POS_END); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/build/site.js?v=' . $assetsVersion, CClientScript::POS_END, ['async' => true]); ?>
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>

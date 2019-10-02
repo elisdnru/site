@@ -97,7 +97,6 @@ return [
                 'main.css' => '/build/main.css?v=' . $assetsVersion,
                 'iframe.css' => '/build/iframe.css?v=' . $assetsVersion,
                 'admin.css' => '/build/admin.css?v=' . $assetsVersion,
-                'site.js' => '/build/site.js?v=' . $assetsVersion,
             ]
         ],
 

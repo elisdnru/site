@@ -1,10 +1,16 @@
-<!DOCTYPE html>
+<?php
+use app\modules\main\components\Controller;
+
+$assetsVersion = @filemtime(dirname(__DIR__, 3) . '/public/build');
+
+/** @var $this Controller */
+?><!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
 
     <?php Yii::app()->clientScript->registerCssFile('iframe.css'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('site.js', CClientScript::POS_END); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/build/site.js?v=' . $assetsVersion, CClientScript::POS_END, ['async' => true]); ?>
 
     <title><?php echo CHtml::encode($this->pageTitle) . ' - ' . Yii::app()->params['GENERAL.SITE_NAME']; ?></title>
 </head>
