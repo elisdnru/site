@@ -10,7 +10,8 @@ module.exports = {
   entry: {
     main: './assets/css/main.css',
     iframe: './assets/css/iframe.css',
-    admin: './assets/css/admin.css'
+    admin: './assets/css/admin.css',
+    comments: './assets/css/comments.css'
   },
   output: {
     path: __dirname + '/public/build',

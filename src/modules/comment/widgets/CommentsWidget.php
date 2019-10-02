@@ -87,6 +87,8 @@ class CommentsWidget extends Widget
             $comments[$item->parent_id][] = $item;
         }
 
+        Yii::app()->clientScript->registerCssFile('comments.css');
+
         $this->render('Comments/' . $this->tpl, [
             'comments' => $comments,
             'form' => $form,
