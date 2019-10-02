@@ -16,7 +16,7 @@ class UloginWidget extends Widget
     private $params = [
         'display' => 'panel',
         'fields' => 'first_name,last_name,email,photo',
-        'providers' => 'vkontakte,twitter,facebook,google',
+        'providers' => 'vkontakte,twitter,facebook,google,yandex',
         'hidden' => 'other',
         'redirect' => '',
         'logout_url' => '/logout'
