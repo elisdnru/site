@@ -32,14 +32,15 @@
         <div class="clear"></div>
 
     <?php else : ?>
-    <div class="floatright">
-        <p class="right" style="padding-right:10px">
-            <span data-href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</span> |
-            <span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</span>
-        </p>
-        <?php $this->widget(\app\modules\ulogin\widgets\UloginWidget::class, [
-            'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
-        ]); ?>
+    <div style="margin-bottom: 10px">
+        <div style="float: right; margin-right: -10px">
+            <?php $this->widget(\app\modules\ulogin\widgets\UloginWidget::class, [
+                'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
+            ]); ?>
+        </div>
+        <span data-href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</span> |
+        <span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</span> |
+        <span style="color: #666">Войти через</span>
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>
 
