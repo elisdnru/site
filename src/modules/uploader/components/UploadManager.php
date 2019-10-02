@@ -184,7 +184,7 @@ class UploadManager extends CApplicationComponent
             if (!$thumb->save($targetName . '.webp', CImageHandler::IMG_WEBP, 100)) {
                 throw new \RuntimeException('Unable to save ' . $targetName . 'webp');
             }
-
+            return true;
         }
 
         return false;
