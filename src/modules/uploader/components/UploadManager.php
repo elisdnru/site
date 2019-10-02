@@ -21,12 +21,7 @@ class UploadManager extends CApplicationComponent
     public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
 
-    /**
-     * @param CUploadedFile $file
-     * @param string $path
-     * @return bool|CFile
-     */
-    public function upload(CUploadedFile $file, $path)
+    public function upload(CUploadedFile $file, string $path): ?CFile
     {
         if (!is_dir($path)) {
             Yii::app()->file->set($path)->createDir($this->directoryRights);
@@ -50,16 +45,10 @@ class UploadManager extends CApplicationComponent
             }
         }
 
-        return false;
+        return null;
     }
 
-    /**
-     * @param string $url
-     * @param string $path
-     * @param string $extension
-     * @return bool|CFile
-     */
-    public function uploadByUrl($url, $path, $extension)
+    public function uploadByUrl($url, $path, $extension): ?CFile
     {
         $content = file_get_contents($url);
 
@@ -74,17 +63,11 @@ class UploadManager extends CApplicationComponent
             fclose($f);
 
             return Yii::app()->file->set($orig);
-        } else {
-            return false;
         }
+        return null;
     }
 
-    /**
-     * @param string $baseName
-     * @param string $path
-     * @return bool
-     */
-    public function delete($baseName, $path)
+    public function delete($baseName, $path): bool
     {
         if (!$baseName) {
             return false;
@@ -117,12 +100,7 @@ class UploadManager extends CApplicationComponent
         return true;
     }
 
-    /**
-     * @param string $path
-     * @param string $baseName
-     * @return string
-     */
-    public function getUrl($path, $baseName)
+    public function getUrl(string $path, string $baseName): string
     {
         if (!$baseName) {
             return $this->emptyImage;
@@ -135,14 +113,7 @@ class UploadManager extends CApplicationComponent
         return $path . '/' . $baseName;
     }
 
-    /**
-     * @param string $path
-     * @param string $baseName
-     * @param integer $width
-     * @param integer $height
-     * @return string
-     */
-    public function getThumbUrl($path, $baseName, $width = 0, $height = 0)
+    public function getThumbUrl(string $path, string $baseName, int $width = 0, int $height = 0): string
     {
         if (!$baseName) {
             return $this->emptyImage;
@@ -157,11 +128,7 @@ class UploadManager extends CApplicationComponent
         return $baseName ? $path . '/' . $baseName : '';
     }
 
-    /**
-     * @param string $fileName
-     * @return bool|CFile
-     */
-    public function checkThumbExists($fileName)
+    public function checkThumbExists(string $fileName): bool
     {
         if (file_exists($fileName)) {
             return true;
@@ -175,21 +142,14 @@ class UploadManager extends CApplicationComponent
             return false;
         }
 
-        if (!$file = $this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height)) {
+        if (!$this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height)) {
             return false;
         }
 
-        return $file;
+        return false;
     }
 
-    /**
-     * @param $path
-     * @param $baseName
-     * @param bool $width
-     * @param bool $height
-     * @return bool|CFile
-     */
-    public function createThumb($path, $baseName, $width = 0, $height = 0)
+    public function createThumb(string $path, string $baseName, int $width = 0, int $height = 0): bool
     {
         $fileName = $path . '/' . $this->createOrigFileName($baseName);
         if (!file_exists($fileName)) {
@@ -218,20 +178,20 @@ class UploadManager extends CApplicationComponent
             }
 
             if ($thumb->save($targetName, false, 100)) {
-                return Yii::app()->file->set($targetName);
+                return true;
             }
         }
 
         return false;
     }
 
-    public function createOrigFileName($baseName)
+    public function createOrigFileName(string $baseName): string
     {
         if (!$this->watermarkFile) {
             return $baseName;
         }
 
-        if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches)) {
+        if (preg_match('|^(?P<name>[\w-]+)\.(?P<extension>\w+)$|', $baseName, $matches)) {
             $fileName = $matches['name'];
             $extension = '.' . $matches['extension'];
         } else {
@@ -242,10 +202,10 @@ class UploadManager extends CApplicationComponent
         return $fileName . '_orig_' . $this->origFileSalt . $extension;
     }
 
-    public function createThumbFileName($baseName, $width, $height)
+    public function createThumbFileName(string $baseName, int $width, int $height): string
     {
         if ($width || $height) {
-            if (preg_match('|^(?P<name>[\w\d_-]+)\.(?P<extension>[\w\d]+)$|s', $baseName, $matches)) {
+            if (preg_match('|^(?P<name>[\w-]+)\.(?P<extension>\w+)$|', $baseName, $matches)) {
                 $fileName = $matches['name'];
                 $extension = '.' . $matches['extension'];
             } else {
@@ -253,16 +213,15 @@ class UploadManager extends CApplicationComponent
                 $extension = '';
             }
 
-            return $fileName . '_' . (int)$width . 'x' . (int)$height . $extension;
-        } else {
-            return $baseName;
+            return $fileName . '_' . $width . 'x' . $height . $extension;
         }
+        return $baseName;
     }
 
-    protected function parseFilename($fileName)
+    private function parseFilename(string $fileName)
     {
         $result = false;
-        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w\d]+)/(?P<name>[\w\d]+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>[\w\d]+)$|is', $fileName, $matches)) {
+        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)$|', $fileName, $matches)) {
             $result = new StdClass;
             $result->path = $matches['path'];
             $result->fileName = $matches['name'];
@@ -274,9 +233,9 @@ class UploadManager extends CApplicationComponent
         return $result;
     }
 
-    protected function isAllowedResolution($path, $width, $height)
+    private function isAllowedResolution(string $path, int $width, int $height): bool
     {
-        $resolution = (int)$width . 'x' . (int)$height;
+        $resolution = $width . 'x' . $height;
 
         foreach ($this->allowedThumbnailResolutions as $rule) {
             if (mb_strpos($path, $rule[0], null, 'UTF-8') === 0) {
