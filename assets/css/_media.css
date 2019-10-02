@@ -6,19 +6,6 @@
   width: device-width;
 }
 
-.comment .text {
-  overflow: auto;
-}
-
-#comment-form fieldset {
-  clear: both;
-}
-
-#comment-form input[type=text], #comment-form textarea {
-  width: 100% !important;
-  box-sizing: border-box;
-}
-
 .portlet input[type=text], .portlet input[type=password], .portlet input[type=email], .portlet textarea {
   max-width: 100% !important;
   box-sizing: border-box;
@@ -85,10 +72,6 @@
 
   div.breadcrumbs span {
     display: inline;
-  }
-
-  #comment-form input[type=text] {
-    width: 50% !important;
   }
 
   #main_nav {

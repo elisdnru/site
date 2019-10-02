@@ -245,4 +245,21 @@
   display: none;
 }
 
+.comment .text {
+  overflow: auto;
+}
 
+#comment-form fieldset {
+  clear: both;
+}
+
+#comment-form input[type=text], #comment-form textarea {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 600px) {
+  #comment-form input[type=text] {
+    width: 50% !important;
+  }
+}
