@@ -31,12 +31,6 @@
   padding-bottom: 0;
 }
 
-.entry.greed {
-  margin: 0 20px 10px 0;
-  width: 212px;
-  float: left;
-}
-
 .entry header h1 {
   font-family: arial;
   font-weight: normal;
@@ -109,14 +103,6 @@
   box-shadow: none;
 }
 
-.entry.greed .thumb {
-  float: none;
-  margin: 0 0 10px 0;
-  border-radius: 4px;
-
-  padding: 6px;
-}
-
 .entry .thumb img {
   max-width: 250px;
 }
@@ -127,36 +113,6 @@
   border: #ddd 1px solid;
   border-radius: 400px;
 
-}
-
-.entry.greed .thumb a {
-  display: block;
-  position: relative;
-  margin: 0;
-
-  width: 198px;
-  height: 180px;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: #fff;
-}
-
-.entry.greed .thumb a span {
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  opacity: 0.8;
-  color: #000;
-  text-align: center;
-  padding: 6px 0;
-}
-
-.entry.greed .thumb a:hover span {
-  text-decoration: underline;
-  opacity: 1;
 }
 
 .entry .info {
@@ -241,12 +197,6 @@
 .entry.last .short p {
   line-height: 1.3;
   margin-bottom: 6px;
-}
-
-.entry.greed .short p {
-  font-family: arial, sans-serif;
-  text-align: center;
-  line-height: 1.1;
 }
 
 .entry .text {

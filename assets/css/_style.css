@@ -88,14 +88,6 @@ ul.short_list li {
   font-size: 14px;
 }
 
-.flash-success, .flash-error, .errorSummary {
-  border-radius: 4px;
-}
-
-div.form .errorSummary {
-  padding: 7px;
-}
-
 .sitemap ul {
   list-style: none;
   margin-left: 0;
