@@ -3,12 +3,12 @@
 }
 
 .grid-view table.items th a.asc {
-  background: url('/images/sort_up.gif') right center no-repeat;
+  background: url('/images/gridview/sort_up.gif') right center no-repeat;
   padding-right: 10px;
 }
 
 .grid-view table.items th a.desc {
-  background: url('/images/sort_down.gif') right center no-repeat;
+  background: url('/images/gridview/sort_down.gif') right center no-repeat;
   padding-right: 10px;
 }
 
