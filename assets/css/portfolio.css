@@ -7,6 +7,9 @@
   z-index: 2;
   margin-bottom: 20px;
   display: none;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAIAAADZSiLoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi/P79OwMDw/Xr1xmArHPnzoH4EAoIAAIMACtkFdTWUO0tAAAAAElFTkSuQmCC');
+  box-shadow: 1px 2px 2px 1px #ccc inset;
+  border-radius: 6px;
 }
 
 .portfolio .carousel_link {

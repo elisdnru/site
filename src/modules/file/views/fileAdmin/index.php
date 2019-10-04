@@ -86,7 +86,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                 <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->basename]); ?>
 
                 <tr id="item_<?php echo md5($file->basename); ?>">
-                    <td class="center">
+                    <td style="text-align: center">
                         <?php //echo CHtml::checkBox('del_'.md5($file->basename), false, array('class'=>'folder_checkbox')); ?>
                     </td>
                     <td>
@@ -95,10 +95,10 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->basename]); ?>"><?php echo $file->basename; ?></a>
                     </td>
                     <td></td>
-                    <td class="center">
+                    <td style="text-align: center">
                         <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
                     </td>
-                    <td class="center">
+                    <td style="text-align: center">
                         <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить директорию &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                     </td>
                 </tr>
@@ -107,7 +107,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                 <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->basename]); ?>
 
                 <tr id="item_<?php echo md5($file->basename); ?>">
-                    <td class="center">
+                    <td style="text-align: center">
                         <?php echo CHtml::checkBox('del_' . md5($file->basename), false, ['class' => 'file_checkbox']); ?>
                     </td>
                     <td>
@@ -115,13 +115,13 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <img src="/images/admin/fileicon.jpg" />
                         <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->basename; ?>"><?php echo $file->basename; ?></a>
                     </td>
-                    <td class="center">
+                    <td style="text-align: center">
                         <?php echo $file->size; ?>
                     </td>
-                    <td class="center">
+                    <td style="text-align: center">
                         <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
                     </td>
-                    <td class="center">
+                    <td style="text-align: center">
                         <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить файл &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                     </td>
                 </tr>

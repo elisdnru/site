@@ -1,6 +1,6 @@
 <br />
 <h4>Материалы по теме:</h4>
-<ul class="noliststyle nomargin">
+<ul style="list-style: none; margin: 0">
     <?php foreach ($group->posts as $item) : ?>
         <?php if ($item->id != $current) : ?>
             <li>&raquo; <a href="<?php echo $item->url ?>"><?php echo $item->title; ?></a></li>

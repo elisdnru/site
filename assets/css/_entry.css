@@ -289,24 +289,6 @@
   background: #333;
 }
 
-.entry.list footer {
-  clear: both;
-}
-
-.entry.list footer p {
-  margin: 0;
-  color: #999;
-  font-size: 12px;
-}
-
-.entry.list footer a {
-  color: #444;
-}
-
-.entry.list footer a:hover {
-  color: #098ff4;
-}
-
 .entry_date, .entry_tags {
   border: #d6d6d6 1px solid;
   background: #eee;

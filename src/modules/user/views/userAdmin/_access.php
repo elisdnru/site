@@ -24,7 +24,7 @@
                     ?>
                     <tr id="item_<?php echo $item->id; ?>">
                         <td><?php echo $item->page->getFullTitle(); ?></td>
-                        <td width="16" class="center">
+                        <td width="16" style="text-align: center">
                             <a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить доступ" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                         </td>
                     </tr>

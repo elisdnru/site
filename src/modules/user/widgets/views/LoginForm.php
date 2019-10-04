@@ -37,7 +37,7 @@ if ($user) : ?>
         <div class="row" style="margin-bottom: 10px"><label><?php echo CHtml::activeCheckBox($model, 'rememberMe'); ?> Запомнить меня</label></div>
 
         <div class="row buttons">
-            <span class="right floatright" style="font-size:12px"><span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</span> | <span data-href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</span></span>
+            <span style="font-size:12px; float: right"><span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</span> | <span data-href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</span></span>
             <?php echo CHtml::submitButton("Войти"); ?>
             <div class="clear"></div>
         </div>
@@ -45,7 +45,7 @@ if ($user) : ?>
     </div>
     <?php echo CHtml::endForm(); ?>
     <hr />
-    <div class="center" style="padding-left:10px">
+    <div style="text-align: center; padding-left:10px">
         <?php $this->widget(\app\modules\ulogin\widgets\UloginWidget::class, [
             'params' => [
                 'display' => 'small',

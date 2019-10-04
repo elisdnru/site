@@ -170,37 +170,6 @@ caption {
   text-align: left;
 }
 
-q {
-  quotes: none;
-}
-
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-sub,
-sup,
-small {
-  font-size: 75%;
-}
-
-sub,
-sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
 svg {
   /*
     For IE9. Without, occasionally draws shapes
@@ -215,134 +184,18 @@ a {
 
 
 /* Extends */
-.floatleft {
-  float: left !important;
-}
-
-.floatright {
-  float: right !important;
-}
-
-.left {
-  text-align: left;
-}
-
-.center {
-  text-align: center;
-}
-
-.right {
-  text-align: right;
-}
-
 .nomargin {
   margin: 0 !important;
 }
 
-.nomarginbottom {
-  margin-bottom: 0 !important;
-}
-
-.nopadding {
-  padding: 0 !important;
-}
-
-.clear, .clearleft, .clearright, .clearboth {
+.clear {
   height: 1px !important;
   margin: 0 !important;
   font-size: 1px !important;
   overflow: hidden;
   position: relative;
   display: block;
-}
-
-.clear {
   clear: both;
-}
-
-.clearleft {
-  clear: left;
-}
-
-.clearright {
-  clear: right;
-}
-
-.clearboth {
-  clear: both;
-}
-
-.center {
-  text-align: center !important;
-}
-
-.inv {
-  display: none;
-}
-
-.bold {
-  font-weight: bold !important;
-}
-
-.nobold {
-  font-weight: normal !important;
-}
-
-.odinarn {
-  line-height: 100% !important;
-}
-
-.abs {
-  position: absolute;
-}
-
-.nooverflow {
-  position: relative;
-  overflow: hidden;
-}
-
-.noliststyle {
-  list-style: none !important;
-}
-
-.inline {
-  display: inline;
-}
-
-.block {
-  display: block;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-ul.nomarginlist li {
-  margin: 2px 0 4px 0 !important;
-}
-
-.tahoma {
-  font-family: tahoma !important;
-}
-
-.trebuchet {
-  font-family: 'Trebuchet MS' !important;
-}
-
-.calibri {
-  font-family: Calibri !important;
-}
-
-.noborder, .noborder td, .noborder th {
-  border: none !important;
-}
-
-.blockcenter {
-  margin: 0 auto !important;
-}
-
-.vtop {
-  vertical-align: top;
 }
 
 /* System */
@@ -402,12 +255,6 @@ div.flash-success a {
   color: #264409;
 }
 
-div.view {
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #C9E0ED;
-}
-
 div.breadcrumbs {
   padding: 0;
   margin-bottom: 12px;
@@ -415,12 +262,6 @@ div.breadcrumbs {
 
 div.breadcrumbs span {
   font-weight: normal;
-}
-
-div.search-form {
-  padding: 10px;
-  margin: 10px 0;
-  background: #eee;
 }
 
 div.form {
@@ -591,27 +432,6 @@ fieldset.editor {
 
 fieldset.editor label {
   margin-left: 10px !important;
-}
-
-div.popup {
-  position: absolute;
-  z-index: 0;
-  padding: 10px 14px 14px 14px;
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 1px 2px 3px #ccc;
-}
-
-div.popup .close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0 6px;
-  background: #333;
-  color: #fff;
-  border: #333 1px solid;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
 

@@ -150,31 +150,8 @@
   padding: 5px 0;
 }
 
-.portlet.banner .portlet-content .b468x60 {
-  display: block;
-  margin: 0 auto;
-  width: 468px;
-  height: 60px;
-  position: relative;
-}
-
-.portlet.banner .portlet-content .b250x250 {
-  display: block;
-  margin: 0 auto;
-  width: 250px;
-  height: 250px;
-  position: relative;
-}
-
 .portlet-content .subscribe-form {
   text-align: center;
-}
-
-.portlet-content .subscribe-form p.title {
-  margin-bottom: 6px;
-  color: #666;
-  font-size: 14px;
-  font-weight: bold;
 }
 
 .portlet-content .subscribe-form .row {
@@ -209,10 +186,6 @@
   text-align: center;
   margin: 10px 0;
   color: #999;
-}
-
-.what-there a {
-  color: #999 !important;
 }
 
 .portlet input[type=text], .portlet input[type=password], .portlet input[type=email], .portlet textarea {

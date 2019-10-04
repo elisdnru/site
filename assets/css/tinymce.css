@@ -32,128 +32,14 @@ a {
 
 /* end reset */
 
-/* Extends BEGIN */
-.floatleft {
-  float: left !important;
-}
-
-.floatright {
-  float: right !important;
-}
-
-.left {
-  text-align: left;
-}
-
-.center {
-  text-align: center;
-}
-
-.right {
-  text-align: right;
-}
-
-.nomargin {
-  margin: 0 !important;
-}
-
-.clear, .clearleft, .clearright, .clearboth {
+.clear {
   height: 1px !important;
   margin: 0 !important;
   font-size: 1px !important;
   overflow: hidden;
   position: relative;
-}
-
-.clear {
   clear: both;
 }
-
-.clearleft {
-  clear: left;
-}
-
-.clearright {
-  clear: right;
-}
-
-.clearboth {
-  clear: both;
-}
-
-.center {
-  text-align: center !important;
-}
-
-.inv {
-  display: none;
-}
-
-.bold {
-  font-weight: bold !important;
-}
-
-.nobold {
-  font-weight: normal !important;
-}
-
-.odinarn {
-  line-height: 100% !important;
-}
-
-.abs {
-  position: absolute;
-}
-
-.nooverflow {
-  position: relative;
-  overflow: hidden;
-}
-
-.noliststyle {
-  list-style: none !important;
-}
-
-.inline {
-  display: inline;
-}
-
-.block {
-  display: block;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.roundblock {
-  border: #ddd 1px solid;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 5px;
-}
-
-ul.nomarginlist li {
-  margin: 2px 0 4px 0 !important;
-}
-
-.tahoma {
-  font-family: tahoma !important;
-}
-
-.trebuchet {
-  font-family: 'Trebuchet MS' !important;
-}
-
-.calibri {
-  font-family: Calibri !important;
-}
-
-.noborder, .noborder td, .noborder th {
-  border: none !important;
-}
-
-/* Extends END */
 
 a {
   color: #069;

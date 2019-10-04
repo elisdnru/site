@@ -53,11 +53,11 @@ $this->info = 'Вы можете настроить отправку сообщ�
     </tr>
 </table>
 <?php if ($next) :
-?><p class="nomargin floatright">
+?><p class="nomargin" style="float: right">
     <a href="<?php echo $this->createUrl('view', ['id' => $next->id]); ?>">следующее сообщение &rarr;</a>
     <?php endif; ?>
 <?php if ($prev) :
-?><p class="nomargin floatleft">
+?><p class="nomargin" style="float: left">
     <a href="<?php echo $this->createUrl('view', ['id' => $prev->id]); ?>">&larr; предыдущее сообщение</a>
     <?php endif; ?>
 

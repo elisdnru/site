@@ -1,4 +1,4 @@
-<p id="follow" class="follow center"></p>
+<p id="follow" class="follow"></p>
 
 <script>
 <?php ob_start(); ?>

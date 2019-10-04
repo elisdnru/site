@@ -103,31 +103,12 @@ ul.short_list li {
   font-size: 14px;
 }
 
-.sharelabel {
-  color: #888;
-}
-
 .flash-success, .flash-error, .errorSummary {
   border-radius: 4px;
-
 }
 
 div.form .errorSummary {
   padding: 7px;
-}
-
-a.order-button {
-  font-size: 14px;
-  background: #8DC35F;
-  padding: 10px 20px 12px 20px;
-  border-radius: 60px;
-  color: #fff;
-
-}
-
-a.order-button:hover {
-  background: #8DC35F;
-  color: #fff;
 }
 
 .sitemap ul {
@@ -149,7 +130,6 @@ a.order-button:hover {
 .twitter-tweet {
   width: 100% !important;
   margin-bottom: 20px !important;
-
 }
 
 .enc-date:before {
