@@ -1,0 +1,53 @@
+span.social-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url('/images/socials.png');
+  background-position: 0 -207px;
+}
+
+span.social-icon.vkontakte {
+  background-position-y: 0;
+}
+
+span.social-icon.odnoklassniki {
+  background-position-y: -23px;
+}
+
+span.social-icon.mailru {
+  background-position-y: -46px;
+}
+
+span.social-icon.facebook {
+  background-position-y: -69px;
+}
+
+span.social-icon.twitter {
+  background-position-y: -92px;
+}
+
+span.social-icon.google {
+  background-position-y: -115px;
+}
+
+span.social-icon.yandex {
+  background-position-y: -138px;
+}
+
+span.social-icon.liveid {
+  background-position-y: -161px;
+}
+
+span.social-icon.openid {
+  background-position-y: -184px;
+}
+
+span.social-icon.linkedin {
+  background-position-y: -276px;
+}
+
+span.social-icon.youtube {
+  background-position-y: -414px;
+}

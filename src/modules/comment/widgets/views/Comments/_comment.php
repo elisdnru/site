@@ -46,9 +46,7 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
         <h2 class="date enc-date" data-date="<?php echo DateHelper::normdate($comment->date, true); ?>">&nbsp;</h2>
 
         <?php if ($comment->user && $comment->user->network): ?>
-            <span data-href="<?php echo $comment->user->identity; ?>">
-                <img style="vertical-align: middle" src="<?php echo SocNetworkHelper::getIcon($comment->user->network); ?>" alt="" />
-            </span>
+            <span data-href="<?php echo $comment->user->identity; ?>"><?php echo SocNetworkHelper::getIcon($comment->user->network); ?></span>
         <?php endif; ?>
 
         <span class="author">

@@ -32,7 +32,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
     <h3>
         <?php if ($model->network) : ?>
-            <a rel="nofollow" href="<?php echo $model->identity; ?>"><img style="vertical-align: middle" src="<?php echo SocNetworkHelper::getIcon($model->network); ?>" /></a>
+            <a rel="nofollow" href="<?php echo $model->identity; ?>"><?php echo SocNetworkHelper::getIcon($model->network); ?></a>
         <?php endif; ?>
         <?php echo CHtml::encode($model->fio); ?>
     </h3>

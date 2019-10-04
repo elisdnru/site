@@ -41,9 +41,7 @@ endif; ?>" id="comment_<?php echo $data->id; ?>">
         <h2 class="date"><?php echo $data->date; ?></h2>
 
         <?php if ($data->user && $data->user->network) : ?>
-            <a target="_blank" rel="nofollow" href="<?php echo $data->user->identity; ?>">
-                <img style="vertical-align: middle" src="<?php echo SocNetworkHelper::getIcon($data->user->network); ?>" />
-            </a>
+            <a target="_blank" rel="nofollow" href="<?php echo $data->user->identity; ?>"><?php echo SocNetworkHelper::getIcon($data->user->network); ?></a>
         <?php endif; ?>
 
         <span class="author">
