@@ -113,9 +113,6 @@ class Page extends CActiveRecord
                 'order' => 'child_pages.id ASC'
             ],
             'child_pages_count' => [self::STAT, self::class, 'parent_id'],
-            'files' => [self::HAS_MANY, \app\modules\page\models\PageFile::class, 'material_id',
-                'order' => 'files.title DESC'
-            ],
         ];
     }
 
@@ -280,42 +277,13 @@ class Page extends CActiveRecord
         }
     }
 
-    protected function afterSave()
-    {
-        $this->loadFiles();
-        parent::afterSave();
-    }
-
-    private function loadFiles()
-    {
-        if (!empty($_FILES['Page'])) {
-            for ($i = 1; $i < PageFile::FILES_LIMIT + 1; $i++) {
-                if ($_FILES['Page']['tmp_name']['file_' . $i]) {
-                    $file = new PageFile();
-                    $file->material_id = $this->id;
-                    $file->file = CUploadedFile::getInstance($this, 'file_' . $i);
-                    $file->save();
-                }
-                unset($_FILES['Page']['tmp_name']['file_' . $i]);
-            }
-        }
-    }
-
     protected function beforeDelete()
     {
         if (parent::beforeDelete()) {
-            $this->delFiles();
             $this->delChildPages();
             return true;
         }
         return false;
-    }
-
-    private function delFiles()
-    {
-        foreach ($this->files as $file) {
-            $file->delete();
-        }
     }
 
     private function delChildPages()

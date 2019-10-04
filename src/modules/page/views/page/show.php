@@ -25,13 +25,4 @@ if ($page->layout->alias == 'blank') : ?>
         </div>
     </section>
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_page_' . $page->id, ['dependency' => new Tags('blog')])) : ?>
-        <?php foreach ($page->files as $file) : ?>
-            <p><img src="/images/fileicon.jpg" alt="" />
-                <a href="<?php echo '/' . PageFile::FILE_PATH . '/' . $file->file; ?>"><?php echo str_replace('_', ' ', $file->title); ?></a>
-            </p>
-        <?php endforeach; ?>
-        <?php $this->endCache(); ?>
-    <?php endif; ?>
-
 <?php endif; ?>

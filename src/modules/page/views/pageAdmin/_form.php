@@ -99,26 +99,6 @@ use app\modules\page\models\PageLayoutSubpages;
         </div>
     </fieldset>
 
-    <fieldset>
-        <h4>Приложенные файлы</h4>
-
-        <?php foreach ($model->files as $file) : ?>
-            <?php if ($file->file) : ?>
-                <p id="file_<?php echo $file->id; ?>">
-                    <img src="/images/admin/fileicon.jpg" alt="" />
-                    <a target="_blank" href="<?php echo '/' . PageFile::FILE_PATH . '/' . $file->file; ?>"><?php echo $file->title; ?></a>
-                    <a class="ajax_del" data-del="file_<?php echo $file->id; ?>" title="Удалить файл" href="<?php echo $this->createUrl('admin/pages/filedel', ['id' => $file->id]); ?>"><img src="/images/admin/del.png" alt="Удалить" /></a>
-                </p>
-            <?php endif; ?>
-        <?php endforeach; ?>
-        <div class="row">
-            <?php echo $form->labelEx($model, 'file'); ?><br />
-            <?php for ($i = 1; $i < PageFile::FILES_LIMIT + 1; $i++) : ?>
-                <?php echo $form->fileField($model, 'file_' . $i); ?><br />
-            <?php endfor; ?>
-        </div>
-    </fieldset>
-
     <fieldset class="editor">
         <div class="row">
             <?php echo $form->labelEx($model, 'text'); ?><br />

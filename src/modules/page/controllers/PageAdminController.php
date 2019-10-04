@@ -48,19 +48,6 @@ class PageAdminController extends AdminController
         }
     }
 
-    public function actionDeleteFile($id)
-    {
-        if (!$model = PageFile::model()->findByPk($id)) {
-            throw new CHttpException(404, 'Не найдено');
-        }
-
-        if (!$model->delete()) {
-            throw new CHttpException(400, 'Ошибка удаления');
-        }
-
-        $this->redirectOrAjax();
-    }
-
     public function createModel()
     {
         $model = new Page();
