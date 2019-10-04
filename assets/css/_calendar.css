@@ -1,45 +1,45 @@
 /**
- * CSS styles for Calendar
+ * CSS styles for calendar
  */
-div.Calendar {
+div.calendar {
   display: inline;
 }
 
-div.Calendar .calendar-month a:link,
-div.Calendar .calendar-month a:visited {
+div.calendar .calendar-month a:link,
+div.calendar .calendar-month a:visited {
   padding: 2px 5px;
   text-decoration: none;
 }
 
-div.Calendar .calendar-month {
+div.calendar .calendar-month {
   margin-bottom: 10px;
   text-align: center;
 }
 
-div.Calendar .calendar-prev {
+div.calendar .calendar-prev {
   float: left;
 }
 
-div.Calendar .calendar-next {
+div.calendar .calendar-next {
   float: right;
 }
 
-div.Calendar .page a {
+div.calendar .page a {
   font-weight: normal;
 }
 
-div.Calendar #today {
+div.calendar #today {
   color: #990000;
   font-weight: bold;
 }
 
-div.Calendar table {
+div.calendar table {
   margin-bottom: 0;
   width: 100%;
   border: none;
 }
 
-div.Calendar table th {
+div.calendar table th {
   background: #fff;
   text-align: center;
   padding: 5px 0;
@@ -52,7 +52,7 @@ div.Calendar table th {
   background: -ms-linear-gradient(#fff, #eee);
 }
 
-div.Calendar table td {
+div.calendar table td {
   text-align: center;
   padding: 6px 0;
   border: #eee 1px solid;
@@ -62,16 +62,16 @@ div.Calendar table td {
   background: -ms-linear-gradient(#fff, #eee);
 }
 
-div.Calendar table td[colspan] {
+div.calendar table td[colspan] {
   background: #fff;
 }
 
-div.Calendar table td a {
+div.calendar table td a {
   text-decoration: underline;
   font-weight: bold;
 }
 
-div.Calendar table td a:hover {
+div.calendar table td a:hover {
   text-decoration: underline;
   font-weight: bold;
   background: transparent;
