@@ -104,12 +104,12 @@ CTextHighlighter::registerCssFile();
     <div class="subscribe-after-post">
         <p class="title">Не пропускайте новые статьи, бонусы и мастер-классы:</p>
         <div class="subscribe-form">
-            <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=blog&tag=bottom" target="_blank"  onsubmit="return jc_chkscrfrm(this, false, false, false, false)">
+            <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=blog&tag=bottom" target="_blank">
                 <div class="row">
-                    <input type="text" name="lead_name" placeholder="Ваше имя" style="border-color: #aaa" />
+                    <input type="text" name="lead_name" placeholder="Ваше имя" style="border-color: #aaa" required />
                 </div>
                 <div class="row">
-                    <input type="email" name="lead_email" placeholder="Ваш Email" style="border-color: #aaa" />
+                    <input type="email" name="lead_email" placeholder="Ваш Email" style="border-color: #aaa" required />
                 </div>
                 <div class="row button">
                     <input type="submit" name="submit" value="Подписаться" style="font-size: 13px" />

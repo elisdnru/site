@@ -28,12 +28,12 @@
 </script>
 
 <div class="subscribe-form">
-    <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=blog" target="_blank" onsubmit="return jc_chkscrfrm(this, false, false, false, false)">
+    <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=blog" target="_blank">
         <div class="row">
-            <input type="text" name="lead_name" placeholder="Ваше имя" />
+            <input type="text" name="lead_name" placeholder="Ваше имя" required />
         </div>
         <div class="row">
-            <input type="email" name="lead_email" placeholder="Ваш Email" />
+            <input type="email" name="lead_email" placeholder="Ваш Email" required />
         </div>
         <div class="row button">
             <input type="submit" name="submit" value="Подписаться на статьи" />
