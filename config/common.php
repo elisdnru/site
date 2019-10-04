@@ -115,6 +115,12 @@ return [
                     'css' => ['portfolio.css?v=' . $assetsVersion],
                     'depends' => ['main'],
                 ],
+                'blog-post' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'css' => ['blog-post.css?v=' . $assetsVersion],
+                    'depends' => ['main'],
+                ],
                 'jcarousellite' => [
                     'basePath' => null,
                     'baseUrl' => '/build',

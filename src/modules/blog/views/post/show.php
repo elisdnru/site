@@ -52,6 +52,8 @@ if ($this->is(Access::ROLE_CONTROL)) {
     $this->info = 'Нажмите «Редактировать» чтобы изменить статью';
 }
 
+Yii::app()->clientScript->registerCoreScript('blog-post');
+
 CTextHighlighter::registerCssFile();
 
 ?>

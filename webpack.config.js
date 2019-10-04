@@ -12,7 +12,8 @@ module.exports = {
     admin: './assets/css/admin.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
-    tinymce: './assets/css/tinymce.css'
+    tinymce: './assets/css/tinymce.css',
+    'blog-post': './assets/css/blog-post.css'
   },
   output: {
     path: __dirname + '/public/build',
