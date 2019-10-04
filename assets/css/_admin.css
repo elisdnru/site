@@ -248,6 +248,28 @@ table.grid a {
   display: none;
 }
 
+#admin fieldset {
+  border: 1px solid #ccc;
+  background: #eee;
+  padding: 8px 10px;
+  margin: 0 0 20px 0;
+  border-radius: 5px;
+}
+
+#admin fieldset h4 {
+  margin: -9px -11px 10px -11px;
+  padding: 5px 10px;
+  background: #444;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  border-radius: 5px 5px 0 0;
+}
+
 .sortable {
   cursor: move;
+}
+
+.floatright {
+  float: right !important;
 }
