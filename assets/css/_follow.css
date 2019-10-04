@@ -15,29 +15,25 @@
   height: 39px;
   background-position: 0 0;
   background-repeat: no-repeat;
+  background-image: url('/images/follow.png');
 }
 
 .follow a span.follow-feed {
-  background-image: url('/images/follow.png');
   background-position-x: 0;
 }
 
 .follow a span.follow-twitter {
-  background-image: url('/images/follow.png');
   background-position-x: -38px;
 }
 
 .follow a span.follow-github {
-  background-image: url('/images/follow.png');
   background-position-x: -76px;
 }
 
 .follow a span.follow-vkontakte {
-  background-image: url('/images/follow.png');
   background-position-x: -114px;
 }
 
 .follow a span.follow-facebook {
-  background-image: url('/images/follow.png');
   background-position-x: -152px;
 }
