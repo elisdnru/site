@@ -13,6 +13,8 @@ if ($this->moduleAllowed('blog')) {
 }
 
 $this->info = 'Неопубликованные комментарии выделены серым, новые подсвечены';
+
+Yii::app()->clientScript->registerCssFile('comments.css');
 ?>
 
 <?php if ($material !== null) : ?>
