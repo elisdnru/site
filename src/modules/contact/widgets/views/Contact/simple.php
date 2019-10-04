@@ -9,6 +9,7 @@
 
 <div class="form">
 
+    <?php Yii::app()->clientScript->registerCoreScript('form'); ?>
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'action' => '#contact-form',
         'id' => 'contact-form',

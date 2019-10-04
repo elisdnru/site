@@ -30,7 +30,7 @@ if ($user) : ?>
 
 <?php else : ?>
     <?php echo CHtml::beginForm(['/user/default/login']); ?>
-    <div id="login-side-form" class="form">
+    <div class="login-form">
 
         <div class="row"><?php echo CHtml::activeTextField($model, 'username', ['style' => 'width:100%', 'placeholder' => 'Логин или Email', 'title' => 'Логин или Email']); ?></div>
         <div class="row"><?php echo CHtml::activePasswordField($model, 'password', ['style' => 'width:100%', 'placeholder' => 'Пароль', 'title' => 'Пароль']); ?></div>
