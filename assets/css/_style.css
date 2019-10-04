@@ -77,21 +77,6 @@ div.breadcrumbs a:hover {
   background: #444;
 }
 
-.subpages_list {
-  margin-bottom: 20px;
-}
-
-.subpages_list ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.subpages_list li {
-  margin: 0 0 10px 0;
-  font-size: 14px;
-}
-
 ul.short_list {
   list-style: none;
   margin: 0 0 10px 0;

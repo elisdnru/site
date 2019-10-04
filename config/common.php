@@ -13,7 +13,6 @@ use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
 use app\modules\menu\widgets\MenuWidget;
 use app\modules\page\widgets\PageWidget;
-use app\modules\page\widgets\SubPagesWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 
 CHtml::setModelNameConverter(static function ($model) {
@@ -272,7 +271,6 @@ return [
     'params' => [
         'runtimeWidgets' => [
             'lastPosts' => LastPostsWidget::class,
-            'subPages' => SubPagesWidget::class,
             'page' => PageWidget::class,
             'menu' => MenuWidget::class,
             'block' => BlockWidget::class,
