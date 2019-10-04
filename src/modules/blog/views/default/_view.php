@@ -43,9 +43,9 @@ foreach ($data->cache(1000)->tags as $tag) {
             <p class="thumb">
                 <span data-href="<?php echo $data->url; ?>">
                     <picture>
-                        <source srcset="" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
-                        <source srcset="" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
-                        <?php echo CHtml::image('', '', $properties); ?>
+                        <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
+                        <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
+                        <?php echo CHtml::image('/images/lazy/blank.jpg', '', $properties); ?>
                     </picture>
                 </span>
             </p>
