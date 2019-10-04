@@ -98,6 +98,7 @@ return [
                 'iframe.css' => '/build/iframe.css?v=' . $assetsVersion,
                 'admin.css' => '/build/admin.css?v=' . $assetsVersion,
                 'comments.css' => '/build/comments.css?v=' . $assetsVersion,
+                'portfolio.css' => '/build/portfolio.css?v=' . $assetsVersion,
                 'jcarousellite.js' => '/build/jcarousellite.js?v=' . $assetsVersion,
             ]
         ],
