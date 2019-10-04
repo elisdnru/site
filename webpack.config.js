@@ -43,11 +43,15 @@ module.exports = {
         ],
         "jquery.js": [
           'assets/js/jquery.min.js'
+        ],
+        "jcarousellite.js": [
+          'assets/js/jcarousellite.min.js'
         ]
       },
       transform: {
         'site.js': code => require("uglify-js").minify(code).code,
-        'jquery.js': code => require("uglify-js").minify(code).code
+        'jquery.js': code => require("uglify-js").minify(code).code,
+        'jcarousellite.js': code => require("uglify-js").minify(code).code
       }
     })
   ],
