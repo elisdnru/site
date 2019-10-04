@@ -1,0 +1,19 @@
+.donate-btn {
+  float: left;
+  margin-right: 20px;
+}
+
+.donate-btn a {
+  display: inline-block;
+  background: #ab0b81;
+  color: #fff;
+  padding: 11px 15px;
+  border-radius: 100px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.donate-btn a:hover {
+  color: #fff;
+  text-decoration: none;
+}
