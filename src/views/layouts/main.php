@@ -6,6 +6,14 @@ use app\modules\user\models\Access;
 
 $assetsVersion = @filemtime(dirname(__DIR__, 3) . '/public/build');
 
+$cs = Yii::app()->clientScript;
+
+$cs->registerPackage('main');
+$cs->registerScriptFile('/build/site.js?v=' . $assetsVersion, CClientScript::POS_END, ['async' => true]);
+if ($this->is(Access::ROLE_ADMIN)) {
+    $cs->registerPackage('admin-bar');
+}
+
 /** @var $this Controller */
 ?><!DOCTYPE html>
 <html lang="<?php echo Yii::app()->language; ?>">
@@ -24,8 +32,6 @@ $assetsVersion = @filemtime(dirname(__DIR__, 3) . '/public/build');
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
-    <?php Yii::app()->clientScript->registerPackage('main'); ?>
-    <?php Yii::app()->clientScript->registerScriptFile('/build/site.js?v=' . $assetsVersion, CClientScript::POS_END, ['async' => true]); ?>
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
