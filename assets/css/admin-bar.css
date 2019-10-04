@@ -12,7 +12,6 @@
 
 .adminlinks ul {
   margin: 0 !important;
-  font-size: 12px !important;
   list-style: none !important;
   font-size: 0 !important;
 }
@@ -25,7 +24,7 @@
 
 .adminlinks a {
   display: inline-block;
-  font-family: arial !important;
+  font-family: arial, sans-serif !important;
   color: #b7131c !important;
   text-decoration: none !important;
   margin: 0 !important;
@@ -52,7 +51,7 @@
 
 .admininfo {
   padding: 6px 10px 6px 10px;
-  font-family: 'Trebuchet MS';
+  font-family: 'Trebuchet MS', sans-serif;
   font-size: 9pt !important;
   border-top: #ccc 1px solid !important;
   border-bottom: #ccc 1px solid !important;
@@ -68,7 +67,7 @@
 
 .admininfo a {
   color: #333 !important;
-  font-family: arial !important;
+  font-family: arial, sans-serif !important;
   text-decoration: underline !important;
 }
 

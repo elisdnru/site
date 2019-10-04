@@ -110,7 +110,7 @@
   #main_nav ul li {
     float: left;
     margin: 0;
-    font-family: arial;
+    font-family: arial, sans-serif;
     font-size: 14px;
     line-height: 1;
     padding: 0;

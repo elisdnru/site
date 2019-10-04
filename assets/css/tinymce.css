@@ -1,13 +1,13 @@
 html {
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
 
 body {
   margin: 10px auto;
   padding: 0;
   text-align: left;
-  font-family: tahoma;
+  font-family: tahoma, sans-serif;
   font-size: 13px;
   color: #333;
 }
@@ -52,7 +52,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: arial;
+  font-family: arial, sans-serif;
   font-weight: normal;
   margin-bottom: 20px;
   text-align: left;

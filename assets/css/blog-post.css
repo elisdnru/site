@@ -20,7 +20,7 @@ pre {
   margin: 20px 0;
   border: #eee 1px solid;
   background: #f7f7f7;
-  font-family: Consolas, 'Ubuntu Mono', 'Courier New';
+  font-family: Consolas, 'Ubuntu Mono', 'Courier New', monospace;
   font-size: 14px;
 }
 
@@ -32,7 +32,7 @@ pre.console {
 }
 
 code {
-  font-family: Consolas, 'Ubuntu Mono', 'Courier New';
+  font-family: Consolas, 'Ubuntu Mono', 'Courier New', monospace;
   white-space: nowrap;
   background: #f7f7f7;
   border: #eee 1px solid;
@@ -45,7 +45,7 @@ kbd {
   border: #aaa 1px solid;
   border-radius: 3px;
 
-  font-family: Consolas, 'Courier New';
+  font-family: Consolas, 'Courier New', monospace;
   background: #f6f6f6;
   padding: 4px 6px;
   margin-bottom: 12px;
@@ -96,7 +96,7 @@ kbd {
 }
 
 .entry.last .title {
-  font-family: arial;
+  font-family: arial, sans-serif;
   font-weight: normal;
   font-size: 16px;
   line-height: 1;
@@ -133,7 +133,7 @@ kbd {
 }
 
 .entry.last .short {
-  font-family: verdana, arial;
+  font-family: verdana, arial, sans-serif;
   font-size: 11px;
   color: #777;
 }
