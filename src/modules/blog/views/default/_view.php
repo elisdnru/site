@@ -30,9 +30,7 @@ foreach ($data->cache(1000)->tags as $tag) {
         <?php if ($data->image) : ?>
             <?php $imageUrl = $data->getImageThumbUrl(250, 0); ?>
             <?php
-            $properties = [
-                'data-src' => $imageUrl
-            ];
+            $properties = [];
             if ($data->image_width) {
                 $properties['width'] = $data->image_width;
             }
@@ -43,9 +41,9 @@ foreach ($data->cache(1000)->tags as $tag) {
             <p class="thumb">
                 <span data-href="<?php echo $data->url; ?>">
                     <picture>
-                        <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
-                        <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
-                        <?php echo CHtml::image('/images/lazy/blank.jpg', '', $properties); ?>
+                        <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
+                        <source srcset="<?= $imageUrl ?>" type="image/jpeg">
+                        <?php echo CHtml::image($imageUrl, $data->image_alt, $properties); ?>
                     </picture>
                 </span>
             </p>
