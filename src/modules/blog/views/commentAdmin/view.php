@@ -10,7 +10,7 @@ $this->admin[] = ['label' => 'Редактировать', 'url' => $this->creat
 $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
 $this->info = 'Комментарии';
 
-Yii::app()->clientScript->registerCssFile('comments.css');
+Yii::app()->clientScript->registerPackage('comments');
 ?>
 
 <h1>Просмотр комментария</h1>

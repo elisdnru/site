@@ -1,6 +1,6 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
-<?php Yii::app()->clientScript->registerCssFile('admin.css'); ?>
+<?php Yii::app()->clientScript->registerPackage('admin'); ?>
 
 <section class="main" id="admin">
 

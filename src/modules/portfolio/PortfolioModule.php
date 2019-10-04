@@ -52,7 +52,6 @@ class PortfolioModule extends WebModule
 
     public static function registerScripts()
     {
-        Yii::app()->clientScript->registerCssFile('main.css');
-        Yii::app()->clientScript->registerCssFile('portfolio.css');
+        Yii::app()->clientScript->registerPackage('portfolio');
     }
 }

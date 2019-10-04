@@ -9,7 +9,7 @@ $assetsVersion = @filemtime(dirname(__DIR__, 3) . '/public/build');
 <head>
     <meta charset="utf-8" />
 
-    <?php Yii::app()->clientScript->registerCssFile('iframe.css'); ?>
+    <?php Yii::app()->clientScript->registerPackage('iframe'); ?>
     <?php Yii::app()->clientScript->registerScriptFile('/build/site.js?v=' . $assetsVersion, CClientScript::POS_END, ['async' => true]); ?>
 
     <title><?php echo CHtml::encode($this->pageTitle) . ' - ' . Yii::app()->params['GENERAL.SITE_NAME']; ?></title>

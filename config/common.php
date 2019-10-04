@@ -92,15 +92,41 @@ return [
                     'baseUrl' => '/build',
                     'js' => ['jquery.js?v=' . $assetsVersion],
                 ],
+                'main' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'css' => ['main.css?v=' . $assetsVersion],
+                ],
+                'iframe' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'css' => ['iframe.css?v=' . $assetsVersion],
+                ],
+                'admin' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'css' => ['admin.css?v=' . $assetsVersion],
+                    'depends' => ['main'],
+                ],
+                'comments' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'css' => ['comments.css?v=' . $assetsVersion],
+                    'depends' => ['main'],
+                ],
+                'portfolio' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'css' => ['portfolio.css?v=' . $assetsVersion],
+                    'depends' => ['main'],
+                ],
+                'jcarousellite' => [
+                    'basePath' => null,
+                    'baseUrl' => '/build',
+                    'js' => ['jcarousellite.js?v=' . $assetsVersion],
+                    'depends' => ['jquery'],
+                ],
             ],
-            'scriptMap' => [
-                'main.css' => '/build/main.css?v=' . $assetsVersion,
-                'iframe.css' => '/build/iframe.css?v=' . $assetsVersion,
-                'admin.css' => '/build/admin.css?v=' . $assetsVersion,
-                'comments.css' => '/build/comments.css?v=' . $assetsVersion,
-                'portfolio.css' => '/build/portfolio.css?v=' . $assetsVersion,
-                'jcarousellite.js' => '/build/jcarousellite.js?v=' . $assetsVersion,
-            ]
         ],
 
         'db' => [

@@ -5,8 +5,7 @@ use app\modules\portfolio\models\PortfolioWork;
 
 ?>
 
-<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-<?php Yii::app()->clientScript->registerScriptFile('jcarousellite.js', CClientScript::POS_HEAD); ?>
+<?php Yii::app()->clientScript->registerCoreScript('jcarousellite'); ?>
 
 <div class="portfolio ribbed">
     <div class="carousel_link carouselPrevLink"></div>
