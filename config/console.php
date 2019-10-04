@@ -20,14 +20,6 @@ return array_replace_recursive(
             ],
         ],
 
-        'params' => [
-            'minimize_scripts' => [
-                '../public/js/main.js' => [
-                    '../public/js/jquery.plugins.js',
-                    '../public/js/follow.js',
-                    '../public/js/core-site.js',
-                ],
-            ],
-        ]
+        'params' => []
     ]
 );

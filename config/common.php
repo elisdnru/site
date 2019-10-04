@@ -244,8 +244,6 @@ return [
             'contact' => ContactWidget::class,
             'portfolio' => PortfolioWidget::class,
         ],
-        'minimize_styles' => [],
-        'minimize_scripts' => [],
 
         'GENERAL.SITE_NAME' => 'ElisDN',
         'GENERAL.FEED_TITLE' => 'Дмитрий Елисеев',
