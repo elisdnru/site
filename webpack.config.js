@@ -12,7 +12,8 @@ module.exports = {
     iframe: './assets/css/iframe.css',
     admin: './assets/css/admin.css',
     comments: './assets/css/comments.css',
-    portfolio: './assets/css/portfolio.css'
+    portfolio: './assets/css/portfolio.css',
+    tinymce: './assets/css/tinymce.css'
   },
   output: {
     path: __dirname + '/public/build',
