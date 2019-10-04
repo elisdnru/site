@@ -1,6 +1,11 @@
 <?php use app\extensions\cachetagging\Tags;
 
-if ($page->layout->alias == 'blank') : ?>
+if ($page->alias === 'services') {
+    Yii::app()->clientScript->registerCoreScript('smart');
+}
+?>
+
+<?php if ($page->layout->alias == 'blank') : ?>
     <?php echo $this->decodeWidgets($page->text_purified); ?>
 <?php else : ?>
     <section>

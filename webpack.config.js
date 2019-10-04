@@ -13,7 +13,8 @@ module.exports = {
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
     tinymce: './assets/css/tinymce.css',
-    'blog-post': './assets/css/blog-post.css'
+    'blog-post': './assets/css/blog-post.css',
+    smart: './assets/css/smart.css'
   },
   output: {
     path: __dirname + '/public/build',
