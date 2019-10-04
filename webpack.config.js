@@ -9,7 +9,6 @@ module.exports = {
   context: __dirname,
   entry: {
     main: './assets/css/main.css',
-    iframe: './assets/css/iframe.css',
     admin: './assets/css/admin.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',

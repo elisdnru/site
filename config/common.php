@@ -97,11 +97,6 @@ return [
                     'baseUrl' => '/build',
                     'css' => ['main.css?v=' . $assetsVersion],
                 ],
-                'iframe' => [
-                    'basePath' => null,
-                    'baseUrl' => '/build',
-                    'css' => ['iframe.css?v=' . $assetsVersion],
-                ],
                 'admin' => [
                     'basePath' => null,
                     'baseUrl' => '/build',
