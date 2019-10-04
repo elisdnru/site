@@ -5,7 +5,6 @@ namespace app\modules\page\controllers;
 use CHttpException;
 use app\modules\main\components\AdminController;
 use app\modules\page\models\Page;
-use app\modules\page\models\PageFile;
 use Yii;
 
 class PageAdminController extends AdminController

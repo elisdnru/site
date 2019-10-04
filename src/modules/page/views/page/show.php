@@ -1,5 +1,4 @@
 <?php use app\extensions\cachetagging\Tags;
-use app\modules\page\models\PageFile;
 
 if ($page->layout->alias == 'blank') : ?>
     <?php echo $this->decodeWidgets($page->text_purified); ?>
