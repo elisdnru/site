@@ -44,7 +44,7 @@ foreach ($posts as $data) : ?>
                         <picture>
                             <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
                             <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
-                            <?php echo CHtml::image('/images/lazy/blank.jpg', '', $properties); ?>
+                            <?php echo CHtml::image($imageUrl, '', $properties); ?>
                         </picture>
                     </span>
                 </p>
