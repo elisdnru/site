@@ -70,7 +70,7 @@ class CurrentPasswordValidator extends CValidator
 
         $model = CActiveRecord::model($this->className)->findByPk($object->{$this->idAttribute});
 
-        if (is_null($model)) {
+        if ($model === null) {
             throw new CException('Model not found');
         }
 

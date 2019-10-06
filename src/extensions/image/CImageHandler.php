@@ -112,30 +112,26 @@ class CImageHandler extends CApplicationComponent
                 case self::IMG_GIF:
                     if ($result['image'] = imagecreatefromgif($file)) {
                         return $result;
-                    } else {
-                        throw new Exception('Invalid image gif format');
                     }
+                    throw new Exception('Invalid image gif format');
                     break;
                 case self::IMG_JPEG:
                     if ($result['image'] = imagecreatefromjpeg($file)) {
                         return $result;
-                    } else {
-                        throw new Exception('Invalid image jpeg format');
                     }
+                    throw new Exception('Invalid image jpeg format');
                     break;
                 case self::IMG_PNG:
                     if ($result['image'] = imagecreatefrompng($file)) {
                         return $result;
-                    } else {
-                        throw new Exception('Invalid image png format');
                     }
+                    throw new Exception('Invalid image png format');
                     break;
                 case self::IMG_WEBP:
                     if ($result['image'] = imagecreatefromwebp($file)) {
                         return $result;
-                    } else {
-                        throw new Exception('Invalid image png format');
                     }
+                    throw new Exception('Invalid image png format');
                     break;
                 default:
                     throw new Exception('Not supported image format');
@@ -176,9 +172,8 @@ class CImageHandler extends CApplicationComponent
 
 
             return $this;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function reload()
@@ -341,9 +336,8 @@ class CImageHandler extends CApplicationComponent
             imagedestroy($wImg['image']);
 
             return $this;
-        } else {
-            return false;
         }
+        return false;
     }
 
 
@@ -409,8 +403,8 @@ class CImageHandler extends CApplicationComponent
         $height = (int)$height;
 
         //Centered crop
-        $startX = $startX === false ? floor(($this->width - $width) / 2) : intval($startX);
-        $startY = $startY === false ? floor(($this->height - $height) / 2) : intval($startY);
+        $startX = $startX === false ? floor(($this->width - $width) / 2) : (int)$startX;
+        $startY = $startY === false ? floor(($this->height - $height) / 2) : (int)$startY;
 
         //Check dimensions
         $startX = max(0, min($this->width, $startX));
@@ -489,8 +483,8 @@ class CImageHandler extends CApplicationComponent
     {
         $this->checkLoaded();
 
-        $width = intval($width);
-        $height = intval($height);
+        $width = (int)$width;
+        $height = (int)$height;
 
         $widthProportion = $width / $this->width;
         $heightProportion = $height / $this->height;

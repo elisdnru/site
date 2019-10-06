@@ -17,8 +17,7 @@ class DefaultController extends Controller
 
                 $ulogin->getAuthData();
 
-                if ($ulogin->validate() && $ulogin->login()) {
-                } else {
+                if (!($ulogin->validate() && $ulogin->login())) {
                     Yii::app()->user->setFlash('error', 'Возможно этот Email используется в другом аккаунте');
                 }
             } else {
@@ -26,7 +25,7 @@ class DefaultController extends Controller
             }
 
             $return = Yii::app()->request->getParam('return');
-            $this->redirect($return ? $return : Yii::app()->homeUrl);
+            $this->redirect($return ?: Yii::app()->homeUrl);
         } else {
             $this->redirect(Yii::app()->homeUrl);
         }

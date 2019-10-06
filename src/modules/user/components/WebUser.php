@@ -13,9 +13,9 @@ class WebUser extends CWebUser
     {
         if ($user = $this->getModel()) {
             return $user->role;
-        } else {
-            return 'role_guest';
         }
+
+        return 'role_guest';
     }
 
     private function getModel()

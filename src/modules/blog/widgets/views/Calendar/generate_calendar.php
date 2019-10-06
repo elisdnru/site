@@ -11,7 +11,7 @@ function generate_calendar($year, $month, $days = [], $day_name_length = 3, $mon
     $day_names = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
     $month_names = ['', 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 
-    list($month, $year, $month_name, $weekday) = explode(',', gmstrftime('%m,%Y,%B,%w', $first_of_month));
+    [$month, $year, $month_name, $weekday] = explode(',', gmstrftime('%m,%Y,%B,%w', $first_of_month));
     $weekday = ($weekday + 7 - $first_day) % 7;
 
     $title = $month_names[(int)$month] . '&nbsp;' . $year;
@@ -50,7 +50,7 @@ function generate_calendar($year, $month, $days = [], $day_name_length = 3, $mon
         }
         if (isset($days[$day]) and is_array($days[$day])) {
             @list($link, $classes, $content) = $days[$day];
-            if (is_null($content)) {
+            if ($content === null) {
                 $content = $day;
             }
             $calendar .= '<td' . ($classes ? ' class="' . htmlspecialchars($classes) . '">' : '>') .

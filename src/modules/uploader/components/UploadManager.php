@@ -59,7 +59,7 @@ class UploadManager extends CApplicationComponent
             $orig = $path . '/' . $this->createOrigFileName($baseName);
 
             $f = fopen($orig, 'w');
-            fputs($f, $content);
+            fwrite($f, $content);
             fclose($f);
 
             return Yii::app()->file->set($orig);
@@ -168,7 +168,7 @@ class UploadManager extends CApplicationComponent
             if ($width && $height) {
                 $thumb = $orig->adaptiveThumb($width, $height);
             } else {
-                $thumb = $orig->thumb($width ? $width : false, $height ? $height : false);
+                $thumb = $orig->thumb($width ?: false, $height ?: false);
             }
 
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);
@@ -230,8 +230,8 @@ class UploadManager extends CApplicationComponent
             $result = new StdClass;
             $result->path = $matches['path'];
             $result->fileName = $matches['name'];
-            $result->width = isset($matches['width']) ? $matches['width'] : 0;
-            $result->height = isset($matches['height']) ? $matches['height'] : 0;
+            $result->width = $matches['width'] ?? 0;
+            $result->height = $matches['height'] ?? 0;
             $result->extension = $matches['ext'];
             $result->baseName = $matches['name'] . '.' . $matches['ext'];
         }

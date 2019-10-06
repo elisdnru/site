@@ -38,7 +38,7 @@ if ($user) : ?>
 
         <div class="row buttons">
             <span style="font-size:12px; float: right"><span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</span> | <span data-href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</span></span>
-            <?php echo CHtml::submitButton("Войти"); ?>
+            <?php echo CHtml::submitButton('Войти'); ?>
             <div class="clear"></div>
         </div>
 

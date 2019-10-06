@@ -32,8 +32,7 @@ class OuterLinker
      */
     public static function load()
     {
-        $linker = new OuterLinker();
-        return $linker;
+        return new self();
     }
 
     /**
@@ -81,12 +80,12 @@ class OuterLinker
 
     protected function pregCallback($matches)
     {
-        $before = isset($matches['before']) ? $matches['before'] : '';
-        $beginquote = isset($matches['beginquote']) ? $matches['beginquote'] : '';
-        $protocol = isset($matches['protocol']) ? $matches['protocol'] : '';
-        $url = isset($matches['url']) ? $matches['url'] : '';
-        $endquote = isset($matches['endquote']) ? $matches['endquote'] : '';
-        $after = isset($matches['after']) ? $matches['after'] : '';
+        $before = $matches['before'] ?? '';
+        $beginquote = $matches['beginquote'] ?? '';
+        $protocol = $matches['protocol'] ?? '';
+        $url = $matches['url'] ?? '';
+        $endquote = $matches['endquote'] ?? '';
+        $after = $matches['after'] ?? '';
 
         return '<a' . $before . 'href=' . $beginquote . $this->_prefix . $protocol . '://' . urlencode($url) . $endquote . $after . '>';
     }

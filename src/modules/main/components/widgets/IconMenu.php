@@ -33,7 +33,7 @@ class IconMenu extends CMenu
     protected function renderMenuItem($item)
     {
         $icon = !empty($item['icon']) ? CHtml::image($this->iconsPath . $item['icon'], $item['label']) : '';
-        $options = isset($item['linkOptions']) ? $item['linkOptions'] : [];
+        $options = $item['linkOptions'] ?? [];
 
         if (isset($item['url'])) {
             if ($this->linkLabelWrapper !== null) {
@@ -43,8 +43,8 @@ class IconMenu extends CMenu
             }
 
             return $icon . CHtml::link($label, $item['url'], $options);
-        } else {
-            return $icon . CHtml::tag('span', $options, $item['label']);
         }
+
+        return $icon . CHtml::tag('span', $options, $item['label']);
     }
 }

@@ -44,7 +44,7 @@ class EFeedItemRSS1 extends EFeedItemAbstract
             $date = strtotime($date);
         }
 
-        $date = date("Y-m-d", $date);
+        $date = date('Y-m-d', $date);
 
         $this->addTag('dc:date', $date);
     }
@@ -93,7 +93,7 @@ class EFeedItemRSS1 extends EFeedItemAbstract
         $element = '';
 
         if (is_array($tag->content)) {
-            $tag->attributes['rdf:parseType'] = "Resource";
+            $tag->attributes['rdf:parseType'] = 'Resource';
         }
 
         if (in_array($tag->name, $this->CDATAEncoded)) {
@@ -114,7 +114,7 @@ class EFeedItemRSS1 extends EFeedItemAbstract
             $element .= (in_array($tag->name, $this->CDATAEncoded)) ? $tag->content : CHtml::encode($tag->content);
         }
 
-        $element .= (in_array($tag->name, $this->CDATAEncoded)) ? PHP_EOL . ']]>' : "";
+        $element .= (in_array($tag->name, $this->CDATAEncoded)) ? PHP_EOL . ']]>' : '';
 
         $element .= CHtml::closeTag($tag->name) . PHP_EOL;
 

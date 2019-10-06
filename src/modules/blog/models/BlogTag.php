@@ -124,7 +124,7 @@ class BlogTag extends CActiveRecord
     {
         $tag = $this->findByTitle($title);
         if (!$tag) {
-            $tag = new BlogTag;
+            $tag = new self();
             $tag->title = $title;
             $tag->save();
         }

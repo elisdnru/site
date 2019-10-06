@@ -45,22 +45,22 @@ class IXR_Value
     var $data;
     var $type;
 
-    function __construct($data, $type = false)
+    function __construct($data, $type = null)
     {
         $this->data = $data;
         if (!$type) {
             $type = $this->calculateType();
         }
         $this->type = $type;
-        if ($type == 'struct') {
+        if ($type === 'struct') {
             // Turn all the values in the array in to new IXR_Value objects
             foreach ($this->data as $key => $value) {
                 $this->data[$key] = new IXR_Value($value);
             }
         }
-        if ($type == 'array') {
-            for ($i = 0, $j = count($this->data); $i < $j; $i++) {
-                $this->data[$i] = new IXR_Value($this->data[$i]);
+        if ($type === 'array') {
+            foreach ($this->data as $i => $value) {
+                $this->data[$i] = new IXR_Value($value);
             }
         }
     }
@@ -70,10 +70,10 @@ class IXR_Value
         if ($this->data === true || $this->data === false) {
             return 'boolean';
         }
-        if (is_integer($this->data)) {
+        if (is_int($this->data)) {
             return 'int';
         }
-        if (is_double($this->data)) {
+        if (is_float($this->data)) {
             return 'double';
         }
 
@@ -97,9 +97,9 @@ class IXR_Value
         // We have an array - is it an array or a struct?
         if ($this->isStruct($this->data)) {
             return 'struct';
-        } else {
-            return 'array';
         }
+
+        return 'array';
     }
 
     function getXml()
@@ -424,7 +424,7 @@ EOD;
         }
 
         // Are we dealing with a function or a method?
-        if (is_string($method) && substr($method, 0, 5) == 'this:') {
+        if (is_string($method) && strpos($method, 'this:') === 0) {
             // It's a class method - check it exists
             $method = substr($method, 5);
             if (!method_exists($this, $method)) {
@@ -608,8 +608,8 @@ class IXR_Client
             // Assume we have been given a URL instead
             $bits = parse_url($server);
             $this->server = $bits['host'];
-            $this->port = isset($bits['port']) ? $bits['port'] : 80;
-            $this->path = isset($bits['path']) ? $bits['path'] : '/';
+            $this->port = $bits['port'] ?? 80;
+            $this->path = $bits['path'] ?? '/';
 
             // Make absolutely sure we have a path
             if (!$this->path) {
@@ -661,7 +661,7 @@ class IXR_Client
             $this->error = new IXR_Error(-32300, 'transport error - could not open socket');
             return false;
         }
-        fputs($fp, $request);
+        fwrite($fp, $request);
         $contents = '';
         $debugContents = '';
         $gotFirstLine = false;
@@ -670,7 +670,7 @@ class IXR_Client
             $line = fgets($fp, 4096);
             if (!$gotFirstLine) {
                 // Check line for '200'
-                if (strstr($line, '200') === false) {
+                if (strpos($line, '200') === false) {
                     $this->error = new IXR_Error(-32300, 'transport error - HTTP status code was not 200');
                     return false;
                 }
@@ -1212,7 +1212,7 @@ class IXR_ClientSSL extends IXR_Client
         curl_setopt($curl, CURLOPT_POSTFIELDS, $xml);
         curl_setopt($curl, CURLOPT_PORT, $this->port);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
-            "Content-Type: text/xml",
+            'Content-Type: text/xml',
             "Content-length: {$length}"]);
 
         // Process the SSL certificates, etc. to use
@@ -1222,8 +1222,8 @@ class IXR_ClientSSL extends IXR_Client
             curl_setopt($curl, CURLOPT_SSLKEY, $this->_keyFile);
 
             if ($this->debug) {
-                echo "SSL Cert at : " . $this->_certFile . "\n";
-                echo "SSL Key at : " . $this->_keyFile . "\n";
+                echo 'SSL Cert at : ' . $this->_certFile . "\n";
+                echo 'SSL Key at : ' . $this->_keyFile . "\n";
             }
 
             // See if we need to give a passphrase
@@ -1310,7 +1310,7 @@ class IXR_ClassServer extends IXR_Server
 
     function registerObject($object, $methods, $prefix = null)
     {
-        if (is_null($prefix)) {
+        if ($prefix === null) {
             $prefix = get_class($object);
         }
         $this->_objects[$prefix] = $object;
@@ -1341,7 +1341,7 @@ class IXR_ClassServer extends IXR_Server
         }
 
         // See if this method comes from one of our objects or maybe self
-        if (is_array($method) || (substr($method, 0, 5) == 'this:')) {
+        if (is_array($method) || (strpos($method, 'this:') === 0)) {
             if (is_array($method)) {
                 $object = $this->_objects[$method[0]];
                 $method = $method[1];

@@ -39,7 +39,7 @@ class AjaxController extends Controller
             throw new CHttpException(400, 'Ошибка удаления');
         }
 
-        $this->redirectOrAjax(Yii::app()->request->urlReferrer ? Yii::app()->request->urlReferrer : '/');
+        $this->redirectOrAjax(Yii::app()->request->urlReferrer ?: '/');
     }
 
     public function actionHide($id)
@@ -60,7 +60,7 @@ class AjaxController extends Controller
             throw new CHttpException(400, 'Ошибка');
         }
 
-        $this->redirectOrAjax(Yii::app()->request->urlReferrer ? Yii::app()->request->urlReferrer : '/');
+        $this->redirectOrAjax(Yii::app()->request->urlReferrer ?: '/');
     }
 
     public function actionLike($id)

@@ -38,7 +38,7 @@ class ArrayHelper
 
             while ($sub = trim(array_shift($subs), ']')) {
                 $attrName = $sub;
-                $val = isset($val[$sub]) ? $val[$sub] : null;
+                $val = $val[$sub] ?? null;
             }
 
             if (!$toAttr) {
@@ -56,7 +56,7 @@ class ArrayHelper
         $resultArray = [];
 
         foreach ($attributes as $attr) {
-            $resultArray[$attr] = isset($array[$attr]) ? $array[$attr] : null;
+            $resultArray[$attr] = $array[$attr] ?? null;
         }
 
         return $resultArray;

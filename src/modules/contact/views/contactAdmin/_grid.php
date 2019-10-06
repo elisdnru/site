@@ -17,7 +17,7 @@
         ],
         [
             'name' => 'text',
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return CHtml::link(CHtml::encode(mb_substr($data->text, 0, 59, 'UTF-8')), Yii::app()->controller->createUrl('view', ['id' => $data->id]));
             },
             'type' => 'html',

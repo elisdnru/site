@@ -6,6 +6,7 @@ use app\modules\user\models\Access;
 use app\modules\main\components\AdminController;
 use Yii;
 use function is_a;
+use app\modules\main\components\system\WebModule;
 
 class DefaultController extends AdminController
 {
@@ -29,8 +30,8 @@ class DefaultController extends AdminController
                 $module = Yii::app()->getModule($key);
 
                 if ($module) {
-                    if (is_a($module, 'app\modules\main\components\system\WebModule') && Yii::app()->moduleManager->allowed($module->id)) {
-                        $modules[isset($module->group) ? $module->group : 'Прочее'][$module->name] = $module;
+                    if ($module instanceof \app\modules\main\components\system\WebModule && Yii::app()->moduleManager->allowed($module->id)) {
+                        $modules[$module->group ?? 'Прочее'][$module->name] = $module;
                     }
                 }
             }

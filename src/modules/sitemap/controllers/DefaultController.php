@@ -64,7 +64,7 @@ class DefaultController extends Controller
             Yii::app()->cache->set('sitemap_xml', $xml, 3600);
         }
 
-        header("Content-type: text/xml");
+        header('Content-type: text/xml');
         echo $xml;
         Yii::app()->end();
     }

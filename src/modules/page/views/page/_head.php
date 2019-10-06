@@ -4,11 +4,11 @@
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-$this->pageTitle = $page->pagetitle ? $page->pagetitle : $page->title;
+$this->pageTitle = $page->pagetitle ?: $page->title;
 $this->description = $page->description;
 $this->keywords = $page->keywords;
 
-$this->breadcrumbs = $page->alias != 'index' ? $page->breadcrumbs : [];
+$this->breadcrumbs = $page->alias !== 'index' ? $page->breadcrumbs : [];
 
 Yii::app()->clientScript->registerMetaTag($page->robots, 'robots');
 

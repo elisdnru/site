@@ -114,7 +114,7 @@ class EFeedItemAtom extends EFeedItemAbstract
         $element = '';
 
         if (in_array($tag->name, $this->CDATAEncoded)) {
-            $tag->attributes['type'] = "html";
+            $tag->attributes['type'] = 'html';
             $element .= CHtml::openTag($tag->name, $tag->attributes);
             $element .= '<![CDATA["' . PHP_EOL;
         } else {
@@ -131,7 +131,7 @@ class EFeedItemAtom extends EFeedItemAbstract
             $element .= (in_array($tag->name, $this->CDATAEncoded)) ? $tag->content : CHtml::encode($tag->content);
         }
 
-        $element .= (in_array($tag->name, $this->CDATAEncoded)) ? "]]>" : "";
+        $element .= (in_array($tag->name, $this->CDATAEncoded)) ? ']]>' : '';
 
         $element .= CHtml::closeTag($tag->name) . PHP_EOL;
 

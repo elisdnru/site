@@ -79,7 +79,7 @@ class WorkAdminController extends AdminController
                     $sort = $model->sort;
                 }
                 $count++;
-            };
+            }
 
             if ($sort < $count) {
                 $sort = $count;
@@ -90,7 +90,7 @@ class WorkAdminController extends AdminController
                 $model->sort = $sort;
                 $sort--;
                 $success = $success && $model->save();
-            };
+            }
         }
 
         $this->redirectOrAjax();

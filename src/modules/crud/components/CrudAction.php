@@ -61,7 +61,7 @@ class CrudAction extends CAction
     protected function redirectToReferrer()
     {
         if (!Yii::app()->request->isAjaxRequest) {
-            $this->controller->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : ['index']);
+            $this->controller->redirect($_POST['returnUrl'] ?? ['index']);
         }
     }
 

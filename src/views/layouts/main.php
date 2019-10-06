@@ -153,7 +153,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
     </div>
 </footer>
 
-<!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>с. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . "MB" ?> -->
+<!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
 
 </body>
 </html>

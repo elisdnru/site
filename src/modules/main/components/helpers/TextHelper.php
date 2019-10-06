@@ -52,12 +52,12 @@ class TextHelper
     public static function firstWord($str)
     {
         $words = explode(' ', $str);
-        return isset($words[0]) ? $words[0] : '';
+        return $words[0] ?? '';
     }
 
     public static function fixBR($text)
     {
-        $text = preg_replace_callback('@(<p>.*?</p>)@s', ['app\modules\main\components\helpers\TextHelper', 'pregCallback'], $text);
+        $text = preg_replace_callback('@(<p>.*?</p>)@s', [\app\modules\main\components\helpers\TextHelper::class, 'pregCallback'], $text);
         return $text;
     }
 

@@ -26,7 +26,7 @@ use app\modules\user\models\User;
         [
             'name' => 'category_id',
             'filter' => BlogCategory::model()->getTabList(),
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return $data->category ? $data->category->fullTitle : '';
             }
         ],
@@ -34,7 +34,7 @@ use app\modules\user\models\User;
             'name' => 'author_id',
             'htmlOptions' => ['style' => 'text-align:center'],
             'filter' => CHtml::listData(User::model()->findAll(), 'id', 'username'),
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return $data->author->username;
             },
         ],
@@ -42,7 +42,7 @@ use app\modules\user\models\User;
             'name' => 'group_id',
             'header' => 'Группа',
             'filter' => BlogPostGroup::model()->getAssocList(),
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return $data->group ? $data->group->title : '';
             }
         ],

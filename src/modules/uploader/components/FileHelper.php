@@ -12,7 +12,7 @@ class FileHelper
         $path = $path ? $path . '/' : '';
 
         do {
-            $name = md5(microtime() . rand(0, 9999));
+            $name = md5(microtime() . random_int(0, 9999));
             $file = $path . $name . $extension;
             usleep(1);
         } while (file_exists($file));

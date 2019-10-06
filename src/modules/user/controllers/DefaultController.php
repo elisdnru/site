@@ -54,7 +54,7 @@ class DefaultController extends Controller
     public function actionLogout()
     {
         Yii::app()->user->logout();
-        $this->redirect(Yii::app()->request->urlReferrer ? Yii::app()->request->urlReferrer : Yii::app()->homeUrl);
+        $this->redirect(Yii::app()->request->urlReferrer ?: Yii::app()->homeUrl);
     }
 
     public function actionRegistration()

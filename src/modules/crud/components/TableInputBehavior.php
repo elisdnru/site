@@ -10,15 +10,15 @@ class TableInputBehavior extends CBehavior
 {
     public function renderTableForm($params)
     {
-        $modelName = isset($params['class']) ? $params['class'] : '';
-        $formName = isset($params['form']) ? $params['form'] : '';
-        $formOrder = isset($params['order']) ? $params['order'] : '';
-        $view = isset($params['view']) ? $params['view'] : 'index';
+        $modelName = $params['class'] ?? '';
+        $formName = $params['form'] ?? '';
+        $formOrder = $params['order'] ?? '';
+        $view = $params['view'] ?? 'index';
 
         // Grid
         $items = CActiveRecord::model($modelName)->findAll(
             [
-                'order' => $formOrder ? $formOrder : 'title ASC',
+                'order' => $formOrder ?: 'title ASC',
             ]
         );
 
@@ -43,7 +43,7 @@ class TableInputBehavior extends CBehavior
                 Yii::app()->user->setFlash('success', 'Изменения сохранены');
 
                 $items = CActiveRecord::model($modelName)->findAll([
-                    'order' => $formOrder ? $formOrder : 'title ASC',
+                    'order' => $formOrder ?: 'title ASC',
                 ]);
             }
         }

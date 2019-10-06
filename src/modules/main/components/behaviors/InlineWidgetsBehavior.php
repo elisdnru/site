@@ -135,7 +135,7 @@ class InlineWidgetsBehavior extends CBehavior
         if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {
                 while (preg_match('#\{' . $this->_widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->_widgetToken . '\}#is', $text, $p)) {
-                    $text = str_replace($p[0], $this->_loadWidget($class, isset($p[2]) ? $p[2] : ''), $text);
+                    $text = str_replace($p[0], $this->_loadWidget($class, $p[2] ?? ''), $text);
                 }
             }
             return $text;
@@ -195,7 +195,7 @@ class InlineWidgetsBehavior extends CBehavior
 
         foreach ($params as $param) {
             if ($param) {
-                list($attribute, $value) = explode('=', $param);
+                [$attribute, $value] = explode('=', $param);
                 if ($value) {
                     $attrs[$attribute] = trim($value);
                 }

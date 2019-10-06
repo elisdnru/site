@@ -25,7 +25,7 @@ class LiveLayoutBehavior extends CBehavior
                     "application.modules.{$module}.views.layouts.{$module}_{$controller}_{$action}",
                     "application.modules.{$module}.views.layouts.{$module}_{$controller}",
                     "application.modules.{$module}.views.layouts.{$module}",
-                    "application.views.layouts.page.default",
+                    'application.views.layouts.page.default',
                 ];
 
                 foreach ($layouts as $layout) {

@@ -34,7 +34,7 @@ class Tags implements ICacheDependency
      */
     public function getHasChanged()
     {
-        $tags = array_map(function ($i) {
+        $tags = array_map(static function ($i) {
             return TaggingBehavior::PREFIX . $i;
         }, $this->tags);
         $values = Yii::app()->cache->mget($tags);

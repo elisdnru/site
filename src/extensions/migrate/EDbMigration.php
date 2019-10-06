@@ -70,10 +70,10 @@ class EDbMigration extends CDbMigration
             parent::execute($sql, $params);
         } else {
             try {
-                echo "    > execute SQL ...";
+                echo '    > execute SQL ...';
                 $time = microtime(true);
                 $this->getDbConnection()->createCommand($sql)->execute($params);
-                echo " done (time: " . sprintf('%.3f', microtime(true) - $time) . "s)\n";
+                echo ' done (time: ' . sprintf('%.3f', microtime(true) - $time) . "s)\n";
             } catch (CException $e) {
                 echo " failed.\n\n";
                 throw $e;

@@ -94,7 +94,7 @@ class Controller extends BaseController
     public function redirectOrAjax($route = ['index'])
     {
         if (!Yii::app()->request->isAjaxRequest) {
-            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : $route);
+            $this->redirect($_POST['returnUrl'] ?? $route);
         }
     }
 

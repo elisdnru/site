@@ -90,8 +90,8 @@ class Sitemap
     {
         if (is_int($date)) {
             return date(DATE_W3C, $date);
-        } else {
-            return date(DATE_W3C, strtotime($date));
         }
+
+        return date(DATE_W3C, strtotime($date));
     }
 }

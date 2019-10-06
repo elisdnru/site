@@ -207,7 +207,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     private function storeContent($content)
     {
         do {
-            $id = md5(rand(0, 100000));
+            $id = md5(random_int(0, 100000));
         } while (isset($this->_preContents[$id]));
         $this->_preContents[$id] = $content;
         return $id;

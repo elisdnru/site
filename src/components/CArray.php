@@ -101,11 +101,7 @@ class CArray
 
         $found = [];
         foreach ($keys as $key) {
-            if (isset($search[$key])) {
-                $found[$key] = $search[$key];
-            } else {
-                $found[$key] = null;
-            }
+            $found[$key] = $search[$key] ?? null;
         }
 
         return $found;
@@ -140,7 +136,7 @@ class CArray
     {
         foreach ($array as $key => $val) {
             // Map the callback to the key
-            $array[$key] = is_array($val) ? CArray::map_recursive($callback, $val) : call_user_func($callback, $val);
+            $array[$key] = is_array($val) ? self::map_recursive($callback, $val) : call_user_func($callback, $val);
         }
 
         return $array;
@@ -205,10 +201,10 @@ class CArray
                 if (isset($result[$key])) {
                     if (is_array($val)) {
                         // Arrays are merged recursively
-                        $result[$key] = CArray::merge($result[$key], $val);
+                        $result[$key] = self::merge($result[$key], $val);
                     } elseif (is_int($key)) {
                         // Indexed arrays are appended
-                        array_push($result, $val);
+                        $result[] = $val;
                     } else {
                         // Associative arrays are replaced
                         $result[$key] = $val;
@@ -279,7 +275,7 @@ class CArray
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 // Convert the array to an object
-                $value = CArray::to_object($value, $class);
+                $value = self::to_object($value, $class);
             }
 
             // Add the value to the object

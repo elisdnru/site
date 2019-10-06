@@ -30,7 +30,8 @@ class LinkColumn extends CDataColumn
     {
         if (!empty($this->value)) {
             return $this->evaluateExpression($this->value, ['data' => $data, 'row' => $row]);
-        } elseif (!empty($this->name)) {
+        }
+        if (!empty($this->name)) {
             return CHtml::value($data, $this->name);
         }
         return null;
@@ -40,7 +41,8 @@ class LinkColumn extends CDataColumn
     {
         if (!empty($this->link)) {
             return $this->evaluateExpression($this->link, ['data' => $data, 'row' => $row]);
-        } elseif ($this->link !== false) {
+        }
+        if ($this->link !== false) {
             return Yii::app()->controller->createUrl('update', ['id' => $data->getPrimaryKey()]);
         }
         return '';

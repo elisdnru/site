@@ -7,7 +7,7 @@ $this->widget('zii.widgets.grid.CGridView', [
     'columns' => [
         [
             'class' => \app\modules\main\components\widgets\ImageLinkColumn::class,
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return $data->getAvatarUrl(50, 50);
             },
             'width' => 50,
@@ -30,7 +30,7 @@ $this->widget('zii.widgets.grid.CGridView', [
         ],
         [
             'name' => 'role',
-            'value' => function ($data) { return Access::getRoleName($data->role); },
+            'value' => static function ($data) { return Access::getRoleName($data->role); },
             'htmlOptions' => ['style' => 'text-align:center'],
             'filter' => Access::getRoles(),
         ],

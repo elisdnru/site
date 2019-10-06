@@ -35,7 +35,7 @@ class Access extends CModel
             case self::ROLE_ADMIN:
                 return 'Администратор';
                 break;
-        };
+        }
         return false;
     }
 }

@@ -142,7 +142,7 @@ class ToggleColumn extends CGridColumn
     protected function registerClientScript()
     {
         if (is_string($this->confirmation)) {
-            $confirmation = "if(!confirm(" . CJavaScript::encode($this->confirmation) . ")) return false;";
+            $confirmation = 'if(!confirm(' . CJavaScript::encode($this->confirmation) . ')) return false;';
         } else {
             $confirmation = '';
         }
@@ -182,13 +182,13 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
         $script = CJavaScript::encode(new CJavaScriptExpression($js));
         Yii::app()->clientScript->registerScript(__CLASS__ . '#' . $this->id, $script);
 
-        $style = "
+        $style = '
         .toggle-link .icon-on, .toggle-link .icon-off {display:block; margin:0 auto;}
         .toggle-link .icon-on {display:none;}
         .toggle-link .icon-off {display:block;}
         .toggle-link.toggle-true .icon-on {display:block !important;}
         .toggle-link.toggle-true .icon-off {display:none !important;}
-        ";
+        ';
 
         Yii::app()->clientScript->registerCSS(__CLASS__ . '#' . $this->id, $style);
     }

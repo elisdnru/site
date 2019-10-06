@@ -202,16 +202,16 @@ class EMigrateCommand extends MigrateCommand
             echo "extended with EMigrateCommand by cebe <mail@cebe.cc>\n\n";
 
             // check --module parameter
-            if ($action == 'create' && !is_null($this->module)) {
+            if ($action == 'create' && $this->module !== null) {
                 $this->usageError('create command can not be called with --module parameter!');
             }
-            if (!is_null($this->module) && !is_string($this->module)) {
+            if ($this->module !== null && !is_string($this->module)) {
                 $this->usageError('parameter --module must be a comma seperated list of modules or a single module name!');
             }
 
             // inform user about disabled modules
             if (!empty($this->disabledModules)) {
-                echo "The following modules are disabled: " . implode(', ', $this->disabledModules) . "\n";
+                echo 'The following modules are disabled: ' . implode(', ', $this->disabledModules) . "\n";
             }
 
             // only add modules that are desired by command
@@ -230,7 +230,7 @@ class EMigrateCommand extends MigrateCommand
                         exit(1);
                     }
                 }
-                echo "Current call is limited to module" . (count($modules) > 1 ? "s" : "") . ": " . implode(', ', $modules) . "\n";
+                echo 'Current call is limited to module' . (count($modules) > 1 ? 's' : '') . ': ' . implode(', ', $modules) . "\n";
             }
             echo "\n";
 
@@ -310,7 +310,7 @@ class EMigrateCommand extends MigrateCommand
         foreach ($command->queryColumn() as $version) {
             $module = null;
             foreach ($migrations as $migration) {
-                list($module, $migration) = explode($this->moduleDelimiter, $migration);
+                [$module, $migration] = explode($this->moduleDelimiter, $migration);
                 if ($migration == $version) {
                     break;
                 }
@@ -385,7 +385,7 @@ class EMigrateCommand extends MigrateCommand
         }
 
         if ($this->_scopeNewMigrations || !$this->_scopeAddModule) {
-            $select = "version AS version_name, apply_time";
+            $select = 'version AS version_name, apply_time';
             $params = [];
         } else {
             /*
@@ -396,16 +396,16 @@ class EMigrateCommand extends MigrateCommand
              */
             switch ($db->getDriverName()) {
                 case 'mysql':
-                    $select = "CONCAT(module, :delimiter, version) AS version_name, apply_time";
+                    $select = 'CONCAT(module, :delimiter, version) AS version_name, apply_time';
                     break;
                 case 'mssql': // http://msdn.microsoft.com/en-us/library/aa276862%28v=sql.80%29.aspx
                 case 'sqlsrv':
                 case 'cubrid': // http://www.cubrid.org/manual/840/en/Concatenation%20Operator
-                    $select = "(module + :delimiter + version) AS version_name, apply_time";
+                    $select = '(module + :delimiter + version) AS version_name, apply_time';
                     break;
                 default: // SQL-ANSI default: sqlite, firebird, ibm, informix, oci, pgsql, sqlite, sqlite2
                     // not sure what to do with odbc
-                    $select = "(module || :delimiter || version) AS version_name, apply_time";
+                    $select = '(module || :delimiter || version) AS version_name, apply_time';
             }
             $params = [':delimiter' => $this->moduleDelimiter];
         }
@@ -416,7 +416,7 @@ class EMigrateCommand extends MigrateCommand
             ->order('version DESC')
             ->limit($limit);
 
-        if (!is_null($this->module)) {
+        if ($this->module !== null) {
             $criteria = new CDbCriteria();
             $criteria->addInCondition('module', explode(',', $this->module));
             $command->where = $criteria->condition;
@@ -513,8 +513,7 @@ EOD;
     {
         if ($this->templateFile !== null) {
             return parent::getTemplate();
-        } else {
-            return str_replace('CDbMigration', '\\' . EDbMigration::class, parent::getTemplate());
         }
+        return str_replace('CDbMigration', '\\' . EDbMigration::class, parent::getTemplate());
     }
 }

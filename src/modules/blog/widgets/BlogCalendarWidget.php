@@ -51,7 +51,7 @@ class BlogCalendarWidget extends Widget
             $days[date('j', strtotime($post->date))] = [CHtml::normalizeUrl(['/blog/default/date', 'date' => date('Y-m-d', strtotime($post->date))]), 'linked-day'];
         }
 
-        if (isset($locale) && $locale == 'ja_JP.utf8') {
+        if (isset($locale) && $locale === 'ja_JP.utf8') {
             $len = 3;
         } else {
             $len = 2;

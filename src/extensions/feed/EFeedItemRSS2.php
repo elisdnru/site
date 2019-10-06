@@ -105,7 +105,7 @@ class EFeedItemRSS2 extends EFeedItemAbstract
             $element .= (in_array($tag->name, $this->CDATAEncoded)) ? $tag->content : CHtml::encode($tag->content);
         }
 
-        $element .= (in_array($tag->name, $this->CDATAEncoded)) ? ']]>' : "";
+        $element .= (in_array($tag->name, $this->CDATAEncoded)) ? ']]>' : '';
 
         $element .= CHtml::closeTag($tag->name) . PHP_EOL;
 

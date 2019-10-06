@@ -138,7 +138,7 @@ class FileAdminController extends AdminController
             foreach ($dir->contents as $item) {
                 $file = Yii::app()->file->set($item);
 
-                if ($file->basename != '.htaccess') {
+                if ($file->basename !== '.htaccess') {
                     switch ($action) {
                         case 'del':
                             if (Yii::app()->request->getPost('del_' . md5($file->basename))) {

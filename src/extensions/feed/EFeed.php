@@ -324,7 +324,7 @@ class EFeed extends CComponent
      */
     public static function uuid($key = null, $prefix = '')
     {
-        $key = ($key == null) ? uniqid(rand()) : $key;
+        $key = $key ?? uniqid(mt_rand(), true);
         $chars = md5($key);
         $uuid = substr($chars, 0, 8) . '-';
         $uuid .= substr($chars, 8, 4) . '-';
@@ -341,7 +341,7 @@ class EFeed extends CComponent
      */
     public function generateFeed()
     {
-        header("Content-type: text/xml");
+        header('Content-type: text/xml');
         $this->renderHead();
         $this->renderChannels();
         $this->renderItems();
@@ -362,16 +362,16 @@ class EFeed extends CComponent
 
         if ($this->type == self::RSS2) {
             $head .= CHtml::openTag('rss', [
-                    "version" => "2.0",
+                    'version' => '2.0',
                 ]) . PHP_EOL;
         } elseif ($this->type == self::RSS1) {
             $head .= CHtml::openTag('rdf:RDF', [
-                    "xmlns:rdf" => "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                    "xmlns" => "http://purl.org/rss/1.0/",
-                    "xmlns:dc" => "http://purl.org/dc/elements/1.1/"
+                    'xmlns:rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+                    'xmlns' => 'http://purl.org/rss/1.0/',
+                    'xmlns:dc' => 'http://purl.org/dc/elements/1.1/'
                 ]) . PHP_EOL;
         } elseif ($this->type == self::ATOM) {
-            $head .= CHtml::openTag('feed', ["xmlns" => "http://www.w3.org/2005/Atom"]) . PHP_EOL;
+            $head .= CHtml::openTag('feed', ['xmlns' => 'http://www.w3.org/2005/Atom']) . PHP_EOL;
         }
         echo $head;
     }
@@ -432,7 +432,7 @@ class EFeed extends CComponent
                 throw new CException(Yii::t('EFeed', 'No items have been set'));
             }
 
-            echo "<items>" . PHP_EOL . "<rdf:Seq>" . PHP_EOL;
+            echo '<items>' . PHP_EOL . '<rdf:Seq>' . PHP_EOL;
 
             foreach ($this->feedElements->itemAt('items') as $item) {
                 $tag = $item->link;
@@ -443,7 +443,7 @@ class EFeed extends CComponent
 
                 echo CHtml::tag('rdf:li', ['resource' => $tag->content], true) . PHP_EOL;
             }
-            echo "</rdf:Seq>" . PHP_EOL . "</items>" . PHP_EOL;
+            echo '</rdf:Seq>' . PHP_EOL . '</items>' . PHP_EOL;
         }
     }
 
@@ -478,12 +478,12 @@ class EFeed extends CComponent
         $node = "\t";
 
         if (is_array($tagContent) && $this->type == self::RSS1) {
-            $attributes['rdf:parseType'] = "Resource";
+            $attributes['rdf:parseType'] = 'Resource';
         }
 
         if (in_array($tagName, $this->feedElements->itemAt('CDATAEncoded'))) {
             if ($this->type == self::ATOM) {
-                $attributes['type'] = "html";
+                $attributes['type'] = 'html';
             }
             $node .= CHtml::openTag($tagName, $attributes) . '<![CDATA[';
         } else {

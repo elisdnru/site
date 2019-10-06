@@ -240,9 +240,9 @@ class Page extends CActiveRecord
         if ($user->access_pages) {
             $allowed = $user->accessPagesArray;
             return in_array($this->primaryKey, $allowed) || $this->isChildOf($allowed);
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     private $_url;

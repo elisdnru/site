@@ -4,7 +4,7 @@ use app\modules\user\models\Access;
 
 $this->pageTitle = 'Error';
 $this->breadcrumbs = [
-    'Ошибка ' . (isset($error['code']) ? $error['code'] : ''),
+    'Ошибка ' . ($error['code'] ?? ''),
 ];
 ?>
 
@@ -12,7 +12,7 @@ $this->breadcrumbs = [
     $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
 } ?>
 
-<h2>Ошибка <?php echo isset($error['code']) ? $error['code'] : ''; ?></h2>
+<h2>Ошибка <?php echo $error['code'] ?? ''; ?></h2>
 
 <?php if (YII_DEBUG) : ?>
     <p><?php echo isset($error['message']) ? CHtml::encode($error['message']) : ''; ?></p>

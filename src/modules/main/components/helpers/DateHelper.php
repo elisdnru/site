@@ -18,7 +18,7 @@ class DateHelper
         $months = ['', 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
         if ($showMonth) {
-            $resultDate = intval(date('d', $time)) . ' ' . $months[intval(date('m', $time))] . ' ' . date('Y', $time);
+            $resultDate = (int)date('d', $time) . ' ' . $months[(int)date('m', $time)] . ' ' . date('Y', $time);
         } else {
             $resultDate = date('d', $time) . '-' . date('m', $time) . '-' . date('Y', $time);
         }
