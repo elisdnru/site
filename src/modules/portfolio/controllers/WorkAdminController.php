@@ -5,7 +5,7 @@ namespace app\modules\portfolio\controllers;
 use CDbCriteria;
 use CHttpException;
 use CPagination;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use app\modules\portfolio\models\PortfolioWork;
 use Yii;
 

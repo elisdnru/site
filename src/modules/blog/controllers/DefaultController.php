@@ -10,8 +10,8 @@ use CActiveDataProvider;
 use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
-use app\modules\main\components\Controller;
-use app\modules\main\components\DateLimiter;
+use app\components\Controller;
+use app\components\DateLimiter;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
 

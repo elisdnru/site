@@ -3,8 +3,8 @@
 namespace app\modules\page\models;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\main\components\TreeActiveDataProvider;
-use app\modules\main\components\helpers\TextHelper;
+use app\components\TreeActiveDataProvider;
+use app\components\helpers\TextHelper;
 use CActiveRecord;
 use CDbCriteria;
 use app\modules\user\models\User;
@@ -197,7 +197,7 @@ class Page extends CActiveRecord
                 ],
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -218,7 +218,7 @@ class Page extends CActiveRecord
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
             ],
             'PingBehavior' => [
-                'class' => \app\modules\main\components\arbehaviors\PingBehavior::class,
+                'class' => \app\components\arbehaviors\PingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

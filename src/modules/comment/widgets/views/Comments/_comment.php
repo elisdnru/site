@@ -1,6 +1,6 @@
-<article class="comment<?php use app\modules\main\components\helpers\DateHelper;
-use app\modules\main\components\helpers\SocNetworkHelper;
-use app\modules\main\components\helpers\TextHelper;
+<article class="comment<?php use app\components\helpers\DateHelper;
+use app\components\helpers\SocNetworkHelper;
+use app\components\helpers\TextHelper;
 
 if ($authorId == $comment->user_id) :
     ?> author<?php

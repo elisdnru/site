@@ -3,7 +3,7 @@
 namespace app\modules\contact;
 
 use app\modules\contact\models\Contact;
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class ContactModule extends WebModule
 {

@@ -4,7 +4,7 @@ namespace app\modules\user\controllers;
 
 use CActiveForm;
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use app\modules\page\models\Page;
 use app\modules\user\models\User;
 use app\modules\user\models\UserPage;

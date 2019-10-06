@@ -4,7 +4,7 @@ namespace app\modules\blog\models;
 
 use app\components\module\UrlRulesHelper;
 use app\modules\comment\components\DICommentDepends;
-use app\modules\main\components\helpers\TextHelper;
+use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -83,9 +83,9 @@ class BlogPost extends CActiveRecord implements DICommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
+            ['author_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => \app\modules\blog\models\BlogCategory::class, 'attributeName' => 'id'],
-            ['group_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\BlogPostGroup::class, 'attributeName' => 'id'],
+            ['group_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\BlogPostGroup::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
@@ -216,7 +216,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'updateAttribute' => 'update_date',
             ],
             'PurifyShort' => [
-                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -226,7 +226,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
@@ -251,7 +251,7 @@ class BlogPost extends CActiveRecord implements DICommentDepends
                 'imageHeightAttribute' => 'image_height',
             ],
             'PingBehavior' => [
-                'class' => \app\modules\main\components\arbehaviors\PingBehavior::class,
+                'class' => \app\components\arbehaviors\PingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

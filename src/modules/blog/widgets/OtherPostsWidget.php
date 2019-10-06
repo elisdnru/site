@@ -6,7 +6,7 @@ use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use CDbCriteria;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 
 UrlRulesHelper::import('blog');
 

@@ -3,7 +3,7 @@
 namespace app\modules\comment;
 
 use app\modules\comment\models\Comment;
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class CommentModule extends WebModule
 {

@@ -4,7 +4,7 @@ namespace app\modules\portfolio\models;
 
 use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\helpers\TextHelper;
+use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -72,7 +72,7 @@ class PortfolioWork extends CActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\PortfolioCategory::class, 'attributeName' => 'id'],
+            ['category_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\PortfolioCategory::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
@@ -164,7 +164,7 @@ class PortfolioWork extends CActiveRecord
     {
         return [
             'PurifyShort' => [
-                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -173,7 +173,7 @@ class PortfolioWork extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -194,7 +194,7 @@ class PortfolioWork extends CActiveRecord
                 'imageHeightAttribute' => 'image_height',
             ],
             'PingBehavior' => [
-                'class' => \app\modules\main\components\arbehaviors\PingBehavior::class,
+                'class' => \app\components\arbehaviors\PingBehavior::class,
                 'urlAttribute' => 'url',
             ],
         ];

@@ -2,7 +2,7 @@
 /* @var $this AdminController */
 
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $model BlogPost */
 

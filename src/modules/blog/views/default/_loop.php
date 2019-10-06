@@ -1,4 +1,4 @@
-<?php use app\modules\main\components\widgets\ListView;
+<?php use app\components\widgets\ListView;
 
 $this->widget(ListView::class, [
     'dataProvider' => $dataProvider,

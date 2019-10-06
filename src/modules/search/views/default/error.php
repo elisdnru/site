@@ -1,7 +1,7 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\user\models\Access;
 
 /* @var $dataProvider CActiveDataProvider */

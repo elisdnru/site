@@ -3,7 +3,7 @@
 namespace app\modules\blog;
 
 use app\modules\blog\models\BlogPostComment;
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class BlogModule extends WebModule
 {

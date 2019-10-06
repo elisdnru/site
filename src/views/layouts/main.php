@@ -1,6 +1,6 @@
 <?php
 use app\extensions\cachetagging\Tags;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\menu\models\Menu;
 use app\modules\user\models\Access;
 
@@ -72,7 +72,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
 
     <?php if (count($this->admin)) : ?>
         <div class="adminbar">
-            <?php $this->widget(\app\modules\main\components\widgets\AdminLinksWidget::class, [
+            <?php $this->widget(\app\modules\admin\widgets\AdminLinksWidget::class, [
                 'links' => $this->admin,
             ]); ?>
         </div>
@@ -107,7 +107,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
 
         <!--noindex-->
         <div class="nav">
-            <?php $this->beginWidget(\app\modules\main\components\widgets\NofollowWidget::class); ?>
+            <?php $this->beginWidget(\app\components\widgets\NofollowWidget::class); ?>
             <?php $this->widget('zii.widgets.CMenu', [
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
             <?php $this->endWidget(); ?>

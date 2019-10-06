@@ -2,7 +2,7 @@
 /* @var $data BlogPost */
 
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\helpers\DateHelper;
+use app\components\helpers\DateHelper;
 
 $links = [];
 foreach ($data->cache(1000)->tags as $tag) {

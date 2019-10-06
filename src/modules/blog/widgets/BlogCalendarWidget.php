@@ -5,7 +5,7 @@ namespace app\modules\blog\widgets;
 use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPost;
 use CHtml;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
 
 UrlRulesHelper::import('blog');

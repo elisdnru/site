@@ -4,7 +4,7 @@ namespace app\modules\portfolio\models;
 
 use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogCategory;
-use app\modules\main\components\ExistOrEmpty;
+use app\components\ExistOrEmpty;
 use app\modules\category\models\TreeCategory;
 
 UrlRulesHelper::import('portfolio');

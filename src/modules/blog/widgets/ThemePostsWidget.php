@@ -4,7 +4,7 @@ namespace app\modules\blog\widgets;
 
 use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\BlogPostGroup;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 
 UrlRulesHelper::import('blog');
 

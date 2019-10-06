@@ -2,7 +2,7 @@
 
 namespace app\modules\follow\widgets;
 
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 
 class FollowWidget extends Widget
 {

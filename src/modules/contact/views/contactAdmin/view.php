@@ -2,7 +2,7 @@
 /* @var $this AdminController */
 
 use app\modules\contact\models\Contact;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $next Contact */
 /* @var $prev Contact */

@@ -3,7 +3,7 @@
 namespace app\modules\page\controllers;
 
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use app\modules\page\models\Page;
 use Yii;
 

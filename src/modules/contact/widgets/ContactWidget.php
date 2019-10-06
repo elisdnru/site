@@ -5,7 +5,7 @@ namespace app\modules\contact\widgets;
 use app\components\module\UrlRulesHelper;
 use app\modules\contact\models\Contact;
 use app\modules\contact\models\ContactForm;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use Yii;
 
 UrlRulesHelper::import('contact');

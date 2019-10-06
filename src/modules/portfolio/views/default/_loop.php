@@ -1,4 +1,4 @@
-<?php $this->widget(\app\modules\main\components\widgets\ListView::class, [
+<?php $this->widget(\app\components\widgets\ListView::class, [
     'dataProvider' => $dataProvider,
     'itemView' => '_view',
     'id' => 'worklist',

@@ -3,7 +3,7 @@
 namespace app\modules\comment\models;
 
 use app\modules\comment\components\DICommentDepends;
-use app\modules\main\components\helpers\GravatarHelper;
+use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -167,7 +167,7 @@ class Comment extends CActiveRecord
                 'setUpdateOnCreate' => false,
             ],
             'PurifyText' => [
-                'class' => \app\modules\main\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'encodePreContent' => true,

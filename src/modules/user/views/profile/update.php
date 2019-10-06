@@ -12,7 +12,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/userAdmin/index')];
 } ?>
 
-<?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Редактировать профиль']); ?>
+<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Редактировать профиль']); ?>
 
 <div class="form">
     <?php Yii::app()->clientScript->registerCoreScript('form'); ?>

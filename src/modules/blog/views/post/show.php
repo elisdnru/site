@@ -4,9 +4,9 @@
 use app\extensions\cachetagging\Tags;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostComment;
-use app\modules\main\components\Controller;
-use app\modules\main\components\helpers\DateHelper;
-use app\modules\main\components\helpers\NumberHelper;
+use app\components\Controller;
+use app\components\helpers\DateHelper;
+use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 /* @var $model BlogPost */

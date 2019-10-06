@@ -2,7 +2,7 @@
 /* @var $this AdminController */
 
 use app\modules\blog\models\BlogPostComment;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $material BlogPostComment */
 /* @var $dataProvider CActiveDataProvider */

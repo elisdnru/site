@@ -2,7 +2,7 @@
 
 namespace app\modules\admin;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class AdminModule extends WebModule
 {

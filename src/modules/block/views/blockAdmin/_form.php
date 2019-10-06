@@ -2,7 +2,7 @@
 /* @var $this AdminController */
 
 use app\modules\block\models\Block;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $model Block */
 /* @var $form CActiveForm */

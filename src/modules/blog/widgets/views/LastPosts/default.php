@@ -1,4 +1,4 @@
-<?php use app\modules\main\components\helpers\DateHelper;
+<?php use app\components\helpers\DateHelper;
 
 foreach ($posts as $data) : ?>
     <?php

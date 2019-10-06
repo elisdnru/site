@@ -3,7 +3,7 @@
 namespace app\modules\portfolio\controllers;
 
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use app\modules\portfolio\models\PortfolioCategory;
 use app\modules\portfolio\models\PortfolioWork;
 

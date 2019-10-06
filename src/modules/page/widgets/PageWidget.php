@@ -3,7 +3,7 @@
 namespace app\modules\page\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
 

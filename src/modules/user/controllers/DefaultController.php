@@ -4,7 +4,7 @@ namespace app\modules\user\controllers;
 
 use app\modules\user\models\Access;
 use CActiveForm;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\components\module\UrlRulesHelper;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\RemindForm;
@@ -19,7 +19,7 @@ class DefaultController extends Controller
     {
         return [
             'captcha' => [
-                'class' => \app\modules\main\components\actions\CaptchaAction::class,
+                'class' => \app\components\actions\CaptchaAction::class,
             ],
         ];
     }

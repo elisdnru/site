@@ -2,7 +2,7 @@
 /* @var $this AdminController */
 
 use app\modules\comment\models\Comment;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $model Comment */
 /* @var $form CActiveForm */

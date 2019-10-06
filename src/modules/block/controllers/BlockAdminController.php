@@ -4,7 +4,7 @@ namespace app\modules\block\controllers;
 
 use app\modules\block\models\Block;
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 class BlockAdminController extends AdminController
 {

@@ -3,7 +3,7 @@
 namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
 
 class BlockWidget extends Widget

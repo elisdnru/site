@@ -1,4 +1,4 @@
-<?php use app\modules\main\components\helpers\SocNetworkHelper;
+<?php use app\components\helpers\SocNetworkHelper;
 
 if ($user) : ?>
     <div style="float:left;">

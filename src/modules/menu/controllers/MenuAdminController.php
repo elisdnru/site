@@ -3,7 +3,7 @@
 namespace app\modules\menu\controllers;
 
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use app\modules\menu\models\Menu;
 
 class MenuAdminController extends AdminController

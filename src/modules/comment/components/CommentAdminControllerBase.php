@@ -9,7 +9,7 @@ use CActiveRecord;
 use CDbCriteria;
 use CException;
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 UrlRulesHelper::import('users');
 

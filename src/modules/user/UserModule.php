@@ -2,7 +2,7 @@
 
 namespace app\modules\user;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class UserModule extends WebModule
 {

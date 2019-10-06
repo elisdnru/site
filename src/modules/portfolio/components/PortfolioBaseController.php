@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\components;
 
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\portfolio\PortfolioModule;
 
 abstract class PortfolioBaseController extends Controller

@@ -4,7 +4,7 @@ namespace app\modules\contact\controllers;
 
 use CHttpException;
 use app\modules\contact\models\Contact;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 class ContactAdminController extends AdminController
 {

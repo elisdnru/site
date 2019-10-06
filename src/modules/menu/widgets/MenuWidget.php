@@ -3,7 +3,7 @@
 namespace app\modules\menu\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use app\modules\menu\models\Menu;
 use Yii;
 

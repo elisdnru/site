@@ -2,7 +2,7 @@
 
 namespace app\modules\contact\controllers;
 
-use app\modules\main\components\Controller;
+use app\components\Controller;
 
 class DefaultController extends Controller
 {
@@ -10,7 +10,7 @@ class DefaultController extends Controller
     {
         return [
             'captcha' => [
-                'class' => \app\modules\main\components\actions\CaptchaAction::class,
+                'class' => \app\components\actions\CaptchaAction::class,
             ],
         ];
     }

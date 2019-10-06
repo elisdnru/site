@@ -2,7 +2,7 @@
 
 namespace app\modules\follow;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class FollowModule extends WebModule
 {

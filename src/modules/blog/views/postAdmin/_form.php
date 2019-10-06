@@ -6,7 +6,7 @@ use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostGroup;
 use app\modules\blog\models\BlogTag;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $model BlogPost */
 /* @var $form CActiveForm */

@@ -2,7 +2,7 @@
 
 namespace app\modules\tinymce;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class TinymceModule extends WebModule
 {

@@ -3,7 +3,7 @@
 
 use app\components\module\UrlRulesHelper;
 use app\extensions\cachetagging\Tags;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\user\models\Access;
 
 $this->pageTitle = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';

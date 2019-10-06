@@ -2,7 +2,7 @@
 
 namespace app\modules\uploader;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class UploaderModule extends WebModule
 {

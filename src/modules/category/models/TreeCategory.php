@@ -2,7 +2,7 @@
 
 namespace app\modules\category\models;
 
-use app\modules\main\components\TreeActiveDataProvider;
+use app\components\TreeActiveDataProvider;
 use CActiveDataProvider;
 use CDbCriteria;
 use Yii;
@@ -47,7 +47,7 @@ abstract class TreeCategory extends Category
     public function rules()
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', \app\modules\main\components\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
+            ['parent_id', \app\components\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
             ['parent_id', 'safe', 'on' => 'search'],
         ]);
     }

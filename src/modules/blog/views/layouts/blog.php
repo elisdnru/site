@@ -1,5 +1,5 @@
-<?php use app\modules\main\widgets\BreadcrumbsWidget;
-use app\modules\main\widgets\MessagesWidget;
+<?php use app\components\widgets\BreadcrumbsWidget;
+use app\components\widgets\MessagesWidget;
 
 $this->beginContent('//layouts/main'); ?>
 

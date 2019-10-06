@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\main\components\widgets\IconMenu;
+use app\components\widgets\IconMenu;
 
 $this->pageTitle = 'Панель управления';
 $this->breadcrumbs = [
@@ -29,7 +29,7 @@ $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/inde
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(\app\modules\main\components\widgets\IconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
+                    <?php $this->widget(\app\components\widgets\IconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
                 </ul>
                 <div class="clear"></div>
             </li>
@@ -74,7 +74,7 @@ $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/inde
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(\app\modules\main\components\widgets\IconMenu::class, ['items' => [
+                    <?php $this->widget(\app\components\widgets\IconMenu::class, ['items' => [
                         ['label' => 'Очистить кэш', 'url' => ['/admin/default/clearCache'], 'icon' => 'clear.png'],
                     ], 'iconsPath' => '/images/admin/']); ?>
                 </ul>

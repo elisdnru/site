@@ -2,7 +2,7 @@
 
 namespace app\modules\ulogin\controllers;
 
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\ulogin\models\UloginModel;
 use Yii;
 

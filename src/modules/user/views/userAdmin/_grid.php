@@ -6,7 +6,7 @@ $this->widget('zii.widgets.grid.CGridView', [
     'filter' => $model,
     'columns' => [
         [
-            'class' => \app\modules\main\components\widgets\ImageLinkColumn::class,
+            'class' => \app\components\widgets\grid\ImageLinkColumn::class,
             'value' => static function ($data) {
                 return $data->getAvatarUrl(50, 50);
             },
@@ -14,17 +14,17 @@ $this->widget('zii.widgets.grid.CGridView', [
             'htmlOptions' => ['style' => 'width:32px;text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\LinkColumn::class,
+            'class' => \app\components\widgets\grid\LinkColumn::class,
             'name' => 'username',
             'htmlOptions' => ['style' => 'text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\LinkColumn::class,
+            'class' => \app\components\widgets\grid\LinkColumn::class,
             'name' => 'email',
             'htmlOptions' => ['style' => 'text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\LinkColumn::class,
+            'class' => \app\components\widgets\grid\LinkColumn::class,
             'name' => 'fio',
             'htmlOptions' => ['style' => 'text-align:center'],
         ],
@@ -40,11 +40,11 @@ $this->widget('zii.widgets.grid.CGridView', [
             'htmlOptions' => ['style' => 'width:130px;text-align:center'],
         ],
         [
-            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
+            'class' => \app\components\widgets\grid\ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
+            'class' => \app\components\widgets\grid\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

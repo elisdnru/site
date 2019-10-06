@@ -2,7 +2,7 @@
 
 namespace app\modules\user\models;
 
-use app\modules\main\components\helpers\GravatarHelper;
+use app\components\helpers\GravatarHelper;
 use Yii;
 
 /**

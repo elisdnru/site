@@ -2,7 +2,7 @@
 
 namespace app\modules\share;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class ShareModule extends WebModule
 {

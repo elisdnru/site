@@ -66,7 +66,7 @@ return [
     'components' => [
 
         'urlManager' => [
-            'class' => \app\modules\main\components\system\UrlManager::class,
+            'class' => \app\components\system\UrlManager::class,
             'urlFormat' => 'path',
             'showScriptName' => false,
             'useStrictParsing' => true,
@@ -220,7 +220,7 @@ return [
         ],
 
         'rpcManager' => [
-            'class' => \app\modules\main\components\RPCManager::class,
+            'class' => \app\components\RPCManager::class,
         ],
 
         'widgetFactory' => [

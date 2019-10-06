@@ -5,7 +5,7 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostGroup;
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /**
  * @method renderTableForm($params)
@@ -15,14 +15,14 @@ class GroupAdminController extends AdminController
     public function actions()
     {
         return [
-            'delete' => \app\modules\crud\components\DeleteAction::class,
+            'delete' => \app\components\crud\actions\DeleteAction::class,
         ];
     }
 
     public function behaviors()
     {
         return array_replace(parent::behaviors(), [
-            'tableInputBehavior' => ['class' => \app\modules\crud\components\TableInputBehavior::class],
+            'tableInputBehavior' => ['class' => \app\components\behaviors\TableInputBehavior::class],
         ]);
     }
 

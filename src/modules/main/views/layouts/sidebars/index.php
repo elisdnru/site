@@ -2,31 +2,31 @@
 use app\modules\blog\models\BlogCategory;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
+    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
     <?php $this->widget(\app\modules\follow\widgets\FollowWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
 <?php if ($this->menu) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Управление']); ?>
+    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Управление']); ?>
     <?php $this->widget('zii.widgets.CMenu', ['items' => $this->menu]); ?>
     <?php $this->endWidget(); ?>
 <?php endif; ?>
 
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
+    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
     <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_sidebar']); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
-<?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Разделы блога']); ?>
+<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Разделы блога']); ?>
 <?php $this->widget('zii.widgets.CMenu', ['items' => BlogCategory::model()->cache(0, new Tags('blog'))->getMenuList(1000)]); ?>
 <?php $this->endWidget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Метки']); ?>
+    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Метки']); ?>
     <?php $this->widget(\app\modules\blog\widgets\TagCloudWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
@@ -34,19 +34,19 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 
 <!--noindex-->
 <?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class); ?>
+    <?php $this->beginWidget(\app\components\widgets\Portlet::class); ?>
     <?php $this->widget(\app\modules\blog\widgets\BlogCalendarWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 <!--/noindex-->
 
-<?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Профиль']); ?>
+<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Профиль']); ?>
 <?php $this->widget(\app\modules\user\widgets\LoginFormWidget::class); ?>
 <?php $this->endWidget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Недавно обновившиеся записи']); ?>
+    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Недавно обновившиеся записи']); ?>
     <?php $this->widget(\app\modules\blog\widgets\UpdatedPostsWidget::class, ['limit' => 5]); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>

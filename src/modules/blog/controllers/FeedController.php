@@ -4,7 +4,7 @@ namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\BlogPost;
 use CHtml;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\extensions\feed\EFeed;
 use Yii;
 

@@ -2,7 +2,7 @@
 
 namespace app\modules\category\models;
 
-use app\modules\main\components\helpers\TextHelper;
+use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;

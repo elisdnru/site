@@ -3,7 +3,7 @@
 namespace app\modules\user\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\User;
 use Yii;

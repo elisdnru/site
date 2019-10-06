@@ -3,7 +3,7 @@
 
 use app\modules\blog\models\BlogCategoryForm;
 use app\modules\blog\models\BlogPostGroup;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 
 /* @var $items BlogPostGroup[] */
 /* @var $categoryForm BlogCategoryForm */

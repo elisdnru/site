@@ -4,9 +4,9 @@ namespace app\modules\file\controllers;
 
 use app\modules\user\models\Access;
 use CHttpException;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use app\modules\uploader\components\FileHelper;
-use app\modules\main\components\helpers\TextHelper;
+use app\components\helpers\TextHelper;
 use Yii;
 
 class FileAdminController extends AdminController

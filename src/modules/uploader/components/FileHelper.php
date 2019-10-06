@@ -2,7 +2,7 @@
 
 namespace app\modules\uploader\components;
 
-use app\modules\main\components\helpers\TextHelper;
+use app\components\helpers\TextHelper;
 
 class FileHelper
 {

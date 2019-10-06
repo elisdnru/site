@@ -18,15 +18,15 @@
             'type' => 'html',
         ],
         [
-            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
+            'class' => \app\components\widgets\grid\ButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
+            'class' => \app\components\widgets\grid\ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\modules\main\components\widgets\ButtonColumn::class,
+            'class' => \app\components\widgets\grid\ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

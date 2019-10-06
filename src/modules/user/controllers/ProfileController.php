@@ -5,7 +5,7 @@ namespace app\modules\user\controllers;
 use app\modules\user\models\Access;
 use CActiveForm;
 use CHttpException;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
 

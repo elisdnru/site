@@ -1,7 +1,7 @@
 <?php
 /* @var $this AdminController */
 
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 
 /* @var $material CActiveRecord */
 /* @var $dataPrvider CActiveDataProvider */

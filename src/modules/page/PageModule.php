@@ -2,7 +2,7 @@
 
 namespace app\modules\page;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class PageModule extends WebModule
 {

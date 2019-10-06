@@ -3,7 +3,7 @@
 namespace app\modules\ulogin\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 
 UrlRulesHelper::import('ulogin');
 

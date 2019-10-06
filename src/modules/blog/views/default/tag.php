@@ -2,8 +2,8 @@
 /* @var $this Controller */
 
 use app\modules\blog\models\BlogTag;
-use app\modules\main\components\Controller;
-use app\modules\main\components\helpers\NumberHelper;
+use app\components\Controller;
+use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 /* @var $tag BlogTag */

@@ -3,7 +3,7 @@
 namespace app\modules\sitemap\controllers;
 
 use app\modules\blog\models\BlogPost;
-use app\modules\main\components\Controller;
+use app\components\Controller;
 use app\modules\sitemap\components\Sitemap;
 use app\components\module\UrlRulesHelper;
 use app\modules\page\models\Page;

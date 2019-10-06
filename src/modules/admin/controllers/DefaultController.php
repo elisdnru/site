@@ -3,10 +3,8 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\user\models\Access;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use Yii;
-use function is_a;
-use app\modules\main\components\system\WebModule;
 
 class DefaultController extends AdminController
 {
@@ -30,7 +28,7 @@ class DefaultController extends AdminController
                 $module = Yii::app()->getModule($key);
 
                 if ($module) {
-                    if ($module instanceof \app\modules\main\components\system\WebModule && Yii::app()->moduleManager->allowed($module->id)) {
+                    if ($module instanceof \app\components\system\WebModule && Yii::app()->moduleManager->allowed($module->id)) {
                         $modules[$module->group ?? 'Прочее'][$module->name] = $module;
                     }
                 }

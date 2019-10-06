@@ -3,8 +3,8 @@
 
 use app\modules\blog\models\BlogSearchForm;
 use app\modules\blog\widgets\BlogSearchFormWidget;
-use app\modules\main\components\Controller;
-use app\modules\main\components\helpers\NumberHelper;
+use app\components\Controller;
+use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 /* @var $searchForm BlogSearchForm */

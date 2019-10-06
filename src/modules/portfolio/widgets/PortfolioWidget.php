@@ -5,7 +5,7 @@ namespace app\modules\portfolio\widgets;
 use app\components\module\UrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
 use CDbCriteria;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 use app\modules\portfolio\models\PortfolioWork;
 use app\extensions\cachetagging\Tags;
 

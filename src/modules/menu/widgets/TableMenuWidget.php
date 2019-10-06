@@ -4,7 +4,7 @@ namespace app\modules\menu\widgets;
 
 use app\components\module\UrlRulesHelper;
 use CHtml;
-use app\modules\main\components\widgets\Widget;
+use app\components\widgets\Widget;
 
 UrlRulesHelper::import('menu');
 

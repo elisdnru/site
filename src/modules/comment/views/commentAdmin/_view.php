@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\components\helpers\SocNetworkHelper;
-use app\modules\main\components\helpers\TextHelper;
+use app\components\helpers\SocNetworkHelper;
+use app\components\helpers\TextHelper;
 
 $groupurl = $this->createUrl('index', ['id' => $data->material_id]);
 $editurl = $this->createUrl('update', ['id' => $data->id]);

@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\main\components\helpers\NumberHelper;
+use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
 $this->pageTitle = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

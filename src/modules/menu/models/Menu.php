@@ -3,7 +3,7 @@
 namespace app\modules\menu\models;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\main\components\TreeActiveDataProvider;
+use app\components\TreeActiveDataProvider;
 use CActiveRecord;
 use app\modules\category\models\Category;
 use CDbCriteria;

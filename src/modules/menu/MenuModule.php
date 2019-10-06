@@ -2,7 +2,7 @@
 
 namespace app\modules\menu;
 
-use app\modules\main\components\system\WebModule;
+use app\components\system\WebModule;
 
 class MenuModule extends WebModule
 {

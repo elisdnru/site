@@ -6,7 +6,7 @@ use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogTag;
 use CHttpException;
 use CJSON;
-use app\modules\main\components\AdminController;
+use app\components\AdminController;
 use Yii;
 
 class PostAdminController extends AdminController
