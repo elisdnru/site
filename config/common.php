@@ -11,7 +11,6 @@ use app\extensions\image\CImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
-use app\modules\menu\widgets\MenuWidget;
 use app\modules\page\widgets\PageWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 
@@ -282,7 +281,6 @@ return [
         'runtimeWidgets' => [
             'lastPosts' => LastPostsWidget::class,
             'page' => PageWidget::class,
-            'menu' => MenuWidget::class,
             'block' => BlockWidget::class,
             'contact' => ContactWidget::class,
             'portfolio' => PortfolioWidget::class,
