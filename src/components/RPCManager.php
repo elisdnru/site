@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use app\components\ixr\Client;
 use CApplicationComponent;
 use CLogger;
 use Yii;
@@ -22,7 +23,7 @@ class RPCManager extends CApplicationComponent
         if (Yii::app()->params['GENERAL.PING_ENABLE']) {
             foreach ($pingServers as $serverUrl) {
                 if (preg_match('|(?P<host>\w+://[\w\d\._-]+)/?(?P<uri>.*)|i', $serverUrl, $matches)) {
-                    $client = new \app\components\IXR_Client($matches['host'], $matches['uri']);
+                    $client = new Client($matches['host'], $matches['uri']);
                     if (!$client->query('weblogUpdates.ping', [$siteName, $siteHost, $fullPageUrl])) {
                         Yii::log('Ping error for ' . $serverUrl, CLogger::LEVEL_WARNING);
                     }
