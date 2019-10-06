@@ -186,7 +186,7 @@ class Page extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\CategoryTreeBehavior::class,
+                'class' => \app\components\category\behaviors\CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

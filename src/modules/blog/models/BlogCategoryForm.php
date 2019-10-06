@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\models;
 
-use app\modules\category\models\CategoryForm;
+use app\components\category\models\CategoryForm;
 
 class BlogCategoryForm extends CategoryForm
 {

@@ -3,7 +3,7 @@
 namespace app\modules\blog\models;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\category\models\TreeCategory;
+use app\components\category\models\TreeCategory;
 
 UrlRulesHelper::import('blog');
 

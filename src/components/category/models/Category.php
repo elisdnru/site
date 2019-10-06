@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\category\models;
+namespace app\components\category\models;
 
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
@@ -125,7 +125,7 @@ abstract class Category extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\CategoryBehavior::class,
+                'class' => \app\components\category\behaviors\CategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'requestPathAttribute' => 'category',

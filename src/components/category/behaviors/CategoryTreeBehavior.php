@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\category\components;
+namespace app\components\category\behaviors;
 
 use CActiveRecord;
 use Yii;

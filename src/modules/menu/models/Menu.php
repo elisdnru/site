@@ -5,7 +5,7 @@ namespace app\modules\menu\models;
 use app\components\module\UrlRulesHelper;
 use app\components\TreeActiveDataProvider;
 use CActiveRecord;
-use app\modules\category\models\Category;
+use app\components\category\models\Category;
 use CDbCriteria;
 use Yii;
 
@@ -136,7 +136,7 @@ class Menu extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\CategoryTreeBehavior::class,
+                'class' => \app\components\category\behaviors\CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

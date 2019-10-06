@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\category\models;
+namespace app\components\category\models;
 
 use app\components\TreeActiveDataProvider;
 use CActiveDataProvider;
@@ -99,7 +99,7 @@ abstract class TreeCategory extends Category
     {
         return array_replace(parent::behaviors(), [
             'CategoryBehavior' => [
-                'class' => \app\modules\category\components\CategoryTreeBehavior::class,
+                'class' => \app\components\category\behaviors\CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

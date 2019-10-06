@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\category\models;
+namespace app\components\category\models;
 
 use CFormModel;
 
@@ -15,7 +15,7 @@ use CFormModel;
  * @property string $keywords
  * @property string $parent_id
  */
-class CategoryForm extends CFormModel
+abstract class CategoryForm extends CFormModel
 {
 
     public $id;
