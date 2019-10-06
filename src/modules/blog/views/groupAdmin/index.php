@@ -64,7 +64,7 @@ $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/b
         ],
     ]); ?>
 
-    <?php echo $form->errorSummary($categoryForm); ?>
+    <?php echo $form->errorSummary($itemForm); ?>
 
     <table class="grid">
         <tr>
@@ -73,7 +73,7 @@ $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/b
         </tr>
 
         <tr>
-            <td><?php echo $form->textField($categoryForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]); ?>
+            <td><?php echo $form->textField($itemForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]); ?>
                 <br /></td>
             <td></td>
         </tr>

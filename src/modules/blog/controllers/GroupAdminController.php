@@ -15,25 +15,15 @@ class GroupAdminController extends AdminController
     public function actions()
     {
         return [
+            'index' => [
+                'class' => \app\components\crud\actions\TableInputAction::class,
+                'modelClass' => BlogPostGroup::class,
+                'formClass' => \app\modules\blog\models\BlogPostGroupForm::class,
+                'order' => 'title ASC',
+                'view' => 'index',
+            ],
             'delete' => \app\components\crud\actions\DeleteAction::class,
         ];
-    }
-
-    public function behaviors()
-    {
-        return array_replace(parent::behaviors(), [
-            'tableInputBehavior' => ['class' => \app\components\behaviors\TableInputBehavior::class],
-        ]);
-    }
-
-    public function actionIndex()
-    {
-        $this->renderTableForm([
-            'class' => BlogPostGroup::class,
-            'order' => 'title ASC',
-            'form' => \app\modules\blog\models\BlogPostGroupForm::class,
-            'view' => 'index',
-        ]);
     }
 
     public function beforeDelete($model)
