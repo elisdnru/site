@@ -1,39 +1,33 @@
 <?php
 
-namespace app\modules\crud\components;
+namespace app\components\crud\actions;
 
-class UpdateAction extends CrudAction
+class CreateAction extends CrudAction
 {
     /**
      * @var string view file for rendering
      */
-    public $view = 'update';
+    public $view = 'create';
     /**
      * @var string success message
      */
-    public $success = 'Saved successfully';
-    /**
-     * @var string error message
-     */
-    public $error = 'Error';
+    public $success = 'Added successfully';
 
     public function run()
     {
-        $model = $this->loadModel();
+        $model = $this->createModel();
 
         $formName = (new \ReflectionObject($model))->getShortName();
 
         if (isset($_POST[$formName])) {
             $model->attributes = $_POST[$formName];
 
-            $this->clientCallback('beforeUpdate', $model);
+            $this->clientCallback('beforeCreate', $model);
             $this->clientCallback('performAjaxValidation', $model);
 
             if ($model->save()) {
                 $this->success($this->success);
                 $this->redirectToView($model);
-            } else {
-                $this->error($this->error);
             }
         }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\crud\components;
+namespace app\components\crud\actions;
 
-use app\modules\crud\CrudModule;
+use app\components\crud\Messages;
 use CAction;
 use CActiveRecord;
 use CException;
@@ -38,14 +38,14 @@ class CrudAction extends CAction
     protected function success($message)
     {
         if (!Yii::app()->request->isAjaxRequest) {
-            Yii::app()->user->setFlash($this->flashSuccess, Yii::t(CrudModule::class . '.crud', $message));
+            Yii::app()->user->setFlash($this->flashSuccess, Yii::t(Messages::class . '.crud', $message));
         }
     }
 
     protected function error($message)
     {
         if (!Yii::app()->request->isAjaxRequest) {
-            Yii::app()->user->setFlash($this->flashError, Yii::t(CrudModule::class . '.crud', $message));
+            Yii::app()->user->setFlash($this->flashError, Yii::t(Messages::class . '.crud', $message));
         } else {
             throw new CHttpException(400, $message);
         }

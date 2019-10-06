@@ -15,18 +15,18 @@ class PostAdminController extends AdminController
     {
         return [
             'index' => [
-                'class' => \app\modules\crud\components\AdminAction::class,
+                'class' => \app\components\crud\actions\AdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'create' => \app\modules\crud\components\CreateAction::class,
-            'update' => \app\modules\crud\components\UpdateAction::class,
+            'create' => \app\components\crud\actions\CreateAction::class,
+            'update' => \app\components\crud\actions\UpdateAction::class,
             'toggle' => [
-                'class' => \app\modules\crud\components\ToggleAction::class,
+                'class' => \app\components\crud\actions\ToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => \app\modules\crud\components\DeleteAction::class,
-            'view' => \app\modules\crud\components\ViewAction::class,
+            'delete' => \app\components\crud\actions\DeleteAction::class,
+            'view' => \app\components\crud\actions\ViewAction::class,
         ];
     }
 

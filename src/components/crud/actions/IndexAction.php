@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\crud\components;
+namespace app\components\crud\actions;
 
 use Yii;
 

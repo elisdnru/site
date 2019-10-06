@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\crud\components;
+namespace app\components\crud\actions;
 
-use app\modules\crud\CrudModule;
+use app\components\crud\Messages;
 use CHttpException;
 use Yii;
 
@@ -45,13 +45,13 @@ class ToggleAction extends CrudAction
     protected function getAttribute()
     {
         if (empty($this->attributes)) {
-            throw new CHttpException(400, Yii::t(CrudModule::class . '.crud', 'ToggleAction::attributes is empty'));
+            throw new CHttpException(400, Yii::t(Messages::class . '.crud', 'ToggleAction::attributes is empty'));
         }
 
         $attribute = Yii::app()->request->getParam('attribute');
 
         if (!in_array($attribute, $this->attributes)) {
-            throw new CHttpException(400, Yii::t(CrudModule::class . '.crud', 'Missing attribute {attribute}', ['{attribute}' => $attribute]));
+            throw new CHttpException(400, Yii::t(Messages::class . '.crud', 'Missing attribute {attribute}', ['{attribute}' => $attribute]));
         }
 
         return $attribute;

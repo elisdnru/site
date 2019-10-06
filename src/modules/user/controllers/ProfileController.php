@@ -33,8 +33,8 @@ class ProfileController extends Controller
     public function actions()
     {
         return [
-            'view' => \app\modules\crud\components\ViewAction::class,
-            'edit' => \app\modules\crud\components\UpdateAction::class,
+            'view' => \app\components\crud\actions\ViewAction::class,
+            'edit' => \app\components\crud\actions\UpdateAction::class,
         ];
     }
 

@@ -14,13 +14,13 @@ class ContactAdminController extends AdminController
     {
         return [
             'index' => [
-                'class' => \app\modules\crud\components\AdminAction::class,
+                'class' => \app\components\crud\actions\AdminAction::class,
                 'view' => 'index',
                 'ajaxView' => '_grid'
             ],
-            'toggle' => ['class' => \app\modules\crud\components\ToggleAction::class, 'attributes' => ['status']],
-            'delete' => \app\modules\crud\components\DeleteAction::class,
-            'view' => \app\modules\crud\components\ViewAction::class,
+            'toggle' => ['class' => \app\components\crud\actions\ToggleAction::class, 'attributes' => ['status']],
+            'delete' => \app\components\crud\actions\DeleteAction::class,
+            'view' => \app\components\crud\actions\ViewAction::class,
         ];
     }
 

@@ -27,7 +27,6 @@ $modules = [
     'colorbox' => ['class' => app\modules\colorbox\ColorboxModule::class],
     'comment' => ['class' => app\modules\comment\CommentModule::class],
     'contact' => ['class' => app\modules\contact\ContactModule::class],
-    'crud' => ['class' => app\modules\crud\CrudModule::class],
     'file' => ['class' => app\modules\file\FileModule::class],
     'follow' => ['class' => app\modules\follow\FollowModule::class],
     'main' => ['class' => app\modules\main\MainModule::class],

@@ -27,12 +27,12 @@ class CommentAdminControllerBase extends AdminController
     public function actions()
     {
         return [
-            'update' => \app\modules\crud\components\UpdateAction::class,
+            'update' => \app\components\crud\actions\UpdateAction::class,
             'toggle' => [
-                'class' => \app\modules\crud\components\ToggleAction::class,
+                'class' => \app\components\crud\actions\ToggleAction::class,
                 'attributes' => ['public', 'moder']
             ],
-            'view' => \app\modules\crud\components\ViewAction::class,
+            'view' => \app\components\crud\actions\ViewAction::class,
         ];
     }
 
