@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tests\unit\modules\uploader\components;
 
-use app\modules\uploader\components\UploadManager;
+use app\components\uploader\UploadManager;
 use CTestCase;
 
 class UploadManagerTest extends CTestCase

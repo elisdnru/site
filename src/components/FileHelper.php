@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\uploader\components;
+namespace app\components;
 
 use app\components\helpers\TextHelper;
 

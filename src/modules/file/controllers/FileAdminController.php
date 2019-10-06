@@ -5,7 +5,7 @@ namespace app\modules\file\controllers;
 use app\modules\user\models\Access;
 use CHttpException;
 use app\components\AdminController;
-use app\modules\uploader\components\FileHelper;
+use app\components\FileHelper;
 use app\components\helpers\TextHelper;
 use Yii;
 

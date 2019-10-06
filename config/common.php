@@ -173,7 +173,7 @@ return [
         ],
 
         'uploader' => [
-            'class' => \app\modules\uploader\components\UploadManager::class,
+            'class' => \app\components\uploader\UploadManager::class,
             'origFileSalt' => 'adFxt0de',
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',

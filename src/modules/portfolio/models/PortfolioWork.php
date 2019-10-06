@@ -184,7 +184,7 @@ class PortfolioWork extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\modules\uploader\components\FileUploadBehavior::class,
+                'class' => \app\components\uploader\FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,

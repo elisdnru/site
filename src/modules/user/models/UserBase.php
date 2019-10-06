@@ -382,7 +382,7 @@ abstract class UserBase extends CActiveRecord
                 'setUpdateOnCreate' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\modules\uploader\components\FileUploadBehavior::class,
+                'class' => \app\components\uploader\FileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,

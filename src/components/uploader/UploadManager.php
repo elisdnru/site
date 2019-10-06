@@ -1,7 +1,8 @@
 <?php
 
-namespace app\modules\uploader\components;
+namespace app\components\uploader;
 
+use app\components\FileHelper;
 use CApplicationComponent;
 use app\extensions\file\CFile;
 use app\extensions\image\CImageHandler;
