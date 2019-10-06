@@ -20,9 +20,6 @@ use Yii;
  * @method boolean is($role)
  * @method check($role)
  *
- * FlashSessionBehavior
- * @method initFlashSession()
- *
  * HeadersBehavior
  * @method initHeaders()
  *
@@ -42,8 +39,6 @@ class Controller extends CController
     public $breadcrumbs = [];
 
     public $admin = [];
-
-    public $isHomePage = false;
 
     public $description = '';
     public $keywords = '';
