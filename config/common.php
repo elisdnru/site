@@ -29,7 +29,6 @@ $modules = [
     'menu' => ['class' => app\modules\menu\MenuModule::class],
     'page' => ['class' => app\modules\page\PageModule::class],
     'portfolio' => ['class' => app\modules\portfolio\PortfolioModule::class],
-    'share' => ['class' => app\modules\share\ShareModule::class],
     'search' => ['class' => app\modules\search\SearchModule::class],
     'sitemap' => ['class' => app\modules\sitemap\SitemapModule::class],
     'ulogin' => ['class' => app\modules\ulogin\UloginModule::class],

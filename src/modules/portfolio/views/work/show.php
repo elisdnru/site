@@ -82,7 +82,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 </article>
 
-<?php $this->widget(\app\modules\share\widgets\ShareWidget::class, [
+<?php $this->widget(\app\components\widgets\ShareWidget::class, [
     'title' => $model->title,
     'description' => $model->description,
     'image' => $model->imageUrl,
