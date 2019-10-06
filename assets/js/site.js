@@ -79,7 +79,6 @@ window.transliterate = function (fromid, toid) {
   };
 
   var loadImage = function (image) {
-    image.src = image.dataset.src;
     var sources = image.parentNode.querySelectorAll('source');
     [].forEach.call(sources, function (source) {
       source.srcset = source.dataset.srcset;
