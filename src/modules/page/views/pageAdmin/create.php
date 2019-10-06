@@ -10,9 +10,6 @@ $this->admin[] = ['label' => 'Cтраницы', 'url' => $this->createUrl('index
 if ($this->moduleAllowed('menu')) {
     $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/menuAdmin/index')];
 }
-if ($this->moduleAllowed('new')) {
-    $this->admin[] = ['label' => 'Новости', 'url' => $this->createUrl('/new/newAdmin/index')];
-}
 
 $this->info = 'После создания страницы Вы можете привязать её к любому пункту меню';
 

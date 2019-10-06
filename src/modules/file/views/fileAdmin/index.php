@@ -15,9 +15,6 @@ $this->breadcrumbs = [
     'Файловый менеджер',
 ];
 
-if ($this->moduleAllowed('new')) {
-    $this->admin[] = ['label' => 'Новости', 'url' => $this->createUrl('/new/newAdmin/index')];
-}
 if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin/index')];
 }
