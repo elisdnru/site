@@ -18,7 +18,7 @@ class MenuWidget extends Widget
         $className = 'zii.widgets.CMenu';
         $className = Yii::import($className, true);
         $widget = new $className();
-        $widget->items = Menu::model()->getArray($this->parent);
+        $widget->items = Menu::model()->getChildsArray($this->parent);
         $widget->run();
     }
 }
