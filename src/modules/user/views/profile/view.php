@@ -12,7 +12,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 }
 ?>
 
-
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
@@ -21,7 +20,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <div style="margin-left:60px;">
 
-    <?php if ($model->id === Yii::app()->user->id) : ?>
+    <?php if ($model->id == Yii::app()->user->id) : ?>
         <p style="float:right">
             <a href="<?php echo $this->createUrl('/user/profile/edit'); ?>">Редактировать</a> |
             <a href="<?php echo $this->createUrl('/user/default/logout'); ?>">Выход</a>
