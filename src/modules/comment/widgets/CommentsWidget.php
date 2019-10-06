@@ -4,7 +4,6 @@ namespace app\modules\comment\widgets;
 
 use app\components\module\UrlRulesHelper;
 use CException;
-use CHtml;
 use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\models\CommentForm;

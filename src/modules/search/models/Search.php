@@ -3,7 +3,6 @@
 namespace app\modules\search\models;
 
 use CActiveRecord;
-use Yii;
 
 /**
  * @property string $title

@@ -6,13 +6,13 @@
         [
             'name' => 'alias',
             'header' => 'Код для вставки',
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return Yii::app()->controller->InlineWidgetsBehavior->startBlock . 'block|id=' . $data->alias . Yii::app()->controller->InlineWidgetsBehavior->endBlock;
             },
         ],
         [
             'name' => 'title',
-            'value' => function ($data) {
+            'value' => static function ($data) {
                 return CHtml::link(CHtml::encode($data->title), Yii::app()->controller->createUrl('update', ['id' => $data->id]));
             },
             'type' => 'html',

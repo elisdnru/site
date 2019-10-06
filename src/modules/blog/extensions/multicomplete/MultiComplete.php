@@ -11,7 +11,7 @@ Yii::import('zii.widgets.jui.CJuiAutoComplete');
 
 class MultiComplete extends CJuiAutoComplete
 {
-    public $splitter = ",";
+    public $splitter = ',';
 
     /**
      * Run this widget.
@@ -19,7 +19,7 @@ class MultiComplete extends CJuiAutoComplete
      */
     public function run()
     {
-        list($name, $id) = $this->resolveNameID();
+        [$name, $id] = $this->resolveNameID();
 
         if (isset($this->htmlOptions['id'])) {
             $id = $this->htmlOptions['id'];
@@ -51,15 +51,11 @@ class MultiComplete extends CJuiAutoComplete
 			}';//CJavaScript::encode($this->source);
         }
 
-        if (isset($this->options['minLength'])) {
-            $ml = $this->options['minLength'];
-        } else {
-            $ml = 0;
-        }
+        $ml = $this->options['minLength'] ?? 0;
 
         $options = CJavaScript::encode($this->options);
 
-        $joiner = $this->splitter . " ";
+        $joiner = $this->splitter . ' ';
         //$js = "jQuery('#{$id}').autocomplete($options);";
         $js = 'jQuery(function($){
             function split( val ) {

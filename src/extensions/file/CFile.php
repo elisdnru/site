@@ -6,7 +6,6 @@ use CApplicationComponent;
 use CException;
 use CHttpException;
 use CUploadedFile;
-use file;
 use Yii;
 use YiiBase;
 

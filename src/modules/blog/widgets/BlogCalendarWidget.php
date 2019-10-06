@@ -7,7 +7,6 @@ use app\modules\blog\models\BlogPost;
 use CHtml;
 use app\modules\main\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
-use Yii;
 
 UrlRulesHelper::import('blog');
 

@@ -7,7 +7,6 @@ use app\modules\main\components\TreeActiveDataProvider;
 use app\modules\main\components\helpers\TextHelper;
 use CActiveRecord;
 use CDbCriteria;
-use CUploadedFile;
 use app\modules\user\models\User;
 use Yii;
 

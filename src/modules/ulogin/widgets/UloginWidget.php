@@ -3,9 +3,7 @@
 namespace app\modules\ulogin\widgets;
 
 use app\components\module\UrlRulesHelper;
-use CClientScript;
 use app\modules\main\components\widgets\Widget;
-use Yii;
 
 UrlRulesHelper::import('ulogin');
 

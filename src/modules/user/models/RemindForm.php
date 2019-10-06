@@ -41,10 +41,8 @@ class RemindForm extends CFormModel
     /**
      * Check user exists.
      * This is the 'userExists' validator as declared in rules().
-     * @param $attribute
-     * @param $params
      */
-    public function emailExists($attribute, $params)
+    public function emailExists()
     {
         if (!$this->hasErrors()) {
             if (!$user = User::model()->findByAttributes(['email' => $this->email])) {

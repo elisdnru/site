@@ -60,8 +60,6 @@ Icon
 t*mp
 ~*
 *.~*
-*.bak
-*.swp
 
 # YII
 assets/
