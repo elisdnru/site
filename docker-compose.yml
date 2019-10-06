@@ -20,17 +20,11 @@ services:
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
             APP_DB_PREFIX: elisdn_
-            APP_MAILER_HOST: mailer
-            APP_MAILER_PORT: 1025
-            APP_MAILER_USERNAME: ~
-            APP_MAILER_PASSWORD: ~
-            APP_MAILER_ENCRYPTION: tcp
         volumes:
             - ./:/app
         depends_on:
             - mysql
             - mysql-test
-            - mailer
     php-cli:
         build:
             context: ./docker
@@ -41,18 +35,12 @@ services:
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
             APP_DB_PREFIX: elisdn_
-            APP_MAILER_HOST: mailer
-            APP_MAILER_PORT: 1025
-            APP_MAILER_USERNAME: ~
-            APP_MAILER_PASSWORD: ~
-            APP_MAILER_ENCRYPTION: tcp
         volumes:
             - .:/app
             - ./volumes/composer:/root/.composer/
         depends_on:
             - mysql
             - mysql-test
-            - mailer
         working_dir: /app
     node-cli:
         image: node:12.7-alpine
@@ -81,8 +69,3 @@ services:
             - "MYSQL_DATABASE=test"
         ports:
             - "33062:3306"
-
-    mailer:
-        image: mailhog/mailhog
-        ports:
-            - "8081:8025"
