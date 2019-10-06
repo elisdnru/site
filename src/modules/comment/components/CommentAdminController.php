@@ -13,7 +13,7 @@ use app\components\AdminController;
 
 UrlRulesHelper::import('users');
 
-class CommentAdminControllerBase extends AdminController
+class CommentAdminController extends AdminController
 {
     const COMMENTS_PER_PAGE = 20;
 

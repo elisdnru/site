@@ -2,9 +2,9 @@
 
 namespace app\modules\comment\controllers;
 
-use app\modules\comment\components\CommentAdminControllerBase;
+use app\modules\comment\components\CommentAdminController as Base;
 
-class CommentAdminController extends CommentAdminControllerBase
+class CommentAdminController extends Base
 {
 
 }

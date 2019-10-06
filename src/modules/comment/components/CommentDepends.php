@@ -2,7 +2,7 @@
 
 namespace app\modules\comment\components;
 
-interface DICommentDepends
+interface CommentDepends
 {
     public function updateCommentsState($comment);
 }

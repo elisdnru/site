@@ -3,7 +3,7 @@
 namespace app\modules\blog\models;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\comment\components\DICommentDepends;
+use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -45,7 +45,7 @@ use Yii;
  *
  * @method BlogPost published()
  */
-class BlogPost extends CActiveRecord implements DICommentDepends
+class BlogPost extends CActiveRecord implements CommentDepends
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/blogs';

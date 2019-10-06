@@ -5,9 +5,9 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostComment;
 use CHttpException;
-use app\modules\comment\components\CommentAdminControllerBase;
+use app\modules\comment\components\CommentAdminController as Base;
 
-class CommentAdminController extends CommentAdminControllerBase
+class CommentAdminController extends Base
 {
     protected function loadMaterialModel($id)
     {

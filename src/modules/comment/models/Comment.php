@@ -2,7 +2,7 @@
 
 namespace app\modules\comment\models;
 
-use app\modules\comment\components\DICommentDepends;
+use app\modules\comment\components\CommentDepends;
 use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -319,7 +319,7 @@ class Comment extends CActiveRecord
 
     private function updateMaterial()
     {
-        if ($this->type && $this->material instanceof DICommentDepends) {
+        if ($this->type && $this->material instanceof CommentDepends) {
             $this->material->updateCommentsState($this);
         }
     }
