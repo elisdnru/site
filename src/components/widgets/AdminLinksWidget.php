@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\widgets;
+namespace app\components\widgets;
 
 use app\components\module\UrlRulesHelper;
 use app\modules\user\models\Access;
