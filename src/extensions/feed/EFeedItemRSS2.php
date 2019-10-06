@@ -34,6 +34,7 @@ class EFeedItemRSS2 extends EFeedItemAbstract
 {
     /**
      * (non-PHPdoc)
+     * @param $date
      * @see EFeedItemAbstract::setDate()
      */
     public function setDate($date)
@@ -80,6 +81,7 @@ class EFeedItemRSS2 extends EFeedItemAbstract
      *
      * @returns mixed well formatted xml element
      * @param EFeedTag $tag
+     * @return string
      */
     private function getElement(EFeedTag $tag)
     {

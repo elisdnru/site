@@ -32,6 +32,7 @@ class DbTestCase extends CDbTestCase
 
     /**
      * Load fixtures
+     * @param null $fixtures
      */
     public function loadFixtures($fixtures = null)
     {

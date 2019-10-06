@@ -36,6 +36,7 @@ class EFeedItemAtom extends EFeedItemAbstract
 {
     /**
      * (non-PHPdoc)
+     * @param $description
      * @see EFeedItemAbstract::setDescription()
      */
     public function setDescription($description)
@@ -45,6 +46,7 @@ class EFeedItemAtom extends EFeedItemAbstract
 
     /**
      * (non-PHPdoc)
+     * @param $date
      * @see EFeedItemAbstract::setDate()
      */
     public function setDate($date)
@@ -68,6 +70,8 @@ class EFeedItemAtom extends EFeedItemAbstract
 
     /**
      * (non-PHPdoc)
+     * @param $link
+     * @throws CException
      * @see EFeedItemAbstract::setLink()
      */
     public function setLink($link)

@@ -147,6 +147,7 @@ class Page extends CActiveRecord
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
+     * @param int $pageSize
      * @return TreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
     public function search($pageSize = 10)

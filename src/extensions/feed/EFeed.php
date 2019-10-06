@@ -302,7 +302,8 @@ class EFeed extends CComponent
      *
      * Add a FeedItem to the main class
      *
-     * @param object  instance of EFeedItemAbstract class
+     * @param EFeedItemAbstract $item
+     * @throws CException
      */
     public function addItem(EFeedItemAbstract $item)
     {
@@ -316,7 +317,8 @@ class EFeed extends CComponent
     /**
      * Generates an UUID
      *
-     * @param string  an optional prefix
+     * @param null $key
+     * @param string $prefix
      * @return     string  the formated uuid
      * @author     Anis uddin Ahmad <admin@ajaxray.com>
      */

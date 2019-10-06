@@ -29,6 +29,7 @@ class Contact extends CActiveRecord
 
     /**
      * Returns the static model of the specified AR class.
+     * @param string $className
      * @return Contact the static model class
      */
     public static function model($className = __CLASS__)
@@ -83,6 +84,7 @@ class Contact extends CActiveRecord
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
+     * @param int $pageSize
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
     public function search($pageSize = 10)

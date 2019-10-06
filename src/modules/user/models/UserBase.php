@@ -65,6 +65,7 @@ abstract class UserBase extends CActiveRecord
     protected $_salt = '%#w_wrb13&p';
 
     /**
+     * @param string $className
      * @return UserBase the static model class
      */
     public static function model($className = __CLASS__)

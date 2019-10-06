@@ -1101,6 +1101,9 @@ class IXR_ClientSSL extends IXR_Client
     /**
      * Constructor
      * @param string $server URL of the Server to connect to
+     * @param bool $path
+     * @param int $port
+     * @param bool $timeout
      * @since 0.1.0
      */
     function __construct($server, $path = false, $port = 443, $timeout = false)

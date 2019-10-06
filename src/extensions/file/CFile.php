@@ -483,11 +483,12 @@ class CFile extends CApplicationComponent
      * $directory parameter.
      *
      *
-     * @param string $permissions Access permissions for the directory
+     * @param int $permissions Access permissions for the directory
      * @param string $directory Parameter used to create directory other than
      * supplied by {@link set} method of the CFile
      * @return mixed Updated the current CFile object on success, 'false'
      * on fail.
+     * @throws CException
      */
     public function createDir($permissions = 0754, $directory = null)
     {
@@ -769,13 +770,14 @@ class CFile extends CApplicationComponent
     /**
      * Gets directory contents (descendant files and folders).
      *
-     * @param string $directory Initial directory to get descendants for
+     * @param bool $directory Initial directory to get descendants for
      * @param boolean $recursive If 'true' method would return all descendants
      * recursively, otherwise just immediate descendants
      * @param string $filter Filter to be applied to all directory descendants.
      * Could be a string, or an array of strings (perl regexp supported).
      * See {@link filterPassed} method for further information on filters.
      * @return array Array of descendants filepaths
+     * @throws CHttpException
      */
     private function dirContents($directory = false, $recursive = false, $filter = null)
     {
@@ -886,7 +888,7 @@ class CFile extends CApplicationComponent
      * Lazy wrapper for {@link rename}.
      * This method works only for files.
      *
-     * @param string $basename New file basename (eg. 'mynewfile.txt')
+     * @param bool $basename New file basename (eg. 'mynewfile.txt')
      * @return mixed Current CFile object on success, 'false' on fail.
      */
     public function setBasename($basename = false)
@@ -914,7 +916,7 @@ class CFile extends CApplicationComponent
      * Lazy wrapper for {@link rename}.
      * This method works only for files.
      *
-     * @param string $filename New file name (eg. 'mynewfile')
+     * @param bool $filename New file name (eg. 'mynewfile')
      * @return mixed Current CFile object on success, 'false' on fail.
      */
     public function setFilename($filename = false)
@@ -944,7 +946,7 @@ class CFile extends CApplicationComponent
      * Lazy wrapper for {@link rename}.
      * This method works only for files.
      *
-     * @param string $extension New file extension (eg. 'txt')
+     * @param bool $extension New file extension (eg. 'txt')
      * @return mixed Current CFile object on success, 'false' on fail.
      */
     public function setExtension($extension = false)
@@ -1133,6 +1135,8 @@ class CFile extends CApplicationComponent
 
     /**
      * Alias for {@link rename}
+     * @param $fileDest
+     * @return mixed
      */
     public function move($fileDest)
     {
@@ -1145,9 +1149,11 @@ class CFile extends CApplicationComponent
      * If the current filesystem object is a directory all its descendants are
      * deleted.
      *
+     * @param null $path
      * @return mixed Current CFile object on success, 'false' on fail.
+     * @throws CHttpException
      */
-    public function purge($path = false)
+    public function purge($path = null)
     {
         if (!$path) {
             $path = $this->_realpath;
@@ -1202,7 +1208,7 @@ class CFile extends CApplicationComponent
      * Browser caching is prevented.
      * This method works only for files.
      *
-     * @param string $fakeName New filename (eg. 'myfileFakedName.htm')
+     * @param bool $fakeName New filename (eg. 'myfileFakedName.htm')
      * @param boolean $serverHandled Whether file contents delivery is handled
      * by server internals (cf. when file contents is read and sent by php).
      * E.g.: lighttpd and Apache with mod-sendfile can use X-Senfile header to
@@ -1210,7 +1216,7 @@ class CFile extends CApplicationComponent
      * Note: If you want to serve big or even huge files you are definetly
      * advised to turn this option on and setup your server software
      * appropriately, if not to say that it is your only alternative :).
-     * @return file File download
+     * @return bool File download
      */
     public function send($fakeName = false, $serverHandled = false)
     {
@@ -1258,6 +1264,9 @@ class CFile extends CApplicationComponent
 
     /**
      * Alias for {@link send}
+     * @param bool $fakeName
+     * @param bool $serverHandled
+     * @return bool
      */
     function download($fakeName = false, $serverHandled = false)
     {
@@ -1308,10 +1317,10 @@ class CFile extends CApplicationComponent
 
             $this->addLog('Unable to get mime type for file');
             return false;
-        } else {
-            $this->addLog('getMimeType() method is available only for files', 'warning');
-            return false;
         }
+
+        $this->addLog('getMimeType() method is available only for files', 'warning');
+        return false;
     }
 
     /**

@@ -41,6 +41,8 @@ class RemindForm extends CFormModel
     /**
      * Check user exists.
      * This is the 'userExists' validator as declared in rules().
+     * @param $attribute
+     * @param $params
      */
     public function emailExists($attribute, $params)
     {

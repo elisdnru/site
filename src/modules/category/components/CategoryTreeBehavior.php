@@ -175,7 +175,6 @@ class CategoryTreeBehavior extends CategoryBehavior
     /**
      * Returns tabulated array ($url=>$title, $url=>$title, ...)
      * @param mixed $parent number, object or array of numbers
-     * @param int $sub levels
      * @return array
      */
     public function getUrlList($parent = 0)
@@ -371,6 +370,7 @@ class CategoryTreeBehavior extends CategoryBehavior
 
     /**
      * Constructs full title for current model
+     * @param bool $inverse
      * @param string $separator
      * @return string
      */

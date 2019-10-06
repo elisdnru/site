@@ -22,7 +22,7 @@ class Sitemap
      * @param $url
      * @param string $changeFreq
      * @param float $priority
-     * @param int $lastmod
+     * @param int $lastMod
      */
     public function addUrl($url, $changeFreq = self::DAILY, $priority = 0.5, $lastMod = 0)
     {

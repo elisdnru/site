@@ -113,11 +113,12 @@ class Email extends CApplicationComponent
      * Sends email.
      * @param mixed the content of the email, or variables to be sent to the view.
      * If not set, it will use $this->message instead for the content of the email
+     * @return bool
      */
     public function send($arg1 = null)
     {
         if ($this->view !== null) {
-            if ($arg1 == null) {
+            if ($arg1 === null) {
                 $vars = $this->viewVars;
             } else {
                 $vars = $arg1;

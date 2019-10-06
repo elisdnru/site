@@ -269,6 +269,7 @@ class CArray
      * Recursively convert an array to an object.
      *
      * @param array   array to convert
+     * @param string $class
      * @return  object
      */
     public static function to_object(array $array, $class = 'stdClass')
