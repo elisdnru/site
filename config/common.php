@@ -32,7 +32,7 @@ $modules = [
     'search' => ['class' => app\modules\search\SearchModule::class],
     'sitemap' => ['class' => app\modules\sitemap\SitemapModule::class],
     'ulogin' => ['class' => app\modules\ulogin\UloginModule::class],
-    'uploader' => ['class' => app\modules\uploader\UploaderModule::class],
+    'image' => ['class' => app\modules\image\ImageModule::class],
     'user' => ['class' => app\modules\user\UserModule::class],
 ];
 

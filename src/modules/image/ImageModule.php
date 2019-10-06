@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\uploader;
+namespace app\modules\image;
 
 use app\components\system\WebModule;
 
-class UploaderModule extends WebModule
+class ImageModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

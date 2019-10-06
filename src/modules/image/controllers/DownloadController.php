@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\uploader\controllers;
+namespace app\modules\image\controllers;
 
 use CHttpException;
 use app\components\Controller;
