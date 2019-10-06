@@ -9,8 +9,6 @@ $this->breadcrumbs = [
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('comment')) {
         $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
-    }
-    if ($this->moduleAllowed('comment')) {
         $this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];
     }
 }

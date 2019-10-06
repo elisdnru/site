@@ -23,8 +23,6 @@ $this->breadcrumbs = [
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Редактировать записи', 'url' => $this->createUrl('/blog/postAdmin')];
-    }
-    if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/postAdmin/create')];
     }
 }

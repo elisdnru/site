@@ -38,12 +38,10 @@ $this->breadcrumbs[] = $model->title;
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/postAdmin/update', ['id' => $model->id])];
-    }
-    if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin/index')];
-    }
-    if ($this->moduleAllowed('blog') && $model->category) {
-        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
+        if ($model->category) {
+            $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
+        }
     }
     if ($this->moduleAllowed('comment')) {
         $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/commentAdmin/index', ['id' => $model->id])];

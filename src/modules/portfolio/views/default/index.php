@@ -14,11 +14,7 @@ $this->breadcrumbs = [
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('portfolio')) {
         $this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/workAdmin/index')];
-    }
-    if ($this->moduleAllowed('portfolio')) {
         $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/workAdmin/create')];
-    }
-    if ($this->moduleAllowed('portfolio')) {
         $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/categoryAdmin/index')];
     }
     if ($this->moduleAllowed('page')) {
