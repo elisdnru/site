@@ -202,7 +202,7 @@ class EMigrateCommand extends MigrateCommand
             echo "extended with EMigrateCommand by cebe <mail@cebe.cc>\n\n";
 
             // check --module parameter
-            if ($action == 'create' && $this->module !== null) {
+            if ($action === 'create' && $this->module !== null) {
                 $this->usageError('create command can not be called with --module parameter!');
             }
             if ($this->module !== null && !is_string($this->module)) {
@@ -249,7 +249,7 @@ class EMigrateCommand extends MigrateCommand
     public function actionCreate($args)
     {
         // if module is given adjust path
-        if (count($args) == 2) {
+        if (count($args) === 2) {
             if (!isset($this->modulePaths[$args[0]])) {
                 echo "\nError: module '{$args[0]}' is not available!\n\n";
                 return 1;
@@ -311,7 +311,7 @@ class EMigrateCommand extends MigrateCommand
             $module = null;
             foreach ($migrations as $migration) {
                 [$module, $migration] = explode($this->moduleDelimiter, $migration);
-                if ($migration == $version) {
+                if ($migration === $version) {
                     break;
                 }
             }

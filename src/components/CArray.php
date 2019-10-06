@@ -169,7 +169,7 @@ class CArray
             }
         }
 
-        if ($high == count($haystack) or $haystack[$high] != $needle) {
+        if ($high === count($haystack) or $haystack[$high] !== $needle) {
             if ($nearest === false) {
                 return false;
             }

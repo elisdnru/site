@@ -78,7 +78,7 @@ class CommentForm extends CFormModel
         if (!preg_match('|^http:\/\/|', $this->site)) {
             $this->site = 'http://' . $this->site;
         }
-        if ($this->site == 'http://') {
+        if ($this->site === 'http://') {
             $this->site = '';
         }
     }

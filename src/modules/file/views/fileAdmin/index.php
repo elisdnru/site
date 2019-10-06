@@ -72,7 +72,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
         <?php foreach ($dir->contents as $item) : ?>
             <?php
             $file = Yii::app()->file->set($item);
-            if ($file->basename == '.htaccess') {
+            if ($file->basename === '.htaccess') {
                 continue;
             }
             ?>

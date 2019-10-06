@@ -24,12 +24,12 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
                 <a rel="nofollow" class="ajax_del" data-del="comment_<?php echo $comment->id; ?>" href="<?php echo Yii::app()->createUrl('comment/ajax/hide', ['id' => $comment->id]); ?>" title="Скрыть комментарий"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $comment->public ? 'Скрыть' : 'Опубликовать'; ?>" title="<?php echo $comment->public ? 'Скрыть' : 'Опубликовать'; ?>" /></a>
             <?php
             endif; ?>
-            <?php if (Yii::app()->controller->is('comment') || ($user && $comment->user && $user->id == $comment->user_id)) :
+            <?php if (Yii::app()->controller->is('comment') || ($user && $comment->user && $user->id === $comment->user_id)) :
                 ?>
                 <a rel="nofollow" href="<?php echo Yii::app()->createUrl('comment/comment/update', ['id' => $comment->id]); ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий" /></a>
             <?php
             endif; ?>
-            <?php if (Yii::app()->controller->is('comment') || ($user && $comment->user && $user->id == $comment->user_id)) :
+            <?php if (Yii::app()->controller->is('comment') || ($user && $comment->user && $user->id === $comment->user_id)) :
                 ?>
                 <a rel="nofollow" class="ajax_del" data-del="comment_<?php echo $comment->id; ?>" href="<?php echo Yii::app()->createUrl('comment/ajax/delete', ['id' => $comment->id]); ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
             <?php

@@ -12,7 +12,7 @@ if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' 
                 <?php foreach ($page->parent->child_pages as $child) :
                     $url = $child->url;
                     ?>
-                    <?php if (Yii::app()->request->requestUri == $url) : ?>
+                    <?php if (Yii::app()->request->requestUri === $url) : ?>
                     <li class="active"><a href="<?php echo $url; ?>"><?php echo $child->title; ?></a></li>
                 <?php else : ?>
                     <li><a href="<?php echo $url; ?>"><?php echo $child->title; ?></a></li>

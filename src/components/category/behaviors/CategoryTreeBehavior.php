@@ -54,7 +54,7 @@ class CategoryTreeBehavior extends CategoryBehavior
     protected function _childsArrayRecursive(&$items, &$result, $parent_id)
     {
         foreach ($items as $item) {
-            if ((int)$item[$this->parentAttribute] == (int)$parent_id) {
+            if ((int)$item[$this->parentAttribute] === (int)$parent_id) {
                 $result[] = $item[$this->primaryKeyAttribute];
                 $this->_childsArrayRecursive($items, $result, $item[$this->primaryKeyAttribute]);
             }
@@ -165,7 +165,7 @@ class CategoryTreeBehavior extends CategoryBehavior
     protected function _getTabListRecursive(&$items, &$result, $parent_id, $indent = 0)
     {
         foreach ($items as $item) {
-            if ((int)$item[$this->parentAttribute] == (int)$parent_id && !isset($result[$item[$this->primaryKeyAttribute]])) {
+            if ((int)$item[$this->parentAttribute] === (int)$parent_id && !isset($result[$item[$this->primaryKeyAttribute]])) {
                 $result[$item[$this->primaryKeyAttribute]] = str_repeat('-- ', $indent) . $item[$this->titleAttribute];
                 $this->_getTabListRecursive($items, $result, $item[$this->primaryKeyAttribute], $indent + 1);
             }
@@ -272,7 +272,7 @@ class CategoryTreeBehavior extends CategoryBehavior
 
         $criteria = $this->getOwnerCriteria();
 
-        if (count($domens) == 1) {
+        if (count($domens) === 1) {
             $criteria->mergeWith([
                 'condition' => 't.' . $this->aliasAttribute . '=:alias AND (t.' . $this->parentAttribute . ' iS NULL OR t.' . $this->parentAttribute . '=0)',
                 'params' => [':alias' => $domens[0]]
@@ -306,7 +306,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      */
     public function isChildOf($parent)
     {
-        if (is_int($parent) && $this->getOwner()->getPrimaryKey() == $parent) {
+        if (is_int($parent) && $this->getOwner()->getPrimaryKey() === $parent) {
             return false;
         }
 

@@ -39,7 +39,7 @@ $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/b
             <tr id="item_<?php echo $item->id; ?>">
                 <td><?php echo CHtml::activeTextField($item, "[$item->id]title", ['style' => 'width:99%', 'maxlength' => 255]); ?></td>
                 <td style="text-align: center"><a href="<?php echo $postsurl; ?>">Записи</a></td>
-                <td style="text-align: center"><?php if ($item->posts_count == 0) : ?>
+                <td style="text-align: center"><?php if ($item->posts_count === 0) : ?>
                         <a class="ajax_del" data-del="item_<?php echo $item->id; ?>" title="Удалить группу &laquo;<?php echo CHtml::encode($item->title); ?>&raquo;" href="<?php echo $delurl; ?>">
                             <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" />
                         </a>       <?php endif; ?></td>

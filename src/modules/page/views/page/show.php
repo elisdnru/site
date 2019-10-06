@@ -5,7 +5,7 @@ if ($page->alias === 'services') {
 }
 ?>
 
-<?php if ($page->layout->alias == 'blank') : ?>
+<?php if ($page->layout->alias === 'blank') : ?>
     <?php echo $this->decodeWidgets($page->text_purified); ?>
 <?php else : ?>
     <section>

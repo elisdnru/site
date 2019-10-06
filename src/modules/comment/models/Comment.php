@@ -362,7 +362,7 @@ class Comment extends CActiveRecord
     public function getLiked()
     {
         $a = Yii::app()->session['comment'];
-        return isset($a['liked'][$this->id]) && $a['liked'][$this->id] == 1;
+        return isset($a['liked'][$this->id]) && $a['liked'][$this->id] === 1;
     }
 
     public function setLiked($value)

@@ -88,7 +88,7 @@ EOD;
         $method = $this->callbacks[$methodname];
 
         // Perform the callback and send the response
-        if (count($args) == 1) {
+        if (count($args) === 1) {
             // If only one paramater just send that instead of the whole array
             $args = $args[0];
         }
@@ -190,7 +190,7 @@ EOD;
         foreach ($methodcalls as $call) {
             $method = $call['methodName'];
             $params = $call['params'];
-            if ($method == 'system.multicall') {
+            if ($method === 'system.multicall') {
                 $result = new Error(-32600, 'Recursive calls to system.multicall are forbidden');
             } else {
                 $result = $this->call($method, $params);

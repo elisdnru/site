@@ -57,7 +57,7 @@ class TextHelper
 
     public static function fixBR($text)
     {
-        $text = preg_replace_callback('@(<p>.*?</p>)@s', [\app\components\helpers\TextHelper::class, 'pregCallback'], $text);
+        $text = preg_replace_callback('@(<p>.*?</p>)@s', [self::class, 'pregCallback'], $text);
         return $text;
     }
 

@@ -386,8 +386,8 @@ class CFile extends CApplicationComponent
     public function getIsEmpty()
     {
         if (!isset($this->isEmpty)) {
-            if (($this->isFile && $this->getSize(false) == 0) ||
-                (!$this->isFile && count($this->dirContents($this->_realpath)) == 0)) {
+            if (($this->isFile && $this->getSize(false) === 0) ||
+                (!$this->isFile && count($this->dirContents($this->_realpath)) === 0)) {
                 $this->_isEmpty = true;
             } else {
                 $this->_isEmpty = false;
@@ -558,7 +558,7 @@ class CFile extends CApplicationComponent
             $this->_owner = $this->exists ? fileowner($this->_realpath) : null;
         }
 
-        if (is_int($this->_owner) && function_exists('posix_getpwuid') && $getName == true) {
+        if (is_int($this->_owner) && function_exists('posix_getpwuid') && $getName === true) {
             $this->_owner = posix_getpwuid($this->_owner);
             $this->_owner = $this->_owner['name'];
         }
@@ -581,7 +581,7 @@ class CFile extends CApplicationComponent
             $this->_group = $this->exists ? filegroup($this->_realpath) : null;
         }
 
-        if (is_int($this->_group) && function_exists('posix_getgrgid') && $getName == true) {
+        if (is_int($this->_group) && function_exists('posix_getgrgid') && $getName === true) {
             $this->_group = posix_getgrgid($this->_group);
             $this->_group = $this->_group['name'];
         }
@@ -958,7 +958,7 @@ class CFile extends CApplicationComponent
                 $extension = trim($extension);
 
                 // drop current extension
-                if ($extension === null || $extension == '') {
+                if ($extension === null || $extension === '') {
                     $newBaseName = $this->filename;
                 } // apply new extension
                 else {

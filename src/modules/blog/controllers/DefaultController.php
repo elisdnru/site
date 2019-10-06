@@ -105,13 +105,13 @@ class DefaultController extends Controller
     }
 
     /**
-     * @param string $tag
+     * @param string $title
      * @return BlogTag
      * @throws CHttpException
      */
-    protected function loadTagModel($tag)
+    protected function loadTagModel($title)
     {
-        $tag = BlogTag::model()->findByTitle($tag);
+        $tag = BlogTag::model()->findByTitle($title);
         if (!$tag) {
             throw new CHttpException('404', 'Страница не найдена');
         }

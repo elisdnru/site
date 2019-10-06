@@ -360,17 +360,17 @@ class EFeed extends CComponent
             $head .= implode(PHP_EOL, $this->stylesheets);
         }
 
-        if ($this->type == self::RSS2) {
+        if ($this->type === self::RSS2) {
             $head .= CHtml::openTag('rss', [
                     'version' => '2.0',
                 ]) . PHP_EOL;
-        } elseif ($this->type == self::RSS1) {
+        } elseif ($this->type === self::RSS1) {
             $head .= CHtml::openTag('rdf:RDF', [
                     'xmlns:rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
                     'xmlns' => 'http://purl.org/rss/1.0/',
                     'xmlns:dc' => 'http://purl.org/dc/elements/1.1/'
                 ]) . PHP_EOL;
-        } elseif ($this->type == self::ATOM) {
+        } elseif ($this->type === self::ATOM) {
             $head .= CHtml::openTag('feed', ['xmlns' => 'http://www.w3.org/2005/Atom']) . PHP_EOL;
         }
         echo $head;
@@ -383,12 +383,12 @@ class EFeed extends CComponent
      */
     private function renderBottom()
     {
-        if ($this->type == self::RSS2) {
+        if ($this->type === self::RSS2) {
             echo CHtml::closeTag('channel') . PHP_EOL;
             echo CHtml::closeTag('rss');
-        } elseif ($this->type == self::RSS1) {
+        } elseif ($this->type === self::RSS1) {
             echo CHtml::closeTag('rdf:RDF');
-        } elseif ($this->type == self::ATOM) {
+        } elseif ($this->type === self::ATOM) {
             echo CHtml::closeTag('feed');
         }
     }
@@ -416,18 +416,18 @@ class EFeed extends CComponent
 
         // Printing channel items
         foreach ($this->feedElements->itemAt('channels') as $key => $value) {
-            if ($this->type == self::ATOM && $key == 'link') {
+            if ($this->type === self::ATOM && $key === 'link') {
                 // ATOM prints link element as href attribute
                 echo $this->makeNode($key, '', ['href' => $value]);
                 // And add the id for ATOM
-                echo $this->makeNode('id', $this->uuid($value, 'urn:uuid:'));
+                echo $this->makeNode('id', self::uuid($value, 'urn:uuid:'));
             } else {
                 echo $this->makeNode($key, $value);
             }
         }
 
         // RSS 1.0 have special tag <rdf:Seq> with channel
-        if ($this->type == self::RSS1) {
+        if ($this->type === self::RSS1) {
             if (null === $this->feedElements->itemAt('items')) {
                 throw new CException(Yii::t('EFeed', 'No items have been set'));
             }
@@ -477,12 +477,12 @@ class EFeed extends CComponent
     {
         $node = "\t";
 
-        if (is_array($tagContent) && $this->type == self::RSS1) {
+        if (is_array($tagContent) && $this->type === self::RSS1) {
             $attributes['rdf:parseType'] = 'Resource';
         }
 
         if (in_array($tagName, $this->feedElements->itemAt('CDATAEncoded'))) {
-            if ($this->type == self::ATOM) {
+            if ($this->type === self::ATOM) {
                 $attributes['type'] = 'html';
             }
             $node .= CHtml::openTag($tagName, $attributes) . '<![CDATA[';

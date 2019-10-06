@@ -40,9 +40,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
 <div id="wrapper">
 
     <header id="header">
-        <?php if ($this->route != 'main/default/index') :
-        ?><!--noindex--><?php
-        endif; ?>
+        <?php if ($this->route != 'main/default/index'): ?><!--noindex--><?php endif; ?>
         <div class="logo">
         <span data-href="/">
             <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>" />
@@ -56,8 +54,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
             <?php endif; ?>
             <div class="slogan">Разработка сайтов и интернет-сервисов</div>
         </div>
-        <?php if ($this->route != 'main/default/index') :
-        ?><!--/noindex--><?php
+        <?php if ($this->route != 'main/default/index'): ?><!--/noindex--><?php
     endif; ?>
 
         <div class="search">
@@ -122,8 +119,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
             <?php endif; ?>
         </div>
 
-        <?php if ($this->route != 'main/default/index') :
-        ?><!--noindex--><?php
+        <?php if ($this->route != 'main/default/index'): ?><!--noindex--><?php
         endif; ?>
         <div class="info">
             <p>
@@ -134,8 +130,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
                 <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>')</script>
             </p>
         </div>
-        <?php if ($this->route != 'main/default/index') :
-        ?><!--/noindex--><?php
+        <?php if ($this->route != 'main/default/index'): ?><!--/noindex--><?php
     endif; ?>
 
         <!--noindex-->

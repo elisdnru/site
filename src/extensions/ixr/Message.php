@@ -42,7 +42,7 @@ class Message
         // merged from WP #10698 - this method avoids the RAM usage of preg_replace on very large messages
         $header = preg_replace('/<\?xml.*?\?' . '>/', '', substr($this->message, 0, 100), 1);
         $this->message = substr_replace($this->message, $header, 0, 100);
-        if (trim($this->message) == '') {
+        if (trim($this->message) === '') {
             return false;
         }
         $this->_parser = xml_parser_create();
@@ -69,7 +69,7 @@ class Message
         xml_parser_free($this->_parser);
 
         // Grab the error messages, if any
-        if ($this->messageType == 'fault') {
+        if ($this->messageType === 'fault') {
             $this->faultCode = $this->params[0]['faultCode'];
             $this->faultString = $this->params[0]['faultString'];
         }
@@ -160,7 +160,7 @@ class Message
         if ($valueFlag) {
             if (count($this->_arraystructs) > 0) {
                 // Add value to struct or array
-                if ($this->_arraystructstypes[count($this->_arraystructstypes) - 1] == 'struct') {
+                if ($this->_arraystructstypes[count($this->_arraystructstypes) - 1] === 'struct') {
                     // Add to struct
                     $this->_arraystructs[count($this->_arraystructs) - 1][$this->_currentStructName[count($this->_currentStructName) - 1]] = $value;
                 } else {

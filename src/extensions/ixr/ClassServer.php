@@ -98,7 +98,7 @@ class ClassServer extends Server
         $method = $this->callbacks[$methodname];
 
         // Perform the callback and send the response
-        if (count($args) == 1) {
+        if (count($args) === 1) {
             // If only one paramater just send that instead of the whole array
             $args = $args[0];
         }

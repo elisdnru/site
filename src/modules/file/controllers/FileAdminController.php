@@ -105,7 +105,7 @@ class FileAdminController extends AdminController
         $uploaded = Yii::app()->file->set($field, true);
 
         if ($uploaded) {
-            if ($uploaded->basename == '.htaccess') {
+            if ($uploaded->basename === '.htaccess') {
                 return 'Отказано в доступе к загрузке файла .htaccess';
             }
 

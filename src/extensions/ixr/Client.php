@@ -99,7 +99,7 @@ class Client
                 }
                 $gotFirstLine = true;
             }
-            if (trim($line) == '') {
+            if (trim($line) === '') {
                 $gettingHeaders = false;
             }
             if (!$gettingHeaders) {
@@ -123,7 +123,7 @@ class Client
         }
 
         // Is the message a fault?
-        if ($this->message->messageType == 'fault') {
+        if ($this->message->messageType === 'fault') {
             $this->error = new Error($this->message->faultCode, $this->message->faultString);
             return false;
         }
