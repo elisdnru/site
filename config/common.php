@@ -36,7 +36,6 @@ $modules = [
     'share' => ['class' => app\modules\share\ShareModule::class],
     'search' => ['class' => app\modules\search\SearchModule::class],
     'sitemap' => ['class' => app\modules\sitemap\SitemapModule::class],
-    'tinymce' => ['class' => app\modules\tinymce\TinymceModule::class],
     'ulogin' => ['class' => app\modules\ulogin\UloginModule::class],
     'uploader' => ['class' => app\modules\uploader\UploaderModule::class],
     'user' => ['class' => app\modules\user\UserModule::class],

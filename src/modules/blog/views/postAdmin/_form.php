@@ -19,7 +19,7 @@ $cs->registerCoreScript('jquery');
 $cs->registerCssFile($url . '/tags.css');
 ?>
 
-<?php $this->widget(\app\modules\tinymce\widgets\TinyMCEWidget::class); ?>
+<?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
 
 <div class="form">
 

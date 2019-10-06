@@ -7,7 +7,7 @@ use app\modules\page\models\PageLayout;
 /* @var $model PageLayout */
 /* @var $form CActiveForm */
 ?>
-<?php $this->widget(\app\modules\tinymce\widgets\TinyMCEWidget::class); ?>
+<?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
 
 <div class="form">
 

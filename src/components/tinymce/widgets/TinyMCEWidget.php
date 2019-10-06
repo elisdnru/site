@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\tinymce\widgets;
+namespace app\components\tinymce\widgets;
 
 use CClientScript;
 use CHtml;
@@ -13,7 +13,7 @@ class TinyMCEWidget extends Widget
     {
         $cs = Yii::app()->getClientScript();
 
-        $url = CHtml::asset(Yii::getPathOfAlias('tinymce.assets'));
+        $url = CHtml::asset(Yii::getPathOfAlias('application.components.tinymce.assets'));
 
         $cs->registerCssFile($url . '/tinymce.css');
         $cs->registerScriptFile($url . '/tinymce/jquery.tinymce.js', CClientScript::POS_HEAD);
