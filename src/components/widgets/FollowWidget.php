@@ -1,8 +1,6 @@
 <?php
 
-namespace app\modules\follow\widgets;
-
-use app\components\widgets\Widget;
+namespace app\components\widgets;
 
 class FollowWidget extends Widget
 {

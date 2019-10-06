@@ -25,7 +25,6 @@ $modules = [
     'comment' => ['class' => app\modules\comment\CommentModule::class],
     'contact' => ['class' => app\modules\contact\ContactModule::class],
     'file' => ['class' => app\modules\file\FileModule::class],
-    'follow' => ['class' => app\modules\follow\FollowModule::class],
     'main' => ['class' => app\modules\main\MainModule::class],
     'menu' => ['class' => app\modules\menu\MenuModule::class],
     'page' => ['class' => app\modules\page\PageModule::class],
