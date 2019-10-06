@@ -19,7 +19,7 @@ class BlockWidget extends Widget
 
         $model = Block::model()->cache(0, new Tags('block'))->find('alias=:alias', ['alias' => $this->id]);
         if (!$model) {
-            return false;
+            return;
         }
 
         echo $model->text;

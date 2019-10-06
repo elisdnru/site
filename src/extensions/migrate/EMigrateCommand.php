@@ -464,7 +464,7 @@ class EMigrateCommand extends MigrateCommand
         $this->ensureBaseMigration($module);
 
         if (mb_strpos($class, self::BASE_MIGRATION) === 0) {
-            return;
+            return null;
         }
         if (($ret = parent::migrateUp($class)) !== false) {
             // add module information to migration table
@@ -488,6 +488,8 @@ class EMigrateCommand extends MigrateCommand
         if (mb_strpos($class, self::BASE_MIGRATION) !== 0) {
             return parent::migrateDown($class);
         }
+
+        return null;
     }
 
     public function getHelp()

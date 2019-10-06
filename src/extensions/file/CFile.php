@@ -527,7 +527,7 @@ class CFile extends CApplicationComponent
             }
 
             $this->addLog('Unable to open file using mode "' . $mode . '"');
-            return false;
+            return null;
         }
     }
 
@@ -1178,6 +1178,7 @@ class CFile extends CApplicationComponent
             // @todo hey, still need a valid check here
             return true;
         }
+        return false;
     }
 
     /**

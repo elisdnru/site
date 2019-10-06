@@ -30,7 +30,7 @@ class OtherPostsWidget extends Widget
             $category = BlogCategory::model()->findByPk(trim($this->category));
 
             if (!$category) {
-                return false;
+                return null;
             }
 
             $criteria->addCondition('category_id=:cat');
