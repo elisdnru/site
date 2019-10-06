@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\user\components;
+namespace app\components;
 
 use CPhpAuthManager;
 use Yii;

@@ -152,7 +152,7 @@ return [
         ],
 
         'authManager' => [
-            'class' => \app\modules\user\components\PhpAuthManager::class,
+            'class' => \app\components\PhpAuthManager::class,
             'defaultRoles' => ['role_guest'],
         ],
 
