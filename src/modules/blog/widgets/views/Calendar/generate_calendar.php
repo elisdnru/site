@@ -22,8 +22,8 @@ function generate_calendar($year, $month, $days = [], $day_name_length = 3, $mon
     $enable_p = $year > $current_year - 1;
     $enable_n = $year < $current_year || $year === $current_year && $month < $current_month;
 
-    @list($p, $pl) = $pn;
-    @list($n, $nl) = $pn; #previous and next links, if applicable
+    @list($p, $pl) = each($pn);
+    @list($n, $nl) = each($pn); #previous and next links, if applicable
     if ($p) {
         $p = '<span class="calendar-prev">' . ($pl && $enable_p ? '<span data-href="' . htmlspecialchars($pl) . '">' . $p . '</span>' : $p) . '</span>';
     }
