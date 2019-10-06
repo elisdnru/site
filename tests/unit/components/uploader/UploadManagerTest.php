@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\unit\modules\uploader\components;
+namespace tests\components\uploader;
 
 use app\components\uploader\UploadManager;
 use CTestCase;
