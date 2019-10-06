@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\blog\extensions\multicomplete;
+namespace app\extensions\multicomplete;
 
 use CHtml;
 use CJavaScript;

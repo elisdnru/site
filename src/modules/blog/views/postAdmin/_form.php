@@ -1,7 +1,7 @@
 <?php
 /* @var $this AdminController */
 
-use app\modules\blog\extensions\multicomplete\MultiComplete;
+use app\extensions\multicomplete\MultiComplete;
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
 use app\modules\blog\models\BlogPostGroup;
