@@ -8,15 +8,6 @@ class SitemapModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.sitemap.components.*',
-        ]);
-    }
-
     public function getName()
     {
         return 'Карта сайта';

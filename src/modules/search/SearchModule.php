@@ -8,17 +8,6 @@ class SearchModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.search.components.*',
-            'application.modules.search.models.*',
-        ]);
-    }
-
-
     public function getGroup()
     {
         return 'Контент';

@@ -9,15 +9,6 @@ class BlogModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.blog.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Блог';

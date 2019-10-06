@@ -9,15 +9,6 @@ class ContactModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.contact.models.*',
-        ]);
-    }
-
     public function getName()
     {
         return 'Обратная связь';

@@ -9,17 +9,6 @@ class CommentModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.comment.components.*',
-            'application.modules.comment.models.*',
-            'blog.models.BlogComment'
-        ]);
-    }
-
     public function getName()
     {
         return 'Комментарии';

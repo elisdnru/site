@@ -8,15 +8,6 @@ class MenuModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.menu.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Структура';

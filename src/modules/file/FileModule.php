@@ -8,15 +8,6 @@ class FileModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.file.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Загрузки';

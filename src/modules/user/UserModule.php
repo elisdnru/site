@@ -8,16 +8,6 @@ class UserModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.user.components.*',
-            'application.modules.user.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Пользователи';

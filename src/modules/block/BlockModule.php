@@ -8,15 +8,6 @@ class BlockModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.block.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Настройки и шаблоны';

@@ -8,16 +8,6 @@ class PageModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.page.components.*',
-            'application.modules.page.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Контент';

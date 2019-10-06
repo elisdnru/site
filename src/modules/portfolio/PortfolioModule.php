@@ -9,16 +9,6 @@ class PortfolioModule extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->setImport([
-            'application.modules.portfolio.components.*',
-            'application.modules.portfolio.models.*',
-        ]);
-    }
-
     public function getGroup()
     {
         return 'Контент';
