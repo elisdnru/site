@@ -176,7 +176,7 @@ jQuery(function ($) {
     <?php echo CHtml::endForm(); ?>
 </div>
 
-<?php $this->widget(\app\modules\colorbox\widgets\ColorboxWidget::class); ?>
+<?php $this->widget(\app\components\colorbox\widgets\ColorboxWidget::class); ?>
 
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>

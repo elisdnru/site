@@ -23,7 +23,6 @@ $modules = [
     'block' => ['class' => app\modules\block\BlockModule::class],
     'blog' => ['class' => app\modules\blog\BlogModule::class],
     'category' => ['class' => app\modules\category\CategoryModule::class],
-    'colorbox' => ['class' => app\modules\colorbox\ColorboxModule::class],
     'comment' => ['class' => app\modules\comment\CommentModule::class],
     'contact' => ['class' => app\modules\contact\ContactModule::class],
     'file' => ['class' => app\modules\file\FileModule::class],

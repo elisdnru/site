@@ -28,7 +28,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     }
 } ?>
 
-<?php $this->widget(\app\modules\colorbox\widgets\ColorboxWidget::class); ?>
+<?php $this->widget(\app\components\colorbox\widgets\ColorboxWidget::class); ?>
 
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>

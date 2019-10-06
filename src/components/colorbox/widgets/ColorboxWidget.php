@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\colorbox\widgets;
+namespace app\components\colorbox\widgets;
 
 use CClientScript;
 use CHtml;
@@ -15,7 +15,7 @@ class ColorboxWidget extends Widget
 
         $cs->registerCoreScript('jquery');
 
-        $url = CHtml::asset(Yii::getPathOfAlias('colorbox.assets'));
+        $url = CHtml::asset(Yii::getPathOfAlias('application.components.colorbox.assets'));
 
         $cs->registerCssFile($url . '/colorbox.css');
         $cs->registerScriptFile($url . '/jquery.colorbox-min.js', CClientScript::POS_HEAD);
