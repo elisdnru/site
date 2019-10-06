@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\components\ixr;
+namespace app\extensions\ixr;
 
 /**
  * Client for communicating with a XML-RPC Server over HTTPS.

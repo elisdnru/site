@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\components\ixr;
+namespace app\extensions\ixr;
 
 /**
  * IXR_ClientMulticall

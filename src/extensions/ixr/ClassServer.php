@@ -38,7 +38,7 @@
  * @link       http://scripts.incutio.com/xmlrpc/ Site/manual
  */
 
-namespace app\components\ixr;
+namespace app\extensions\ixr;
 
 /**
  * Extension of the {@link IXR_Server} class to easily wrap objects.

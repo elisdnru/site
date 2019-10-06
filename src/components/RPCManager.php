@@ -2,7 +2,7 @@
 
 namespace app\components;
 
-use app\components\ixr\Client;
+use app\extensions\ixr\Client;
 use CApplicationComponent;
 use CLogger;
 use Yii;
