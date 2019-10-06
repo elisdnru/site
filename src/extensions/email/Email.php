@@ -21,7 +21,7 @@ class Email extends CApplicationComponent
     /**
      * @var string Receiver, or receivers of the mail.
      */
-    public $to = null;
+    public $to;
 
     /**
      * @var string Email subject
@@ -31,17 +31,17 @@ class Email extends CApplicationComponent
     /**
      * @var string from address
      */
-    public $from = null;
+    public $from;
 
     /**
      * @var string Reply-to address
      */
-    public $replyTo = null;
+    public $replyTo;
 
     /**
      * @var string Return-path address
      */
-    public $returnPath = null;
+    public $returnPath;
 
     /**
      * @var string Carbon Copy
@@ -49,7 +49,7 @@ class Email extends CApplicationComponent
      * List of email's that should receive a copy of the email.
      * The Recipient WILL be able to see this list
      */
-    public $cc = null;
+    public $cc;
 
     /**
      * @var string Blind Carbon Copy
@@ -57,7 +57,7 @@ class Email extends CApplicationComponent
      * List of email's that should receive a copy of the email.
      * The Recipient WILL NOT be able to see this list
      */
-    public $bcc = null;
+    public $bcc;
 
     /**
      * @var string Main content
@@ -86,18 +86,18 @@ class Email extends CApplicationComponent
      * through $email, thus letting you define things such as the subject within the view (helps maintain
      * seperation of logic and output).
      */
-    public $view = null;
+    public $view;
 
     /**
      * @var array Variable to be sent to the view.
      */
-    public $viewVars = null;
+    public $viewVars;
 
     /**
      * @var string The layout for the view to be imbedded in. Must be located in
      * application.views.email.layouts directory.  Not required even if you are using a view
      */
-    public $layout = null;
+    public $layout;
 
     /**
      * @var integer line length of email as per RFC2822 Section 2.1.1

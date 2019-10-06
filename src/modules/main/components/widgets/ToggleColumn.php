@@ -59,10 +59,6 @@ class ToggleColumn extends CGridColumn
      */
     public $filter;
     /**
-     * @var boolean whether this column is visible. Defaults to true.
-     */
-    public $visible = true;
-    /**
      * @var array the HTML options for the data cell tags.
      */
     public $htmlOptions = ['class' => 'toggle-column'];

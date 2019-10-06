@@ -13,7 +13,6 @@ UrlRulesHelper::import('blog');
 class BlogCategory extends TreeCategory
 {
     public $urlRoute = '/blog/default/category';
-    public $indent = 0;
 
     /**
      * Returns the static model of the specified AR class.

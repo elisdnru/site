@@ -14,8 +14,8 @@ use Exception;
  */
 class CImageHandler extends CApplicationComponent
 {
-    private $originalImage = null;
-    private $image = null;
+    private $originalImage;
+    private $image;
 
     private $format = 0;
 

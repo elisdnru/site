@@ -37,7 +37,7 @@ class BlogCalendarWidget extends Widget
         // Today
         $days = [];
         if ($firstDay <= time() && time() < $firstDayNextMonth) {
-            $today = date('j', time());
+            $today = date('j');
             $days[$today] = [null, null, '<span id="today">' . $today . '</span>'];
         }
 

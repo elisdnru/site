@@ -73,8 +73,8 @@ class EMigrateCommand extends MigrateCommand
      * @see getModulePaths()
      * @see setModulePaths()
      */
-    private $_modulePaths = null;
-    private $_runModulePaths = null; // modules for current run
+    private $_modulePaths;
+    private $_runModulePaths; // modules for current run
 
     /**
      * @var array

@@ -10,8 +10,6 @@ use Yii;
  */
 class User extends UserBase
 {
-    protected $_salt = '%#w_wrb13&p';
-
     /**
      * Returns the static model of the specified AR class.
      * @param string $className

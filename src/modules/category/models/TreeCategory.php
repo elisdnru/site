@@ -29,7 +29,6 @@ use Yii;
  */
 abstract class TreeCategory extends Category
 {
-    public $urlRoute = '';
     public $indent = 0;
 
     /**

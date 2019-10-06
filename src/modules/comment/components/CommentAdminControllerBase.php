@@ -8,10 +8,8 @@ use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use CException;
-use CHtml;
 use CHttpException;
 use app\modules\main\components\AdminController;
-use Yii;
 
 UrlRulesHelper::import('users');
 

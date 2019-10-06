@@ -122,11 +122,11 @@ class CFile extends CApplicationComponent
     /**
      * @var resource file pointer resource (for {@link open} & {@link close})
      */
-    private $_handle = null;
+    private $_handle;
     /**
      * @var CUploadedFile object instance
      */
-    private $_uploadedInstance = null;
+    private $_uploadedInstance;
 
 
     /**

@@ -168,7 +168,7 @@ class UploadManager extends CApplicationComponent
             if ($width && $height) {
                 $thumb = $orig->adaptiveThumb($width, $height);
             } else {
-                $thumb = $orig->thumb($width ? $width : false, $height ? $height : false, true);
+                $thumb = $orig->thumb($width ? $width : false, $height ? $height : false);
             }
 
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);

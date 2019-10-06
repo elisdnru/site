@@ -40,8 +40,8 @@ class FileUploadBehavior extends CActiveRecordBehavior
     public $fileAttribute = 'file';
     public $fileTypes = 'jpg,jpeg,gif,png';
     public $enableWatermark = false;
-    public $storageAttribute = null; // set if it different from fileAttribute
-    public $deleteAttribute = null; // field for "Delete image" checkbox
+    public $storageAttribute; // set if it different from fileAttribute
+    public $deleteAttribute; // field for "Delete image" checkbox
     public $filePath = '';
     public $defaultThumbWidth = 200;
     public $defaultThumbHeight = 0;

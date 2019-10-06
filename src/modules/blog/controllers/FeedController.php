@@ -23,8 +23,8 @@ class FeedController extends Controller
         $feed->description = Yii::app()->params['GENERAL.SITE_NAME'];
 
         $feed->addChannelTag('language', 'ru');
-        $feed->addChannelTag('pubDate', date(DATE_RSS, time()));
-        $feed->addChannelTag('lastBuildDate', date(DATE_RSS, time()));
+        $feed->addChannelTag('pubDate', date(DATE_RSS));
+        $feed->addChannelTag('lastBuildDate', date(DATE_RSS));
         $feed->addChannelTag('link', Yii::app()->request->hostInfo);
         $feed->addChannelTag('copyright', 'Copyright ' . date('Y') . ' ' . $_SERVER['SERVER_NAME']);
 

@@ -15,7 +15,7 @@ use CValidator;
  */
 class CurrentPasswordValidator extends CValidator
 {
-    public $className = null;
+    public $className;
     public $validateMethod = 'validatePassword';
     public $idAttribute = 'id';
     public $allowEmpty = true;

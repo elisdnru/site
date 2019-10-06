@@ -28,7 +28,7 @@ class DefaultController extends Controller
             $return = Yii::app()->request->getParam('return');
             $this->redirect($return ? $return : Yii::app()->homeUrl);
         } else {
-            $this->redirect(Yii::app()->homeUrl, true);
+            $this->redirect(Yii::app()->homeUrl);
         }
     }
 }

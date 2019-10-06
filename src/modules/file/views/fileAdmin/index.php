@@ -152,7 +152,7 @@ jQuery(function ($) {
 
 <hr />
 
-<?php echo CHtml::beginForm(''); ?>
+<?php echo CHtml::beginForm(); ?>
 
 <?php echo CHtml::textField('foldername', '', ['size' => 30]); ?>
 <?php echo CHtml::submitButton('Создать директорию'); ?>

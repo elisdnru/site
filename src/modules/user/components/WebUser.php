@@ -7,7 +7,7 @@ use app\modules\user\models\User;
 
 class WebUser extends CWebUser
 {
-    private $_model = null;
+    private $_model;
 
     function getRole()
     {

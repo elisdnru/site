@@ -6,7 +6,7 @@
             <div class="entry last">
                 <?php if ($post->image) : ?>
                     <p class="thumb">
-                        <span data-href="<?php echo $post->url; ?>"><?php echo CHtml::image($post->getImageThumbUrl(100, 100), ''); ?></span>
+                        <span data-href="<?php echo $post->url; ?>"><?php echo CHtml::image($post->getImageThumbUrl(100, 100)); ?></span>
                     </p><!--/noindex-->
                 <?php endif; ?>
                 <div class="title"><a href="<?php echo $post->url; ?>"><?php echo CHtml::encode($post->title); ?></a>

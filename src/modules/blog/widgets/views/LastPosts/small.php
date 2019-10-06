@@ -5,7 +5,7 @@
     <?php foreach ($posts as $post) : ?>
         <div class="entry last">
             <?php if ($post->image) : ?>
-                <p class="thumb"><?php echo CHtml::image($post->getImageThumbUrl(100, 100), ''); ?></p>
+                <p class="thumb"><?php echo CHtml::image($post->getImageThumbUrl(100, 100)); ?></p>
             <?php endif; ?>
 
             <div class="title"><a href="<?php echo $post->url; ?>"><?php echo CHtml::encode($post->title); ?></a></div>
