@@ -11,8 +11,6 @@ $this->admin[] = ['label' => 'Шаблоны', 'url' => $this->createUrl('index'
 if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/new/pageAdmin/index')];
 }
-
-$this->info = 'Шаблоны';
 ?>
 
 <h1>Добавление шаблона</h1>

@@ -18,8 +18,6 @@ $this->breadcrumbs = [
 
 $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin/index')];
 $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/categoryAdmin/index')];
-
-$this->info = 'Нельзя удалить группу, пока в ней есть записи';
 ?>
 
 <h1>Тематические группы записей</h1>

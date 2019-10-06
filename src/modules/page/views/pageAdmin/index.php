@@ -11,8 +11,6 @@ if ($this->moduleAllowed('page')) {
 if ($this->moduleAllowed('menu')) {
     $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/menuAdmin/index')];
 }
-
-$this->info = 'После создания страницы Вы можете привязать её к любому пункту меню';
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

@@ -10,7 +10,6 @@ $this->breadcrumbs = [
 
 if ($this->is(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/userAdmin/index')];
-    $this->info = 'Управлять пользователями Вы можете в панели управления';
 } ?>
 
 <?php $this->beginWidget(\app\modules\main\components\widgets\Portlet::class, ['title' => 'Редактировать профиль']); ?>

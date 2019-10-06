@@ -12,8 +12,6 @@ if ($this->moduleAllowed('blog')) {
     $this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('/contact/contactAdmin/index')];
 }
 
-$this->info = 'Неопубликованные комментарии выделены серым, новые подсвечены';
-
 Yii::app()->clientScript->registerPackage('comments');
 ?>
 

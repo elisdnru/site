@@ -8,7 +8,6 @@ $this->breadcrumbs = [
 
 $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
 $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
-$this->info = 'Комментарии';
 
 Yii::app()->clientScript->registerPackage('comments');
 ?>

@@ -18,7 +18,6 @@ $this->admin = [
     ['label' => 'Метки', 'url' => $this->createUrl('/blog/tagAdmin/index')],
     ['label' => 'Тематические группы', 'url' => $this->createUrl('/blog/groupAdmin/index')],
 ];
-$this->info = 'Блоги';
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

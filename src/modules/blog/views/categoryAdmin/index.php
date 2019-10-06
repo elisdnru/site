@@ -13,8 +13,6 @@ $this->breadcrumbs = [
 $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin/index')];
 $this->admin[] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/groupAdmin/index')];
 $this->admin[] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
-
-$this->info = 'Категории записей';
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

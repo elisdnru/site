@@ -10,7 +10,6 @@ $this->breadcrumbs = [
 
 <?php if ($this->is(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
-    $this->info = 'Страница ошибки';
 } ?>
 
 <h2>Ошибка <?php echo isset($error['code']) ? $error['code'] : ''; ?></h2>

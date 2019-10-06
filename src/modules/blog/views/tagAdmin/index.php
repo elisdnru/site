@@ -14,8 +14,6 @@ $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/po
 $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/categoryAdmin/index')];
 $this->admin[] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/groupAdmin/index')];
 $this->admin[] = ['label' => 'Добавить метку', 'url' => $this->createUrl('create')];
-
-$this->info = 'Метки записей';
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

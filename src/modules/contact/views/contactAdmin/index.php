@@ -15,9 +15,6 @@ $this->breadcrumbs = [
 if ($this->moduleAllowed('comment')) {
     $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('/comment/commentAdmin/index')];
 }
-
-$this->info = 'Отметка о прочтении выставляется автоматически';
-
 ?>
 
 <h1>Сообщения</h1>

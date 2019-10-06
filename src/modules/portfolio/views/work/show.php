@@ -26,8 +26,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('portfolio')) {
         $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/workAdmin/create')];
     }
-
-    $this->info = '<p>Нажмите «Редактировать» чтобы изменить статью</p>';
 } ?>
 
 <?php $this->widget(\app\modules\colorbox\widgets\ColorboxWidget::class); ?>

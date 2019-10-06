@@ -22,7 +22,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
             $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/edit', ['id' => $page->id])];
         }
     }
-    $this->info = 'Карта сайта';
 }
 ?>
 

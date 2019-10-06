@@ -26,8 +26,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
             $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/update', ['id' => $page->id])];
         }
     }
-
-    $this->info = 'Здесь собраны работы из всех разделов';
 }
 ?>
 

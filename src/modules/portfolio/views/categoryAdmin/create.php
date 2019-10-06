@@ -9,8 +9,6 @@ $this->breadcrumbs = [
 
 $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('index')];
 $this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/workAdmin/index')];
-
-$this->info = 'Категории портфолио';
 ?>
 
 <h1>Добавление категории портфолио</h1>

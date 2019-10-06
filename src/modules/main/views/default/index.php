@@ -16,7 +16,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('comment')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('comment'));
     }
-    $this->info = 'Стартовая страница';
 }
 ?>
 

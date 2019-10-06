@@ -74,7 +74,6 @@ if ($this->is(Access::ROLE_ADMIN)) {
         <div class="adminbar">
             <?php $this->widget(\app\modules\main\components\widgets\AdminLinksWidget::class, [
                 'links' => $this->admin,
-                'info' => $this->info
             ]); ?>
         </div>
     <?php endif; ?>

@@ -12,8 +12,6 @@ if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin/index')];
 }
 $this->admin[] = ['label' => 'Добавить шаблон', 'url' => $this->createUrl('create')];
-
-$this->info = 'Шаблоны';
 ?>
 
 <?php $this->layout = '//layouts/page/' . $model->alias; ?>

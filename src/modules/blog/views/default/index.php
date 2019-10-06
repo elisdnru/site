@@ -33,8 +33,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog') && $this->moduleAllowed('comment')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications($this->module->id));
     }
-
-    $this->info = 'Здесь собраны записи из всех разделов';
 }
 ?>
 

@@ -22,8 +22,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('page')) {
         $this->admin[] = ['label' => 'Подстраницы', 'url' => $this->createUrl('/page/pageAdmin/index', ['Page[parent_id]' => $page->id])];
     }
-
-    $this->info = 'Страница';
 }
 ?>
 

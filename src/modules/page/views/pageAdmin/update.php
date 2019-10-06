@@ -11,9 +11,6 @@ $this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];
 if ($this->moduleAllowed('menu')) {
     $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/menuAdmin/index')];
 }
-
-$this->info = 'После создания страницы Вы можете привязать её к любому пункту меню';
-
 ?>
 
 <h1>Редактирование страницы</h1>

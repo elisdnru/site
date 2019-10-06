@@ -17,8 +17,6 @@ $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl(
 if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Создать страницу', 'url' => $this->createUrl('admin/pages/update')];
 }
-
-$this->info = 'Псевдонимы используются системой для вывода соответствующих меню в шаблоне';
 ?>
 
 <h1>Добавление пункта меню</h1>

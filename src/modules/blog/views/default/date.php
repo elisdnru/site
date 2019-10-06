@@ -26,7 +26,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/postAdmin/create')];
     }
-    $this->info = 'Здесь собраны записи по дате';
 }
 ?>
 

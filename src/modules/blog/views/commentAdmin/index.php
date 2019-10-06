@@ -16,8 +16,6 @@ if ($material) {
     $this->admin[] = ['label' => 'Перейти к записи', 'url' => $material->url];
 }
 
-$this->info = 'Неопубликованные комментарии выделены серым, новые подсвечены';
-
 Yii::app()->clientScript->registerPackage('comments');
 ?>
 

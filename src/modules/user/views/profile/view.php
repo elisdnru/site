@@ -9,8 +9,6 @@ $this->breadcrumbs = ['Профиль'];
 if ($this->is(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/userAdmin/index')];
     $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/user/userAdmin/update', ['id' => $model->id])];
-
-    $this->info = 'Управлять пользователями Вы можете в панели управления';
 }
 ?>
 

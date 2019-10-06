@@ -12,9 +12,6 @@ $this->admin[] = ['label' => 'Шаблоны', 'url' => $this->createUrl('index'
 if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin/index')];
 }
-
-$this->info = 'После создания страницы Вы можете привязать её к любому пункту меню';
-
 ?>
 
 <h1>Редактирование шаблона</h1>

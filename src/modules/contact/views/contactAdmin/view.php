@@ -16,8 +16,6 @@ $this->breadcrumbs = [
 
 $this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('index')];
 $this->admin[] = ['label' => 'Удалить', 'url' => $this->createUrl('delete', ['id' => $model->id])];
-
-$this->info = 'Вы можете настроить отправку сообщений на свою почту в параметрах';
 ?>
 
 <div style="float:right">

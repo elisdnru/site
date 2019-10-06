@@ -19,8 +19,6 @@ if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin/index')];
 }
 
-$this->info = 'Чтобы скопировать адрес ссылки на файл щёлкните по нему правой кнопкой мыши';
-
 Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 

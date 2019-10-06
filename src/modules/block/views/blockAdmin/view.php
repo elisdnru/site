@@ -8,8 +8,6 @@ $this->breadcrumbs = [
 
 $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
 $this->admin[] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
-$this->info = 'Блоки';
-
 ?>
 
 <h1>Просмотр блока &laquo;<?php echo CHtml::encode($model->title); ?>&raquo;</h1>

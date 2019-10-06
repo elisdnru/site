@@ -25,8 +25,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('portfolio')) {
         $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/categoryAdmin/update', ['id' => $category->id])];
     }
-
-    $this->info = 'Работы категории';
 }
 ?>
 

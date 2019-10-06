@@ -9,8 +9,6 @@ $this->breadcrumbs = [
 $this->admin[] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
 $this->admin[] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
 
-$this->info = 'Блоки';
-
 ?>
 
 <h1>Редактирование блока</h1>

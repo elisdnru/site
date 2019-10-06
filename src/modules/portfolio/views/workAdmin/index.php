@@ -17,8 +17,6 @@ if ($this->moduleAllowed('portfolio')) {
     $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('create', ['category' => $category])];
 }
 
-$this->info = 'Портфолио';
-
 Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 

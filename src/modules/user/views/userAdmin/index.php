@@ -6,8 +6,6 @@ $this->breadcrumbs = [
 ];
 
 $this->admin[] = ['label' => 'Добавить пользователя', 'url' => $this->createUrl('create')];
-
-$this->info = 'Пользователи';
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

@@ -39,7 +39,6 @@ use Yii;
 class Controller extends BaseController
 {
     public $admin = [];
-    public $info = '';
 
     public $isHomePage = false;
 

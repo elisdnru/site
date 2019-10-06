@@ -21,7 +21,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('page')) {
         $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin')];
     }
-    $this->info = 'Здесь собраны материалы из всех разделов';
 }
 ?>
 

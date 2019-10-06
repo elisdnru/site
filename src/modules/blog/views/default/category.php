@@ -30,7 +30,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/blog/categoryAdmin/update', ['id' => $category->id])];
     }
-    $this->info = '<p>Записи по категории</p>';
 }
 ?>
 
