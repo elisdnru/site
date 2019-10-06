@@ -104,20 +104,21 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
 jQuery(function($) {
     $(function () {
-        $('#listBlock').sortable({
+        var listBlock = $('#listBlock');
+        listBlock.sortable({
             placeholder: 'ui-state-highlight',
             items: '>table',
             opacity: 0.5,
             cursor: 'move',
             axis: 'y',
-            update: function (event, ui) {
+            update: function () {
                 $('#saving').show()
-                var items = $('#listBlock').sortable('serialize')
+                var items = listBlock.sortable('serialize')
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo $this->createUrl('sort'); ?>',
                     data: items + '&YII_CSRF_TOKEN=' + getCSRFToken(),
-                    success: function (data) {
+                    success: function () {
                         $('#saving').hide()
                     },
                     error: function (XHR) {
@@ -126,7 +127,7 @@ jQuery(function($) {
                 })
             }
         })
-        $('#listBlock').disableSelection()
+        listBlock.disableSelection()
     })
 })
 

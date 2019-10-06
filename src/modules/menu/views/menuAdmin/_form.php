@@ -92,17 +92,21 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     <?php ob_start() ?>
 
     jQuery(function($){
-        if (!$('.m_urlfield').val()) $('.m_urlfield').val('#')
-        $('.m_selector').change(function () {
-            var val = $(this).val()
-            if (val == '') {
-                $('.m_urlfield').val('#')
-            } else {
-                $('.m_urlfield').val($(this).val())
-            }
-            $('.m_selector').val('')
-            $(this).val(val)
-        })
+      var url_field = $('.m_urlfield');
+      if (!url_field.val()) {
+        url_field.val('#');
+      }
+      var selector = $('.m_selector');
+      selector.change(function () {
+        var val = $(this).val()
+        if (val === '') {
+          url_field.val('#')
+        } else {
+          url_field.val($(this).val())
+        }
+        selector.val('')
+        $(this).val(val)
+      })
     });
 
     <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>

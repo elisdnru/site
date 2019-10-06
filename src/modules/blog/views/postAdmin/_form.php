@@ -175,7 +175,7 @@ $cs->registerCssFile($url . '/tags.css');
             tagsVariants.each(function () {
                 var variant = $(this)
                 var thisTag = variant.find('.tag').text()
-                if (tags.indexOf(thisTag) != -1) {
+                if (tags.indexOf(thisTag) !== -1) {
                     variant.addClass('active')
                 } else {
                     variant.removeClass('active')
@@ -192,7 +192,7 @@ $cs->registerCssFile($url . '/tags.css');
             }
             var newTag = $(this).text()
             var index = tags.indexOf(newTag)
-            if (index == -1) {
+            if (index === -1) {
                 tags[tags.length] = newTag
             } else {
                 tags.splice(index, 1)
