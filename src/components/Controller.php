@@ -53,7 +53,6 @@ class Controller extends CController
         return array_merge(parent::behaviors(), [
             'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
             'UserBehavior' => ['class' => behaviors\UserBehavior::class],
-            'FlashSessionBehavior' => ['class' => behaviors\FlashSessionBehavior::class],
             'HeadersBehavior' => ['class' => behaviors\HeadersBehavior::class],
             'LiveLayoutBehavior' => ['class' => behaviors\LiveLayoutBehavior::class],
             'JsInitBehavior' => ['class' => behaviors\JsInitBehavior::class],
@@ -70,7 +69,6 @@ class Controller extends CController
 
     public function init()
     {
-        $this->initFlashSession();
         $this->initHeaders();
         parent::init();
     }
