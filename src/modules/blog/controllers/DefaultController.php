@@ -7,7 +7,6 @@ use app\modules\blog\models\Post;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Tag;
 use CActiveDataProvider;
-use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
 use app\components\Controller;
@@ -32,7 +31,7 @@ class DefaultController extends Controller
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', CArray::merge([$category->id], $category->getChildsArray()));
+        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildsArray()));
 
         $this->render('category', [
             'dataProvider' => $this->createProvider($criteria),

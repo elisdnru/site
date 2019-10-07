@@ -3,7 +3,6 @@
 namespace app\modules\portfolio\controllers;
 
 use CActiveDataProvider;
-use app\components\CArray;
 use CDbCriteria;
 use CHttpException;
 use app\modules\page\models\Page;
@@ -52,7 +51,7 @@ class DefaultController extends PortfolioBaseController
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getStartCriteria();
-        $criteria->addInCondition('t.category_id', CArray::merge([$category->id], $category->getChildsArray()));
+        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildsArray()));
 
         $subcategories = $category->cache(3600 * 24)->child_items;
 
