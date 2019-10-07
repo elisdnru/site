@@ -1,4 +1,4 @@
-<p id="tag_cloud" class="nomargin tags" style="text-align: center"></p>
+<div id="tag_cloud" class="tags"></div>
 
 <?php
 $items = [];
