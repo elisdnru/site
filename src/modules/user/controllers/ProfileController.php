@@ -53,6 +53,12 @@ class ProfileController extends Controller
         if ($model === null) {
             throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
         }
+        if ($model->create_datetime === '0000-00-00 00:00:00') {
+            $model->create_datetime = '1900-01-01 00:00:00';
+        }
+        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
+            $model->last_visit_datetime = null;
+        }
         return $model;
     }
 }
