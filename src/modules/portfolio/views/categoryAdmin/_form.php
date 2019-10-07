@@ -7,7 +7,6 @@ use app\modules\portfolio\models\Category;
 /* @var $model Category */
 /* @var $form CActiveForm */
 ?>
-<?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
 
 <div class="form">
 
@@ -59,7 +58,7 @@ use app\modules\portfolio\models\Category;
     <fieldset class="editor">
         <div class="row">
             <?php echo $form->labelEx($model, 'text'); ?><br />
-            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
+            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?>
             <?php echo $form->error($model, 'text'); ?>
         </div>
     </fieldset>

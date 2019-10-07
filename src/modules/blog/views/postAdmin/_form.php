@@ -14,8 +14,6 @@ use app\components\AdminController;
 Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
-<?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
-
 <div class="form">
 
     <?php $form = $this->beginWidget(
@@ -121,7 +119,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     <fieldset class="editor">
         <div class="row">
             <?php echo $form->labelEx($model, 'short'); ?><br />
-            <?php echo $form->textArea($model, 'short', ['rows' => 16, 'cols' => 80, 'class' => 'tinymce']); ?>
+            <?php echo $form->textArea($model, 'short', ['rows' => 6, 'cols' => 80]); ?>
             <?php echo $form->error($model, 'short'); ?>
         </div>
     </fieldset>

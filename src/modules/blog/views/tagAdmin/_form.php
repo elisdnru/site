@@ -8,8 +8,6 @@ use app\components\AdminController;
 /* @var $form CActiveForm */
 ?>
 
-<?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
-
 <div class="form">
 
     <?php $form = $this->beginWidget(\CActiveForm::class, [

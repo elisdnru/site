@@ -8,8 +8,6 @@ use app\components\AdminController;
 /* @var $form CActiveForm */
 ?>
 
-<?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
-
 <div class="form">
 
     <?php $form = $this->beginWidget(\CActiveForm::class, [
@@ -60,7 +58,7 @@ use app\components\AdminController;
     <fieldset class="editor">
         <div class="row">
             <?php echo $form->labelEx($model, 'text'); ?><br />
-            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80, 'class' => 'tinymce']); ?>
+            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?>
             <?php echo $form->error($model, 'text'); ?>
         </div>
     </fieldset>
