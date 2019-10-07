@@ -78,6 +78,8 @@ return [
         ],
 
         'clientScript' => [
+            'coreScriptPosition' => CClientScript::POS_END,
+            'defaultScriptFilePosition' => CClientScript::POS_END,
             'packages' => [
                 'jquery' => [
                     'basePath' => null,
