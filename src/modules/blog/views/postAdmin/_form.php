@@ -10,13 +10,8 @@ use app\components\AdminController;
 
 /* @var $model Post */
 /* @var $form CActiveForm */
-?>
 
-<?php
-$cs = Yii::app()->getClientScript();
-$url = CHtml::asset(Yii::getPathOfAlias('application.modules.blog.assets'));
-$cs->registerCoreScript('jquery');
-$cs->registerCssFile($url . '/tags.css');
+Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
