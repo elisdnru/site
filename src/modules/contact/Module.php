@@ -2,6 +2,7 @@
 
 namespace app\modules\contact;
 
+use app\components\GroupUrlRule;
 use app\modules\contact\models\Contact;
 use app\components\system\WebModule;
 
@@ -26,7 +27,13 @@ class Module extends WebModule
     public static function rules()
     {
         return [
-            'contact/captcha' => 'contact/default/captcha',
+            [
+                'class' => GroupUrlRule::class,
+                'prefix' => 'contact',
+                'rules' => [
+                    'captcha' => 'default/captcha',
+                ],
+            ],
         ];
     }
 }

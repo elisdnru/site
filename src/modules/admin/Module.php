@@ -2,6 +2,7 @@
 
 namespace app\modules\admin;
 
+use app\components\GroupUrlRule;
 use app\components\system\WebModule;
 
 class Module extends WebModule
@@ -16,8 +17,14 @@ class Module extends WebModule
     public static function rules()
     {
         return [
-            'admin/clearCache' => 'admin/default/clearCache',
-            'admin' => 'admin/default/index',
+            [
+                'class' => GroupUrlRule::class,
+                'prefix' => 'admin',
+                'rules' => [
+                    'clearCache' => 'default/clearCache',
+                    '' => 'default/index',
+                ],
+            ],
         ];
     }
 }

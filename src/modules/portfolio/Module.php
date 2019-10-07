@@ -2,6 +2,7 @@
 
 namespace app\modules\portfolio;
 
+use app\components\GroupUrlRule;
 use app\components\system\WebModule;
 use Yii;
 
@@ -31,12 +32,18 @@ class Module extends WebModule
     public static function rules()
     {
         return [
-            'portfolio/<category:[\w_\/-]+>/<id:[\d]+>/<alias:[\w_-]+>' => 'portfolio/work/show',
-            'portfolio/<id:[\d]+>' => 'portfolio/work/show',
-            'portfolio/<category:[\w_\/-]+>/page-<page:\d+>' => 'portfolio/default/category',
-            'portfolio/page-<page:\d+>' => 'portfolio/default/index',
-            'portfolio/<category:[\w_\/-]+>' => 'portfolio/default/category',
-            'portfolio' => 'portfolio/default/index',
+            [
+                'class' => GroupUrlRule::class,
+                'prefix' => 'portfolio',
+                'rules' => [
+                    '<category:[\w_\/-]+>/<id:[\d]+>/<alias:[\w_-]+>' => 'work/show',
+                    '<id:[\d]+>' => 'work/show',
+                    '<category:[\w_\/-]+>/page-<page:\d+>' => 'default/category',
+                    'page-<page:\d+>' => 'default/index',
+                    '<category:[\w_\/-]+>' => 'default/category',
+                    '' => 'default/index',
+                ],
+            ],
         ];
     }
 

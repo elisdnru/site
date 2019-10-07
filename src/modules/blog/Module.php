@@ -2,6 +2,7 @@
 
 namespace app\modules\blog;
 
+use app\components\GroupUrlRule;
 use app\modules\blog\models\Comment;
 use app\components\system\WebModule;
 
@@ -45,18 +46,24 @@ class Module extends WebModule
     public static function rules()
     {
         return [
-            'blog/feed' => 'blog/feed/index',
-            'blog/search' => 'blog/default/search',
-            'blog/tag/<tag:[\w-]+>/page-<page:\d+>' => 'blog/default/tag',
-            'blog/tag/<tag:[\w-]+>' => 'blog/default/tag',
-            'blog/date/<date:[\w-]+>/page-<page:\d+>' => 'blog/default/date',
-            'blog/date/<date:[\w-]+>' => 'blog/default/date',
-            'blog/<id:[\d]+>/<alias:[\w_-]+>' => 'blog/post/show',
-            'blog/<id:[\d]+>' => 'blog/post/show',
-            'blog/<category:[\w_\/-]+>/page-<page:\d+>' => 'blog/default/category',
-            'blog/page-<page:\d+>' => 'blog/default/index',
-            'blog/<category:[\w_\/-]+>' => 'blog/default/category',
-            'blog' => 'blog/default/index',
+            [
+                'class' => GroupUrlRule::class,
+                'prefix' => 'blog',
+                'rules' => [
+                    'feed' => 'feed/index',
+                    'search' => 'default/search',
+                    'tag/<tag:[\w-]+>/page-<page:\d+>' => 'default/tag',
+                    'tag/<tag:[\w-]+>' => 'default/tag',
+                    'date/<date:[\w-]+>/page-<page:\d+>' => 'default/date',
+                    'date/<date:[\w-]+>' => 'default/date',
+                    '<id:[\d]+>/<alias:[\w_-]+>' => 'post/show',
+                    '<id:[\d]+>' => 'post/show',
+                    '<category:[\w_\/-]+>/page-<page:\d+>' => 'default/category',
+                    'page-<page:\d+>' => 'default/index',
+                    '<category:[\w_\/-]+>' => 'default/category',
+                    '' => 'default/index',
+                ],
+            ],
         ];
     }
 }

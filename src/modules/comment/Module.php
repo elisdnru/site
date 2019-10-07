@@ -2,6 +2,7 @@
 
 namespace app\modules\comment;
 
+use app\components\GroupUrlRule;
 use app\modules\comment\models\Comment;
 use app\components\system\WebModule;
 
@@ -28,10 +29,16 @@ class Module extends WebModule
     public static function rules()
     {
         return [
-            'comment/update/<id:\d+>' => 'comment/comment/update',
-            'comment/like/<id:\d+>' => 'comment/ajax/like',
-            'comment/hide/<id:\d+>' => 'comment/ajax/hide',
-            'comment/delete/<id:\d+>' => 'comment/ajax/delete',
+            [
+                'class' => GroupUrlRule::class,
+                'prefix' => 'comment',
+                'rules' => [
+                    'update/<id:\d+>' => 'update',
+                    'like/<id:\d+>' => 'ajax/like',
+                    'hide/<id:\d+>' => 'ajax/hide',
+                    'delete/<id:\d+>' => 'ajax/delete',
+                ],
+            ],
         ];
     }
 }
