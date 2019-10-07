@@ -12,14 +12,14 @@
         ]) ?>
     </div>
 
-    <?php if (count($comments)) :
-    ?><p class="reply-comment"><a href="#comment-form">Оставить комментарий</a>
-        <?php endif; ?>
+    <?php if (count($comments)): ?>
+        <p class="reply-comment"><a href="#comment-form">Оставить комментарий</a></p>
+    <?php endif; ?>
 
-        <?php $this->render('Comments/_form', [
-            'form' => $form,
-            'user' => $user,
-        ]); ?>
+    <?php $this->render('Comments/_form', [
+        'form' => $form,
+        'user' => $user,
+    ]); ?>
 
 </div>
 
