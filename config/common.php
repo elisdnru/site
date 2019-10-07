@@ -263,11 +263,8 @@ return [
             'class' => \app\components\module\ModuleUrlRulesBehavior::class,
             'modules' => [
                 'main',
-                'image',
-                'sitemap',
                 'admin',
                 'user',
-                'ulogin',
                 'blog',
                 'comment' ,
                 'contact',
@@ -275,11 +272,10 @@ return [
                 'search',
                 'sitemap',
                 'ulogin',
-                'image',
-                'user',
                 'menu',
                 'file',
                 'block',
+                'image',
                 'page',
             ]
         ]
