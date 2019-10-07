@@ -2,10 +2,7 @@
 
 namespace app\modules\blog\models;
 
-use app\components\module\UrlRulesHelper;
 use app\components\category\models\TreeCategory;
-
-UrlRulesHelper::import('blog');
 
 class Category extends TreeCategory
 {

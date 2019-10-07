@@ -8,42 +8,42 @@ use Yii;
 
 class ModuleUrlRulesBehavior extends CBehavior
 {
-    public $beforeCurrentModule = [];
-    public $afterCurrentModule = [];
+    public $modules = [];
 
-    public function events()
+    public function events(): array
     {
-        return array_merge(parent::events(), [
+        return [
             'onBeginRequest' => 'beginRequest',
-        ]);
+        ];
     }
 
-    public function beginRequest()
+    public function beginRequest(): void
     {
-        Yii::app()->moduleManager->init();
-
         if (Yii::app() instanceof CConsoleApplication) {
             return;
         }
 
-        $module = $this->_getCurrentModuleName();
+        $urlManager = Yii::app()->getUrlManager();
 
-        $list = array_merge(
-            $this->beforeCurrentModule,
-            [$module],
-            $this->afterCurrentModule
-        );
-
-        foreach ($list as $name) {
-            UrlRulesHelper::import($name);
+        foreach ($this->modules as $name) {
+            $urlManager->addRules($this->getRoutes($name));
         }
     }
 
-    protected function _getCurrentModuleName()
+    private function getRoutes($name): array
     {
-        $route = Yii::app()->getRequest()->getPathInfo();
-        $domains = explode('/', $route);
-        $moduleName = array_shift($domains);
-        return $moduleName;
+        if (!Yii::app()->hasModule($name)) {
+            throw new \InvalidArgumentException('Undefined module ' . $name);
+        }
+
+        if ((!$class = Yii::app()->modules[$name]['class'] ?? null)) {
+            throw new \RuntimeException('Undefined load class for module ' . $name);
+        }
+
+        if (!method_exists($class, 'rules')) {
+            return [];
+        }
+
+        return $class::rules();
     }
 }

@@ -2,11 +2,8 @@
 
 namespace app\modules\contact\forms;
 
-use app\components\module\UrlRulesHelper;
 use CCaptcha;
 use CFormModel;
-
-UrlRulesHelper::import('contact');
 
 /**
  * ContactForm class.

@@ -2,12 +2,9 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\Tag;
 use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
-
-UrlRulesHelper::import('blog');
 
 class TagCloudWidget extends Widget
 {

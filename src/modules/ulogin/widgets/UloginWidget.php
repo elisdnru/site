@@ -2,10 +2,7 @@
 
 namespace app\modules\ulogin\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\components\widgets\Widget;
-
-UrlRulesHelper::import('ulogin');
 
 class UloginWidget extends Widget
 {

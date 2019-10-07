@@ -3,12 +3,9 @@
 namespace app\modules\blog\models;
 
 use app\components\ActiveRecord;
-use app\components\module\UrlRulesHelper;
 use CActiveDataProvider;
 use CDbCriteria;
 use Yii;
-
-UrlRulesHelper::import('blog');
 
 /**
  * @property integer $id
@@ -151,7 +148,6 @@ class Tag extends ActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            UrlRulesHelper::import('blog');
             $this->_url = Yii::app()->createUrl('/blog/default/tag', ['tag' => $this->title]);
         }
 

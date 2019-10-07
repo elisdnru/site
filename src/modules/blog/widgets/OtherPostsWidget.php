@@ -2,13 +2,10 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use CDbCriteria;
 use app\components\widgets\Widget;
-
-UrlRulesHelper::import('blog');
 
 class OtherPostsWidget extends Widget
 {

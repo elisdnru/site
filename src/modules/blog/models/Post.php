@@ -3,7 +3,6 @@
 namespace app\modules\blog\models;
 
 use app\components\ActiveRecord;
-use app\components\module\UrlRulesHelper;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
@@ -358,7 +357,6 @@ class Post extends ActiveRecord implements CommentDepends
     public function getUrl()
     {
         if ($this->_url === null) {
-            UrlRulesHelper::import('blog');
             $this->_url = Yii::app()->createUrl('/blog/post/show', ['id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;

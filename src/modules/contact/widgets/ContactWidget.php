@@ -2,13 +2,10 @@
 
 namespace app\modules\contact\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\contact\models\Contact;
 use app\modules\contact\forms\ContactForm;
 use app\components\widgets\Widget;
 use Yii;
-
-UrlRulesHelper::import('contact');
 
 class ContactWidget extends Widget
 {

@@ -2,12 +2,9 @@
 
 namespace app\components\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\user\models\Access;
 use CWidget;
 use Yii;
-
-UrlRulesHelper::import('admin');
 
 class AdminLinksWidget extends CWidget
 {

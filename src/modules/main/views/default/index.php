@@ -1,7 +1,6 @@
 <?php
 /* @var $this Controller */
 
-use app\components\module\UrlRulesHelper;
 use app\extensions\cachetagging\Tags;
 use app\components\Controller;
 use app\modules\user\models\Access;
@@ -33,8 +32,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 </div>
 
 <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_index_top']); ?>
-
-<?php UrlRulesHelper::import('blog'); ?>
 
 <h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>

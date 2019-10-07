@@ -2,14 +2,10 @@
 
 namespace app\modules\user\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\components\widgets\Widget;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use Yii;
-
-UrlRulesHelper::import('user');
-UrlRulesHelper::import('users');
 
 class LoginFormWidget extends Widget
 {

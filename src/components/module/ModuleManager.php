@@ -20,14 +20,6 @@ class ModuleManager extends CApplicationComponent
         return [];
     }
 
-    public function rules($module)
-    {
-        if ($class = $this->getModuleClass($module)) {
-            return method_exists($class, 'rules') ? call_user_func($class . '::rules') : [];
-        }
-        return [];
-    }
-
     public function adminMenu($module)
     {
         if ($class = $this->getModuleClass($module)) {

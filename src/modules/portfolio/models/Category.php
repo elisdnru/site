@@ -2,11 +2,8 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\module\UrlRulesHelper;
 use app\components\ExistOrEmpty;
 use app\components\category\models\TreeCategory;
-
-UrlRulesHelper::import('portfolio');
 
 class Category extends TreeCategory
 {

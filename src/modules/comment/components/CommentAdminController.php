@@ -2,7 +2,6 @@
 
 namespace app\modules\comment\components;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\comment\models\Comment;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -10,8 +9,6 @@ use CDbCriteria;
 use CException;
 use CHttpException;
 use app\components\AdminController;
-
-UrlRulesHelper::import('users');
 
 class CommentAdminController extends AdminController
 {

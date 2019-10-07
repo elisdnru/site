@@ -3,7 +3,6 @@
 namespace app\modules\portfolio\models;
 
 use app\components\ActiveRecord;
-use app\components\module\UrlRulesHelper;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CDbCriteria;
@@ -248,7 +247,6 @@ class Work extends ActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            UrlRulesHelper::import('portfolio');
             $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->path, 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;

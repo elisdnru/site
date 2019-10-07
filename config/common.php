@@ -261,15 +261,25 @@ return [
     'behaviors' => [
         [
             'class' => \app\components\module\ModuleUrlRulesBehavior::class,
-            'beforeCurrentModule' => [
+            'modules' => [
                 'main',
                 'image',
                 'sitemap',
                 'admin',
                 'user',
                 'ulogin',
-            ],
-            'afterCurrentModule' => [
+                'blog',
+                'comment' ,
+                'contact',
+                'portfolio',
+                'search',
+                'sitemap',
+                'ulogin',
+                'image',
+                'user',
+                'menu',
+                'file',
+                'block',
                 'page',
             ]
         ]

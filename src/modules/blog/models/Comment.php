@@ -2,10 +2,7 @@
 
 namespace app\modules\blog\models;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\comment\models\Comment as BaseComment;
-
-UrlRulesHelper::import('blog');
 
 class Comment extends BaseComment
 {

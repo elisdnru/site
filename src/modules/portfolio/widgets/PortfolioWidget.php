@@ -2,14 +2,11 @@
 
 namespace app\modules\portfolio\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\portfolio\PortfolioModule;
 use CDbCriteria;
 use app\components\widgets\Widget;
 use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
-
-UrlRulesHelper::import('portfolio');
 
 class PortfolioWidget extends Widget
 {

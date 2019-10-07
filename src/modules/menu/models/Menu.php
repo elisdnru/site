@@ -3,7 +3,6 @@
 namespace app\modules\menu\models;
 
 use app\components\ActiveRecord;
-use app\components\module\UrlRulesHelper;
 use app\components\TreeActiveDataProvider;
 use app\components\category\models\Category;
 use CDbCriteria;
@@ -198,7 +197,6 @@ class Menu extends ActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            UrlRulesHelper::import('main');
             $this->_url = $this->link !== '/index' ? $this->link : '/';
         }
 

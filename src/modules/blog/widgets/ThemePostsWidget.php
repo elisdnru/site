@@ -2,11 +2,8 @@
 
 namespace app\modules\blog\widgets;
 
-use app\components\module\UrlRulesHelper;
 use app\modules\blog\models\Group;
 use app\components\widgets\Widget;
-
-UrlRulesHelper::import('blog');
 
 class ThemePostsWidget extends Widget
 {

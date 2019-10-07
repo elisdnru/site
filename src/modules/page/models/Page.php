@@ -3,7 +3,6 @@
 namespace app\modules\page\models;
 
 use app\components\ActiveRecord;
-use app\components\module\UrlRulesHelper;
 use app\components\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
 use CDbCriteria;
@@ -237,7 +236,6 @@ class Page extends ActiveRecord
     public function getUrl()
     {
         if ($this->_url === null) {
-            UrlRulesHelper::import('page');
             $this->_url = Yii::app()->createUrl('page/page/show', ['path' => $this->path]);
         }
         return $this->_url;
