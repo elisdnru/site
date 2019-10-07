@@ -19,7 +19,6 @@ services:
             APP_DB_DSN: mysql:host=mysql;dbname=app
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
-            APP_DB_PREFIX: elisdn_
         volumes:
             - ./:/app
         depends_on:
@@ -34,7 +33,6 @@ services:
             APP_DB_DSN: mysql:host=mysql;dbname=app
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
-            APP_DB_PREFIX: elisdn_
         volumes:
             - .:/app
             - ./volumes/composer:/root/.composer/

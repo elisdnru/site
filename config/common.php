@@ -150,7 +150,6 @@ return [
             'emulatePrepare' => true,
             'username' => getenv('APP_DB_USERNAME'),
             'password' => getenv('APP_DB_PASSWORD'),
-            'tablePrefix' => getenv('APP_DB_PREFIX'),
             'charset' => 'utf8',
             'schemaCachingDuration' => 3600,
         ],

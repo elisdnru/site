@@ -28,7 +28,6 @@ return array_replace_recursive(
                 'connectionString' => 'mysql:host=mysql-test;dbname=test',
                 'username' => 'test',
                 'password' => 'secret',
-                'tablePrefix' => '',
             ],
 
             'cache' => [
