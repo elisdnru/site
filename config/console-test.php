@@ -7,7 +7,7 @@ return array_replace_recursive(
             'migrate' => [
                 'class' => \app\extensions\migrate\EMigrateCommand::class,
                 'migrationPath' => 'application.migrations',
-                'migrationTable' => '{{migration}}',
+                'migrationTable' => 'migrations',
                 'applicationModuleName' => 'core',
                 'disabledModules' => [
                     'admin',
