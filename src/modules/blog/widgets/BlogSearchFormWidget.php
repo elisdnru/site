@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\models\BlogSearchForm;
+use app\modules\blog\forms\BlogSearchForm;
 use app\components\widgets\Widget;
 
 UrlRulesHelper::import('blog');

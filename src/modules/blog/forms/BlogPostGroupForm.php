@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\blog\models;
+namespace app\modules\blog\forms;
 
 use CFormModel;
 

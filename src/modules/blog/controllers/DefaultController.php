@@ -4,7 +4,7 @@ namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\BlogCategory;
 use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogSearchForm;
+use app\modules\blog\forms\BlogSearchForm;
 use app\modules\blog\models\BlogTag;
 use CActiveDataProvider;
 use app\components\CArray;

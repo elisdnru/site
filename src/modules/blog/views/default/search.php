@@ -1,13 +1,13 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\blog\models\BlogSearchForm;
+use app\modules\blog\forms\BlogSearchForm;
 use app\modules\blog\widgets\BlogSearchFormWidget;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $searchForm BlogSearchForm */
+/* @var $searchForm \app\modules\blog\forms\BlogSearchForm */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

@@ -6,7 +6,7 @@ use app\components\module\UrlRulesHelper;
 use CException;
 use CHttpCookie;
 use app\modules\comment\models\Comment;
-use app\modules\comment\models\CommentForm;
+use app\modules\comment\forms\CommentForm;
 use app\components\widgets\Widget;
 use app\modules\user\models\User;
 use Yii;

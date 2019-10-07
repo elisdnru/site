@@ -1,7 +1,8 @@
 <?php
 
-namespace app\components\category\models;
+namespace app\components\category\forms;
 
+use app\components\category\models\Category;
 use CFormModel;
 
 /**

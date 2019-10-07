@@ -1,7 +1,7 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\blog\models\BlogCategoryForm;
+use app\modules\blog\forms\BlogCategoryForm;
 use app\modules\blog\models\BlogPostGroup;
 use app\components\Controller;
 

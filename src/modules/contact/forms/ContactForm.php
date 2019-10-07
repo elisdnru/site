@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\contact\models;
+namespace app\modules\contact\forms;
 
 use app\components\module\UrlRulesHelper;
 use CCaptcha;

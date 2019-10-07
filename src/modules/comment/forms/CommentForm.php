@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\comment\models;
+namespace app\modules\comment\forms;
 
 use CFormModel;
 

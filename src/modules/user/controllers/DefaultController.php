@@ -6,8 +6,8 @@ use app\modules\user\models\Access;
 use CActiveForm;
 use app\components\Controller;
 use app\components\module\UrlRulesHelper;
-use app\modules\user\models\LoginForm;
-use app\modules\user\models\RemindForm;
+use app\modules\user\forms\LoginForm;
+use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use Yii;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\search\models;
+namespace app\modules\search\forms;
 
 use CFormModel;
 

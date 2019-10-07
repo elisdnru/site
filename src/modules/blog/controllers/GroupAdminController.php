@@ -18,7 +18,7 @@ class GroupAdminController extends AdminController
             'index' => [
                 'class' => \app\components\crud\actions\TableInputAction::class,
                 'modelClass' => BlogPostGroup::class,
-                'formClass' => \app\modules\blog\models\BlogPostGroupForm::class,
+                'formClass' => \app\modules\blog\forms\BlogPostGroupForm::class,
                 'order' => 'title ASC',
                 'view' => 'index',
             ],

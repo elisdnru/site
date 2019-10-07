@@ -4,7 +4,7 @@ namespace app\modules\comment\controllers;
 
 use CHttpException;
 use app\modules\comment\models\Comment;
-use app\modules\comment\models\CommentForm;
+use app\modules\comment\forms\CommentForm;
 use app\components\Controller;
 use Yii;
 
