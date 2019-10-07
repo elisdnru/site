@@ -3,13 +3,13 @@
 namespace app\modules\portfolio\components;
 
 use app\components\Controller;
-use app\modules\portfolio\PortfolioModule;
+use app\modules\portfolio\Module;
 
 abstract class PortfolioBaseController extends Controller
 {
     protected function beforeAction($action)
     {
-        PortfolioModule::registerScripts();
+        Module::registerScripts();
 
         return parent::beforeAction($action);
     }

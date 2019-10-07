@@ -4,7 +4,7 @@ namespace app\modules\image;
 
 use app\components\system\WebModule;
 
-class ImageModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

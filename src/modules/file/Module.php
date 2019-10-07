@@ -4,7 +4,7 @@ namespace app\modules\file;
 
 use app\components\system\WebModule;
 
-class FileModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

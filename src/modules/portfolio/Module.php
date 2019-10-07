@@ -5,7 +5,7 @@ namespace app\modules\portfolio;
 use app\components\system\WebModule;
 use Yii;
 
-class PortfolioModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

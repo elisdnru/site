@@ -1,18 +1,17 @@
 <?php
 
-namespace app\modules\main;
+namespace app\modules\ulogin;
 
 use app\components\system\WebModule;
 
-class MainModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
     public static function rules()
     {
         return [
-            '' => 'main/default/index',
-            'error' => 'main/default/error',
+            'ulogin' => 'ulogin/default/login',
         ];
     }
 }

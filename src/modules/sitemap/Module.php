@@ -4,7 +4,7 @@ namespace app\modules\sitemap;
 
 use app\components\system\WebModule;
 
-class SitemapModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

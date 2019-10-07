@@ -5,7 +5,7 @@ namespace app\modules\blog;
 use app\modules\blog\models\Comment;
 use app\components\system\WebModule;
 
-class BlogModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

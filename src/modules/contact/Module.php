@@ -5,7 +5,7 @@ namespace app\modules\contact;
 use app\modules\contact\models\Contact;
 use app\components\system\WebModule;
 
-class ContactModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

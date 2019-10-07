@@ -4,7 +4,7 @@ namespace app\modules\block;
 
 use app\components\system\WebModule;
 
-class BlockModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

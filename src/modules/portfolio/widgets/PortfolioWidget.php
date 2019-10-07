@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\widgets;
 
-use app\modules\portfolio\PortfolioModule;
+use app\modules\portfolio\Module;
 use CDbCriteria;
 use app\components\widgets\Widget;
 use app\modules\portfolio\models\Work;
@@ -16,7 +16,7 @@ class PortfolioWidget extends Widget
 
     public function run()
     {
-        PortfolioModule::registerScripts();
+        Module::registerScripts();
 
         $criteria = new CDbCriteria;
         $criteria->limit = $this->limit;

@@ -4,7 +4,7 @@ namespace app\modules\menu;
 
 use app\components\system\WebModule;
 
-class MenuModule extends WebModule
+class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
