@@ -41,6 +41,7 @@ class PageAdminController extends AdminController
     public function createModel()
     {
         $model = new Page();
+        $model->date = time();
         $model->parent_id = Yii::app()->request->getParam('parent', 0);
         return $model;
     }
@@ -50,6 +51,9 @@ class PageAdminController extends AdminController
         $model = Page::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
+        }
+        if ($model->date === '0000-00-00') {
+            $model->date = date('Y-m-d');
         }
         return $model;
     }

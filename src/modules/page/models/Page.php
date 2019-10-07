@@ -27,8 +27,8 @@ use Yii;
  * @property string $text_purified
  * @property string $image
  * @property string $image_alt
- * @property string $layout_id
- * @property string $layout_subpages_id
+ * @property string $layout
+ * @property string $subpages_layout
  * @property string $parent_id
  * @property string $system
  *
@@ -57,6 +57,20 @@ class Page extends ActiveRecord
     const NOINDEX_FOLLOW = 'noindex, follow';
     const NOINDEX_NOFOLLOW = 'noindex, nofollow';
 
+    public const LAYOUTS = [
+        'default' => 'По умолчанию',
+        'fullscreen' => 'Во всю ширину',
+        'leftcolumn' => 'Колонка с левым сайдбаром',
+        'rightcolumn' => 'Колонка с правым сайдбаром',
+        'blank' => 'Полноэкранный без контейнера',
+    ];
+
+    public const SUBPAGES_LAYOUTS = [
+        'default' => 'Не отображать (по умолчанию)',
+        'tabs' => 'Взаимные вкладки',
+        'tabschild' => 'Дочерние вкладки',
+    ];
+
     public $del_image = false;
     public $indent = 0;
 
@@ -78,12 +92,12 @@ class Page extends ActiveRecord
         return [
             ['alias, title', 'required'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            ['alias, title, image_alt, pagetitle, keywords, robots', 'length', 'max' => 255],
-            ['hidetitle, parent_id, layout_id, layout_subpages_id', 'numerical', 'integerOnly' => true],
+            ['alias, title, image_alt, pagetitle, keywords, robots, layout, subpages_layout', 'length', 'max' => 255],
+            ['hidetitle, parent_id', 'numerical', 'integerOnly' => true],
             ['date, text, description, del_image', 'safe'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, layout_id, layout_subpages_id, alias, date, title, pagetitle, description, keywords, text', 'safe', 'on' => 'search'],
+            ['id, layout, subpages_layout, alias, date, title, pagetitle, description, keywords, text', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -95,8 +109,6 @@ class Page extends ActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'layout' => [self::BELONGS_TO, \app\modules\page\models\PageLayout::class, 'layout_id'],
-            'layout_subpages' => [self::BELONGS_TO, \app\modules\page\models\PageLayoutSubpages::class, 'layout_subpages_id'],
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
             'child_pages' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_pages.id ASC'
@@ -112,11 +124,11 @@ class Page extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'layout_id' => 'Шаблон страницы',
+            'layout' => 'Шаблон страницы',
             'layout_list_id' => 'Шаблон списка новостей',
             'layout_item_id' => 'Шаблон страницы новости',
             'layout_item_content_id' => 'Шаблон контента новости',
-            'layout_subpages_id' => 'Вид списка дочерних страниц',
+            'subpages_layout' => 'Вид списка дочерних страниц',
             'alias' => 'URL транслитом',
             'date' => 'Дата создания',
             'title' => 'Заголовок',
@@ -144,8 +156,8 @@ class Page extends ActiveRecord
         $criteria = new CDbCriteria;
 
         $criteria->compare('t.id', $this->id);
-        $criteria->compare('t.layout_id', $this->layout_id);
-        $criteria->compare('t.layout_subpages_id', $this->layout_subpages_id);
+        $criteria->compare('t.layout', $this->layout);
+        $criteria->compare('t.subpages_layout', $this->subpages_layout);
         $criteria->compare('t.alias', $this->alias, true);
         $criteria->compare('t.date', $this->date, true);
         $criteria->compare('t.title', $this->title, true);

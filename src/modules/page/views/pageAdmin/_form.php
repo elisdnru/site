@@ -3,8 +3,6 @@
 
 use app\components\AdminController;
 use app\modules\page\models\Page;
-use app\modules\page\models\PageLayout;
-use app\modules\page\models\PageLayoutSubpages;
 
 /* @var $model Page */
 /* @var $form CActiveForm */
@@ -60,16 +58,16 @@ use app\modules\page\models\PageLayoutSubpages;
     <fieldset>
         <h4>Шаблоны отображения</h4>
         <div class="row">
-            <?php echo $form->labelEx($model, 'layout_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'layout_id', [0 => 'По умолчанию'] + PageLayout::model()->getAssocList()); ?>
+            <?php echo $form->labelEx($model, 'layout'); ?><br />
+            <?php echo $form->dropDownList($model, 'layout', Page::LAYOUTS); ?>
             <br />
-            <?php echo $form->error($model, 'layout_id'); ?>
+            <?php echo $form->error($model, 'layout'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'layout_subpages_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'layout_subpages_id', [0 => 'Не отображать (по умолчанию)'] + PageLayoutSubpages::model()->getAssocList()); ?>
+            <?php echo $form->labelEx($model, 'subpages_layout'); ?><br />
+            <?php echo $form->dropDownList($model, 'subpages_layout', Page::SUBPAGES_LAYOUTS); ?>
             <br />
-            <?php echo $form->error($model, 'layout_subpages_id'); ?>
+            <?php echo $form->error($model, 'subpages_layout'); ?>
         </div>
     </fieldset>
 

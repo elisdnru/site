@@ -13,17 +13,12 @@ class PageController extends Controller
     {
         $page = $this->loadModel($path);
 
-        if ($page->layout) {
-            $this->layout = '//layouts/page/' . $page->layout->alias;
-        } else {
-            $this->layout = '//layouts/page/default';
-        }
-
-        $layout_subpages = 'subpages/' . ($page->layout_subpages ? $page->layout_subpages->alias : 'default');
+        $this->layout = '//layouts/page/' . $page->layout;
+        $subpages_layout = 'subpages/' . $page->subpages_layout;
 
         $this->render('show', [
             'page' => $page,
-            'layout_subpages' => $layout_subpages,
+            'subpages_layout' => $subpages_layout,
         ]);
     }
 
