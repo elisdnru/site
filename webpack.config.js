@@ -44,6 +44,7 @@ module.exports = {
         "site.js": [
           'node_modules/axios/dist/axios.min.js',
           'assets/js/follow.js',
+          'assets/js/tags.js',
           'assets/js/site.js'
         ],
         "jquery.js": [
