@@ -11,16 +11,6 @@ use Yii;
 class User extends UserBase
 {
     /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return User the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
-
-    /**
      * @return array validation rules for model attributes.
      */
     public function rules()

@@ -2,10 +2,10 @@
 
 namespace app\modules\user\models;
 
+use app\components\ActiveRecord;
 use app\components\helpers\GravatarHelper;
 use app\modules\page\models\Page;
 use CActiveDataProvider;
-use CActiveRecord;
 use CCaptcha;
 use CDbCriteria;
 use CDbExpression;
@@ -42,7 +42,7 @@ use Yii;
  * @property int $comments_count
  * @property string $fio
  */
-abstract class UserBase extends CActiveRecord
+abstract class UserBase extends ActiveRecord
 {
     const SCENARIO_REGISTER = 'register';
     const SCENARIO_SETTINGS = 'settings';
@@ -62,15 +62,6 @@ abstract class UserBase extends CActiveRecord
     public $verifyCode;
 
     protected $_salt = '%#w_wrb13&p';
-
-    /**
-     * @param string $className
-     * @return UserBase the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

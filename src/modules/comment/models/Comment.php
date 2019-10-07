@@ -2,10 +2,10 @@
 
 namespace app\modules\comment\models;
 
+use app\components\ActiveRecord;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use app\modules\user\models\User;
 use Yii;
@@ -28,20 +28,10 @@ use Yii;
  * @property integer $moder
  * @property integer $parent_id
  */
-class Comment extends CActiveRecord
+class Comment extends ActiveRecord
 {
     protected $type_of_comment = '';
     protected $lang_of_system = '';
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return Comment the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

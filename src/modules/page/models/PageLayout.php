@@ -2,8 +2,8 @@
 
 namespace app\modules\page\models;
 
+use app\components\ActiveRecord;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use CHtml;
 
@@ -15,18 +15,8 @@ use CHtml;
  * @property string $alias
  * @property string $title
  */
-class PageLayout extends CActiveRecord
+class PageLayout extends ActiveRecord
 {
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return PageLayout the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
-
     /**
      * @return string the associated database table name
      */

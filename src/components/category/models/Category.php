@@ -2,9 +2,9 @@
 
 namespace app\components\category\models;
 
+use app\components\ActiveRecord;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -28,19 +28,9 @@ use Yii;
  * @method mixed getAliasList($parent = 0)
  * @method mixed getMenuList($sub = 0, $parent = 0)
  */
-abstract class Category extends CActiveRecord
+abstract class Category extends ActiveRecord
 {
     public $urlRoute = '';
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className active record class name.
-     * @return Category the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return array validation rules for model attributes.

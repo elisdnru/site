@@ -2,10 +2,10 @@
 
 namespace app\modules\page\models;
 
+use app\components\ActiveRecord;
 use app\components\module\UrlRulesHelper;
 use app\components\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
-use CActiveRecord;
 use CDbCriteria;
 use app\modules\user\models\User;
 use Yii;
@@ -47,7 +47,7 @@ use Yii;
  * @method string getPath($separator = '/')
  * @method mixed getBreadcrumbs($lastLink = false)
  */
-class Page extends CActiveRecord
+class Page extends ActiveRecord
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/pages';
@@ -59,16 +59,6 @@ class Page extends CActiveRecord
 
     public $del_image = false;
     public $indent = 0;
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return CActiveRecord|Page the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

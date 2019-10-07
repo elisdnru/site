@@ -2,26 +2,16 @@
 
 namespace app\modules\blog\models;
 
+use app\components\ActiveRecord;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 
 /**
  * @property integer $id
  * @property string $title
  */
-class BlogPostGroup extends CActiveRecord
+class BlogPostGroup extends ActiveRecord
 {
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className active record class name.
-     * @return BlogPostGroup the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
-
     /**
      * @return string the associated database table name
      */

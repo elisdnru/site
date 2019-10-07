@@ -11,16 +11,6 @@ class BlogPostComment extends Comment
 {
     const TYPE_OF_COMMENT = BlogPost::class;
 
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return BlogPostComment the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
-
     public function __construct($scenario = 'insert')
     {
         $this->type_of_comment = self::TYPE_OF_COMMENT;

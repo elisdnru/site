@@ -2,8 +2,8 @@
 
 namespace app\modules\contact\models;
 
+use app\components\ActiveRecord;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -22,20 +22,10 @@ use Yii;
  * @property string $label
  * @property string $status
  */
-class Contact extends CActiveRecord
+class Contact extends ActiveRecord
 {
     const STATUS_NEW = 0;
     const STATUS_READED = 1;
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return Contact the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

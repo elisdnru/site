@@ -2,8 +2,8 @@
 
 namespace app\modules\user\models;
 
+use app\components\ActiveRecord;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 
 /**
@@ -11,18 +11,8 @@ use CDbCriteria;
  * @property string $user_id
  * @property string $page_id
  */
-class UserPage extends CActiveRecord
+class UserPage extends ActiveRecord
 {
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className active record class name.
-     * @return UserPage the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
-
     /**
      * @return string the associated database table name
      */

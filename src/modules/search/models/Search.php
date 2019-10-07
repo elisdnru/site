@@ -2,6 +2,7 @@
 
 namespace app\modules\search\models;
 
+use app\components\ActiveRecord;
 use CActiveRecord;
 
 /**
@@ -10,13 +11,8 @@ use CActiveRecord;
  * @property string $material_class
  * @property integer $material_id
  */
-class Search extends CActiveRecord
+class Search extends ActiveRecord
 {
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
-
     public function tableName()
     {
         return '{{search}}';

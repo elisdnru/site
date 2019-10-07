@@ -2,9 +2,9 @@
 
 namespace app\modules\menu\models;
 
+use app\components\ActiveRecord;
 use app\components\module\UrlRulesHelper;
 use app\components\TreeActiveDataProvider;
-use CActiveRecord;
 use app\components\category\models\Category;
 use CDbCriteria;
 use Yii;
@@ -33,19 +33,9 @@ use Yii;
  * @method string getPath($separator = '/')
  * @method mixed getBreadcrumbs($lastLink = false)
  */
-class Menu extends CActiveRecord
+class Menu extends ActiveRecord
 {
     public $indent = 0;
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return Menu the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

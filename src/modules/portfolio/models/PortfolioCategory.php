@@ -3,7 +3,6 @@
 namespace app\modules\portfolio\models;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\models\BlogCategory;
 use app\components\ExistOrEmpty;
 use app\components\category\models\TreeCategory;
 
@@ -15,16 +14,6 @@ UrlRulesHelper::import('portfolio');
 class PortfolioCategory extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className active record class name.
-     * @return BlogCategory the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

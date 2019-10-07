@@ -2,11 +2,11 @@
 
 namespace app\modules\blog\models;
 
+use app\components\ActiveRecord;
 use app\components\module\UrlRulesHelper;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use CHtml;
 use Yii;
@@ -45,7 +45,7 @@ use Yii;
  *
  * @method BlogPost published()
  */
-class BlogPost extends CActiveRecord implements CommentDepends
+class BlogPost extends ActiveRecord implements CommentDepends
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/blogs';
@@ -55,16 +55,6 @@ class BlogPost extends CActiveRecord implements CommentDepends
     public $newgroup = '';
 
     protected $tags_string;
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return BlogPost the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name

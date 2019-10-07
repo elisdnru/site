@@ -2,11 +2,10 @@
 
 namespace app\modules\portfolio\models;
 
+use app\components\ActiveRecord;
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\models\BlogPost;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -37,22 +36,12 @@ use Yii;
  *
  * @method PortfolioWork published()
  */
-class PortfolioWork extends CActiveRecord
+class PortfolioWork extends ActiveRecord
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/portfolio';
 
     public $del_image = false;
-
-    /**
-     * Returns the static model of the specified AR class.
-     * @param string $className
-     * @return BlogPost the static model class
-     */
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
 
     /**
      * @return string the associated database table name
