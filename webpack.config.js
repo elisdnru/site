@@ -46,6 +46,7 @@ module.exports = {
           'assets/js/follow.js',
           'assets/js/tags.js',
           'assets/js/site.js',
+          'assets/js/share.js',
           'assets/js/ulogin.js'
         ],
         "jquery.js": [
