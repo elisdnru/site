@@ -224,16 +224,6 @@ class Page extends ActiveRecord
         ];
     }
 
-    public function allowedForUser(User $user)
-    {
-        if ($user->access_pages) {
-            $allowed = $user->accessPagesArray;
-            return in_array($this->primaryKey, $allowed) || $this->isChildOf($allowed);
-        }
-
-        return true;
-    }
-
     private $_url;
 
     public function getUrl()

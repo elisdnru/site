@@ -31,18 +31,9 @@ class PageAdminController extends AdminController
         ];
     }
 
-    public function beforeUpdate($model)
-    {
-        $user = $this->getUser();
-        if (!$model->allowedForUser($user)) {
-            throw new CHttpException(403, 'Отказано в доступе');
-        }
-    }
-
     public function beforeDelete($model)
     {
-        $user = $this->getUser();
-        if ($model->system || !$model->allowedForUser($user)) {
+        if ($model->system) {
             throw new CHttpException(403, 'Отказано в доступе');
         }
     }

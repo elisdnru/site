@@ -38,7 +38,6 @@ use Yii;
  * @property string $middlename
  * @property string $site
  *
- * @property Page[] $access_pages
  * @property int $comments_count
  * @property string $fio
  */
@@ -266,8 +265,6 @@ abstract class UserBase extends ActiveRecord
     public function relations()
     {
         return [
-            'access_pages' => [self::HAS_MANY, \app\modules\user\models\UserPage::class, 'user_id'],
-            'access_pages_full' => [self::MANY_MANY, \app\modules\page\models\Page::class, 'user_page(user_id, page_id)'],
             'comments_count_real' => [self::STAT, \app\modules\comment\models\Comment::class, 'user_id',
                 'condition' => 'public=1',
             ],
@@ -289,7 +286,6 @@ abstract class UserBase extends ActiveRecord
             'email' => 'Email',
             'confirm' => 'Ключ подтверждения',
             'role' => 'Роль',
-            'access_pages' => 'Доступные для редактирования только страницы',
             'create_datetime' => 'Дата регистрации',
             'last_modify_datetime' => 'Последнее изменение',
             'last_visit_datetime' => 'Последнее посещение',
@@ -441,17 +437,6 @@ abstract class UserBase extends ActiveRecord
     public function setFio($value)
     {
         $this->_fio = $value;
-    }
-
-    public function getAccessPagesArray()
-    {
-        $array = [];
-
-        foreach ($this->access_pages as $page) {
-            $array[] = $page->page_id;
-        }
-
-        return $array;
     }
 
     private $_avatarUrl;

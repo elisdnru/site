@@ -21,11 +21,3 @@ $this->admin[] = ['label' => 'Просмотр', 'url' => $this->createUrl('view
 <h1>Редактирование пользователя</h1>
 
 <?php $this->renderPartial('_form', ['model' => $model]); ?>
-
-<hr />
-
-<?php $this->renderPartial('_access', ['model' => $model]); ?>
-
-
-
-
