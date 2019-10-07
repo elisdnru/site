@@ -4,12 +4,9 @@ use app\components\Controller;
 use app\modules\menu\models\Menu;
 use app\modules\user\models\Access;
 
-$assetsVersion = @filemtime(dirname(__DIR__, 3) . '/public/build');
-
 $cs = Yii::app()->clientScript;
 
 $cs->registerPackage('main');
-$cs->registerScriptFile('/build/site.js?v=' . $assetsVersion, CClientScript::POS_END, ['async' => true]);
 if ($this->is(Access::ROLE_ADMIN)) {
     $cs->registerPackage('admin-bar');
 }
