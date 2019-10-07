@@ -20,4 +20,9 @@ class WebModule extends CWebModule
     {
         return [];
     }
+
+    public static function rules()
+    {
+        return [];
+    }
 }

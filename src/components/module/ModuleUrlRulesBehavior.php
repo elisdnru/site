@@ -36,12 +36,12 @@ class ModuleUrlRulesBehavior extends CBehavior
             throw new \InvalidArgumentException('Undefined module ' . $name);
         }
 
-        if ((!$class = Yii::app()->modules[$name]['class'] ?? null)) {
-            throw new \RuntimeException('Undefined load class for module ' . $name);
+        if (!$class = Yii::app()->modules[$name]['class'] ?? null) {
+            throw new \RuntimeException('Undefined class for module ' . $name);
         }
 
         if (!method_exists($class, 'rules')) {
-            return [];
+            throw new \InvalidArgumentException('Unsupported module ' . $name);
         }
 
         return $class::rules();
