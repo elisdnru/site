@@ -51,7 +51,7 @@ class CommentsWidget extends Widget
             ]);
 
             if ($form->validate()) {
-                $className = $this->type . 'Comment';
+                $className = (new \ReflectionClass($this->type))->getNamespaceName() . '\Comment';
 
                 $comment = new $className;
                 $comment->attributes = $form->attributes;
