@@ -263,7 +263,7 @@ return [
             'class' => \app\components\module\ModuleUrlRulesBehavior::class,
             'beforeCurrentModule' => [
                 'main',
-                'uploader',
+                'image',
                 'sitemap',
                 'admin',
                 'user',
