@@ -19,7 +19,7 @@ class Block extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{block}}';
+        return 'blocks';
     }
 
     /**

@@ -18,7 +18,7 @@ class BlogPostTag extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{blog_post_tag}}';
+        return 'blog_post_tags';
     }
 
     /**

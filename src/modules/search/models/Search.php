@@ -15,7 +15,7 @@ class Search extends ActiveRecord
 {
     public function tableName()
     {
-        return '{{search}}';
+        return 'search';
     }
 
     private $_material;

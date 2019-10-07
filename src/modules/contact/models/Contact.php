@@ -29,7 +29,7 @@ class Contact extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{contact}}';
+        return 'contacts';
     }
 
     /**

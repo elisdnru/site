@@ -64,7 +64,7 @@ abstract class UserBase extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{user}}';
+        return 'users';
     }
 
     /**

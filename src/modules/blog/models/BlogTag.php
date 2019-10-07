@@ -21,7 +21,7 @@ class BlogTag extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{blog_tag}}';
+        return 'blog_tags';
     }
 
     /**
@@ -121,7 +121,7 @@ class BlogTag extends ActiveRecord
     public function getPostIds()
     {
         $postIds = Yii::app()->db
-            ->createCommand('SELECT post_id FROM {{blog_post_tag}} WHERE tag_id=:tag')
+            ->createCommand('SELECT post_id FROM blog_post_tags WHERE tag_id=:tag')
             ->queryColumn([':tag' => $this->id]);
 
         return array_unique($postIds);
@@ -130,7 +130,7 @@ class BlogTag extends ActiveRecord
     public function getArrayByMatch($q)
     {
         $titles = Yii::app()->db
-            ->createCommand('SELECT title FROM {{blog_tag}} WHERE title LIKE :tag')
+            ->createCommand('SELECT title FROM blog_tags WHERE title LIKE :tag')
             ->queryColumn([':tag' => $q . '%']);
 
         return array_unique($titles);

@@ -45,7 +45,7 @@ class PortfolioWork extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{portfolio_work}}';
+        return 'portfolio_works';
     }
 
     /**

@@ -17,7 +17,7 @@ class BlogPostGroup extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{blog_post_group}}';
+        return 'blog_post_groups';
     }
 
     /**

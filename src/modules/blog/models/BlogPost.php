@@ -58,7 +58,7 @@ class BlogPost extends ActiveRecord implements CommentDepends
      */
     public function tableName()
     {
-        return '{{blog_post}}';
+        return 'blog_posts';
     }
 
     /**
@@ -99,7 +99,7 @@ class BlogPost extends ActiveRecord implements CommentDepends
             'author' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'author_id'],
             'group' => [self::BELONGS_TO, \app\modules\blog\models\BlogPostGroup::class, 'group_id'],
             'posttags' => [self::HAS_MANY, \app\modules\blog\models\BlogPostTag::class, 'post_id'],
-            'tags' => [self::MANY_MANY, \app\modules\blog\models\BlogTag::class, '{{blog_post_tag}}(post_id, tag_id)', 'order' => 'tags.title'],
+            'tags' => [self::MANY_MANY, \app\modules\blog\models\BlogTag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
         ];
     }
 

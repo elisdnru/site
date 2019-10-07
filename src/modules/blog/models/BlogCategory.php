@@ -16,7 +16,7 @@ class BlogCategory extends TreeCategory
      */
     public function tableName()
     {
-        return '{{blog_category}}';
+        return 'blog_categories';
     }
 
     /**

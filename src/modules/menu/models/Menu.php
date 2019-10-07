@@ -39,7 +39,7 @@ class Menu extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{menu}}';
+        return 'menu_items';
     }
 
     /**

@@ -76,7 +76,7 @@ class Page extends ActiveRecord
      */
     public function tableName()
     {
-        return '{{page}}';
+        return 'pages';
     }
 
     /**

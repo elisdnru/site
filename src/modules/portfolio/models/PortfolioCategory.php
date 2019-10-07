@@ -17,7 +17,7 @@ class PortfolioCategory extends TreeCategory
      */
     public function tableName()
     {
-        return '{{portfolio_category}}';
+        return 'portfolio_categories';
     }
 
     public function rules()
