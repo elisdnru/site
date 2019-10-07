@@ -1,7 +1,6 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\blog\forms\SearchForm;
 use app\modules\blog\widgets\BlogSearchFormWidget;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;

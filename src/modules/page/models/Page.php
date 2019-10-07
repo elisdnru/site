@@ -7,7 +7,6 @@ use app\components\module\UrlRulesHelper;
 use app\components\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
 use CDbCriteria;
-use app\modules\user\models\User;
 use Yii;
 
 /**

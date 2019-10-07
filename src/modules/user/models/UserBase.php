@@ -4,7 +4,6 @@ namespace app\modules\user\models;
 
 use app\components\ActiveRecord;
 use app\components\helpers\GravatarHelper;
-use app\modules\page\models\Page;
 use CActiveDataProvider;
 use CCaptcha;
 use CDbCriteria;
