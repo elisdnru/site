@@ -114,6 +114,7 @@ return [
                     'basePath' => null,
                     'baseUrl' => '/build',
                     'css' => ['comments.css?v=' . $assetsVersion],
+                    'js' => ['comments.js?v=' . $assetsVersion],
                     'depends' => ['main'],
                 ],
                 'portfolio' => [

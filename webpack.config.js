@@ -49,6 +49,9 @@ module.exports = {
           'assets/js/share.js',
           'assets/js/ulogin.js'
         ],
+        "comments.js": [
+          'assets/js/comments.js'
+        ],
         "jquery.js": [
           'assets/js/jquery.min.js'
         ],
@@ -59,6 +62,7 @@ module.exports = {
       transform: {
         'site.js': code => require("uglify-js").minify(code).code,
         'jquery.js': code => require("uglify-js").minify(code).code,
+        'comments.js': code => require("uglify-js").minify(code).code,
         'jcarousellite.js': code => require("uglify-js").minify(code).code
       }
     })
