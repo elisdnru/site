@@ -56,8 +56,6 @@ class User extends ActiveRecord
 
     public $verifyCode;
 
-    protected $_salt = '%#w_wrb13&p';
-
     /**
      * @return string the associated database table name
      */
@@ -381,8 +379,7 @@ class User extends ActiveRecord
     {
         if (parent::beforeSave()) {
             if ($this->new_password) {
-                $this->salt = $this->generateSalt();
-                $this->password = $this->hashPassword($this->new_password, $this->salt);
+                $this->password = $this->hashPassword($this->new_password);
             }
 
             if (!$this->role) {
@@ -397,27 +394,19 @@ class User extends ActiveRecord
 
     public function validatePassword($password)
     {
-        return $this->hashPassword($password, $this->salt) === $this->password;
+        return
+            password_verify($password, $this->password) ||
+            $this->oldHashPassword($password) === $this->password;
     }
 
-    /**
-     * Generates the password hash.
-     * @param string $password
-     * @param string $salt
-     * @return string hash
-     */
-    public function hashPassword($password, $salt)
+    public function hashPassword($password)
     {
-        return md5($this->_salt . $salt . $password);
+        return password_hash($password, PASSWORD_DEFAULT);
     }
 
-    /**
-     * Generates a salt that can be used to generate a password hash.
-     * @return string the salt
-     */
-    protected function generateSalt()
+    public function oldHashPassword($password)
     {
-        return uniqid('', true);
+        return md5('%#w_wrb13&p' . $this->salt . $password);
     }
 
     private $_fio;
