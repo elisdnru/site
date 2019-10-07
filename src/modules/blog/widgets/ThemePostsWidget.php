@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\Group;
 use app\components\widgets\Widget;
 
 UrlRulesHelper::import('blog');
@@ -20,7 +20,7 @@ class ThemePostsWidget extends Widget
             return;
         }
 
-        $group = BlogPostGroup::model()->findByPk($this->group);
+        $group = Group::model()->findByPk($this->group);
 
         $this->render($this->tpl, [
             'group' => $group,

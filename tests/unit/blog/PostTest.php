@@ -1,30 +1,30 @@
 <?php
 
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostComment;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Comment;
+use app\modules\blog\models\Group;
 use app\modules\user\models\User;
 
-class BlogPostTest extends DbTestCase
+class PostTest extends DbTestCase
 {
     /**
-     * @var BlogPost
+     * @var Post
      */
     protected $post;
 
     public $fixtures = [
-        'comment'=> BlogPostComment::class,
-        'blog_post'=> BlogPost::class,
-        'blog_category'=> BlogCategory::class,
-        'blog_postGroup'=> BlogPostGroup::class,
+        'comment'=> Comment::class,
+        'blog_post'=> Post::class,
+        'blog_category'=> Category::class,
+        'blog_postGroup'=> Group::class,
         'user'=> User::class,
     ];
 
     protected function setUp()
     {
         parent::setUp();
-        $this->post = new BlogPost();
+        $this->post = new Post();
     }
 
     public function testTitleIsRequired()
@@ -65,11 +65,11 @@ class BlogPostTest extends DbTestCase
 
     public function testCreateAndUpdateDate()
     {
-        $source = BlogPost::model()->findByPk(2);
+        $source = Post::model()->findByPk(2);
 
         $update_date = $source->update_date;
 
-        $post = new BlogPost();
+        $post = new Post();
 
         $post->setAttributes($source->attributes, false);
         $post->id = null;
@@ -80,7 +80,7 @@ class BlogPostTest extends DbTestCase
 
         $this->assertTrue($post->save(), 'Save model');
 
-        $post = BlogPost::model()->findByPk($post->getPrimaryKey());
+        $post = Post::model()->findByPk($post->getPrimaryKey());
 
         $this->assertNotEquals('0000-00-00 00:00:00', 'First create date');
         $this->assertNotEquals('0000-00-00 00:00:00', 'First update date');
@@ -130,7 +130,7 @@ class BlogPostTest extends DbTestCase
     public function testBelongsToCategory()
     {
         $post = $this->blog_post('post_with_category');
-        $this->assertInstanceOf(BlogCategory::class, $post->category);
+        $this->assertInstanceOf(Category::class, $post->category);
     }
 
     public function testBelongsToAuthor()
@@ -142,12 +142,12 @@ class BlogPostTest extends DbTestCase
     public function testBelongsToGroup()
     {
         $post = $this->blog_post('post_with_group');
-        $this->assertInstanceOf(BlogPostGroup::class, $post->group);
+        $this->assertInstanceOf(Group::class, $post->group);
     }
 
     public function testSafeAttributesOnSearchScenario()
     {
-        $category = new BlogPost('search');
+        $category = new Post('search');
 
         $mustBeSafe = [
             'id',

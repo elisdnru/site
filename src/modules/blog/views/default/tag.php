@@ -1,12 +1,12 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\blog\models\BlogTag;
+use app\modules\blog\models\Tag;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $tag BlogTag */
+/* @var $tag Tag */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

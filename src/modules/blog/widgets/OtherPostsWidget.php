@@ -3,8 +3,8 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
 use CDbCriteria;
 use app\components\widgets\Widget;
 
@@ -27,7 +27,7 @@ class OtherPostsWidget extends Widget
         $criteria->limit = $this->limit;
 
         if ($this->category) {
-            $category = BlogCategory::model()->findByPk(trim($this->category));
+            $category = Category::model()->findByPk(trim($this->category));
 
             if (!$category) {
                 return null;
@@ -36,7 +36,7 @@ class OtherPostsWidget extends Widget
             $criteria->addCondition('category_id=:cat');
             $criteria->params[':cat'] = $category->id;
         } else {
-            $category = new BlogCategory;
+            $category = new Category;
         }
 
         if ($this->skip) {
@@ -51,11 +51,11 @@ class OtherPostsWidget extends Widget
             $nextCriteria->order = 'id ASC';
 
             $posts = array_merge(
-                array_reverse(BlogPost::model()->findAll($nextCriteria)),
-                BlogPost::model()->findAll($prevCriteria)
+                array_reverse(Post::model()->findAll($nextCriteria)),
+                Post::model()->findAll($prevCriteria)
             );
         } else {
-            $posts = BlogPost::model()->findAll($criteria);
+            $posts = Post::model()->findAll($criteria);
         }
 
 

@@ -1,7 +1,7 @@
 <?php
-/* @var $items PortfolioWork */
+/* @var $items Work */
 
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Work;
 
 ?>
 

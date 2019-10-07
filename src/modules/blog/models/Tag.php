@@ -14,7 +14,7 @@ UrlRulesHelper::import('blog');
  * @property integer $id
  * @property string $title
  */
-class BlogTag extends ActiveRecord
+class Tag extends ActiveRecord
 {
     /**
      * @return string the associated database table name
@@ -48,8 +48,8 @@ class BlogTag extends ActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'frequency' => [self::STAT, \app\modules\blog\models\BlogPostTag::class, 'tag_id'],
-            'posttags' => [self::HAS_MANY, \app\modules\blog\models\BlogPostTag::class, 'tag_id'],
+            'frequency' => [self::STAT, \app\modules\blog\models\PostTag::class, 'tag_id'],
+            'posttags' => [self::HAS_MANY, \app\modules\blog\models\PostTag::class, 'tag_id'],
         ];
     }
 

@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogTag;
+use app\modules\blog\models\Tag;
 use CHttpException;
 use app\components\AdminController;
 
@@ -25,12 +25,12 @@ class TagAdminController extends AdminController
 
     public function createModel()
     {
-        return new BlogTag();
+        return new Tag();
     }
 
     public function loadModel($id)
     {
-        $model = BlogTag::model()->findByPk($id);
+        $model = Tag::model()->findByPk($id);
 
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');

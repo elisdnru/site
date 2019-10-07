@@ -1,10 +1,10 @@
 <?php
 /* @var $this AdminController */
 
-use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\Category;
 use app\components\AdminController;
 
-/* @var $model BlogCategory */
+/* @var $model Category */
 /* @var $form CActiveForm */
 ?>
 
@@ -45,7 +45,7 @@ use app\components\AdminController;
 
         <div class="row">
             <?php echo $form->labelEx($model, 'parent_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(BlogCategory::model()->getTabList(), $model->getAssocList()) : BlogCategory::model()->getTabList())); ?>
+            <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Category::model()->getTabList(), $model->getAssocList()) : Category::model()->getTabList())); ?>
             <br />
             <?php echo $form->error($model, 'parent_id'); ?>
         </div>

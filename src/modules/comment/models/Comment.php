@@ -172,9 +172,8 @@ class Comment extends ActiveRecord
 
     protected function instantiate($attributes)
     {
-        $class = $attributes['type'] . 'Comment';
-        $model = new $class(null);
-        return $model;
+        $class = (new \ReflectionClass($attributes['type']))->getNamespaceName() . '\Comment';
+        return new $class(null);
     }
 
     // scope

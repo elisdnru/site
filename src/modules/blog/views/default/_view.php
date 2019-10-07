@@ -1,7 +1,7 @@
 <?php
-/* @var $data BlogPost */
+/* @var $data Post */
 
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Post;
 use app\components\helpers\DateHelper;
 
 $links = [];

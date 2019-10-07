@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\forms\BlogSearchForm;
+use app\modules\blog\forms\SearchForm;
 use app\components\widgets\Widget;
 
 UrlRulesHelper::import('blog');
@@ -14,7 +14,7 @@ class BlogSearchFormWidget extends Widget
 
     public function run()
     {
-        $form = new BlogSearchForm;
+        $form = new SearchForm;
 
         if (isset($_REQUEST['word'])) {
             $form->word = $_REQUEST['word'];

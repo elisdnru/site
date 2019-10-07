@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogTag;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Tag;
 use CHttpException;
 use CJSON;
 use app\components\AdminController;
@@ -33,7 +33,7 @@ class PostAdminController extends AdminController
     public function actionAutoCompleteTags($term)
     {
         if ($term) {
-            $tags = BlogTag::model()->getArrayByMatch($term);
+            $tags = Tag::model()->getArrayByMatch($term);
             echo CJSON::encode($tags);
             Yii::app()->end();
         }
@@ -41,7 +41,7 @@ class PostAdminController extends AdminController
 
     public function createModel()
     {
-        $model = new BlogPost();
+        $model = new Post();
         $model->public = 1;
         $model->image_show = 1;
         $model->image = '';
@@ -54,7 +54,7 @@ class PostAdminController extends AdminController
 
     public function loadModel($id)
     {
-        $model = BlogPost::model()->findByPk($id);
+        $model = Post::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

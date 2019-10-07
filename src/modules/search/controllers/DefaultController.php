@@ -53,8 +53,8 @@ class DefaultController extends Controller
         $tables = [];
 
         $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\page\\\\models\\\\Page\' AS material_class FROM pages';
-        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\blog\\\\models\\\\BlogPost\' AS material_class FROM blog_posts WHERE public=1';
-        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\portfolio\\\\models\\\\PortfolioWork\' AS material_class FROM portfolio_works WHERE public=1';
+        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\blog\\\\models\\\\Post\' AS material_class FROM blog_posts WHERE public=1';
+        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\portfolio\\\\models\\\\Work\' AS material_class FROM portfolio_works WHERE public=1';
 
         Yii::app()->db->createCommand($query . implode(' UNION ', $tables))->execute();
     }

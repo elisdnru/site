@@ -1,23 +1,23 @@
 <?php
 
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Group;
 use app\modules\user\models\User;
 
-class BlogProcessingTest extends DbTestCase
+class PostProcessingTest extends DbTestCase
 {
     public $fixtures = [
-        'blog_post'=> BlogPost::class,
-        'blog_category'=> BlogCategory::class,
-        'blog_postGroup'=> BlogPostGroup::class,
+        'blog_post'=> Post::class,
+        'blog_category'=> Category::class,
+        'blog_postGroup'=> Group::class,
         'user'=> User::class,
     ];
 
     public function testShort()
     {
-        /** @var BlogPost $post */
-        $post = BlogPost::model()->findByPk(1);
+        /** @var Post $post */
+        $post = Post::model()->findByPk(1);
 
         $post->short = 'Lorem ipsum dolor sit amet.';
         $this->assertTrue($post->save(), 'Save model');
@@ -26,8 +26,8 @@ class BlogProcessingTest extends DbTestCase
 
     public function testText()
     {
-        /** @var BlogPost $post */
-        $post = BlogPost::model()->findByPk(1);
+        /** @var Post $post */
+        $post = Post::model()->findByPk(1);
 
         $source = <<<END
 Lorem ipsum dolor sit amet.

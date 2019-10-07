@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Post;
 use CHtml;
 use app\components\Controller;
 use app\extensions\feed\EFeed;
@@ -12,7 +12,7 @@ class FeedController extends Controller
 {
     public function actionIndex()
     {
-        $posts = BlogPost::model()->published()->findAll([
+        $posts = Post::model()->published()->findAll([
             'limit' => 100,
             'order' => 'date DESC',
         ]);

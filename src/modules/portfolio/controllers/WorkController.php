@@ -4,7 +4,7 @@ namespace app\modules\portfolio\controllers;
 
 use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 
 class WorkController extends PortfolioBaseController
@@ -27,7 +27,7 @@ class WorkController extends PortfolioBaseController
             $condition = 'public = 1';
         }
 
-        $model = PortfolioWork::model()->cache(0, new Tags('portfolio'))->findByPk($id, $condition);
+        $model = Work::model()->cache(0, new Tags('portfolio'))->findByPk($id, $condition);
 
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');

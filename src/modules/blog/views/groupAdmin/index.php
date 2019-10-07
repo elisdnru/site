@@ -1,12 +1,12 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\blog\forms\BlogCategoryForm;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\forms\CategoryForm;
+use app\modules\blog\models\Group;
 use app\components\Controller;
 
-/* @var $items BlogPostGroup[] */
-/* @var $categoryForm BlogCategoryForm */
+/* @var $items Group[] */
+/* @var $categoryForm CategoryForm */
 /* @var $form CActiveForm */
 
 $this->pageTitle = 'Тематические группы записей';
@@ -33,7 +33,7 @@ $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/b
         </tr>
         <?php foreach ($items as $item) :
             $delurl = $this->createUrl('delete', ['id' => $item->id]);
-            $postsurl = $this->createUrl('blog/postAdmin', ['BlogPost[group_id]' => $item->id]);
+            $postsurl = $this->createUrl('blog/postAdmin', ['Post[group_id]' => $item->id]);
 
             ?>
             <tr id="item_<?php echo $item->id; ?>">

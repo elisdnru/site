@@ -4,8 +4,8 @@ namespace app\modules\portfolio\controllers;
 
 use CHttpException;
 use app\components\AdminController;
-use app\modules\portfolio\models\PortfolioCategory;
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Category;
+use app\modules\portfolio\models\Work;
 
 class CategoryAdminController extends AdminController
 {
@@ -26,7 +26,7 @@ class CategoryAdminController extends AdminController
 
     public function beforeDelete($model)
     {
-        $count = PortfolioWork::model()->count(
+        $count = Work::model()->count(
             [
                 'condition' => 't.category_id = :ID',
                 'params' => [':ID' => $model->id]
@@ -40,12 +40,12 @@ class CategoryAdminController extends AdminController
 
     public function createModel()
     {
-        return new PortfolioCategory();
+        return new Category();
     }
 
     public function loadModel($id)
     {
-        $model = PortfolioCategory::model()->findByPk($id);
+        $model = Category::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

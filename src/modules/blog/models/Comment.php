@@ -3,13 +3,13 @@
 namespace app\modules\blog\models;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\comment\models\Comment;
+use app\modules\comment\models\Comment as BaseComment;
 
 UrlRulesHelper::import('blog');
 
-class BlogPostComment extends Comment
+class Comment extends BaseComment
 {
-    const TYPE_OF_COMMENT = BlogPost::class;
+    const TYPE_OF_COMMENT = Post::class;
 
     public function __construct($scenario = 'insert')
     {
@@ -24,7 +24,7 @@ class BlogPostComment extends Comment
     {
         return array_merge(parent::relations(), [
             'child_items' => [self::HAS_MANY, self::class, 'parent_id'],
-            'material' => [self::BELONGS_TO, BlogPost::class, 'material_id'],
+            'material' => [self::BELONGS_TO, Post::class, 'material_id'],
         ]);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace app\modules\sitemap\controllers;
 
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Post;
 use app\components\Controller;
 use app\modules\sitemap\components\Sitemap;
 use app\components\module\UrlRulesHelper;
 use app\modules\page\models\Page;
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 use Yii;
 
@@ -26,13 +26,13 @@ class DefaultController extends Controller
 
         UrlRulesHelper::import('blog');
 
-        $models['BlogPost'] = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll([
+        $models['BlogPost'] = Post::model()->cache(0, new Tags('blog'))->published()->findAll([
             'order' => 'title ASC',
         ]);
 
         UrlRulesHelper::import('portfolio');
 
-        $models['PortfolioWork'] = PortfolioWork::model()->cache(0, new Tags('portfolio'))->published()->findAll([
+        $models['PortfolioWork'] = Work::model()->cache(0, new Tags('portfolio'))->published()->findAll([
             'order' => 'title ASC',
         ]);
 
@@ -53,11 +53,11 @@ class DefaultController extends Controller
 
             UrlRulesHelper::import('blog');
 
-            $sitemap->addModels(BlogPost::model()->published()->findAll(), Sitemap::DAILY, 0.8);
+            $sitemap->addModels(Post::model()->published()->findAll(), Sitemap::DAILY, 0.8);
 
             UrlRulesHelper::import('portfolio');
 
-            $sitemap->addModels(PortfolioWork::model()->findAll(), Sitemap::WEEKLY);
+            $sitemap->addModels(Work::model()->findAll(), Sitemap::WEEKLY);
 
             $xml = $sitemap->render();
 

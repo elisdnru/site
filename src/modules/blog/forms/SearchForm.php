@@ -7,7 +7,7 @@ use CFormModel;
 /**
  * @property integer $word
  */
-class BlogSearchForm extends CFormModel
+class SearchForm extends CFormModel
 {
     public $word;
 

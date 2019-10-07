@@ -2,10 +2,10 @@
 /* @var $this AdminController */
 
 use app\components\AdminController;
-use app\modules\portfolio\models\PortfolioCategory;
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Category;
+use app\modules\portfolio\models\Work;
 
-/* @var $model PortfolioWork */
+/* @var $model Work */
 /* @var $form CActiveForm */
 ?>
 <?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
@@ -51,7 +51,7 @@ use app\modules\portfolio\models\PortfolioWork;
 
         <div class="row">
             <?php echo $form->labelEx($model, 'category_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + PortfolioCategory::model()->getTabList()); ?>
+            <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + Category::model()->getTabList()); ?>
             <br />
             <?php echo $form->error($model, 'category_id'); ?>
         </div>

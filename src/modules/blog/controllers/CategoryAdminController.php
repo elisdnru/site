@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
 use CHttpException;
 use app\components\AdminController;
 
@@ -26,7 +26,7 @@ class CategoryAdminController extends AdminController
 
     public function beforeDelete($model)
     {
-        $count = BlogPost::model()->count(
+        $count = Post::model()->count(
             [
                 'condition' => 't.category_id = :id',
                 'params' => [':id' => $model->id]
@@ -40,12 +40,12 @@ class CategoryAdminController extends AdminController
 
     public function createModel()
     {
-        return new BlogCategory();
+        return new Category();
     }
 
     public function loadModel($id)
     {
-        $model = BlogCategory::model()->findByPk($id);
+        $model = Category::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

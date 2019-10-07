@@ -1,5 +1,5 @@
 <?php use app\extensions\cachetagging\Tags;
-use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\Category;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
@@ -22,7 +22,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <?php endif; ?>
 
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Разделы блога']); ?>
-<?php $this->widget('zii.widgets.CMenu', ['items' => BlogCategory::model()->cache(0, new Tags('blog'))->getMenuList(1000)]); ?>
+<?php $this->widget('zii.widgets.CMenu', ['items' => Category::model()->cache(0, new Tags('blog'))->getMenuList(1000)]); ?>
 <?php $this->endWidget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>

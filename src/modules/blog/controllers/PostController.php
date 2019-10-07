@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Post;
 use CHttpException;
 use app\components\Controller;
 
@@ -26,7 +26,7 @@ class PostController extends Controller
             $condition = 'public = 1';
         }
 
-        $model = BlogPost::model()->findByPk($id, $condition);
+        $model = Post::model()->findByPk($id, $condition);
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
         }

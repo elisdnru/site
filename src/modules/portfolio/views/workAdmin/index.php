@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\portfolio\models\PortfolioCategory;
+use app\modules\portfolio\models\Category;
 
 $this->pageTitle = 'Работы портфолио';
 $this->breadcrumbs = [
@@ -28,7 +28,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
 <?php echo CHtml::beginForm($this->createUrl('index'), 'get'); ?>
 <p>
-    Раздел: <?php echo CHtml::dropDownList('category', $category, ['0' => 'Все разделы'] + PortfolioCategory::model()->getTabList(), ['onchange' => 'this.form.submit()']); ?>
+    Раздел: <?php echo CHtml::dropDownList('category', $category, ['0' => 'Все разделы'] + Category::model()->getTabList(), ['onchange' => 'this.form.submit()']); ?>
     <?php echo CHtml::submitButton('Выбрать', ['class' => 'js_hide']); ?>
 </p>
 <br />

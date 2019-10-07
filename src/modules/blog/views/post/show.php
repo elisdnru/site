@@ -2,14 +2,14 @@
 /* @var $this Controller */
 
 use app\extensions\cachetagging\Tags;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostComment;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Comment;
 use app\components\Controller;
 use app\components\helpers\DateHelper;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $model BlogPost */
+/* @var $model Post */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = $model->pagetitle;
@@ -161,6 +161,6 @@ CTextHighlighter::registerCssFile();
 <?php $this->widget(\app\modules\comment\widgets\CommentsWidget::class, [
     'material_id' => $model->id,
     'authorId' => $model->author_id,
-    'type' => BlogPostComment::TYPE_OF_COMMENT,
+    'type' => Comment::TYPE_OF_COMMENT,
     'url' => $model->url,
 ]); ?>

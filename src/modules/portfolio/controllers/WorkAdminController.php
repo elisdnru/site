@@ -6,7 +6,7 @@ use CDbCriteria;
 use CHttpException;
 use CPagination;
 use app\components\AdminController;
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Work;
 use Yii;
 
 class WorkAdminController extends AdminController
@@ -45,7 +45,7 @@ class WorkAdminController extends AdminController
             $criteria->params[':categoryID'] = $category;
         }
 
-        $count = PortfolioWork::model()->count($criteria);
+        $count = Work::model()->count($criteria);
 
         $pages = new CPagination($count);
         $pages->pageSize = self::ITEMS_PER_PAGE;
@@ -54,7 +54,7 @@ class WorkAdminController extends AdminController
         $criteria->order = 't.sort DESC';
         $criteria->with = ['category'];
 
-        $works = PortfolioWork::model()->findAll($criteria);
+        $works = Work::model()->findAll($criteria);
 
         $this->render('index', [
             'works' => $works,
@@ -98,7 +98,7 @@ class WorkAdminController extends AdminController
 
     public function createModel()
     {
-        $model = new PortfolioWork();
+        $model = new Work();
         $model->public = 1;
         $model->image_show = 1;
         $model->category_id = Yii::app()->request->getQuery('category');
@@ -108,7 +108,7 @@ class WorkAdminController extends AdminController
 
     public function loadModel($id)
     {
-        $model = PortfolioWork::model()->findByPk($id);
+        $model = Work::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

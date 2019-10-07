@@ -7,7 +7,7 @@ use app\components\category\models\TreeCategory;
 
 UrlRulesHelper::import('blog');
 
-class BlogCategory extends TreeCategory
+class Category extends TreeCategory
 {
     public $urlRoute = '/blog/default/category';
 
@@ -28,12 +28,12 @@ class BlogCategory extends TreeCategory
         // class name for the relations automatically generated below.
         return array_merge(parent::relations(), [
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'posts_count' => [self::STAT, \app\modules\blog\models\BlogPost::class, 'category_id'],
-            'posts' => [self::HAS_MANY, \app\modules\blog\models\BlogPost::class, 'category_id'],
+            'posts_count' => [self::STAT, \app\modules\blog\models\Post::class, 'category_id'],
+            'posts' => [self::HAS_MANY, \app\modules\blog\models\Post::class, 'category_id'],
             'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, \app\modules\blog\models\BlogPost::class, 'category_id',
+            'items_count' => [self::STAT, \app\modules\blog\models\Post::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

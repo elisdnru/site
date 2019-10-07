@@ -2,10 +2,10 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\forms\BlogSearchForm;
-use app\modules\blog\models\BlogTag;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
+use app\modules\blog\forms\SearchForm;
+use app\modules\blog\models\Tag;
 use CActiveDataProvider;
 use app\components\CArray;
 use CDbCriteria;
@@ -73,7 +73,7 @@ class DefaultController extends Controller
     {
         $criteria = $this->getBlogCriteria();
 
-        $searchForm = new BlogSearchForm();
+        $searchForm = new SearchForm();
 
         if (isset($_REQUEST['word'])) {
             $searchForm->word = $_REQUEST['word'];
@@ -92,12 +92,12 @@ class DefaultController extends Controller
 
     /**
      * @param string $path
-     * @return BlogCategory
+     * @return Category
      * @throws CHttpException
      */
     protected function loadCategoryModel($path)
     {
-        $category = BlogCategory::model()->findByPath($path);
+        $category = Category::model()->findByPath($path);
         if (!$category) {
             throw new CHttpException('404', 'Страница не найдена');
         }
@@ -106,12 +106,12 @@ class DefaultController extends Controller
 
     /**
      * @param string $title
-     * @return BlogTag
+     * @return Tag
      * @throws CHttpException
      */
     protected function loadTagModel($title)
     {
-        $tag = BlogTag::model()->findByTitle($title);
+        $tag = Tag::model()->findByTitle($title);
         if (!$tag) {
             throw new CHttpException('404', 'Страница не найдена');
         }
@@ -150,7 +150,7 @@ class DefaultController extends Controller
      */
     protected function createProvider($criteria)
     {
-        $dataProvider = new CActiveDataProvider(BlogPost::model()->cache(0, new Tags('blog')), [
+        $dataProvider = new CActiveDataProvider(Post::model()->cache(0, new Tags('blog')), [
             'criteria' => $criteria,
             'pagination' => [
                 'pageSize' => 10,

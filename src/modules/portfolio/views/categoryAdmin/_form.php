@@ -2,9 +2,9 @@
 /* @var $this AdminController */
 
 use app\components\AdminController;
-use app\modules\portfolio\models\PortfolioCategory;
+use app\modules\portfolio\models\Category;
 
-/* @var $model PortfolioCategory */
+/* @var $model Category */
 /* @var $form CActiveForm */
 ?>
 <?php $this->widget(\app\components\tinymce\widgets\TinyMCEWidget::class); ?>
@@ -44,7 +44,7 @@ use app\modules\portfolio\models\PortfolioCategory;
 
         <div class="row">
             <?php echo $form->labelEx($model, 'parent_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(PortfolioCategory::model()->getTabList(), $model->getAssocList()) : PortfolioCategory::model()->getTabList())); ?>
+            <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Category::model()->getTabList(), $model->getAssocList()) : Category::model()->getTabList())); ?>
             <br />
             <?php echo $form->error($model, 'parent_id'); ?>
         </div>

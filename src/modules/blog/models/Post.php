@@ -40,9 +40,9 @@ use Yii;
  * @property integer $comments_count
  * @property integer $comments_new_count
  *
- * @method BlogPost published()
+ * @method Post published()
  */
-class BlogPost extends ActiveRecord implements CommentDepends
+class Post extends ActiveRecord implements CommentDepends
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/blogs';
@@ -71,8 +71,8 @@ class BlogPost extends ActiveRecord implements CommentDepends
         return [
             ['category_id, alias, title', 'required'],
             ['author_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
-            ['category_id', 'exist', 'className' => \app\modules\blog\models\BlogCategory::class, 'attributeName' => 'id'],
-            ['group_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\BlogPostGroup::class, 'attributeName' => 'id'],
+            ['category_id', 'exist', 'className' => \app\modules\blog\models\Category::class, 'attributeName' => 'id'],
+            ['group_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['short, text, description, del_image', 'safe'],
@@ -95,11 +95,11 @@ class BlogPost extends ActiveRecord implements CommentDepends
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, \app\modules\blog\models\BlogCategory::class, 'category_id'],
+            'category' => [self::BELONGS_TO, \app\modules\blog\models\Category::class, 'category_id'],
             'author' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'author_id'],
-            'group' => [self::BELONGS_TO, \app\modules\blog\models\BlogPostGroup::class, 'group_id'],
-            'posttags' => [self::HAS_MANY, \app\modules\blog\models\BlogPostTag::class, 'post_id'],
-            'tags' => [self::MANY_MANY, \app\modules\blog\models\BlogTag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
+            'group' => [self::BELONGS_TO, \app\modules\blog\models\Group::class, 'group_id'],
+            'posttags' => [self::HAS_MANY, \app\modules\blog\models\PostTag::class, 'post_id'],
+            'tags' => [self::MANY_MANY, \app\modules\blog\models\Tag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
         ];
     }
 
@@ -284,7 +284,7 @@ class BlogPost extends ActiveRecord implements CommentDepends
     private function processThematicGroup()
     {
         if ($this->newgroup) {
-            $group = new BlogPostGroup();
+            $group = new Group();
             $group->title = $this->newgroup;
             if ($group->save()) {
                 $this->group_id = $group->id;
@@ -344,9 +344,9 @@ class BlogPost extends ActiveRecord implements CommentDepends
         }
 
         foreach ($newtags as $tagname) {
-            $tag = BlogTag::model()->findOrCreateByTitle($tagname);
+            $tag = Tag::model()->findOrCreateByTitle($tagname);
 
-            $posttag = new BlogPostTag;
+            $posttag = new PostTag;
             $posttag->post_id = $this->id;
             $posttag->tag_id = $tag->id;
             $posttag->save();
@@ -366,8 +366,8 @@ class BlogPost extends ActiveRecord implements CommentDepends
 
     public function updateCommentsState($comment)
     {
-        $comments_count = BlogPostComment::model()->material($this->id)->count('public=1');
-        $comments_new_count = BlogPostComment::model()->material($this->id)->count('public=1 AND moder=0');
+        $comments_count = Comment::model()->material($this->id)->count('public=1');
+        $comments_new_count = Comment::model()->material($this->id)->count('public=1 AND moder=0');
 
         $this->updateByPk($this->id, ['comments_count' => $comments_count]);
         $this->updateByPk($this->id, ['comments_new_count' => $comments_new_count]);

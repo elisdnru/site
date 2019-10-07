@@ -2,7 +2,7 @@
 
 namespace app\modules\blog;
 
-use app\modules\blog\models\BlogPostComment;
+use app\modules\blog\models\Comment;
 use app\components\system\WebModule;
 
 class BlogModule extends WebModule
@@ -32,9 +32,9 @@ class BlogModule extends WebModule
 
     public static function notifications()
     {
-        $comments = BlogPostComment::model()->count([
+        $comments = Comment::model()->count([
             'condition' => 'moder=0 AND type=:type',
-            'params' => [':type' => BlogPostComment::TYPE_OF_COMMENT],
+            'params' => [':type' => Comment::TYPE_OF_COMMENT],
         ]);
 
         return [

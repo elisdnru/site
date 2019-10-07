@@ -8,8 +8,8 @@ use CDbCriteria;
 use CHttpException;
 use app\modules\page\models\Page;
 use app\modules\portfolio\components\PortfolioBaseController;
-use app\modules\portfolio\models\PortfolioCategory;
-use app\modules\portfolio\models\PortfolioWork;
+use app\modules\portfolio\models\Category;
+use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 use Yii;
 
@@ -21,7 +21,7 @@ class DefaultController extends PortfolioBaseController
     {
         $criteria = $this->getStartCriteria();
 
-        $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(0, new Tags('portfolio')), [
+        $dataProvider = new CActiveDataProvider(Work::model()->cache(0, new Tags('portfolio')), [
             'criteria' => $criteria,
             'pagination' => [
                 'pageSize' => self::PER_PAGE,
@@ -29,7 +29,7 @@ class DefaultController extends PortfolioBaseController
             ],
         ]);
 
-        $categories = PortfolioCategory::model()->cache(0, new Tags('portfolio'))->findAll([
+        $categories = Category::model()->cache(0, new Tags('portfolio'))->findAll([
             'condition' => 'parent_id = 0',
             'order' => 'sort ASC',
         ]);
@@ -56,7 +56,7 @@ class DefaultController extends PortfolioBaseController
 
         $subcategories = $category->cache(3600 * 24)->child_items;
 
-        $dataProvider = new CActiveDataProvider(PortfolioWork::model()->cache(0, new Tags('portfolio')), [
+        $dataProvider = new CActiveDataProvider(Work::model()->cache(0, new Tags('portfolio')), [
             'criteria' => $criteria,
             'pagination' => [
                 'pageSize' => self::PER_PAGE,
@@ -80,7 +80,7 @@ class DefaultController extends PortfolioBaseController
 
     protected function loadCategoryModel($path)
     {
-        $category = PortfolioCategory::model()->findByPath($path);
+        $category = Category::model()->findByPath($path);
         if ($category === null) {
             throw new CHttpException('404', 'Страница не найдена');
         }

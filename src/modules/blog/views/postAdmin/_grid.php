@@ -1,13 +1,13 @@
 <?php
 /* @var $this AdminController */
 
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Group;
 use app\components\AdminController;
 use app\modules\user\models\User;
 
-/* @var $model BlogPost */
+/* @var $model Post */
 ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', [
@@ -25,7 +25,7 @@ use app\modules\user\models\User;
         ],
         [
             'name' => 'category_id',
-            'filter' => BlogCategory::model()->getTabList(),
+            'filter' => Category::model()->getTabList(),
             'value' => static function ($data) {
                 return $data->category ? $data->category->fullTitle : '';
             }
@@ -41,7 +41,7 @@ use app\modules\user\models\User;
         [
             'name' => 'group_id',
             'header' => 'Группа',
-            'filter' => BlogPostGroup::model()->getAssocList(),
+            'filter' => Group::model()->getAssocList(),
             'value' => static function ($data) {
                 return $data->group ? $data->group->title : '';
             }

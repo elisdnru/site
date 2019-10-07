@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\controllers;
 
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Group;
 use CHttpException;
 use app\components\AdminController;
 
@@ -17,8 +17,8 @@ class GroupAdminController extends AdminController
         return [
             'index' => [
                 'class' => \app\components\crud\actions\TableInputAction::class,
-                'modelClass' => BlogPostGroup::class,
-                'formClass' => \app\modules\blog\forms\BlogPostGroupForm::class,
+                'modelClass' => Group::class,
+                'formClass' => \app\modules\blog\forms\GroupForm::class,
                 'order' => 'title ASC',
                 'view' => 'index',
             ],
@@ -28,7 +28,7 @@ class GroupAdminController extends AdminController
 
     public function beforeDelete($model)
     {
-        $count = BlogPost::model()->count(
+        $count = Post::model()->count(
             [
                 'condition' => 't.group_id = :ID',
                 'params' => [':ID' => $model->id]
@@ -42,7 +42,7 @@ class GroupAdminController extends AdminController
 
     public function loadModel($id)
     {
-        $model = BlogPostGroup::model()->findByPk((int)$id);
+        $model = Group::model()->findByPk((int)$id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

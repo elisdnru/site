@@ -11,7 +11,7 @@ use CDbCriteria;
  * @property integer $post_id
  * @property integer $tag_id
  */
-class BlogPostTag extends ActiveRecord
+class PostTag extends ActiveRecord
 {
     /**
      * @return string the associated database table name
@@ -45,7 +45,7 @@ class BlogPostTag extends ActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'tag' => [self::BELONGS_TO, \app\modules\blog\models\BlogTag::class, 'tag_id'],
+            'tag' => [self::BELONGS_TO, \app\modules\blog\models\Tag::class, 'tag_id'],
         ];
     }
 

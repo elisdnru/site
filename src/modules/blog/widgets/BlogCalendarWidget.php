@@ -3,7 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\components\module\UrlRulesHelper;
-use app\modules\blog\models\BlogPost;
+use app\modules\blog\models\Post;
 use CHtml;
 use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
@@ -41,7 +41,7 @@ class BlogCalendarWidget extends Widget
         }
 
         // Make the links
-        $posts = BlogPost::model()->cache(0, new Tags('blog'))->published()->findAll([
+        $posts = Post::model()->cache(0, new Tags('blog'))->published()->findAll([
             'condition' => 'date LIKE :date',
             'params' => [':date' => "$year-$month-%"],
         ]);

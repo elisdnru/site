@@ -31,9 +31,9 @@ use Yii;
  * @property string $imageUrl
  * @property string $imageThumdUrl
  *
- * @method PortfolioWork published()
+ * @method Work published()
  */
-class PortfolioWork extends ActiveRecord
+class Work extends ActiveRecord
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/portfolio';
@@ -58,7 +58,7 @@ class PortfolioWork extends ActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\PortfolioCategory::class, 'attributeName' => 'id'],
+            ['category_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\Category::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
@@ -78,7 +78,7 @@ class PortfolioWork extends ActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, \app\modules\portfolio\models\PortfolioCategory::class, 'category_id'],
+            'category' => [self::BELONGS_TO, \app\modules\portfolio\models\Category::class, 'category_id'],
         ];
     }
 

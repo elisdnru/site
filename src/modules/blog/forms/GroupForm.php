@@ -8,7 +8,7 @@ use CFormModel;
  * @property integer $id
  * @property string $title
  */
-class BlogPostGroupForm extends CFormModel
+class GroupForm extends CFormModel
 {
     public $title;
 

@@ -2,13 +2,13 @@
 /* @var $this AdminController */
 
 use app\extensions\multicomplete\MultiComplete;
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostGroup;
-use app\modules\blog\models\BlogTag;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Group;
+use app\modules\blog\models\Tag;
 use app\components\AdminController;
 
-/* @var $model BlogPost */
+/* @var $model Post */
 /* @var $form CActiveForm */
 ?>
 
@@ -54,14 +54,14 @@ $cs->registerCssFile($url . '/tags.css');
 
         <div class="row">
             <?php echo $form->labelEx($model, 'alias'); ?>
-            &nbsp;<a href="javascript:transliterate('BlogPost_title', 'BlogPost_alias')">Транслит наименования</a><br />
+            &nbsp;<a href="javascript:transliterate('Post_title', 'BlogPost_alias')">Транслит наименования</a><br />
             <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
 
         <div class="row">
             <?php echo $form->labelEx($model, 'category_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + BlogCategory::model()->getTabList()); ?>
+            <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + Category::model()->getTabList()); ?>
             <br />
             <?php echo $form->error($model, 'category_id'); ?>
         </div>
@@ -112,7 +112,7 @@ $cs->registerCssFile($url . '/tags.css');
         <h4>Цепочка новостей</h4>
         <div class="row">
             <?php echo $form->labelEx($model, 'group_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'group_id', [0 => ''] + BlogPostGroup::model()->getAssocList(true)); ?>
+            <?php echo $form->dropDownList($model, 'group_id', [0 => ''] + Group::model()->getAssocList(true)); ?>
             <br />
             <?php echo $form->error($model, 'group_id'); ?>
         </div>
@@ -153,8 +153,8 @@ $cs->registerCssFile($url . '/tags.css');
             ]); ?>
         </div>
         <div class="row">
-            <ul class="tags_list" id="BlogPost_tagsVariants">
-                <?php foreach (CHtml::listData(BlogTag::model()->findAll(['order' => 'title ASC']), 'id', 'title') as $id => $tag) : ?>
+            <ul class="tags_list" id="Post_tagsVariants">
+                <?php foreach (CHtml::listData(Tag::model()->findAll(['order' => 'title ASC']), 'id', 'title') as $id => $tag) : ?>
                     <li id="tag_<?php echo $id; ?>">
                         <a class="tag" href="#"><?php echo CHtml::encode($tag); ?></a>
                     </li>
@@ -167,8 +167,8 @@ $cs->registerCssFile($url . '/tags.css');
     <?php ob_start(); ?>
 
     jQuery(function ($) {
-        var tagsInput = $('#BlogPost_tagsString')
-        var tagsVariants = $('#BlogPost_tagsVariants li')
+        var tagsInput = $('#Post_tagsString')
+        var tagsVariants = $('#Post_tagsVariants li')
 
         function highlightActive () {
             var tags = tagsInput.val().split(', ')

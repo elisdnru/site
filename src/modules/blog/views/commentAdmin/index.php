@@ -1,10 +1,10 @@
 <?php
 /* @var $this AdminController */
 
-use app\modules\blog\models\BlogPostComment;
+use app\modules\blog\models\Comment;
 use app\components\AdminController;
 
-/* @var $material BlogPostComment */
+/* @var $material Comment */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = 'Комментарии к записям';

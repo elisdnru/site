@@ -8,7 +8,7 @@ use app\components\category\models\TreeCategory;
 
 UrlRulesHelper::import('portfolio');
 
-class PortfolioCategory extends TreeCategory
+class Category extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';
 
@@ -39,7 +39,7 @@ class PortfolioCategory extends TreeCategory
             'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, \app\modules\portfolio\models\PortfolioWork::class, 'category_id',
+            'items_count' => [self::STAT, \app\modules\portfolio\models\Work::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

@@ -1,28 +1,28 @@
 <?php
 
-use app\modules\blog\models\BlogCategory;
-use app\modules\blog\models\BlogPost;
-use app\modules\blog\models\BlogPostGroup;
+use app\modules\blog\models\Category;
+use app\modules\blog\models\Post;
+use app\modules\blog\models\Group;
 use app\modules\user\models\User;
 
-class BlogCategoryTest extends DbTestCase
+class CategoryTest extends DbTestCase
 {
     /**
-     * @var BlogCategory
+     * @var Category
      */
     protected $category;
 
     public $fixtures = [
-        'blog_post' => BlogPost::class,
-        'blog_category' => BlogCategory::class,
-        'blog_postGroup' => BlogPostGroup::class,
+        'blog_post' => Post::class,
+        'blog_category' => Category::class,
+        'blog_postGroup' => Group::class,
         'user' => User::class,
     ];
 
     protected function setUp()
     {
         parent::setUp();
-        $this->category = new BlogCategory();
+        $this->category = new Category();
     }
 
     public function testTitleIsRequired()
@@ -74,7 +74,7 @@ class BlogCategoryTest extends DbTestCase
     public function testParentRelation()
     {
         $category = $this->blog_category('child_category');
-        $this->assertInstanceOf(BlogCategory::class, $category->parent);
+        $this->assertInstanceOf(Category::class, $category->parent);
     }
 
     public function testPostsCountRelation()

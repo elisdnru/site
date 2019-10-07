@@ -1,14 +1,14 @@
 <?php
 /* @var $this Controller */
 
-use app\modules\blog\models\BlogCategory;
+use app\modules\blog\models\Category;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
 /* @var $page Page */
-/* @var $category BlogCategory */
+/* @var $category Category */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
