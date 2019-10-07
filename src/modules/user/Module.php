@@ -33,7 +33,6 @@ class Module extends WebModule
             'users/captcha' => 'user/default/captcha',
             'profile' => 'user/profile/view',
             'profile/edit' => 'user/profile/edit',
-            'users/show/<username:[\w\d_-]+>' => 'user/users/show',
         ];
     }
 }
