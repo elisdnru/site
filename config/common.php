@@ -271,7 +271,6 @@ return [
             ],
             'afterCurrentModule' => [
                 'page',
-                'new',
             ]
         ]
     ],
