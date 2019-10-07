@@ -10,9 +10,6 @@ use CDbCriteria;
 use Yii;
 
 /**
- * This is the model class for table "{{menu}}".
- *
- * The followings are the available columns in table '{{menu}}':
  * @property integer $id
  * @property string $title
  * @property string $alias

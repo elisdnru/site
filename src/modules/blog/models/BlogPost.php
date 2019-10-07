@@ -12,9 +12,6 @@ use CHtml;
 use Yii;
 
 /**
- * This is the model class for table "{{new}}".
- *
- * The followings are the available columns in table '{{new}}':
  * @property integer $id
  * @property string $date
  * @property string $update_date

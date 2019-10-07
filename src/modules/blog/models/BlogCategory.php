@@ -7,9 +7,6 @@ use app\components\category\models\TreeCategory;
 
 UrlRulesHelper::import('blog');
 
-/**
- * This is the model class for table "{{blog_category}}".
- */
 class BlogCategory extends TreeCategory
 {
     public $urlRoute = '/blog/default/category';

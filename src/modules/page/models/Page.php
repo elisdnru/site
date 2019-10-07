@@ -11,9 +11,6 @@ use app\modules\user\models\User;
 use Yii;
 
 /**
- * This is the model class for table "{{page}}".
- *
- * The followings are the available columns in table '{{page}}':
  * @property integer $id
  * @property string $alias
  * @property string $date

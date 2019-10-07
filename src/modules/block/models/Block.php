@@ -7,9 +7,6 @@ use CActiveDataProvider;
 use CDbCriteria;
 
 /**
- * This is the model class for table "{{block}}".
- *
- * The followings are the available columns in table '{{block}}':
  * @property integer $id
  * @property string $alias
  * @property string $title

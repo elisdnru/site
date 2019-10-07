@@ -10,9 +10,6 @@ use CDbCriteria;
 use Yii;
 
 /**
- * This is the model class for table "{{new}}".
- *
- * The followings are the available columns in table '{{new}}':
  * @property integer $id
  * @property string $sort
  * @property string $date

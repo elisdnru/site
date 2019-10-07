@@ -5,9 +5,6 @@ namespace app\modules\user\models;
 use app\components\helpers\GravatarHelper;
 use Yii;
 
-/**
- * This is the model class for table "{{user}}".
- */
 class User extends UserBase
 {
     /**

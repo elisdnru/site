@@ -11,9 +11,6 @@ use app\modules\user\models\User;
 use Yii;
 
 /**
- * This is the model class for table "{{comment}}".
- *
- * The followings are the available columns in table '{{comment}}':
  * @property string $id
  * @property string $type
  * @property integer $material_id

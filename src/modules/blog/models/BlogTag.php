@@ -11,9 +11,6 @@ use Yii;
 UrlRulesHelper::import('blog');
 
 /**
- * This is the model class for table "{{blog_tag}}".
- *
- * The followings are the available columns in table '{{blog_tag}}':
  * @property integer $id
  * @property string $title
  */

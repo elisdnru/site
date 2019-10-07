@@ -8,10 +8,6 @@ use CDbCriteria;
 use Yii;
 
 /**
- * This is the model class for table "{{category}}".
- *
- * The followings are the available columns in table '{{category}}':
- *
  * @property string $parent_id
  *
  * DTreeCategoryBehavior

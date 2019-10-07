@@ -5,9 +5,6 @@ namespace app\modules\comment\models;
 use CFormModel;
 
 /**
- * This is the model class for table "{{comment}}".
- *
- * The followings are the available columns in table '{{comment}}':
  * @property string $user
  * @property string $text
  */

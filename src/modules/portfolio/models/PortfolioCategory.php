@@ -8,9 +8,6 @@ use app\components\category\models\TreeCategory;
 
 UrlRulesHelper::import('portfolio');
 
-/**
- * This is the model class for table "{{portfolio_category}}".
- */
 class PortfolioCategory extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';
