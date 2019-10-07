@@ -396,7 +396,7 @@ class User extends ActiveRecord
     {
         return
             password_verify($password, $this->password) ||
-            $this->oldHashPassword($password) === $this->password;
+            password_verify($this->oldHashPassword($password), $this->password);
     }
 
     public function hashPassword($password)
