@@ -199,12 +199,7 @@ class Menu extends ActiveRecord
     {
         if ($this->_url === null) {
             UrlRulesHelper::import('main');
-            $url = $this->link ?: '#';
-            if (preg_match('|^http:\/\/|', $url, $m)) {
-                $this->_url = Yii::app()->createUrl('/main/default/url', ['a' => $url]);
-            } else {
-                $this->_url = $this->link != '/index' ? $this->link : '/';
-            }
+            $this->_url = $this->link !== '/index' ? $this->link : '/';
         }
 
         return $this->_url;

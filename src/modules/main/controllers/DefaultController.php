@@ -11,10 +11,4 @@ class DefaultController extends Controller
     {
         $this->render('index');
     }
-
-    public function actionUrl($a)
-    {
-        $this->redirect($a);
-        Yii::app()->end();
-    }
 }

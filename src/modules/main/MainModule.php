@@ -12,7 +12,7 @@ class MainModule extends WebModule
     {
         return [
             '' => 'main/default/index',
-            '<action:error|url>' => 'main/default/<action>',
+            'error' => 'main/default/error',
         ];
     }
 }
