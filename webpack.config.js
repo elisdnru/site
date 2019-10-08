@@ -39,7 +39,7 @@ module.exports = {
     }),
     new MergeIntoSingleFilePlugin({
       files: {
-        "site.js": [
+        "main.js": [
           'node_modules/axios/dist/axios.min.js',
           'assets/js/site.js',
           'assets/js/share.js',
@@ -56,7 +56,7 @@ module.exports = {
         ]
       },
       transform: {
-        'site.js': code => require("uglify-js").minify(code).code,
+        'main.js': code => require("uglify-js").minify(code).code,
         'jquery.js': code => require("uglify-js").minify(code).code,
         'comments.js': code => require("uglify-js").minify(code).code,
         'jcarousellite.js': code => require("uglify-js").minify(code).code

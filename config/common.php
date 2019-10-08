@@ -90,7 +90,7 @@ return [
                     'basePath' => null,
                     'baseUrl' => '/build',
                     'css' => ['main.css?v=' . $assetsVersion],
-                    'js' => ['site.js?v=' . $assetsVersion],
+                    'js' => ['main.js?v=' . $assetsVersion],
                 ],
                 'admin' => [
                     'basePath' => null,
