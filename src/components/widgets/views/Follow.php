@@ -1,4 +1,18 @@
-<div id="follow" class="follow"></div>
+<?php
+$providers = [
+    ['name' => 'RSS', 'class' => 'feed', 'url' => 'https://feeds.feedburner.com/elisdn'],
+    ['name' => 'Twitter', 'class' => 'twitter', 'url' => 'https://twitter.com/elisdnru'],
+    ['name' => 'GitHub', 'class' => 'github', 'url' => 'https://github.com/ElisDN'],
+    ['name' => 'ВКонтакте', 'class' => 'vkontakte', 'url' => 'https://vk.com/elisdnru'],
+    ['name' => 'Facebook', 'class' => 'facebook', 'url' => 'https://www.facebook.com/elisdnru/'],
+]
+?>
+
+<div id="follow" class="follow">
+    <?php foreach ($providers as $provider): ?>
+        <a rel="noopener" href="<?= CHtml::encode($provider['url']) ?>" title="<?= CHtml::encode($provider['title']) ?>"><span class="follow-<?= $provider['class'] ?>"></span></a>
+    <?php endforeach; ?>
+</div>
 
 <div class="subscribe-form">
     <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=blog" target="_blank">

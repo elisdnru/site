@@ -41,8 +41,6 @@ module.exports = {
       files: {
         "site.js": [
           'node_modules/axios/dist/axios.min.js',
-          'assets/js/follow.js',
-          'assets/js/tags.js',
           'assets/js/site.js',
           'assets/js/share.js',
           'assets/js/ulogin.js'

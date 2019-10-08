@@ -32,4 +32,8 @@ $providers = [
 ];
 ?>
 
-<div id="share" class="share" data-providers="<?php echo CHtml::encode(json_encode($providers, JSON_UNESCAPED_UNICODE)); ?>"></div>
+<div id="share" class="share">
+    <?php foreach ($providers as $provider): ?>
+        <a rel="nofollow noopener" href="<?= CHtml::encode($provider['url']) ?>"><span class="share-<?= $provider['class'] ?>"></span></a>
+    <?php endforeach; ?>
+</div>
