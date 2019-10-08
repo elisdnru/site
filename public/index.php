@@ -8,6 +8,8 @@ if (file_exists(__DIR__ . '/../.env')) {
     (new Dotenv())->load(__DIR__ . '/../.env');
 }
 
+Sentry\init(['dsn' => getenv('SENTRY_DSN')]);
+
 require_once __DIR__.'/../config/env.php';
 
 $yii=__DIR__.'/../vendor/yiisoft/yii/framework/yii.php';
