@@ -9,7 +9,7 @@
       var s = document.createElement('script');
       s.src = '//ulogin.ru/js/ulogin.js';
       s.async = true;
-      document.querySelector('html').appendChild(s);
+      document.querySelector('body').appendChild(s);
       active = true;
     });
   }
