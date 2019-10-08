@@ -34,9 +34,7 @@ use app\modules\portfolio\models\Category;
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'alias'); ?>
-            &nbsp;<a href="javascript:transliterate('PortfolioCategory_title', 'PortfolioCategory_alias')">Транслит
-                наименования</a><br />
+            <?php echo $form->labelEx($model, 'alias'); ?><br />
             <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>

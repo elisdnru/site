@@ -34,8 +34,7 @@ use app\components\AdminController;
             <?php echo $form->error($model, 'title'); ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'alias'); ?>
-            &nbsp;<a href="javascript:transliterate('Block_title', 'Block_alias')">Транслит наименования</a><br />
+            <?php echo $form->labelEx($model, 'alias'); ?><br />
             <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?php echo $form->error($model, 'alias'); ?>
         </div>
