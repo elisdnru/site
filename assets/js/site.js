@@ -54,13 +54,6 @@ window.transliterate = function (fromid, toid) {
 })();
 
 (function () {
-  var elements = document.querySelectorAll('.js_hide');
-  [].forEach.call(elements, function (element) {
-    element.style.display = 'none'
-  })
-})();
-
-(function () {
   var images = document.querySelectorAll('img[data-src]');
 
   var config = {

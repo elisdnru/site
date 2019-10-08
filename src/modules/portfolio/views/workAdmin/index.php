@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 <?php echo CHtml::beginForm($this->createUrl('index'), 'get'); ?>
 <p>
     Раздел: <?php echo CHtml::dropDownList('category', $category, ['0' => 'Все разделы'] + Category::model()->getTabList(), ['onchange' => 'this.form.submit()']); ?>
-    <?php echo CHtml::submitButton('Выбрать', ['class' => 'js_hide']); ?>
+    <?php echo CHtml::submitButton('Выбрать'); ?>
 </p>
 <br />
 <?php echo CHtml::endForm(); ?>
