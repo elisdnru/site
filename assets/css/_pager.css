@@ -60,3 +60,9 @@ ul.paginator .first,
 ul.paginator .last {
   display: none;
 }
+
+@media screen and (min-width: 480px) {
+  ul.paginator .previous, ul.paginator .next {
+    display: inline-block;
+  }
+}
