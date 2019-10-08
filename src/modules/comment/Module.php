@@ -33,7 +33,7 @@ class Module extends WebModule
                 'class' => GroupUrlRule::class,
                 'prefix' => 'comment',
                 'rules' => [
-                    'update/<id:\d+>' => 'update',
+                    'update/<id:\d+>' => 'comment/update',
                     'like/<id:\d+>' => 'ajax/like',
                     'hide/<id:\d+>' => 'ajax/hide',
                     'delete/<id:\d+>' => 'ajax/delete',
