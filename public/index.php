@@ -1,5 +1,6 @@
 <?php
 
+use app\components\behaviors\SentryBehavior;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once __DIR__.'/../vendor/autoload.php';
@@ -18,7 +19,9 @@ $config=__DIR__.'/../config/web.php';
 require_once($yii);
 
 ob_start();
-Yii::createWebApplication($config)->run();
+$app = Yii::createWebApplication($config);
+$app->attachBehavior('SentryBehavior', SentryBehavior::class);
+$app->run();
 $html = ob_get_clean();
 
 $html = str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
