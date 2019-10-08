@@ -9,7 +9,6 @@
 
 <div class="form">
 
-    <?php Yii::app()->clientScript->registerCoreScript('form'); ?>
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'contact-form',
         'enableClientValidation' => true,

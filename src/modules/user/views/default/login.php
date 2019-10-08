@@ -10,7 +10,6 @@ $this->breadcrumbs = [
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Войти, используя логин и пароль']); ?>
 
 <div class="form">
-    <?php Yii::app()->clientScript->registerCoreScript('form'); ?>
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'login-form',
         'enableClientValidation' => true,

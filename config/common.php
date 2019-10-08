@@ -98,12 +98,6 @@ return [
                     'css' => ['admin.css?v=' . $assetsVersion],
                     'depends' => ['main'],
                 ],
-                'form' => [
-                    'basePath' => null,
-                    'baseUrl' => '/build',
-                    'css' => ['form.css?v=' . $assetsVersion],
-                    'depends' => ['main'],
-                ],
                 'admin-bar' => [
                     'basePath' => null,
                     'baseUrl' => '/build',

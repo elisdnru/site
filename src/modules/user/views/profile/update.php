@@ -15,7 +15,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Редактировать профиль']); ?>
 
 <div class="form">
-    <?php Yii::app()->clientScript->registerCoreScript('form'); ?>
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'settings-form',
         'enableClientValidation' => true,

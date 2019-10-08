@@ -17,7 +17,6 @@ $this->breadcrumbs = [
 
 
 <div class="form">
-    <?php Yii::app()->clientScript->registerCoreScript('form'); ?>
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'login-form',
         'enableAjaxValidation' => true,

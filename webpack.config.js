@@ -11,7 +11,6 @@ module.exports = {
     main: './assets/css/main.css',
     admin: './assets/css/admin.css',
     'admin-bar': './assets/css/admin-bar.css',
-    form: './assets/css/form.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
     'blog-post': './assets/css/blog-post.css',

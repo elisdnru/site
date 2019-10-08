@@ -1,7 +1,5 @@
 <div id="comment-form" class="form">
 
-    <?php Yii::app()->clientScript->registerCoreScript('form'); ?>
-
     <?php $f = $this->beginWidget(\CActiveForm::class, [
         'action' => '#comment-form',
         'enableClientValidation' => false,
