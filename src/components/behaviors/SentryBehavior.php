@@ -6,6 +6,7 @@ namespace app\components\behaviors;
 
 use CBehavior;
 use CExceptionEvent;
+use CHttpException;
 use function Sentry\captureException;
 
 class SentryBehavior extends CBehavior
@@ -19,6 +20,12 @@ class SentryBehavior extends CBehavior
 
     public function onException(CExceptionEvent $event): void
     {
-        captureException($event->exception);
+        $exception = $event->exception;
+
+        if ($exception instanceof CHttpException && in_array($exception->getCode(), [404, 403], true)) {
+            return;
+        }
+
+        captureException($exception);
     }
 }
