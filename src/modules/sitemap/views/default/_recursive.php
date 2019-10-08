@@ -9,7 +9,7 @@ use app\modules\page\models\Page;
 <ul>
     <?php foreach ($models as $model) : ?>
         <?php if ($model->parent_id == $parent && $model->url !== '/prices') : ?>
-            <li><span data-href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></span>
+            <li><a href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a>
                 <?php $this->renderPartial('_recursive', ['models' => $models, 'parent' => $model->id]); ?>
             </li>
         <?php endif; ?>

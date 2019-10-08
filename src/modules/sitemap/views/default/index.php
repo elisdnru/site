@@ -45,7 +45,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     <h2>Портфолио</h2>
     <ul>
         <?php foreach ($items['PortfolioWork'] as $model) : ?>
-            <li><span data-href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></span></li>
+            <li><a href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a></li>
         <?php endforeach; ?>
     </ul>
     <!--/noindex-->

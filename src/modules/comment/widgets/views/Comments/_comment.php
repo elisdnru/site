@@ -46,13 +46,13 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
         <h2 class="date enc-date" data-date="<?php echo DateHelper::normdate($comment->date, true); ?>">&nbsp;</h2>
 
         <?php if ($comment->user && $comment->user->network): ?>
-            <span data-href="<?php echo $comment->user->identity; ?>"><?php echo SocNetworkHelper::getIcon($comment->user->network); ?></span>
+            <a href="<?php echo $comment->user->identity; ?>"><?php echo SocNetworkHelper::getIcon($comment->user->network); ?></a>
         <?php endif; ?>
 
         <span class="author">
             <?php if ($comment->site) :
                 ?>
-                <cite><span data-href="<?php echo CHtml::encode($comment->site); ?>"><?php echo CHtml::encode($comment->name); ?></span></cite>
+                <cite><a href="<?php echo CHtml::encode($comment->site); ?>"><?php echo CHtml::encode($comment->name); ?></a></cite>
             <?php
             elseif ($comment->name) :
                 ?>

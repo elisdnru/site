@@ -39,9 +39,9 @@ if ($this->is(Access::ROLE_ADMIN)) {
     <header id="header">
         <?php if ($this->route != 'main/default/index'): ?><!--noindex--><?php endif; ?>
         <div class="logo">
-        <span data-href="/">
+        <a href="/">
             <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>" />
-        </span>
+        </a>
         </div>
         <div class="title">
             <?php if ($this->route === 'main/default/index') : ?>
@@ -112,7 +112,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
             <?php if (Yii::app()->request->getPathInfo() != 'sitemap') : ?>
                 <a href="/sitemap">Карта сайта</a>
             <?php else : ?>
-                <span data-href="/sitemap">Карта сайта</span>
+                <span>Карта сайта</span>
             <?php endif; ?>
         </div>
 

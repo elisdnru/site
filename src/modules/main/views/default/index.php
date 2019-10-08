@@ -40,5 +40,5 @@ if ($this->is(Access::ROLE_CONTROL)) {
 <?php endif; ?>
 
 <div class="clear"></div>
-<p class="nomargin"><span data-href="<?php echo $this->createUrl('/blog/default/index', ['page' => 2]); ?>">Остальные записи &rarr;</span>
+<p class="nomargin"><a href="<?php echo $this->createUrl('/blog/default/index', ['page' => 2]); ?>">Остальные записи &rarr;</a>
 </p>

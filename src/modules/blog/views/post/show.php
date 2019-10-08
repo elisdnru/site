@@ -120,7 +120,7 @@ CTextHighlighter::registerCssFile();
     <?php
     $links = [];
     foreach ($model->tags as $tag) {
-        $links[] = '<span data-href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</span>';
+        $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</a>';
     }
     ?>
     <p class="entry_date">Дата: <span class="enc-date" data-date="<?php echo DateHelper::normdate($model->date); ?>">&nbsp;</span>

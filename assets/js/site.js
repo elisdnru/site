@@ -54,16 +54,6 @@ window.transliterate = function (fromid, toid) {
 })();
 
 (function () {
-  var spans = document.querySelectorAll('span[data-href]');
-  [].forEach.call(spans, function (span) {
-    var a = document.createElement('a')
-    a.href = span.dataset.href
-    a.innerHTML = span.innerHTML
-    span.parentNode.replaceChild(a, span);
-  })
-})();
-
-(function () {
   var elements = document.querySelectorAll('.js_hide');
   [].forEach.call(elements, function (element) {
     element.style.display = 'none'

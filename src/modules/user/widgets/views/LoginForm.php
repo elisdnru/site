@@ -37,7 +37,7 @@ if ($user) : ?>
         <div class="row" style="margin-bottom: 10px"><label><?php echo CHtml::activeCheckBox($model, 'rememberMe'); ?> Запомнить меня</label></div>
 
         <div class="row buttons">
-            <span style="font-size:12px; float: right"><span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</span> | <span data-href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</span></span>
+            <span style="font-size:12px; float: right"><a href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</a> | <a href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</a></span>
             <?php echo CHtml::submitButton('Войти'); ?>
             <div class="clear"></div>
         </div>

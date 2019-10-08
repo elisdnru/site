@@ -38,8 +38,8 @@
                 'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
             ]); ?>
         </div>
-        <span data-href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</span> |
-        <span data-href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</span> |
+        <a href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</a> |
+        <a href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</a> |
         <span style="color: #666">Войти через</span>
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>

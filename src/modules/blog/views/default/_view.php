@@ -6,7 +6,7 @@ use app\components\helpers\DateHelper;
 
 $links = [];
 foreach ($data->cache(1000)->tags as $tag) {
-    $links[] = '<span data-href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</span>';
+    $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</a>';
 }
 ?>
 
@@ -19,12 +19,12 @@ foreach ($data->cache(1000)->tags as $tag) {
                 <span class="enc-date" data-date="<?php echo DateHelper::normdate($data->date); ?>">&nbsp;</span></p>
             <?php if ($data->category) : ?>
                 <p class="category">
-                    <span><span data-href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></span></span>
+                    <span><a href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></a></span>
                 </p>
             <?php endif; ?>
             <p class="tags"><span><?php echo implode(', ', $links); ?></span></p>
             <p class="comments">
-                <span><span data-href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></span></span>
+                <span><a href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></a></span>
             </p>
         </div>
         <?php if ($data->image) : ?>
@@ -39,18 +39,18 @@ foreach ($data->cache(1000)->tags as $tag) {
             }
             ?>
             <p class="thumb">
-                <span data-href="<?php echo $data->url; ?>">
+                <a href="<?php echo $data->url; ?>">
                     <picture>
                         <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
                         <source srcset="<?= $imageUrl ?>" type="image/jpeg">
                         <?php echo CHtml::image($imageUrl, $data->image_alt, $properties); ?>
                     </picture>
-                </span>
+                </a>
             </p>
         <?php endif; ?>
         <!--/noindex-->
     </div>
     <div class="short"><?php echo trim($data->short_purified); ?></div>
-    <!--noindex--><p class="more"><span data-href="<?php echo $data->url; ?>">Читать далее</span></p><!--/noindex-->
+    <!--noindex--><p class="more"><a href="<?php echo $data->url; ?>">Читать далее</a></p><!--/noindex-->
     <div class="clear"></div>
 </div>
