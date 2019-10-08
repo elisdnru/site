@@ -3,30 +3,6 @@
     width: 33.3%;
   }
 
-  .entry .info .comments, .entry .info .tags {
-    display: inline-block;
-  }
-
-  .entry .thumb {
-    margin: 0 20px 10px 0;
-    float: left;
-  }
-
-  .entry.list .thumb {
-    float: left;
-    margin: 0 15px 10px 0;
-  }
-
-  .entry.list .thumb img {
-    min-width: 250px;
-    min-height: 180px;
-  }
-
-  .entry.home .thumb {
-    float: left;
-    margin: 0 15px 6px 0;
-  }
-
   ul.paginator .previous, ul.paginator .next {
     display: inline-block;
   }
