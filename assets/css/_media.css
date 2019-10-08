@@ -3,7 +3,7 @@
     width: 33.3%;
   }
 
-  .entry .info p.comments, .entry .info p.tags {
+  .entry .info .comments, .entry .info .tags {
     display: inline-block;
   }
 
