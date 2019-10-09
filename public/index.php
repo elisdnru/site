@@ -20,7 +20,7 @@ require_once($yii);
 
 ob_start();
 $app = Yii::createWebApplication($config);
-$app->attachBehavior('SentryBehavior', SentryBehavior::class);
+$app->attachBehavior('SentryBehavior', new SentryBehavior(!(bool)getenv('APP_DEBUG')));
 $app->run();
 $html = ob_get_clean();
 

@@ -11,6 +11,13 @@ use function Sentry\captureException;
 
 class SentryBehavior extends CBehavior
 {
+    private $active;
+
+    public function __construct(bool $active)
+    {
+        $this->active = $active;
+    }
+
     public function events(): array
     {
         return [
@@ -20,6 +27,10 @@ class SentryBehavior extends CBehavior
 
     public function onException(CExceptionEvent $event): void
     {
+        if (!$this->active) {
+            return;
+        }
+
         $exception = $event->exception;
 
         if ($exception instanceof CHttpException && in_array($exception->getCode(), [404, 403], true)) {
