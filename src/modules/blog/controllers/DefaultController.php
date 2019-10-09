@@ -56,7 +56,9 @@ class DefaultController extends Controller
 
     public function actionTag($tag)
     {
-        $tag = $this->loadTagModel($tag);
+        if (!$tag = $this->loadTagModel($tag)) {
+            return  $this->redirect(['index']);
+        }
 
         $criteria = $this->getBlogCriteria();
         $criteria->addInCondition('t.id', $tag->getPostIds());
@@ -105,16 +107,11 @@ class DefaultController extends Controller
 
     /**
      * @param string $title
-     * @return Tag
-     * @throws CHttpException
+     * @return Tag|null
      */
     protected function loadTagModel($title)
     {
-        $tag = Tag::model()->findByTitle($title);
-        if (!$tag) {
-            throw new CHttpException('404', 'Страница не найдена');
-        }
-        return $tag;
+        return Tag::model()->findByTitle($title);
     }
 
     /**
