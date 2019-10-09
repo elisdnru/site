@@ -112,3 +112,18 @@ ul.short_list li {
 .enc-date:before {
   content: attr(data-date);
 }
+
+.entry .text a.order-button,
+.entry .text a.order-button:visited {
+  padding: 12px 20px;
+  border-radius: 60px;
+  color: #fff;
+  text-decoration: none;
+  background: #337ab7;
+  font-size: 16px;
+}
+
+.entry .text a.order-button:hover {
+  background: #3987cb;
+  color: #fff;
+}
