@@ -36,7 +36,7 @@ class Module extends WebModule
                 'class' => GroupUrlRule::class,
                 'prefix' => 'portfolio',
                 'rules' => [
-                    '<category:[\w_\/-]+>/<id:[\d]+>/<alias:[\w_-]+>' => 'work/show',
+                    '<category:[\w_\/-]+>/<id:[\d]+>/<alias:.+>' => 'work/show',
                     '<id:[\d]+>' => 'work/show',
                     '<category:[\w_\/-]+>/page-<page:\d+>' => 'default/category',
                     'page-<page:\d+>' => 'default/index',
