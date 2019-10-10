@@ -1,12 +1,19 @@
 div.form {
 }
 
+div.form input[type=email],
 div.form input[type=text],
 div.form input[type=password],
 div.form textarea,
 div.form select {
   margin: 0.2em 0 0.5em 0;
+  padding: 2px 4px;
   border: 1px solid #aaa;
+  box-sizing: border-box;
+}
+
+div.form textarea {
+  padding: 4px;
 }
 
 div.form label {
