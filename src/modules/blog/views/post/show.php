@@ -48,7 +48,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     }
 }
 
-Yii::app()->clientScript->registerCoreScript('blog-post');
+Yii::app()->clientScript->registerPackage('blog-post');
 
 CTextHighlighter::registerCssFile();
 

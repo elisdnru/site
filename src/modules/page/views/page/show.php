@@ -1,7 +1,7 @@
 <?php use app\extensions\cachetagging\Tags;
 
 if ($page->alias === 'services') {
-    Yii::app()->clientScript->registerCoreScript('smart');
+    Yii::app()->clientScript->registerPackage('smart');
 }
 ?>
 
