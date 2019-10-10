@@ -21,6 +21,7 @@ use Yii;
  * @property string $pagetitle
  * @property string $description
  * @property string $keywords
+ * @property string $styles
  * @property string $short
  * @property string $short_purified
  * @property string $text
@@ -74,7 +75,7 @@ class Post extends ActiveRecord implements CommentDepends
             ['group_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
-            ['short, text, description, del_image', 'safe'],
+            ['styles, short, text, description, del_image', 'safe'],
             ['title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max' => '255'],
             ['tagsString', 'length', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
@@ -118,6 +119,7 @@ class Post extends ActiveRecord implements CommentDepends
             'pagetitle' => 'Заголовок страницы (title)',
             'description' => 'Описание (description)',
             'keywords' => 'Ключевые слова (keywords)',
+            'styles' => 'CSS стили',
             'short' => 'Превью',
             'text' => 'Текст',
             'image' => 'Картинка для статьи',

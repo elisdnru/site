@@ -1,5 +1,9 @@
 <?php use app\extensions\cachetagging\Tags;
 
+if ($page->styles) {
+    Yii::app()->clientScript->registerCss('page', strip_tags($page->styles));
+}
+
 if ($page->alias === 'services') {
     Yii::app()->clientScript->registerPackage('smart');
 }

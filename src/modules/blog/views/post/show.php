@@ -29,6 +29,10 @@ if ($model->image) {
     $cs->registerLinkTag('image_src', null, Yii::app()->request->getHostInfo() . $model->imageUrl);
 }
 
+if ($model->styles) {
+    Yii::app()->clientScript->registerCss('post', strip_tags($model->styles));
+}
+
 if ($model->category) {
     $this->breadcrumbs = array_merge($this->breadcrumbs, $model->category->getBreadcrumbs(true));
 }

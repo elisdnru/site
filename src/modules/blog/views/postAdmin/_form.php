@@ -131,6 +131,14 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         </div>
     </fieldset>
 
+    <fieldset class="editor">
+        <div class="row">
+            <?php echo $form->labelEx($model, 'styles'); ?><br />
+            <?php echo $form->textArea($model, 'styles', ['rows' => 10, 'cols' => 80]); ?>
+            <?php echo $form->error($model, 'styles'); ?>
+        </div>
+    </fieldset>
+
     <fieldset>
         <h4>Метки</h4>
         <div class="row">

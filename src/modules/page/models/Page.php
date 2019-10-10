@@ -18,6 +18,7 @@ use Yii;
  * @property string $description
  * @property string $keywords
  * @property string $robots
+ * @property string $styles
  * @property string $text
  * @property string $text_purified
  * @property string $image
@@ -89,7 +90,7 @@ class Page extends ActiveRecord
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias, title, image_alt, pagetitle, keywords, robots, layout, subpages_layout', 'length', 'max' => 255],
             ['hidetitle, parent_id', 'numerical', 'integerOnly' => true],
-            ['date, text, description, del_image', 'safe'],
+            ['date, styles, text, description, del_image', 'safe'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             ['id, layout, subpages_layout, alias, date, title, pagetitle, description, keywords, text', 'safe', 'on' => 'search'],
@@ -132,6 +133,7 @@ class Page extends ActiveRecord
             'description' => 'Описание (description)',
             'keywords' => 'Ключевые слова (keywords)',
             'robots' => 'Индексация (robots)',
+            'styles' => 'CSS стили',
             'text' => 'Текст',
             'image' => 'Изображение',
             'del_image' => 'Удалить изображение',

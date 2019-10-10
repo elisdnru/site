@@ -102,6 +102,14 @@ use app\modules\page\models\Page;
         </div>
     </fieldset>
 
+    <fieldset class="editor">
+        <div class="row">
+            <?php echo $form->labelEx($model, 'styles'); ?><br />
+            <?php echo $form->textArea($model, 'styles', ['rows' => 10, 'cols' => 80]); ?>
+            <?php echo $form->error($model, 'styles'); ?>
+        </div>
+    </fieldset>
+
     <?php echo $this->renderPartial('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
