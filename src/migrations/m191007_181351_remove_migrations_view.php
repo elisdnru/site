@@ -6,7 +6,9 @@ class m191007_181351_remove_migrations_view extends EDbMigration
 {
     public function safeUp()
     {
-        $this->execute('DROP VIEW {{migration}}');
+        if ($this->getDbConnection()->getSchema()->getTable('{{migration}}')) {
+            $this->execute('DROP VIEW {{migration}}');
+        }
     }
 
     public function safeDown()

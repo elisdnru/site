@@ -6,8 +6,10 @@ class m191007_121851_rename_migrations_table extends EDbMigration
 {
     public function safeUp()
     {
-        $this->renameTable('{{migration}}', 'migrations');
-        $this->execute('CREATE OR REPLACE VIEW {{migration}} AS SELECT * FROM migrations');
+        if ($this->getDbConnection()->getSchema()->getTable('{{migration}}')) {
+            $this->renameTable('{{migration}}', 'migrations');
+            $this->execute('CREATE OR REPLACE VIEW {{migration}} AS SELECT * FROM migrations');
+        }
     }
 
     public function safeDown()
