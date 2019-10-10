@@ -33,7 +33,7 @@ class GroupUrlRule extends CBaseUrlRule
                 $this->rules[$i] = $rule = new $manager->urlRuleClass($rule, $i);
             }
             if (($url = $rule->createUrl($manager, $subRoute, $params, $ampersand)) !== false) {
-                return $url ? $routePrefix . '/' . $url : $routePrefix;
+                return $routePrefix . ($url ? '/' . $url : '');
             }
         }
 
