@@ -144,6 +144,7 @@ return [
             'emulatePrepare' => true,
             'username' => getenv('APP_DB_USERNAME'),
             'password' => getenv('APP_DB_PASSWORD'),
+            'tablePrefix' => '',
             'charset' => 'utf8',
             'schemaCachingDuration' => 3600,
         ],
