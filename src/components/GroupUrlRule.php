@@ -18,11 +18,13 @@ class GroupUrlRule extends CBaseUrlRule
 
     public function createUrl($manager, $route, $params, $ampersand)
     {
-        if (strpos($route, $this->getRoutePrefix()) !== 0 ) {
+        $routePrefix = $this->getRoutePrefix();
+
+        if (strpos($route . '/', $routePrefix . '/') !== 0 ) {
             return false;
         }
 
-        $subRoute = mb_substr($route, mb_strlen($this->getRoutePrefix()) + 1);
+        $subRoute = mb_substr($route, mb_strlen($routePrefix) + 1);
 
         foreach ($this->rules as $i => $rule) {
             if (is_array($rule)) {
@@ -31,7 +33,7 @@ class GroupUrlRule extends CBaseUrlRule
                 $this->rules[$i] = $rule = new $manager->urlRuleClass($rule, $i);
             }
             if (($url = $rule->createUrl($manager, $subRoute, $params, $ampersand)) !== false) {
-                return $this->getRoutePrefix() . '/' . $url;
+                return $url ? $routePrefix . '/' . $url : $routePrefix;
             }
         }
 
@@ -40,7 +42,7 @@ class GroupUrlRule extends CBaseUrlRule
 
     public function parseUrl($manager, $request, $pathInfo, $rawPathInfo)
     {
-        if (strpos($pathInfo, $this->prefix) !== 0) {
+        if (strpos($pathInfo . '/', $this->prefix . '/') !== 0) {
             return false;
         }
 
