@@ -176,6 +176,9 @@ return [
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',
             'allowedThumbnailResolutions' => [
+                ['upload/media', [
+                    '680x0',
+                ]],
                 // general
                 ['upload/images', [
                     '250x0',
