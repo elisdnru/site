@@ -15,6 +15,7 @@ class HttpRequest extends CHttpRequest
 
     protected function normalizeRequest()
     {
+        $_SERVER['REQUEST_URI'] = mb_strtolower($_SERVER['REQUEST_URI']);
 
         parent::normalizeRequest();
 
