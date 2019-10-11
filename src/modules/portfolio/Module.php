@@ -37,6 +37,7 @@ class Module extends WebModule
                 'prefix' => 'portfolio',
                 'rules' => [
                     '<category:[\w_\/-]+>/<id:[\d]+>/<alias:.+>' => 'work/show',
+                    '<category:[\w_\/-]+>/<id:[\d]+>' => 'work/show',
                     '<id:[\d]+>' => 'work/show',
                     '<category:[\w_\/-]+>/page-<page:\d+>' => 'default/category',
                     'page-<page:\d+>' => 'default/index',
