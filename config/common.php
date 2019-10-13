@@ -62,8 +62,8 @@ return [
             'useStrictParsing' => true,
             'urlSuffix' => '',
             'rules' => [
-                '<module:\w+>/admin/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/admin/<controller>/<action>',
                 '<module:\w+>/admin/<controller:\w+>' => '<module>/admin/<controller>/index',
+                '<module:\w+>/admin/<controller:\w+>/<id:\d+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
                 '<module:\w+>/admin/<controller:\w+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
             ],
         ],
