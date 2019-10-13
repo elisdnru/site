@@ -75,7 +75,7 @@ $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/inde
             <li>
                 <ul>
                     <?php $this->widget(\app\components\widgets\IconMenu::class, ['items' => [
-                        ['label' => 'Очистить кэш', 'url' => ['/admin/default/clearCache'], 'icon' => 'clear.png'],
+                        ['label' => 'Очистить кэш', 'url' => ['/admin/cache/clear'], 'icon' => 'clear.png'],
                     ], 'iconsPath' => '/images/admin/']); ?>
                 </ul>
                 <div class="clear"></div>

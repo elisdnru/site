@@ -21,7 +21,7 @@ class Module extends WebModule
                 'class' => GroupUrlRule::class,
                 'prefix' => 'admin',
                 'rules' => [
-                    'clearCache' => 'default/clearCache',
+                    'cache/clear' => 'cache/clear',
                     '' => 'default/index',
                 ],
             ],
