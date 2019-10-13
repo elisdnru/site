@@ -19,7 +19,7 @@ $this->breadcrumbs = [
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($page->id) {
         if ($this->moduleAllowed('page')) {
-            $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/edit', ['id' => $page->id])];
+            $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/edit', ['id' => $page->id])];
         }
     }
 }

@@ -20,7 +20,7 @@ class Module extends WebModule
         $messages = Contact::model()->count('status=' . Contact::STATUS_NEW);
 
         return [
-            ['label' => 'Сообщения' . ($messages ? ' (' . $messages . ')' : ''), 'url' => ['/contact/contactAdmin/index'], 'icon' => 'message.png'],
+            ['label' => 'Сообщения' . ($messages ? ' (' . $messages . ')' : ''), 'url' => ['/contact/admin/contact/index'], 'icon' => 'message.png'],
         ];
     }
 

@@ -21,7 +21,7 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Файлы', 'url' => ['/file/fileAdmin/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Файлы', 'url' => ['/file/admin/file/index'], 'icon' => 'fileicon.jpg'],
         ];
     }
 }

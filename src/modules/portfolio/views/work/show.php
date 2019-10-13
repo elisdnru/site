@@ -15,10 +15,10 @@ $this->breadcrumbs[] = $model->title;
 
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('portfolio')) {
-        $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/portfolio/workAdmin/update', ['id' => $model->id])];
-        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/categoryAdmin/update', ['id' => $model->category_id])];
-        $this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/workAdmin/index')];
-        $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/workAdmin/create')];
+        $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/portfolio/admin/work/update', ['id' => $model->id])];
+        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/admin/category/update', ['id' => $model->category_id])];
+        $this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
+        $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/create')];
     }
 } ?>
 

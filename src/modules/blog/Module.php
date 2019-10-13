@@ -23,11 +23,11 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Категории', 'url' => ['/blog/categoryAdmin/index'], 'icon' => 'foldericon.jpg'],
-            ['label' => 'Группы', 'url' => ['/blog/groupAdmin/index'], 'icon' => 'foldericon.jpg'],
-            ['label' => 'Метки', 'url' => ['/blog/tagAdmin/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Записи', 'url' => ['/blog/postAdmin/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить запись', 'url' => ['/blog/postAdmin/create'], 'icon' => 'add.png'],
+            ['label' => 'Категории', 'url' => ['/blog/admin/category/index'], 'icon' => 'foldericon.jpg'],
+            ['label' => 'Группы', 'url' => ['/blog/admin/group/index'], 'icon' => 'foldericon.jpg'],
+            ['label' => 'Метки', 'url' => ['/blog/admin/tag/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Записи', 'url' => ['/blog/admin/post/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create'], 'icon' => 'add.png'],
         ];
     }
 
@@ -39,7 +39,7 @@ class Module extends WebModule
         ]);
 
         return [
-            ['label' => 'Комментарии к записям' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/blog/commentAdmin/index'], 'icon' => 'comments.png'],
+            ['label' => 'Комментарии к записям' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/blog/admin/comment/index'], 'icon' => 'comments.png'],
         ];
     }
 

@@ -7,8 +7,8 @@ $this->pageTitle = 'Профиль пользователя ' . $model->username
 $this->breadcrumbs = ['Профиль'];
 
 if ($this->is(Access::ROLE_CONTROL)) {
-    $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/userAdmin/index')];
-    $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/user/userAdmin/update', ['id' => $model->id])];
+    $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
+    $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/user/admin/user/update', ['id' => $model->id])];
 }
 ?>
 

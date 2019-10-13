@@ -9,7 +9,7 @@ $this->breadcrumbs = [
 ];
 
 if ($this->is(Access::ROLE_CONTROL)) {
-    $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/userAdmin/index')];
+    $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
 } ?>
 
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Редактировать профиль']); ?>

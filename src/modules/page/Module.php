@@ -21,9 +21,9 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Шаблоны', 'url' => ['/page/layoutAdmin/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Страницы', 'url' => ['/page/pageAdmin/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить страницу', 'url' => ['/page/pageAdmin/create'], 'icon' => 'add.png'],
+            ['label' => 'Шаблоны', 'url' => ['/page/admin/layout/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Страницы', 'url' => ['/page/admin/page/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить страницу', 'url' => ['/page/admin/page/create'], 'icon' => 'add.png'],
         ];
     }
 

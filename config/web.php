@@ -8,7 +8,7 @@ return array_replace_recursive(
                 'class' => \app\components\system\HttpRequest::class,
                 'baseUrl' => '',
                 'noCsrfValidationUris' => [
-                    '^file/fileAdmin/(upload|checkexists).*$',
+                    '^file/admin/file/(upload|checkexists).*$',
                     '^ulogin.*$',
                 ],
                 'enableCsrfValidation' => true,

@@ -19,11 +19,11 @@ $this->breadcrumbs = [
 
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
-        $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/postAdmin/create')];
-        $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/categoryAdmin')];
+        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
+        $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];
+        $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category')];
         if ($page->id) {
-            $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/pageAdmin/update', ['id' => $page->id])];
+            $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
         }
     }
     if ($this->moduleAllowed('blog') && $this->moduleAllowed('comment')) {

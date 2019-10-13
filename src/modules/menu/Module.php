@@ -21,8 +21,8 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Пункты', 'url' => ['/menu/menuAdmin/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить пункт', 'url' => ['/menu/menuAdmin/create'], 'icon' => 'add.png'],
+            ['label' => 'Пункты', 'url' => ['/menu/admin/menu/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить пункт', 'url' => ['/menu/admin/menu/create'], 'icon' => 'add.png'],
         ];
     }
 }

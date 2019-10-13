@@ -21,8 +21,8 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Пользователи', 'url' => ['/user/userAdmin/index'], 'icon' => 'users.png'],
-            ['label' => 'Добавить пользователя', 'url' => ['/user/userAdmin/create'], 'icon' => 'add_user.png'],
+            ['label' => 'Пользователи', 'url' => ['/user/admin/user/index'], 'icon' => 'users.png'],
+            ['label' => 'Добавить пользователя', 'url' => ['/user/admin/user/create'], 'icon' => 'add_user.png'],
         ];
     }
 

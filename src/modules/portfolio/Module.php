@@ -23,9 +23,9 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Категории', 'url' => ['/portfolio/categoryAdmin/index'], 'icon' => 'foldericon.jpg'],
-            ['label' => 'Работы', 'url' => ['/portfolio/workAdmin/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить работу', 'url' => ['/portfolio/workAdmin/create'], 'icon' => 'add.png'],
+            ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index'], 'icon' => 'foldericon.jpg'],
+            ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index'], 'icon' => 'fileicon.jpg'],
+            ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create'], 'icon' => 'add.png'],
         ];
     }
 

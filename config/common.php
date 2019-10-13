@@ -18,26 +18,6 @@ CHtml::setModelNameConverter(static function ($model) {
     return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;
 });
 
-$modules = [
-    'admin' => ['class' => app\modules\admin\Module::class],
-    'block' => ['class' => app\modules\block\Module::class],
-    'blog' => ['class' => app\modules\blog\Module::class],
-    'comment' => ['class' => app\modules\comment\Module::class],
-    'contact' => ['class' => app\modules\contact\Module::class],
-    'file' => ['class' => app\modules\file\Module::class],
-    'main' => ['class' => app\modules\main\Module::class],
-    'menu' => ['class' => app\modules\menu\Module::class],
-    'page' => ['class' => app\modules\page\Module::class],
-    'portfolio' => ['class' => app\modules\portfolio\Module::class],
-    'search' => ['class' => app\modules\search\Module::class],
-    'sitemap' => ['class' => app\modules\sitemap\Module::class],
-    'ulogin' => ['class' => app\modules\ulogin\Module::class],
-    'image' => ['class' => app\modules\image\Module::class],
-    'user' => ['class' => app\modules\user\Module::class],
-];
-
-$MODULES_MATCHES = implode('|', array_keys($modules));
-
 $runtime = dirname(__DIR__) . '/var/' . PHP_SAPI;
 
 if (!is_dir($runtime)) {
@@ -54,7 +34,23 @@ return [
     'sourceLanguage' => 'en',
     'language' => 'ru',
 
-    'modules' => $modules,
+    'modules' => [
+        'admin' => ['class' => app\modules\admin\Module::class],
+        'block' => ['class' => app\modules\block\Module::class],
+        'blog' => ['class' => app\modules\blog\Module::class],
+        'comment' => ['class' => app\modules\comment\Module::class],
+        'contact' => ['class' => app\modules\contact\Module::class],
+        'file' => ['class' => app\modules\file\Module::class],
+        'main' => ['class' => app\modules\main\Module::class],
+        'menu' => ['class' => app\modules\menu\Module::class],
+        'page' => ['class' => app\modules\page\Module::class],
+        'portfolio' => ['class' => app\modules\portfolio\Module::class],
+        'search' => ['class' => app\modules\search\Module::class],
+        'sitemap' => ['class' => app\modules\sitemap\Module::class],
+        'ulogin' => ['class' => app\modules\ulogin\Module::class],
+        'image' => ['class' => app\modules\image\Module::class],
+        'user' => ['class' => app\modules\user\Module::class],
+    ],
 
     'components' => [
 
@@ -65,9 +61,9 @@ return [
             'useStrictParsing' => true,
             'urlSuffix' => '',
             'rules' => [
-                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>' => '<module>/<controller>/index',
-                '<module:' . $MODULES_MATCHES . '>/<controller:\w+[Aa]dmin>/<action:\w+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/admin/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/admin/<controller>/<action>',
+                '<module:\w+>/admin/<controller:\w+>' => '<module>/admin/<controller>/index',
+                '<module:\w+>/admin/<controller:\w+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
             ],
         ],
 

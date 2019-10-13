@@ -21,8 +21,8 @@ class Module extends WebModule
     public static function adminMenu()
     {
         return [
-            ['label' => 'Блоки', 'url' => ['/block/blockAdmin/index'], 'icon' => 'code.png'],
-            ['label' => 'Добавить блок', 'url' => ['/block/blockAdmin/create'], 'icon' => 'add.png'],
+            ['label' => 'Блоки', 'url' => ['/block/admin/block/index'], 'icon' => 'code.png'],
+            ['label' => 'Добавить блок', 'url' => ['/block/admin/block/create'], 'icon' => 'add.png'],
         ];
     }
 }

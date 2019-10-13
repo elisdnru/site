@@ -41,14 +41,14 @@ $this->breadcrumbs[] = $model->title;
 
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
-        $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/postAdmin/update', ['id' => $model->id])];
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin/index')];
+        $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/admin/post/update', ['id' => $model->id])];
+        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
         if ($model->category) {
             $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
         }
     }
     if ($this->moduleAllowed('comment')) {
-        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/commentAdmin/index', ['id' => $model->id])];
+        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/admin/comment/index', ['id' => $model->id])];
     }
 }
 

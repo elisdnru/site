@@ -23,8 +23,8 @@ $this->breadcrumbs = array_merge($this->breadcrumbs, $category->getBreadcrumbs()
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
-        $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/postAdmin/create', ['category' => $category->id])];
-        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/blog/categoryAdmin/update', ['id' => $category->id])];
+        $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create', ['category' => $category->id])];
+        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/blog/admin/category/update', ['id' => $category->id])];
     }
 }
 ?>
