@@ -213,10 +213,6 @@ return [
             'delivery' => 'php', //'php'|'debug'
         ],
 
-        'rpcManager' => [
-            'class' => \app\components\RPCManager::class,
-        ],
-
         'widgetFactory' => [
             'enableSkin' => true,
         ],
@@ -291,10 +287,5 @@ return [
         'GENERAL.SITE_NAME' => 'ElisDN',
         'GENERAL.FEED_TITLE' => 'Дмитрий Елисеев',
         'GENERAL.ADMIN_EMAIL' => 'mail@elisdn.ru',
-        'GENERAL.PING_ENABLE' => true,
-        'GENERAL.PING_SERVERS' => [
-            'http://ping.blogs.yandex.ru/RPC2',
-            'http://blogsearch.google.com/ping/RPC2',
-        ],
     ],
 ];

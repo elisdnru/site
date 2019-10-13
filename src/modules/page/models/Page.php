@@ -216,10 +216,6 @@ class Page extends ActiveRecord
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
             ],
-            'PingBehavior' => [
-                'class' => \app\components\arbehaviors\PingBehavior::class,
-                'urlAttribute' => 'url',
-            ],
         ];
     }
 

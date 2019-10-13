@@ -238,10 +238,6 @@ class Post extends ActiveRecord implements CommentDepends
                 'imageWidthAttribute' => 'image_width',
                 'imageHeightAttribute' => 'image_height',
             ],
-            'PingBehavior' => [
-                'class' => \app\components\arbehaviors\PingBehavior::class,
-                'urlAttribute' => 'url',
-            ],
         ];
     }
 
