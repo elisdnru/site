@@ -19,7 +19,7 @@ class HttpRequest extends CHttpRequest
 
         parent::normalizeRequest();
 
-        if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] != 'POST') {
+        if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
             return;
         }
 
