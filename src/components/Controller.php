@@ -20,9 +20,6 @@ use Yii;
  * @method boolean is($role)
  * @method check($role)
  *
- * HeadersBehavior
- * @method initHeaders()
- *
  * LiveLayoutBehavior
  * @method initLayout()
  *
@@ -48,7 +45,6 @@ class Controller extends CController
         return array_merge(parent::behaviors(), [
             'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
             'UserBehavior' => ['class' => behaviors\UserBehavior::class],
-            'HeadersBehavior' => ['class' => behaviors\HeadersBehavior::class],
             'LiveLayoutBehavior' => ['class' => behaviors\LiveLayoutBehavior::class],
             'JsInitBehavior' => ['class' => behaviors\JsInitBehavior::class],
             'InlineWidgetsBehavior' => [
@@ -60,12 +56,6 @@ class Controller extends CController
                 'endBlock' => '}]',
             ],
         ]);
-    }
-
-    public function init()
-    {
-        $this->initHeaders();
-        parent::init();
     }
 
     protected function beforeRender($viev)
