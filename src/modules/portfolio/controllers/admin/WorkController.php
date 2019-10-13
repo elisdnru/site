@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\portfolio\controllers;
+namespace app\modules\portfolio\controllers\admin;
 
 use CDbCriteria;
 use CHttpException;
@@ -9,7 +9,7 @@ use app\components\AdminController;
 use app\modules\portfolio\models\Work;
 use Yii;
 
-class WorkAdminController extends AdminController
+class WorkController extends AdminController
 {
     const ITEMS_PER_PAGE = 50;
 
