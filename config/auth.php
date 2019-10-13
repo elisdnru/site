@@ -31,13 +31,6 @@ return [
 
     /* */
 
-    'module_attribute' => [
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Атрибуты',
-        'bizRule' => null,
-        'data' => null
-    ],
-
     'module_admin' => [
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Панель управления',
@@ -76,13 +69,6 @@ return [
     'module_menu' => [
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление меню',
-        'bizRule' => null,
-        'data' => null
-    ],
-
-    'module_new' => [
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => 'Управление новостями',
         'bizRule' => null,
         'data' => null
     ],
@@ -139,13 +125,11 @@ return [
         'children' => [
             'role_control',
             'module_admin',
-            'module_attribute',
             'module_block',
             'module_contact',
             'module_comment',
             'module_file',
             'module_menu',
-            'module_new',
             'module_page',
             'module_user',
             'module_blog',
