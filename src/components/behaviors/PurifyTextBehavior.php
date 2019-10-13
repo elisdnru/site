@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\arbehaviors;
+namespace app\components\behaviors;
 
 use CActiveRecordBehavior;
 use CHtml;

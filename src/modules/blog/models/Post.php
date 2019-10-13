@@ -204,7 +204,7 @@ class Post extends ActiveRecord implements CommentDepends
                 'updateAttribute' => 'update_date',
             ],
             'PurifyShort' => [
-                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\behaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -214,7 +214,7 @@ class Post extends ActiveRecord implements CommentDepends
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\behaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,

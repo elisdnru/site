@@ -154,7 +154,7 @@ class Comment extends ActiveRecord
                 'setUpdateOnCreate' => false,
             ],
             'PurifyText' => [
-                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\behaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'encodePreContent' => true,

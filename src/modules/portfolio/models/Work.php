@@ -149,7 +149,7 @@ class Work extends ActiveRecord
     {
         return [
             'PurifyShort' => [
-                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\behaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -158,7 +158,7 @@ class Work extends ActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\components\arbehaviors\PurifyTextBehavior::class,
+                'class' => \app\components\behaviors\PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
