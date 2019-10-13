@@ -44,7 +44,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
         $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/admin/post/update', ['id' => $model->id])];
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
         if ($model->category) {
-            $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('categoryAdmin/update', ['id' => $model->category_id])];
+            $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('admin/category/update', ['id' => $model->category_id])];
         }
     }
     if ($this->moduleAllowed('comment')) {
