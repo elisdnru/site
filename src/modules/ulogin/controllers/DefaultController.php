@@ -8,7 +8,7 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actionLogin()
+    public function actionLogin(): void
     {
         if (!empty($_POST['token'])) {
             if ($_POST['token'] != 'undefined') {

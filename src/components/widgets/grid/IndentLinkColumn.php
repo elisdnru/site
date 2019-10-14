@@ -8,13 +8,7 @@ class IndentLinkColumn extends LinkColumn
 {
     public $indent = '$data->indent';
 
-    /**
-     * Renders the data cell content.
-     * This method evaluates {@link value} or {@link name} and renders the result.
-     * @param integer $row the row number (zero-based)
-     * @param mixed $data the data associated with the row
-     */
-    protected function renderDataCellContent($row, $data)
+    protected function renderDataCellContent($row, $data): void
     {
         $url = $this->getItemUrl($row, $data);
         $value = $this->getItemValue($row, $data);
@@ -24,7 +18,7 @@ class IndentLinkColumn extends LinkColumn
         echo $value === null ? $this->grid->nullDisplay : $spacer . CHtml::link($text, $url);
     }
 
-    protected function getItemIndent($data, $row)
+    protected function getItemIndent($data, int $row): int
     {
         if (!empty($this->indent)) {
             return $this->evaluateExpression($this->indent, ['data' => $data, 'row' => $row]);

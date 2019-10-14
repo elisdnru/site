@@ -8,7 +8,7 @@ use app\components\AdminController;
 
 class BlockController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -23,12 +23,12 @@ class BlockController extends AdminController
         ];
     }
 
-    public function createModel()
+    public function createModel(): Block
     {
         return new Block();
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Block
     {
         $model = Block::model()->findByPk($id);
         if ($model === null) {

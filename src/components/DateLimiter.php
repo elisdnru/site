@@ -18,18 +18,12 @@ class DateLimiter extends CComponent
     protected $month = 0;
     protected $day = 0;
 
-    /**
-     * @param string $date
-     */
-    public function __construct($date = '')
+    public function __construct(string $date = '')
     {
         $this->date = $date;
     }
 
-    /**
-     * @return bool
-     */
-    public function validate()
+    public function validate(): bool
     {
         if ($this->month > 12 || $this->day > 31) {
             return false;
@@ -42,18 +36,12 @@ class DateLimiter extends CComponent
         return false;
     }
 
-    /**
-     * @return string
-     */
-    public function getSearchString()
+    public function getSearchString(): string
     {
         return $this->getDate() . '%';
     }
 
-    /**
-     * @param string $date
-     */
-    public function setDate($date)
+    public function setDate(string $date): void
     {
         if (preg_match('/(\d{4})-?(\d{2})?-?(\d{2})?/', $date, $m)) {
             $this->year = isset($m[1]) ? (int)$m[1] : 0;
@@ -62,63 +50,42 @@ class DateLimiter extends CComponent
         }
     }
 
-    /**
-     * @return string
-     */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->nulled($this->year, 4) . ($this->month ? '-' . $this->nulled($this->month, 2) : '') . ($this->day ? '-' . $this->nulled($this->day, 2) : '');
     }
 
-    public function setDay($day)
+    public function setDay(int $day): void
     {
-        $day = (int)$day;
         $this->day = 0 < $day && $day < 32 ? $day : 0;
     }
 
-    /**
-     * @return string
-     */
-    public function getDay()
+    public function getDay(): int
     {
         return $this->day;
     }
 
-    /**
-     * @param int $month
-     */
-    public function setMonth($month)
+    public function setMonth(int $month): void
     {
-        $month = (int)$month;
         $this->month = 0 < $month && $month < 13 ? $month : 0;
     }
 
-    /**
-     * @return string
-     */
-    public function getMonth()
+    public function getMonth(): int
     {
         return $this->month;
     }
 
-    /**
-     * @param int $year
-     */
-    public function setYear($year)
+    public function setYear(int $year): void
     {
-        $year = (int)$year;
         $this->year = 0 < $year ? $year : 0;
     }
 
-    /**
-     * @return string
-     */
-    public function getYear()
+    public function getYear(): int
     {
         return $this->year;
     }
 
-    protected function nulled($val, $length)
+    protected function nulled(int $val, int $length): string
     {
         return str_pad($val, $length, 0, STR_PAD_LEFT);
     }

@@ -13,14 +13,14 @@ class WorkController extends AdminController
 {
     const ITEMS_PER_PAGE = 50;
 
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             'PostOnly + sort',
         ]);
     }
 
-    public function actions()
+    public function actions(): array
     {
         return [
             'create' => \app\components\crud\actions\CreateAction::class,
@@ -34,7 +34,7 @@ class WorkController extends AdminController
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $category = (int)Yii::app()->request->getParam('category');
 
@@ -63,7 +63,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionSort()
+    public function actionSort(): void
     {
         $success = true;
 
@@ -96,7 +96,7 @@ class WorkController extends AdminController
         $this->redirectOrAjax();
     }
 
-    public function createModel()
+    public function createModel(): Work
     {
         $model = new Work();
         $model->public = 1;
@@ -106,7 +106,7 @@ class WorkController extends AdminController
         return $model;
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Work
     {
         $model = Work::model()->findByPk($id);
         if ($model === null) {

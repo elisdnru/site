@@ -59,7 +59,7 @@ class User extends ActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'users';
     }
@@ -67,7 +67,7 @@ class User extends ActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -259,7 +259,7 @@ class User extends ActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         return [
             'comments_count_real' => [self::STAT, \app\modules\comment\models\Comment::class, 'user_id',
@@ -271,7 +271,7 @@ class User extends ActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -304,7 +304,7 @@ class User extends ActiveRecord
      * @param int $pageSize
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -356,7 +356,7 @@ class User extends ActiveRecord
         ]);
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'CTimestamp' => [
@@ -375,7 +375,7 @@ class User extends ActiveRecord
         ];
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             if ($this->new_password) {
@@ -392,26 +392,26 @@ class User extends ActiveRecord
         return false;
     }
 
-    public function validatePassword($password)
+    public function validatePassword($password): bool
     {
         return
             password_verify($password, $this->password) ||
             password_verify($this->oldHashPassword($password), $this->password);
     }
 
-    public function hashPassword($password)
+    public function hashPassword($password): string
     {
         return password_hash($password, PASSWORD_DEFAULT);
     }
 
-    public function oldHashPassword($password)
+    public function oldHashPassword($password): string
     {
         return md5('%#w_wrb13&p' . $this->salt . $password);
     }
 
     private $_fio;
 
-    public function getFio()
+    public function getFio(): string
     {
         if ($this->_fio === null) {
             $this->_fio = trim($this->lastname . ' ' . $this->name . ' ' . $this->middlename);
@@ -422,14 +422,14 @@ class User extends ActiveRecord
         return $this->_fio;
     }
 
-    public function setFio($value)
+    public function setFio($value): void
     {
         $this->_fio = $value;
     }
 
     private $_avatarUrl;
 
-    public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT)
+    public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT): string
     {
         if ($this->_avatarUrl === null) {
             if (preg_match('|^https?:\/\/|', $this->avatar)) {
@@ -449,7 +449,7 @@ class User extends ActiveRecord
         return GravatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . '/images/noavatar.png');
     }
 
-    public function sendCommit()
+    public function sendCommit(): void
     {
         if (!$this->id) {
             return;
@@ -473,7 +473,7 @@ class User extends ActiveRecord
         $email->send();
     }
 
-    public function sendRemind()
+    public function sendRemind(): void
     {
         $email = Yii::app()->email;
         $email->to = $this->email;
@@ -486,13 +486,13 @@ class User extends ActiveRecord
         $email->send();
     }
 
-    public function updateCommentsStat()
+    public function updateCommentsStat(): void
     {
         $this->updateCommentsCount();
         $this->updateByPk($this->id, ['comments_count' => $this->comments_count]);
     }
 
-    protected function updateCommentsCount()
+    protected function updateCommentsCount(): void
     {
         $this->comments_count = $this->comments_count_real;
     }

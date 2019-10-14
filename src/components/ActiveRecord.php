@@ -12,7 +12,7 @@ class ActiveRecord extends CActiveRecord
      * @param string|null $className
      * @return CActiveRecord|static
      */
-    public static function model($className = null)
+    public static function model($className = null): self
     {
         return parent::model($className ?: static::class);
     }

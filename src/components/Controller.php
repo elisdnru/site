@@ -40,7 +40,7 @@ class Controller extends CController
     public $description = '';
     public $keywords = '';
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return array_merge(parent::behaviors(), [
             'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
@@ -57,39 +57,39 @@ class Controller extends CController
         ]);
     }
 
-    protected function beforeRender($viev)
+    protected function beforeRender($viev): bool
     {
         $this->initJsDefaults();
         return parent::beforeRender($viev);
     }
 
-    public function checkIsPost()
+    public function checkIsPost(): void
     {
         if (!Yii::app()->request->isPostRequest) {
             throw new CHttpException(400, 'Bad request');
         }
     }
 
-    public function refresh($terminate = true, $anchor = '')
+    public function refresh($terminate = true, $anchor = ''): void
     {
         $this->redirect(Yii::app()->getRequest()->getUrl() . $anchor, $terminate);
     }
 
-    public function redirectOrAjax($route = ['index'])
+    public function redirectOrAjax($route = ['index']): void
     {
         if (!Yii::app()->request->isAjaxRequest) {
             $this->redirect($_POST['returnUrl'] ?? $route);
         }
     }
 
-    public function checkUrl($url)
+    public function checkUrl($url): void
     {
         if ('/' . Yii::app()->getRequest()->getPathInfo() != $url) {
             $this->redirect($url, true, 301);
         }
     }
 
-    public function reflash()
+    public function reflash(): void
     {
         foreach (['notice', 'success', 'error'] as $type) {
             if (Yii::app()->user->hasFlash($type)) {

@@ -22,7 +22,7 @@ class ContactForm extends CFormModel
     /**
      * Declares the validation rules.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -43,7 +43,7 @@ class ContactForm extends CFormModel
      * If not declared here, an attribute would have a label that is
      * the same as its name with the first letter in upper case.
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'name' => 'Ваше имя',

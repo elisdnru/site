@@ -15,7 +15,7 @@ use CModelEvent;
  * Purify source when the active record is created and/or updated.
  * You may specify an active record model to use this behavior like so:
  * <pre>
- * public function behaviors()
+ * public function behaviors(): array
  * {
  *     return array(
  *         'PurifyText'=>array(
@@ -86,7 +86,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     /**
      * @param CModelEvent $event event parameter
      */
-    public function beforeSave($event)
+    public function beforeSave($event): void
     {
         $model = $this->getOwner();
 
@@ -103,7 +103,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     /**
      * @param CModelEvent $event event parameter
      */
-    public function afterFind($event)
+    public function afterFind($event): void
     {
         $model = $this->getOwner();
 
@@ -123,7 +123,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         }
     }
 
-    protected function processContent($text)
+    protected function processContent(?string $text): string
     {
         if ($this->enableMarkdown) {
             $text = $this->markdownText($text);
@@ -136,11 +136,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         return $text;
     }
 
-    /**
-     * @param string $text
-     * @return string
-     */
-    public function markdownText($text)
+    public function markdownText(?string $text): string
     {
         $pre = preg_replace('#(~~~[\r\n]+\[php\][\r\n]+)#', '$1<?php' . PHP_EOL, $text);
 
@@ -150,11 +146,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         return str_replace('<pre><span class="php-hl-inlinetags">&lt;?php</span>' . PHP_EOL, '<pre>', $transform);
     }
 
-    /**
-     * @param string $text
-     * @return string
-     */
-    public function purifyText($text)
+    public function purifyText(?string $text): string
     {
         $p = new CHtmlPurifier;
         $p->options = $this->purifierOptions;
@@ -174,7 +166,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         return $text;
     }
 
-    protected function updateModel()
+    protected function updateModel(): void
     {
         $model = $this->getOwner();
         $model->updateByPk($model->getPrimaryKey(), [
@@ -184,27 +176,27 @@ class PurifyTextBehavior extends CActiveRecordBehavior
 
     private $_preContents = [];
 
-    private function storePreContent($matches)
+    private function storePreContent(array $matches): string
     {
         return '<pre' . $matches[1] . '>' . $this->storeContent($matches[2]) . '</pre>';
     }
 
-    private function resumePreContent($matches)
+    private function resumePreContent(array $matches): string
     {
         return '<pre' . $matches[1] . '>' . $this->resumeContent($matches[2]) . '</pre>';
     }
 
-    private function storeCodeContent($matches)
+    private function storeCodeContent(array $matches): string
     {
         return '<code' . $matches[1] . '>' . $this->storeContent($matches[2]) . '</code>';
     }
 
-    private function resumeCodeContent($matches)
+    private function resumeCodeContent(array $matches): string
     {
         return '<code' . $matches[1] . '>' . $this->resumeContent($matches[2]) . '</code>';
     }
 
-    private function storeContent($content)
+    private function storeContent(?string $content): string
     {
         do {
             $id = md5(random_int(0, 100000));
@@ -213,12 +205,12 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         return $id;
     }
 
-    private function resumeContent($id)
+    private function resumeContent(string $id): string
     {
         return isset($this->_preContents[$id]) ? CHtml::encode($this->_preContents[$id]) : '';
     }
 
-    private function calculateHash($content)
+    private function calculateHash(?string $content): string
     {
         return md5($content);
     }

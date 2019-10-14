@@ -13,17 +13,17 @@ class Access extends CModel
     const ROLE_CONTROL = 'role_control';
     const ROLE_USER = 'role_user';
 
-    public function attributeNames()
+    public function attributeNames(): array
     {
         return [];
     }
 
-    public static function getRoles()
+    public static function getRoles(): array
     {
         return CHtml::listData(Yii::app()->authManager->roles, 'name', 'description');
     }
 
-    public static function getRoleName($role)
+    public static function getRoleName(?string $role): string
     {
         switch ($role) {
             case self::ROLE_USER:
@@ -36,6 +36,6 @@ class Access extends CModel
                 return 'Администратор';
                 break;
         }
-        return false;
+        return '';
     }
 }

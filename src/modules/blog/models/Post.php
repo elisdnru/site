@@ -56,7 +56,7 @@ class Post extends ActiveRecord implements CommentDepends
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'blog_posts';
     }
@@ -64,7 +64,7 @@ class Post extends ActiveRecord implements CommentDepends
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -90,7 +90,7 @@ class Post extends ActiveRecord implements CommentDepends
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
@@ -106,7 +106,7 @@ class Post extends ActiveRecord implements CommentDepends
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -137,7 +137,7 @@ class Post extends ActiveRecord implements CommentDepends
      * @param int $pageSize
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -185,7 +185,7 @@ class Post extends ActiveRecord implements CommentDepends
         ]);
     }
 
-    public function scopes()
+    public function scopes(): array
     {
         return [
             'published' => [
@@ -194,7 +194,7 @@ class Post extends ActiveRecord implements CommentDepends
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'CTimestampBehavior' => [
@@ -241,7 +241,7 @@ class Post extends ActiveRecord implements CommentDepends
         ];
     }
 
-    protected function beforeDelete()
+    protected function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {
             foreach ($this->posttags as $posttag) {
@@ -252,7 +252,7 @@ class Post extends ActiveRecord implements CommentDepends
         return false;
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             $this->fillDefaultValues();
@@ -262,7 +262,7 @@ class Post extends ActiveRecord implements CommentDepends
         return false;
     }
 
-    private function fillDefaultValues()
+    private function fillDefaultValues(): void
     {
         if (!$this->alias) {
             $this->alias = TextHelper::strToChpu($this->title);
@@ -278,7 +278,7 @@ class Post extends ActiveRecord implements CommentDepends
         }
     }
 
-    private function processThematicGroup()
+    private function processThematicGroup(): void
     {
         if ($this->newgroup) {
             $group = new Group();
@@ -290,13 +290,13 @@ class Post extends ActiveRecord implements CommentDepends
         }
     }
 
-    protected function afterSave()
+    protected function afterSave(): void
     {
         $this->updateTags();
         parent::afterSave();
     }
 
-    public function getAssocList($only_public = false)
+    public function getAssocList(bool $only_public = false): array
     {
         if ($only_public) {
             $items = self::model()->published()->findAll(['order' => 'date DESC']);
@@ -312,12 +312,12 @@ class Post extends ActiveRecord implements CommentDepends
         return $result;
     }
 
-    public function findByAlias($alias)
+    public function findByAlias(string $alias): ?Post
     {
         return $this->findByAttributes(['alias' => $alias]);
     }
 
-    public function getTagsString()
+    public function getTagsString(): string
     {
         if ($this->tags_string === null) {
             $list = CHtml::listData($this->cache(0)->tags, 'id', 'title');
@@ -327,12 +327,12 @@ class Post extends ActiveRecord implements CommentDepends
         return $this->tags_string;
     }
 
-    public function setTagsString($value)
+    public function setTagsString(?string $value)
     {
         $this->tags_string = $value;
     }
 
-    private function updateTags()
+    private function updateTags(): void
     {
         $newtags = array_unique(preg_split('/\s*,\s*/', $this->tagsString));
 
@@ -352,7 +352,7 @@ class Post extends ActiveRecord implements CommentDepends
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = Yii::app()->createUrl('/blog/post/show', ['id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
@@ -360,7 +360,7 @@ class Post extends ActiveRecord implements CommentDepends
         return $this->_url;
     }
 
-    public function updateCommentsState($comment)
+    public function updateCommentsState($comment): void
     {
         $comments_count = Comment::model()->material($this->id)->count('public=1');
         $comments_new_count = Comment::model()->material($this->id)->count('public=1 AND moder=0');

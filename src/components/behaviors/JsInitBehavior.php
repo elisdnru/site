@@ -7,7 +7,7 @@ use Yii;
 
 class JsInitBehavior extends CBehavior
 {
-    public function initJsDefaults()
+    public function initJsDefaults(): void
     {
         Yii::app()->clientScript->registerMetaTag(Yii::app()->request->csrfToken, 'csrf-token');
     }

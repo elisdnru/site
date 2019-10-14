@@ -6,7 +6,7 @@ use Yii;
 
 class BreadcrumbsWidget extends Widget
 {
-    public function run()
+    public function run(): void
     {
         $this->render('BreadCrumbs', ['breadcrumbs' => Yii::app()->controller->breadcrumbs]);
     }

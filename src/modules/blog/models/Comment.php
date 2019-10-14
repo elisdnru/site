@@ -17,7 +17,7 @@ class Comment extends BaseComment
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         return array_merge(parent::relations(), [
             'child_items' => [self::HAS_MANY, self::class, 'parent_id'],

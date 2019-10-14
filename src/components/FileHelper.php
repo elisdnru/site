@@ -6,7 +6,7 @@ use app\components\helpers\TextHelper;
 
 class FileHelper
 {
-    public static function getRandomFileName($path, $extension = '')
+    public static function getRandomFileName($path, $extension = ''): string
     {
         $extension = $extension ? '.' . $extension : '';
         $path = $path ? $path . '/' : '';

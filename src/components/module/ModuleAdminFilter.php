@@ -8,7 +8,7 @@ use Yii;
 
 class ModuleAdminFilter extends CFilter
 {
-    protected function preFilter($filterChain)
+    protected function preFilter($filterChain): bool
     {
         if (!Yii::app()->moduleManager->allowed($filterChain->controller->module->id)) {
             if ($filterChain->controller->id !== 'error') {

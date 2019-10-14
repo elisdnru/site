@@ -11,14 +11,14 @@ use Yii;
 
 class ProfileController extends Controller
 {
-    public function filters()
+    public function filters(): array
     {
         return [
             'accessControl',
         ];
     }
 
-    public function accessRules()
+    public function accessRules(): array
     {
         return [
             ['allow',
@@ -30,7 +30,7 @@ class ProfileController extends Controller
         ];
     }
 
-    public function actions()
+    public function actions(): array
     {
         return [
             'view' => \app\components\crud\actions\ViewAction::class,
@@ -38,7 +38,7 @@ class ProfileController extends Controller
         ];
     }
 
-    public function performAjaxValidation($model)
+    public function performAjaxValidation($model): void
     {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'settings-form') {
             echo CActiveForm::validate($model);
@@ -46,7 +46,7 @@ class ProfileController extends Controller
         }
     }
 
-    public function loadModel($id)
+    public function loadModel($id): User
     {
         $model = User::model()->findByPk(Yii::app()->user->id);
         $model->scenario = 'settings';

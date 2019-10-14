@@ -24,7 +24,7 @@ class Sitemap
      * @param float $priority
      * @param int $lastMod
      */
-    public function addUrl($url, $changeFreq = self::DAILY, $priority = 0.5, $lastMod = 0)
+    public function addUrl($url, $changeFreq = self::DAILY, $priority = 0.5, $lastMod = 0): void
     {
         $host = Yii::app()->request->hostInfo;
         $item = [
@@ -44,7 +44,7 @@ class Sitemap
      * @param string $changeFreq
      * @param float $priority
      */
-    public function addModels($models, $changeFreq = self::DAILY, $priority = 0.5)
+    public function addModels($models, $changeFreq = self::DAILY, $priority = 0.5): void
     {
         $host = Yii::app()->request->hostInfo;
         foreach ($models as $model) {
@@ -62,10 +62,7 @@ class Sitemap
         }
     }
 
-    /**
-     * @return string XML code
-     */
-    public function render()
+    public function render(): string
     {
         $dom = new DOMDocument('1.0', 'utf-8');
         $urlset = $dom->createElement('urlset');
@@ -86,7 +83,7 @@ class Sitemap
         return $dom->saveXML();
     }
 
-    protected function dateToW3C($date)
+    protected function dateToW3C($date): string
     {
         if (is_int($date)) {
             return date(DATE_W3C, $date);

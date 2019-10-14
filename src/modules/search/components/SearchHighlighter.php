@@ -4,7 +4,7 @@ namespace app\modules\search\components;
 
 class SearchHighlighter
 {
-    public static function getFragment($text, $word)
+    public static function getFragment($text, $word): string
     {
         if ($word) {
             $pos = max(mb_stripos($text, $word, null, 'UTF-8') - 100, 0);

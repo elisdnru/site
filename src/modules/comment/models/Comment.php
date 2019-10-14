@@ -33,7 +33,7 @@ class Comment extends ActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'comments';
     }
@@ -41,7 +41,7 @@ class Comment extends ActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -66,7 +66,7 @@ class Comment extends ActiveRecord
         ];
     }
 
-    public function fixedText($attribute)
+    public function fixedText(string $attribute): void
     {
         $this->$attribute = preg_replace('#\r\n#s', "\n", trim($this->$attribute));
         $this->$attribute = preg_replace('#([^\n])\n?<pre\>#s', "$1\n\n<pre>", $this->$attribute);
@@ -75,7 +75,7 @@ class Comment extends ActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
@@ -88,7 +88,7 @@ class Comment extends ActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -107,7 +107,7 @@ class Comment extends ActiveRecord
      * Retrieves a list of models based on the current search/filter conditions.
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search()
+    public function search(): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -135,7 +135,7 @@ class Comment extends ActiveRecord
         ]);
     }
 
-    public function scopes()
+    public function scopes(): array
     {
         return [
             'published' => [
@@ -144,7 +144,7 @@ class Comment extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'CTimestamp' => [
@@ -170,14 +170,14 @@ class Comment extends ActiveRecord
         ];
     }
 
-    protected function instantiate($attributes)
+    protected function instantiate($attributes): self
     {
         $class = (new \ReflectionClass($attributes['type']))->getNamespaceName() . '\Comment';
         return new $class(null);
     }
 
     // scope
-    public function material($id)
+    public function material($id): self
     {
         if ($id) {
             $this->getDbCriteria()->mergeWith([
@@ -189,7 +189,7 @@ class Comment extends ActiveRecord
     }
 
     // scope
-    public function type($type)
+    public function type($type): self
     {
         if ($type) {
             $this->getDbCriteria()->mergeWith([
@@ -206,25 +206,25 @@ class Comment extends ActiveRecord
         return parent::find($condition, $params);
     }
 
-    public function findAll($condition = '', $params = [])
+    public function findAll($condition = '', $params = []): array
     {
         $this->type($this->type_of_comment);
         return parent::findAll($condition, $params);
     }
 
-    public function findAllByAttributes($attributes, $condition = '', $params = [])
+    public function findAllByAttributes($attributes, $condition = '', $params = []): array
     {
         $this->type($this->type_of_comment);
         return parent::findAllByAttributes($attributes, $condition, $params);
     }
 
-    public function count($condition = '', $params = [])
+    public function count($condition = '', $params = []): int
     {
         $this->type($this->type_of_comment);
         return parent::count($condition, $params);
     }
 
-    protected function beforeValidate()
+    protected function beforeValidate(): bool
     {
         if (parent::beforeValidate()) {
             $this->initType();
@@ -233,7 +233,7 @@ class Comment extends ActiveRecord
         return false;
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             $this->fillDefaultValues();
@@ -246,7 +246,7 @@ class Comment extends ActiveRecord
         return false;
     }
 
-    private function fillDefaultValues()
+    private function fillDefaultValues(): void
     {
         if ($this->cache(0)->user) {
             $this->email = $this->user->email;
@@ -255,14 +255,14 @@ class Comment extends ActiveRecord
         }
     }
 
-    private function initType()
+    private function initType(): void
     {
         if (!$this->type) {
             $this->type = $this->type_of_comment;
         }
     }
 
-    protected function afterSave()
+    protected function afterSave(): void
     {
         if ($this->isNewRecord) {
             $this->sendNotifications();
@@ -273,20 +273,20 @@ class Comment extends ActiveRecord
         parent::afterSave();
     }
 
-    protected function afterDelete()
+    protected function afterDelete(): void
     {
         $this->updateMaterial();
         parent::afterDelete();
     }
 
-    private function sendNotifications()
+    private function sendNotifications(): void
     {
         if ($this->parent && $this->parent->email != $this->email) {
             $this->parent->sendNotify($this);
         }
     }
 
-    private function sendNotify($current)
+    private function sendNotify($current): void
     {
         if ($this->email != $current->email) {
             $email = Yii::app()->email;
@@ -303,7 +303,7 @@ class Comment extends ActiveRecord
         }
     }
 
-    private function updateMaterial()
+    private function updateMaterial(): void
     {
         if ($this->type && $this->material instanceof CommentDepends) {
             $this->material->updateCommentsState($this);
@@ -311,7 +311,7 @@ class Comment extends ActiveRecord
     }
 
 
-    private function updateAuthor()
+    private function updateAuthor(): void
     {
         if ($this->user) {
             $this->user->updateCommentsStat();
@@ -320,7 +320,7 @@ class Comment extends ActiveRecord
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = $this->material ? $this->material->url . '#comment_' . $this->id : '#';
@@ -345,13 +345,13 @@ class Comment extends ActiveRecord
         return $this->_avatarUrl[$index];
     }
 
-    public function getLiked()
+    public function getLiked(): bool
     {
         $a = Yii::app()->session['comment'];
         return isset($a['liked'][$this->id]) && $a['liked'][$this->id] === 1;
     }
 
-    public function setLiked($value)
+    public function setLiked(bool $value): void
     {
         $a = Yii::app()->session['comment'];
 

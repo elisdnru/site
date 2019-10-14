@@ -9,7 +9,7 @@ class WebUser extends CWebUser
 {
     private $_model;
 
-    function getRole()
+    function getRole(): string
     {
         if ($user = $this->getModel()) {
             return $user->role;
@@ -18,7 +18,7 @@ class WebUser extends CWebUser
         return 'role_guest';
     }
 
-    private function getModel()
+    private function getModel(): User
     {
         if (!$this->isGuest && $this->_model === null) {
             $this->_model = User::model()->findByPk($this->id, ['select' => 'role']);

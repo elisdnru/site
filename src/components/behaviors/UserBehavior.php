@@ -12,7 +12,7 @@ class UserBehavior extends CBehavior
     protected $_user;
     protected $_access = [];
 
-    public function getUser()
+    public function getUser(): ?User
     {
         if ($this->_user === null) {
             $this->_user = User::model()->findByPk(Yii::app()->user->id);
@@ -20,12 +20,12 @@ class UserBehavior extends CBehavior
         return $this->_user;
     }
 
-    public function is($role)
+    public function is(string $role): bool
     {
         return Yii::app()->user->checkAccess($role);
     }
 
-    public function check($role)
+    public function check($role): void
     {
         $success = false;
         if (is_array($role)) {

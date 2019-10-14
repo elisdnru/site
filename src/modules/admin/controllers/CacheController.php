@@ -8,7 +8,7 @@ use Yii;
 
 class CacheController extends AdminController
 {
-    public function accessRules()
+    public function accessRules(): array
     {
         return [
             ['allow',
@@ -20,7 +20,7 @@ class CacheController extends AdminController
         ];
     }
 
-    public function actionClear()
+    public function actionClear(): void
     {
         Yii::app()->cache->flush();
         Yii::app()->user->setFlash('success', 'Кэш очищен');

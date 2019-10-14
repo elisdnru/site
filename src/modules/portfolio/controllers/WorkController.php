@@ -9,7 +9,7 @@ use app\extensions\cachetagging\Tags;
 
 class WorkController extends PortfolioBaseController
 {
-    public function actionShow($id)
+    public function actionShow($id): void
     {
         $model = $this->loadModel($id);
         $this->checkUrl($model->url);
@@ -19,7 +19,7 @@ class WorkController extends PortfolioBaseController
         ]);
     }
 
-    protected function loadModel($id)
+    protected function loadModel($id): Work
     {
         if ($this->moduleAllowed('portfolio')) {
             $condition = '';

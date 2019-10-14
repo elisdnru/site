@@ -8,7 +8,7 @@ use app\components\AdminController;
 
 class TagController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -23,12 +23,12 @@ class TagController extends AdminController
         ];
     }
 
-    public function createModel()
+    public function createModel(): Tag
     {
         return new Tag();
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Tag
     {
         $model = Tag::model()->findByPk($id);
 

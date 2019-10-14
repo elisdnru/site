@@ -9,7 +9,7 @@ use Yii;
 
 class ColorboxWidget extends Widget
 {
-    public function run()
+    public function run(): void
     {
         $cs = Yii::app()->getClientScript();
 

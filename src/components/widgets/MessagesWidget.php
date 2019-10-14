@@ -4,7 +4,7 @@ namespace app\components\widgets;
 
 class MessagesWidget extends Widget
 {
-    public function run()
+    public function run(): void
     {
         $this->render('Messages');
     }

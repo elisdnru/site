@@ -4,7 +4,7 @@ namespace app\components\widgets;
 
 class FollowWidget extends Widget
 {
-    public function run()
+    public function run(): void
     {
         $this->render('Follow');
     }

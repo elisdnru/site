@@ -8,13 +8,7 @@ class TaggingBehavior extends CBehavior
 {
     const PREFIX = '__tag__';
 
-    /**
-     * Инвалидирует данные, помеченные тегом(ами)
-     *
-     * @param $tags
-     * @return void
-     */
-    public function clear($tags)
+    public function clear($tags): void
     {
 
         foreach ((array)$tags as $tag) {

@@ -13,7 +13,7 @@ class DeleteAction extends CrudAction
      */
     public $error = 'Error';
 
-    public function run()
+    public function run(): void
     {
         $this->checkIsPostRequest();
 

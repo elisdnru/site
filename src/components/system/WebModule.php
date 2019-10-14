@@ -6,22 +6,22 @@ use CWebModule;
 
 class WebModule extends CWebModule
 {
-    public function getGroup()
+    public function getGroup(): string
     {
         return 'Почее';
     }
 
-    public static function adminMenu()
+    public static function adminMenu(): array
     {
         return [];
     }
 
-    public static function notifications()
+    public static function notifications(): array
     {
         return [];
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [];
     }

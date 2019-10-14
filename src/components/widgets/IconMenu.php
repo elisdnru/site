@@ -30,7 +30,7 @@ class IconMenu extends CMenu
 {
     public $iconsPath = '';
 
-    protected function renderMenuItem($item)
+    protected function renderMenuItem($item): string
     {
         $icon = !empty($item['icon']) ? CHtml::image($this->iconsPath . $item['icon'], $item['label']) : '';
         $options = $item['linkOptions'] ?? [];

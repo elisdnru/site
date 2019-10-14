@@ -10,12 +10,12 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getName()
+    public function getName(): string
     {
         return 'Обратная связь';
     }
 
-    public static function notifications()
+    public static function notifications(): array
     {
         $messages = Contact::model()->count('status=' . Contact::STATUS_NEW);
 
@@ -24,7 +24,7 @@ class Module extends WebModule
         ];
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [
             [

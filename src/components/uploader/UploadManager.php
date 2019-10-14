@@ -49,7 +49,7 @@ class UploadManager extends CApplicationComponent
         return null;
     }
 
-    public function uploadByUrl($url, $path, $extension): ?CFile
+    public function uploadByUrl(string $url, string $path, string $extension): ?CFile
     {
         $content = file_get_contents($url);
 
@@ -68,7 +68,7 @@ class UploadManager extends CApplicationComponent
         return null;
     }
 
-    public function delete($baseName, $path): bool
+    public function delete(string $baseName, string $path): bool
     {
         if (!$baseName) {
             return false;
@@ -224,7 +224,7 @@ class UploadManager extends CApplicationComponent
         return $baseName;
     }
 
-    private function parseFilename(string $fileName)
+    private function parseFilename(string $fileName): stdClass
     {
         $result = false;
         if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)(\.webp)?$|', $fileName, $matches)) {

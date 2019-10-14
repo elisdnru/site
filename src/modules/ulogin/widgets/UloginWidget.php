@@ -17,7 +17,7 @@ class UloginWidget extends Widget
         'logout_url' => '/logout'
     ];
 
-    public function run()
+    public function run(): void
     {
         if (!self::$once) {
             $this->render('uloginWidget', $this->params);
@@ -25,7 +25,7 @@ class UloginWidget extends Widget
         }
     }
 
-    public function setParams($params)
+    public function setParams($params): void
     {
         $this->params = array_merge($this->params, $params);
     }

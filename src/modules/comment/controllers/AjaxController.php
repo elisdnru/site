@@ -9,14 +9,14 @@ use Yii;
 
 class AjaxController extends Controller
 {
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             'PostOnly + delete, hide, like',
         ]);
     }
 
-    public function actionDelete($id)
+    public function actionDelete($id): void
     {
         $model = $this->loadModel($id);
 
@@ -42,7 +42,7 @@ class AjaxController extends Controller
         $this->redirectOrAjax(Yii::app()->request->urlReferrer ?: '/');
     }
 
-    public function actionHide($id)
+    public function actionHide($id): void
     {
         if (!Yii::app()->user->id) {
             throw new CHttpException(403);
@@ -63,7 +63,7 @@ class AjaxController extends Controller
         $this->redirectOrAjax(Yii::app()->request->urlReferrer ?: '/');
     }
 
-    public function actionLike($id)
+    public function actionLike($id): void
     {
         $model = $this->loadModel($id);
 
@@ -83,7 +83,7 @@ class AjaxController extends Controller
         Yii::app()->end();
     }
 
-    protected function loadModel($id)
+    protected function loadModel($id): Comment
     {
         $model = Comment::model()->findByPk($id);
         if ($model === null) {

@@ -6,7 +6,7 @@ use CWidget;
 
 class Widget extends CWidget
 {
-    public function init()
+    public function init(): void
     {
     }
 }

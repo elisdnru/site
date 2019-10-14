@@ -10,7 +10,7 @@ abstract class AdminController extends Controller
 {
     public $layout = '//layouts/admin';
 
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             [ModuleAdminFilter::class],

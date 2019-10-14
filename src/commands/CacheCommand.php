@@ -7,7 +7,7 @@ use Yii;
 
 class CacheCommand extends CConsoleCommand
 {
-    public function actionClear()
+    public function actionClear(): void
     {
         Yii::app()->cache->flush();
         echo 'The cache is cleared' . PHP_EOL;

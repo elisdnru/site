@@ -13,7 +13,7 @@ class NumberHelper
      * @param array $input array('товар', 'товара', 'товаров')
      * @return string
      */
-    public static function plural($howmuch, $input)
+    public static function plural(int $howmuch, array $input): string
     {
         $howmuch = (int)$howmuch;
         $l2 = substr($howmuch, -2);
@@ -41,7 +41,7 @@ class NumberHelper
         }
     }
 
-    public static function pageString($param = 'page')
+    public static function pageString(string $param = 'page'): string
     {
         $page = (int)Yii::app()->request->getQuery($param, 1);
         return $page > 1 ? ' - Страница ' . $page : '';

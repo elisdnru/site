@@ -9,7 +9,7 @@ class ViewAction extends CrudAction
     public $view = 'view';
     public $json = false;
 
-    public function run()
+    public function run(): void
     {
         $model = $this->loadModel();
 

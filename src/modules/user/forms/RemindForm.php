@@ -19,7 +19,7 @@ class RemindForm extends CFormModel
      * The rules state that username and password are required,
      * and password needs to be authenticated.
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             // username and password are required
@@ -32,7 +32,7 @@ class RemindForm extends CFormModel
     /**
      * Declares attribute labels.
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'email' => 'Введите Email',
@@ -43,7 +43,7 @@ class RemindForm extends CFormModel
      * Check user exists.
      * This is the 'userExists' validator as declared in rules().
      */
-    public function emailExists()
+    public function emailExists(): void
     {
         if (!$this->hasErrors()) {
             if (!$user = User::model()->findByAttributes(['email' => $this->email])) {

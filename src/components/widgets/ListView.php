@@ -20,7 +20,7 @@ class ListView extends CListView
         parent::__construct($owner);
     }
 
-    public function registerClientScript()
+    public function registerClientScript(): void
     {
         if (!$this->noScript) {
             parent::registerClientScript();

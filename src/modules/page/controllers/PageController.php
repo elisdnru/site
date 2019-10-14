@@ -9,7 +9,7 @@ use app\extensions\cachetagging\Tags;
 
 class PageController extends Controller
 {
-    public function actionShow($path = 'index')
+    public function actionShow($path = 'index'): void
     {
         $page = $this->loadModel($path);
 
@@ -22,7 +22,7 @@ class PageController extends Controller
         ]);
     }
 
-    protected function loadModel($path)
+    protected function loadModel($path): Page
     {
         $page = Page::model()->cache(0, new Tags('page'))->findByPath($path);
         if ($page === null) {

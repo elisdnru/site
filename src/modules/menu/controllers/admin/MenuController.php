@@ -8,7 +8,7 @@ use app\modules\menu\models\Menu;
 
 class MenuController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -27,14 +27,14 @@ class MenuController extends AdminController
         ];
     }
 
-    public function createModel()
+    public function createModel(): Menu
     {
         $model = new Menu();
         $model->visible = 1;
         return $model;
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Menu
     {
         $model = Menu::model()->findByPk($id);
         if ($model === null) {

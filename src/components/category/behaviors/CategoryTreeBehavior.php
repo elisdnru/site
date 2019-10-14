@@ -3,6 +3,7 @@
 namespace app\components\category\behaviors;
 
 use CActiveRecord;
+use CDbCriteria;
 use Yii;
 
 /**
@@ -30,7 +31,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getChildsArray($parent = 0)
+    public function getChildsArray($parent = 0): array
     {
         $parents = $this->processParents($parent);
 
@@ -51,7 +52,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return array_unique($result);
     }
 
-    protected function _childsArrayRecursive(&$items, &$result, $parent_id)
+    protected function _childsArrayRecursive(array &$items, array &$result, $parent_id)
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id) {
@@ -66,7 +67,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getAssocList($parent = 0)
+    public function getAssocList($parent = 0): array
     {
         $this->cached();
 
@@ -104,7 +105,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getAliasList($parent = 0)
+    public function getAliasList($parent = 0): array
     {
         $this->cached();
 
@@ -142,7 +143,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getTabList($parent = 0)
+    public function getTabList($parent = 0): array
     {
         $parents = $this->processParents($parent);
 
@@ -162,7 +163,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $result;
     }
 
-    protected function _getTabListRecursive(&$items, &$result, $parent_id, $indent = 0)
+    protected function _getTabListRecursive(array &$items, array &$result, $parent_id, int $indent = 0)
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id && !isset($result[$item[$this->primaryKeyAttribute]])) {
@@ -177,7 +178,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getUrlList($parent = 0)
+    public function getUrlList($parent = 0): array
     {
         $criteria = $this->getOwnerCriteria();
 
@@ -199,7 +200,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $this->_getUrlListRecursive($categories, $parent);
     }
 
-    protected function _getUrlListRecursive($items, $parent, $indent = 0)
+    protected function _getUrlListRecursive(array $items, $parent, int $indent = 0)
     {
         $parent = (int)$parent;
         $resultArray = [];
@@ -217,7 +218,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param int $sub levels
      * @return array
      */
-    public function getMenuList($sub = 0, $parent = 0)
+    public function getMenuList(int $sub = 0, $parent = 0): array
     {
         $criteria = $this->getOwnerCriteria();
 
@@ -239,7 +240,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $this->_getMenuListRecursive($categories, $parent, $sub);
     }
 
-    protected function _getMenuListRecursive($items, $parent, $sub)
+    protected function _getMenuListRecursive(array $items, $parent, $sub): array
     {
         $parent = (int)$parent;
         $resultArray = [];
@@ -260,12 +261,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $resultArray;
     }
 
-    /**
-     * Finds model by path
-     * @param string $path
-     * @return CActiveRecord model
-     */
-    public function findByPath($path)
+    public function findByPath(string $path): ?CActiveRecord
     {
         $domens = explode('/', trim($path, '/'));
         $model = null;
@@ -299,12 +295,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $model;
     }
 
-    /**
-     * Checks for current model is child of parent
-     * @param mixed $parent number, object or array of numbers
-     * @return bool
-     */
-    public function isChildOf($parent)
+    public function isChildOf($parent): bool
     {
         if (is_int($parent) && $this->getOwner()->getPrimaryKey() === $parent) {
             return false;
@@ -325,12 +316,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return false;
     }
 
-    /**
-     * Constructs full path for current model
-     * @param string $separator
-     * @return string
-     */
-    public function getPath($separator = '/')
+    public function getPath(string $separator = '/'): string
     {
         $uri = [$this->getOwner()->{$this->aliasAttribute}];
 
@@ -350,7 +336,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param bool $lastLink if you can have link in last element
      * @return array
      */
-    public function getBreadcrumbs($lastLink = false)
+    public function getBreadcrumbs(bool $lastLink = false): array
     {
         if ($lastLink) {
             $breadcrumbs = [$this->getOwner()->{$this->titleAttribute} => $this->getOwner()->{$this->urlAttribute}];
@@ -374,7 +360,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param string $separator
      * @return string
      */
-    public function getFullTitle($inverse = false, $separator = ' - ')
+    public function getFullTitle(bool $inverse = false, string $separator = ' - '): string
     {
         $titles = [$this->getOwner()->{$this->titleAttribute}];
 
@@ -392,12 +378,12 @@ class CategoryTreeBehavior extends CategoryBehavior
      * or define in requestPathAttribute your $_GET attribute for url matching
      * @return bool true if current request url matches with category path
      */
-    public function getLinkActive()
+    public function getLinkActive(): bool
     {
         return mb_strpos(Yii::app()->request->getParam($this->requestPathAttribute), $this->getOwner()->path, null, 'UTF-8') === 0;
     }
 
-    protected function getFullAssocData($attributes, $parent = 0)
+    protected function getFullAssocData(array $attributes, $parent = 0): array
     {
         $criteria = $this->getOwnerCriteria();
 
@@ -419,16 +405,15 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $command->queryAll();
     }
 
-    protected function processParents($parent)
+    protected function processParents($parent): array
     {
         if (!$parent) {
             $parent = $this->getOwner()->getPrimaryKey();
         }
-        $parents = $this->arrayFromArgs($parent);
-        return $parents;
+        return $this->arrayFromArgs($parent);
     }
 
-    protected function arrayFromArgs($items)
+    protected function arrayFromArgs($items): array
     {
         $array = [];
 
@@ -449,7 +434,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return array_unique($array);
     }
 
-    protected function getChildByAlias($alias, $criteria = null)
+    protected function getChildByAlias(string $alias, CDbCriteria $criteria = null): ?CActiveRecord
     {
         if ($criteria === null) {
             $criteria = $this->getOwnerCriteria();

@@ -27,10 +27,7 @@ abstract class TreeCategory extends Category
 {
     public $indent = 0;
 
-    /**
-     * @return array validation rules for model attributes.
-     */
-    public function rules()
+    public function rules(): array
     {
         return array_merge(self::staticRules(), [
             ['parent_id', \app\components\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
@@ -38,22 +35,14 @@ abstract class TreeCategory extends Category
         ]);
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return array_merge(self::staticAtributeLabels(), [
             'parent_id' => 'Родительский пункт',
         ]);
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @param int $pageSize
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -81,7 +70,7 @@ abstract class TreeCategory extends Category
         ]);
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return array_replace(parent::behaviors(), [
             'CategoryBehavior' => [
@@ -100,7 +89,7 @@ abstract class TreeCategory extends Category
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = Yii::app()->createUrl($this->urlRoute, ['category' => $this->cache(3600)->getPath()]);

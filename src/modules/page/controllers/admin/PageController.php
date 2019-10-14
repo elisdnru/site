@@ -9,14 +9,14 @@ use Yii;
 
 class PageController extends AdminController
 {
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             'PostOnly + deleteFile',
         ]);
     }
 
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -31,14 +31,14 @@ class PageController extends AdminController
         ];
     }
 
-    public function beforeDelete($model)
+    public function beforeDelete($model): void
     {
         if ($model->system) {
             throw new CHttpException(403, 'Отказано в доступе');
         }
     }
 
-    public function createModel()
+    public function createModel(): Page
     {
         $model = new Page();
         $model->date = time();
@@ -46,7 +46,7 @@ class PageController extends AdminController
         return $model;
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Page
     {
         $model = Page::model()->findByPk($id);
         if ($model === null) {

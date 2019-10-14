@@ -8,11 +8,7 @@ class TreeActiveDataProvider extends CActiveDataProvider
 {
     public $childRelation = 'child_items';
 
-    /**
-     * Fetches the data from the persistent data storage.
-     * @return array list of data items
-     */
-    protected function fetchData()
+    protected function fetchData():array
     {
         $criteria = clone $this->getCriteria();
 

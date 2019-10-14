@@ -7,7 +7,7 @@ use Yii;
 
 class PhpAuthManager extends CPhpAuthManager
 {
-    public function init()
+    public function init(): void
     {
         if ($this->authFile === null) {
             $this->authFile = Yii::getPathOfAlias('application') . '/../config/auth.php';

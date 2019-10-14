@@ -8,17 +8,17 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup()
+    public function getGroup(): string
     {
         return 'Контент';
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'Поиск';
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [
             'search' => 'search/default/index',

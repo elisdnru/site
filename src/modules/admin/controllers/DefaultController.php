@@ -8,7 +8,7 @@ use Yii;
 
 class DefaultController extends AdminController
 {
-    public function accessRules()
+    public function accessRules(): array
     {
         return [
             ['allow',

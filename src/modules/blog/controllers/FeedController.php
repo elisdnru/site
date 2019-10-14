@@ -10,7 +10,7 @@ use Zend\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $posts = Post::model()->published()->findAll([
             'limit' => 100,

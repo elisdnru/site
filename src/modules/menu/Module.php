@@ -8,17 +8,17 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup()
+    public function getGroup(): string
     {
         return 'Структура';
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'Меню';
     }
 
-    public static function adminMenu()
+    public static function adminMenu(): array
     {
         return [
             ['label' => 'Пункты', 'url' => ['/menu/admin/menu/index'], 'icon' => 'fileicon.jpg'],

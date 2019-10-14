@@ -13,7 +13,7 @@ use CActiveRecord;
  */
 class Search extends ActiveRecord
 {
-    public function tableName()
+    public function tableName(): string
     {
         return 'search';
     }

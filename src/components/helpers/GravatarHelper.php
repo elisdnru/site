@@ -13,7 +13,7 @@ class GravatarHelper
     const DEFAULT_RETRO = 'retro';
     const DEFAULT_BLANK = 'blank';
 
-    public static function get($email, $width = 0, $default = self::DEFAULT_GRAVATAR)
+    public static function get(?string $email, int $width = 0, string $default = self::DEFAULT_GRAVATAR): string
     {
         $id = md5(strtolower(trim($email)));
         $default = '?d=' . urlencode($default);

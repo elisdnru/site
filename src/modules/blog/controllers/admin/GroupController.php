@@ -12,7 +12,7 @@ use app\components\AdminController;
  */
 class GroupController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -26,7 +26,7 @@ class GroupController extends AdminController
         ];
     }
 
-    public function beforeDelete($model)
+    public function beforeDelete($model): void
     {
         $count = Post::model()->count(
             [
@@ -40,7 +40,7 @@ class GroupController extends AdminController
         }
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Group
     {
         $model = Group::model()->findByPk((int)$id);
         if ($model === null) {

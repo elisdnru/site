@@ -17,7 +17,7 @@ class OtherPostsWidget extends Widget
     public $skip = 0;
     public $limit = 5;
 
-    public function run()
+    public function run(): void
     {
         $criteria = new CDbCriteria;
         $criteria->scopes = ['published'];
@@ -27,7 +27,7 @@ class OtherPostsWidget extends Widget
             $category = Category::model()->findByPk(trim($this->category));
 
             if (!$category) {
-                return null;
+                return;
             }
 
             $criteria->addCondition('category_id=:cat');

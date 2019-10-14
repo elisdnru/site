@@ -11,7 +11,7 @@ use Yii;
 
 class PostController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -30,7 +30,7 @@ class PostController extends AdminController
         ];
     }
 
-    public function createModel()
+    public function createModel(): Post
     {
         $model = new Post();
         $model->public = 1;
@@ -43,7 +43,7 @@ class PostController extends AdminController
         return $model;
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Post
     {
         $model = Post::model()->findByPk($id);
         if ($model === null) {

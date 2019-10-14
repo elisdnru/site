@@ -6,7 +6,7 @@ use app\components\Controller;
 
 class DefaultController extends Controller
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'captcha' => [

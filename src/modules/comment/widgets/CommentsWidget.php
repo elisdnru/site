@@ -19,8 +19,7 @@ class CommentsWidget extends Widget
     public $user;
     public $tpl = 'comments';
 
-
-    public function run()
+    public function run(): void
     {
         if (!$this->user) {
             $this->user = User::model()->findByPk(Yii::app()->user->getId());
@@ -94,14 +93,14 @@ class CommentsWidget extends Widget
         ]);
     }
 
-    protected function saveFormState($attributes)
+    protected function saveFormState($attributes): void
     {
         $cookie = new CHttpCookie('comment_form', serialize($attributes));
         $cookie->expire = time() + 3600 * 24 * 180;
         Yii::app()->request->cookies['comment_form'] = $cookie;
     }
 
-    protected function loadFormState()
+    protected function loadFormState(): array
     {
         $cookie = Yii::app()->request->cookies['comment_form'];
         if ($cookie !== null) {

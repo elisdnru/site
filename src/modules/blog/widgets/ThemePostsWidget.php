@@ -11,7 +11,7 @@ class ThemePostsWidget extends Widget
     public $current = 0;
     public $group = 0;
 
-    public function run()
+    public function run(): void
     {
         if (!(int)$this->group) {
             return;

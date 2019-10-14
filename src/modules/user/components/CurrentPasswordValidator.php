@@ -23,7 +23,7 @@ class CurrentPasswordValidator extends CValidator
     public $emptyMessage = 'Current password required';
     public $notValidMessage = 'Current password is not correct';
 
-    protected function validateAttribute($object, $attribute)
+    protected function validateAttribute($object, $attribute): void
     {
         $this->checkDependsOnAttributes($object);
 
@@ -41,7 +41,7 @@ class CurrentPasswordValidator extends CValidator
         }
     }
 
-    protected function checkDependsOnAttributes($object)
+    protected function checkDependsOnAttributes($object): void
     {
         foreach ($this->dependsOnAttributes as $attr) {
             if (!empty($object->$attr)) {
@@ -50,7 +50,7 @@ class CurrentPasswordValidator extends CValidator
         }
     }
 
-    protected function loadModel($object)
+    protected function loadModel($object): CActiveRecord
     {
         if (empty($this->idAttribute)) {
             throw new CException('Attribute idAttribute is not defined');

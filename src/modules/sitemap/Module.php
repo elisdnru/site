@@ -8,12 +8,12 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getName()
+    public function getName(): string
     {
         return 'Карта сайта';
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [
             'sitemap' => 'sitemap/default/index',

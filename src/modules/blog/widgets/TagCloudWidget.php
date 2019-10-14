@@ -11,7 +11,7 @@ class TagCloudWidget extends Widget
     public $tpl = 'TagCloud';
     public $tags = '';
 
-    public function run()
+    public function run(): void
     {
         $tags = Tag::model()->with('frequency')->cache(0, new Tags('blog'))->findAll(['order' => 'title ASC']);
         $this->render($this->tpl, ['tags' => $tags]);

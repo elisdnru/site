@@ -18,7 +18,7 @@ class LinkColumn extends CDataColumn
      * @param integer $row the row number (zero-based)
      * @param mixed $data the data associated with the row
      */
-    protected function renderDataCellContent($row, $data)
+    protected function renderDataCellContent($row, $data): void
     {
         $url = $this->getItemUrl($row, $data);
         $value = $this->getItemValue($row, $data);
@@ -26,7 +26,7 @@ class LinkColumn extends CDataColumn
         echo $value === null ? $this->grid->nullDisplay : CHtml::link($text, $url);
     }
 
-    protected function getItemValue($row, $data)
+    protected function getItemValue(int $row, $data)
     {
         if (!empty($this->value)) {
             return $this->evaluateExpression($this->value, ['data' => $data, 'row' => $row]);
@@ -37,7 +37,7 @@ class LinkColumn extends CDataColumn
         return null;
     }
 
-    protected function getItemUrl($row, $data)
+    protected function getItemUrl(int $row, $data): string
     {
         if (!empty($this->link)) {
             return $this->evaluateExpression($this->link, ['data' => $data, 'row' => $row]);

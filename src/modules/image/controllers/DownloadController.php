@@ -8,7 +8,7 @@ use Yii;
 
 class DownloadController extends Controller
 {
-    public function actionThumb()
+    public function actionThumb(): void
     {
         $file = trim(Yii::app()->request->requestUri, '/');
 

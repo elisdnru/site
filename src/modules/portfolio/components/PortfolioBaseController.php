@@ -7,7 +7,7 @@ use app\modules\portfolio\Module;
 
 abstract class PortfolioBaseController extends Controller
 {
-    protected function beforeAction($action)
+    protected function beforeAction($action): bool
     {
         Module::registerScripts();
 

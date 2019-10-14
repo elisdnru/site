@@ -14,7 +14,7 @@ class PortfolioWidget extends Widget
     public $class = '';
     public $limit = 4;
 
-    public function run()
+    public function run(): void
     {
         Module::registerScripts();
 

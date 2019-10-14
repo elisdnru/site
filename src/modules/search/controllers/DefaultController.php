@@ -18,7 +18,7 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actionIndex($q)
+    public function actionIndex($q): void
     {
         $model = new SearchForm();
         $model->q = $q;
@@ -47,7 +47,7 @@ class DefaultController extends Controller
         }
     }
 
-    private function createViewTable()
+    private function createViewTable(): void
     {
         $query = 'CREATE OR REPLACE VIEW search AS ';
         $tables = [];

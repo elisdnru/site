@@ -73,7 +73,7 @@ class Page extends ActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'pages';
     }
@@ -81,7 +81,7 @@ class Page extends ActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -100,7 +100,7 @@ class Page extends ActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
@@ -116,7 +116,7 @@ class Page extends ActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -148,7 +148,7 @@ class Page extends ActiveRecord
      * @param int $pageSize
      * @return TreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): TreeActiveDataProvider
     {
         $criteria = new CDbCriteria;
 
@@ -181,7 +181,7 @@ class Page extends ActiveRecord
         ]);
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'CategoryBehavior' => [
@@ -219,7 +219,7 @@ class Page extends ActiveRecord
         ];
     }
 
-    public function getRobotsList()
+    public function getRobotsList(): array
     {
         return [
             self::INDEX_FOLLOW => self::INDEX_FOLLOW,
@@ -231,7 +231,7 @@ class Page extends ActiveRecord
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = Yii::app()->createUrl('page/page/show', ['path' => $this->path]);
@@ -239,7 +239,7 @@ class Page extends ActiveRecord
         return $this->_url;
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             $this->fillDefaultValues();
@@ -248,7 +248,7 @@ class Page extends ActiveRecord
         return false;
     }
 
-    private function fillDefaultValues()
+    private function fillDefaultValues(): void
     {
         if (!$this->alias) {
             $this->alias = TextHelper::strToChpu($this->title);
@@ -261,7 +261,7 @@ class Page extends ActiveRecord
         }
     }
 
-    protected function beforeDelete()
+    protected function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {
             $this->delChildPages();
@@ -270,7 +270,7 @@ class Page extends ActiveRecord
         return false;
     }
 
-    private function delChildPages()
+    private function delChildPages(): void
     {
         foreach ($this->child_pages as $child) {
             $child->delete();

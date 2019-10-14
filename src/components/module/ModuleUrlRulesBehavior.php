@@ -30,7 +30,7 @@ class ModuleUrlRulesBehavior extends CBehavior
         }
     }
 
-    private function getRoutes($name): array
+    private function getRoutes(string $name): array
     {
         if (!Yii::app()->hasModule($name)) {
             throw new \InvalidArgumentException('Undefined module ' . $name);

@@ -27,7 +27,7 @@ class Contact extends ActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'contacts';
     }
@@ -35,7 +35,7 @@ class Contact extends ActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -54,7 +54,7 @@ class Contact extends ActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -74,7 +74,7 @@ class Contact extends ActiveRecord
      * @param int $pageSize
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -114,7 +114,7 @@ class Contact extends ActiveRecord
         ]);
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             if ($this->isNewRecord) {
@@ -125,7 +125,7 @@ class Contact extends ActiveRecord
         return false;
     }
 
-    protected function afterSave()
+    protected function afterSave(): void
     {
         if ($this->isNewRecord) {
             $this->sendAdminNotify();
@@ -134,7 +134,7 @@ class Contact extends ActiveRecord
         parent::afterSave();
     }
 
-    private function sendAdminNotify()
+    private function sendAdminNotify(): void
     {
         $email = Yii::app()->email;
         $email->to = Yii::app()->params['GENERAL.ADMIN_EMAIL'];

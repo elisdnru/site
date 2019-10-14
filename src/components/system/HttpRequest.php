@@ -13,7 +13,7 @@ class HttpRequest extends CHttpRequest
 {
     public $noCsrfValidationUris = [];
 
-    protected function normalizeRequest()
+    protected function normalizeRequest(): void
     {
         parent::normalizeRequest();
 

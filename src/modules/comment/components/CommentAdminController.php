@@ -14,14 +14,14 @@ class CommentAdminController extends AdminController
 {
     const COMMENTS_PER_PAGE = 20;
 
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             'PostOnly + delete, moder, moderAll',
         ]);
     }
 
-    public function actions()
+    public function actions(): array
     {
         return [
             'update' => \app\components\crud\actions\UpdateAction::class,
@@ -33,7 +33,7 @@ class CommentAdminController extends AdminController
         ];
     }
 
-    public function actionIndex($id = 0)
+    public function actionIndex($id = 0): void
     {
         $criteria = new CDbCriteria;
 
@@ -60,7 +60,7 @@ class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionDelete($id)
+    public function actionDelete($id): void
     {
         $model = $this->loadModel($id);
 
@@ -78,7 +78,7 @@ class CommentAdminController extends AdminController
         $this->redirectOrAjax();
     }
 
-    public function actionModer($id)
+    public function actionModer($id): void
     {
         $model = $this->loadModel($id);
 
@@ -91,7 +91,7 @@ class CommentAdminController extends AdminController
         $this->redirectOrAjax();
     }
 
-    public function actionModerAll()
+    public function actionModerAll(): void
     {
         $items = CActiveRecord::model($this->getModelName())->findAllByAttributes(['moder' => 0]);
 
@@ -103,7 +103,7 @@ class CommentAdminController extends AdminController
         $this->redirectOrAjax();
     }
 
-    public function loadModel($id)
+    public function loadModel($id): CActiveRecord
     {
         $model = CActiveRecord::model($this->getModelName())->findByPk($id);
         if ($model === null) {
@@ -112,12 +112,12 @@ class CommentAdminController extends AdminController
         return $model;
     }
 
-    protected function loadMaterialModel($id)
+    protected function loadMaterialModel($id): CActiveRecord
     {
         throw new CException('Undefined material model');
     }
 
-    protected function getModelName()
+    protected function getModelName(): string
     {
         return Comment::class;
     }

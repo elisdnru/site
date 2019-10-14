@@ -12,7 +12,7 @@ class ShareWidget extends Widget
     public $description = '';
     public $image = '';
 
-    public function run()
+    public function run(): void
     {
         $this->initFields();
 
@@ -24,7 +24,7 @@ class ShareWidget extends Widget
         ]);
     }
 
-    protected function initFields()
+    protected function initFields(): void
     {
         if (!trim($this->url)) {
             $this->url = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();

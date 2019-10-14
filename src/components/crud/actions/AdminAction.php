@@ -19,7 +19,7 @@ class AdminAction extends CrudAction
      */
     public $scenario = 'search';
 
-    public function run()
+    public function run(): void
     {
         $model = $this->createModel();
 

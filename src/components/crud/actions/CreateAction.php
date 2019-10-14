@@ -13,7 +13,7 @@ class CreateAction extends CrudAction
      */
     public $success = 'Added successfully';
 
-    public function run()
+    public function run(): void
     {
         $model = $this->createModel();
 

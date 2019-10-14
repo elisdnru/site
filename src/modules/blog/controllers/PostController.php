@@ -8,7 +8,7 @@ use app\components\Controller;
 
 class PostController extends Controller
 {
-    public function actionShow($id)
+    public function actionShow($id): void
     {
         $model = $this->loadModel($id);
         $this->checkUrl($model->url);
@@ -18,7 +18,7 @@ class PostController extends Controller
         ]);
     }
 
-    protected function loadModel($id)
+    protected function loadModel($id): Post
     {
         if ($this->moduleAllowed('blog')) {
             $condition = '';

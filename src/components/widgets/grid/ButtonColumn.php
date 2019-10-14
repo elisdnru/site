@@ -9,7 +9,7 @@ Yii::import('zii.widgets.grid.CButtonColumn');
 
 class ButtonColumn extends CButtonColumn
 {
-    public function init()
+    public function init(): void
     {
         if ($this->updateButtonImageUrl === null) {
             $this->updateButtonImageUrl = '/images/admin/edit.png';

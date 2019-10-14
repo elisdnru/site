@@ -15,7 +15,7 @@ class TableInputAction extends CrudAction
     public $order = 'title ASC';
     public $view = 'index';
 
-    public function run()
+    public function run(): void
     {
         // Grid
         $items = CActiveRecord::model($this->modelClass)->findAll([

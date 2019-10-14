@@ -14,7 +14,7 @@ class SearchForm extends CFormModel
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -27,7 +27,7 @@ class SearchForm extends CFormModel
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'q' => 'Слово',

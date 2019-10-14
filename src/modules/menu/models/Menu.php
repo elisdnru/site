@@ -36,7 +36,7 @@ class Menu extends ActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'menu_items';
     }
@@ -44,7 +44,7 @@ class Menu extends ActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -61,7 +61,7 @@ class Menu extends ActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
@@ -75,7 +75,7 @@ class Menu extends ActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -93,7 +93,7 @@ class Menu extends ActiveRecord
      * @param int $pageSize
      * @return TreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): TreeActiveDataProvider
     {
         $criteria = new CDbCriteria;
 
@@ -118,7 +118,7 @@ class Menu extends ActiveRecord
         ]);
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'CategoryBehavior' => [
@@ -156,7 +156,7 @@ class Menu extends ActiveRecord
         return $items;
     }
 
-    private function _getMenuListRecursive($parent, $sub = true, $withhidden = false)
+    private function _getMenuListRecursive($parent, $sub = true, $withhidden = false): array
     {
         $criteria = new CDbCriteria;
         $criteria->addCondition('t.parent_id = :parent');
@@ -185,7 +185,7 @@ class Menu extends ActiveRecord
         return $itArray;
     }
 
-    private function getLinkActive()
+    private function getLinkActive(): bool
     {
         $currentUri = Yii::app()->getRequest()->getRequestUri();
         $itemUri = $this->getUrl();
@@ -194,7 +194,7 @@ class Menu extends ActiveRecord
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = $this->link !== '/index' ? $this->link : '/';

@@ -21,7 +21,7 @@ class ToggleAction extends CrudAction
      */
     public $attributes = ['public'];
 
-    public function run()
+    public function run(): void
     {
         $this->checkIsPostRequest();
 
@@ -42,7 +42,7 @@ class ToggleAction extends CrudAction
         $this->redirectToView($model);
     }
 
-    protected function getAttribute()
+    protected function getAttribute(): string
     {
         if (empty($this->attributes)) {
             throw new CHttpException(400, Yii::t(Messages::class . '.crud', 'ToggleAction::attributes is empty'));

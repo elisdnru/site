@@ -6,9 +6,8 @@ use CException;
 
 class DateHelper
 {
-    public static function normdate($date, $showTime = false, $showMonth = true)
+    public static function normdate($date, bool $showTime = false, bool $showMonth = true): string
     {
-
         if (is_numeric($date)) {
             $time = $date;
         } elseif (!$time = strtotime($date)) {

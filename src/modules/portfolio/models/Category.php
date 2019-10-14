@@ -12,12 +12,12 @@ class Category extends TreeCategory
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'portfolio_categories';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return array_merge(parent::rules(), [
             ['parent_id', ExistOrEmpty::class, 'className' => self::class, 'attributeName' => 'id'],
@@ -27,7 +27,7 @@ class Category extends TreeCategory
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.

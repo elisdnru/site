@@ -9,7 +9,7 @@ class BlogSearchFormWidget extends Widget
 {
     public $tpl = 'BlogSearchForm';
 
-    public function run()
+    public function run(): void
     {
         $form = new SearchForm;
 

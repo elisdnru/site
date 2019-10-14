@@ -16,7 +16,7 @@ class DefaultController extends PortfolioBaseController
 {
     private const PER_PAGE = 9;
 
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $criteria = $this->getStartCriteria();
 
@@ -46,7 +46,7 @@ class DefaultController extends PortfolioBaseController
         }
     }
 
-    public function actionCategory($category)
+    public function actionCategory($category): void
     {
         $category = $this->loadCategoryModel($category);
 
@@ -77,8 +77,9 @@ class DefaultController extends PortfolioBaseController
         }
     }
 
-    protected function loadCategoryModel($path)
+    protected function loadCategoryModel($path): Category
     {
+        /** @var Category $category */
         $category = Category::model()->findByPath($path);
         if ($category === null) {
             throw new CHttpException('404', 'Страница не найдена');
@@ -86,7 +87,7 @@ class DefaultController extends PortfolioBaseController
         return $category;
     }
 
-    protected function getStartCriteria()
+    protected function getStartCriteria(): CDbCriteria
     {
         $criteria = new CDbCriteria;
         $criteria->scopes = ['published'];
@@ -96,7 +97,7 @@ class DefaultController extends PortfolioBaseController
         return $criteria;
     }
 
-    protected function loadPortfolioPage()
+    protected function loadPortfolioPage(): Page
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('portfolio')) {
             $page = new Page;

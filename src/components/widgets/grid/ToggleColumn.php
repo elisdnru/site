@@ -73,7 +73,7 @@ class ToggleColumn extends CGridColumn
     /**
      * @throws CException
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -96,10 +96,7 @@ class ToggleColumn extends CGridColumn
         $this->registerClientScript();
     }
 
-    /**
-     * Renders the filter cell content.
-     */
-    public function getFilterCellContent()
+    public function getFilterCellContent(): string
     {
         if (is_string($this->filter)) {
             return $this->filter;
@@ -118,11 +115,7 @@ class ToggleColumn extends CGridColumn
         return parent::getFilterCellContent();
     }
 
-    /**
-     * Renders the header cell content.
-     * This method will render a link that can trigger the sorting if the column is sortable.
-     */
-    public function getHeaderCellContent()
+    public function getHeaderCellContent(): string
     {
         if ($this->grid->enableSorting && $this->sortable && $this->name !== null) {
             return $this->grid->dataProvider->getSort()->link($this->name, $this->header, ['class' => 'sort-link']);
@@ -136,10 +129,7 @@ class ToggleColumn extends CGridColumn
         return parent::getHeaderCellContent();
     }
 
-    /**
-     * Registers the client scripts for the column.
-     */
-    protected function registerClientScript()
+    protected function registerClientScript(): void
     {
         if (is_string($this->confirmation)) {
             $confirmation = 'if(!confirm(' . CJavaScript::encode($this->confirmation) . ')) return false;';
@@ -193,12 +183,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
         Yii::app()->clientScript->registerCSS(__CLASS__ . '#' . $this->id, $style);
     }
 
-    /**
-     * Renders the data cell content.
-     * @param integer $row the row number (zero-based)
-     * @param mixed $data the data associated with the row
-     */
-    protected function renderDataCellContent($row, $data)
+    protected function renderDataCellContent($row, $data): void
     {
         if (!empty($this->visible) && !is_bool($this->visible)) {
             $visible = $this->evaluateExpression($this->visible, ['data' => $data, 'row' => $row]);

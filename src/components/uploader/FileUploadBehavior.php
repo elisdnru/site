@@ -20,7 +20,7 @@ use Yii;
  * <pre>
  * public $del_image; // field for "Delete image" checkbox
  *
- * public function behaviors()
+ * public function behaviors(): array
  * {
  *     return array(
  *         'ImageUpload'=>array(
@@ -51,7 +51,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
     /**
      * @param CComponent $owner
      */
-    public function attach($owner)
+    public function attach($owner): void
     {
         parent::attach($owner);
         $fileValidator = CValidator::createValidator('file', $owner, $this->fileAttribute, [
@@ -66,7 +66,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
      * Responds to {@link CModel::onBeforeSave} event.
      * @param CModelEvent $event event parameter
      */
-    public function beforeSave($event)
+    public function beforeSave($event): void
     {
         $this->initAttributes();
         $model = $this->getOwner();
@@ -81,7 +81,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
      * Responds to {@link CModel::onBeforeDelete} event.
      * @param CModelEvent $event event parameter
      */
-    public function beforeDelete($event)
+    public function beforeDelete($event): void
     {
         $this->initAttributes();
         $this->deleteFile();
@@ -89,7 +89,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
     protected $_imageUrl;
 
-    public function getImageUrl()
+    public function getImageUrl(): string
     {
         $this->initAttributes();
         if ($this->_imageUrl === null) {
@@ -100,7 +100,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
     protected $_imageThumbUrl = [];
 
-    public function getImageThumbUrl($width = 0, $height = 0)
+    public function getImageThumbUrl(int $width = 0, int $height = 0): string
     {
         $this->initAttributes();
         if (!$width) {
@@ -119,7 +119,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
         return $this->_imageThumbUrl[$index];
     }
 
-    protected function processImageSizes()
+    protected function processImageSizes(): void
     {
         if ($this->imageWidthAttribute && $this->imageHeightAttribute) {
             $model = $this->getOwner();
@@ -148,14 +148,14 @@ class FileUploadBehavior extends CActiveRecordBehavior
         }
     }
 
-    protected function initAttributes()
+    protected function initAttributes(): void
     {
         if (empty($this->storageAttribute)) {
             $this->storageAttribute = $this->fileAttribute;
         }
     }
 
-    protected function loadFile()
+    protected function loadFile(): void
     {
         $model = $this->getOwner();
 
@@ -183,7 +183,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
         }
     }
 
-    protected function deleteFile()
+    protected function deleteFile(): void
     {
         $model = $this->getOwner();
         if ($model->{$this->storageAttribute}) {
@@ -195,20 +195,12 @@ class FileUploadBehavior extends CActiveRecordBehavior
         }
     }
 
-    /**
-     * @param $fileUrl
-     * @return mixed
-     */
-    private function uploadByUrl($fileUrl)
+    private function uploadByUrl(string $fileUrl): ?CFile
     {
         return Yii::app()->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
     }
 
-    /**
-     * @param $uploadedFile
-     * @return mixed
-     */
-    private function uploadFile($uploadedFile)
+    private function uploadFile(CUploadedFile $uploadedFile): ?CFile
     {
         $watermarkFile = Yii::app()->uploader->watermarkFile;
         if (!$this->enableWatermark) {

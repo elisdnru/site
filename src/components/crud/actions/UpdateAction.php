@@ -17,7 +17,7 @@ class UpdateAction extends CrudAction
      */
     public $error = 'Error';
 
-    public function run()
+    public function run(): void
     {
         $model = $this->loadModel();
 

@@ -11,7 +11,7 @@ class AdminLinksWidget extends CWidget
     public $title = '';
     public $links = [];
 
-    public function run()
+    public function run(): void
     {
         if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
             $this->render('Adminlinks', [

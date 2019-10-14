@@ -19,7 +19,7 @@ class UloginModel extends CModel
     public $error_type;
     public $error_message;
 
-    public function rules()
+    public function rules(): array
     {
         return [
             ['identity,network,token', 'required'],
@@ -29,7 +29,7 @@ class UloginModel extends CModel
         ];
     }
 
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'network' => 'Сервис',
@@ -41,7 +41,7 @@ class UloginModel extends CModel
         ];
     }
 
-    public function getAuthData()
+    public function getAuthData(): void
     {
         if ($authData = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=' . $_SERVER['HTTP_HOST']), true)) {
             $this->setAttributes($authData);
@@ -51,7 +51,7 @@ class UloginModel extends CModel
         }
     }
 
-    public function login()
+    public function login(): bool
     {
         $identity = new UloginUserIdentity('', '');
         if ($identity->authenticate($this)) {
@@ -62,7 +62,7 @@ class UloginModel extends CModel
         return false;
     }
 
-    public function attributeNames()
+    public function attributeNames(): array
     {
         return [
             'identity'

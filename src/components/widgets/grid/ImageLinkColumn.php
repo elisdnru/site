@@ -15,7 +15,7 @@ class ImageLinkColumn extends LinkColumn
      * @param integer $row the row number (zero-based)
      * @param mixed $data the data associated with the row
      */
-    protected function renderDataCellContent($row, $data)
+    protected function renderDataCellContent($row, $data): void
     {
         $url = $this->getItemUrl($row, $data);
         $value = $this->getItemValue($row, $data);
@@ -26,7 +26,7 @@ class ImageLinkColumn extends LinkColumn
         echo $value === null ? $this->grid->nullDisplay : CHtml::link($image, $url);
     }
 
-    protected function getImageOptions()
+    protected function getImageOptions(): array
     {
         $options = [];
 

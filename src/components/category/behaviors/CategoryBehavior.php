@@ -4,8 +4,10 @@ namespace app\components\category\behaviors;
 
 use CActiveRecord;
 use CActiveRecordBehavior;
+use CDbCommand;
 use CDbCommandBuilder;
 use CDbCriteria;
+use CDbTableSchema;
 use Yii;
 
 /**
@@ -61,11 +63,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     protected $_tableName;
     protected $_criteria;
 
-    /**
-     * Return primary keys of all items
-     * @return array
-     */
-    public function getArray()
+    public function getArray(): array
     {
         $criteria = $this->getOwnerCriteria();
         $criteria->select = $this->primaryKeyAttribute;
@@ -80,7 +78,7 @@ class CategoryBehavior extends CActiveRecordBehavior
      * Returns associated array ($id=>$title, $id=>$title, ...)
      * @return array
      */
-    public function getAssocList()
+    public function getAssocList(): array
     {
         $this->cached();
 
@@ -101,7 +99,7 @@ class CategoryBehavior extends CActiveRecordBehavior
      * Returns associated array ($alias=>$title, $alias=>$title, ...)
      * @return array
      */
-    public function getAliasList()
+    public function getAliasList(): array
     {
         $this->cached();
 
@@ -122,7 +120,7 @@ class CategoryBehavior extends CActiveRecordBehavior
      * Returns associated array ($url=>$title, $url=>$title, ...)
      * @return array
      */
-    public function getUrlList()
+    public function getUrlList(): array
     {
         $criteria = $this->getOwnerCriteria();
 
@@ -137,11 +135,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $result;
     }
 
-    /**
-     * Returns items for zii.widgets.CMenu widget
-     * @return array
-     */
-    public function getMenuList()
+    public function getMenuList(): array
     {
         $criteria = $this->getOwnerCriteria();
 
@@ -165,12 +159,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $result;
     }
 
-    /**
-     * Finds model by alias attribute
-     * @param $alias
-     * @return CActiveRecord model
-     */
-    public function findByAlias($alias)
+    public function findByAlias(string $alias): ?CActiveRecord
     {
         $model = $this->cached($this->getOwner())->find([
             'condition' => 't.' . $this->aliasAttribute . '=:alias',
@@ -184,7 +173,7 @@ class CategoryBehavior extends CActiveRecordBehavior
      * or define in requestPathAttribute your $_GET attribute for url matching
      * @return bool true if current request url matches with category alias
      */
-    public function getLinkActive()
+    public function getLinkActive(): bool
     {
         return mb_strpos(Yii::app()->request->getParam($this->requestPathAttribute), $this->getOwner()->{$this->aliasAttribute}, null, 'UTF-8') === 0;
     }
@@ -193,12 +182,12 @@ class CategoryBehavior extends CActiveRecordBehavior
      * Redeclare this method in your model for use of getMenuList() method
      * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         return '#';
     }
 
-    protected function getFullAssocData($attributes)
+    protected function getFullAssocData(array $attributes): array
     {
         $criteria = $this->getOwnerCriteria();
 
@@ -210,14 +199,13 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $command->queryAll();
     }
 
-    protected function createFindCommand($criteria)
+    protected function createFindCommand($criteria): CDbCommand
     {
         $builder = new CDbCommandBuilder(Yii::app()->db->getSchema());
-        $command = $builder->createFindCommand($this->tableName, $criteria);
-        return $command;
+        return $builder->createFindCommand($this->tableName, $criteria);
     }
 
-    protected function cached($model = null)
+    protected function cached(CActiveRecord $model = null): CActiveRecord
     {
         if ($model === null) {
             $model = $this->getOwner();
@@ -227,7 +215,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $model->cache($connection->queryCachingDuration);
     }
 
-    protected function aliasAttributes($attributes)
+    protected function aliasAttributes(array $attributes): array
     {
         $aliasesAttributes = [];
         foreach ($attributes as $attribute) {
@@ -236,7 +224,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $aliasesAttributes;
     }
 
-    protected function getPrimaryKeyAttribute()
+    protected function getPrimaryKeyAttribute(): ?string
     {
         if ($this->_primaryKey === null) {
             $this->_primaryKey = $this->tableSchema->primaryKey;
@@ -244,7 +232,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $this->_primaryKey;
     }
 
-    protected function getTableSchema()
+    protected function getTableSchema(): CDbTableSchema
     {
         if ($this->_tableSchema === null) {
             $this->_tableSchema = $this->getOwner()->getMetaData()->tableSchema;
@@ -252,7 +240,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $this->_tableSchema;
     }
 
-    protected function getTableName()
+    protected function getTableName(): string
     {
         if ($this->_tableName === null) {
             $this->_tableName = $this->getOwner()->tableName();
@@ -260,7 +248,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $this->_tableName;
     }
 
-    protected function getOwnerCriteria()
+    protected function getOwnerCriteria(): CDbCriteria
     {
         $criteria = clone $this->getOwner()->getDbCriteria();
         $criteria->mergeWith($this->defaultCriteria);
@@ -268,12 +256,12 @@ class CategoryBehavior extends CActiveRecordBehavior
         return $criteria;
     }
 
-    protected function clearOwnerCriteria()
+    protected function clearOwnerCriteria(): void
     {
         $this->getOwner()->setDbCriteria(new CDbCriteria());
     }
 
-    protected function getOriginalCriteria()
+    protected function getOriginalCriteria(): CDbCriteria
     {
         return clone $this->_criteria;
     }

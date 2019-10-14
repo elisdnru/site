@@ -16,7 +16,7 @@ use app\extensions\cachetagging\Tags;
 
 class DefaultController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $criteria = $this->getBlogCriteria();
 
@@ -26,7 +26,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionCategory($category)
+    public function actionCategory($category): void
     {
         $category = $this->loadCategoryModel($category);
 
@@ -40,7 +40,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionDate($date)
+    public function actionDate($date): void
     {
         $date = $this->getDateLimiter($date);
 
@@ -54,10 +54,11 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionTag($tag)
+    public function actionTag($tag): void
     {
         if (!$tag = $this->loadTagModel($tag)) {
-            return  $this->redirect(['index']);
+            $this->redirect(['index']);
+            return;
         }
 
         $criteria = $this->getBlogCriteria();
@@ -70,7 +71,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionSearch()
+    public function actionSearch(): void
     {
         $criteria = $this->getBlogCriteria();
 
@@ -93,10 +94,10 @@ class DefaultController extends Controller
 
     /**
      * @param string $path
-     * @return Category
+     * @return Category|\CActiveRecord
      * @throws CHttpException
      */
-    protected function loadCategoryModel($path)
+    protected function loadCategoryModel(string $path): Category
     {
         $category = Category::model()->findByPath($path);
         if (!$category) {
@@ -105,21 +106,12 @@ class DefaultController extends Controller
         return $category;
     }
 
-    /**
-     * @param string $title
-     * @return Tag|null
-     */
-    protected function loadTagModel($title)
+    protected function loadTagModel(string $title): ?Tag
     {
         return Tag::model()->findByTitle($title);
     }
 
-    /**
-     * @param string $date
-     * @return DateLimiter
-     * @throws CHttpException
-     */
-    protected function getDateLimiter($date)
+    protected function getDateLimiter(string $date): DateLimiter
     {
         $dateLimiter = new DateLimiter($date);
         if (!$dateLimiter->validate()) {
@@ -128,10 +120,7 @@ class DefaultController extends Controller
         return $dateLimiter;
     }
 
-    /**
-     * @return CDbCriteria
-     */
-    protected function getBlogCriteria()
+    protected function getBlogCriteria(): CDbCriteria
     {
         $criteria = new CDbCriteria();
         $criteria->scopes = ['published'];
@@ -140,11 +129,7 @@ class DefaultController extends Controller
         return $criteria;
     }
 
-    /**
-     * @param CDbCriteria $criteria
-     * @return CActiveDataProvider
-     */
-    protected function createProvider($criteria)
+    protected function createProvider(CDbCriteria $criteria): CActiveDataProvider
     {
         $dataProvider = new CActiveDataProvider(Post::model()->cache(0, new Tags('blog')), [
             'criteria' => $criteria,
@@ -156,10 +141,7 @@ class DefaultController extends Controller
         return $dataProvider;
     }
 
-    /**
-     * @return Page
-     */
-    protected function loadBlogPage()
+    protected function loadBlogPage(): Page
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('blog')) {
             $page = new Page;

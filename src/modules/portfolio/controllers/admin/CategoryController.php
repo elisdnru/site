@@ -9,7 +9,7 @@ use app\modules\portfolio\models\Work;
 
 class CategoryController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -24,7 +24,7 @@ class CategoryController extends AdminController
         ];
     }
 
-    public function beforeDelete($model)
+    public function beforeDelete($model): void
     {
         $count = Work::model()->count(
             [
@@ -38,12 +38,12 @@ class CategoryController extends AdminController
         }
     }
 
-    public function createModel()
+    public function createModel(): Category
     {
         return new Category();
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Category
     {
         $model = Category::model()->findByPk($id);
         if ($model === null) {

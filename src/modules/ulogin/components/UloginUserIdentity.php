@@ -2,6 +2,7 @@
 
 namespace app\modules\ulogin\components;
 
+use app\modules\ulogin\models\UloginModel;
 use app\modules\user\models\Access;
 use CUserIdentity;
 use app\modules\user\models\User;
@@ -11,7 +12,7 @@ class UloginUserIdentity extends CUserIdentity
     private $id;
     private $isAuthenticated = false;
 
-    public function authenticate($uloginModel = null)
+    public function authenticate(UloginModel $uloginModel = null): bool
     {
         $user = User::model()->find([
             'condition' => 'identity=:identity AND network=:network',

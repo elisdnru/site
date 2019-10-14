@@ -42,7 +42,7 @@ class Work extends ActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'portfolio_works';
     }
@@ -50,7 +50,7 @@ class Work extends ActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -72,7 +72,7 @@ class Work extends ActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
@@ -84,7 +84,7 @@ class Work extends ActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -109,7 +109,7 @@ class Work extends ActiveRecord
      * Retrieves a list of models based on the current search/filter conditions.
      * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
      */
-    public function search()
+    public function search(): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -136,7 +136,7 @@ class Work extends ActiveRecord
         ]);
     }
 
-    public function scopes()
+    public function scopes(): array
     {
         return [
             'published' => [
@@ -145,7 +145,7 @@ class Work extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'PurifyShort' => [
@@ -181,7 +181,7 @@ class Work extends ActiveRecord
         ];
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             $this->fillDefaultValues();
@@ -190,7 +190,7 @@ class Work extends ActiveRecord
         return false;
     }
 
-    private function fillDefaultValues()
+    private function fillDefaultValues(): void
     {
         if (!$this->alias) {
             $this->alias = TextHelper::strToChpu($this->title);
@@ -203,7 +203,7 @@ class Work extends ActiveRecord
         }
     }
 
-    protected function afterSave()
+    protected function afterSave(): void
     {
         if (!$this->sort) {
             Yii::app()->db->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE `id`=:id')->execute([':id' => $this->id]);
@@ -212,7 +212,7 @@ class Work extends ActiveRecord
         parent::afterSave();
     }
 
-    public function getAssocList($only_public = false)
+    public function getAssocList($only_public = false): array
     {
         if ($only_public) {
             $items = self::model()->published()->findAll(['order' => 'date DESC']);
@@ -229,7 +229,7 @@ class Work extends ActiveRecord
         return $result;
     }
 
-    public function findByAlias($alias)
+    public function findByAlias($alias): ?self
     {
         $model = $this->find([
             'condition' => 'alias = :alias',
@@ -240,7 +240,7 @@ class Work extends ActiveRecord
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->path, 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);

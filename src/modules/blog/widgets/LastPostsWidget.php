@@ -13,7 +13,7 @@ class LastPostsWidget extends Widget
     public $class = '';
     public $limit = 10;
 
-    public function run()
+    public function run(): void
     {
         $criteria = new CDbCriteria;
         $criteria->scopes = ['published'];

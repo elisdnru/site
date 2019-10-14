@@ -29,17 +29,12 @@ abstract class Category extends ActiveRecord
 {
     public $urlRoute = '';
 
-    /**
-     * @return array validation rules for model attributes.
-     */
-    public function rules()
+    public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return self::staticRules();
     }
 
-    public static function staticRules()
+    public static function staticRules(): array
     {
         return [
             ['alias, title', 'required'],
@@ -54,15 +49,12 @@ abstract class Category extends ActiveRecord
         ];
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return self::staticAtributeLabels();
     }
 
-    public static function staticAtributeLabels()
+    public static function staticAtributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -76,17 +68,12 @@ abstract class Category extends ActiveRecord
         ];
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @param int $pageSize
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize = 10)
+    public function search($pageSize = 10): CActiveDataProvider
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
 
-        $criteria = new CDbCriteria;
+        $criteria = new CDbCriteria();
 
         $criteria->compare('t.id', $this->id);
         $criteria->compare('t.alias', $this->alias, true);
@@ -108,7 +95,7 @@ abstract class Category extends ActiveRecord
         ]);
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'CategoryBehavior' => [
@@ -123,7 +110,7 @@ abstract class Category extends ActiveRecord
         ];
     }
 
-    protected function beforeSave()
+    protected function beforeSave(): bool
     {
         if (parent::beforeSave()) {
             $this->fillDefaultValues();
@@ -132,7 +119,7 @@ abstract class Category extends ActiveRecord
         return false;
     }
 
-    private function fillDefaultValues()
+    private function fillDefaultValues(): void
     {
         if (!$this->alias) {
             $this->alias = TextHelper::strToChpu($this->title);
@@ -147,7 +134,7 @@ abstract class Category extends ActiveRecord
 
     private $_url;
 
-    public function getUrl()
+    public function getUrl(): string
     {
         if ($this->_url === null) {
             $this->_url = Yii::app()->createUrl($this->urlRoute, ['category' => $this->alias]);

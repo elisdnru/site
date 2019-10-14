@@ -10,14 +10,14 @@ use Yii;
 
 class CommentController extends Controller
 {
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             'accessControl',
         ]);
     }
 
-    public function accessRules()
+    public function accessRules(): array
     {
         return [
             ['allow',
@@ -31,7 +31,7 @@ class CommentController extends Controller
         ];
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($id): void
     {
         $model = $this->loadModel($id);
 
@@ -62,7 +62,7 @@ class CommentController extends Controller
         ]);
     }
 
-    protected function loadModel($id)
+    protected function loadModel($id): Comment
     {
         if ($this->moduleAllowed('comment')) {
             $condition = '';

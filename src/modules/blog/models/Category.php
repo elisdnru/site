@@ -11,7 +11,7 @@ class Category extends TreeCategory
     /**
      * @return string the associated database table name
      */
-    public function tableName()
+    public function tableName(): string
     {
         return 'blog_categories';
     }
@@ -19,7 +19,7 @@ class Category extends TreeCategory
     /**
      * @return array relational rules.
      */
-    public function relations()
+    public function relations(): array
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.

@@ -10,17 +10,17 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup()
+    public function getGroup(): string
     {
         return 'Контент';
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'Портфолио';
     }
 
-    public static function adminMenu()
+    public static function adminMenu(): array
     {
         return [
             ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index'], 'icon' => 'foldericon.jpg'],
@@ -29,7 +29,7 @@ class Module extends WebModule
         ];
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [
             [
@@ -48,7 +48,7 @@ class Module extends WebModule
         ];
     }
 
-    public static function registerScripts()
+    public static function registerScripts(): void
     {
         Yii::app()->clientScript->registerPackage('portfolio');
     }

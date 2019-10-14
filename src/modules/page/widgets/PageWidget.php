@@ -10,7 +10,7 @@ class PageWidget extends Widget
 {
     public $alias;
 
-    public function run()
+    public function run(): void
     {
         $page = Page::model()->cache(0, new Tags('page'))->findByPath($this->alias);
         $this->render('Page', ['page' => $page]);

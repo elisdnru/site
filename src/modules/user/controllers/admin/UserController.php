@@ -10,7 +10,7 @@ use Yii;
 
 class UserController extends AdminController
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -29,13 +29,12 @@ class UserController extends AdminController
         ];
     }
 
-    public function createModel()
+    public function createModel(): User
     {
-        $model = new User(User::SCENARIO_ADMIN_CREATE);
-        return $model;
+        return new User(User::SCENARIO_ADMIN_CREATE);
     }
 
-    public function loadModel($id)
+    public function loadModel($id): User
     {
         $model = User::model()->findByPk($id);
         if ($model === null) {
@@ -48,7 +47,7 @@ class UserController extends AdminController
         return $model;
     }
 
-    public function performAjaxValidation($model)
+    public function performAjaxValidation($model): void
     {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-form') {
             echo CActiveForm::validate($model);

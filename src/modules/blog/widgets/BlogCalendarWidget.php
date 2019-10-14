@@ -11,7 +11,7 @@ class BlogCalendarWidget extends Widget
 {
     public $title = 'Calendar';
 
-    public function run()
+    public function run(): void
     {
         if (!empty($_GET['date'])) {
             $month = date('m', strtotime($_GET['date']));

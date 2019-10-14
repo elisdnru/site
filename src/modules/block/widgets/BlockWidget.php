@@ -11,7 +11,7 @@ class BlockWidget extends Widget
     public $tpl = 'default';
     public $id = '';
 
-    public function run()
+    public function run(): void
     {
         if (!$this->id) {
             echo('<div class="flash-error">[*block|id=?*]</div>');

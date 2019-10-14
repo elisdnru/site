@@ -21,7 +21,7 @@ class CommentForm extends CFormModel
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
+    public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
@@ -47,7 +47,7 @@ class CommentForm extends CFormModel
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'name' => 'Ваше имя',
@@ -59,7 +59,7 @@ class CommentForm extends CFormModel
         ];
     }
 
-    protected function beforeValidate()
+    protected function beforeValidate(): bool
     {
         if (parent::beforeValidate()) {
             if ($this->site) {
@@ -70,7 +70,7 @@ class CommentForm extends CFormModel
         return false;
     }
 
-    protected function checkSite()
+    protected function checkSite(): void
     {
         if (!preg_match('|^http:\/\/|', $this->site)) {
             $this->site = 'http://' . $this->site;

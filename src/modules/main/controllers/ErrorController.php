@@ -9,7 +9,7 @@ use Yii;
 
 class ErrorController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(): void
     {
         if ($error = Yii::app()->errorHandler->error) {
             if (Yii::app()->request->isAjaxRequest) {
@@ -26,7 +26,7 @@ class ErrorController extends Controller
         }
     }
 
-    protected function loadPage()
+    protected function loadPage(): Page
     {
         if (!$page = Page::model()->findByAlias('error')) {
             $page = new Page();

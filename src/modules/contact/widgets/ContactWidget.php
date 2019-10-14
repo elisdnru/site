@@ -12,7 +12,7 @@ class ContactWidget extends Widget
     public $tpl = 'default';
     public $scenario = '';
 
-    public function run()
+    public function run(): void
     {
         $form = new ContactForm($this->scenario);
 

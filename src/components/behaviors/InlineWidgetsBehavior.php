@@ -44,7 +44,7 @@ use Yii;
  * <code>
  * class Controller extends CController
  * {
- *     public function behaviors()
+ *     public function behaviors(): array
  *     {
  *         return array(
  *             'InlineWidgetsBehavior'=>array(
@@ -99,16 +99,15 @@ class InlineWidgetsBehavior extends CBehavior
 
     public function __construct()
     {
-        $this->_initToken();
+        $this->initToken();
     }
 
-    /**
-     * Content parser
-     * Use $this->decodeWidgets($model->text) in view
-     * @param $text
-     * @return mixed
-     */
-    public function decodeWidgets($text)
+    protected function initToken(): void
+    {
+        $this->_widgetToken = md5(microtime());
+    }
+
+    public function decodeWidgets(?string $text): string
     {
         $text = $this->_clearAutoParagraphs($text);
         $text = $this->_replaceBlocks($text);
@@ -116,13 +115,7 @@ class InlineWidgetsBehavior extends CBehavior
         return $text;
     }
 
-    /**
-     * Content cleaner
-     * Use $this->clearWidgets($model->text) in view
-     * @param $text
-     * @return mixed
-     */
-    public function clearWidgets($text)
+    public function clearWidgets(?string $text): string
     {
         $text = $this->_clearAutoParagraphs($text);
         $text = $this->_replaceBlocks($text);
@@ -130,7 +123,7 @@ class InlineWidgetsBehavior extends CBehavior
         return $text;
     }
 
-    protected function _processWidgets($text)
+    protected function _processWidgets(?string $text): string
     {
         if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {
@@ -143,31 +136,26 @@ class InlineWidgetsBehavior extends CBehavior
         return $text;
     }
 
-    protected function _clearWidgets($text)
+    protected function _clearWidgets(?string $text): string
     {
         return preg_replace('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', '', $text);
     }
 
-    protected function _initToken()
-    {
-        $this->_widgetToken = md5(microtime());
-    }
-
-    protected function _replaceBlocks($text)
+    protected function _replaceBlocks(?string $text): string
     {
         $text = str_replace($this->startBlock, '{' . $this->_widgetToken . ':', $text);
         $text = str_replace($this->endBlock, $this->_widgetToken . '}', $text);
         return $text;
     }
 
-    protected function _clearAutoParagraphs($output)
+    protected function _clearAutoParagraphs(?string $output): string
     {
         $output = str_replace('<p>' . $this->startBlock, $this->startBlock, $output);
         $output = str_replace($this->endBlock . '</p>', $this->endBlock, $output);
         return $output;
     }
 
-    protected function _loadWidget($widgetClass, $attributes = '')
+    protected function _loadWidget(string $widgetClass, string $attributes = ''): string
     {
         $attrs = $this->_parseAttributes($attributes);
         $cache = $this->_extractCacheExpireTime($attrs);
@@ -188,7 +176,7 @@ class InlineWidgetsBehavior extends CBehavior
         return $html;
     }
 
-    protected function _parseAttributes($attributesString)
+    protected function _parseAttributes(?string $attributesString): array
     {
         $params = explode(';', $attributesString);
         $attrs = [];
@@ -206,7 +194,7 @@ class InlineWidgetsBehavior extends CBehavior
         return $attrs;
     }
 
-    protected function _extractCacheExpireTime(&$attrs)
+    protected function _extractCacheExpireTime(array &$attrs): int
     {
         $cache = 0;
         if (isset($attrs['cache'])) {

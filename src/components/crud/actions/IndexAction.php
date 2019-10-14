@@ -23,7 +23,7 @@ class IndexAction extends CrudAction
      */
     public $pageSize = 10;
 
-    public function run()
+    public function run(): void
     {
         $model = $this->getIndexProviderModel();
 

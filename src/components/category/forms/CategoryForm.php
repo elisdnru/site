@@ -29,20 +29,13 @@ abstract class CategoryForm extends CFormModel
     public $keywords;
     public $parent_id;
 
-    /**
-     * @return array validation rules for model attributes.
-     */
-    public function rules()
+    public function rules(): array
     {
         return Category::staticRules();
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
-
         return Category::staticAtributeLabels();
     }
 }

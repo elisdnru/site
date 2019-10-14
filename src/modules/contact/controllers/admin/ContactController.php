@@ -10,7 +10,7 @@ class ContactController extends AdminController
 {
     const CONTACTS_PER_PAGE = 50;
 
-    public function actions()
+    public function actions(): array
     {
         return [
             'index' => [
@@ -24,7 +24,7 @@ class ContactController extends AdminController
         ];
     }
 
-    public function actionView($id)
+    public function actionView($id): void
     {
         $model = $this->loadModel($id);
 
@@ -52,13 +52,12 @@ class ContactController extends AdminController
         ]);
     }
 
-    public function createModel()
+    public function createModel(): Contact
     {
-        $model = new Contact();
-        return $model;
+        return new Contact();
     }
 
-    public function loadModel($id)
+    public function loadModel($id): Contact
     {
         $model = Contact::model()->findByPk($id);
         if ($model === null) {

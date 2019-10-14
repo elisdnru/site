@@ -10,17 +10,17 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup()
+    public function getGroup(): string
     {
         return 'Блог';
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'Блог';
     }
 
-    public static function adminMenu()
+    public static function adminMenu(): array
     {
         return [
             ['label' => 'Категории', 'url' => ['/blog/admin/category/index'], 'icon' => 'foldericon.jpg'],
@@ -31,7 +31,7 @@ class Module extends WebModule
         ];
     }
 
-    public static function notifications()
+    public static function notifications(): array
     {
         $comments = Comment::model()->count([
             'condition' => 'moder=0 AND type=:type',
@@ -43,7 +43,7 @@ class Module extends WebModule
         ];
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [
             [

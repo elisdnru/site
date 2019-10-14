@@ -16,14 +16,14 @@ class FileController extends AdminController
 
     protected $uploadRootPath = 'upload/media';
 
-    public function filters()
+    public function filters(): array
     {
         return array_merge(parent::filters(), [
             'PostOnly + delete, rename, process',
         ]);
     }
 
-    public function actionIndex($path = '')
+    public function actionIndex($path = ''): void
     {
         $root = Yii::getPathOfAlias('webroot') . '/' . $this->getFileDir();
         $htmlroot = '/' . $this->getFileDir();
@@ -59,7 +59,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionDelete($name)
+    public function actionDelete($name): void
     {
         $name = FileHelper::escape($name);
         $file = Yii::app()->file->set($this->getFileDir() . '/' . $name, true);
@@ -75,7 +75,7 @@ class FileController extends AdminController
         $this->redirectOrAjax();
     }
 
-    public function actionRename($path)
+    public function actionRename($path): void
     {
         $name = FileHelper::escape(Yii::app()->request->getParam('name'));
         $to = FileHelper::escape(Yii::app()->request->getParam('to'));
@@ -99,7 +99,7 @@ class FileController extends AdminController
         $this->redirectOrAjax($this->createUrl('index', ['path' => $path]));
     }
 
-    protected function uploadPostFile($field, $curpath)
+    protected function uploadPostFile($field, $curpath): bool
     {
         $success = false;
         $uploaded = Yii::app()->file->set($field, true);
@@ -124,10 +124,10 @@ class FileController extends AdminController
             }
         }
 
-        return $success ? 1 : 0;
+        return $success;
     }
 
-    public function actionProcess($path)
+    public function actionProcess($path): void
     {
         $action = Yii::app()->request->getPost('action');
 
@@ -155,7 +155,7 @@ class FileController extends AdminController
         $this->redirectOrAjax($this->createUrl('index', ['path' => $path]));
     }
 
-    protected function getFileDir()
+    protected function getFileDir(): string
     {
         $user = $this->getUser();
 

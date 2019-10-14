@@ -12,7 +12,7 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $models = [];
 
@@ -35,7 +35,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionXml()
+    public function actionXml(): void
     {
         if (!$xml = Yii::app()->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
@@ -59,7 +59,7 @@ class DefaultController extends Controller
     /**
      * @return Page
      */
-    private function loadSitemapPage()
+    private function loadSitemapPage(): Page
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('sitemap')) {
             $page = new Page;

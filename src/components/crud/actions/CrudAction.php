@@ -21,28 +21,28 @@ class CrudAction extends CAction
      */
     public $flashError = 'error';
 
-    protected function checkIsPostRequest()
+    protected function checkIsPostRequest(): void
     {
         if (!Yii::app()->request->isPostRequest) {
             throw new CHttpException(400, Yii::t('yii', 'Your request is invalid.'));
         }
     }
 
-    protected function clientCallback($method, $model)
+    protected function clientCallback($method, $model): void
     {
         if (method_exists($this->controller, $method)) {
             $this->controller->$method($model);
         }
     }
 
-    protected function success($message)
+    protected function success($message): void
     {
         if (!Yii::app()->request->isAjaxRequest) {
             Yii::app()->user->setFlash($this->flashSuccess, Yii::t(Messages::class . '.crud', $message));
         }
     }
 
-    protected function error($message)
+    protected function error($message): void
     {
         if (!Yii::app()->request->isAjaxRequest) {
             Yii::app()->user->setFlash($this->flashError, Yii::t(Messages::class . '.crud', $message));
@@ -51,51 +51,40 @@ class CrudAction extends CAction
         }
     }
 
-    protected function redirectToView($model)
+    protected function redirectToView($model): void
     {
         if (!Yii::app()->request->isAjaxRequest) {
             $this->controller->redirect(['view', 'id' => $model->getPrimaryKey()]);
         }
     }
 
-    protected function redirectToReferrer()
+    protected function redirectToReferrer(): void
     {
         if (!Yii::app()->request->isAjaxRequest) {
             $this->controller->redirect($_POST['returnUrl'] ?? ['index']);
         }
     }
 
-    /**
-     * @return CModel
-     */
-    protected function createModel()
+    protected function createModel(): CActiveRecord
     {
         $this->checkMethodExists('createModel');
         return $this->controller->createModel();
     }
 
-    /**
-     * @return CActiveRecord
-     */
-    protected function loadModel()
+    protected function loadModel(): CActiveRecord
     {
         $this->checkMethodExists('loadModel');
         $id = Yii::app()->request->getParam('id');
-        $model = $this->controller->loadModel($id);
-        return $model;
+        return $this->controller->loadModel($id);
     }
 
-    /**
-     * @return CActiveRecord
-     */
-    protected function getIndexProviderModel()
+    protected function getIndexProviderModel(): CActiveRecord
     {
         $this->checkMethodExists('getIndexProviderModel');
-        $model = $this->controller->getIndexProviderModel();
-        return $model;
+        return $this->controller->getIndexProviderModel();
     }
 
-    protected function checkMethodExists($method)
+    protected function checkMethodExists($method): void
     {
         if (!method_exists($this->controller, $method)) {
             throw new CException("Method CController::{$method}() not found");

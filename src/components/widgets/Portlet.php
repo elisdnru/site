@@ -11,16 +11,12 @@ class Portlet extends CPortlet
 {
     public $url = '';
 
-    public function getId($autoGenerate = true)
+    public function getId($autoGenerate = true): ?string
     {
         return null;
     }
 
-    /**
-     * Renders the decoration for the portlet.
-     * The default implementation will render the title if it is set.
-     */
-    protected function renderDecoration()
+    protected function renderDecoration(): void
     {
         if ($this->title !== null) {
             echo "<div class=\"{$this->decorationCssClass}\">\n";

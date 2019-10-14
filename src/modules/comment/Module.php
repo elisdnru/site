@@ -10,12 +10,12 @@ class Module extends WebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getName()
+    public function getName(): string
     {
         return 'Комментарии';
     }
 
-    public static function notifications()
+    public static function notifications(): array
     {
         $comments = Comment::model()->count([
             'condition' => 'moder=0',
@@ -26,7 +26,7 @@ class Module extends WebModule
         ];
     }
 
-    public static function rules()
+    public static function rules(): array
     {
         return [
             [

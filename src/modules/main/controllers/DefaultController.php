@@ -7,7 +7,7 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $this->render('index');
     }

@@ -18,7 +18,7 @@ class UserIdentity extends CUserIdentity
      * Authenticates a user.
      * @return boolean whether authentication succeeds.
      */
-    public function authenticate()
+    public function authenticate(): bool
     {
         $user = User::model()->find('LOWER(username)=:name OR LOWER(email)=:name', [':name' => strtolower($this->name)]);
 
@@ -29,7 +29,7 @@ class UserIdentity extends CUserIdentity
         } elseif (!$user->validatePassword($this->password)) {
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         } else {
-            $this->_id = $user->getPrimaryKey();
+            $this->_id = (string)$user->getPrimaryKey();
             $this->username = $user->username;
             $this->errorCode = self::ERROR_NONE;
         }
@@ -37,7 +37,7 @@ class UserIdentity extends CUserIdentity
         return $this->errorCode === self::ERROR_NONE;
     }
 
-    public function getId()
+    public function getId(): string
     {
         return $this->_id;
     }

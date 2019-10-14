@@ -12,7 +12,7 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actions()
+    public function actions(): array
     {
         return [
             'captcha' => [
@@ -21,7 +21,7 @@ class DefaultController extends Controller
         ];
     }
 
-    public function actionLogin()
+    public function actionLogin(): void
     {
         $user = $this->getUser();
         if ($user) {
@@ -42,19 +42,19 @@ class DefaultController extends Controller
         $this->render('login', ['model' => $model]);
     }
 
-    public function actionRelogin()
+    public function actionRelogin(): void
     {
         Yii::app()->user->logout();
         $this->redirect(['login']);
     }
 
-    public function actionLogout()
+    public function actionLogout(): void
     {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->request->urlReferrer ?: Yii::app()->homeUrl);
     }
 
-    public function actionRegistration()
+    public function actionRegistration(): void
     {
         $model = new User(User::SCENARIO_REGISTER);
 
@@ -77,7 +77,7 @@ class DefaultController extends Controller
         $this->render('register', ['model' => $model]);
     }
 
-    public function actionConfirm($code)
+    public function actionConfirm($code): void
     {
         $user = User::model()->find([
             'condition' => 'confirm = :code',
@@ -98,7 +98,7 @@ class DefaultController extends Controller
         $this->render('confirm');
     }
 
-    public function actionRemind()
+    public function actionRemind(): void
     {
         $model = new RemindForm();
 
@@ -130,7 +130,7 @@ class DefaultController extends Controller
         $this->render('remind', ['model' => $model]);
     }
 
-    protected function performAjaxValidation($model)
+    protected function performAjaxValidation($model): void
     {
         if (isset($_POST['ajax']) && (in_array($_POST['ajax'], ['login-form', 'remind-form', 'register-form']))) {
             echo CActiveForm::validate($model);

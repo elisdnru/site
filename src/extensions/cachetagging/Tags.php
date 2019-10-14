@@ -15,7 +15,7 @@ class Tags implements ICacheDependency
      *
      * @params tag1, tag2, ..., tagN
      */
-    function __construct()
+    public function __construct()
     {
         $this->tags = func_get_args();
     }
@@ -24,7 +24,7 @@ class Tags implements ICacheDependency
      * Evaluates the dependency by generating and saving the data related with dependency.
      * This method is invoked by cache before writing data into it.
      */
-    public function evaluateDependency()
+    public function evaluateDependency(): void
     {
         $this->timestamp = time();
     }
@@ -32,7 +32,7 @@ class Tags implements ICacheDependency
     /**
      * @return boolean whether the dependency has changed.
      */
-    public function getHasChanged()
+    public function getHasChanged(): bool
     {
         $tags = array_map(static function ($i) {
             return TaggingBehavior::PREFIX . $i;
