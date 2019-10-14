@@ -8,7 +8,7 @@ use Yii;
 
 abstract class AdminController extends Controller
 {
-    public $layout = '//layouts/page/admin';
+    public $layout = '//layouts/admin';
 
     public function filters()
     {
