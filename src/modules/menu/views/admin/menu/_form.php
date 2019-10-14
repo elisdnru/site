@@ -7,8 +7,6 @@ use app\modules\page\models\Page;
 
 /* @var $model Menu */
 /* @var $form CActiveForm */
-
-Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <div class="form">
@@ -91,23 +89,23 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     <script>
     <?php ob_start() ?>
 
-    jQuery(function($){
-      var url_field = $('.m_urlfield');
-      if (!url_field.val()) {
-        url_field.val('#');
+    (function(){
+      var url_field = document.querySelector('.m_urlfield');
+      if (!url_field.value) {
+        url_field.value = '#';
       }
-      var selector = $('.m_selector');
-      selector.change(function () {
-        var val = $(this).val()
+      var selector = document.querySelector('.m_selector');
+      selector.addEventListener('change', function (e) {
+        var val = e.target.value;
         if (val === '') {
-          url_field.val('#')
+          url_field.value = '#';
         } else {
-          url_field.val($(this).val())
+          url_field.value = e.target.value;
         }
-        selector.val('')
-        $(this).val(val)
+        selector.value = '';
+        e.target.value = val;
       })
-    });
+    })();
 
     <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
     </script>

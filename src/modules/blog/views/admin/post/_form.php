@@ -9,8 +9,6 @@ use app\components\AdminController;
 
 /* @var $model Post */
 /* @var $form CActiveForm */
-
-Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <div class="form">
@@ -159,43 +157,43 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     <script>
     <?php ob_start(); ?>
 
-    jQuery(function ($) {
-        var tagsInput = $('#Post_tagsString')
-        var tagsVariants = $('#Post_tagsVariants li')
+    (function () {
+        var tagsInput = document.querySelector('#Post_tagsString');
+        var tagsVariants = document.querySelectorAll('#Post_tagsVariants li');
 
         function highlightActive () {
-            var tags = tagsInput.val().split(', ')
-            tagsVariants.each(function () {
-                var variant = $(this)
-                var thisTag = variant.find('.tag').text()
+            var tags = tagsInput.value.split(', ');
+            tagsVariants.forEach(function (variant) {
+                var thisTag = variant.querySelector('.tag').innerHTML;
                 if (tags.indexOf(thisTag) !== -1) {
-                    variant.addClass('active')
+                    variant.classList.add('active');
                 } else {
-                    variant.removeClass('active')
+                    variant.classList.remove('active');
                 }
             })
         }
 
         highlightActive()
 
-        tagsVariants.find('.tag').click(function (e) {
-            var tags = tagsInput.val().split(', ')
+        tagsVariants.forEach(function (variant) {
+          variant.querySelector('.tag').addEventListener('click', function (e) {
+            var tags = tagsInput.value.split(', ');
             if (!tags[0]) {
-                tags.splice(0, 1)
+              tags.splice(0, 1);
             }
-            var newTag = $(this).text()
-            var index = tags.indexOf(newTag)
+            var newTag = e.target.innerHTML;
+            var index = tags.indexOf(newTag);
             if (index === -1) {
-                tags[tags.length] = newTag
+              tags[tags.length] = newTag;
             } else {
-                tags.splice(index, 1)
+              tags.splice(index, 1);
             }
-            tagsInput.val(tags.join(', '))
+            tagsInput.value = tags.join(', ');
             highlightActive()
-            e.stopPropagation()
-            return false
+            e.preventDefault();
+          })
         })
-    })
+    })();
 
     <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
     </script>
