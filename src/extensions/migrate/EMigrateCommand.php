@@ -221,7 +221,7 @@ class EMigrateCommand extends MigrateCommand
 
                 // error if specified module does not exist
                 foreach ($modules as $module) {
-                    if (in_array($module, $this->disabledModules)) {
+                    if (in_array($module, $this->disabledModules, true)) {
                         echo "\nError: module '$module' is disabled!\n\n";
                         exit(1);
                     }
@@ -236,7 +236,7 @@ class EMigrateCommand extends MigrateCommand
 
             // initialize modules
             foreach ($this->getEnabledModulePaths() as $module => $pathAlias) {
-                if ($modules === false || in_array($module, $modules)) {
+                if ($modules === false || in_array($module, $modules, true)) {
                     Yii::import($pathAlias . '.*');
                     $this->_runModulePaths[$module] = $pathAlias;
                 }

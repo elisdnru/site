@@ -245,7 +245,7 @@ class UploadManager extends CApplicationComponent
 
         foreach ($this->allowedThumbnailResolutions as $rule) {
             if (mb_strpos($path, $rule[0], null, 'UTF-8') === 0) {
-                if (in_array($resolution, $rule[1])) {
+                if (in_array($resolution, $rule[1], true)) {
                     return true;
                 }
             }
