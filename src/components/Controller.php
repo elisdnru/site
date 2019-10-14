@@ -84,7 +84,7 @@ class Controller extends CController
 
     public function checkUrl($url): void
     {
-        if ('/' . Yii::app()->getRequest()->getPathInfo() != $url) {
+        if ('/' . Yii::app()->getRequest()->getPathInfo() !== $url) {
             $this->redirect($url, true, 301);
         }
     }

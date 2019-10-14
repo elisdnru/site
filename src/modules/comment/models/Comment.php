@@ -281,14 +281,14 @@ class Comment extends ActiveRecord
 
     private function sendNotifications(): void
     {
-        if ($this->parent && $this->parent->email != $this->email) {
+        if ($this->parent && $this->parent->email !== $this->email) {
             $this->parent->sendNotify($this);
         }
     }
 
     private function sendNotify($current): void
     {
-        if ($this->email != $current->email) {
+        if ($this->email !== $current->email) {
             $email = Yii::app()->email;
             $email->to = $this->email;
             $email->replyTo = Yii::app()->params['GENERAL.ADMIN_EMAIL'];

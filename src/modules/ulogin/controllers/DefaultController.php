@@ -11,7 +11,7 @@ class DefaultController extends Controller
     public function actionLogin(): void
     {
         if (!empty($_POST['token'])) {
-            if ($_POST['token'] != 'undefined') {
+            if ($_POST['token'] !== 'undefined') {
                 $ulogin = new UloginModel();
                 $ulogin->attributes = $_POST;
 

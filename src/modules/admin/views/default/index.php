@@ -54,7 +54,7 @@ $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/inde
                     <?php foreach ($groupModules as $module) : ?>
                         <?php if (Yii::app()->moduleManager->adminMenu($module->id)) : ?>
                             <li>
-                                <?php if ($module->name != $group) : ?>
+                                <?php if ($module->name !== $group) : ?>
                                     <h3><?php echo $module->name; ?></h3><?php
                                 endif; ?>
                                 <ul>

@@ -20,7 +20,7 @@ function generate_calendar($year, $month, $days = [], $day_name_length = 3, $mon
     $current_month = (int)date('m');
 
     $enable_p = $year > $current_year - 1;
-    $enable_n = $year < $current_year || $year === $current_year && $month < $current_month;
+    $enable_n = $year < $current_year || ($year === $current_year && $month < $current_month);
 
     @list($p, $pl) = each($pn);
     @list($n, $nl) = each($pn); #previous and next links, if applicable
@@ -59,7 +59,7 @@ function generate_calendar($year, $month, $days = [], $day_name_length = 3, $mon
             $calendar .= "<td>$day</td>";
         }
     }
-    if ($weekday != 7) {
+    if ($weekday !== 7) {
         $calendar .= '<td colspan="' . (7 - $weekday) . '">&nbsp;</td>';
     }
 

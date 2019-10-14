@@ -171,7 +171,7 @@ class CFile extends CApplicationComponent
      */
     public function set($filePath, $greedy = false)
     {
-        if (trim($filePath) != '') {
+        if (trim($filePath) !== '') {
             $uploaded = null;
 
             if (strpos($filePath, '\\') === false && strpos($filePath, '/') === false) {
@@ -317,7 +317,7 @@ class CFile extends CApplicationComponent
 
         $realpath = $winDrive . $dir_separator . implode($dir_separator, $pathsArr);
 
-        if ($currentPath != $suppliedPath) {
+        if ($currentPath !== $suppliedPath) {
             Yii::trace('Path "' . $suppliedPath . '" resolved into "' . $realpath . '"', 'ext.file');
         }
 
@@ -790,7 +790,7 @@ class CFile extends CApplicationComponent
             }
 
             foreach ($filter as $key => $rule) {
-                if ($rule[0] != '/') {
+                if ($rule[0] !== '/') {
                     $filter[$key] = ltrim($rule, '.');
                 }
             }
@@ -834,7 +834,7 @@ class CFile extends CApplicationComponent
 
         if ($filter !== null) {
             foreach ($filter as $rule) {
-                if ($rule[0] != '/') {
+                if ($rule[0] !== '/') {
                     $rule = '.' . $rule;
                     $passed = (bool)substr_count($str, $rule, strlen($str) - strlen($rule));
                 } else {

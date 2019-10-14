@@ -623,7 +623,7 @@ class CImageHandler extends CApplicationComponent
                 throw new Exception('Invalid image format for save');
         }
 
-        if ($touch && $file != $this->fileName) {
+        if ($touch && $file !== $this->fileName) {
             touch($file, filemtime($this->fileName));
         }
 

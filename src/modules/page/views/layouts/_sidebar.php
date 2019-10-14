@@ -1,6 +1,6 @@
 <?php use app\extensions\cachetagging\Tags;
 
-if ($this->route != 'user/default/login') : ?>
+if ($this->route !== 'user/default/login') : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Личный кабинет']); ?>
     <?php $this->widget(\app\modules\user\widgets\LoginFormWidget::class); ?>
     <?php $this->endWidget(); ?>
