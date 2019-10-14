@@ -17,6 +17,10 @@ indent_size = 4
 tab_width = 4
 indent_size = 4
 
+[*.json]
+tab_width = 4
+indent_size = 4
+
 [*.yml]
 tab_width = 4
 indent_size = 4
