@@ -31,7 +31,7 @@ use app\components\helpers\DateHelper;
                 </div>
             </div>
             <?php if ($data->image) : ?>
-                <?php $imageUrl = $data->getImageThumbUrl(250, 0); ?>
+                <?php $imageUrl = $data->getImageThumbUrl(250); ?>
                 <?php
                 $properties = [
                     'data-src' => $imageUrl

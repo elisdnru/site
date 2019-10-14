@@ -29,7 +29,7 @@ foreach ($data->cache(1000)->tags as $tag) {
             </div>
         </div>
         <?php if ($data->image) : ?>
-            <?php $imageUrl = $data->getImageThumbUrl(250, 0); ?>
+            <?php $imageUrl = $data->getImageThumbUrl(250); ?>
             <?php
             $properties = [];
             if ($data->image_width) {
