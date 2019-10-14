@@ -108,7 +108,7 @@ class User extends ActiveRecord
                 'username',
                 'unique',
                 'caseSensitive' => false,
-                'className' => \app\modules\user\models\User::class,
+                'className' => self::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -151,7 +151,7 @@ class User extends ActiveRecord
                 'email',
                 'unique',
                 'caseSensitive' => false,
-                'className' => \app\modules\user\models\User::class,
+                'className' => self::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
