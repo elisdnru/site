@@ -9,6 +9,8 @@ use app\modules\user\models\Access;
 /* @var $tag Tag */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->layout = '/layouts/index';
+
 $this->pageTitle = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $tag->title;

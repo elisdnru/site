@@ -9,6 +9,8 @@ use app\modules\user\models\Access;
 /* @var $page Page */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->layout = '/layouts/index';
+
 $this->pageTitle = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $page->keywords;

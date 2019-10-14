@@ -3,6 +3,8 @@
 use app\extensions\cachetagging\Tags;
 use app\modules\user\models\Access;
 
+$this->layout = '/layouts/index';
+
 $this->pageTitle = $model->title;
 $this->description = $model->description;
 $this->keywords = $model->keywords;

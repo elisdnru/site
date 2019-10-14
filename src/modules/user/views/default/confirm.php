@@ -1,4 +1,7 @@
 <?php
+
+$this->layout = '/layouts/user';
+
 $this->pageTitle = 'Подтверждение регистрации';
 $this->breadcrumbs = [
     'Вход на сайт' => $this->createUrl('login'),

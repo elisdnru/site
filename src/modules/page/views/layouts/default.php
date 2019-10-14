@@ -11,7 +11,7 @@
 
 <aside class="sidebar right_sidebar">
 
-    <?php $this->renderPartial('//layouts/page/sidebars/default'); ?>
+    <?php $this->renderPartial('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

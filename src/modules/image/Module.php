@@ -11,7 +11,7 @@ class Module extends WebModule
     public static function rules()
     {
         return [
-            'upload/images/<image:.+\/[a-f0-9]+_[0-9]+x[0-9]+\..+>' => 'image/download/thumb',
+            'upload/<image:.+\/[a-f0-9]+_[0-9]+x[0-9]+\..+>' => 'image/download/thumb',
         ];
     }
 }

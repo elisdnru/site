@@ -2,6 +2,7 @@
 
 use app\modules\user\models\Access;
 
+$this->layout = '/layouts/user';
 $this->pageTitle = 'Мой профиль';
 $this->breadcrumbs = [
     'Мой профиль' => ['view'],

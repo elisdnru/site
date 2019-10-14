@@ -45,7 +45,6 @@ class Controller extends CController
         return array_merge(parent::behaviors(), [
             'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
             'UserBehavior' => ['class' => behaviors\UserBehavior::class],
-            'LiveLayoutBehavior' => ['class' => behaviors\LiveLayoutBehavior::class],
             'JsInitBehavior' => ['class' => behaviors\JsInitBehavior::class],
             'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
@@ -61,7 +60,6 @@ class Controller extends CController
     protected function beforeRender($viev)
     {
         $this->initJsDefaults();
-        $this->initLayout();
         return parent::beforeRender($viev);
     }
 

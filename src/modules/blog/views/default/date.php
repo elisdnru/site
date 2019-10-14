@@ -9,6 +9,8 @@ use app\modules\user\models\Access;
 /* @var $date DateLimiter */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->layout = '/layouts/index';
+
 $this->pageTitle = 'Записи за ' . $date->date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = '';
 $this->keywords = '';

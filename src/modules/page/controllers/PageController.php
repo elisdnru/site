@@ -13,7 +13,7 @@ class PageController extends Controller
     {
         $page = $this->loadModel($path);
 
-        $this->layout = '//layouts/page/' . $page->layout;
+        $this->layout = '/layouts/' . $page->layout;
         $subpages_layout = 'subpages/' . $page->subpages_layout;
 
         $this->render('show', [

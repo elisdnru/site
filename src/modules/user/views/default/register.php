@@ -2,6 +2,7 @@
 
 use app\modules\user\models\Access;
 
+$this->layout = '/layouts/user';
 $this->pageTitle = 'Регистрация';
 $this->breadcrumbs = [
     'Вход на сайт' => $this->createUrl('login'),

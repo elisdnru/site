@@ -5,6 +5,8 @@ use app\extensions\cachetagging\Tags;
 use app\components\Controller;
 use app\modules\user\models\Access;
 
+$this->layout = '/layouts/index';
+
 $this->pageTitle = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
 $this->description = 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.';
 

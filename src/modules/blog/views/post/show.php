@@ -9,6 +9,8 @@ use app\components\helpers\DateHelper;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
+$this->layout = '/layouts/post';
+
 /* @var $model Post */
 /* @var $dataProvider CActiveDataProvider */
 

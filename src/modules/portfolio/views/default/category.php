@@ -3,6 +3,8 @@
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
+$this->layout = '/layouts/index';
+
 $this->pageTitle = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;

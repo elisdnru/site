@@ -1,4 +1,6 @@
 <?php
+
+$this->layout = '/layouts/user';
 $this->pageTitle = 'Авторизация';
 $this->breadcrumbs = [
     'Вход на сайт'

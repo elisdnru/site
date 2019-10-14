@@ -1,4 +1,6 @@
 <?php
+
+$this->layout = '/layouts/user';
 $this->pageTitle = 'Восстановление пароля';
 $this->breadcrumbs = [
     'Вход на сайт' => $this->createUrl('login'),
