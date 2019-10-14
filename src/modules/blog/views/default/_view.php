@@ -1,5 +1,5 @@
 <?php
-/* @var $data Post */
+/** @var $data Post */
 
 use app\modules\blog\models\Post;
 use app\components\helpers\DateHelper;

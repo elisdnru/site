@@ -1,11 +1,12 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider CActiveDataProvider */
+/** @var $query CActiveRecord */
 
 $this->pageTitle = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

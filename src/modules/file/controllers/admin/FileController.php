@@ -102,6 +102,7 @@ class FileController extends AdminController
     protected function uploadPostFile($field, $curpath): bool
     {
         $success = false;
+
         $uploaded = Yii::app()->file->set($field, true);
 
         if ($uploaded) {
@@ -118,7 +119,7 @@ class FileController extends AdminController
             if ($success && in_array($uploaded->extension, ['jpg', 'jpeg', 'png', 'gif'])) {
                 $orig = Yii::app()->image->load($file);
 
-                if ($orig->width > self::THUMB_IMAGE_WIDTH) {
+                if ($orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
                     $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::strToChpu($uploaded->filename) . '_prev.' . $uploaded->extension);
                 }
             }

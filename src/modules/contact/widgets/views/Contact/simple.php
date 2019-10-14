@@ -1,4 +1,9 @@
-<?php $form = $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Обратная связь']); ?>
+<?php
+/** @var $form CActiveForm */
+/** @var $model \app\modules\contact\forms\ContactForm */
+?>
+
+<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Обратная связь']); ?>
 
 <?php if (Yii::app()->user->hasFlash('contactForm')) : ?>
     <div class="flash-success">

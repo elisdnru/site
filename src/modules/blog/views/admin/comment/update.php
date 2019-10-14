@@ -1,4 +1,6 @@
 <?php
+/** @var $model \app\modules\blog\models\Comment */
+
 $this->pageTitle = 'Редактор комментариев';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],

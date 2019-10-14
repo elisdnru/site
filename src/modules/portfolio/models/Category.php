@@ -5,6 +5,9 @@ namespace app\modules\portfolio\models;
 use app\components\ExistOrEmpty;
 use app\components\category\models\TreeCategory;
 
+/**
+ * @property Category[] $child_items
+ */
 class Category extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';

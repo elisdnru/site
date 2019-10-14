@@ -1,3 +1,6 @@
+<?php
+/** @var $user \app\modules\user\models\User */
+?>
 <p style="font-family:arial; font-size:12px">Изменились параметры вашей учётной записи на сайте
     http://<?php echo $_SERVER['SERVER_NAME']; ?></p>
 

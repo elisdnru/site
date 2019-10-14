@@ -2,6 +2,7 @@
 
 namespace app\components\behaviors;
 
+use CActiveRecord;
 use CActiveRecordBehavior;
 use CHtml;
 use CHtmlPurifier;
@@ -88,7 +89,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
      */
     public function beforeSave($event): void
     {
-        $model = $this->getOwner();
+        $model = $this->getModel();
 
         if ($this->processOnBeforeSave) {
             if ($this->sourceAttribute &&
@@ -105,7 +106,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
      */
     public function afterFind($event): void
     {
-        $model = $this->getOwner();
+        $model = $this->getModel();
 
         $this->_contentHash = $this->calculateHash($model->{$this->sourceAttribute});
 
@@ -149,7 +150,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     public function purifyText(?string $text): string
     {
         $p = new CHtmlPurifier;
-        $p->options = $this->purifierOptions;
+        $p->setOptions($this->purifierOptions);
 
         if ($this->encodePreContent) {
             $text = preg_replace_callback('|<pre([^>]*)>(.*)</pre>|ismU', [$this, 'storePreContent'], $text);
@@ -168,13 +169,21 @@ class PurifyTextBehavior extends CActiveRecordBehavior
 
     protected function updateModel(): void
     {
-        $model = $this->getOwner();
+        $model = $this->getModel();
         $model->updateByPk($model->getPrimaryKey(), [
             $this->destinationAttribute => $model->{$this->destinationAttribute}
         ]);
     }
 
     private $_preContents = [];
+
+    /**
+     * @return CActiveRecord|\CComponent
+     */
+    protected function getModel(): CActiveRecord
+    {
+        return $this->getOwner();
+    }
 
     private function storePreContent(array $matches): string
     {

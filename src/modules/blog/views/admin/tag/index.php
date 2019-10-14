@@ -1,5 +1,6 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
+/** @var $model \app\modules\blog\models\Tag */
 
 use app\components\AdminController;
 

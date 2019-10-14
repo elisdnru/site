@@ -1,5 +1,5 @@
 <?php
-/* @var $items Work */
+/** @var $items Work */
 
 use app\modules\portfolio\models\Work;
 

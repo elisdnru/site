@@ -1,3 +1,8 @@
+<?php
+/** @var $to string */
+/** @var $subject string */
+/** @var $headers array */
+?>
 <div class="emailDebug">
     <h2>.: Dumping email</h2>
     <p>The email extension is in debug mode, which means that the email was not actually sent but is dumped below

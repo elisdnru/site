@@ -1,10 +1,10 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\components\AdminController;
 use app\modules\menu\models\Menu;
 
-/* @var $model Menu */
+/** @var $model Menu */
 
 $this->pageTitle = 'Редактор меню';
 $this->breadcrumbs = [

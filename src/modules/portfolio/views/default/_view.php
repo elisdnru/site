@@ -1,3 +1,6 @@
+<?php
+/** @var $data \app\modules\portfolio\models\Work */
+?>
 <div class="entry greed">
 
     <p class="thumb">

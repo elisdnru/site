@@ -46,7 +46,7 @@ class ProfileController extends Controller
         }
     }
 
-    public function loadModel($id): User
+    public function loadModel(): User
     {
         $model = User::model()->findByPk(Yii::app()->user->id);
         if ($model === null) {

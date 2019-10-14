@@ -1,4 +1,9 @@
 <?php
+/** @var $title string */
+/** @var $description string */
+/** @var $image string */
+?>
+<?php
 $providers = [
     [
         'name' => 'ВКонтакте',

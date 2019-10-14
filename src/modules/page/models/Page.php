@@ -29,6 +29,7 @@ use Yii;
  * @property string $system
  *
  * @property string $url
+ * @property Page[] child_pages
  *
  * DTreeCategoryBehavior
  * @method mixed getArray()
@@ -234,7 +235,7 @@ class Page extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('page/page/show', ['path' => $this->path]);
+            $this->_url = Yii::app()->createUrl('page/page/show', ['path' => $this->getPath()]);
         }
         return $this->_url;
     }

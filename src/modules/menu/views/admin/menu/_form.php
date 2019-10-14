@@ -1,12 +1,12 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\components\AdminController;
 use app\modules\menu\models\Menu;
 use app\modules\page\models\Page;
 
-/* @var $model Menu */
-/* @var $form CActiveForm */
+/** @var $model Menu */
+/** @var $form CActiveForm */
 ?>
 
 <div class="form">

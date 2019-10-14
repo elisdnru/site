@@ -1,4 +1,6 @@
 <?php
+/** @var $model \app\modules\page\models\Page */
+
 $this->pageTitle = 'Редактор страниц';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
@@ -7,7 +9,7 @@ $this->breadcrumbs = [
 ];
 
 $this->admin[] = ['label' => 'Cтраницы', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];
+$this->admin[] = ['label' => 'Просмотр', 'url' => $model->getUrl()];
 if ($this->moduleAllowed('menu')) {
     $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
 }

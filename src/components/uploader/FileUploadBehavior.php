@@ -3,9 +3,7 @@
 namespace app\components\uploader;
 
 use CActiveRecordBehavior;
-use CComponent;
 use app\extensions\file\CFile;
-use app\extensions\image\CImageHandler;
 use CModelEvent;
 use CUploadedFile;
 use CValidator;
@@ -49,7 +47,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
     public $imageHeightAttribute = '';
 
     /**
-     * @param CComponent $owner
+     * @param \CActiveRecord $owner
      */
     public function attach($owner): void
     {
@@ -59,7 +57,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
             'allowEmpty' => true,
             'safe' => false,
         ]);
-        $owner->validatorList->add($fileValidator);
+        $owner->getValidatorList()->add($fileValidator);
     }
 
     /**
@@ -129,9 +127,6 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
                 $thumbName = Yii::app()->uploader->createThumbFileName($this->getOwner()->{$this->storageAttribute}, $width, $height);
 
-                /* @var $file CFile */
-                /* @var $image CImageHandler */
-
                 if (Yii::app()->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
                     $file = Yii::app()->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
@@ -157,6 +152,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
     protected function loadFile(): void
     {
+        /** @var \CActiveRecord $model */
         $model = $this->getOwner();
 
         if (preg_match('|^http:\/\/|', $model->{$this->fileAttribute})) {
@@ -165,20 +161,20 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
             if ($upload = $this->uploadByUrl($fileUrl)) {
                 $model->{$this->fileAttribute} = '';
-                $model->{$this->storageAttribute} = $upload->basename;
+                $model->{$this->storageAttribute} = $upload->getBasename();
             }
         } elseif ($model->{$this->fileAttribute} instanceof CUploadedFile) {
             $uploadedFile = $model->{$this->fileAttribute};
             $this->deleteFile();
 
             if ($upload = $this->uploadFile($uploadedFile)) {
-                $model->{$this->storageAttribute} = $upload->basename;
+                $model->{$this->storageAttribute} = $upload->getBasename();
             }
         } elseif ($file = CUploadedFile::getInstance($model, $this->fileAttribute)) {
             $this->deleteFile();
 
             if ($upload = $this->uploadFile($file)) {
-                $model->{$this->storageAttribute} = $upload->basename;
+                $model->{$this->storageAttribute} = $upload->getBasename();
             }
         }
     }

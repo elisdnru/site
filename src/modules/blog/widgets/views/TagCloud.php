@@ -1,3 +1,6 @@
+<?php
+/** @var $tags array */
+?>
 <div id="tag_cloud" class="tags">
     <?php foreach ($tags as $tag): ?>
         <?php

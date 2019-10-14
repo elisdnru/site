@@ -12,6 +12,7 @@ class FeedController extends Controller
 {
     public function actionIndex(): void
     {
+        /** @var Post[] $posts */
         $posts = Post::model()->published()->findAll([
             'limit' => 100,
             'order' => 'date DESC',
@@ -32,7 +33,7 @@ class FeedController extends Controller
             $item = $feed->createEntry();
 
             $link = Yii::app()->request->hostInfo . $model->url;
-            $image = Yii::app()->request->hostInfo . $model->imageThumbUrl;
+            $image = Yii::app()->request->hostInfo . $model->getImageThumbUrl();
 
             $item->setTitle($model->title);
 

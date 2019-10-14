@@ -50,7 +50,7 @@ class CrudAction extends CAction
         }
     }
 
-    protected function redirectToView($model): void
+    protected function redirectToView(CActiveRecord $model): void
     {
         if (!Yii::app()->request->isAjaxRequest) {
             $this->controller->redirect(['view', 'id' => $model->getPrimaryKey()]);

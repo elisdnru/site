@@ -35,6 +35,7 @@ use Yii;
  * @property string $site
  *
  * @property int $comments_count
+ * @property int comments_count_real
  * @property string $fio
  */
 class User extends ActiveRecord

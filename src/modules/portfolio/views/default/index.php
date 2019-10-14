@@ -3,6 +3,9 @@
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
+/** @var $dataProvider CDataProvider */
+/** @var $page \app\modules\page\models\Page */
+/** @var $categories \app\modules\portfolio\models\Category[] */
 $this->layout = '/layouts/index';
 
 $this->pageTitle = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

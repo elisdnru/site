@@ -1,12 +1,12 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\components\Controller;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-/* @var $page Page */
-/* @var $items CModel[] */
+/** @var $page Page */
+/** @var $items CModel[] */
 
 $this->pageTitle = $page->pagetitle;
 $this->description = $page->description;

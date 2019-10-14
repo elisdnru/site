@@ -1,3 +1,7 @@
+<?php
+/** @var $model \app\modules\contact\models\Contact */
+?>
+
 <?php $this->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(50),

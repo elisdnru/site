@@ -93,6 +93,7 @@ class CommentAdminController extends AdminController
 
     public function actionModerAll(): void
     {
+        /** @var Comment[] $items */
         $items = CActiveRecord::model($this->getModelName())->findAllByAttributes(['moder' => 0]);
 
         foreach ($items as $item) {
@@ -103,8 +104,9 @@ class CommentAdminController extends AdminController
         $this->redirectOrAjax();
     }
 
-    public function loadModel($id): CActiveRecord
+    public function loadModel($id): Comment
     {
+        /** @var Comment $model */
         $model = CActiveRecord::model($this->getModelName())->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'Комментарий не найден');
@@ -114,7 +116,7 @@ class CommentAdminController extends AdminController
 
     protected function loadMaterialModel($id): CActiveRecord
     {
-        throw new CException('Undefined material model');
+        throw new CException('Undefined material model ' . $id);
     }
 
     protected function getModelName(): string

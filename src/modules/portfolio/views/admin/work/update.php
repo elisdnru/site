@@ -1,4 +1,7 @@
 <?php
+
+/** @var $model \app\modules\portfolio\models\Work */
+
 $this->pageTitle = 'Редактор работы';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],

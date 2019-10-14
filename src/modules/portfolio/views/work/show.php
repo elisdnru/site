@@ -3,6 +3,8 @@
 use app\extensions\cachetagging\Tags;
 use app\modules\user\models\Access;
 
+/** @var $model \app\modules\portfolio\models\Work */
+
 $this->layout = '/layouts/index';
 
 $this->pageTitle = $model->title;

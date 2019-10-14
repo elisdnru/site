@@ -5,6 +5,12 @@ use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
 use app\modules\user\models\User;
 
+/**
+ * @method blog_post($id)
+ * @method blog_category($id)
+ * @method blog_postGroup($id)
+ * @method user($id)
+ */
 class CategoryTest extends DbTestCase
 {
     /**

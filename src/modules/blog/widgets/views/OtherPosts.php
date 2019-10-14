@@ -1,3 +1,6 @@
+<?php
+/** @var $posts \app\modules\blog\models\Post[] */
+?>
 <?php if (count($posts)) : ?>
     <div class="block-title">Другие статьи</div>
     <div style="margin: 20px 0">

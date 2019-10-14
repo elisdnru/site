@@ -1,3 +1,7 @@
+<?php
+/** @var $f CActiveForm */
+/** @var $form \app\modules\comment\forms\CommentForm */
+?>
 <div id="comment-form" class="form">
 
     <?php $f = $this->beginWidget(\CActiveForm::class, [

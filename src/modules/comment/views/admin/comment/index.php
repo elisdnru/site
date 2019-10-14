@@ -1,10 +1,11 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
+/** @var $dataProvider CDataProvider */
 
 use app\components\AdminController;
 
-/* @var $material CActiveRecord */
-/* @var $dataPrvider CActiveDataProvider */
+/** @var $material CActiveRecord */
+/** @var $dataPrvider CActiveDataProvider */
 
 $this->pageTitle = 'Комментарии';
 

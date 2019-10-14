@@ -1,4 +1,8 @@
-<?php use app\extensions\cachetagging\Tags;
+<?php
+use app\extensions\cachetagging\Tags;
+
+/** @var $page \app\modules\page\models\Page */
+/** @var $subpages_layout string */
 
 if ($page->styles) {
     Yii::app()->clientScript->registerCss('page', strip_tags($page->styles));

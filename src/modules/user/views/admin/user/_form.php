@@ -1,3 +1,7 @@
+<?php
+/** @var $form CActiveForm */
+/** @var $model \app\modules\user\models\User */
+?>
 <div class="form">
 
     <?php use app\modules\user\models\Access;

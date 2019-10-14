@@ -1,3 +1,8 @@
+<?php
+/** @var $comments \app\modules\comment\models\Comment[] */
+/** @var $user \app\modules\user\models\User */
+/** @var $authorId int */
+?>
 <div id="comments">
 
     <div class="block-title">Комментарии</div>

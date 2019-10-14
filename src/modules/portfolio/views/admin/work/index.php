@@ -1,5 +1,9 @@
 <?php
 
+/** @var $category Category */
+/** @var $works \app\modules\portfolio\models\Work */
+/** @var $pages CPagination */
+
 use app\modules\portfolio\models\Category;
 
 $this->pageTitle = 'Работы портфолио';

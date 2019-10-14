@@ -1,10 +1,10 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\blog\models\Tag;
 use app\components\AdminController;
 
-/* @var $model Tag */
+/** @var $model Tag */
 
 $this->pageTitle = 'Редактор метки блога';
 $this->breadcrumbs = [

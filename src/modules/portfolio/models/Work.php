@@ -4,6 +4,7 @@ namespace app\modules\portfolio\models;
 
 use app\components\ActiveRecord;
 use app\components\helpers\TextHelper;
+use app\components\uploader\FileUploadBehavior;
 use CActiveDataProvider;
 use CDbCriteria;
 use Yii;
@@ -29,7 +30,9 @@ use Yii;
  * @property string $url
  * @property string $imageUrl
  * @property string $imageThumdUrl
+ * @property Category category
  *
+ * @mixin FileUploadBehavior
  * @method Work published()
  */
 class Work extends ActiveRecord
@@ -243,7 +246,7 @@ class Work extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->path, 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+            $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;
     }

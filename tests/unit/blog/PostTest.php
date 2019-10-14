@@ -6,6 +6,9 @@ use app\modules\blog\models\Comment;
 use app\modules\blog\models\Group;
 use app\modules\user\models\User;
 
+/**
+ * @method blog_post($id)
+ */
 class PostTest extends DbTestCase
 {
     /**

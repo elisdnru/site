@@ -1,12 +1,12 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\components\AdminController;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 
-/* @var $model Work */
-/* @var $form CActiveForm */
+/** @var $model Work */
+/** @var $form CActiveForm */
 ?>
 
 <div class="form">

@@ -3,6 +3,7 @@
 namespace app\modules\blog\models;
 
 use app\components\ActiveRecord;
+use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
@@ -39,7 +40,11 @@ use Yii;
  * @property string $imageThumdUrl
  * @property integer $comments_count
  * @property integer $comments_new_count
+ * @property PostTag posttags
+ * @property Category category
+ * @property Tag[] tags
  *
+ * @mixin FileUploadBehavior
  * @method Post published()
  */
 class Post extends ActiveRecord implements CommentDepends
@@ -320,7 +325,9 @@ class Post extends ActiveRecord implements CommentDepends
     public function getTagsString(): string
     {
         if ($this->tags_string === null) {
-            $list = CHtml::listData($this->cache(0)->tags, 'id', 'title');
+            /** @var self $cached */
+            $cached = $this->cache(0);
+            $list = CHtml::listData($cached->tags, 'id', 'title');
             $this->tags_string = implode(', ', $list);
         }
 
@@ -334,7 +341,7 @@ class Post extends ActiveRecord implements CommentDepends
 
     private function updateTags(): void
     {
-        $newtags = array_unique(preg_split('/\s*,\s*/', $this->tagsString));
+        $newtags = array_unique(preg_split('/\s*,\s*/', $this->getTagsString()));
 
         foreach ($this->posttags as $posttag) {
             $posttag->delete();

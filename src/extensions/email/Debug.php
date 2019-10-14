@@ -13,7 +13,8 @@ class Debug extends CWidget
         if (Yii::app()->user->hasFlash('email')) {
             //register css file
             $url = CHtml::asset(Yii::getPathOfAlias('application.extensions.email.css.debug') . '.css');
-            Yii::app()->getClientScript()->registerCssFile($url);
+
+            Yii::app()->clientScript->registerCssFile($url);
 
             //dump debug info
             echo Yii::app()->user->getFlash('email');

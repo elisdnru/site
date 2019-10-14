@@ -1,5 +1,5 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\extensions\cachetagging\Tags;
 use app\modules\blog\models\Post;
@@ -11,8 +11,8 @@ use app\modules\user\models\Access;
 
 $this->layout = '/layouts/post';
 
-/* @var $model Post */
-/* @var $dataProvider CActiveDataProvider */
+/** @var $model Post */
+/** @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = $model->pagetitle;
 $this->description = $model->description;

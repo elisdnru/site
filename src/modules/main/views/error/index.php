@@ -2,6 +2,7 @@
 
 use app\modules\user\models\Access;
 
+/** @var $page \app\modules\page\models\Page */
 $this->pageTitle = 'Error';
 $this->breadcrumbs = [
     'Ошибка ' . ($error['code'] ?? ''),

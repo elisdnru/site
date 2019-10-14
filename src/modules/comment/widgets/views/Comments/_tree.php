@@ -1,3 +1,10 @@
+<?php
+/** @var $comments Comment */
+/** @var $parent int */
+/** @var $indent int */
+/** @var $authorId int */
+/** @var $user User */
+?>
 <?php if (isset($comments[$parent])) : ?>
     <?php foreach ($comments[$parent] as $comment) : ?>
         <?php $this->render('Comments/_comment', [

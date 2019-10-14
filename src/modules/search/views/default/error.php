@@ -1,10 +1,10 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\components\Controller;
 use app\modules\user\models\Access;
 
-/* @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider CActiveDataProvider */
 
 $this->pageTitle = 'Поиск по сайту';
 $this->description = 'Поиск по сайту';

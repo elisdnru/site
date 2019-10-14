@@ -2,6 +2,9 @@
 
 use app\modules\user\models\Access;
 
+/** @var $model \app\modules\comment\models\Comment */
+/** @var $user \app\modules\user\models\User */
+
 $this->pageTitle = 'Редактор комментариев';
 $this->breadcrumbs = [
     'Редактор комментария',

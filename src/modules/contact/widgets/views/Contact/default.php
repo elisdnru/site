@@ -1,3 +1,7 @@
+<?php
+/** @var $form CActiveForm */
+/** @var $model \app\modules\contact\forms\ContactForm */
+?>
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Отправить сообщение']); ?>
 
 <?php if (Yii::app()->user->hasFlash('contactForm')) : ?>

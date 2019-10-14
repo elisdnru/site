@@ -1,10 +1,10 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\blog\models\Post;
 use app\components\AdminController;
 
-/* @var $model Post */
+/** @var $model Post */
 
 $this->pageTitle = 'Записи блога';
 $this->breadcrumbs = [

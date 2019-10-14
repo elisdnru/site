@@ -1,11 +1,11 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\comment\models\Comment;
 use app\components\AdminController;
 
-/* @var $model Comment */
-/* @var $form CActiveForm */
+/** @var $model Comment */
+/** @var $form CActiveForm */
 ?>
 
 <div class="form">

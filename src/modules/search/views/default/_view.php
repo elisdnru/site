@@ -1,11 +1,12 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\components\Controller;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 
-/* @var $data Search */
+/** @var $data Search */
+/** @var $query CActiveRecord */
 ?>
 
 <article class="entry list">

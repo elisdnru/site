@@ -1,3 +1,9 @@
+<?php
+/** @var $indent int */
+/** @var $authorId int */
+/** @var $comment \app\modules\comment\models\Comment */
+/** @var $user \app\modules\user\models\User */
+?>
 <article class="comment<?php use app\components\helpers\DateHelper;
 use app\components\helpers\SocNetworkHelper;
 use app\components\helpers\TextHelper;

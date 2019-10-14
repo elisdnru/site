@@ -1,4 +1,6 @@
 <?php
+/** @var $model \app\modules\portfolio\models\Category */
+
 $this->pageTitle = 'Категории портфолио';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],

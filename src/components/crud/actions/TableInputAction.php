@@ -51,6 +51,7 @@ class TableInputAction extends CrudAction
         }
 
         // Add new
+        /** @var \CForm $form */
         $form = new $this->formClass;
 
         if (isset($_POST[$formName])) {

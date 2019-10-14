@@ -1,5 +1,6 @@
 <?php
-
+/** @var $form CActiveForm */
+/** @var $model \app\modules\user\forms\LoginForm*/
 $this->layout = '/layouts/user';
 $this->pageTitle = 'Авторизация';
 $this->breadcrumbs = [

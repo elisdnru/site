@@ -1,13 +1,13 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\modules\blog\widgets\BlogSearchFormWidget;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $searchForm \app\modules\blog\forms\SearchForm */
-/* @var $dataProvider CActiveDataProvider */
+/** @var $searchForm \app\modules\blog\forms\SearchForm */
+/** @var $dataProvider CActiveDataProvider */
 
 $this->layout = '/layouts/index';
 

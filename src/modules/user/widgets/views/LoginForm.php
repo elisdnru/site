@@ -1,6 +1,9 @@
-<?php use app\components\helpers\SocNetworkHelper;
-
-if ($user) : ?>
+<?php
+use app\components\helpers\SocNetworkHelper;
+/** @var $user \app\modules\user\models\User */
+/** @var $model \app\modules\user\forms\LoginForm */
+?>
+<?php if ($user) : ?>
     <div style="float:left;">
         <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">
             <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50" />

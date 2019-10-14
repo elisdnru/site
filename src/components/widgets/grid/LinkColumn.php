@@ -2,6 +2,7 @@
 
 namespace app\components\widgets\grid;
 
+use CActiveRecord;
 use CDataColumn;
 use CHtml;
 use Yii;
@@ -37,7 +38,7 @@ class LinkColumn extends CDataColumn
         return null;
     }
 
-    protected function getItemUrl(int $row, $data): string
+    protected function getItemUrl(int $row, CActiveRecord $data): string
     {
         if (!empty($this->link)) {
             return $this->evaluateExpression($this->link, ['data' => $data, 'row' => $row]);

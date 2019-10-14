@@ -24,6 +24,11 @@ use Yii;
  * @property integer $public
  * @property integer $moder
  * @property integer $parent_id
+ * @property Comment[] child_items
+ * @property integer $likes
+ * @property User user
+ * @property Comment parent
+ * @property CommentDepends|\CActiveRecord material
  */
 class Comment extends ActiveRecord
 {
@@ -323,7 +328,7 @@ class Comment extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = $this->material ? $this->material->url . '#comment_' . $this->id : '#';
+            $this->_url = $this->material ? $this->material->getUrl() . '#comment_' . $this->id : '#';
         }
 
         return $this->_url;

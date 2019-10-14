@@ -21,6 +21,7 @@ class AdminAction extends CrudAction
 
     public function run(): void
     {
+        /** @var \CActiveRecord $model */
         $model = $this->createModel();
 
         $formName = (new \ReflectionObject($model))->getShortName();

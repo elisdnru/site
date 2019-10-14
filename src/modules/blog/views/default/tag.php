@@ -1,13 +1,13 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\modules\blog\models\Tag;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $tag Tag */
-/* @var $dataProvider CActiveDataProvider */
+/** @var $tag Tag */
+/** @var $dataProvider CActiveDataProvider */
 
 $this->layout = '/layouts/index';
 

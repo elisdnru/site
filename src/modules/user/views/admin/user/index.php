@@ -1,4 +1,5 @@
 <?php
+/** @var $model \app\modules\user\models\User */
 $this->pageTitle = 'Пользователи';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],

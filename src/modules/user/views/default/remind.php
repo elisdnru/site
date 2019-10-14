@@ -1,5 +1,6 @@
 <?php
-
+/** @var $form CActiveForm */
+/** @var $model \app\modules\user\forms\RemindForm */
 $this->layout = '/layouts/user';
 $this->pageTitle = 'Восстановление пароля';
 $this->breadcrumbs = [

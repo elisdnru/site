@@ -1,3 +1,6 @@
+<?php
+/** @var $dataProvider CDataProvider */
+?>
 <?php $this->widget(\app\components\widgets\ListView::class, [
     'ajaxUpdate' => false,
     'dataProvider' => $dataProvider,

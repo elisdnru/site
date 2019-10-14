@@ -1,13 +1,13 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\components\Controller;
 use app\components\DateLimiter;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/* @var $date DateLimiter */
-/* @var $dataProvider CActiveDataProvider */
+/** @var $date DateLimiter */
+/** @var $dataProvider CActiveDataProvider */
 
 $this->layout = '/layouts/index';
 

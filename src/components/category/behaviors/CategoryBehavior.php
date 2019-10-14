@@ -66,7 +66,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     public function getArray(): array
     {
         $criteria = $this->getOwnerCriteria();
-        $criteria->select = $this->primaryKeyAttribute;
+        $criteria->select = $this->getPrimaryKeyAttribute();
 
         $command = $this->createFindCommand($criteria);
         $result = $command->queryColumn();
@@ -83,13 +83,13 @@ class CategoryBehavior extends CActiveRecordBehavior
         $this->cached();
 
         $items = $this->getFullAssocData([
-            $this->primaryKeyAttribute,
+            $this->getPrimaryKeyAttribute(),
             $this->titleAttribute,
         ]);
 
         $result = [];
         foreach ($items as $item) {
-            $result[$item[$this->primaryKeyAttribute]] = $item[$this->titleAttribute];
+            $result[$item[$this->getPrimaryKeyAttribute()]] = $item[$this->titleAttribute];
         }
 
         return $result;
@@ -124,7 +124,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     {
         $criteria = $this->getOwnerCriteria();
 
-        $items = $this->cached($this->getOwner())->findAll($criteria);
+        $items = $this->cached($this->getModel())->findAll($criteria);
 
         $result = [];
 
@@ -139,7 +139,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     {
         $criteria = $this->getOwnerCriteria();
 
-        $items = $this->cached($this->getOwner())->findAll($criteria);
+        $items = $this->cached($this->getModel())->findAll($criteria);
 
         $result = [];
 
@@ -161,7 +161,7 @@ class CategoryBehavior extends CActiveRecordBehavior
 
     public function findByAlias(string $alias): ?CActiveRecord
     {
-        $model = $this->cached($this->getOwner())->find([
+        $model = $this->cached($this->getModel())->find([
             'condition' => 't.' . $this->aliasAttribute . '=:alias',
             'params' => [':alias' => $alias],
         ]);
@@ -175,7 +175,7 @@ class CategoryBehavior extends CActiveRecordBehavior
      */
     public function getLinkActive(): bool
     {
-        return mb_strpos(Yii::app()->request->getParam($this->requestPathAttribute), $this->getOwner()->{$this->aliasAttribute}, null, 'UTF-8') === 0;
+        return mb_strpos(Yii::app()->request->getParam($this->requestPathAttribute), $this->getModel()->{$this->aliasAttribute}, null, 'UTF-8') === 0;
     }
 
     /**
@@ -191,7 +191,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     {
         $criteria = $this->getOwnerCriteria();
 
-        $attributes = $this->aliasAttributes(array_unique(array_merge($attributes, [$this->primaryKeyAttribute])));
+        $attributes = $this->aliasAttributes(array_unique(array_merge($attributes, [$this->getPrimaryKeyAttribute()])));
         $criteria->select = implode(', ', $attributes);
 
         $command = $this->createFindCommand($criteria);
@@ -202,13 +202,13 @@ class CategoryBehavior extends CActiveRecordBehavior
     protected function createFindCommand($criteria): CDbCommand
     {
         $builder = new CDbCommandBuilder(Yii::app()->db->getSchema());
-        return $builder->createFindCommand($this->tableName, $criteria);
+        return $builder->createFindCommand($this->getTableName(), $criteria);
     }
 
     protected function cached(CActiveRecord $model = null): CActiveRecord
     {
         if ($model === null) {
-            $model = $this->getOwner();
+            $model = $this->getModel();
         }
 
         $connection = $model->getDbConnection();
@@ -227,7 +227,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     protected function getPrimaryKeyAttribute(): ?string
     {
         if ($this->_primaryKey === null) {
-            $this->_primaryKey = $this->tableSchema->primaryKey;
+            $this->_primaryKey = $this->getTableSchema()->primaryKey;
         }
         return $this->_primaryKey;
     }
@@ -235,7 +235,7 @@ class CategoryBehavior extends CActiveRecordBehavior
     protected function getTableSchema(): CDbTableSchema
     {
         if ($this->_tableSchema === null) {
-            $this->_tableSchema = $this->getOwner()->getMetaData()->tableSchema;
+            $this->_tableSchema = $this->getModel()->getMetaData()->tableSchema;
         }
         return $this->_tableSchema;
     }
@@ -243,14 +243,14 @@ class CategoryBehavior extends CActiveRecordBehavior
     protected function getTableName(): string
     {
         if ($this->_tableName === null) {
-            $this->_tableName = $this->getOwner()->tableName();
+            $this->_tableName = $this->getModel()->tableName();
         }
         return $this->_tableName;
     }
 
     protected function getOwnerCriteria(): CDbCriteria
     {
-        $criteria = clone $this->getOwner()->getDbCriteria();
+        $criteria = clone $this->getModel()->getDbCriteria();
         $criteria->mergeWith($this->defaultCriteria);
         $this->_criteria = clone $criteria;
         return $criteria;
@@ -258,11 +258,21 @@ class CategoryBehavior extends CActiveRecordBehavior
 
     protected function clearOwnerCriteria(): void
     {
-        $this->getOwner()->setDbCriteria(new CDbCriteria());
+        $this->getModel()->setDbCriteria(new CDbCriteria());
     }
 
     protected function getOriginalCriteria(): CDbCriteria
     {
         return clone $this->_criteria;
+    }
+
+    /**
+     * @return CActiveRecord|self
+     */
+    private function getModel(): CActiveRecord
+    {
+        /** @var CActiveRecord $owner */
+        $owner = $this->getOwner();
+        return $owner;
     }
 }

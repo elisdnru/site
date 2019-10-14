@@ -1,11 +1,11 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\block\models\Block;
 use app\components\AdminController;
 
-/* @var $model Block */
-/* @var $form CActiveForm */
+/** @var $model Block */
+/** @var $form CActiveForm */
 ?>
 
 <div class="form">

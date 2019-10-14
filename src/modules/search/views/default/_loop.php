@@ -1,3 +1,7 @@
+<?php
+/** @var $dataProvider CDataProvider */
+/** @var $query CActiveRecord */
+?>
 <?php $this->widget(\app\components\widgets\ListView::class, [
     'dataProvider' => $dataProvider,
     'itemView' => '_view',

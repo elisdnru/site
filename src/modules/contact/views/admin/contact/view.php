@@ -1,11 +1,12 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 
-/* @var $next Contact */
-/* @var $prev Contact */
+/** @var $next Contact */
+/** @var $prev Contact */
+/** @var $model Contact */
 
 $this->pageTitle = 'Сообщение';
 $this->breadcrumbs = [

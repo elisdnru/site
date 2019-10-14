@@ -1,13 +1,14 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\models\Group;
 use app\components\Controller;
 
-/* @var $items Group[] */
-/* @var $categoryForm CategoryForm */
-/* @var $form CActiveForm */
+/** @var $items Group[] */
+/** @var $categoryForm CategoryForm */
+/** @var $form CActiveForm */
+/** @var $itemForm \app\modules\blog\forms\GroupForm */
 
 $this->pageTitle = 'Тематические группы записей';
 $this->breadcrumbs = [

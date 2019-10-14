@@ -1,7 +1,8 @@
 <?php
 
 use app\modules\user\models\Access;
-
+/** @var $form CActiveForm */
+/** @var $model \app\modules\user\models\User */
 $this->layout = '/layouts/user';
 $this->pageTitle = 'Регистрация';
 $this->breadcrumbs = [

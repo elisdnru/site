@@ -1,11 +1,11 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\components\AdminController;
 use app\modules\user\models\User;
 
-/* @var $model User */
-/* @var $form CActiveForm */
+/** @var $model User */
+/** @var $form CActiveForm */
 
 $this->pageTitle = 'Пользователи';
 $this->breadcrumbs = [

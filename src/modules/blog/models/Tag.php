@@ -10,6 +10,7 @@ use Yii;
 /**
  * @property integer $id
  * @property string $title
+ * @property PostTag $posttags
  */
 class Tag extends ActiveRecord
 {

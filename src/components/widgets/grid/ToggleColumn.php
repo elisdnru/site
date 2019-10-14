@@ -117,12 +117,14 @@ class ToggleColumn extends CGridColumn
 
     public function getHeaderCellContent(): string
     {
+        $provider = $this->grid->dataProvider;
+
         if ($this->grid->enableSorting && $this->sortable && $this->name !== null) {
-            return $this->grid->dataProvider->getSort()->link($this->name, $this->header, ['class' => 'sort-link']);
+            return $provider->getSort()->link($this->name, $this->header, ['class' => 'sort-link']);
         }
         if ($this->name !== null && $this->header === null) {
-            if ($this->grid->dataProvider instanceof CActiveDataProvider) {
-                return CHtml::encode($this->grid->dataProvider->model->getAttributeLabel($this->name));
+            if ($provider instanceof CActiveDataProvider) {
+                return CHtml::encode($provider->model->getAttributeLabel($this->name));
             }
             return CHtml::encode($this->name);
         }
@@ -192,6 +194,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
         }
 
         if ($visible) {
+            $value = null;
             if (!empty($this->value)) {
                 $value = $this->evaluateExpression($this->value, ['data' => $data, 'row' => $row]);
             } elseif (!empty($this->name)) {

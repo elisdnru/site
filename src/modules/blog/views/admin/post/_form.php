@@ -1,5 +1,5 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
@@ -7,8 +7,8 @@ use app\modules\blog\models\Group;
 use app\modules\blog\models\Tag;
 use app\components\AdminController;
 
-/* @var $model Post */
-/* @var $form CActiveForm */
+/** @var $model Post */
+/** @var $form CActiveForm */
 ?>
 
 <div class="form">

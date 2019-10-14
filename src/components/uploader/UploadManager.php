@@ -162,8 +162,8 @@ class UploadManager extends CApplicationComponent
             return false;
         }
 
-        /* @var $orig CImageHandler */
-        /* @var $thumb CImageHandler */
+        /** @var $orig CImageHandler */
+        /** @var $thumb CImageHandler */
 
         if ($orig = Yii::app()->image->load($fileName)) {
             if ($width && $height) {

@@ -1,5 +1,5 @@
 <?php
-
+/** @var $data \app\modules\comment\models\Comment */
 use app\components\helpers\SocNetworkHelper;
 use app\components\helpers\TextHelper;
 

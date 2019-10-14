@@ -1,3 +1,6 @@
+<?php
+/** @var $posts \app\modules\blog\models\Post[] */
+?>
 <?php if (count($posts)) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => null]); ?>
     <h4>Последние записи:</h4>

@@ -1,3 +1,6 @@
+<?php
+/** @var $form \app\modules\blog\forms\SearchForm */
+?>
 <div class="search_form form">
     <?php echo CHtml::beginForm(Yii::app()->createUrl('/blog/default/search'), 'get'); ?>
     <div class="row search_word">

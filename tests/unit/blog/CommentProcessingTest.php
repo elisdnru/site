@@ -18,8 +18,7 @@ class CommentProcessingTest extends DbTestCase
 
     public function testComment()
     {
-        /** @var Post $post */
-        $post = Post::model()->findByPk(1);
+        Post::model()->findByPk(1);
 
         $comment = new Comment();
 

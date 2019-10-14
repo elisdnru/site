@@ -1,5 +1,5 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\extensions\cachetagging\Tags;
 use app\components\Controller;

@@ -1,7 +1,12 @@
+<?php
+/** @var $user \app\modules\user\models\User */
+/** @var $f CActiveForm */
+/** @var $form \app\modules\comment\forms\CommentForm */
+?>
 <!--noindex-->
 <div id="comment-form" class="form">
 
-    <?php $f = $this->beginWidget(\CActiveForm::class, [
+    <?php $f = $this->beginWidget(CActiveForm::class, [
         'action' => '#comment-form',
         'enableClientValidation' => true,
         'clientOptions' => [

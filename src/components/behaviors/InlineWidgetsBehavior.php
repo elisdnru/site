@@ -3,6 +3,8 @@
 namespace app\components\behaviors;
 
 use CBehavior;
+use CComponent;
+use CController;
 use Yii;
 
 /**
@@ -166,7 +168,7 @@ class InlineWidgetsBehavior extends CBehavior
             $html = $cachedHtml;
         } else {
             ob_start();
-            $widget = Yii::app()->getWidgetFactory()->createWidget($this->owner, $widgetClass, $attrs);
+            $widget = Yii::app()->widgetFactory->createWidget($this->getController(), $widgetClass, $attrs);
             $widget->init();
             $widget->run();
             $html = trim(ob_get_clean());
@@ -202,5 +204,13 @@ class InlineWidgetsBehavior extends CBehavior
             unset($attrs['cache']);
         }
         return $cache;
+    }
+
+    /**
+     * @return CController|CComponent
+     */
+    protected function getController(): CController
+    {
+        return $this->owner;
     }
 }

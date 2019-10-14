@@ -175,7 +175,7 @@ class Menu extends ActiveRecord
             $itArray[$item->id] = [
                     'id' => $item->id,
                     'label' => $item->title,
-                    'url' => $item->url,
+                    'url' => $item->getUrl(),
                     'active' => $active,
                     'itemOptions' => ['class' => 'item_' . $item->id],
                     'linkOptions' => $active ? ['rel' => 'nofollow'] : [],

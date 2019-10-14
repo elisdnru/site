@@ -1,6 +1,8 @@
-<?php use app\components\widgets\ListView;
-
-$this->widget(ListView::class, [
+<?php
+use app\components\widgets\ListView;
+/** @var $dataProvider CDataProvider */
+?>
+<?php $this->widget(ListView::class, [
     'dataProvider' => $dataProvider,
     'itemView' => '_view',
     'id' => 'blogList',

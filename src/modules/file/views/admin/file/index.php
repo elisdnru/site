@@ -1,13 +1,13 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 
-/* @var $model Contact */
-/* @var $htmlroot string */
-/* @var $root string */
-/* @var $upload_count integer */
+/** @var $model Contact */
+/** @var $htmlroot string */
+/** @var $root string */
+/** @var $upload_count integer */
 
 $this->pageTitle = 'Файловый менеджер';
 $this->breadcrumbs = [

@@ -151,7 +151,7 @@ class CFile extends CApplicationComponent
      */
     private function addLog($message, $level = 'info')
     {
-        Yii::log($message . ' (obj: ' . $this->realpath . ')', $level, 'ext.file');
+        Yii::log($message . ' (obj: ' . $this->getRealPath() . ')', $level, 'ext.file');
     }
 
     /**
@@ -169,7 +169,7 @@ class CFile extends CApplicationComponent
      * 'Permission', etc.) would be autoloaded
      * @return object CFile instance for the specified filesystem object
      */
-    public function set($filePath, $greedy = false)
+    public function set($filePath, $greedy = false): CFile
     {
         if (trim($filePath) !== '') {
             $uploaded = null;
@@ -195,18 +195,18 @@ class CFile extends CApplicationComponent
                 $instance->_uploadedInstance = $uploaded;
 
                 $instance->pathInfo();
-                $instance->readable;
-                $instance->writeable;
+                $instance->getReadable();
+                $instance->getWriteable();
 
                 if ($greedy) {
-                    $instance->isempty;
-                    $instance->size;
-                    $instance->owner;
-                    $instance->group;
-                    $instance->permissions;
-                    $instance->timeModified;
-                    if ($instance->isFile) {
-                        $instance->mimeType;
+                    $instance->getIsEmpty();
+                    $instance->getSize();
+                    $instance->getOwner();
+                    $instance->getGroup();
+                    $instance->getPermissions();
+                    $instance->getTimeModified();
+                    if ($instance->getIsFile()) {
+                        $instance->getMimeType();
                     }
                 }
             }
@@ -386,8 +386,8 @@ class CFile extends CApplicationComponent
     public function getIsEmpty()
     {
         if (!isset($this->isEmpty)) {
-            if (($this->isFile && $this->getSize(false) === 0) ||
-                (!$this->isFile && count($this->dirContents($this->_realpath)) === 0)) {
+            if (($this->getIsFile() && $this->getSize(false) === 0) ||
+                (!$this->getIsFile() && count($this->dirContents($this->_realpath)) === 0)) {
                 $this->_isEmpty = true;
             } else {
                 $this->_isEmpty = false;
@@ -463,7 +463,7 @@ class CFile extends CApplicationComponent
      */
     public function create()
     {
-        if (!$this->exists) {
+        if (!$this->getExists()) {
             if ($this->open('w')) {
                 $this->close();
                 return $this->set($this->_realpath);
@@ -555,7 +555,7 @@ class CFile extends CApplicationComponent
     public function getOwner($getName = true)
     {
         if (!isset($this->_owner)) {
-            $this->_owner = $this->exists ? fileowner($this->_realpath) : null;
+            $this->_owner = $this->getExists() ? fileowner($this->_realpath) : null;
         }
 
         if (is_int($this->_owner) && function_exists('posix_getpwuid') && $getName === true) {
@@ -578,7 +578,7 @@ class CFile extends CApplicationComponent
     public function getGroup($getName = true)
     {
         if (!isset($this->_group)) {
-            $this->_group = $this->exists ? filegroup($this->_realpath) : null;
+            $this->_group = $this->getExists() ? filegroup($this->_realpath) : null;
         }
 
         if (is_int($this->_group) && function_exists('posix_getgrgid') && $getName === true) {
@@ -599,7 +599,7 @@ class CFile extends CApplicationComponent
     public function getPermissions()
     {
         if (!isset($this->_permissions)) {
-            $this->_permissions = $this->exists ? substr(sprintf('%o', fileperms($this->_realpath)), -4) : null;
+            $this->_permissions = $this->getExists() ? substr(sprintf('%o', fileperms($this->_realpath)), -4) : null;
         }
 
         return $this->_permissions;
@@ -619,10 +619,10 @@ class CFile extends CApplicationComponent
     public function getSize($format = '0.00')
     {
         if (!isset($this->_size)) {
-            if ($this->isFile) {
-                $this->_size = $this->exists ? sprintf('%u', filesize($this->_realpath)) : null;
+            if ($this->getIsFile()) {
+                $this->_size = $this->getExists() ? sprintf('%u', filesize($this->_realpath)) : null;
             } else {
-                $this->_size = $this->exists ? sprintf('%u', $this->dirSize()) : null;
+                $this->_size = $this->getExists() ? sprintf('%u', $this->dirSize()) : null;
             }
         }
         $size = $this->_size;
@@ -683,7 +683,7 @@ class CFile extends CApplicationComponent
     public function getTimeModified()
     {
         if (empty($this->_timeModified)) {
-            $this->_timeModified = $this->exists ? filemtime($this->_realpath) : null;
+            $this->_timeModified = $this->getExists() ? filemtime($this->_realpath) : null;
         }
 
         return $this->_timeModified;
@@ -750,8 +750,8 @@ class CFile extends CApplicationComponent
      */
     public function getContents($recursive = false, $filter = null)
     {
-        if ($this->readable) {
-            if ($this->isFile) {
+        if ($this->getReadable()) {
+            if ($this->getIsFile()) {
                 if ($contents = file_get_contents($this->_realpath)) {
                     return $contents;
                 }
@@ -864,12 +864,12 @@ class CFile extends CApplicationComponent
      */
     public function setContents($contents = null, $autocreate = true, $flags = 0)
     {
-        if ($this->isFile) {
-            if ($autocreate && !$this->exists) {
+        if ($this->getIsFile()) {
+            if ($autocreate && !$this->getExists()) {
                 $this->create();
             }
 
-            if ($this->writeable && file_put_contents($this->_realpath, $contents, $flags) !== false) {
+            if ($this->getWriteable() && file_put_contents($this->_realpath, $contents, $flags) !== false) {
                 return $this;
             }
 
@@ -890,13 +890,13 @@ class CFile extends CApplicationComponent
      */
     public function setBasename($basename = false)
     {
-        if ($this->isFile) {
-            if ($this->isUploaded) {
+        if ($this->getIsFile()) {
+            if ($this->getIsUploaded()) {
                 $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
                 return false;
             }
 
-            if ($this->writeable && $basename !== false && $this->rename($basename)) {
+            if ($this->getWriteable() && $basename !== false && $this->rename($basename)) {
                 return $this;
             }
 
@@ -918,14 +918,14 @@ class CFile extends CApplicationComponent
      */
     public function setFilename($filename = false)
     {
-        if ($this->isFile) {
-            if ($this->isUploaded) {
+        if ($this->getIsFile()) {
+            if ($this->getIsUploaded()) {
                 $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
                 return false;
             }
 
-            if ($this->writeable && $filename !== false &&
-                $this->rename(str_replace($this->filename, $filename, $this->basename))) {
+            if ($this->getWriteable() && $filename !== false &&
+                $this->rename(str_replace($this->getFilename(), $filename, $this->getBasename()))) {
                 return $this;
             }
 
@@ -948,26 +948,26 @@ class CFile extends CApplicationComponent
      */
     public function setExtension($extension = false)
     {
-        if ($this->isFile) {
-            if ($this->isUploaded) {
+        if ($this->getIsFile()) {
+            if ($this->getIsUploaded()) {
                 $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
                 return false;
             }
 
-            if ($this->writeable && $extension !== false) {
+            if ($this->getWriteable() && $extension !== false) {
                 $extension = trim($extension);
 
                 // drop current extension
                 if ($extension === null || $extension === '') {
-                    $newBaseName = $this->filename;
+                    $newBaseName = $this->getFilename();
                 } // apply new extension
                 else {
                     $extension = ltrim($extension, '.');
 
-                    if ($this->extension === null) {
-                        $newBaseName = $this->filename . '.' . $extension;
+                    if ($this->getExtension() === null) {
+                        $newBaseName = $this->getFilename() . '.' . $extension;
                     } else {
-                        $newBaseName = str_replace($this->extension, $extension, $this->basename);
+                        $newBaseName = str_replace($this->getExtension(), $extension, $this->getBasename());
                     }
                 }
 
@@ -994,7 +994,7 @@ class CFile extends CApplicationComponent
      */
     public function setOwner($owner)
     {
-        if ($this->exists && chown($this->_realpath, $owner)) {
+        if ($this->getExists() && chown($this->_realpath, $owner)) {
             $this->_owner = $owner;
             return $this;
         }
@@ -1013,7 +1013,7 @@ class CFile extends CApplicationComponent
      */
     public function setGroup($group)
     {
-        if ($this->exists && chgrp($this->_realpath, $group)) {
+        if ($this->getExists() && chgrp($this->_realpath, $group)) {
             $this->_group = $group;
             return $this;
         }
@@ -1033,7 +1033,7 @@ class CFile extends CApplicationComponent
      */
     public function setPermissions($permissions)
     {
-        if ($this->exists && is_numeric($permissions)) {
+        if ($this->getExists() && is_numeric($permissions)) {
             // '755' normalize to octal '0755'
             $permissions = octdec(str_pad($permissions, 4, '0', STR_PAD_LEFT));
 
@@ -1061,7 +1061,7 @@ class CFile extends CApplicationComponent
     private function resolveDestPath($fileDest)
     {
         if (strpos($fileDest, DIRECTORY_SEPARATOR) === false) {
-            return $this->dirname . DIRECTORY_SEPARATOR . $fileDest;
+            return $this->getDirname() . DIRECTORY_SEPARATOR . $fileDest;
         }
 
         return $this->realPath($fileDest);
@@ -1081,8 +1081,8 @@ class CFile extends CApplicationComponent
     {
         $destRealPath = $this->resolveDestPath($fileDest);
 
-        if ($this->isFile) {
-            if ($this->readable && @copy($this->_realpath, $destRealPath)) {
+        if ($this->getIsFile()) {
+            if ($this->getReadable() && @copy($this->_realpath, $destRealPath)) {
                 return $this->set($destRealPath);
             }
         } else {
@@ -1118,7 +1118,7 @@ class CFile extends CApplicationComponent
     {
         $destRealPath = $this->resolveDestPath($fileDest);
 
-        if ($this->writeable && @rename($this->_realpath, $destRealPath)) {
+        if ($this->getWriteable() && @rename($this->_realpath, $destRealPath)) {
             $this->_filepath = $fileDest;
             $this->_realpath = $destRealPath;
             // update pathinfo properties
@@ -1156,9 +1156,9 @@ class CFile extends CApplicationComponent
             $path = $this->_realpath;
         }
 
-        if ($this->isFile) {
-            if ($this->writeable) {
-                return $this->contents = '';
+        if ($this->getIsFile()) {
+            if ($this->getWriteable()) {
+                return $this->setContents('');
             }
         } else {
             Yii::trace('Purging directory "' . $path . '"', 'ext.file');
@@ -1188,9 +1188,9 @@ class CFile extends CApplicationComponent
      */
     public function delete($purge = true)
     {
-        if ($this->writeable) {
-            if (($this->isFile && @unlink($this->_realpath)) ||
-                (!$this->isFile && ($purge ? $this->purge() : true) && rmdir($this->_realpath))) {
+        if ($this->getWriteable()) {
+            if (($this->getIsFile() && @unlink($this->_realpath)) ||
+                (!$this->getIsFile() && ($purge ? $this->purge() : true) && rmdir($this->_realpath))) {
                 $this->_exists = $this->_readable = $this->_writeable = false;
                 return true;
             }
@@ -1218,9 +1218,9 @@ class CFile extends CApplicationComponent
      */
     public function send($fakeName = false, $serverHandled = false)
     {
-        if ($this->isFile) {
-            if ($this->readable && !headers_sent()) {
-                $content_type = $this->mimeType;
+        if ($this->getIsFile()) {
+            if ($this->getReadable() && !headers_sent()) {
+                $content_type = $this->getMimeType();
 
                 if (!$content_type) {
                     $content_type = 'application/octet-stream';
@@ -1229,7 +1229,7 @@ class CFile extends CApplicationComponent
                 if ($fakeName) {
                     $filename = $fakeName;
                 } else {
-                    $filename = $this->basename;
+                    $filename = $this->getBasename();
                 }
 
                 // disable browser caching
@@ -1245,7 +1245,7 @@ class CFile extends CApplicationComponent
                 if ($serverHandled) {
                     header('X-Sendfile: ' . $this->_realpath);
                 } else {
-                    if ($contents = $this->contents) {
+                    if ($contents = $this->getContents()) {
                         echo $contents;
                     }
                 }
@@ -1293,8 +1293,8 @@ class CFile extends CApplicationComponent
             return $this->_mimeType;
         }
 
-        if ($this->isFile) {
-            if ($this->readable) {
+        if ($this->getIsFile()) {
+            if ($this->getReadable()) {
                 if ($this->_isUploaded) {
                     return $this->_mimeType = $this->_uploadedInstance->getType();
                 }
@@ -1330,7 +1330,7 @@ class CFile extends CApplicationComponent
      */
     public function getMimeTypeByExtension()
     {
-        if ($this->isFile) {
+        if ($this->getIsFile()) {
             Yii::trace('Trying to get MIME type for "' . $this->_realpath . '" from extension "' . $this->_extension . '"', 'ext.file');
             static $extensions;
             if ($extensions === null) {

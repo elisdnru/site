@@ -1,10 +1,10 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 
-/* @var $model Contact */
+/** @var $model Contact */
 
 $this->pageTitle = 'Сообщения';
 $this->breadcrumbs = [

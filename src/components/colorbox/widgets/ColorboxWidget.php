@@ -11,7 +11,7 @@ class ColorboxWidget extends Widget
 {
     public function run(): void
     {
-        $cs = Yii::app()->getClientScript();
+        $cs = Yii::app()->clientScript;
 
         $cs->registerCoreScript('jquery');
 

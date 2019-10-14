@@ -1,3 +1,6 @@
+<?php
+/** @var $contact Contact */
+?>
 <p>Новое сообщение в обратную связь на сайте http://<?php echo $_SERVER['SERVER_NAME']; ?></p>
 
 <p>

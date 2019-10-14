@@ -3,6 +3,8 @@
 use app\components\helpers\SocNetworkHelper;
 use app\modules\user\models\Access;
 
+/** @var $model \app\modules\user\models\User */
+
 $this->layout = '/layouts/user';
 $this->pageTitle = 'Профиль пользователя ' . $model->username;
 $this->breadcrumbs = ['Профиль'];

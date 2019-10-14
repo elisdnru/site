@@ -67,12 +67,12 @@ class AjaxController extends Controller
     {
         $model = $this->loadModel($id);
 
-        if (!$model->liked) {
+        if (!$model->getLiked()) {
             $model->likes++;
-            $model->liked = true;
+            $model->setLiked(true);
         } else {
             $model->likes--;
-            $model->liked = false;
+            $model->setLiked(false);
         }
 
         if (!$model->save()) {

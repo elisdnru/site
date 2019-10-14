@@ -1,13 +1,15 @@
-<?php use app\modules\user\models\Access;
-
-$this->widget('zii.widgets.grid.CGridView', [
+<?php
+use app\modules\user\models\Access;
+/** @var $model \app\modules\user\models\User */
+?>
+<?php $this->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(50),
     'filter' => $model,
     'columns' => [
         [
             'class' => \app\components\widgets\grid\ImageLinkColumn::class,
-            'value' => static function ($data) {
+            'value' => static function (\app\modules\user\models\User $data) {
                 return $data->getAvatarUrl(50, 50);
             },
             'width' => 50,

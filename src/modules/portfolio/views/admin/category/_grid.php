@@ -1,3 +1,6 @@
+<?php
+/** @var $model \app\modules\portfolio\models\Category */
+?>
 <?php $this->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(30),

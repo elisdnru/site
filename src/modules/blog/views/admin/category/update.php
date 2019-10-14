@@ -1,10 +1,10 @@
 <?php
-/* @var $this AdminController */
+/** @var $this AdminController */
 
 use app\modules\blog\models\Category;
 use app\components\AdminController;
 
-/* @var $model Category */
+/** @var $model Category */
 
 $this->pageTitle = 'Редактор категории блога';
 $this->breadcrumbs = [

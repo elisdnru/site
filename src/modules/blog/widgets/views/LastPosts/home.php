@@ -1,6 +1,10 @@
-<?php use app\components\helpers\DateHelper;
+<?php
 
-foreach ($posts as $data) : ?>
+/** @var $posts \app\modules\blog\models\Post[] */
+
+use app\components\helpers\DateHelper;
+?>
+<?php foreach ($posts as $data) : ?>
     <?php
     $links = [];
     foreach ($data->cache(1000)->tags as $tag) {

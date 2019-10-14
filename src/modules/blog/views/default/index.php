@@ -1,13 +1,13 @@
 <?php
-/* @var $this Controller */
+/** @var $this Controller */
 
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-/* @var $page Page */
-/* @var $dataProvider CActiveDataProvider */
+/** @var $page Page */
+/** @var $dataProvider CActiveDataProvider */
 
 $this->layout = '/layouts/index';
 
