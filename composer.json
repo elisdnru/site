@@ -44,8 +44,8 @@
         "sort-packages": true
     },
     "scripts": {
-        "app": "php bin/yiic.php",
-        "app-test": "php bin/yiit.php",
+        "app": "php bin/app.php",
+        "app-test": "php bin/app-test.php",
         "test": "phpunit --colors=always",
         "lint": "phplint",
         "cs-check": "phpcs",
