@@ -167,7 +167,8 @@ class CFile extends CApplicationComponent
      * exception is raised
      * @param boolean $greedy If true file properties (such as 'Size', 'Owner',
      * 'Permission', etc.) would be autoloaded
-     * @return object CFile instance for the specified filesystem object
+     * @return CFile CFile instance for the specified filesystem object
+     * @throws CException
      */
     public function set($filePath, $greedy = false): CFile
     {
