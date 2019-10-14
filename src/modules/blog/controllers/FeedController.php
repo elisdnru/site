@@ -5,8 +5,8 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\Post;
 use CHtml;
 use app\components\Controller;
-use app\extensions\feed\EFeed;
 use Yii;
+use Zend\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {
@@ -17,24 +17,24 @@ class FeedController extends Controller
             'order' => 'date DESC',
         ]);
 
-        $feed = new EFeed();
+        $feed = new Feed();
 
-        $feed->title = Yii::app()->params['GENERAL.FEED_TITLE'];
-        $feed->description = Yii::app()->params['GENERAL.SITE_NAME'];
+        $feed->setTitle(Yii::app()->params['GENERAL.FEED_TITLE']);
+        $feed->setDescription(Yii::app()->params['GENERAL.SITE_NAME']);
 
-        $feed->addChannelTag('language', 'ru');
-        $feed->addChannelTag('pubDate', date(DATE_RSS));
-        $feed->addChannelTag('lastBuildDate', date(DATE_RSS));
-        $feed->addChannelTag('link', Yii::app()->request->hostInfo);
-        $feed->addChannelTag('copyright', 'Copyright ' . date('Y') . ' ' . $_SERVER['SERVER_NAME']);
+        $feed->setLanguage('ru');
+        $feed->setDateModified(new \DateTimeImmutable());
+        $feed->setLink(Yii::app()->request->hostInfo);
+        $feed->setCopyright('Copyright ' . date('Y') . ' ' . ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']));
+        $feed->setGenerator('ElisDN');
 
         foreach ($posts as $model) {
-            $item = $feed->createNewItem();
+            $item = $feed->createEntry();
 
             $link = Yii::app()->request->hostInfo . $model->url;
             $image = Yii::app()->request->hostInfo . $model->imageThumbUrl;
 
-            $item->title = $model->title;
+            $item->setTitle($model->title);
 
             $description = '';
             if ($model->image) {
@@ -43,20 +43,21 @@ class FeedController extends Controller
             $description .= $model->short_purified;
             $description .= CHtml::tag('p', [], CHtml::link('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
 
-            $item->description = $description;
+            $item->setDescription($description);
 
             if ($model->category) {
-                $item->addTag('category', $model->category->title);
+                $item->addCategory(['term' => $model->category->title]);
             }
 
-            $item->link = $link;
-            $item->date = date(DATE_RSS, strtotime($model->date));
-            $item->addTag('guid', 'post_' . $model->id, ['isPermaLink' => 'false']);
+            $item->setLink($link);
+            $item->setDateModified(new \DateTimeImmutable($model->date));
+            $item->setId('post_' . $model->id);
 
-            $feed->addItem($item);
+            $feed->addEntry($item);
         }
 
-        $feed->generateFeed();
+        header('Content-Type: text/xml;charset=UTF-8');
+        echo $feed->export('rss');
         Yii::app()->end();
     }
 }

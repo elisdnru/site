@@ -16,7 +16,8 @@
         "ext-xml": "^7.1",
         "sentry/sdk": "^2.0.3",
         "symfony/dotenv": "^4.1",
-        "yiisoft/yii": "^1.1"
+        "yiisoft/yii": "^1.1",
+        "zendframework/zend-feed": "^2.12"
     },
     "require-dev": {
         "overtrue/phplint": "^1.1",
