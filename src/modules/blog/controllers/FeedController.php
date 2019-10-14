@@ -19,8 +19,8 @@ class FeedController extends Controller
 
         $feed = new Feed();
 
-        $feed->setTitle(Yii::app()->params['GENERAL.FEED_TITLE']);
-        $feed->setDescription(Yii::app()->params['GENERAL.SITE_NAME']);
+        $feed->setTitle('Дмитрий Елисеев');
+        $feed->setDescription('ElisDN');
 
         $feed->setLanguage('ru');
         $feed->setDateModified(new \DateTimeImmutable());

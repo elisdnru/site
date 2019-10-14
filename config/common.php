@@ -282,7 +282,6 @@ return [
         ],
 
         'GENERAL.SITE_NAME' => 'ElisDN',
-        'GENERAL.FEED_TITLE' => 'Дмитрий Елисеев',
         'GENERAL.ADMIN_EMAIL' => 'mail@elisdn.ru',
     ],
 ];
