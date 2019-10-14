@@ -8,10 +8,7 @@ if ($page->alias === 'services') {
     Yii::app()->clientScript->registerPackage('smart');
 }
 ?>
-
-<?php if ($page->layout === 'blank') : ?>
-    <?php echo $this->decodeWidgets($page->text_purified); ?>
-<?php else : ?>
+<?php if ($page->layout === 'blank') : ?><?php echo $this->decodeWidgets($page->text_purified); ?><?php else : ?>
     <section>
         <header>
             <?php $this->renderPartial('_head', ['page' => $page]); ?>
