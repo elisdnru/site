@@ -15,7 +15,6 @@ class NumberHelper
      */
     public static function plural(int $howmuch, array $input): string
     {
-        $howmuch = (int)$howmuch;
         $l2 = substr($howmuch, -2);
         $l1 = substr($howmuch, -1);
 

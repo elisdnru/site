@@ -7,7 +7,6 @@ use CAction;
 use CActiveRecord;
 use CException;
 use CHttpException;
-use CModel;
 use Yii;
 
 class CrudAction extends CAction

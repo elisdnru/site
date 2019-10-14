@@ -3,9 +3,7 @@
 namespace app\modules\blog\controllers\admin;
 
 use app\modules\blog\models\Post;
-use app\modules\blog\models\Tag;
 use CHttpException;
-use CJSON;
 use app\components\AdminController;
 use Yii;
 
