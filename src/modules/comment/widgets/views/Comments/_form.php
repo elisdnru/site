@@ -1,9 +1,3 @@
-<?php if (Yii::app()->user->hasFlash('commentForm')) : ?>
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('commentForm'); ?>
-    </div>
-<?php endif; ?>
-
 <!--noindex-->
 <div id="comment-form" class="form">
 

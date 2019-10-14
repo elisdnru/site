@@ -63,7 +63,7 @@ class CommentsWidget extends Widget
                 }
 
                 if ($comment->save()) {
-                    Yii::app()->user->setFlash('commentForm', 'Ваш коментарий добавлен');
+                    Yii::app()->user->setFlash('success', 'Ваш коментарий добавлен');
                     Yii::app()->controller->refresh();
                 }
             }

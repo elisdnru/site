@@ -49,7 +49,7 @@ class CommentController extends Controller
                 $model->attributes = $form->attributes;
 
                 if ($model->save()) {
-                    Yii::app()->user->setFlash('commentForm', 'Ваш коментарий сохранён');
+                    Yii::app()->user->setFlash('success', 'Ваш коментарий сохранён');
                     $this->redirect($model->url);
                 }
             }

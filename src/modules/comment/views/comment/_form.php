@@ -29,9 +29,3 @@
     <?php $this->endWidget(); ?>
 
 </div><!-- form -->
-
-<?php if (Yii::app()->user->hasFlash('commentForm')) : ?>
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('commentForm'); ?>
-    </div>
-<?php endif; ?>
