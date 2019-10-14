@@ -30,15 +30,6 @@ class PostController extends AdminController
         ];
     }
 
-    public function actionAutoCompleteTags($term)
-    {
-        if ($term) {
-            $tags = Tag::model()->getArrayByMatch($term);
-            echo CJSON::encode($tags);
-            Yii::app()->end();
-        }
-    }
-
     public function createModel()
     {
         $model = new Post();

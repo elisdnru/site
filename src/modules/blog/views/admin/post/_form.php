@@ -1,7 +1,6 @@
 <?php
 /* @var $this AdminController */
 
-use app\extensions\multicomplete\MultiComplete;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
@@ -142,15 +141,9 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     <fieldset>
         <h4>Метки</h4>
         <div class="row">
-            <?php $this->widget(MultiComplete::class, [
-                'model' => $model,
-                'attribute' => 'tagsString',
-                'splitter' => ',',
-                'sourceUrl' => $this->createUrl('/blog/admin/post/autocompletetags'),
-                'options' => [
-                    'minLength' => '1',
-                ]
-            ]); ?>
+            <?php echo $form->labelEx($model, 'tagsString'); ?><br />
+            <?php echo $form->textField($model, 'tagsString', ['size' => 60, 'maxlength' => 255]); ?><br />
+            <?php echo $form->error($model, 'tagsString'); ?>
         </div>
         <div class="row">
             <ul class="tags_list" id="Post_tagsVariants">
