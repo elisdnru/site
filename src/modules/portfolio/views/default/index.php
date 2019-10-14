@@ -40,11 +40,8 @@ if ($this->is(Access::ROLE_CONTROL)) {
     </div>
 <?php endif; ?>
 
-<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
-<?php endif; ?>
+<?php if (Yii::app()->request->getParam('page', 1) > 1): ?><!--noindex--><?php endif; ?>
 <?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
-<?php if (Yii::app()->request->getParam('page', 1) > 1) :
-?></noindex><?php
-endif; ?>
+<?php if (Yii::app()->request->getParam('page', 1) > 1): ?><!--/noindex--><?php endif; ?>
 
 <?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
