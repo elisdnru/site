@@ -14,6 +14,10 @@ class UloginUserIdentity extends CUserIdentity
 
     public function authenticate(UloginModel $uloginModel = null): bool
     {
+        if ($uloginModel === null) {
+            throw new \InvalidArgumentException('Empty model.');
+        }
+
         $user = User::model()->find([
             'condition' => 'identity=:identity AND network=:network',
             'params' => [

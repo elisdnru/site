@@ -49,10 +49,10 @@ class ProfileController extends Controller
     public function loadModel($id): User
     {
         $model = User::model()->findByPk(Yii::app()->user->id);
-        $model->scenario = 'settings';
         if ($model === null) {
             throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
         }
+        $model->scenario = 'settings';
         if ($model->create_datetime === '0000-00-00 00:00:00') {
             $model->create_datetime = '1900-01-01 00:00:00';
         }
