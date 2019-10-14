@@ -81,8 +81,13 @@ table.grid a {
   text-decoration: underline;
 }
 
-#admin fieldset input[type=text], #admin fieldset input[type=file], #admin fieldset input[type=password], #admin fieldset textarea, #admin fieldset select {
+#admin fieldset input[type=text],
+#admin fieldset input[type=file],
+#admin fieldset input[type=password],
+#admin fieldset textarea,
+#admin fieldset select {
   width: 100%;
+  padding: 2px 4px;
 }
 
 #admin .buttons input, #admin .buttons button {

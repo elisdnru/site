@@ -7,7 +7,7 @@ div.form input[type=password],
 div.form textarea,
 div.form select {
   margin: 0.2em 0 0.5em 0;
-  padding: 2px 4px;
+  padding: 4px;
   border: 1px solid #aaa;
   box-sizing: border-box;
 }
