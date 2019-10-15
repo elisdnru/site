@@ -66,7 +66,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
 
     <?php if (count($this->admin)) : ?>
         <div class="adminbar">
-            <?php $this->widget(\app\components\widgets\AdminLinksWidget::class, [
+            <?php $this->widget(\app\components\widgets\AdminBarWidget::class, [
                 'links' => $this->admin,
             ]); ?>
         </div>

@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 use CWidget;
 use Yii;
 
-class AdminLinksWidget extends CWidget
+class AdminBarWidget extends CWidget
 {
     public $title = '';
     public $links = [];
@@ -14,7 +14,7 @@ class AdminLinksWidget extends CWidget
     public function run(): void
     {
         if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-            $this->render('Adminlinks', [
+            $this->render('AdminBar', [
                 'links' => $this->links
             ]);
         }
