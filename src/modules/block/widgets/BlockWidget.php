@@ -5,6 +5,7 @@ namespace app\modules\block\widgets;
 use app\modules\block\models\Block;
 use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
+use yii\caching\TagDependency;
 
 class BlockWidget extends Widget
 {
@@ -17,7 +18,7 @@ class BlockWidget extends Widget
             echo('<div class="flash-error">[*block|id=?*]</div>');
         }
 
-        $model = Block::model()->cache(0, new Tags('block'))->find('alias=:alias', ['alias' => $this->id]);
+        $model = Block::find()->cache(0, new TagDependency(['tags' => 'block']))->andWhere(['alias' => $this->id])->limit(1)->one();
         if (!$model) {
             return;
         }

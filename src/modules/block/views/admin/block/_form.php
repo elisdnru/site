@@ -3,55 +3,52 @@
 
 use app\modules\block\models\Block;
 use app\components\AdminController;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /** @var $model Block */
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 ?>
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
-        'id' => 'block-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-        'htmlOptions' => ['enctype' => 'multipart/form-data']
-    ]); ?>
+    <form action="?" method="post">
 
-    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
+        <?= Html::hiddenInput(Yii::app()->request->csrfTokenName, Yii::app()->request->getCsrfToken()) ?>
 
-    <?php echo $form->errorSummary($model); ?>
+        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
-    </div>
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
-    <fieldset>
-        <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br />
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'title'); ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
-        <div class="row">
-            <?php echo $form->labelEx($model, 'alias'); ?><br />
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'alias'); ?>
+
+        <fieldset>
+            <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'title') ?><br />
+                <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+            </div>
+            <div class="row<?= $model->hasErrors('alias') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'alias') ?><br />
+                <?= Html::activeTextInput($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'alias', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset class="editor">
+            <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'text') ?><br />
+                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]); ?><br />
+                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
-    </fieldset>
 
-    <fieldset class="editor">
-        <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br />
-            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?><br />
-            <?php echo $form->error($model, 'text'); ?>
-        </div>
-    </fieldset>
-
-    <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
-    </div>
-
-    <?php $this->endWidget(); ?>
+    </form>
 
 </div><!-- form -->
