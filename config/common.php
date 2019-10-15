@@ -154,7 +154,7 @@ return [
         ],
 
         'errorHandler' => [
-            'errorAction' => '/main/error/index',
+            'errorAction' => YII_DEBUG ? null : '/main/error/index',
         ],
 
         'image' => [
