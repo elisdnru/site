@@ -1,8 +1,11 @@
+@import "_reset.css";
+@import "_normalize.css";
 @import "_system.css";
 @import "_layout.css";
 @import "_style.css";
 @import "_typo.css";
 @import "_form.css";
+@import "_flash.css";
 @import "_portlet.css";
 @import "_pager.css";
 @import "_follow.css";

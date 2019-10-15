@@ -1,0 +1,37 @@
+div.flash-error, div.flash-notice, div.flash-success {
+  clear: both;
+  padding: .8em;
+  margin-bottom: 1em;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+div.flash-error {
+  background: #FBE3E4;
+  color: #8a1f11;
+  border-color: #FBC2C4;
+}
+
+div.flash-notice {
+  background: #FFF6BF;
+  color: #514721;
+  border-color: #FFD324;
+}
+
+div.flash-success {
+  background: #E6EFC2;
+  color: #264409;
+  border-color: #C6D880;
+}
+
+div.flash-error a {
+  color: #8a1f11;
+}
+
+div.flash-notice a {
+  color: #514721;
+}
+
+div.flash-success a {
+  color: #264409;
+}
