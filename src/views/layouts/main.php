@@ -12,7 +12,9 @@ if ($this->is(Access::ROLE_ADMIN)) {
 }
 
 /** @var $this Controller */
-?><!DOCTYPE html>
+?>
+<?php Yii::$app->view->beginPage() ?>
+<!DOCTYPE html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
     <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
@@ -29,10 +31,12 @@ if ($this->is(Access::ROLE_ADMIN)) {
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
+    <?php Yii::$app->view->head() ?>
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
+<?php Yii::$app->view->beginBody() ?>
 
 <div id="wrapper">
 
@@ -147,5 +151,8 @@ if ($this->is(Access::ROLE_ADMIN)) {
 
 <!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
 
+<?php Yii::$app->view->endBody() ?>
 </body>
 </html>
+<?php Yii::$app->view->endPage() ?>
+
