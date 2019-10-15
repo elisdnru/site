@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
+const { minify } = require("uglify-js")
 
 module.exports = {
   mode: 'production',
@@ -56,10 +57,10 @@ module.exports = {
         ]
       },
       transform: {
-        'main.js': code => require("uglify-js").minify(code).code,
-        'jquery.js': code => require("uglify-js").minify(code).code,
-        'comments.js': code => require("uglify-js").minify(code).code,
-        'jcarousellite.js': code => require("uglify-js").minify(code).code
+        'main.js': code => minify(code).code,
+        'jquery.js': code => minify(code).code,
+        'comments.js': code => minify(code).code,
+        'jcarousellite.js': code => minify(code).code
       }
     })
   ],
