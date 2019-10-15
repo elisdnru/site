@@ -58,6 +58,12 @@ class Controller extends CController
         ]);
     }
 
+    protected function beforeAction($action)
+    {
+        Yii::$app->controller = $this;
+        return parent::beforeAction($action);
+    }
+
     protected function beforeRender($viev): bool
     {
         $this->initJsDefaults();
