@@ -135,7 +135,9 @@ CTextHighlighter::registerCssFile();
     <div class="clear"></div>
     <!--/noindex-->
 
-    <div class="donate-btn" style=""><a href="/donate">Поддержать проект</a></div>
+    <div class="block-title">Поделиться</div>
+
+    <div class="donate-btn"><a href="/donate">Поддержать проект</a></div>
 
     <?php $this->widget(\app\components\widgets\ShareWidget::class, [
         'title' => $model->title,
