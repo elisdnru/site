@@ -137,7 +137,6 @@ return [
         'db' => [
             'connectionString' => getenv('APP_DB_DSN'),
             'enableProfiling' => false,
-            'emulatePrepare' => true,
             'username' => getenv('APP_DB_USERNAME'),
             'password' => getenv('APP_DB_PASSWORD'),
             'tablePrefix' => '',
