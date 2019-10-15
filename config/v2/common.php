@@ -20,7 +20,12 @@ return [
 
     'modules' => [],
 
-    'components' => [],
+    'components' => [
+        'log' => [
+            'class' => yii\log\Dispatcher::class,
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+        ],
+    ],
 
     'params' => [],
 ];
