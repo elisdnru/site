@@ -55,7 +55,6 @@ return [
     'components' => [
 
         'urlManager' => [
-            'class' => \app\components\system\UrlManager::class,
             'urlFormat' => 'path',
             'caseSensitive' => false,
             'showScriptName' => false,
