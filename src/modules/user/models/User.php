@@ -458,9 +458,12 @@ class User extends ActiveRecord
 
         $this->confirm = md5(microtime());
 
-        Yii::app()->db
-            ->createCommand('UPDATE ' . $this->tableName() . ' SET `confirm`=:confirm WHERE `id`=:id')
-            ->execute([':confirm' => $this->confirm, ':id' => $this->id]);
+        Yii::$app->db
+            ->createCommand('UPDATE ' . $this->tableName() . ' SET confirm=:confirm WHERE id=:id', [
+                ':confirm' => $this->confirm,
+                ':id' => $this->id,
+            ])
+            ->execute();
 
         $email = Yii::app()->email;
         $email->to = $this->email;

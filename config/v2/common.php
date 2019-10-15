@@ -21,6 +21,15 @@ return [
     'modules' => [],
 
     'components' => [
+        'db' => [
+            'class' => \yii\db\Connection::class,
+            'dsn' => getenv('APP_DB_DSN'),
+            'username' => getenv('APP_DB_USERNAME'),
+            'password' => getenv('APP_DB_PASSWORD'),
+            'tablePrefix' => '',
+            'charset' => 'utf8',
+            'enableSchemaCache' => true,
+        ],
         'log' => [
             'class' => yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,

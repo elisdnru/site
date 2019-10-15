@@ -209,7 +209,9 @@ class Work extends ActiveRecord
     protected function afterSave(): void
     {
         if (!$this->sort) {
-            Yii::app()->db->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE `id`=:id')->execute([':id' => $this->id]);
+            Yii::$app->db
+                ->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE id=:id', [':id' => $this->id])
+                ->execute();
             $this->sort = $this->id;
         }
         parent::afterSave();
