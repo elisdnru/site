@@ -16,6 +16,7 @@ services:
             dockerfile: php-fpm.docker
         environment:
             APP_DEBUG: 1
+            APP_ENV: dev
             APP_DB_DSN: mysql:host=mysql;dbname=app
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
@@ -31,6 +32,7 @@ services:
             dockerfile: php-cli.docker
         environment:
             APP_DEBUG: 1
+            APP_ENV: dev
             APP_DB_DSN: mysql:host=mysql;dbname=app
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret

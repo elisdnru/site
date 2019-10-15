@@ -13,13 +13,13 @@ Sentry\init(['dsn' => getenv('SENTRY_DSN')]);
 
 require_once __DIR__ . '/../config/env.php';
 
-$yii = __DIR__ . '/../vendor/yiisoft/yii/framework/yii.php';
-$config = __DIR__ . '/../config/web.php';
+require_once __DIR__ . '/../bootstrap.php';
 
-require_once($yii);
+$yii2Config = require __DIR__ . '/../config/v2/web.php';
+new yii\web\Application($yii2Config);
 
 ob_start();
-$app = Yii::createWebApplication($config);
+$app = Yii::createWebApplication(__DIR__ . '/../config/web.php');
 $app->attachBehavior('SentryBehavior', new SentryBehavior(!(bool)getenv('APP_DEBUG')));
 $app->run();
 $html = ob_get_clean();
