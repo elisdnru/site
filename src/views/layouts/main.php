@@ -20,7 +20,7 @@ if ($this->is(Access::ROLE_ADMIN)) {
     <?php endif; ?>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB" />
 
     <meta name="description" content="<?php echo CHtml::encode($this->description); ?>" />
