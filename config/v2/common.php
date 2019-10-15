@@ -34,6 +34,9 @@ return [
             'class' => yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,
         ],
+        'cache' => [
+            'class' => !getenv('APP_DEBUG') ? \yii\caching\FileCache::class : \yii\caching\DummyCache::class,
+        ],
     ],
 
     'params' => [],
