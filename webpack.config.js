@@ -1,8 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally');
+const TerserJSPlugin = require('terser-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 
 module.exports = {
   mode: 'production',
@@ -35,7 +35,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css',
+      chunkFilename: '[id].css'
     }),
     new MergeIntoSingleFilePlugin({
       files: {
