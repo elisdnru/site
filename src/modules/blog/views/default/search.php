@@ -1,7 +1,7 @@
 <?php
 /** @var $this Controller */
 
-use app\modules\blog\widgets\BlogSearchFormWidget;
+use app\modules\blog\widgets\SearchFormWidget;
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
@@ -31,6 +31,6 @@ if ($this->is(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по блогу</h1>
 
-<?php $this->widget(BlogSearchFormWidget::class); ?>
+<?php $this->widget(SearchFormWidget::class); ?>
 
 <?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

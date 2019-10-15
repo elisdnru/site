@@ -5,9 +5,9 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\forms\SearchForm;
 use app\components\widgets\Widget;
 
-class BlogSearchFormWidget extends Widget
+class SearchFormWidget extends Widget
 {
-    public $tpl = 'BlogSearchForm';
+    public $tpl = 'SearchForm';
 
     public function run(): void
     {

@@ -35,7 +35,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <!--noindex-->
 <?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class); ?>
-    <?php $this->widget(\app\modules\blog\widgets\BlogCalendarWidget::class); ?>
+    <?php $this->widget(\app\modules\blog\widgets\CalendarWidget::class); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

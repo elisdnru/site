@@ -7,7 +7,7 @@ use CHtml;
 use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
 
-class BlogCalendarWidget extends Widget
+class CalendarWidget extends Widget
 {
     public $title = 'Calendar';
 
