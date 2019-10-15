@@ -4,9 +4,6 @@ return array_replace_recursive(
     require(__DIR__ . '/common.php'),
     [
         'commandMap' => [
-            'cache' => [
-                'class' => \app\commands\CacheCommand::class,
-            ],
             'migrate' => [
                 'class' => \app\extensions\migrate\EMigrateCommand::class,
                 'migrationPath' => 'application.migrations',
