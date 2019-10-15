@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "axios": "^0.19.0",

@@ -1,7 +1,7 @@
 up: docker-up
 down: docker-down
 restart: docker-down docker-up
-init: docker-down-clear site-clear docker-pull docker-build docker-up site-init
+init: docker-down-clear site-clear docker-pull docker-build docker-up site-init site-ready
 check: lint test
 lint: site-lint
 test: site-test
@@ -24,7 +24,7 @@ docker-build:
 site-init: site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
 site-clear:
-	docker run --rm -v ${PWD}:/app --workdir=/app alpine sh -c 'rm -rf var/*'
+	docker run --rm -v ${PWD}:/app --workdir=/app alpine sh -c 'rm -rf .ready var/*'
 
 site-composer-install:
 	docker-compose run --rm php-cli composer install
@@ -45,6 +45,9 @@ site-wait-db-test:
 
 site-migrations-test:
 	docker-compose run --rm php-cli composer app-test migrate -- --interactive=0
+
+site-ready:
+	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 
 site-lint:
 	docker-compose run --rm php-cli composer lint

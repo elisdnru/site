@@ -3,3 +3,4 @@
 /volumes
 /node_modules
 /.env
+/.ready
