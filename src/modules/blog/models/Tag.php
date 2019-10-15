@@ -125,15 +125,6 @@ class Tag extends ActiveRecord
         return array_unique($postIds);
     }
 
-    public function getArrayByMatch($q): array
-    {
-        $titles = Yii::app()->db
-            ->createCommand('SELECT title FROM blog_tags WHERE title LIKE :tag')
-            ->queryColumn([':tag' => $q . '%']);
-
-        return array_unique($titles);
-    }
-
     public function findByTitle($title): ?self
     {
         $tag = $this->find([
