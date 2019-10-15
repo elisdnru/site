@@ -12,6 +12,12 @@ div.form select {
   box-sizing: border-box;
 }
 
+div.form input[type=checkbox],
+div.form input[type=radio] {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 div.form textarea {
   padding: 4px;
 }

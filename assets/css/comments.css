@@ -248,6 +248,11 @@
   box-sizing: border-box;
 }
 
+#comment-form  input[type=checkbox] {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 @media screen and (min-width: 600px) {
   #comment-form input[type=text] {
     width: 50% !important;
