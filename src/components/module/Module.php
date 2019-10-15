@@ -1,10 +1,10 @@
 <?php
 
-namespace app\components\system;
+namespace app\components\module;
 
 use CWebModule;
 
-class WebModule extends CWebModule
+class Module extends CWebModule
 {
     public function getGroup(): string
     {

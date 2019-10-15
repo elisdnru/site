@@ -3,10 +3,10 @@
 namespace app\modules\blog;
 
 use app\components\GroupUrlRule;
+use app\components\module\Module as Base;
 use app\modules\blog\models\Comment;
-use app\components\system\WebModule;
 
-class Module extends WebModule
+class Module extends Base
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

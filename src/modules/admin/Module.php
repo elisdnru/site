@@ -3,9 +3,9 @@
 namespace app\modules\admin;
 
 use app\components\GroupUrlRule;
-use app\components\system\WebModule;
+use app\components\module\Module as Base;
 
-class Module extends WebModule
+class Module extends Base
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
