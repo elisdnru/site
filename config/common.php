@@ -119,12 +119,6 @@ return [
                     'css' => ['blog-post.css?v=' . $assetsVersion],
                     'depends' => ['main'],
                 ],
-                'smart' => [
-                    'basePath' => null,
-                    'baseUrl' => '/build',
-                    'css' => ['smart.css?v=' . $assetsVersion],
-                    'depends' => ['main'],
-                ],
                 'jcarousellite' => [
                     'basePath' => null,
                     'baseUrl' => '/build',

@@ -7,10 +7,6 @@ use app\extensions\cachetagging\Tags;
 if ($page->styles) {
     Yii::app()->clientScript->registerCss('page', strip_tags($page->styles));
 }
-
-if ($page->alias === 'services') {
-    Yii::app()->clientScript->registerPackage('smart');
-}
 ?>
 <?php if ($page->layout === 'blank') : ?><?php echo $this->decodeWidgets($page->text_purified); ?><?php else : ?>
     <section>

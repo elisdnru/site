@@ -14,8 +14,7 @@ module.exports = {
     'admin-bar': './assets/css/admin-bar.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
-    'blog-post': './assets/css/blog-post.css',
-    smart: './assets/css/smart.css'
+    'blog-post': './assets/css/blog-post.css'
   },
   output: {
     path: __dirname + '/public/build',
