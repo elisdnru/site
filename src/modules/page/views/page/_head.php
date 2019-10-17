@@ -10,7 +10,7 @@ $this->keywords = $page->keywords;
 
 $this->breadcrumbs = $page->alias !== 'index' ? $page->breadcrumbs : [];
 
-Yii::app()->clientScript->registerMetaTag($page->robots, 'robots');
+Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
 
 if ($this->is(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('page')) {

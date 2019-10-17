@@ -22,13 +22,15 @@ $this->breadcrumbs = [
     'Блог' => $this->createUrl('/blog')
 ];
 
-$cs = Yii::app()->clientScript;
-$cs->registerMetaTag($model->title, null, null, ['property' => 'og:title']);
-$cs->registerMetaTag($model->description, null, null, ['property' => 'og:description']);
-$cs->registerMetaTag(Yii::app()->request->getHostInfo() . $model->url, null, null, ['property' => 'og:url']);
+$host = Yii::app()->request->getHostInfo();
+
+Yii::$app->view->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
+Yii::$app->view->registerMetaTag(['property' => 'og:description', 'content' => $model->description]);
+Yii::$app->view->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->url]);
+
 if ($model->image) {
-    $cs->registerMetaTag(Yii::app()->request->getHostInfo() . $model->imageUrl, null, null, ['property' => 'og:image']);
-    $cs->registerLinkTag('image_src', null, Yii::app()->request->getHostInfo() . $model->imageUrl);
+    Yii::$app->view->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->imageUrl]);
+    Yii::$app->view->registerLinkTag(['rel' => 'image_src', 'href' => $host . $model->imageUrl]);
 }
 
 if ($model->styles) {

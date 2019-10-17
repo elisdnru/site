@@ -15,7 +15,7 @@ $this->pageTitle = 'Записи с меткой ' . $tag->title . NumberHelper:
 $this->description = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $tag->title;
 
-Yii::app()->clientScript->registerMetaTag('noindex, follow', 'robots');
+Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
 
 $this->breadcrumbs = [
     'Блог' => $this->createUrl('/blog/default/index'),
