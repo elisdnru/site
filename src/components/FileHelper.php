@@ -20,8 +20,8 @@ class FileHelper
         return $name;
     }
 
-    public static function escape($name)
+    public static function escape($name): string
     {
-        return TextHelper::translit(str_replace(['./', '../', '~', '"', '"', '//', ':'], '', $name));
+        return TextHelper::translit(str_replace(['..', '~', '"', '"', '/', ':'], '', $name));
     }
 }
