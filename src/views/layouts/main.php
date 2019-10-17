@@ -13,6 +13,8 @@ if ($this->is(Access::ROLE_ADMIN)) {
     AdminBarAsset::register(Yii::$app->view);
 }
 
+Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request->csrfToken]);
+
 /** @var $this Controller */
 ?>
 <?php Yii::$app->view->beginPage() ?>

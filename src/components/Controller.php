@@ -24,9 +24,6 @@ use Yii;
  * LiveLayoutBehavior
  * @method initLayout()
  *
- * JsInitBehavior
- * @method initJsDefaults()
- *
  * @property InlineWidgetsBehavior $InlineWidgetsBehavior
  * @method string decodeWidgets($text)
  * @method string clearWidgets($text)
@@ -46,7 +43,6 @@ class Controller extends CController
         return array_merge(parent::behaviors(), [
             'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
             'UserBehavior' => ['class' => behaviors\UserBehavior::class],
-            'JsInitBehavior' => ['class' => behaviors\JsInitBehavior::class],
             'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
                 'location' => 'application.widgets',
@@ -62,12 +58,6 @@ class Controller extends CController
     {
         Yii::$app->controller = $this;
         return parent::beforeAction($action);
-    }
-
-    protected function beforeRender($viev): bool
-    {
-        $this->initJsDefaults();
-        return parent::beforeRender($viev);
     }
 
     public function checkIsPost(): void
