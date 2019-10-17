@@ -2,11 +2,13 @@
 
 namespace app\modules\portfolio\widgets;
 
+use app\assets\PortfolioAsset;
 use app\modules\portfolio\Module;
 use CDbCriteria;
 use app\components\widgets\Widget;
 use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
+use Yii;
 
 class PortfolioWidget extends Widget
 {
@@ -16,7 +18,7 @@ class PortfolioWidget extends Widget
 
     public function run(): void
     {
-        Module::registerScripts();
+        PortfolioAsset::register(Yii::$app->view);
 
         $criteria = new CDbCriteria;
         $criteria->limit = $this->limit;

@@ -1,6 +1,8 @@
 <?php
 /** @var $model \app\modules\blog\models\Comment */
 
+use app\assets\CommentsAsset;
+
 $this->pageTitle = 'Комментарий';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
@@ -11,7 +13,7 @@ $this->breadcrumbs = [
 $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
 $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
 
-Yii::app()->clientScript->registerPackage('comments');
+CommentsAsset::register(Yii::$app->view);
 ?>
 
 <h1>Просмотр комментария</h1>

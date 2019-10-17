@@ -1,6 +1,10 @@
-<?php $this->beginContent('//layouts/main'); ?>
+<?php
+use app\assets\AdminAsset;
 
-<?php Yii::app()->clientScript->registerPackage('admin'); ?>
+AdminAsset::register(Yii::$app->view);
+?>
+
+<?php $this->beginContent('//layouts/main'); ?>
 
 <section class="main" id="admin">
 

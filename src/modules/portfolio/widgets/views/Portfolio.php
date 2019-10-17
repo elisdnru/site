@@ -1,11 +1,11 @@
 <?php
 /** @var $items Work */
 
+use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
 
+CarouselAsset::register(Yii::$app->view);
 ?>
-
-<?php Yii::app()->clientScript->registerPackage('jcarousellite'); ?>
 
 <div class="portfolio ribbed">
     <div class="carousel_link carouselPrevLink"></div>

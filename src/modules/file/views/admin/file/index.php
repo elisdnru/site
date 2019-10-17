@@ -3,6 +3,7 @@
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
+use yii\web\JqueryAsset;
 
 /** @var $model Contact */
 /** @var $htmlroot string */
@@ -19,7 +20,7 @@ if ($this->moduleAllowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
 }
 
-Yii::app()->clientScript->registerCoreScript('jquery');
+JqueryAsset::register(Yii::$app->view);
 ?>
 
 <h1>Файловый менеджер</h1>

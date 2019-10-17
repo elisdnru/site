@@ -1,14 +1,16 @@
 <?php
+
+use app\assets\AdminBarAsset;
+use app\assets\MainAsset;
 use app\extensions\cachetagging\Tags;
 use app\components\Controller;
 use app\modules\menu\models\Menu;
 use app\modules\user\models\Access;
 
-$cs = Yii::app()->clientScript;
+MainAsset::register(Yii::$app->view);
 
-$cs->registerPackage('main');
 if ($this->is(Access::ROLE_ADMIN)) {
-    $cs->registerPackage('admin-bar');
+    AdminBarAsset::register(Yii::$app->view);
 }
 
 /** @var $this Controller */

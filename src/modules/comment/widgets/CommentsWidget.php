@@ -2,6 +2,7 @@
 
 namespace app\modules\comment\widgets;
 
+use app\assets\CommentsAsset;
 use CException;
 use CHttpCookie;
 use app\modules\comment\models\Comment;
@@ -82,7 +83,7 @@ class CommentsWidget extends Widget
             $comments[$item->parent_id][] = $item;
         }
 
-        Yii::app()->clientScript->registerPackage('comments');
+        CommentsAsset::register(Yii::$app->view);
 
         $this->render('Comments/' . $this->tpl, [
             'comments' => $comments,

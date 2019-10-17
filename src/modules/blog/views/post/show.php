@@ -1,6 +1,7 @@
 <?php
 /** @var $this Controller */
 
+use app\assets\BlogPostAsset;
 use app\extensions\cachetagging\Tags;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
@@ -56,7 +57,7 @@ if ($this->is(Access::ROLE_CONTROL)) {
     }
 }
 
-Yii::app()->clientScript->registerPackage('blog-post');
+BlogPostAsset::register(Yii::$app->view);
 
 CTextHighlighter::registerCssFile();
 

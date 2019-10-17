@@ -2,6 +2,7 @@
 /** @var $this AdminController */
 /** @var $dataProvider CDataProvider */
 
+use app\assets\CommentsAsset;
 use app\components\AdminController;
 
 /** @var $material CActiveRecord */
@@ -13,7 +14,7 @@ if ($this->moduleAllowed('blog')) {
     $this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('/contact/admin/contact/index')];
 }
 
-Yii::app()->clientScript->registerPackage('comments');
+CommentsAsset::register(Yii::$app->view);
 ?>
 
 <?php if ($material !== null) : ?>

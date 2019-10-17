@@ -37,6 +37,16 @@ return [
             'charset' => 'utf8',
             'enableSchemaCache' => true,
         ],
+        'assetManager' => [
+            'appendTimestamp' => true,
+            'bundles' => [
+                \yii\web\JqueryAsset::class => [
+                    'sourcePath' => null,
+                    'baseUrl' => '/build',
+                    'js' => ['jquery.js'],
+                ],
+            ],
+        ],
         'log' => [
             'class' => yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,

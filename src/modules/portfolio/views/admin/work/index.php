@@ -5,6 +5,7 @@
 /** @var $pages CPagination */
 
 use app\modules\portfolio\models\Category;
+use yii\web\JqueryAsset;
 
 $this->pageTitle = 'Работы портфолио';
 $this->breadcrumbs = [
@@ -21,7 +22,7 @@ if ($this->moduleAllowed('portfolio')) {
     $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('create', ['category' => $category])];
 }
 
-Yii::app()->clientScript->registerCoreScript('jquery');
+JqueryAsset::register(Yii::$app->view);
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create', ['category' => $category]); ?>">Добавить</a>

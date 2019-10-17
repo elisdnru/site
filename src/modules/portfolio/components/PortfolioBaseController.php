@@ -2,14 +2,15 @@
 
 namespace app\modules\portfolio\components;
 
+use app\assets\PortfolioAsset;
 use app\components\Controller;
-use app\modules\portfolio\Module;
+use Yii;
 
 abstract class PortfolioBaseController extends Controller
 {
     protected function beforeAction($action): bool
     {
-        Module::registerScripts();
+        PortfolioAsset::register(Yii::$app->view);
 
         return parent::beforeAction($action);
     }

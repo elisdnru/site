@@ -4,7 +4,6 @@ namespace app\modules\portfolio;
 
 use app\components\GroupUrlRule;
 use app\components\module\Module as Base;
-use Yii;
 
 class Module extends Base
 {
@@ -46,10 +45,5 @@ class Module extends Base
                 ],
             ],
         ];
-    }
-
-    public static function registerScripts(): void
-    {
-        Yii::app()->clientScript->registerPackage('portfolio');
     }
 }

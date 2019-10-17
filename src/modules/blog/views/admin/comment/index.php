@@ -1,6 +1,7 @@
 <?php
 /** @var $this AdminController */
 
+use app\assets\CommentsAsset;
 use app\modules\blog\models\Comment;
 use app\components\AdminController;
 
@@ -16,7 +17,7 @@ if ($material) {
     $this->admin[] = ['label' => 'Перейти к записи', 'url' => $material->url];
 }
 
-Yii::app()->clientScript->registerPackage('comments');
+CommentsAsset::register(Yii::$app->view);
 ?>
 
 <?php if ($material !== null) : ?>
