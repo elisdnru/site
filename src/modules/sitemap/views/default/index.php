@@ -16,7 +16,7 @@ $this->breadcrumbs = [
     'Карта сайта',
 ];
 
-if ($this->is(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($page->id) {
         if ($this->moduleAllowed('page')) {
             $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/edit', ['id' => $page->id])];

@@ -9,7 +9,7 @@ $this->pageTitle = 'Редактор комментариев';
 $this->breadcrumbs = [
     'Редактор комментария',
 ];
-if ($this->is(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('comment')) {
         $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
         $this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];

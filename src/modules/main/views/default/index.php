@@ -10,7 +10,7 @@ $this->layout = '/layouts/index';
 $this->pageTitle = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
 $this->description = 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.';
 
-if ($this->is(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('contact')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('contact'));
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('comment'));

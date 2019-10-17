@@ -3,6 +3,7 @@
 namespace app\modules\file\controllers\admin;
 
 use app\modules\user\models\Access;
+use app\modules\user\models\User;
 use CHttpException;
 use app\components\AdminController;
 use app\components\FileHelper;
@@ -158,7 +159,7 @@ class FileController extends AdminController
 
     protected function getFileDir(): string
     {
-        $user = $this->getUser();
+        $user = $this->loadUser();
 
         if ($user && $user->role !== Access::ROLE_ADMIN) {
             $dir = $this->uploadRootPath . '/users/' . $user->username;
@@ -167,5 +168,10 @@ class FileController extends AdminController
         }
 
         return $dir;
+    }
+
+    private function loadUser(): ?User
+    {
+        return User::model()->findByPk(Yii::app()->user->id);
     }
 }

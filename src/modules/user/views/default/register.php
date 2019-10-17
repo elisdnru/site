@@ -71,7 +71,7 @@ $this->breadcrumbs = [
             <?php echo $form->error($model, 'middlename'); ?>
         </div>
 
-        <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
+        <?php if (!Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
             <div class="row">
                 <?php echo $form->labelEx($model, 'verifyCode'); ?><br />
                 <?php echo $form->textField($model, 'verifyCode', ['size' => 20]); ?>

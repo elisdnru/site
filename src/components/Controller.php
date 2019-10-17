@@ -16,11 +16,6 @@ use Yii;
  * ModuleAccessBehavior
  * @method boolean moduleAllowed($module)
  *
- * UserBehavior
- * @method User getUser()
- * @method boolean is($role)
- * @method check($role)
- *
  * LiveLayoutBehavior
  * @method initLayout()
  *
@@ -42,7 +37,6 @@ class Controller extends CController
     {
         return array_merge(parent::behaviors(), [
             'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
-            'UserBehavior' => ['class' => behaviors\UserBehavior::class],
             'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
                 'location' => 'application.widgets',

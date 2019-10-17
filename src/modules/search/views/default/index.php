@@ -16,7 +16,7 @@ $this->breadcrumbs = [
     'Поиск по сайту',
 ];
 
-if ($this->is(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
     }

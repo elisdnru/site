@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
     public function actionLogin(): void
     {
-        $user = $this->getUser();
+        $user = $this->loadUser();
         if ($user) {
             $this->redirect(Yii::app()->createUrl('/user/profile/view'));
         }
@@ -136,5 +136,10 @@ class DefaultController extends Controller
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    private function loadUser(): ?User
+    {
+        return User::model()->findByPk(Yii::app()->user->id);
     }
 }

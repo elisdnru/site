@@ -22,7 +22,7 @@ $this->breadcrumbs = [
 ];
 $this->breadcrumbs = array_merge($this->breadcrumbs, $category->getBreadcrumbs());
 
-if ($this->is(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
         $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create', ['category' => $category->id])];

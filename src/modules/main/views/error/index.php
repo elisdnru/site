@@ -9,7 +9,7 @@ $this->breadcrumbs = [
 ];
 ?>
 
-<?php if ($this->is(Access::ROLE_CONTROL)) {
+<?php if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
 } ?>
 

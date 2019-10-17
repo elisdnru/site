@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 
 MainAsset::register(Yii::$app->view);
 
-if ($this->is(Access::ROLE_ADMIN)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) {
     AdminBarAsset::register(Yii::$app->view);
 }
 
@@ -21,7 +21,7 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
 <!DOCTYPE html>
 <html lang="<?php echo Yii::app()->language; ?>">
 <head>
-    <?php if (!$this->is(Access::ROLE_ADMIN)) : ?>
+    <?php if (!Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
     <?php endif; ?>
 
@@ -102,7 +102,7 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
     <div class="content">
 
         <div class="counters">
-            <?php if (!YII_DEBUG && !$this->is(Access::ROLE_ADMIN)) : ?>
+            <?php if (!YII_DEBUG && !Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
                 <?php $this->renderPartial('//layouts/_counters'); ?>
             <?php endif; ?>
         </div>

@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\modules\user\models\Access;
 use app\components\AdminController;
+use app\modules\user\models\User;
 use Yii;
 
 class DefaultController extends AdminController
@@ -39,7 +40,12 @@ class DefaultController extends AdminController
 
         $this->render('index', [
             'modules' => $modules,
-            'user' => $this->getUser(),
+            'user' => $this->loadUser(),
         ]);
+    }
+
+    private function loadUser(): ?User
+    {
+        return User::model()->findByPk(Yii::app()->user->id);
     }
 }

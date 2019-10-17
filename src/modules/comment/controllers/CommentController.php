@@ -2,6 +2,7 @@
 
 namespace app\modules\comment\controllers;
 
+use app\modules\user\models\User;
 use CHttpException;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
@@ -38,7 +39,7 @@ class CommentController extends Controller
         $form = new CommentForm('useredit');
         $form->yqe1 = 1;
 
-        $user = $this->getUser();
+        $user = $this->loadUser();
 
         $form->attributes = $model->attributes;
 
@@ -76,5 +77,10 @@ class CommentController extends Controller
         }
 
         return $model;
+    }
+
+    private function loadUser(): ?User
+    {
+        return User::model()->findByPk(Yii::app()->user->id);
     }
 }

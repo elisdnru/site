@@ -17,7 +17,7 @@ $this->breadcrumbs = [
 $this->breadcrumbs = array_merge($this->breadcrumbs, $model->category->getBreadcrumbs(true));
 $this->breadcrumbs[] = $model->title;
 
-if ($this->is(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($this->moduleAllowed('portfolio')) {
         $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/portfolio/admin/work/update', ['id' => $model->id])];
         $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/admin/category/update', ['id' => $model->category_id])];
