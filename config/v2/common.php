@@ -1,9 +1,5 @@
 <?php
 
-CHtml::setModelNameConverter(static function ($model) {
-    return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;
-});
-
 $runtime = dirname(__DIR__, 2) . '/var/' . PHP_SAPI;
 
 if (!is_dir($runtime)) {
