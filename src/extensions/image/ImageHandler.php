@@ -2,8 +2,7 @@
 
 namespace app\extensions\image;
 
-use CApplicationComponent;
-use Exception;
+use RuntimeException;
 
 /**
  * Image handler
@@ -12,7 +11,7 @@ use Exception;
  * @version 1.2
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-class CImageHandler extends CApplicationComponent
+class ImageHandler
 {
     private $originalImage;
     private $image;
@@ -28,22 +27,20 @@ class CImageHandler extends CApplicationComponent
 
     public $transparencyColor = [0, 0, 0];
 
+    public const IMG_GIF = 1;
+    public const IMG_JPEG = 2;
+    public const IMG_PNG = 3;
+    public const IMG_WEBP = 4;
 
-    const IMG_GIF = 1;
-    const IMG_JPEG = 2;
-    const IMG_PNG = 3;
-    const IMG_WEBP = 4;
+    public const CORNER_LEFT_TOP = 1;
+    public const CORNER_RIGHT_TOP = 2;
+    public const CORNER_LEFT_BOTTOM = 3;
+    public const CORNER_RIGHT_BOTTOM = 4;
+    public const CORNER_CENTER = 5;
 
-    const CORNER_LEFT_TOP = 1;
-    const CORNER_RIGHT_TOP = 2;
-    const CORNER_LEFT_BOTTOM = 3;
-    const CORNER_RIGHT_BOTTOM = 4;
-    const CORNER_CENTER = 5;
-
-
-    const FLIP_HORIZONTAL = 1;
-    const FLIP_VERTICAL = 2;
-    const FLIP_BOTH = 3;
+    public const FLIP_HORIZONTAL = 1;
+    public const FLIP_VERTICAL = 2;
+    public const FLIP_BOTH = 3;
 
 
     public function getImage()
@@ -51,22 +48,22 @@ class CImageHandler extends CApplicationComponent
         return $this->image;
     }
 
-    public function getFormat()
+    public function getFormat(): int
     {
         return $this->format;
     }
 
-    public function getWidth()
+    public function getWidth(): int
     {
         return $this->width;
     }
 
-    public function getHeight()
+    public function getHeight(): int
     {
         return $this->height;
     }
 
-    public function getMimeType()
+    public function getMimeType(): string
     {
         return $this->mimeType;
     }
@@ -76,7 +73,7 @@ class CImageHandler extends CApplicationComponent
         $this->freeImage();
     }
 
-    private function freeImage()
+    private function freeImage(): void
     {
         if (is_resource($this->image)) {
             imagedestroy($this->image);
@@ -90,14 +87,14 @@ class CImageHandler extends CApplicationComponent
         }
     }
 
-    private function checkLoaded()
+    private function checkLoaded(): void
     {
         if (!is_resource($this->image)) {
-            throw new Exception('Load image first');
+            throw new RuntimeException('Load image first');
         }
     }
 
-    private function loadImage($file)
+    private function loadImage($file): array
     {
         $result = [];
 
@@ -113,35 +110,35 @@ class CImageHandler extends CApplicationComponent
                     if ($result['image'] = imagecreatefromgif($file)) {
                         return $result;
                     }
-                    throw new Exception('Invalid image gif format');
+                    throw new RuntimeException('Invalid image gif format');
                     break;
                 case self::IMG_JPEG:
                     if ($result['image'] = imagecreatefromjpeg($file)) {
                         return $result;
                     }
-                    throw new Exception('Invalid image jpeg format');
+                    throw new RuntimeException('Invalid image jpeg format');
                     break;
                 case self::IMG_PNG:
                     if ($result['image'] = imagecreatefrompng($file)) {
                         return $result;
                     }
-                    throw new Exception('Invalid image png format');
+                    throw new RuntimeException('Invalid image png format');
                     break;
                 case self::IMG_WEBP:
                     if ($result['image'] = imagecreatefromwebp($file)) {
                         return $result;
                     }
-                    throw new Exception('Invalid image png format');
+                    throw new RuntimeException('Invalid image png format');
                     break;
                 default:
-                    throw new Exception('Not supported image format');
+                    throw new RuntimeException('Not supported image format');
             }
         } else {
-            throw new Exception('Invalid image file');
+            throw new RuntimeException('Invalid image file');
         }
     }
 
-    protected function initImage($image = false)
+    protected function initImage($image = false): void
     {
         if ($image === false) {
             $image = $this->originalImage;
@@ -162,7 +159,7 @@ class CImageHandler extends CApplicationComponent
         imagecopy($this->image, $image['image'], 0, 0, 0, 0, $this->width, $this->height);
     }
 
-    public function load($file)
+    public function load($file): ?self
     {
         $this->freeImage();
 
@@ -173,10 +170,10 @@ class CImageHandler extends CApplicationComponent
 
             return $this;
         }
-        return false;
+        return null;
     }
 
-    public function reload()
+    public function reload(): self
     {
         $this->checkLoaded();
         $this->initImage();
@@ -184,7 +181,7 @@ class CImageHandler extends CApplicationComponent
         return $this;
     }
 
-    private function preserveTransparency($newImage)
+    private function preserveTransparency($newImage): void
     {
         switch ($this->format) {
             case self::IMG_GIF:
@@ -276,8 +273,6 @@ class CImageHandler extends CApplicationComponent
         $this->checkLoaded();
 
         if ($wImg = $this->loadImage($watermarkFile)) {
-            $posX = 0;
-            $posY = 0;
 
             $watermarkWidth = $wImg['width'];
             $watermarkHeight = $wImg['height'];
@@ -316,7 +311,7 @@ class CImageHandler extends CApplicationComponent
                     $posY = floor(($this->height - $watermarkHeight) / 2);
                     break;
                 default:
-                    throw new Exception('Invalid $corner value');
+                    throw new RuntimeException('Invalid $corner value');
             }
 
             imagecopyresampled(
@@ -366,7 +361,7 @@ class CImageHandler extends CApplicationComponent
                 $srcHeight = -$this->height;
                 break;
             default:
-                throw new Exception('Invalid $mode value');
+                throw new RuntimeException('Invalid $mode value');
         }
 
         $newImage = imagecreatetruecolor($this->width, $this->height);
@@ -395,7 +390,7 @@ class CImageHandler extends CApplicationComponent
         return $this;
     }
 
-    public function crop($width, $height, $startX = false, $startY = false)
+    public function crop($width, $height, $startX = null, $startY = null)
     {
         $this->checkLoaded();
 
@@ -403,8 +398,8 @@ class CImageHandler extends CApplicationComponent
         $height = (int)$height;
 
         //Centered crop
-        $startX = $startX === false ? floor(($this->width - $width) / 2) : (int)$startX;
-        $startY = $startY === false ? floor(($this->height - $height) / 2) : (int)$startY;
+        $startX = $startX === null ? floor(($this->width - $width) / 2) : (int)$startX;
+        $startY = $startY === null ? floor(($this->height - $height) / 2) : (int)$startY;
 
         //Check dimensions
         $startX = max(0, min($this->width, $startX));
@@ -445,8 +440,7 @@ class CImageHandler extends CApplicationComponent
         $textHeight = $bBox[1] - $bBox[7];
         $textWidth = $bBox[2] - $bBox[0];
 
-        $color = imagecolorallocate($this->image, $color[0], $color[1], $color[2]);
-
+        $allocColor = imagecolorallocate($this->image, $color[0], $color[1], $color[2]);
 
         switch ($corner) {
             case self::CORNER_LEFT_TOP:
@@ -470,11 +464,10 @@ class CImageHandler extends CApplicationComponent
                 $posY = floor(($this->height - $textHeight) / 2);
                 break;
             default:
-                throw new Exception('Invalid $corner value');
+                throw new RuntimeException('Invalid $corner value');
         }
 
-
-        imagettftext($this->image, $size, $angle, $posX, $posY + $textHeight, $color, $fontFile, $text);
+        imagettftext($this->image, $size, $angle, $posX, $posY + $textHeight, $allocColor, $fontFile, $text);
 
         return $this;
     }
@@ -526,8 +519,8 @@ class CImageHandler extends CApplicationComponent
 
         $newImage = imagecreatetruecolor($toWidth, $toHeight);
 
-        $backgroundColor = imagecolorallocate($newImage, $backgroundColor[0], $backgroundColor[1], $backgroundColor[2]);
-        imagefill($newImage, 0, 0, $backgroundColor);
+        $allocatedBackgroundColor = imagecolorallocate($newImage, $backgroundColor[0], $backgroundColor[1], $backgroundColor[2]);
+        imagefill($newImage, 0, 0, $allocatedBackgroundColor);
 
         imagecopyresampled($newImage, $this->image, $posX, $posY, 0, 0, $newWidth, $newHeight, $this->width, $this->height);
 
@@ -554,7 +547,7 @@ class CImageHandler extends CApplicationComponent
         return $this;
     }
 
-    public function show($inFormat = false, $jpegQuality = 75)
+    public function show($inFormat = null, $jpegQuality = 75)
     {
         $this->checkLoaded();
 
@@ -580,13 +573,13 @@ class CImageHandler extends CApplicationComponent
                 imagewebp($this->image);
                 break;
             default:
-                throw new Exception('Invalid image format for putput');
+                throw new RuntimeException('Invalid image format for putput');
         }
 
         return $this;
     }
 
-    public function save($file = false, $toFormat = false, $jpegQuality = 75, $touch = false)
+    public function save($file = null, $toFormat = null, $jpegQuality = 75, $touch = false)
     {
         if (empty($file)) {
             $file = $this->fileName;
@@ -601,26 +594,26 @@ class CImageHandler extends CApplicationComponent
         switch ($toFormat) {
             case self::IMG_GIF:
                 if (!imagegif($this->image, $file)) {
-                    throw new Exception('Can\'t save gif file');
+                    throw new RuntimeException('Can\'t save gif file');
                 }
                 break;
             case self::IMG_JPEG:
                 if (!imagejpeg($this->image, $file, $jpegQuality)) {
-                    throw new Exception('Can\'t save jpeg file');
+                    throw new RuntimeException('Can\'t save jpeg file');
                 }
                 break;
             case self::IMG_PNG:
                 if (!imagepng($this->image, $file)) {
-                    throw new Exception('Can\'t save png file');
+                    throw new RuntimeException('Can\'t save png file');
                 }
                 break;
             case self::IMG_WEBP:
                 if (!imagewebp($this->image, $file)) {
-                    throw new Exception('Can\'t save webp file');
+                    throw new RuntimeException('Can\'t save webp file');
                 }
                 break;
             default:
-                throw new Exception('Invalid image format for save');
+                throw new RuntimeException('Invalid image format for save');
         }
 
         if ($touch && $file !== $this->fileName) {

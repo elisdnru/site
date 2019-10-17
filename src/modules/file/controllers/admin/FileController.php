@@ -117,7 +117,7 @@ class FileController extends AdminController
             }
 
             if ($success && in_array($uploaded->extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                $orig = Yii::app()->image->load($file);
+                $orig = Yii::$app->image->load($file);
 
                 if ($orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
                     $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::strToChpu($uploaded->filename) . '_prev.' . $uploaded->extension);

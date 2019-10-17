@@ -5,7 +5,7 @@ namespace app\components\uploader;
 use app\components\FileHelper;
 use CApplicationComponent;
 use app\extensions\file\CFile;
-use app\extensions\image\CImageHandler;
+use app\extensions\image\ImageHandler;
 use CUploadedFile;
 use StdClass;
 use Yii;
@@ -17,7 +17,7 @@ class UploadManager extends CApplicationComponent
     public $watermarkFile = '';
     public $watermarkOffsetX = 10;
     public $watermarkOffsetY = 10;
-    public $watermarkPosition = CImageHandler::CORNER_RIGHT_BOTTOM;
+    public $watermarkPosition = ImageHandler::CORNER_RIGHT_BOTTOM;
     public $origFileSalt = 'salt';
     public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
@@ -162,10 +162,10 @@ class UploadManager extends CApplicationComponent
             return false;
         }
 
-        /** @var $orig CImageHandler */
-        /** @var $thumb CImageHandler */
+        /** @var $orig ImageHandler */
+        /** @var $thumb ImageHandler */
 
-        if ($orig = Yii::app()->image->load($fileName)) {
+        if ($orig = Yii::$app->image->load($fileName)) {
             if ($width && $height) {
                 $thumb = $orig->adaptiveThumb($width, $height);
             } else {
@@ -182,7 +182,7 @@ class UploadManager extends CApplicationComponent
                 throw new \RuntimeException('Unable to save ' . $targetName);
             }
 
-            if (!$thumb->save($targetName . '.webp', CImageHandler::IMG_WEBP, 100)) {
+            if (!$thumb->save($targetName . '.webp', ImageHandler::IMG_WEBP, 100)) {
                 throw new \RuntimeException('Unable to save ' . $targetName . 'webp');
             }
             return true;

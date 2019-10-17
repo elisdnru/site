@@ -16,7 +16,6 @@ use app\extensions\cachetagging\TaggingBehavior;
  * @property \app\components\module\ModuleManager $moduleManager
  * @property \app\components\uploader\UploadManager $uploader
  * @property \app\extensions\file\CFile $file
- * @property \app\extensions\image\CImageHandler $image
  * @property CWidgetFactory $widgetFactory
  * @property ICache|TaggingBehavior $cache
  * @property CTextHighlighter $syntaxhighlighter

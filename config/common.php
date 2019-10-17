@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 
 use app\extensions\file\CFile;
-use app\extensions\image\CImageHandler;
+use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
@@ -106,10 +106,6 @@ return [
 
         'errorHandler' => [
             'errorAction' => YII_DEBUG ? null : '/main/error/index',
-        ],
-
-        'image' => [
-            'class' => CImageHandler::class,
         ],
 
         'file' => [

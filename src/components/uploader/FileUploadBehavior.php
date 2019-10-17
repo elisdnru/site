@@ -134,7 +134,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
                 }
 
                 if ($file) {
-                    if ($image = Yii::app()->image->load($file->getRealPath())) {
+                    if ($image = Yii::$app->image->load($file->getRealPath())) {
                         $model->{$this->imageWidthAttribute} = $image->getWidth();
                         $model->{$this->imageHeightAttribute} = $image->getHeight();
                     }
