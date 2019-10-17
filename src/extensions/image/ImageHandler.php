@@ -2,6 +2,7 @@
 
 namespace app\extensions\image;
 
+use app\extensions\AntiMagic;
 use RuntimeException;
 
 /**
@@ -13,6 +14,8 @@ use RuntimeException;
  */
 class ImageHandler
 {
+    use AntiMagic;
+
     private $originalImage;
     private $image;
 
