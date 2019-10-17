@@ -11,7 +11,6 @@ use app\extensions\cachetagging\TaggingBehavior;
  * @property \app\components\PhpAuthManager authManager
  * @property \app\modules\user\components\WebUser $user
  * @property \app\components\Controller $controller
- * @property \app\extensions\email\Email $email
  * @property CHttpSession $session
  * @property \app\components\module\ModuleManager $moduleManager
  * @property CWidgetFactory $widgetFactory

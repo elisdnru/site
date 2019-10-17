@@ -82,14 +82,6 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
 
     <div id="content">
 
-        <?php if (Yii::app()->user->hasFlash('email')) : ?>
-            <!-- Отладка мэйлера -->
-            <div class="flash-success">
-                <?php echo Yii::app()->user->getFlash('email'); ?>
-            </div>
-            <!-- /Отладка мэйлера -->
-        <?php endif; ?>
-
         <!-- Контент -->
         <?php echo $content; ?>
         <!-- /Контент -->

@@ -108,11 +108,6 @@ return [
             'errorAction' => YII_DEBUG ? null : '/main/error/index',
         ],
 
-        'email' => [
-            'class' => \app\extensions\email\Email::class,
-            'delivery' => 'php', //'php'|'debug'
-        ],
-
         'widgetFactory' => [
             'enableSkin' => true,
         ],
