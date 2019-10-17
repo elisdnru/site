@@ -47,7 +47,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Недавно обновившиеся записи']); ?>
-    <?php $this->widget(\app\modules\blog\widgets\UpdatedPostsWidget::class, ['limit' => 5]); ?>
+    <?php $this->widget(\app\modules\blog\widgets\UpdatedPostsWidget::class, ['limit' => 10]); ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

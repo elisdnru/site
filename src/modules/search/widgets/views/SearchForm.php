@@ -7,7 +7,7 @@
         <?php echo CHtml::textField('q', $form->q, ['placeholder' => 'Поиск']); ?>
     </div>
     <div class="search_button">
-        <?php echo CHtml::submitButton(''); ?>
+        <button type="submit"></button>
     </div>
     <?php echo CHtml::endForm(); ?>
 </div>
