@@ -4,7 +4,6 @@ namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;
 use app\components\widgets\Widget;
-use app\extensions\cachetagging\Tags;
 use yii\caching\TagDependency;
 
 class BlockWidget extends Widget

@@ -3,7 +3,6 @@
 namespace app\modules\portfolio\widgets;
 
 use app\assets\PortfolioAsset;
-use app\modules\portfolio\Module;
 use CDbCriteria;
 use app\components\widgets\Widget;
 use app\modules\portfolio\models\Work;

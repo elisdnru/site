@@ -5,7 +5,6 @@ namespace app\components;
 use app\components\behaviors\InlineWidgetsBehavior;
 use CController;
 use CHttpException;
-use app\modules\user\models\User;
 use Yii;
 
 /**

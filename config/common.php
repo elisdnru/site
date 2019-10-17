@@ -6,8 +6,6 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
-use app\extensions\file\File;
-use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;

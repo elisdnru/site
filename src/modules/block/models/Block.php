@@ -2,7 +2,6 @@
 
 namespace app\modules\block\models;
 
-use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 
 /**
