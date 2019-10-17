@@ -86,7 +86,6 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
 
         <div class="clear"></div>
     </div>
-    <div id="clearfooter"></div>
 </div>
 
 <footer id="footer">

@@ -17,6 +17,12 @@ body {
   box-shadow: 0 0 10px 0 #c0c0c0;
 }
 
+#wrapper::after {
+  content: '';
+  display: block;
+  height: 150px;
+}
+
 #header {
   padding: 20px 20px 10px 20px;
   position: relative;
@@ -209,13 +215,9 @@ body {
   cursor: pointer;
 }
 
-#clearfooter {
-  height: 140px;
-}
-
 #footer {
-  min-height: 140px;
-  margin: -140px auto 0 auto;
+  min-height: 150px;
+  margin: -150px auto 0 auto;
   position: relative;
   background: #444;
   color: #ccc;
