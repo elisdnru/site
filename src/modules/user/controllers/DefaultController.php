@@ -88,6 +88,7 @@ class DefaultController extends Controller
             $user->confirm = '';
             if ($user->save()) {
                 Yii::app()->user->setFlash('confirm-message', 'Регистрация подтверждена');
+                $this->redirect(['login']);
             } else {
                 Yii::app()->user->setFlash('confirm-message', 'Ошибка');
             }
