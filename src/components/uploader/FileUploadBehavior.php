@@ -3,7 +3,7 @@
 namespace app\components\uploader;
 
 use CActiveRecordBehavior;
-use app\extensions\file\CFile;
+use app\extensions\file\File;
 use CModelEvent;
 use CUploadedFile;
 use CValidator;
@@ -128,7 +128,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
                 $thumbName = Yii::app()->uploader->createThumbFileName($this->getOwner()->{$this->storageAttribute}, $width, $height);
 
                 if (Yii::app()->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
-                    $file = Yii::app()->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
+                    $file = Yii::$app->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
                     $file = Yii::app()->uploader->createThumb($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
                 }
@@ -191,12 +191,12 @@ class FileUploadBehavior extends CActiveRecordBehavior
         }
     }
 
-    private function uploadByUrl(string $fileUrl): ?CFile
+    private function uploadByUrl(string $fileUrl): ?File
     {
         return Yii::app()->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
     }
 
-    private function uploadFile(CUploadedFile $uploadedFile): ?CFile
+    private function uploadFile(CUploadedFile $uploadedFile): ?File
     {
         $watermarkFile = Yii::app()->uploader->watermarkFile;
         if (!$this->enableWatermark) {

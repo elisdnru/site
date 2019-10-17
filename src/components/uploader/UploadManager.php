@@ -4,7 +4,7 @@ namespace app\components\uploader;
 
 use app\components\FileHelper;
 use CApplicationComponent;
-use app\extensions\file\CFile;
+use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 use CUploadedFile;
 use StdClass;
@@ -22,10 +22,10 @@ class UploadManager extends CApplicationComponent
     public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
 
-    public function upload(CUploadedFile $file, string $path): ?CFile
+    public function upload(CUploadedFile $file, string $path): ?File
     {
         if (!is_dir($path)) {
-            Yii::app()->file->set($path)->createDir($this->directoryRights);
+            Yii::$app->file->set($path)->createDir($this->directoryRights);
         }
 
         $extension = strtolower($file->extensionName);
@@ -38,18 +38,18 @@ class UploadManager extends CApplicationComponent
             $orig = $path . '/' . $this->createOrigFileName($baseName);
             if ($file->saveAs($orig)) {
                 $this->createThumb($path, $baseName);
-                return Yii::app()->file->set($main);
+                return Yii::$app->file->set($main);
             }
         } else {
             if ($file->saveAs($main)) {
-                return Yii::app()->file->set($main);
+                return Yii::$app->file->set($main);
             }
         }
 
         return null;
     }
 
-    public function uploadByUrl(string $url, string $path, string $extension): ?CFile
+    public function uploadByUrl(string $url, string $path, string $extension): ?File
     {
         $content = file_get_contents($url);
 
@@ -63,7 +63,7 @@ class UploadManager extends CApplicationComponent
             fwrite($f, $content);
             fclose($f);
 
-            return Yii::app()->file->set($orig);
+            return Yii::$app->file->set($orig);
         }
         return null;
     }
@@ -78,15 +78,15 @@ class UploadManager extends CApplicationComponent
             return false;
         }
 
-        $dir = Yii::app()->file->set($path);
+        $dir = Yii::$app->file->set($path);
 
-        if (!$dir->contents) {
+        if (!$dir->getContents()) {
             return false;
         }
 
-        $file = Yii::app()->file->set($path . '/' . $baseName);
-        $fileName = $file->filename;
-        $extension = $file->extension ? '\.' . $file->extension : '';
+        $file = Yii::$app->file->set($path . '/' . $baseName);
+        $fileName = $file->getFilename();
+        $extension = $file->getExtension() ? '\.' . $file->getExtension() : '';
 
         if (!$fileName) {
             return false;

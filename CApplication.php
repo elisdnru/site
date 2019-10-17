@@ -15,7 +15,6 @@ use app\extensions\cachetagging\TaggingBehavior;
  * @property CHttpSession $session
  * @property \app\components\module\ModuleManager $moduleManager
  * @property \app\components\uploader\UploadManager $uploader
- * @property \app\extensions\file\CFile $file
  * @property CWidgetFactory $widgetFactory
  * @property ICache|TaggingBehavior $cache
  * @property CTextHighlighter $syntaxhighlighter

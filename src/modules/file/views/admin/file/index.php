@@ -51,7 +51,7 @@ $nav = '';
 </h3>
 
 <?php
-$dir = Yii::app()->file->set($root . '/' . $path);
+$dir = Yii::$app->file->set($root . '/' . $path);
 $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
 ?>
 
@@ -69,56 +69,56 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
         <th style="width:16px"></th>
     </tr>
 
-    <?php if ($dir->contents) : ?>
-        <?php foreach ($dir->contents as $item) : ?>
+    <?php if ($contents = $dir->getContents()): ?>
+        <?php foreach ($contents as $item) : ?>
             <?php
-            $file = Yii::app()->file->set($item);
-            if ($file->basename === '.htaccess') {
+            $file = Yii::$app->file->set($item);
+            if ($file->getBasename() === '.htaccess') {
                 continue;
             }
             ?>
 
-            <?php if ($file->isDir) : ?>
-                <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->basename]); ?>
+            <?php if ($file->getIsDir()) : ?>
+                <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
 
-                <tr id="item_<?php echo md5($file->basename); ?>">
+                <tr id="item_<?php echo md5($file->getBasename()); ?>">
                     <td style="text-align: center">
-                        <?php //echo CHtml::checkBox('del_'.md5($file->basename), false, array('class'=>'folder_checkbox')); ?>
+                        <?php //echo CHtml::checkBox('del_'.md5($file->getBasename()), false, array('class'=>'folder_checkbox')); ?>
                     </td>
                     <td>
-                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->basename; ?>'); return false;"><?php echo $renameIcon; ?></a>
-                        <img src="/images/admin/foldericon.jpg" />
-                        <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->basename]); ?>"><?php echo $file->basename; ?></a>
+                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->getBasename(); ?>'); return false;"><?php echo $renameIcon; ?></a>
+                        <img src="/images/admin/foldericon.jpg" alt="" />
+                        <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>"><?php echo $file->getBasename(); ?></a>
                     </td>
                     <td></td>
                     <td style="text-align: center">
-                        <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
+                        <?php echo date('Y-m-d h:i:s', $file->getTimeModified()); ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить директорию &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить директорию &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                     </td>
                 </tr>
 
             <?php else : ?>
-                <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->basename]); ?>
+                <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
 
-                <tr id="item_<?php echo md5($file->basename); ?>">
+                <tr id="item_<?php echo md5($file->getBasename()); ?>">
                     <td style="text-align: center">
-                        <?php echo CHtml::checkBox('del_' . md5($file->basename), false, ['class' => 'file_checkbox']); ?>
+                        <?php echo CHtml::checkBox('del_' . md5($file->getBasename()), false, ['class' => 'file_checkbox']); ?>
                     </td>
                     <td>
-                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->basename; ?>')"><?php echo $renameIcon; ?></a>
+                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->getBasename(); ?>')"><?php echo $renameIcon; ?></a>
                         <img src="/images/admin/fileicon.jpg" />
-                        <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->basename; ?>"><?php echo $file->basename; ?></a>
+                        <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->getBasename(); ?>"><?php echo $file->getBasename(); ?></a>
                     </td>
                     <td style="text-align: center">
-                        <?php echo $file->size; ?>
+                        <?php echo $file->getSize(); ?>
                     </td>
                     <td style="text-align: center">
-                        <?php echo date('Y-m-d h:i:s', $file->timeModified); ?>
+                        <?php echo date('Y-m-d h:i:s', $file->getTimeModified()); ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->basename); ?>" title="Удалить файл &laquo;<?php echo $file->basename; ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить файл &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
                     </td>
                 </tr>
 

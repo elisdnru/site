@@ -54,6 +54,10 @@ return [
             'class' => \app\extensions\image\ImageHandler::class,
         ],
 
+        'file' => [
+            'class' => \app\extensions\file\File::class,
+        ],
+
         'log' => [
             'class' => yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,

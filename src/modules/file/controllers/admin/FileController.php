@@ -31,7 +31,7 @@ class FileController extends AdminController
         $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
 
         if (!file_exists($this->getFileDir() . '/' . $path)) {
-            Yii::app()->file->CreateDir(0754, $this->getFileDir() . '/' . $path);
+            Yii::$app->file->createDir(0754, $this->getFileDir() . '/' . $path);
         }
 
         if (!empty($_FILES)) {
@@ -47,7 +47,7 @@ class FileController extends AdminController
             $foldername = $_POST['foldername'];
 
             if (preg_match('|^[\\w\\d_-]+$|i', $foldername, $t)) {
-                Yii::app()->file->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $foldername);
+                Yii::$app->file->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $foldername);
             }
         }
 
@@ -62,7 +62,7 @@ class FileController extends AdminController
     public function actionDelete($name): void
     {
         $name = FileHelper::escape($name);
-        $file = Yii::app()->file->set($this->getFileDir() . '/' . $name, true);
+        $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
             throw new CHttpException(404, 'Файл не найден');
@@ -86,7 +86,7 @@ class FileController extends AdminController
 
         $name = ($path ? $path . '/' : '') . $name;
 
-        $file = Yii::app()->file->set($this->getFileDir() . '/' . $name, true);
+        $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
             throw new CHttpException(404, 'Файл не найден');
@@ -103,24 +103,24 @@ class FileController extends AdminController
     {
         $success = false;
 
-        $uploaded = Yii::app()->file->set($field, true);
+        $uploaded = Yii::$app->file->set($field, true);
 
         if ($uploaded) {
-            if ($uploaded->basename === '.htaccess') {
+            if ($uploaded->getBasename() === '.htaccess') {
                 return 'Отказано в доступе к загрузке файла .htaccess';
             }
 
-            $file = $curpath . '/' . TextHelper::strToChpu($uploaded->filename) . '.' . $uploaded->extension;
+            $file = $curpath . '/' . TextHelper::strToChpu($uploaded->getFilename()) . '.' . $uploaded->getExtension();
 
             if (!$uploaded->Move($file)) {
                 $success = true;
             }
 
-            if ($success && in_array($uploaded->extension, ['jpg', 'jpeg', 'png', 'gif'])) {
+            if ($success && in_array($uploaded->getExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
                 $orig = Yii::$app->image->load($file);
 
-                if ($orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
-                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::strToChpu($uploaded->filename) . '_prev.' . $uploaded->extension);
+                if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
+                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::strToChpu($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
                 }
             }
         }
@@ -134,15 +134,15 @@ class FileController extends AdminController
 
         if ($action) {
             $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
-            $dir = Yii::app()->file->set($curpath);
+            $dir = Yii::$app->file->set($curpath);
 
-            foreach ($dir->contents as $item) {
-                $file = Yii::app()->file->set($item);
+            foreach ($dir->getContents() as $item) {
+                $file = Yii::$app->file->set($item);
 
-                if ($file->basename !== '.htaccess') {
+                if ($file->getBasename() !== '.htaccess') {
                     switch ($action) {
                         case 'del':
-                            if (Yii::app()->request->getPost('del_' . md5($file->basename))) {
+                            if (Yii::app()->request->getPost('del_' . md5($file->getBasename()))) {
                                 if ($file->Delete()) {
                                     Yii::app()->user->setFlash('success', 'Удалено');
                                 }
