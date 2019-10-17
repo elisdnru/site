@@ -108,44 +108,6 @@ return [
             'errorAction' => YII_DEBUG ? null : '/main/error/index',
         ],
 
-        'uploader' => [
-            'class' => \app\components\uploader\UploadManager::class,
-            'origFileSalt' => 'adFxt0de',
-            'rootPath' => 'upload',
-            'emptyImage' => 'images/nophoto.png',
-            'allowedThumbnailResolutions' => [
-                ['upload/media', [
-                    '680x0',
-                ]],
-                // general
-                ['upload/images', [
-                    '250x0',
-                ]],
-                ['upload/images/users/avatars', [
-                    '100x100',
-                    '50x50',
-                ]],
-                ['upload/images/portfolio', [
-                    '198x0', // greed
-                    '190x0', // homepage
-                    '50x0', // admin
-                ]],
-                ['upload/images/blogs', [
-                    '100x100', // last posts
-                ]],
-                ['upload/images/users/avatars', [
-                    '100x100',
-                    '50x50',
-                ]],
-                ['upload/images/users/galleries', [
-                    '250x0', // admin
-                ]],
-                ['upload/images/pages', [
-                    '250x0', // default
-                ]],
-            ],
-        ],
-
         'email' => [
             'class' => \app\extensions\email\Email::class,
             'delivery' => 'php', //'php'|'debug'

@@ -91,7 +91,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
     {
         $this->initAttributes();
         if ($this->_imageUrl === null) {
-            $this->_imageUrl = '/' . Yii::app()->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
+            $this->_imageUrl = '/' . Yii::$app->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
         }
         return $this->_imageUrl;
     }
@@ -111,7 +111,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
         $index = $width . 'x' . $height;
 
         if (!isset($this->_imageThumbUrl[$index])) {
-            $fileName = Yii::app()->uploader->getThumbUrl($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
+            $fileName = Yii::$app->uploader->getThumbUrl($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
             $this->_imageThumbUrl[$index] = '/' . $fileName;
         }
         return $this->_imageThumbUrl[$index];
@@ -125,12 +125,12 @@ class FileUploadBehavior extends CActiveRecordBehavior
                 $width = $this->defaultThumbWidth;
                 $height = $this->defaultThumbHeight;
 
-                $thumbName = Yii::app()->uploader->createThumbFileName($this->getOwner()->{$this->storageAttribute}, $width, $height);
+                $thumbName = Yii::$app->uploader->createThumbFileName($this->getOwner()->{$this->storageAttribute}, $width, $height);
 
-                if (Yii::app()->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
+                if (Yii::$app->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
                     $file = Yii::$app->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
-                    $file = Yii::app()->uploader->createThumb($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
+                    $file = Yii::$app->uploader->createThumb($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
                 }
 
                 if ($file) {
@@ -183,7 +183,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
     {
         $model = $this->getOwner();
         if ($model->{$this->storageAttribute}) {
-            Yii::app()->uploader->delete($model->{$this->storageAttribute}, $this->filePath);
+            Yii::$app->uploader->delete($model->{$this->storageAttribute}, $this->filePath);
             if (isset($model->{$this->deleteAttribute})) {
                 $model->{$this->deleteAttribute} = false;
             }
@@ -193,19 +193,19 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
     private function uploadByUrl(string $fileUrl): ?File
     {
-        return Yii::app()->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
+        return Yii::$app->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
     }
 
     private function uploadFile(CUploadedFile $uploadedFile): ?File
     {
-        $watermarkFile = Yii::app()->uploader->watermarkFile;
+        $watermarkFile = Yii::$app->uploader->watermarkFile;
         if (!$this->enableWatermark) {
-            Yii::app()->uploader->watermarkFile = '';
+            Yii::$app->uploader->watermarkFile = '';
         }
 
-        $upload = Yii::app()->uploader->upload($uploadedFile, $this->filePath);
+        $upload = Yii::$app->uploader->upload($uploadedFile, $this->filePath);
 
-        Yii::app()->uploader->watermarkFile = $watermarkFile;
+        Yii::$app->uploader->watermarkFile = $watermarkFile;
 
         return $upload;
     }

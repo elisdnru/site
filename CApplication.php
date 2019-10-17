@@ -14,7 +14,6 @@ use app\extensions\cachetagging\TaggingBehavior;
  * @property \app\extensions\email\Email $email
  * @property CHttpSession $session
  * @property \app\components\module\ModuleManager $moduleManager
- * @property \app\components\uploader\UploadManager $uploader
  * @property CWidgetFactory $widgetFactory
  * @property ICache|TaggingBehavior $cache
  * @property CTextHighlighter $syntaxhighlighter

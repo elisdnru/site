@@ -3,14 +3,13 @@
 namespace app\components\uploader;
 
 use app\components\FileHelper;
-use CApplicationComponent;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 use CUploadedFile;
 use StdClass;
 use Yii;
 
-class UploadManager extends CApplicationComponent
+class Uploader
 {
     public $rootPath = 'upload';
     public $emptyImage = '';
@@ -92,7 +91,7 @@ class UploadManager extends CApplicationComponent
             return false;
         }
 
-        foreach ($dir->contents as $currentFile) {
+        foreach ($dir->getContents() as $currentFile) {
             if (preg_match('|^' . $fileName . '.*' . $extension . '$|s', basename($currentFile))) {
                 @unlink($currentFile);
             }
