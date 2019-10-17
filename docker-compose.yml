@@ -20,6 +20,8 @@ services:
             APP_DB_DSN: mysql:host=mysql;dbname=app
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
+            MAILER_URI: smtp://mailer:1025?encryption=tcp
+            MAILER_FROM_EMAIL: mail@app.test
             SENTRY_DSN: https://a@sentry.io/1
         volumes:
             - ./:/app
@@ -36,6 +38,8 @@ services:
             APP_DB_DSN: mysql:host=mysql;dbname=app
             APP_DB_USERNAME: app
             APP_DB_PASSWORD: secret
+            MAILER_URI: smtp://mailer:1025?encryption=tcp
+            MAILER_FROM_EMAIL: mail@app.test
         volumes:
             - .:/app
             - ./volumes/composer:/root/.composer/
@@ -76,3 +80,7 @@ services:
             - "MYSQL_DATABASE=test"
         ports:
             - "33062:3306"
+    mailer:
+        image: mailhog/mailhog
+        ports:
+            - "8081:8025"

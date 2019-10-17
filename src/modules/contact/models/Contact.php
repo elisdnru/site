@@ -136,15 +136,16 @@ class Contact extends ActiveRecord
 
     private function sendAdminNotify(): void
     {
-        $email = Yii::app()->email;
-        $email->to = Yii::app()->params['GENERAL.ADMIN_EMAIL'];
-        $email->replyTo = $this->name . ' <' . $this->email . '>';
-        $email->subject = 'Сообщение №' . $this->id . ' на сайте ' . $_SERVER['SERVER_NAME'];
-        $email->message = '';
-        $email->view = 'contact';
-        $email->viewVars = [
-            'contact' => $this,
-        ];
-        $email->send();
+        $mail = Yii::$app->mailer
+            ->compose(['html' => 'contact'], [
+                'contact' => $this,
+            ])
+            ->setSubject('Сообщение №' . $this->id . ' на сайте elisdn.ru')
+            ->setTo(Yii::app()->params['GENERAL.ADMIN_EMAIL'])
+            ->setReplyTo([$this->email => $this->name]);
+
+        if (!$mail->send()) {
+            throw new \RuntimeException('Unable to send contact message ' . $this->id);
+        }
     }
 }

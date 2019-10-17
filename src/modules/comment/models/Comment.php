@@ -294,17 +294,15 @@ class Comment extends ActiveRecord
     private function sendNotify($current): void
     {
         if ($this->email !== $current->email) {
-            $email = Yii::app()->email;
-            $email->to = $this->email;
-            $email->replyTo = Yii::app()->params['GENERAL.ADMIN_EMAIL'];
-            $email->subject = 'Новый комментарий на сайте ' . $_SERVER['SERVER_NAME'];
-            $email->message = '';
-            $email->view = 'comment/comment';
-            $email->viewVars = [
-                'comment' => $this,
-                'current' => $current,
-            ];
-            $email->send();
+            Yii::$app->mailer
+                ->compose(['html' => 'comment'], [
+                    'comment' => $this,
+                    'current' => $current,
+                ])
+                ->setSubject('Новый комментарий на сайте elisdn.ru')
+                ->setTo($this->email)
+                ->setReplyTo(Yii::app()->params['GENERAL.ADMIN_EMAIL'])
+                ->send();
         }
     }
 

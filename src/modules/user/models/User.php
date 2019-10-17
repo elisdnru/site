@@ -465,29 +465,29 @@ class User extends ActiveRecord
             ])
             ->execute();
 
-        $email = Yii::app()->email;
-        $email->to = $this->email;
-        $email->subject = 'Подтверждение регистрации на сайте ' . $_SERVER['SERVER_NAME'];
-        $email->message = '';
-        $email->view = 'confirm';
-        $email->viewVars = [
-            'user' => $this,
-            'confirmUrl' => Yii::app()->createAbsoluteUrl('/user/default/confirm', ['code' => $this->confirm]),
-        ];
-        $email->send();
+        $mail = Yii::$app->mailer
+            ->compose(['html' => 'confirm'], [
+                'user' => $this,
+                'confirmUrl' => Yii::app()->createAbsoluteUrl('/user/default/confirm', ['code' => $this->confirm]),
+            ])
+            ->setSubject('Подтверждение регистрации на сайте elisdn.ru')
+            ->setTo($this->email);
+        if (!$mail->send()) {
+            throw new \RuntimeException('Unable to send confirm to ' . $this->email);
+        }
     }
 
     public function sendRemind(): void
     {
-        $email = Yii::app()->email;
-        $email->to = $this->email;
-        $email->subject = 'Восстановление пароля на сайте ' . $_SERVER['SERVER_NAME'];
-        $email->message = '';
-        $email->view = 'remind';
-        $email->viewVars = [
-            'user' => $this,
-        ];
-        $email->send();
+        $mail = Yii::$app->mailer
+            ->compose(['html' => 'remind'], [
+                'user' => $this,
+            ])
+            ->setSubject('Восстановление пароля на сайте elisdn.ru')
+            ->setTo($this->email);
+        if (!$mail->send()) {
+            throw new \RuntimeException('Unable to send remind to ' . $this->email);
+        }
     }
 
     public function updateCommentsStat(): void

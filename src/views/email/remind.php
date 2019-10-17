@@ -1,8 +1,9 @@
 <?php
 /** @var $user \app\modules\user\models\User */
+use yii\helpers\Html;
 ?>
-<p style="font-family:arial; font-size:12px">Изменились параметры вашей учётной записи на сайте
-    http://<?php echo $_SERVER['SERVER_NAME']; ?></p>
+<p>Запрошен сброс пароля на сайте <?= Yii::app()->request->getHostInfo() ?>.</p>
 
-<p style="font-family:arial; font-size:12px">Логин: <?php echo CHtml::encode($user->username); ?><br />
-    Пароль: <?php echo CHtml::encode($user->new_password); ?></p>
+<p>Временный пароль: <?php echo Html::encode($user->new_password); ?></p>
+
+<p>Войдите на сайт и смените пароль в кабинете.</p>
