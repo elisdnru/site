@@ -17,11 +17,17 @@ class BlockWidget extends Widget
             echo('<div class="flash-error">[*block|id=?*]</div>');
         }
 
-        $model = Block::find()->cache(0, new TagDependency(['tags' => 'block']))->andWhere(['alias' => $this->id])->limit(1)->one();
-        if (!$model) {
+        /** @var Block $block */
+        $block = Block::find()
+            ->cache(0, new TagDependency(['tags' => 'block']))
+            ->andWhere(['alias' => $this->id])
+            ->limit(1)
+            ->one();
+
+        if (!$block) {
             return;
         }
 
-        echo $model->text;
+        echo $block->text;
     }
 }
