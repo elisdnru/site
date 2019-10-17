@@ -28,6 +28,7 @@ return [
                 '<module:\w+>/admin/<controller:\w+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
             ],
         ],
+
         'db' => [
             'class' => \yii\db\Connection::class,
             'dsn' => getenv('APP_DB_DSN'),
@@ -37,6 +38,7 @@ return [
             'charset' => 'utf8',
             'enableSchemaCache' => true,
         ],
+
         'assetManager' => [
             'appendTimestamp' => true,
             'bundles' => [
@@ -47,10 +49,12 @@ return [
                 ],
             ],
         ],
+
         'log' => [
             'class' => yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,
         ],
+
         'cache' => [
             'class' => !getenv('APP_DEBUG') ? \yii\caching\FileCache::class : \yii\caching\DummyCache::class,
         ],
