@@ -9,22 +9,6 @@ use CTestCase;
 
 class UploaderTest extends CTestCase
 {
-    public function testOrigFileName(): void
-    {
-        $manager = new Uploader();
-
-        self::assertEquals('ab0cde.jpg', $manager->createOrigFileName('ab0cde.jpg'));
-    }
-
-    public function testOrigFileNameWithWatermark(): void
-    {
-        $manager = new Uploader();
-        $manager->origFileSalt = 'salt';
-        $manager->watermarkFile = 'watermark.png';
-
-        self::assertEquals('ab0cde_orig_salt.jpg', $manager->createOrigFileName('ab0cde.jpg'));
-    }
-
     public function testThumbFileName(): void
     {
         $manager = new Uploader();

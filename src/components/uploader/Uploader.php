@@ -13,11 +13,6 @@ class Uploader
 {
     public $rootPath = 'upload';
     public $emptyImage = '';
-    public $watermarkFile = '';
-    public $watermarkOffsetX = 10;
-    public $watermarkOffsetY = 10;
-    public $watermarkPosition = ImageHandler::CORNER_RIGHT_BOTTOM;
-    public $origFileSalt = 'salt';
     public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
 
@@ -33,16 +28,8 @@ class Uploader
 
         $main = $path . '/' . $baseName;
 
-        if ($this->watermarkFile) {
-            $orig = $path . '/' . $this->createOrigFileName($baseName);
-            if ($file->saveAs($orig)) {
-                $this->createThumb($path, $baseName);
-                return Yii::$app->file->set($main);
-            }
-        } else {
-            if ($file->saveAs($main)) {
-                return Yii::$app->file->set($main);
-            }
+        if ($file->saveAs($main)) {
+            return Yii::$app->file->set($main);
         }
 
         return null;
@@ -56,7 +43,7 @@ class Uploader
             $fileName = FileHelper::getRandomFileName($path, $extension);
             $baseName = $fileName . '.' . $extension;
 
-            $orig = $path . '/' . $this->createOrigFileName($baseName);
+            $orig = $path . '/' . $baseName;
 
             $f = fopen($orig, 'w');
             fwrite($f, $content);
@@ -151,11 +138,7 @@ class Uploader
 
     public function createThumb(string $path, string $baseName, int $width = 0, int $height = 0): bool
     {
-        $fileName = $path . '/' . $this->createOrigFileName($baseName);
-        if (!file_exists($fileName)) {
-            $fileName = $path . '/' . $baseName;
-            $this->watermarkFile = false;
-        }
+        $fileName = $path . '/' . $baseName;
 
         if (!file_exists($fileName)) {
             return false;
@@ -173,10 +156,6 @@ class Uploader
 
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);
 
-            if ($this->watermarkFile) {
-                $thumb = $thumb->watermark($this->watermarkFile, $this->watermarkOffsetX, $this->watermarkOffsetY, $this->watermarkPosition);
-            }
-
             if (!$thumb->save($targetName, false, 100)) {
                 throw new \RuntimeException('Unable to save ' . $targetName);
             }
@@ -188,23 +167,6 @@ class Uploader
         }
 
         return false;
-    }
-
-    public function createOrigFileName(string $baseName): string
-    {
-        if (!$this->watermarkFile) {
-            return $baseName;
-        }
-
-        if (preg_match('|^(?P<name>[\w-]+)\.(?P<extension>\w+)$|', $baseName, $matches)) {
-            $fileName = $matches['name'];
-            $extension = '.' . $matches['extension'];
-        } else {
-            $fileName = $baseName;
-            $extension = '';
-        }
-
-        return $fileName . '_orig_' . $this->origFileSalt . $extension;
     }
 
     public function createThumbFileName(string $baseName, int $width, int $height): string

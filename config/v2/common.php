@@ -60,7 +60,6 @@ return [
 
         'uploader' => [
             'class' => \app\components\uploader\Uploader::class,
-            'origFileSalt' => 'adFxt0de',
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',
             'allowedThumbnailResolutions' => [
