@@ -198,15 +198,6 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
     private function uploadFile(CUploadedFile $uploadedFile): ?File
     {
-        $watermarkFile = Yii::$app->uploader->watermarkFile;
-        if (!$this->enableWatermark) {
-            Yii::$app->uploader->watermarkFile = '';
-        }
-
-        $upload = Yii::$app->uploader->upload($uploadedFile, $this->filePath);
-
-        Yii::$app->uploader->watermarkFile = $watermarkFile;
-
-        return $upload;
+        return Yii::$app->uploader->upload($uploadedFile, $this->filePath);
     }
 }
