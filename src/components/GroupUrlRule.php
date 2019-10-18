@@ -20,7 +20,7 @@ class GroupUrlRule extends CBaseUrlRule
     {
         $routePrefix = $this->getRoutePrefix();
 
-        if (strpos($route . '/', $routePrefix . '/') !== 0 ) {
+        if (strpos($route . '/', $routePrefix . '/') !== 0) {
             return false;
         }
 

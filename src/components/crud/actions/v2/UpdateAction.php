@@ -24,7 +24,6 @@ class UpdateAction extends CrudAction
         $model = $this->loadModel();
 
         if ($model->load(Yii::$app->request->post())) {
-
             $this->clientCallback('beforeUpdate', $model);
             $this->clientCallback('performAjaxValidation', $model);
 

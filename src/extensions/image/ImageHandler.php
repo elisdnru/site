@@ -276,7 +276,6 @@ class ImageHandler
         $this->checkLoaded();
 
         if ($wImg = $this->loadImage($watermarkFile)) {
-
             $watermarkWidth = $wImg['width'];
             $watermarkHeight = $wImg['height'];
 
@@ -435,8 +434,7 @@ class ImageHandler
         $offsetX = 0,
         $offsetY = 0,
         $angle = 0
-    )
-    {
+    ) {
         $this->checkLoaded();
 
         $bBox = imagettfbbox($size, $angle, $fontFile, $text);
