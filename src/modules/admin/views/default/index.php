@@ -63,7 +63,7 @@ $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/inde
                                 <div class="clear"></div>
                             </li>
                         <?php endif; ?>
-                    <?php endforeach; ?></ul>
+                    <?php endforeach; ?>
                 </ul>
             </fieldset>
         <?php endif; ?>
