@@ -21,7 +21,7 @@ class DefaultController extends AdminController
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex(): void
     {
         if (count(Yii::app()->modules)) {
             foreach (Yii::app()->modules as $key => $value) {
