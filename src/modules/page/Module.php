@@ -21,7 +21,6 @@ class Module extends Base
     public static function adminMenu(): array
     {
         return [
-            ['label' => 'Шаблоны', 'url' => ['/page/admin/layout/index'], 'icon' => 'fileicon.jpg'],
             ['label' => 'Страницы', 'url' => ['/page/admin/page/index'], 'icon' => 'fileicon.jpg'],
             ['label' => 'Добавить страницу', 'url' => ['/page/admin/page/create'], 'icon' => 'add.png'],
         ];
