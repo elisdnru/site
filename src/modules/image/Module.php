@@ -3,8 +3,9 @@
 namespace app\modules\image;
 
 use app\components\module\Module as Base;
+use app\components\module\routes\UrlProvider;
 
-class Module extends Base
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -13,5 +14,10 @@ class Module extends Base
         return [
             'upload/<image:.+\/[a-f0-9]+_[0-9]+x[0-9]+\..+>' => 'image/download/thumb',
         ];
+    }
+
+    public static function rulesPriority(): int
+    {
+        return 0;
     }
 }

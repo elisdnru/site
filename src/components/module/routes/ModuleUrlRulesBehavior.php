@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\module;
+namespace app\components\module\routes;
 
 use CBehavior;
 use CConsoleApplication;
@@ -48,7 +48,7 @@ class ModuleUrlRulesBehavior extends CBehavior
             throw new \RuntimeException('Undefined class for module ' . $name);
         }
 
-        if (!is_subclass_of($class, Module::class)) {
+        if (!is_subclass_of($class, UrlProvider::class)) {
             return [];
         }
 

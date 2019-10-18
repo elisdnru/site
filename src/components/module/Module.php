@@ -20,14 +20,4 @@ class Module extends CWebModule
     {
         return [];
     }
-
-    public static function rules(): array
-    {
-        return [];
-    }
-
-    public static function rulesPriority(): int
-    {
-        return 0;
-    }
 }

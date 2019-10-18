@@ -3,8 +3,9 @@
 namespace app\modules\sitemap;
 
 use app\components\module\Module as Base;
+use app\components\module\routes\UrlProvider;
 
-class Module extends Base
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -19,5 +20,10 @@ class Module extends Base
             'sitemap' => 'sitemap/default/index',
             ['sitemap/default/xml', 'pattern' => 'sitemap.xml', 'urlSuffix' => ''],
         ];
+    }
+
+    public static function rulesPriority(): int
+    {
+        return 0;
     }
 }

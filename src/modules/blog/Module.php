@@ -4,9 +4,10 @@ namespace app\modules\blog;
 
 use app\components\GroupUrlRule;
 use app\components\module\Module as Base;
+use app\components\module\routes\UrlProvider;
 use app\modules\blog\models\Comment;
 
-class Module extends Base
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

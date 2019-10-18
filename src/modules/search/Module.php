@@ -3,8 +3,9 @@
 namespace app\modules\search;
 
 use app\components\module\Module as Base;
+use app\components\module\routes\UrlProvider;
 
-class Module extends Base
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -23,5 +24,10 @@ class Module extends Base
         return [
             'search' => 'search/default/index',
         ];
+    }
+
+    public static function rulesPriority(): int
+    {
+        return 0;
     }
 }

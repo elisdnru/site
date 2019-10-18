@@ -146,7 +146,7 @@ return [
     ],
 
     'behaviors' => [
-        \app\components\module\ModuleUrlRulesBehavior::class,
+        \app\components\module\routes\ModuleUrlRulesBehavior::class,
     ],
 
     'params' => [
