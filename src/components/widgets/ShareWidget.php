@@ -7,7 +7,6 @@ use Yii;
 
 class ShareWidget extends CWidget
 {
-    public $tpl = 'default';
     public $url = '';
     public $title = '';
     public $description = '';
@@ -17,7 +16,7 @@ class ShareWidget extends CWidget
     {
         $host = Yii::app()->request->getHostInfo();
 
-        $this->render('Share/' . $this->tpl, [
+        $this->render('Share', [
             'url' => $this->url ?: $host . '/' . Yii::app()->request->getPathInfo(),
             'title' => $this->title,
             'description' => mb_substr(strip_tags($this->description), 0, 200, 'UTF-8') . '...',
