@@ -2,6 +2,7 @@
 /** @var $this Controller */
 
 use app\assets\BlogPostAsset;
+use app\components\helpers\StyleHelper;
 use app\extensions\cachetagging\Tags;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
@@ -35,7 +36,7 @@ if ($model->image) {
 }
 
 if ($model->styles) {
-    Yii::app()->clientScript->registerCss('post', strip_tags($model->styles));
+    Yii::app()->clientScript->registerCss('post', StyleHelper::minimize(strip_tags($model->styles)));
 }
 
 if ($model->category) {
