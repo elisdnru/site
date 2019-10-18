@@ -421,7 +421,7 @@ class User extends CActiveRecord
 
     private $_fio;
 
-    public function getFio(): string
+    public function getFio(): ?string
     {
         if ($this->_fio === null) {
             $this->_fio = trim($this->lastname . ' ' . $this->name . ' ' . $this->middlename);
