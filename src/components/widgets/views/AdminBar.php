@@ -6,6 +6,7 @@
 
         <?php
         Yii::app()->controller->widget('zii.widgets.CMenu', [
+            'id' => 'admin_nav',
             'items' => $links
         ]); ?>
 

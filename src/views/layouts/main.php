@@ -68,7 +68,9 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
 
         <nav id="main_nav">
             <?php $this->widget('zii.widgets.CMenu', [
-                'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
+                'id' => 'main_nav_list',
+                'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')
+            ]); ?>
         </nav>
     </header>
 
@@ -101,6 +103,7 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
         <div class="nav">
             <?php $this->beginWidget(\app\components\widgets\NofollowWidget::class); ?>
             <?php $this->widget('zii.widgets.CMenu', [
+                'id' => 'footer_nav_list',
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
             <?php $this->endWidget(); ?>
         </div>
