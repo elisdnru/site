@@ -2,21 +2,20 @@
 
 declare(strict_types=1);
 
-namespace app\components\colorbox;
+namespace app\assets;
 
 use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
 
 class ColorboxAsset extends AssetBundle
 {
-    public $sourcePath = '@app/components/colorbox/assets';
+    public $baseUrl = '/build';
 
     public $css = [
         'colorbox.css',
     ];
 
     public $js = [
-        'jquery.colorbox-min.js',
         'colorbox.js',
     ];
 

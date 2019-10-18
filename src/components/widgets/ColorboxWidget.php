@@ -1,8 +1,8 @@
 <?php
 
-namespace app\components\colorbox\widgets;
+namespace app\components\widgets;
 
-use app\components\colorbox\ColorboxAsset;
+use app\assets\ColorboxAsset;
 use CWidget;
 use Yii;
 

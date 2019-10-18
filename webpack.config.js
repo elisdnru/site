@@ -14,7 +14,8 @@ module.exports = {
     'admin-bar': './assets/css/admin-bar.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
-    'blog-post': './assets/css/blog-post.css'
+    'blog-post': './assets/css/blog-post.css',
+    colorbox: './assets/css/colorbox.css'
   },
   output: {
     path: __dirname + '/public/build',
@@ -53,13 +54,18 @@ module.exports = {
         ],
         "jcarousellite.js": [
           'assets/js/jcarousellite.min.js'
+        ],
+        "colorbox.js": [
+          'assets/js/jquery.colorbox-min.js',
+          'assets/js/colorbox.js'
         ]
       },
       transform: {
         'main.js': code => minify(code).code,
         'jquery.js': code => minify(code).code,
         'comments.js': code => minify(code).code,
-        'jcarousellite.js': code => minify(code).code
+        'jcarousellite.js': code => minify(code).code,
+        'colorbox.js': code => minify(code).code
       }
     })
   ],
