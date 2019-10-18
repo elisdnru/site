@@ -8,7 +8,7 @@ class Module extends CWebModule
 {
     public function getGroup(): string
     {
-        return 'Почее';
+        return 'Прочее';
     }
 
     public static function adminMenu(): array
