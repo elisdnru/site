@@ -4,7 +4,7 @@
  * http://creative-territory.net/post/view/id/25/
  */
 
-namespace app\components\system;
+namespace app\components;
 
 use CHttpRequest;
 use Yii;

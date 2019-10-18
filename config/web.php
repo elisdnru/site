@@ -5,7 +5,7 @@ return array_replace_recursive(
     [
         'components' => [
             'request' => [
-                'class' => \app\components\system\HttpRequest::class,
+                'class' => \app\components\HttpRequest::class,
                 'baseUrl' => '',
                 'noCsrfValidationUris' => [
                     '^file/admin/file/(upload|checkexists).*$',
