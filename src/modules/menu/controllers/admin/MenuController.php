@@ -14,7 +14,6 @@ class MenuController extends AdminController
             'index' => [
                 'class' => \app\components\crud\actions\AdminAction::class,
                 'view' => 'index',
-                'ajaxView' => '_grid'
             ],
             'create' => \app\components\crud\actions\CreateAction::class,
             'update' => \app\components\crud\actions\UpdateAction::class,

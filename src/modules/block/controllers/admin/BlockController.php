@@ -15,7 +15,6 @@ class BlockController extends AdminController
             'index' => [
                 'class' => \app\components\crud\actions\v2\AdminAction::class,
                 'view' => 'index',
-                'ajaxView' => '_grid'
             ],
             'create' => \app\components\crud\actions\v2\CreateAction::class,
             'update' =>  \app\components\crud\actions\v2\UpdateAction::class,

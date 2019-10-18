@@ -11,10 +11,6 @@ class IndexAction extends CrudAction
      */
     public $view = 'index';
     /**
-     * @var string view for rendering for Ajax request
-     */
-    public $ajaxView = '';
-    /**
      * @var string class of data provider
      */
     public $providerClass = 'CActiveDataProvider';
@@ -36,14 +32,8 @@ class IndexAction extends CrudAction
             ]
         ]);
 
-        if ($this->ajaxView && Yii::app()->request->isAjaxRequest) {
-            $this->controller->renderPartial($this->ajaxView, [
-                'dataProvider' => $dataProvider,
-            ]);
-        } else {
-            $this->controller->render($this->view, [
-                'dataProvider' => $dataProvider,
-            ]);
-        }
+        $this->controller->render($this->view, [
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }

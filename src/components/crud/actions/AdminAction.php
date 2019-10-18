@@ -11,10 +11,6 @@ class AdminAction extends CrudAction
      */
     public $view = 'admin';
     /**
-     * @var string view for rendering for Ajax request
-     */
-    public $ajaxView = '';
-    /**
      * @var string search scenarion name
      */
     public $scenario = 'search';
@@ -35,14 +31,8 @@ class AdminAction extends CrudAction
             $model->attributes = $_GET[$formName];
         }
 
-        if ($this->ajaxView && Yii::app()->request->isAjaxRequest) {
-            $this->controller->renderPartial($this->ajaxView, [
-                'model' => $model,
-            ]);
-        } else {
-            $this->controller->render($this->view, [
-                'model' => $model,
-            ]);
-        }
+        $this->controller->render($this->view, [
+            'model' => $model,
+        ]);
     }
 }

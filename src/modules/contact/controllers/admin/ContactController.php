@@ -16,7 +16,6 @@ class ContactController extends AdminController
             'index' => [
                 'class' => \app\components\crud\actions\AdminAction::class,
                 'view' => 'index',
-                'ajaxView' => '_grid'
             ],
             'toggle' => ['class' => \app\components\crud\actions\ToggleAction::class, 'attributes' => ['status']],
             'delete' => \app\components\crud\actions\DeleteAction::class,
