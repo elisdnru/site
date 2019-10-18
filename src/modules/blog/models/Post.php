@@ -84,9 +84,9 @@ class Post extends CActiveRecord implements CommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
+            ['author_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => \app\modules\blog\models\Category::class, 'attributeName' => 'id'],
-            ['group_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\blog\models\Group::class, 'attributeName' => 'id'],
+            ['group_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\blog\models\Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['styles, short, text, description, del_image', 'safe'],

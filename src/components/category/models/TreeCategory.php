@@ -30,7 +30,7 @@ abstract class TreeCategory extends Category
     public function rules(): array
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', \app\components\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
+            ['parent_id', \app\components\validators\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
             ['parent_id', 'safe', 'on' => 'search'],
         ]);
     }

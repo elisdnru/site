@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\ExistOrEmpty;
+use app\components\validators\ExistOrEmpty;
 use app\components\category\models\TreeCategory;
 
 /**

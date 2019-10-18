@@ -69,7 +69,7 @@ class Work extends CActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \app\components\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\Category::class, 'attributeName' => 'id'],
+            ['category_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\Category::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
