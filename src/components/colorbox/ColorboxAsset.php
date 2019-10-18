@@ -17,8 +17,7 @@ class ColorboxAsset extends AssetBundle
 
     public $js = [
         'jquery.colorbox-min.js',
-        'colorbox-begin.js',
-        'colorbox-end.js',
+        'colorbox.js',
     ];
 
     public $depends = [
