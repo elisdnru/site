@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use CHttpException;
 use app\components\AdminController;
-use app\components\FileHelper;
+use app\components\helpers\FileHelper;
 use app\components\helpers\TextHelper;
 use Yii;
 

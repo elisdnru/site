@@ -1,8 +1,6 @@
 <?php
 
-namespace app\components;
-
-use app\components\helpers\TextHelper;
+namespace app\components\helpers;
 
 class FileHelper
 {

@@ -2,7 +2,7 @@
 
 namespace app\components\uploader;
 
-use app\components\FileHelper;
+use app\components\helpers\FileHelper;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 use CUploadedFile;
