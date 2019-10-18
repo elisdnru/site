@@ -3,7 +3,6 @@
 namespace app\modules\user\models;
 
 use app\components\helpers\GravatarHelper;
-use app\modules\blog\models\Tag;
 use CActiveDataProvider;
 use CActiveRecord;
 use CCaptcha;

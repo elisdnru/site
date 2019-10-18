@@ -2,7 +2,6 @@
 
 namespace app\modules\search\models;
 
-use app\modules\blog\models\Tag;
 use CActiveRecord;
 
 /**

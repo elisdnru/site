@@ -4,7 +4,6 @@ namespace app\modules\portfolio\models;
 
 use app\components\helpers\TextHelper;
 use app\components\uploader\FileUploadBehavior;
-use app\modules\blog\models\Tag;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;

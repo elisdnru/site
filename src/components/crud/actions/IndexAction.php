@@ -2,8 +2,6 @@
 
 namespace app\components\crud\actions;
 
-use Yii;
-
 class IndexAction extends CrudAction
 {
     /**

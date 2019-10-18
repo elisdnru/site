@@ -4,7 +4,6 @@ namespace app\modules\menu\models;
 
 use app\components\TreeActiveDataProvider;
 use app\components\category\models\Category;
-use app\modules\blog\models\Tag;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;

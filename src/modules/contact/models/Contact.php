@@ -2,7 +2,6 @@
 
 namespace app\modules\contact\models;
 
-use app\modules\blog\models\Tag;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;

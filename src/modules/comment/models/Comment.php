@@ -2,7 +2,6 @@
 
 namespace app\modules\comment\models;
 
-use app\modules\blog\models\Tag;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
