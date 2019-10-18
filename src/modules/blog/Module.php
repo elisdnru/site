@@ -66,4 +66,9 @@ class Module extends Base
             ],
         ];
     }
+
+    public static function rulesPriority(): int
+    {
+        return 98;
+    }
 }

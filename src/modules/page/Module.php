@@ -34,4 +34,9 @@ class Module extends Base
             ['class' => components\PageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
+
+    public static function rulesPriority(): int
+    {
+        return -1;
+    }
 }

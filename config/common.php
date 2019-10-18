@@ -146,26 +146,7 @@ return [
     ],
 
     'behaviors' => [
-        [
-            'class' => \app\components\module\ModuleUrlRulesBehavior::class,
-            'modules' => [
-                'main',
-                'user',
-                'blog',
-                'comment',
-                'contact',
-                'portfolio',
-                'sitemap',
-                'ulogin',
-                'search',
-                'admin',
-                'menu',
-                'file',
-                'block',
-                'image',
-                'page',
-            ]
-        ]
+        \app\components\module\ModuleUrlRulesBehavior::class,
     ],
 
     'params' => [

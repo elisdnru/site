@@ -35,4 +35,9 @@ class Module extends Base
             'profile/edit' => 'user/profile/edit',
         ];
     }
+
+    public static function rulesPriority(): int
+    {
+        return 99;
+    }
 }

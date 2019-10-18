@@ -15,4 +15,9 @@ class Module extends Base
             'error' => 'main/default/error',
         ];
     }
+
+    public static function rulesPriority(): int
+    {
+        return 100;
+    }
 }

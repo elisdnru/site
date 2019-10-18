@@ -25,4 +25,9 @@ class Module extends CWebModule
     {
         return [];
     }
+
+    public static function rulesPriority(): int
+    {
+        return 0;
+    }
 }

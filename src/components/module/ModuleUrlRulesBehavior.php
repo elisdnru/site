@@ -23,27 +23,38 @@ class ModuleUrlRulesBehavior extends CBehavior
             return;
         }
 
+        $sets = [];
+
+        foreach (Yii::app()->getModules() as $name => $definition) {
+            if (($set = $this->getRouteSet($name, $definition)) !== []) {
+                $sets[] = $set;
+            }
+        }
+
+        usort($sets, static function (array $a, array $b) {
+            return $b['priority'] <=> $a['priority'];
+        });
+
         $urlManager = Yii::app()->getUrlManager();
 
-        foreach ($this->modules as $name) {
-            $urlManager->addRules($this->getRoutes($name));
+        foreach ($sets as $set) {
+            $urlManager->addRules($set['routes']);
         }
     }
 
-    private function getRoutes(string $name): array
+    private function getRouteSet(string $name, array $definition): array
     {
-        if (!Yii::app()->hasModule($name)) {
-            throw new \InvalidArgumentException('Undefined module ' . $name);
-        }
-
-        if (!$class = Yii::app()->modules[$name]['class'] ?? null) {
+        if (!$class = $definition['class'] ?? null) {
             throw new \RuntimeException('Undefined class for module ' . $name);
         }
 
-        if (!method_exists($class, 'rules')) {
-            throw new \InvalidArgumentException('Unsupported module ' . $name);
+        if (!is_subclass_of($class, Module::class)) {
+            return [];
         }
 
-        return $class::rules();
+        return [
+            'priority' => $class::rulesPriority(),
+            'routes' => $class::rules(),
+        ];
     }
 }
