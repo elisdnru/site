@@ -15,10 +15,10 @@ $this->breadcrumbs = [
 ];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    if ($this->moduleAllowed('blog')) {
+    if (Yii::app()->moduleManager->allowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
     }
-    if ($this->moduleAllowed('page')) {
+    if (Yii::app()->moduleManager->allowed('page')) {
         $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin')];
     }
 }

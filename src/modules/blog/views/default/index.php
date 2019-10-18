@@ -20,7 +20,7 @@ $this->breadcrumbs = [
 ];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    if ($this->moduleAllowed('blog')) {
+    if (Yii::app()->moduleManager->allowed('blog')) {
         $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
         $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];
         $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category')];
@@ -28,7 +28,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
             $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
         }
     }
-    if ($this->moduleAllowed('blog') && $this->moduleAllowed('comment')) {
+    if (Yii::app()->moduleManager->allowed('blog') && Yii::app()->moduleManager->allowed('comment')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications($this->module->id));
     }
 }

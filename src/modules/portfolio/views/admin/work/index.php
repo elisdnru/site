@@ -15,10 +15,10 @@ $this->breadcrumbs = [
 
 Yii::app()->clientScript->registerCoreScript('jquery.ui');
 
-if ($this->moduleAllowed('portfolio')) {
+if (Yii::app()->moduleManager->allowed('portfolio')) {
     $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
 }
-if ($this->moduleAllowed('portfolio')) {
+if (Yii::app()->moduleManager->allowed('portfolio')) {
     $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('create', ['category' => $category])];
 }
 

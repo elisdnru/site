@@ -17,12 +17,12 @@ $this->breadcrumbs = [
 ];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    if ($this->moduleAllowed('portfolio')) {
+    if (Yii::app()->moduleManager->allowed('portfolio')) {
         $this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
         $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/create')];
         $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
     }
-    if ($this->moduleAllowed('page')) {
+    if (Yii::app()->moduleManager->allowed('page')) {
         if ($page->id) {
             $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
         }

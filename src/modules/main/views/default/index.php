@@ -11,7 +11,7 @@ $this->pageTitle = 'Дмитрий Елисеев: Разработка сайт
 $this->description = 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.';
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    if ($this->moduleAllowed('contact')) {
+    if (Yii::app()->moduleManager->allowed('contact')) {
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('contact'));
         $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('comment'));
     }

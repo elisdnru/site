@@ -65,7 +65,7 @@ class CommentController extends Controller
 
     protected function loadModel($id): Comment
     {
-        if ($this->moduleAllowed('comment')) {
+        if (Yii::app()->moduleManager->allowed('comment')) {
             $condition = '';
         } else {
             $condition = 'public = 1';

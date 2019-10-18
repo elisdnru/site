@@ -10,7 +10,7 @@ $this->breadcrumbs = [
 
 $this->admin[] = ['label' => 'Cтраницы', 'url' => $this->createUrl('index')];
 $this->admin[] = ['label' => 'Просмотр', 'url' => $model->getUrl()];
-if ($this->moduleAllowed('menu')) {
+if (Yii::app()->moduleManager->allowed('menu')) {
     $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
 }
 ?>

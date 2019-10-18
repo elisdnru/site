@@ -13,7 +13,7 @@ $this->breadcrumbs = [
     'Меню',
 ];
 
-if ($this->moduleAllowed('page')) {
+if (Yii::app()->moduleManager->allowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
 }
 $this->admin[] = ['label' => 'Добавить пункт', 'url' => $this->createUrl('create')];

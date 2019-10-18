@@ -22,7 +22,7 @@ $this->breadcrumbs = [
 ];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    if ($this->moduleAllowed('blog')) {
+    if (Yii::app()->moduleManager->allowed('blog')) {
         $this->admin[] = ['label' => 'Редактировать записи', 'url' => $this->createUrl('/blog/postAdmin')];
         $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];
     }

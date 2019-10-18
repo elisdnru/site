@@ -19,7 +19,7 @@ $this->breadcrumbs = [
 $this->breadcrumbs = array_merge($this->breadcrumbs, $category->breadcrumbs);
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    if ($this->moduleAllowed('portfolio')) {
+    if (Yii::app()->moduleManager->allowed('portfolio')) {
         $this->admin[] = ['label' => 'Редактировать работы', 'url' => $this->createUrl('/portfolio/admin/work/index', ['category' => $category->id])];
         $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/update', ['category' => $category->id])];
         $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];

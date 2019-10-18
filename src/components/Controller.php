@@ -12,9 +12,6 @@ use Yii;
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.
  *
- * ModuleAccessBehavior
- * @method boolean moduleAllowed($module)
- *
  * LiveLayoutBehavior
  * @method initLayout()
  *
@@ -35,7 +32,6 @@ class Controller extends CController
     public function behaviors(): array
     {
         return array_merge(parent::behaviors(), [
-            'ModuleAccessBehavior' => ['class' => \app\components\module\ModuleAccessBehavior::class],
             'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
                 'location' => 'application.widgets',

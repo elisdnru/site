@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\Post;
 use CHttpException;
 use app\components\Controller;
+use Yii;
 
 class PostController extends Controller
 {
@@ -20,7 +21,7 @@ class PostController extends Controller
 
     protected function loadModel($id): Post
     {
-        if ($this->moduleAllowed('blog')) {
+        if (Yii::app()->moduleManager->allowed('blog')) {
             $condition = '';
         } else {
             $condition = 'public = 1';

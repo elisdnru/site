@@ -18,7 +18,7 @@ $this->breadcrumbs = [
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if ($page->id) {
-        if ($this->moduleAllowed('page')) {
+        if (Yii::app()->moduleManager->allowed('page')) {
             $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/edit', ['id' => $page->id])];
         }
     }

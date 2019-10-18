@@ -16,7 +16,7 @@ $this->breadcrumbs = [
     'Файловый менеджер',
 ];
 
-if ($this->moduleAllowed('page')) {
+if (Yii::app()->moduleManager->allowed('page')) {
     $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
 }
 

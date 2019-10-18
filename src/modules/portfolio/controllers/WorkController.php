@@ -6,6 +6,7 @@ use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
+use Yii;
 
 class WorkController extends PortfolioBaseController
 {
@@ -21,7 +22,7 @@ class WorkController extends PortfolioBaseController
 
     protected function loadModel($id): Work
     {
-        if ($this->moduleAllowed('portfolio')) {
+        if (Yii::app()->moduleManager->allowed('portfolio')) {
             $condition = '';
         } else {
             $condition = 'public = 1';
