@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
 ?>
 
 <div id="posts-grid" class="grid-view">
-    <div class="summary">1–28 из 28</div>
+    <div class="summary"><?= $dataProvider->getCount() ?> из <?= $dataProvider->getTotalCount() ?></div>
     <form action="?" method="get">
         <table class="items">
             <thead>
