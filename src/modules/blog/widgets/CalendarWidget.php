@@ -22,7 +22,6 @@ class CalendarWidget extends CWidget
         }
 
         $firstDay = date('Y-m-d', mktime(0, 0, 0, $month, 1, $year));
-        $firstDayPrevMonth = date('Y-m-d', mktime(0, 0, 0, $month - 1, 1, $year));
         $firstDayNextMonth = date('Y-m-d', mktime(0, 0, 0, $month + 1, 1, $year));
         $prevMonth = date('Y-m', mktime(0, 0, 0, $month - 1, 1, $year));
         $nextMonth = date('Y-m', mktime(0, 0, 0, $month + 1, 1, $year));
@@ -32,7 +31,9 @@ class CalendarWidget extends CWidget
 
         // Today
         $days = [];
-        if ($firstDay <= time() && time() < $firstDayNextMonth) {
+        $now = time();
+
+        if ($firstDay <= $now && $now < $firstDayNextMonth) {
             $today = date('j');
             $days[$today] = [null, null, '<span id="today">' . $today . '</span>'];
         }
@@ -44,14 +45,11 @@ class CalendarWidget extends CWidget
         ]);
 
         foreach ($posts as $post) {
-            $days[date('j', strtotime($post->date))] = [CHtml::normalizeUrl(['/blog/default/date', 'date' => date('Y-m-d', strtotime($post->date))]), 'linked-day'];
+            $postTime = strtotime($post->date);
+            $days[date('j', $postTime)] = [CHtml::normalizeUrl(['/blog/default/date', 'date' => date('Y-m-d', $postTime)]), 'linked-day'];
         }
 
-        if (isset($locale) && $locale === 'ja_JP.utf8') {
-            $len = 3;
-        } else {
-            $len = 2;
-        }
+        $len = 2;
 
         $this->render('Calendar/calendar', [
             'year' => $year,
