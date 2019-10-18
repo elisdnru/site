@@ -2,9 +2,10 @@
 
 namespace app\modules\user\models;
 
-use app\components\ActiveRecord;
 use app\components\helpers\GravatarHelper;
+use app\modules\blog\models\Tag;
 use CActiveDataProvider;
+use CActiveRecord;
 use CCaptcha;
 use CDbCriteria;
 use CDbExpression;
@@ -38,7 +39,7 @@ use Yii;
  * @property int comments_count_real
  * @property string $fio
  */
-class User extends ActiveRecord
+class User extends CActiveRecord
 {
     const SCENARIO_REGISTER = 'register';
     const SCENARIO_SETTINGS = 'settings';
@@ -56,6 +57,15 @@ class User extends ActiveRecord
     public $del_avatar = false;
 
     public $verifyCode;
+
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
 
     /**
      * @return string the associated database table name

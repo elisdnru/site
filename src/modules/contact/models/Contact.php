@@ -2,8 +2,9 @@
 
 namespace app\modules\contact\models;
 
-use app\components\ActiveRecord;
+use app\modules\blog\models\Tag;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -19,10 +20,19 @@ use Yii;
  * @property string $label
  * @property string $status
  */
-class Contact extends ActiveRecord
+class Contact extends CActiveRecord
 {
     const STATUS_NEW = 0;
     const STATUS_READED = 1;
+
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
 
     /**
      * @return string the associated database table name

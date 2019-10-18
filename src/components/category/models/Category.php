@@ -2,9 +2,9 @@
 
 namespace app\components\category\models;
 
-use app\components\ActiveRecord;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -25,8 +25,17 @@ use Yii;
  * @method mixed getAliasList($parent = 0)
  * @method mixed getMenuList($sub = 0, $parent = 0)
  */
-abstract class Category extends ActiveRecord
+abstract class Category extends CActiveRecord
 {
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
+
     public $urlRoute = '';
 
     public function rules(): array

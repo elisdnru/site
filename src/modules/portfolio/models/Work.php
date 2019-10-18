@@ -2,10 +2,11 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\ActiveRecord;
 use app\components\helpers\TextHelper;
 use app\components\uploader\FileUploadBehavior;
+use app\modules\blog\models\Tag;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -35,12 +36,21 @@ use Yii;
  * @mixin FileUploadBehavior
  * @method Work published()
  */
-class Work extends ActiveRecord
+class Work extends CActiveRecord
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/portfolio';
 
     public $del_image = false;
+
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
 
     /**
      * @return string the associated database table name

@@ -2,11 +2,11 @@
 
 namespace app\modules\blog\models;
 
-use app\components\ActiveRecord;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use CHtml;
 use Yii;
@@ -47,7 +47,7 @@ use Yii;
  * @mixin FileUploadBehavior
  * @method Post published()
  */
-class Post extends ActiveRecord implements CommentDepends
+class Post extends CActiveRecord implements CommentDepends
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/blogs';
@@ -57,6 +57,15 @@ class Post extends ActiveRecord implements CommentDepends
     public $newgroup = '';
 
     protected $tags_string;
+
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
 
     /**
      * @return string the associated database table name

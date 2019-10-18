@@ -2,9 +2,10 @@
 
 namespace app\modules\menu\models;
 
-use app\components\ActiveRecord;
 use app\components\TreeActiveDataProvider;
 use app\components\category\models\Category;
+use app\modules\blog\models\Tag;
+use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -29,9 +30,18 @@ use Yii;
  * @method string getPath($separator = '/')
  * @method mixed getBreadcrumbs($lastLink = false)
  */
-class Menu extends ActiveRecord
+class Menu extends CActiveRecord
 {
     public $indent = 0;
+
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
 
     /**
      * @return string the associated database table name

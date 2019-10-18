@@ -2,10 +2,11 @@
 
 namespace app\modules\comment\models;
 
-use app\components\ActiveRecord;
+use app\modules\blog\models\Tag;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use app\modules\user\models\User;
 use Yii;
@@ -30,10 +31,19 @@ use Yii;
  * @property Comment parent
  * @property CommentDepends|\CActiveRecord material
  */
-class Comment extends ActiveRecord
+class Comment extends CActiveRecord
 {
     protected $type_of_comment = '';
     protected $lang_of_system = '';
+
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
 
     /**
      * @return string the associated database table name

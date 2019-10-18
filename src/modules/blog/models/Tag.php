@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\models;
 
-use app\components\ActiveRecord;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use Yii;
 
@@ -12,8 +12,17 @@ use Yii;
  * @property string $title
  * @property PostTag $posttags
  */
-class Tag extends ActiveRecord
+class Tag extends CActiveRecord
 {
+    /**
+     * @param string|null $className
+     * @return CActiveRecord|static
+     */
+    public static function model($className = null): self
+    {
+        return parent::model($className ?: static::class);
+    }
+
     /**
      * @return string the associated database table name
      */
