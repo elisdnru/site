@@ -146,6 +146,7 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
 <!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
 
 <?php Yii::$app->view->endBody() ?>
+
 </body>
 </html>
 <?php Yii::$app->view->endPage() ?>
