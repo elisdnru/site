@@ -12,27 +12,26 @@ class Yii extends BaseYii
      * If filter function returns true Yii autoloader will be skipped.
      * @since 1.1.20
      */
-    public static $autoloaderFilters=array();
+    public static $autoloaderFilters = array();
     /**
      * @var array class map used by the Yii autoloading mechanism.
      * The array keys are the class names and the array values are the corresponding class file paths.
      * @since 1.1.5
      */
-    public static $classMap=array();
+    public static $classMap = array();
     /**
      * @var boolean whether to rely on PHP include path to autoload class files. Defaults to true.
      * You may set this to be false if your hosting environment doesn't allow changing the PHP
      * include path, or if you want to append additional autoloaders to the default Yii autoloader.
      * @since 1.1.8
      */
-    public static $enableIncludePath=true;
+    public static $enableIncludePath = true;
 
-    private static $_aliases=array('system'=>YII_PATH,'zii'=>YII_ZII_PATH); // alias => path
-    private static $_imports=array();					// alias => class name or directory
-    private static $_includePaths;						// list of include paths
+    private static $_aliases = array('system' => YII_PATH, 'zii' => YII_ZII_PATH); // alias => path
+    private static $_imports = array();                    // alias => class name or directory
+    private static $_includePaths;                        // list of include paths
     private static $_app;
     private static $_logger;
-
 
 
     /**
@@ -53,9 +52,9 @@ class Yii extends BaseYii
      * If not, the directory will be defaulted to 'protected'.
      * @return CWebApplication
      */
-    public static function createWebApplication($config=null)
+    public static function createWebApplication($config = null)
     {
-        return self::createApplication('CWebApplication',$config);
+        return self::createApplication('CWebApplication', $config);
     }
 
     /**
@@ -68,9 +67,9 @@ class Yii extends BaseYii
      * If not, the directory will be defaulted to 'protected'.
      * @return CConsoleApplication
      */
-    public static function createConsoleApplication($config=null)
+    public static function createConsoleApplication($config = null)
     {
-        return self::createApplication('CConsoleApplication',$config);
+        return self::createApplication('CConsoleApplication', $config);
     }
 
     /**
@@ -80,7 +79,7 @@ class Yii extends BaseYii
      * to the constructor of the application class.
      * @return mixed the application instance
      */
-    public static function createApplication($class,$config=null)
+    public static function createApplication($class, $config = null)
     {
         return new $class($config);
     }
@@ -106,10 +105,10 @@ class Yii extends BaseYii
      */
     public static function setApplication($app)
     {
-        if(self::$_app===null || $app===null)
-            self::$_app=$app;
+        if (self::$_app === null || $app === null)
+            self::$_app = $app;
         else
-            throw new CException(Yii::t('yii','Yii application can only be created once.'));
+            throw new CException(Yii::t('yii', 'Yii application can only be created once.'));
     }
 
     /**
@@ -140,44 +139,37 @@ class Yii extends BaseYii
     public static function createComponent($config)
     {
         $args = func_get_args();
-        if(is_string($config))
-        {
-            $type=$config;
-            $config=array();
-        }
-        elseif(isset($config['class']))
-        {
-            $type=$config['class'];
+        if (is_string($config)) {
+            $type = $config;
+            $config = array();
+        } elseif (isset($config['class'])) {
+            $type = $config['class'];
             unset($config['class']);
-        }
-        else
-            throw new CException(Yii::t('yii','Object configuration must be an array containing a "class" element.'));
+        } else
+            throw new CException(Yii::t('yii', 'Object configuration must be an array containing a "class" element.'));
 
-        if(!class_exists($type,false))
-            $type=Yii::import($type,true);
+        if (!class_exists($type, false))
+            $type = Yii::import($type, true);
 
-        if(($n=func_num_args())>1)
-        {
-            if($n===2)
-                $object=new $type($args[1]);
-            elseif($n===3)
-                $object=new $type($args[1],$args[2]);
-            elseif($n===4)
-                $object=new $type($args[1],$args[2],$args[3]);
-            else
-            {
+        if (($n = func_num_args()) > 1) {
+            if ($n === 2)
+                $object = new $type($args[1]);
+            elseif ($n === 3)
+                $object = new $type($args[1], $args[2]);
+            elseif ($n === 4)
+                $object = new $type($args[1], $args[2], $args[3]);
+            else {
                 unset($args[0]);
-                $class=new ReflectionClass($type);
+                $class = new ReflectionClass($type);
                 // Note: ReflectionClass::newInstanceArgs() is available for PHP 5.1.3+
                 // $object=$class->newInstanceArgs($args);
-                $object=call_user_func_array(array($class,'newInstance'),$args);
+                $object = call_user_func_array(array($class, 'newInstance'), $args);
             }
-        }
-        else
-            $object=new $type;
+        } else
+            $object = new $type;
 
-        foreach($config as $key=>$value)
-            $object->$key=$value;
+        foreach ($config as $key => $value)
+            $object->$key = $value;
 
         return $object;
     }
@@ -220,93 +212,81 @@ class Yii extends BaseYii
      * @return string the class name or the directory that this alias refers to
      * @throws CException if the alias is invalid
      */
-    public static function import($alias,$forceInclude=false)
+    public static function import($alias, $forceInclude = false)
     {
-        if(isset(self::$_imports[$alias]))  // previously imported
+        if (isset(self::$_imports[$alias]))  // previously imported
             return self::$_imports[$alias];
 
-        if(class_exists($alias,false) || interface_exists($alias,false))
-            return self::$_imports[$alias]=$alias;
+        if (class_exists($alias, false) || interface_exists($alias, false))
+            return self::$_imports[$alias] = $alias;
 
-        if(($pos=strrpos($alias,'\\'))!==false) // a class name in PHP 5.3 namespace format
+        if (($pos = strrpos($alias, '\\')) !== false) // a class name in PHP 5.3 namespace format
         {
-            $namespace=str_replace('\\','.',ltrim(substr($alias,0,$pos),'\\'));
-            if(($path=self::getPathOfAlias($namespace))!==false)
-            {
-                $classFile=$path.DIRECTORY_SEPARATOR.substr($alias,$pos+1).'.php';
-                if($forceInclude)
-                {
-                    if(is_file($classFile))
+            $namespace = str_replace('\\', '.', ltrim(substr($alias, 0, $pos), '\\'));
+            if (($path = self::getPathOfAlias($namespace)) !== false) {
+                $classFile = $path . DIRECTORY_SEPARATOR . substr($alias, $pos + 1) . '.php';
+                if ($forceInclude) {
+                    if (is_file($classFile))
                         require($classFile);
                     else
-                        throw new CException(Yii::t('yii','Alias "{alias}" is invalid. Make sure it points to an existing PHP file and the file is readable.',array('{alias}'=>$alias)));
-                    self::$_imports[$alias]=$alias;
-                }
-                else
-                    self::$classMap[$alias]=$classFile;
+                        throw new CException(Yii::t('yii', 'Alias "{alias}" is invalid. Make sure it points to an existing PHP file and the file is readable.', array('{alias}' => $alias)));
+                    self::$_imports[$alias] = $alias;
+                } else
+                    self::$classMap[$alias] = $classFile;
                 return $alias;
-            }
-            else
-            {
+            } else {
                 // try to autoload the class with an autoloader
-                if (class_exists($alias,true))
-                    return self::$_imports[$alias]=$alias;
+                if (class_exists($alias, true))
+                    return self::$_imports[$alias] = $alias;
                 else
-                    throw new CException(Yii::t('yii','Alias "{alias}" is invalid. Make sure it points to an existing directory or file.',
-                        array('{alias}'=>$namespace)));
+                    throw new CException(Yii::t('yii', 'Alias "{alias}" is invalid. Make sure it points to an existing directory or file.',
+                        array('{alias}' => $namespace)));
             }
         }
 
-        if(($pos=strrpos($alias,'.'))===false)  // a simple class name
+        if (($pos = strrpos($alias, '.')) === false)  // a simple class name
         {
             // try to autoload the class with an autoloader if $forceInclude is true
-            if($forceInclude && (Yii::autoload($alias,true) || class_exists($alias,true)))
-                self::$_imports[$alias]=$alias;
+            if ($forceInclude && (Yii::autoload($alias, true) || class_exists($alias, true)))
+                self::$_imports[$alias] = $alias;
             return $alias;
         }
 
-        $className=(string)substr($alias,$pos+1);
-        $isClass=$className!=='*';
+        $className = (string)substr($alias, $pos + 1);
+        $isClass = $className !== '*';
 
-        if($isClass && (class_exists($className,false) || interface_exists($className,false)))
-            return self::$_imports[$alias]=$className;
+        if ($isClass && (class_exists($className, false) || interface_exists($className, false)))
+            return self::$_imports[$alias] = $className;
 
-        if(($path=self::getPathOfAlias($alias))!==false)
-        {
-            if($isClass)
-            {
-                if($forceInclude)
-                {
-                    if(is_file($path.'.php'))
-                        require($path.'.php');
+        if (($path = self::getPathOfAlias($alias)) !== false) {
+            if ($isClass) {
+                if ($forceInclude) {
+                    if (is_file($path . '.php'))
+                        require($path . '.php');
                     else
-                        throw new CException(Yii::t('yii','Alias "{alias}" is invalid. Make sure it points to an existing PHP file and the file is readable.',array('{alias}'=>$alias)));
-                    self::$_imports[$alias]=$className;
-                }
-                else
-                    self::$classMap[$className]=$path.'.php';
+                        throw new CException(Yii::t('yii', 'Alias "{alias}" is invalid. Make sure it points to an existing PHP file and the file is readable.', array('{alias}' => $alias)));
+                    self::$_imports[$alias] = $className;
+                } else
+                    self::$classMap[$className] = $path . '.php';
                 return $className;
-            }
-            else  // a directory
+            } else  // a directory
             {
-                if(self::$_includePaths===null)
-                {
-                    self::$_includePaths=array_unique(explode(PATH_SEPARATOR,get_include_path()));
-                    if(($pos=array_search('.',self::$_includePaths,true))!==false)
+                if (self::$_includePaths === null) {
+                    self::$_includePaths = array_unique(explode(PATH_SEPARATOR, get_include_path()));
+                    if (($pos = array_search('.', self::$_includePaths, true)) !== false)
                         unset(self::$_includePaths[$pos]);
                 }
 
-                array_unshift(self::$_includePaths,$path);
+                array_unshift(self::$_includePaths, $path);
 
-                if(self::$enableIncludePath && set_include_path('.'.PATH_SEPARATOR.implode(PATH_SEPARATOR,self::$_includePaths))===false)
-                    self::$enableIncludePath=false;
+                if (self::$enableIncludePath && set_include_path('.' . PATH_SEPARATOR . implode(PATH_SEPARATOR, self::$_includePaths)) === false)
+                    self::$enableIncludePath = false;
 
-                return self::$_imports[$alias]=$path;
+                return self::$_imports[$alias] = $path;
             }
-        }
-        else
-            throw new CException(Yii::t('yii','Alias "{alias}" is invalid. Make sure it points to an existing directory or file.',
-                array('{alias}'=>$alias)));
+        } else
+            throw new CException(Yii::t('yii', 'Alias "{alias}" is invalid. Make sure it points to an existing directory or file.',
+                array('{alias}' => $alias)));
     }
 
     /**
@@ -318,16 +298,14 @@ class Yii extends BaseYii
      */
     public static function getPathOfAlias($alias)
     {
-        if(isset(self::$_aliases[$alias]))
+        if (isset(self::$_aliases[$alias]))
             return self::$_aliases[$alias];
-        elseif(($pos=strpos($alias,'.'))!==false)
-        {
-            $rootAlias=substr($alias,0,$pos);
-            if(isset(self::$_aliases[$rootAlias]))
-                return self::$_aliases[$alias]=rtrim(self::$_aliases[$rootAlias].DIRECTORY_SEPARATOR.str_replace('.',DIRECTORY_SEPARATOR,substr($alias,$pos+1)),'*'.DIRECTORY_SEPARATOR);
-            elseif(self::$_app instanceof CWebApplication)
-            {
-                if(self::$_app->findModule($rootAlias)!==null)
+        elseif (($pos = strpos($alias, '.')) !== false) {
+            $rootAlias = substr($alias, 0, $pos);
+            if (isset(self::$_aliases[$rootAlias]))
+                return self::$_aliases[$alias] = rtrim(self::$_aliases[$rootAlias] . DIRECTORY_SEPARATOR . str_replace('.', DIRECTORY_SEPARATOR, substr($alias, $pos + 1)), '*' . DIRECTORY_SEPARATOR);
+            elseif (self::$_app instanceof CWebApplication) {
+                if (self::$_app->findModule($rootAlias) !== null)
                     return self::getPathOfAlias($alias);
             }
         }
@@ -341,12 +319,12 @@ class Yii extends BaseYii
      * @param string $path the path corresponding to the alias. If this is null, the corresponding
      * path alias will be removed.
      */
-    public static function setPathOfAlias($alias,$path)
+    public static function setPathOfAlias($alias, $path)
     {
-        if(empty($path))
+        if (empty($path))
             unset(self::$_aliases[$alias]);
         else
-            self::$_aliases[$alias]=rtrim($path,'\\/');
+            self::$_aliases[$alias] = rtrim($path, '\\/');
     }
 
     /**
@@ -357,73 +335,61 @@ class Yii extends BaseYii
      * @return boolean whether the class has been loaded successfully
      * @throws CException When class name does not match class file in debug mode.
      */
-    public static function autoload($className,$classMapOnly=false)
+    public static function autoload($className, $classMapOnly = false)
     {
-        foreach (self::$autoloaderFilters as $filter)
-        {
+        foreach (self::$autoloaderFilters as $filter) {
             if (is_array($filter)
                 && isset($filter[0]) && isset($filter[1])
                 && is_string($filter[0]) && is_string($filter[1])
                 && true === call_user_func(array($filter[0], $filter[1]), $className)
-            )
-            {
+            ) {
                 return true;
-            }
-            elseif (is_string($filter)
+            } elseif (is_string($filter)
                 && true === call_user_func($filter, $className)
-            )
-            {
+            ) {
                 return true;
-            }
-            elseif (is_callable($filter)
+            } elseif (is_callable($filter)
                 && true === $filter($className)
-            )
-            {
+            ) {
                 return true;
             }
         }
 
         // use include so that the error PHP file may appear
-        if(isset(self::$classMap[$className]))
+        if (isset(self::$classMap[$className]))
             include(self::$classMap[$className]);
-        elseif(isset(self::$_coreClasses[$className]))
-            include(YII_PATH.self::$_coreClasses[$className]);
-        elseif($classMapOnly)
+        elseif (isset(self::$_coreClasses[$className]))
+            include(YII_PATH . self::$_coreClasses[$className]);
+        elseif ($classMapOnly)
             return false;
-        else
-        {
+        else {
             // include class file relying on include_path
-            if(strpos($className,'\\')===false)  // class without namespace
+            if (strpos($className, '\\') === false)  // class without namespace
             {
-                if(self::$enableIncludePath===false)
-                {
-                    foreach(self::$_includePaths as $path)
-                    {
-                        $classFile=$path.DIRECTORY_SEPARATOR.$className.'.php';
-                        if(is_file($classFile))
-                        {
+                if (self::$enableIncludePath === false) {
+                    foreach (self::$_includePaths as $path) {
+                        $classFile = $path . DIRECTORY_SEPARATOR . $className . '.php';
+                        if (is_file($classFile)) {
                             include($classFile);
-                            if(YII_DEBUG && basename(realpath($classFile))!==$className.'.php')
-                                throw new CException(Yii::t('yii','Class name "{class}" does not match class file "{file}".', array(
-                                    '{class}'=>$className,
-                                    '{file}'=>$classFile,
+                            if (YII_DEBUG && basename(realpath($classFile)) !== $className . '.php')
+                                throw new CException(Yii::t('yii', 'Class name "{class}" does not match class file "{file}".', array(
+                                    '{class}' => $className,
+                                    '{file}' => $classFile,
                                 )));
                             break;
                         }
                     }
-                }
-                else
-                    include($className.'.php');
-            }
-            else  // class name with namespace in PHP 5.3
+                } else
+                    include($className . '.php');
+            } else  // class name with namespace in PHP 5.3
             {
-                $namespace=str_replace('\\','.',ltrim($className,'\\'));
-                if(($path=self::getPathOfAlias($namespace))!==false && is_file($path.'.php'))
-                    include($path.'.php');
+                $namespace = str_replace('\\', '.', ltrim($className, '\\'));
+                if (($path = self::getPathOfAlias($namespace)) !== false && is_file($path . '.php'))
+                    include($path . '.php');
                 else
                     return false;
             }
-            return class_exists($className,false) || interface_exists($className,false);
+            return class_exists($className, false) || interface_exists($className, false);
         }
         return true;
     }
@@ -435,10 +401,10 @@ class Yii extends BaseYii
      * @param string $category category of the message
      * @see log
      */
-    public static function trace($msg,$category='application')
+    public static function trace($msg, $category = 'application')
     {
-        if(YII_DEBUG)
-            self::log($msg,CLogger::LEVEL_TRACE,$category);
+        if (YII_DEBUG)
+            self::log($msg, CLogger::LEVEL_TRACE, $category);
     }
 
     /**
@@ -450,25 +416,22 @@ class Yii extends BaseYii
      * @param string $level level of the message (e.g. 'trace', 'warning', 'error'). It is case-insensitive.
      * @param string $category category of the message (e.g. 'system.web'). It is case-insensitive.
      */
-    public static function log($msg,$level=CLogger::LEVEL_INFO,$category='application')
+    public static function log($msg, $level = CLogger::LEVEL_INFO, $category = 'application')
     {
-        if(self::$_logger===null)
-            self::$_logger=new CLogger;
-        if(YII_DEBUG && YII_TRACE_LEVEL>0 && $level!==CLogger::LEVEL_PROFILE)
-        {
-            $traces=debug_backtrace();
-            $count=0;
-            foreach($traces as $trace)
-            {
-                if(isset($trace['file'],$trace['line']) && strpos($trace['file'],YII_PATH)!==0)
-                {
-                    $msg.="\nin ".$trace['file'].' ('.$trace['line'].')';
-                    if(++$count>=YII_TRACE_LEVEL)
+        if (self::$_logger === null)
+            self::$_logger = new CLogger;
+        if (YII_DEBUG && YII_TRACE_LEVEL > 0 && $level !== CLogger::LEVEL_PROFILE) {
+            $traces = debug_backtrace();
+            $count = 0;
+            foreach ($traces as $trace) {
+                if (isset($trace['file'], $trace['line']) && strpos($trace['file'], YII_PATH) !== 0) {
+                    $msg .= "\nin " . $trace['file'] . ' (' . $trace['line'] . ')';
+                    if (++$count >= YII_TRACE_LEVEL)
                         break;
                 }
             }
         }
-        self::$_logger->log($msg,$level,$category);
+        self::$_logger->log($msg, $level, $category);
     }
 
     /**
@@ -492,9 +455,9 @@ class Yii extends BaseYii
      * @param string $category the category of this log message
      * @see endProfile
      */
-    public static function beginProfile($token,$category='application')
+    public static function beginProfile($token, $category = 'application')
     {
-        self::log('begin:'.$token,CLogger::LEVEL_PROFILE,$category);
+        self::log('begin:' . $token, CLogger::LEVEL_PROFILE, $category);
     }
 
     /**
@@ -504,9 +467,9 @@ class Yii extends BaseYii
      * @param string $category the category of this log message
      * @see beginProfile
      */
-    public static function endProfile($token,$category='application')
+    public static function endProfile($token, $category = 'application')
     {
-        self::log('end:'.$token,CLogger::LEVEL_PROFILE,$category);
+        self::log('end:' . $token, CLogger::LEVEL_PROFILE, $category);
     }
 
     /**
@@ -514,10 +477,10 @@ class Yii extends BaseYii
      */
     public static function getLogger()
     {
-        if(self::$_logger!==null)
+        if (self::$_logger !== null)
             return self::$_logger;
         else
-            return self::$_logger=new CLogger;
+            return self::$_logger = new CLogger;
     }
 
     /**
@@ -527,7 +490,7 @@ class Yii extends BaseYii
      */
     public static function setLogger($logger)
     {
-        self::$_logger=$logger;
+        self::$_logger = $logger;
     }
 
     /**
@@ -536,7 +499,7 @@ class Yii extends BaseYii
      */
     public static function powered()
     {
-        return Yii::t('yii','Powered by {yii}.', array('{yii}'=>'<a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>'));
+        return Yii::t('yii', 'Powered by {yii}.', array('{yii}' => '<a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>'));
     }
 
     /**
@@ -563,42 +526,38 @@ class Yii extends BaseYii
      * @return string the translated message
      * @see CMessageSource
      */
-    public static function t($category,$message,$params=array(),$source=null,$language=null)
+    public static function t($category, $message, $params = array(), $source = null, $language = null)
     {
-        if(self::$_app!==null)
-        {
-            if($source===null)
-                $source=($category==='yii'||$category==='zii')?'coreMessages':'messages';
-            if(($source=self::$_app->getComponent($source))!==null)
-                $message=$source->translate($category,$message,$language);
+        if (self::$_app !== null) {
+            if ($source === null)
+                $source = ($category === 'yii' || $category === 'zii') ? 'coreMessages' : 'messages';
+            if (($source = self::$_app->getComponent($source)) !== null)
+                $message = $source->translate($category, $message, $language);
         }
-        if($params===array())
+        if ($params === array())
             return $message;
-        if(!is_array($params))
-            $params=array($params);
-        if(isset($params[0])) // number choice
+        if (!is_array($params))
+            $params = array($params);
+        if (isset($params[0])) // number choice
         {
-            if(strpos($message,'|')!==false)
-            {
-                if(strpos($message,'#')===false)
-                {
-                    $chunks=explode('|',$message);
-                    $expressions=self::$_app->getLocale($language)->getPluralRules();
-                    if($n=min(count($chunks),count($expressions)))
-                    {
-                        for($i=0;$i<$n;$i++)
-                            $chunks[$i]=$expressions[$i].'#'.$chunks[$i];
+            if (strpos($message, '|') !== false) {
+                if (strpos($message, '#') === false) {
+                    $chunks = explode('|', $message);
+                    $expressions = self::$_app->getLocale($language)->getPluralRules();
+                    if ($n = min(count($chunks), count($expressions))) {
+                        for ($i = 0; $i < $n; $i++)
+                            $chunks[$i] = $expressions[$i] . '#' . $chunks[$i];
 
-                        $message=implode('|',$chunks);
+                        $message = implode('|', $chunks);
                     }
                 }
-                $message=CChoiceFormat::format($message,$params[0]);
+                $message = CChoiceFormat::format($message, $params[0]);
             }
-            if(!isset($params['{n}']))
-                $params['{n}']=$params[0];
+            if (!isset($params['{n}']))
+                $params['{n}'] = $params[0];
             unset($params[0]);
         }
-        return $params!==array() ? strtr($message,$params) : $message;
+        return $params !== array() ? strtr($message, $params) : $message;
     }
 
     /**
@@ -611,18 +570,15 @@ class Yii extends BaseYii
      * when set to true. After this the Yii autoloader can not rely on loading classes via simple include anymore
      * and you have to {@link import} all classes explicitly.
      */
-    public static function registerAutoloader($callback, $append=false)
+    public static function registerAutoloader($callback, $append = false)
     {
-        if($append)
-        {
-            self::$enableIncludePath=false;
+        if ($append) {
+            self::$enableIncludePath = false;
             spl_autoload_register($callback);
-        }
-        else
-        {
-            spl_autoload_unregister(array('YiiBase','autoload'));
+        } else {
+            spl_autoload_unregister(array('YiiBase', 'autoload'));
             spl_autoload_register($callback);
-            spl_autoload_register(array('YiiBase','autoload'));
+            spl_autoload_register(array('YiiBase', 'autoload'));
         }
     }
 
@@ -631,7 +587,7 @@ class Yii extends BaseYii
      * NOTE, DO NOT MODIFY THIS ARRAY MANUALLY. IF YOU CHANGE OR ADD SOME CORE CLASSES,
      * PLEASE RUN 'build autoload' COMMAND TO UPDATE THIS ARRAY.
      */
-    private static $_coreClasses=array(
+    private static $_coreClasses = array(
         'CApplication' => '/base/CApplication.php',
         'CApplicationComponent' => '/base/CApplicationComponent.php',
         'CBehavior' => '/base/CBehavior.php',
