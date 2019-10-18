@@ -8,12 +8,6 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
-<?php if ($this->menu) : ?>
-    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Управление']); ?>
-    <?php $this->widget('zii.widgets.CMenu', ['items' => $this->menu]); ?>
-    <?php $this->endWidget(); ?>
-<?php endif; ?>
-
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
     <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_sidebar']); ?>
