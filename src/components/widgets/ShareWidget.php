@@ -2,9 +2,10 @@
 
 namespace app\components\widgets;
 
+use CWidget;
 use Yii;
 
-class ShareWidget extends Widget
+class ShareWidget extends CWidget
 {
     public $tpl = 'default';
     public $url = '';

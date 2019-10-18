@@ -2,7 +2,9 @@
 
 namespace app\components\widgets;
 
-class FollowWidget extends Widget
+use CWidget;
+
+class FollowWidget extends CWidget
 {
     public function run(): void
     {

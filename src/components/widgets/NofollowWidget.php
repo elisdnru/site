@@ -2,7 +2,9 @@
 
 namespace app\components\widgets;
 
-class NofollowWidget extends Widget
+use CWidget;
+
+class NofollowWidget extends CWidget
 {
     public function init(): void
     {

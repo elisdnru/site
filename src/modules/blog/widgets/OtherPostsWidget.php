@@ -5,9 +5,9 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use CDbCriteria;
-use app\components\widgets\Widget;
+use CWidget;
 
-class OtherPostsWidget extends Widget
+class OtherPostsWidget extends CWidget
 {
     public $tpl = 'OtherPosts';
     public $title = '';

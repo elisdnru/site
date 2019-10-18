@@ -4,12 +4,12 @@ namespace app\modules\portfolio\widgets;
 
 use app\assets\PortfolioAsset;
 use CDbCriteria;
-use app\components\widgets\Widget;
 use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
+use CWidget;
 use Yii;
 
-class PortfolioWidget extends Widget
+class PortfolioWidget extends CWidget
 {
     public $tpl = 'Portfolio';
     public $class = '';

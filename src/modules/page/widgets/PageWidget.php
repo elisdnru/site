@@ -2,11 +2,11 @@
 
 namespace app\modules\page\widgets;
 
-use app\components\widgets\Widget;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
+use CWidget;
 
-class PageWidget extends Widget
+class PageWidget extends CWidget
 {
     public $alias;
 

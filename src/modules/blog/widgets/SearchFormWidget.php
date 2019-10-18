@@ -3,9 +3,9 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\forms\SearchForm;
-use app\components\widgets\Widget;
+use CWidget;
 
-class SearchFormWidget extends Widget
+class SearchFormWidget extends CWidget
 {
     public $tpl = 'SearchForm';
 

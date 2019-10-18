@@ -3,10 +3,10 @@
 namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;
-use app\components\widgets\Widget;
+use CWidget;
 use yii\caching\TagDependency;
 
-class BlockWidget extends Widget
+class BlockWidget extends CWidget
 {
     public $tpl = 'default';
     public $id = '';

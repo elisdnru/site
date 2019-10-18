@@ -2,7 +2,9 @@
 
 namespace app\components\widgets;
 
-class MessagesWidget extends Widget
+use CWidget;
+
+class MessagesWidget extends CWidget
 {
     public function run(): void
     {

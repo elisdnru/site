@@ -3,9 +3,9 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Group;
-use app\components\widgets\Widget;
+use CWidget;
 
-class ThemePostsWidget extends Widget
+class ThemePostsWidget extends CWidget
 {
     public $tpl = 'ThemePosts';
     public $current = 0;

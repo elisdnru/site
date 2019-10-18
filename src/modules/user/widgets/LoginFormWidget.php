@@ -2,12 +2,12 @@
 
 namespace app\modules\user\widgets;
 
-use app\components\widgets\Widget;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
+use CWidget;
 use Yii;
 
-class LoginFormWidget extends Widget
+class LoginFormWidget extends CWidget
 {
     public $tpl = 'LoginForm';
 

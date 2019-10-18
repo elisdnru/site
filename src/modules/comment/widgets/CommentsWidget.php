@@ -7,13 +7,13 @@ use CException;
 use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
-use app\components\widgets\Widget;
 use app\modules\user\models\User;
+use CWidget;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\helpers\Json;
 
-class CommentsWidget extends Widget
+class CommentsWidget extends CWidget
 {
     public $material_id;
     public $authorId;

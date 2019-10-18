@@ -3,10 +3,10 @@
 namespace app\components\colorbox\widgets;
 
 use app\components\colorbox\ColorboxAsset;
-use app\components\widgets\Widget;
+use CWidget;
 use Yii;
 
-class ColorboxWidget extends Widget
+class ColorboxWidget extends CWidget
 {
     public function run(): void
     {

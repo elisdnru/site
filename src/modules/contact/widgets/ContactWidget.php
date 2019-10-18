@@ -4,10 +4,10 @@ namespace app\modules\contact\widgets;
 
 use app\modules\contact\models\Contact;
 use app\modules\contact\forms\ContactForm;
-use app\components\widgets\Widget;
+use CWidget;
 use Yii;
 
-class ContactWidget extends Widget
+class ContactWidget extends CWidget
 {
     public $tpl = 'default';
     public $scenario = '';

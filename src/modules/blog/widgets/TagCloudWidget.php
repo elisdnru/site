@@ -3,10 +3,10 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Tag;
-use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
+use CWidget;
 
-class TagCloudWidget extends Widget
+class TagCloudWidget extends CWidget
 {
     public $tpl = 'TagCloud';
     public $tags = '';

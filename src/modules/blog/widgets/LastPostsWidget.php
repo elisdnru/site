@@ -4,10 +4,10 @@ namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
 use CDbCriteria;
-use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
+use CWidget;
 
-class LastPostsWidget extends Widget
+class LastPostsWidget extends CWidget
 {
     public $tpl = 'default';
     public $class = '';

@@ -2,9 +2,10 @@
 
 namespace app\components\widgets;
 
+use CWidget;
 use Yii;
 
-class BreadcrumbsWidget extends Widget
+class BreadcrumbsWidget extends CWidget
 {
     public function run(): void
     {

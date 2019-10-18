@@ -4,10 +4,10 @@ namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
 use CHtml;
-use app\components\widgets\Widget;
 use app\extensions\cachetagging\Tags;
+use CWidget;
 
-class CalendarWidget extends Widget
+class CalendarWidget extends CWidget
 {
     public $title = 'Calendar';
 

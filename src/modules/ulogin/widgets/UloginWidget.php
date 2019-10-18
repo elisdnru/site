@@ -2,9 +2,9 @@
 
 namespace app\modules\ulogin\widgets;
 
-use app\components\widgets\Widget;
+use CWidget;
 
-class UloginWidget extends Widget
+class UloginWidget extends CWidget
 {
     private static $once = false;
 
