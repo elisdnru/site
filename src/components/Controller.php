@@ -27,7 +27,7 @@ class Controller extends CController
         ]);
     }
 
-    protected function beforeAction($action)
+    protected function beforeAction($action): bool
     {
         Yii::$app->controller = $this;
         return parent::beforeAction($action);
