@@ -36,7 +36,7 @@ if ($model->image) {
 }
 
 if ($model->styles) {
-    Yii::app()->clientScript->registerCss('post', StyleHelper::minimize(strip_tags($model->styles)));
+    $this->registerCss(StyleHelper::minimize(strip_tags($model->styles)));
 }
 
 if ($model->category) {

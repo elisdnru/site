@@ -4,6 +4,7 @@
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 use yii\web\JqueryAsset;
+use yii\web\View;
 
 /** @var $model Contact */
 /** @var $htmlroot string */
@@ -146,7 +147,7 @@ jQuery(function ($) {
     })
 })
 
-<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 
 <?php echo CHtml::endForm(); ?>
@@ -213,5 +214,5 @@ function renameBox($name) {
     jQuery('#renameLink').click()
 }
 
-<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>

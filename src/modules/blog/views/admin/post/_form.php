@@ -6,6 +6,7 @@ use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Tag;
 use app\components\AdminController;
+use yii\web\View;
 
 /** @var $model Post */
 /** @var $form CActiveForm */
@@ -195,7 +196,7 @@ use app\components\AdminController;
         })
     })();
 
-    <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+    <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
     </script>
 
     <?php echo $this->renderPartial('//common/forms/_meta', [

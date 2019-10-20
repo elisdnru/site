@@ -6,6 +6,7 @@
 
 use app\modules\portfolio\models\Category;
 use yii\web\JqueryAsset;
+use yii\web\View;
 
 $this->title = 'Работы портфолио';
 $this->params['breadcrumbs'] = [
@@ -136,5 +137,5 @@ jQuery(function($) {
     })
 })
 
-<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>

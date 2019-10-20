@@ -4,6 +4,7 @@
 use app\components\AdminController;
 use app\modules\menu\models\Menu;
 use app\modules\page\models\Page;
+use yii\web\View;
 
 /** @var $model Menu */
 /** @var $form CActiveForm */
@@ -107,7 +108,7 @@ use app\modules\page\models\Page;
       })
     })();
 
-    <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+    <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
     </script>
 
 </div><!-- form -->

@@ -3,6 +3,7 @@
 
 use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
+use yii\web\View;
 
 CarouselAsset::register(Yii::$app->view);
 ?>
@@ -42,5 +43,5 @@ jQuery(function($) {
     })
 })
 
-<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+<?php Yii::$app->view->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>

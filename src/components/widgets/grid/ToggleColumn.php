@@ -13,6 +13,7 @@ use CHtml;
 use CJavaScript;
 use CJavaScriptExpression;
 use Yii;
+use yii\web\View;
 
 Yii::import('zii.widgets.grid.CGridColumn');
 
@@ -171,8 +172,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
 });
         ";
 
-        $script = CJavaScript::encode(new CJavaScriptExpression($js));
-        Yii::app()->clientScript->registerScript(__CLASS__ . '#' . $this->id, $script);
+        Yii::$app->view->registerJs($js, View::POS_END);
 
         $style = '
         .toggle-link .icon-on, .toggle-link .icon-off {display:block; margin:0 auto;}
@@ -182,7 +182,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
         .toggle-link.toggle-true .icon-off {display:none !important;}
         ';
 
-        Yii::app()->clientScript->registerCSS(__CLASS__ . '#' . $this->id, $style);
+        Yii::$app->view->registerCSS($style);
     }
 
     protected function renderDataCellContent($row, $data): void

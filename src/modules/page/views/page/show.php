@@ -7,7 +7,7 @@ use app\extensions\cachetagging\Tags;
 /** @var $subpages_layout string */
 
 if ($page->styles) {
-    Yii::app()->clientScript->registerCss('page', StyleHelper::minimize(strip_tags($page->styles)));
+    $this->registerCss(StyleHelper::minimize(strip_tags($page->styles)));
 }
 ?>
 <?php if ($page->layout === 'blank') : ?><?php echo $this->decodeWidgets($page->text_purified); ?><?php else : ?>

@@ -7,6 +7,7 @@ use CController;
 use CHttpException;
 use Yii;
 use yii\helpers\Html;
+use yii\web\View;
 
 /**
  * @property InlineWidgetsBehavior $InlineWidgetsBehavior
@@ -44,6 +45,16 @@ class Controller extends CController
     public function registerMetaTag($options, $key = null): void
     {
         Yii::$app->view->registerMetaTag($options, $key);
+    }
+
+    public function registerCss($css, $options = [], $key = null)
+    {
+        return Yii::$app->view->registerCss($css, $options, $key);
+    }
+
+    public function registerJs($js, $position = View::POS_READY, $key = null)
+    {
+        return Yii::$app->view->registerJs($js, $position, $key);
     }
 
     public function refresh($terminate = true, $anchor = ''): void

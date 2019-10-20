@@ -1,3 +1,7 @@
+<?php
+use yii\web\View;
+?>
+
 <div>
     <script>
     document.write('<a href=\'http://www.liveinternet.ru/click\' ' +
@@ -25,7 +29,7 @@ ym(18406216, 'init', {
     accurateTrackBounce: true,
     webvisor: false
 });
-<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 <noscript>
     <div><img src="https://mc.yandex.ru/watch/18406216" style="position:absolute; left:-9999px;" alt=""></div>
@@ -44,7 +48,7 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]
     s.parentNode.insertBefore(ga, s)
 })();
-<?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 
 <script>
