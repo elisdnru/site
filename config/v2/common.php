@@ -49,8 +49,8 @@ return [
                 'class' => Swift_SmtpTransport::class,
                 'host' => $mailerUri['host'],
                 'port' => $mailerUri['port'],
-                'username' => $mailerUri['user'],
-                'password' => $mailerUri['pass'],
+                'username' => $mailerUri['user'] ?: '',
+                'password' => $mailerUri['pass'] ?: '',
                 'encryption' => $mailerQuery['encryption'],
             ],
             'messageConfig' => [
