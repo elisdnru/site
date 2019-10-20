@@ -7,73 +7,6 @@ use CComponent;
 use CController;
 use Yii;
 
-/**
- * InlineWidgetsBehavior allows render widgets in page content
- *
- * Config:
- * <code>
- * return array(
- *     // ...
- *     'params'=>array(
- *          // ...
- *         'runtimeWidgets'=>array(
- *             'Share',
- *             'Comments',
- *             'blog.widgets.LastPosts',
- *         }
- *     }
- * }
- * </code>
- *
- * Widget:
- * <code>
- * class LastPostsWidget extends CWidget
- * {
- *     public $tpl='default';
- *     public $limit=3;
- *
- *     public function run()
- *     {
- *         $posts = Post::model()->published()->last($this->limit)->findAll();
- *         $this->render('LastPosts/' . $this->tpl,array(
- *             'posts'=>$posts,
- *         ));
- *     }
- * }
- * </code>
- *
- * Controller:
- * <code>
- * class Controller extends CController
- * {
- *     public function behaviors(): array
- *     {
- *         return array(
- *             'InlineWidgetsBehavior'=>array(
- *                 'class'=>'InlineWidgetsBehavior',
- *                 'location'=>'application.components.widgets',
- *                 'widgets'=>Yii::app()->params['runtimeWidgets'],
- *              ),
- *         );
- *     }
- * }
- * </code>
- *
- * For rendering widgets in View you must call Controller::decodeWidgets() method:
- * <code>
- * $text = '
- *     <h2>Lorem ipsum</h2>
- *     <p>[*LastPosts*]</p>
- *     <p>[*LastPosts|limit=4*]</p>
- *     <p>[*LastPosts|limit=5;tpl=small*]</p>
- *     <p>[*LastPosts|limit=5;tpl=small|cache=300*]</p>
- *     <p>Dolor...</p>
- * ';
- * echo $this->decodeWidgets($text);
- * </code>
- *
- * @version 1.2
- */
 class InlineWidgetsBehavior extends CBehavior
 {
     /**
@@ -84,14 +17,6 @@ class InlineWidgetsBehavior extends CBehavior
      * @var string marker of block end
      */
     public $endBlock = '*]';
-    /**
-     * @var string alias if needle using default location 'path.to.widgets'
-     */
-    public $location = '';
-    /**
-     * @var string global classname suffix like 'Widget'
-     */
-    public $classSuffix = '';
     /**
      * @var array of allowed widgets
      */

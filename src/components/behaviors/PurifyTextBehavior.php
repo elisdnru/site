@@ -9,32 +9,6 @@ use CHtmlPurifier;
 use CMarkdownParser;
 use CModelEvent;
 
-/**
- * DPurifyTextBehavior will automatically purify
- * content from source attribute to destination attribute.
- *
- * Purify source when the active record is created and/or updated.
- * You may specify an active record model to use this behavior like so:
- * <pre>
- * public function behaviors(): array
- * {
- *     return array(
- *         'PurifyText'=>array(
- *             'class'=>\DPurifyTextBehavior::class,
- *             'sourceAttribute'=>'text',
- *             'destinationAttribute'=>'purified_text',
- *             'purifierOptions'=> array(
- *                 'HTML.SafeObject'=>true,
- *                 'Output.FlashCompat'=>true,
- *             ),
- *             'processOnBeforeSave'=>true,
- *         )
- *     );
- * }
- * </pre>
- *
- * @version 1.3
- */
 class PurifyTextBehavior extends CActiveRecordBehavior
 {
     /**

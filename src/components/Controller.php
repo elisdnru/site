@@ -29,9 +29,7 @@ class Controller extends CController
         return array_merge(parent::behaviors(), [
             'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
-                'location' => 'application.widgets',
                 'widgets' => Yii::app()->params['runtimeWidgets'],
-                'classSuffix' => 'Widget',
                 'startBlock' => '[{widget:',
                 'endBlock' => '}]',
             ],
