@@ -6,6 +6,9 @@ if (!is_dir($runtime)) {
     CFileHelper::createDirectory($runtime);
 }
 
+$mailerUri = parse_url(getenv('MAILER_URI'));
+parse_str($mailerUri['query'], $mailerQuery);
+
 return [
     'id' => 'app',
     'basePath' => dirname(__DIR__, 2) . '/src',
@@ -39,26 +42,21 @@ return [
             'enableSchemaCache' => true,
         ],
 
-        'mailer' => static function () {
-            $uri = parse_url(getenv('MAILER_URI'));
-            parse_str($uri['query'], $query);
-
-            return Yii::createComponent([
-                'class' => yii\swiftmailer\Mailer::class,
-                'viewPath' => '@app/views/email',
-                'transport' => [
-                    'class' => Swift_SmtpTransport::class,
-                    'host' => $uri['host'],
-                    'port' => $uri['port'],
-                    'username' => $uri['user'],
-                    'password' => $uri['pass'],
-                    'encryption' => $query['encryption'],
-                ],
-                'messageConfig' => [
-                    'from' => getenv('MAILER_FROM_EMAIL'),
-                ],
-            ]);
-        },
+        'mailer' => [
+            'class' => yii\swiftmailer\Mailer::class,
+            'viewPath' => '@app/views/email',
+            'transport' => [
+                'class' => Swift_SmtpTransport::class,
+                'host' => $mailerUri['host'],
+                'port' => $mailerUri['port'],
+                'username' => $mailerUri['user'],
+                'password' => $mailerUri['pass'],
+                'encryption' => $mailerQuery['encryption'],
+            ],
+            'messageConfig' => [
+                'from' => getenv('MAILER_FROM_EMAIL'),
+            ],
+        ],
 
         'assetManager' => [
             'appendTimestamp' => true,
