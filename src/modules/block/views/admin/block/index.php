@@ -1,6 +1,6 @@
 <?php
 /** @var $dataProvider \yii\data\ActiveDataProvider */
-/** @var $model \app\modules\block\models\Block */
+/** @var $model \app\modules\block\models\search\BlockSearch */
 $this->pageTitle = 'Блоки';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
