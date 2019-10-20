@@ -6,6 +6,7 @@ use app\components\behaviors\InlineWidgetsBehavior;
 use CController;
 use CHttpException;
 use Yii;
+use yii\helpers\Html;
 
 /**
  * @property InlineWidgetsBehavior $InlineWidgetsBehavior
@@ -38,6 +39,11 @@ class Controller extends CController
         if (!Yii::app()->request->isPostRequest) {
             throw new CHttpException(400, 'Bad request');
         }
+    }
+
+    public function registerMetaTag($options, $key = null): void
+    {
+        Yii::$app->view->registerMetaTag($options, $key);
     }
 
     public function refresh($terminate = true, $anchor = ''): void

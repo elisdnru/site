@@ -13,12 +13,12 @@ $this->layout = '/layouts/index';
 
 $this->title = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
-Yii::$app->view->registerMetaTag([
+$this->registerMetaTag([
     'name' => 'description',
     'content' => 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
 ]);
 
-Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
+$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
 
 $this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog/default/index'),

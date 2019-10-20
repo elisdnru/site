@@ -6,11 +6,11 @@ use app\modules\user\models\Access;
 
 $this->title = $page->pagetitle ?: $page->title;
 
-Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $page->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $page->description]);
 
 $this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [];
 
-Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
+$this->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('page')) {

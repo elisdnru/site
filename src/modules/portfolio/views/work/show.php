@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 $this->layout = '/layouts/index';
 
 $this->title = $model->title;
-Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $model->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
 
 $this->params['breadcrumbs'] = [
     'Портфолио' => $this->createUrl('/portfolio/default/index')

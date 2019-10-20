@@ -18,7 +18,7 @@ $this->layout = '/layouts/post';
 
 $this->title = $model->pagetitle;
 
-Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $model->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
 
 $this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog')
@@ -26,12 +26,12 @@ $this->params['breadcrumbs'] = [
 
 $host = Yii::app()->request->getHostInfo();
 
-Yii::$app->view->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
-Yii::$app->view->registerMetaTag(['property' => 'og:description', 'content' => $model->description]);
-Yii::$app->view->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->url]);
+$this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
+$this->registerMetaTag(['property' => 'og:description', 'content' => $model->description]);
+$this->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->url]);
 
 if ($model->image) {
-    Yii::$app->view->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->imageUrl]);
+    $this->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->imageUrl]);
     Yii::$app->view->registerLinkTag(['rel' => 'image_src', 'href' => $host . $model->imageUrl]);
 }
 

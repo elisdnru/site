@@ -10,7 +10,7 @@ use app\modules\user\models\Access;
 
 $this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 
-Yii::$app->view->registerMetaTag([
+$this->registerMetaTag([
     'name' => 'description',
     'content' => 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam),
 ]);

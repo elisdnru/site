@@ -15,7 +15,7 @@ $this->layout = '/layouts/index';
 
 $this->title = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
-Yii::$app->view->registerMetaTag([
+$this->registerMetaTag([
     'name' => 'description',
     'content' => $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
 ]);

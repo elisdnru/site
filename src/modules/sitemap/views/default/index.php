@@ -10,7 +10,7 @@ use app\modules\user\models\Access;
 
 $this->title = $page->pagetitle;
 
-Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $page->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $page->description]);
 
 $this->params['breadcrumbs'] = [
     'Карта сайта',

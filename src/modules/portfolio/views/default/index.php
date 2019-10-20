@@ -10,7 +10,7 @@ $this->layout = '/layouts/index';
 
 $this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
-Yii::$app->view->registerMetaTag([
+$this->registerMetaTag([
     'name' => 'description',
     'content' => $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar),
 ]);

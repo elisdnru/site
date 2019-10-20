@@ -11,7 +11,7 @@ $this->layout = '/layouts/index';
 
 $this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
-Yii::$app->view->registerMetaTag([
+$this->registerMetaTag([
     'name' => 'description',
     'content' => $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar),
 ]);

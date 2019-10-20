@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 
 $this->title = 'Поиск по сайту';
 
-Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => 'Поиск по сайту']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'Поиск по сайту']);
 
 $this->params['breadcrumbs'] = [
     'Поиск по сайту',
