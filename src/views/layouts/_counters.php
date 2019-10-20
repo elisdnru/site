@@ -28,7 +28,7 @@ ym(18406216, 'init', {
 <?php Yii::app()->clientScript->registerScript(__FILE__ . __LINE__, ob_get_clean(), CClientScript::POS_END); ?>
 </script>
 <noscript>
-    <div><img src="https://mc.yandex.ru/watch/18406216" style="position:absolute; left:-9999px;" alt="" /></div>
+    <div><img src="https://mc.yandex.ru/watch/18406216" style="position:absolute; left:-9999px;" alt=""></div>
 </noscript>
 
 <script>

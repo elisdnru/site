@@ -25,13 +25,13 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
     <?php endif; ?>
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB" />
+    <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB">
 
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />
-    <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">
+    <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>">
 
     <?php Yii::$app->view->head() ?>
 
@@ -46,7 +46,7 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
         <?php if ($this->route !== 'main/default/index'): ?><!--noindex--><?php endif; ?>
         <div class="logo">
         <a href="/">
-            <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>" />
+            <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>">
         </a>
         </div>
         <div class="title">

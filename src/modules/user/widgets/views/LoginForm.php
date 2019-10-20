@@ -6,7 +6,7 @@ use app\components\helpers\SocNetworkHelper;
 <?php if ($user) : ?>
     <div style="float:left;">
         <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">
-            <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50" />
+            <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50">
         </a>
     </div>
     <div style="margin-left:60px;">

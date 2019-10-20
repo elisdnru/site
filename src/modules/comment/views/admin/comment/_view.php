@@ -17,18 +17,18 @@ endif; ?><?php if (!$data->public) :
 endif; ?>" id="comment_<?php echo $data->id; ?>">
 
     <?php if ($data->cache(1000)->user) : ?>
-        <img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>" />
+        <img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>">
     <?php else : ?>
-        <img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>" />
+        <img class="userpic" src="<?php echo $data->getAvatarUrl(50, 50); ?>">
     <?php endif; ?>
 
     <header>
 
         <span class="link">
-            <a class="ajax_del" data-del="item_<?php echo $data->id; ?>" title="Прочитать/Вернуть комментарий" href="<?php echo $moderurl ?>"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Прочесть' : 'Новый'; ?>" title="<?php echo $data->public ? 'Прочесть' : 'Новый'; ?>" /></a>
-            <a class="ajax_del" data-del="item_<?php echo $data->id; ?>" title="Скрыть/отобразить комментарий" href="<?php echo $publicurl; ?>"><img src="/images/admin/no.png" width="16" height="16" alt="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" title="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" /></a>
-            <a href="<?php echo $editurl; ?>"><img src="/images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать" /></a>
-            <a class="ajax_del" data-del="comment_<?php echo $data->id; ?>" title="Удалить комментарий" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+            <a class="ajax_del" data-del="item_<?php echo $data->id; ?>" title="Прочитать/Вернуть комментарий" href="<?php echo $moderurl ?>"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Прочесть' : 'Новый'; ?>" title="<?php echo $data->public ? 'Прочесть' : 'Новый'; ?>"></a>
+            <a class="ajax_del" data-del="item_<?php echo $data->id; ?>" title="Скрыть/отобразить комментарий" href="<?php echo $publicurl; ?>"><img src="/images/admin/no.png" width="16" height="16" alt="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>" title="<?php echo $data->public ? 'Скрыть' : 'Опубликовать'; ?>"></a>
+            <a href="<?php echo $editurl; ?>"><img src="/images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать"></a>
+            <a class="ajax_del" data-del="comment_<?php echo $data->id; ?>" title="Удалить комментарий" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
         </span>
 
         <span class="like">

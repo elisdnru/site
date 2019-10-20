@@ -120,7 +120,7 @@ CTextHighlighter::registerCssFile();
                     <input type="email" name="lead_email" placeholder="Ваш Email" style="border-color: #aaa" required />
                 </div>
                 <div class="row button">
-                    <input type="submit" name="submit" value="Подписаться" style="font-size: 13px" />
+                    <input type="submit" name="submit" value="Подписаться" style="font-size: 13px">
                 </div>
             </form>
         </div>

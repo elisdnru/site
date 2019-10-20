@@ -71,7 +71,7 @@ use app\modules\portfolio\models\Work;
 
         <?php if ($model->image) : ?>
             <div class="image">
-                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt="" /></a>
+                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt=""></a>
             </div>
             <div class="row">
                 <?php echo $form->checkBox($model, 'del_image'); ?><?php echo $form->labelEx($model, 'del_image'); ?>

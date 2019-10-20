@@ -20,7 +20,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $t
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
-    <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50" />
+    <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50">
 </div>
 
 <div style="margin-left:60px;">

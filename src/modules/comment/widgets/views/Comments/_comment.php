@@ -14,11 +14,11 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
 
     <?php if ($comment->cache(1000)->user) :
         ?>
-        <img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" alt="" />
+        <img class="userpic" src="<?php echo $comment->getAvatarUrl(50, 50); ?>" alt="">
     <?php
     else :
         ?>
-        <img class="userpic" src="<?php echo CHtml::encode($comment->getAvatarUrl(50, 50)); ?>" alt="" />
+        <img class="userpic" src="<?php echo CHtml::encode($comment->getAvatarUrl(50, 50)); ?>" alt="">
     <?php
     endif; ?>
 
@@ -27,11 +27,11 @@ endif; ?>" id="comment_<?php echo $comment->id; ?>" style="margin-left:<?php ech
         <span class="link">
             <?php if ($user && $comment->user && $user->id == $comment->user_id) :
                 ?>
-                <a rel="nofollow" href="<?php echo Yii::app()->createUrl('comment/comment/update', ['id' => $comment->id]); ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий" /></a>
+                <a rel="nofollow" href="<?php echo Yii::app()->createUrl('comment/comment/update', ['id' => $comment->id]); ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий"></a>
             <?php endif; ?>
             <?php if ($user && $comment->user && $user->id == $comment->user_id) :
                 ?>
-                <a rel="nofollow" class="ajax_del" data-del="comment_<?php echo $comment->id; ?>" href="<?php echo Yii::app()->createUrl('comment/ajax/delete', ['id' => $comment->id]); ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                <a rel="nofollow" class="ajax_del" data-del="comment_<?php echo $comment->id; ?>" href="<?php echo Yii::app()->createUrl('comment/ajax/delete', ['id' => $comment->id]); ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
             <?php endif; ?>
         </span>
 

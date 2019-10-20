@@ -17,7 +17,7 @@
     <?php echo $f->errorSummary($form, ''); ?>
 
     <?php if ($user && $user->id) : ?>
-        <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?php echo $user->avatarUrl; ?>" alt="" /></a>
+        <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?php echo $user->avatarUrl; ?>" alt=""></a>
 
         <p class='exit' style="float: right"><a href="<?php Yii::app()->createUrl('/user/profile/view'); ?>">профиль</a> |
             <a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>">выход</a></p>

@@ -59,7 +59,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
         <hr />
         <h4>Аватар</h4>
         <div class="row">
-            <p style="float:right"><img src="<?php echo $model->avatarUrl; ?>" alt="" width="50" height="50" /></p>
+            <p style="float:right"><img src="<?php echo $model->avatarUrl; ?>" alt="" width="50" height="50"></p>
             <?php echo $form->labelEx($model, 'avatar'); ?><br />
             <?php echo $form->fileField($model, 'avatar', ['size' => 30]); ?><label>
                 <?php echo $form->error($model, 'avatar'); ?>

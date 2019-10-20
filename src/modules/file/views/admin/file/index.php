@@ -87,7 +87,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->getBasename(); ?>'); return false;"><?php echo $renameIcon; ?></a>
-                        <img src="/images/admin/foldericon.jpg" alt="" />
+                        <img src="/images/admin/foldericon.jpg" alt="">
                         <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>"><?php echo $file->getBasename(); ?></a>
                     </td>
                     <td></td>
@@ -95,7 +95,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <?php echo date('Y-m-d h:i:s', $file->getTimeModified()); ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить директорию &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить директорию &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
@@ -108,7 +108,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->getBasename(); ?>')"><?php echo $renameIcon; ?></a>
-                        <img src="/images/admin/fileicon.jpg" />
+                        <img src="/images/admin/fileicon.jpg">
                         <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->getBasename(); ?>"><?php echo $file->getBasename(); ?></a>
                     </td>
                     <td style="text-align: center">
@@ -118,7 +118,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                         <?php echo date('Y-m-d h:i:s', $file->getTimeModified()); ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить файл &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить" /></a>
+                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить файл &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 

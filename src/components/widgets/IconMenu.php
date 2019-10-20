@@ -24,7 +24,7 @@ Yii::import('zii.widgets.CMenu');
  * )); ?>
  * </pre>
  *
- * <li><img src="/icons/home.png" alt="Home" /><a href="/">Home</a></li>
+ * <li><img src="/icons/home.png" alt="Home"><a href="/">Home</a></li>
  */
 class IconMenu extends CMenu
 {
