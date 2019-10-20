@@ -16,7 +16,7 @@ use yii\widgets\LinkPager; ?>
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
 <h1>HTML-Блоки</h1>
 
-<div id="posts-grid" class="grid-view">
+<div class="grid-view">
     <div class="summary"><?= $dataProvider->getCount() ?> из <?= $dataProvider->getTotalCount() ?></div>
     <form action="?" method="get">
         <table class="items">
