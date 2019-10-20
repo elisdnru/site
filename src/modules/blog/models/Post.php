@@ -21,7 +21,6 @@ use Yii;
  * @property string $title
  * @property string $pagetitle
  * @property string $description
- * @property string $keywords
  * @property string $styles
  * @property string $short
  * @property string $short_purified
@@ -90,14 +89,14 @@ class Post extends CActiveRecord implements CommentDepends
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['styles, short, text, description, del_image', 'safe'],
-            ['title, alias, newgroup, image_alt, pagetitle, keywords', 'length', 'max' => '255'],
+            ['title, alias, newgroup, image_alt, pagetitle', 'length', 'max' => '255'],
             ['tagsString', 'length', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
             ['author_id', 'default', 'value' => Yii::app()->user->id],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, date, category_id, author_id, title, pagetitle, description, keywords, image_alt, text, public', 'safe', 'on' => 'search'],
+            ['id, date, category_id, author_id, title, pagetitle, description, image_alt, text, public', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -132,7 +131,6 @@ class Post extends CActiveRecord implements CommentDepends
             'alias' => 'URL транслитом',
             'pagetitle' => 'Заголовок страницы (title)',
             'description' => 'Описание (description)',
-            'keywords' => 'Ключевые слова (keywords)',
             'styles' => 'CSS стили',
             'short' => 'Превью',
             'text' => 'Текст',

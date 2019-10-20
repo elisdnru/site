@@ -18,7 +18,6 @@ use Yii;
  * @property string $title
  * @property string $pagetitle
  * @property string $description
- * @property string $keywords
  * @property string $short
  * @property string $text
  * @property string $image
@@ -72,12 +71,12 @@ class Work extends CActiveRecord
             ['category_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\Category::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
-            ['title, alias, pagetitle, keywords', 'length', 'max' => '255'],
+            ['title, alias, pagetitle', 'length', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, date, category_id, title, pagetitle, description, keywords, text, public', 'safe', 'on' => 'search'],
+            ['id, date, category_id, title, pagetitle, description, text, public', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -107,7 +106,6 @@ class Work extends CActiveRecord
             'alias' => 'URL транслитом',
             'pagetitle' => 'Заголовок страницы (title)',
             'description' => 'Описание (description)',
-            'keywords' => 'Ключевые слова (keywords)',
             'short' => 'Превью',
             'text' => 'Текст',
             'image' => 'Картинка для статьи',
@@ -136,7 +134,6 @@ class Work extends CActiveRecord
         $criteria->compare('t.title', $this->title, true);
         $criteria->compare('t.pagetitle', $this->pagetitle, true);
         $criteria->compare('t.description', $this->description, true);
-        $criteria->compare('t.keywords', $this->keywords, true);
         $criteria->compare('t.short', $this->short, true);
         $criteria->compare('t.text', $this->text, true);
         $criteria->compare('t.image', $this->image, true);

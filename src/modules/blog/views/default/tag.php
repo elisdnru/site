@@ -13,7 +13,6 @@ $this->layout = '/layouts/index';
 
 $this->title = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->keywords = $tag->title;
 
 Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
 

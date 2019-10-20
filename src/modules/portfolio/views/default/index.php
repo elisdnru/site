@@ -10,7 +10,6 @@ $this->layout = '/layouts/index';
 
 $this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->keywords = $page->keywords;
 
 $this->params['breadcrumbs'] = [
     $page->title,

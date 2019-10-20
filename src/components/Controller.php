@@ -27,7 +27,6 @@ class Controller extends CController
     public $admin = [];
 
     public $description = '';
-    public $keywords = '';
 
     public function behaviors(): array
     {

@@ -10,7 +10,6 @@ use app\modules\user\models\Access;
 
 $this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 $this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
-$this->keywords = '';
 
 $this->params['breadcrumbs'] = [
     'Поиск по сайту',

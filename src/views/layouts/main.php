@@ -30,7 +30,6 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
     <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB" />
 
     <meta name="description" content="<?php echo CHtml::encode($this->description); ?>" />
-    <meta name="keywords" content="<?php echo CHtml::encode($this->keywords); ?>" />
 
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn" />

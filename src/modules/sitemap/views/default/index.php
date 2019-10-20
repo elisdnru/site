@@ -10,7 +10,6 @@ use app\modules\user\models\Access;
 
 $this->title = $page->pagetitle;
 $this->description = $page->description;
-$this->keywords = $page->keywords;
 
 $this->params['breadcrumbs'] = [
     'Карта сайта',

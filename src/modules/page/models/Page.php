@@ -16,7 +16,6 @@ use Yii;
  * @property string $hidetitle
  * @property string $pagetitle
  * @property string $description
- * @property string $keywords
  * @property string $robots
  * @property string $styles
  * @property string $text
@@ -98,12 +97,12 @@ class Page extends CActiveRecord
         return [
             ['alias, title', 'required'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            ['alias, title, image_alt, pagetitle, keywords, robots, layout, subpages_layout', 'length', 'max' => 255],
+            ['alias, title, image_alt, pagetitle, robots, layout, subpages_layout', 'length', 'max' => 255],
             ['hidetitle, parent_id', 'numerical', 'integerOnly' => true],
             ['date, styles, text, description, del_image', 'safe'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, layout, subpages_layout, alias, date, title, pagetitle, description, keywords, text', 'safe', 'on' => 'search'],
+            ['id, layout, subpages_layout, alias, date, title, pagetitle, description, text', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -141,7 +140,6 @@ class Page extends CActiveRecord
             'hidetitle' => 'Скрыть заголовок',
             'pagetitle' => 'Заголовок окна (title)',
             'description' => 'Описание (description)',
-            'keywords' => 'Ключевые слова (keywords)',
             'robots' => 'Индексация (robots)',
             'styles' => 'CSS стили',
             'text' => 'Текст',
@@ -171,7 +169,6 @@ class Page extends CActiveRecord
         $criteria->compare('t.hidetitle', $this->hidetitle, true);
         $criteria->compare('t.pagetitle', $this->pagetitle, true);
         $criteria->compare('t.description', $this->description, true);
-        $criteria->compare('t.keywords', $this->keywords, true);
         $criteria->compare('t.text', $this->text, true);
         $criteria->compare('t.image', $this->image, true);
         $criteria->compare('t.image_alt', $this->image_alt, true);

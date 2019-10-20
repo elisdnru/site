@@ -15,7 +15,6 @@ $this->layout = '/layouts/index';
 
 $this->title = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->keywords = $category->keywords;
 
 $this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog/default/index'),

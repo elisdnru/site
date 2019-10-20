@@ -6,7 +6,6 @@ use app\modules\user\models\Access;
 
 $this->title = $page->pagetitle ?: $page->title;
 $this->description = $page->description;
-$this->keywords = $page->keywords;
 
 $this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [];
 

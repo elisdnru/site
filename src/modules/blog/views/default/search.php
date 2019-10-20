@@ -13,7 +13,6 @@ $this->layout = '/layouts/index';
 
 $this->title = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = '';
-$this->keywords = '';
 
 
 $this->params['breadcrumbs'] = [

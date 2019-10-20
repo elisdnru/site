@@ -55,7 +55,6 @@ abstract class TreeCategory extends Category
         $criteria->compare('t.text', $this->text, true);
         $criteria->compare('t.pagetitle', $this->pagetitle, true);
         $criteria->compare('t.description', $this->description, true);
-        $criteria->compare('t.keywords', $this->keywords, true);
         $criteria->compare('t.parent_id', $this->parent_id);
 
         return new TreeActiveDataProvider($this, [

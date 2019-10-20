@@ -9,7 +9,6 @@ $this->layout = '/layouts/index';
 
 $this->title = $model->title;
 $this->description = $model->description;
-$this->keywords = $model->keywords;
 
 $this->params['breadcrumbs'] = [
     'Портфолио' => $this->createUrl('/portfolio/default/index')

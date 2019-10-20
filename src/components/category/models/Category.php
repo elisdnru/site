@@ -16,7 +16,6 @@ use Yii;
  * @property string $text
  * @property string $pagetitle
  * @property string $description
- * @property string $keywords
  *
  * DCategoryBehavior
  * @method mixed getArray()
@@ -50,11 +49,11 @@ abstract class Category extends CActiveRecord
             ['alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             //array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Элемент с таким URL уже существует'),
             ['sort', 'numerical', 'integerOnly' => true],
-            ['alias, title, pagetitle, keywords', 'length', 'max' => 255],
+            ['alias, title, pagetitle', 'length', 'max' => 255],
             ['text, description', 'safe'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['id, sort, alias, title, text, pagetitle, description, keywords', 'safe', 'on' => 'search'],
+            ['id, sort, alias, title, text, pagetitle, description', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -73,7 +72,6 @@ abstract class Category extends CActiveRecord
             'text' => 'Текст',
             'pagetitle' => 'Заголовок окна',
             'description' => 'Описание',
-            'keywords' => 'Ключевые слова',
         ];
     }
 
@@ -90,7 +88,6 @@ abstract class Category extends CActiveRecord
         $criteria->compare('t.text', $this->text, true);
         $criteria->compare('t.pagetitle', $this->pagetitle, true);
         $criteria->compare('t.description', $this->description, true);
-        $criteria->compare('t.keywords', $this->keywords, true);
 
         return new CActiveDataProvider($this, [
             'criteria' => $criteria,

@@ -8,7 +8,6 @@ use app\modules\user\models\Access;
 
 $this->title = 'Поиск по сайту';
 $this->description = 'Поиск по сайту';
-$this->keywords = '';
 
 $this->params['breadcrumbs'] = [
     'Поиск по сайту',

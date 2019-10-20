@@ -13,7 +13,6 @@ $this->layout = '/layouts/index';
 
 $this->title = 'Записи за ' . $date->date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = '';
-$this->keywords = '';
 
 
 $this->params['breadcrumbs'] = [

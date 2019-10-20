@@ -18,7 +18,6 @@ $this->layout = '/layouts/post';
 
 $this->title = $model->pagetitle;
 $this->description = $model->description;
-$this->keywords = ($model->category ? $model->category->title . ' ' : '') . implode(' ', CHtml::listData($model->tags, 'id', 'title')) . ($model->keywords ? ' ' . $model->keywords : '');
 
 $this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog')

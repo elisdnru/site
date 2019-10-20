@@ -13,7 +13,6 @@ use CFormModel;
  * @property string $text
  * @property string $pagetitle
  * @property string $description
- * @property string $keywords
  * @property string $parent_id
  */
 abstract class CategoryForm extends CFormModel
@@ -26,7 +25,6 @@ abstract class CategoryForm extends CFormModel
     public $text;
     public $pagetitle;
     public $description;
-    public $keywords;
     public $parent_id;
 
     public function rules(): array

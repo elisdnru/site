@@ -10,7 +10,6 @@ return [
         'parent_id' => 2,
         'pagetitle' => '',
         'description' => '',
-        'keywords' => '',
     ],
     'parent_category' => [
         'id' => 2,
@@ -21,7 +20,6 @@ return [
         'parent_id' => 0,
         'pagetitle' => '',
         'description' => '',
-        'keywords' => '',
     ],
     'category_with_posts' => [
         'id' => 3,
@@ -32,7 +30,6 @@ return [
         'parent_id' => 0,
         'pagetitle' => '',
         'description' => '',
-        'keywords' => '',
     ],
     'category_without_posts' => [
         'id' => 4,
@@ -43,6 +40,5 @@ return [
         'parent_id' => 0,
         'pagetitle' => '',
         'description' => '',
-        'keywords' => '',
     ],
 ];
