@@ -152,3 +152,21 @@
   width: 20px;
   text-align: center;
 }
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.view {
+  background: url('/images/admin/view.png') 0 0 no-repeat;
+}
+
+.icon.edit {
+  background: url('/images/admin/edit.png') 0 0 no-repeat;
+}
+
+.icon.delete {
+  background: url('/images/admin/del.png') 0 0 no-repeat;
+}

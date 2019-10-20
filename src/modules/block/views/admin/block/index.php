@@ -24,16 +24,16 @@ use yii\widgets\LinkPager; ?>
                 <tr>
                     <th><?= $dataProvider->getSort()->link('alias', ['class' => 'sort-link', 'label' => 'Код для вставки']) ?></th>
                     <th><?= $dataProvider->getSort()->link('title', ['class' => 'sort-link', 'label' => 'Наименование']) ?></th>
-                    <th class="button-column"></th>
-                    <th class="button-column"></th>
-                    <th class="button-column"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr class="filters">
                     <td><?= Html::activeTextInput($model, 'alias') ?></td>
                     <td><?= Html::activeTextInput($model, 'title') ?></td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -43,15 +43,9 @@ use yii\widgets\LinkPager; ?>
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]) ?>"><?= Html::encode($block->title) ?></a>
                         </td>
-                        <td class="button-column">
-                            <a class="view" title="Просмотреть" href="<?= Url::to(['view', 'id' => $block->id]) ?>"><img src="/images/admin/view.png" alt="Просмотреть"></a>
-                        </td>
-                        <td class="button-column">
-                            <a class="update" title="Редактировать" href="<?= Url::to(['update', 'id' => $block->id]) ?>"><img src="/images/admin/edit.png" alt="Редактировать"></a>
-                        </td>
-                        <td class="button-column">
-                            <a class="delete ajax_del" title="Удалить" href="<?= Url::to(['delete', 'id' => $block->id]) ?>"><img src="/images/admin/del.png" alt="Удалить"></a>
-                        </td>
+                        <td class="button-column"><a href="<?= Url::to(['view', 'id' => $block->id]) ?>"><span class="icon view"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['update', 'id' => $block->id]) ?>"><span class="icon edit"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $block->id]) ?>" class="ajax_del"><span class="icon delete"></span></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
