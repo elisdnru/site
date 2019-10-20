@@ -27,6 +27,5 @@ ob_start();
 $app->run();
 $html = ob_get_clean();
 
-$html = str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
-echo str_replace('<script type="text/javascript"', '<script', $html);
+echo str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
 
