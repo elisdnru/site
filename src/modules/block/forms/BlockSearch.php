@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\block\models\search;
+namespace app\modules\block\forms;
 
 use app\modules\block\models\Block;
 use yii\data\ActiveDataProvider;

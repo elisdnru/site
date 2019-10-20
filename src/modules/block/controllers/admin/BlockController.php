@@ -3,7 +3,7 @@
 namespace app\modules\block\controllers\admin;
 
 use app\modules\block\models\Block;
-use app\modules\block\models\search\BlockSearch;
+use app\modules\block\forms\BlockSearch;
 use CHttpException;
 use app\components\AdminController;
 
