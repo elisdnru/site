@@ -13,10 +13,7 @@ class ContactController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => [
-                'class' => \app\components\crud\actions\AdminAction::class,
-                'view' => 'index',
-            ],
+            'index' => \app\components\crud\actions\IndexAction::class,
             'toggle' => ['class' => \app\components\crud\actions\ToggleAction::class, 'attributes' => ['status']],
             'delete' => \app\components\crud\actions\DeleteAction::class,
             'view' => \app\components\crud\actions\ViewAction::class,

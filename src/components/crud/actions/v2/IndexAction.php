@@ -5,12 +5,12 @@ namespace app\components\crud\actions\v2;
 use Yii;
 use yii\base\Model;
 
-class AdminAction extends CrudAction
+class IndexAction extends CrudAction
 {
     /**
      * @var string view file for rendering
      */
-    public $view = 'admin';
+    public $view = 'index';
     /**
      * @var string search scenarion name
      */

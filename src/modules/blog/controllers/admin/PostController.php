@@ -12,10 +12,7 @@ class PostController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => [
-                'class' => \app\components\crud\actions\AdminAction::class,
-                'view' => 'index',
-            ],
+            'index' => \app\components\crud\actions\IndexAction::class,
             'create' => \app\components\crud\actions\CreateAction::class,
             'update' => \app\components\crud\actions\UpdateAction::class,
             'toggle' => [

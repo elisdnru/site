@@ -12,10 +12,7 @@ class BlockController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => [
-                'class' => \app\components\crud\actions\v2\AdminAction::class,
-                'view' => 'index',
-            ],
+            'index' => \app\components\crud\actions\v2\IndexAction::class,
             'create' => \app\components\crud\actions\v2\CreateAction::class,
             'update' =>  \app\components\crud\actions\v2\UpdateAction::class,
             'delete' => \app\components\crud\actions\v2\DeleteAction::class,

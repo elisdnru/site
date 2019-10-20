@@ -9,29 +9,28 @@ class IndexAction extends CrudAction
      */
     public $view = 'index';
     /**
-     * @var string class of data provider
+     * @var string search scenarion name
      */
-    public $providerClass = 'CActiveDataProvider';
-    /**
-     * @var int items per page
-     */
-    public $pageSize = 10;
+    public $scenario = 'search';
 
     public function run(): void
     {
-        $model = $this->getIndexProviderModel();
+        /** @var \CActiveRecord $model */
+        $model = $this->createModel();
 
-        $provider = $this->providerClass;
+        $formName = (new \ReflectionObject($model))->getShortName();
 
-        $dataProvider = new $provider($model, [
-            'pagination' => [
-                'pageSize' => $this->pageSize,
-                'pageVar' => 'page',
-            ]
-        ]);
+        $modelName = get_class($this->createModel());
+
+        $model = new $modelName($this->scenario);
+
+        $model->unsetAttributes();
+        if (isset($_GET[$formName])) {
+            $model->attributes = $_GET[$formName];
+        }
 
         $this->controller->render($this->view, [
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ]);
     }
 }
