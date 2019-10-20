@@ -18,7 +18,7 @@ class Module extends Base implements UrlProvider
 
     public static function notifications(): array
     {
-        $messages = Contact::model()->count('status=' . Contact::STATUS_NEW);
+        $messages = Contact::find()->andWhere(['status' => Contact::STATUS_NEW])->count();
 
         return [
             ['label' => 'Сообщения' . ($messages ? ' (' . $messages . ')' : ''), 'url' => ['/contact/admin/contact/index'], 'icon' => 'message.png'],

@@ -6,6 +6,7 @@ use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * @property integer $id
@@ -19,50 +20,27 @@ use Yii;
  * @property string $label
  * @property string $status
  */
-class Contact extends CActiveRecord
+class Contact extends ActiveRecord
 {
-    const STATUS_NEW = 0;
-    const STATUS_READED = 1;
+    public const STATUS_NEW = 0;
+    public const STATUS_READED = 1;
 
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'contacts';
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return [
-            ['name, email, text', 'required'],
-            ['name', 'length', 'max' => 200],
-            ['email, phone', 'length', 'max' => 100],
+            [['name', 'email', 'text'], 'required'],
+            ['name', 'string', 'max' => 200],
+            [['email', 'phone'], 'string', 'max' => 100],
             ['email', 'email'],
-            ['date, status', 'safe'],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, pagetitle, date, name, email, phone, text, label, status', 'safe', 'on' => 'search']
+            [['date', 'status'], 'safe'],
         ];
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [
@@ -78,55 +56,10 @@ class Contact extends CActiveRecord
         ];
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @param int $pageSize
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize = 10): CActiveDataProvider
+    public function beforeSave($insert): bool
     {
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
-
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('t.id', $this->id);
-        $criteria->compare('t.pagetitle', $this->pagetitle, true);
-        $criteria->compare('t.date', $this->date, true);
-        $criteria->compare('t.name', $this->name, true);
-        $criteria->compare('t.email', $this->email, true);
-        $criteria->compare('t.phone', $this->phone, true);
-        $criteria->compare('t.text', $this->text, true);
-        $criteria->compare('t.label', $this->label, true);
-        $criteria->compare('t.status', $this->status, true);
-
-        return new CActiveDataProvider($this, [
-            'criteria' => $criteria,
-            'sort' => [
-                'defaultOrder' => 't.date DESC, t.id DESC',
-                'attributes' => [
-                    'date' => [
-                        'asc' => 't.date ASC',
-                        'desc' => 't.date DESC',
-                    ],
-                    'pagetitle',
-                    'name',
-                    'email',
-                    'text',
-                    'status',
-                ]
-            ],
-            'pagination' => [
-                'pageSize' => $pageSize,
-                'pageVar' => 'page',
-            ],
-        ]);
-    }
-
-    protected function beforeSave(): bool
-    {
-        if (parent::beforeSave()) {
-            if ($this->isNewRecord) {
+        if (parent::beforeSave($insert)) {
+            if ($insert) {
                 $this->date = date('Y-m-d H:i:s');
             }
             return true;
@@ -134,13 +67,13 @@ class Contact extends CActiveRecord
         return false;
     }
 
-    protected function afterSave(): void
+    public function afterSave($insert, $changedAttributes): void
     {
-        if ($this->isNewRecord) {
+        if ($insert) {
             $this->sendAdminNotify();
         }
 
-        parent::afterSave();
+        parent::afterSave($insert, $changedAttributes);
     }
 
     private function sendAdminNotify(): void

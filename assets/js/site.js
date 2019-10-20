@@ -161,9 +161,7 @@ window.getCSRFToken = function (){
           'Content-Type': 'multipart/form-data'
         }}
     })
-      .then(function () {
-        alert('Успешно')
-      })
+      .then(function () {})
       .catch(function (error) {
         alert(error.response.data);
       });

@@ -20,6 +20,7 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createU
 ?>
 
 <div style="float:right">
+
     <?php echo CHtml::beginForm($this->createUrl('delete', ['id' => $model->id])); ?>
     <?php echo CHtml::submitButton('Удалить сообщение'); ?>
     <?php echo CHtml::endForm(); ?>
@@ -27,8 +28,21 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createU
 
 <h1>Сообщение №<?php echo $model->id; ?></h1>
 
-<p><?php echo $model->date; ?></p>
+<?php echo CHtml::beginForm($this->createUrl('toggle', ['id' => $model->id, 'attribute' => 'status'])); ?>
+<?php if ($model->status): ?>
+    <?php echo CHtml::submitButton('Отметить непрочитанным'); ?>
+<?php else: ?>
+    <?php echo CHtml::submitButton('Прочитать'); ?>
+<?php endif; ?>
+<?php echo CHtml::endForm(); ?>
+
+<br />
+
 <table class="border">
+    <tr>
+        <td>Дата</td>
+        <td><?= $model->date ?></td>
+    </tr>
     <?php if ($model->pagetitle) : ?>
         <tr>
         <td width="150">Со страницы</td>

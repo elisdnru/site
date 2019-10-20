@@ -2,21 +2,23 @@
 
 namespace app\modules\contact\controllers\admin;
 
+use app\modules\contact\forms\ContactSearch;
 use CHttpException;
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 
 class ContactController extends AdminController
 {
-    const CONTACTS_PER_PAGE = 50;
-
     public function actions(): array
     {
         return [
-            'index' => \app\components\crud\actions\IndexAction::class,
-            'toggle' => ['class' => \app\components\crud\actions\ToggleAction::class, 'attributes' => ['status']],
-            'delete' => \app\components\crud\actions\DeleteAction::class,
-            'view' => \app\components\crud\actions\ViewAction::class,
+            'index' => \app\components\crud\actions\v2\IndexAction::class,
+            'toggle' => [
+                'class' => \app\components\crud\actions\v2\ToggleAction::class,
+                'attributes' => ['status'],
+            ],
+            'delete' => \app\components\crud\actions\v2\DeleteAction::class,
+            'view' => \app\components\crud\actions\v2\ViewAction::class,
         ];
     }
 
@@ -24,22 +26,8 @@ class ContactController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $model->status = 1;
-        $model->save();
-
-        $prev = Contact::model()->find([
-            'condition' => 'id < ?',
-            'params' => [$id],
-            'order' => 'id DESC',
-            'limit' => 1
-        ]);
-
-        $next = Contact::model()->find([
-            'condition' => 'id > ?',
-            'params' => [$id],
-            'order' => 'id ASC',
-            'limit' => 1
-        ]);
+        $prev = Contact::find()->andWhere(['<', 'id', $id])->orderBy(['id' => SORT_DESC])->limit(1)->one();
+        $next = Contact::find()->andWhere(['>', 'id', $id])->orderBy(['id' => SORT_ASC])->limit(1)->one();
 
         $this->render('view', [
             'model' => $model,
@@ -53,9 +41,14 @@ class ContactController extends AdminController
         return new Contact();
     }
 
+    public function createSearchModel(): ContactSearch
+    {
+        return new ContactSearch();
+    }
+
     public function loadModel($id): Contact
     {
-        $model = Contact::model()->findByPk($id);
+        $model = Contact::findOne($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }
