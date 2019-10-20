@@ -12,11 +12,11 @@ class InlineWidgetsBehavior extends CBehavior
     /**
      * @var string marker of block begin
      */
-    public $startBlock = '[*';
+    public $startBlock = '[{widget:';
     /**
      * @var string marker of block end
      */
-    public $endBlock = '*]';
+    public $endBlock = '}]';
     /**
      * @var array of allowed widgets
      */

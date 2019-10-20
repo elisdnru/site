@@ -8,13 +8,6 @@ use CHttpException;
 use Yii;
 
 /**
- *
- * Controller is the customized base controller class.
- * All controller classes for this application should extend from this base class.
- *
- * LiveLayoutBehavior
- * @method initLayout()
- *
  * @property InlineWidgetsBehavior $InlineWidgetsBehavior
  * @method string decodeWidgets($text)
  * @method string clearWidgets($text)
@@ -30,8 +23,6 @@ class Controller extends CController
             'InlineWidgetsBehavior' => [
                 'class' => behaviors\InlineWidgetsBehavior::class,
                 'widgets' => Yii::app()->params['runtimeWidgets'],
-                'startBlock' => '[{widget:',
-                'endBlock' => '}]',
             ],
         ]);
     }
