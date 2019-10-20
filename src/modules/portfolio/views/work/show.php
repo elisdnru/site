@@ -56,9 +56,9 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
             <?php endif; ?>
 
             <div class="info">
-                <p class="category">
+                <div class="category">
                     <span><a href="<?php echo $model->category->url; ?>"><?php echo CHtml::encode($model->category->title); ?></a></span>
-                </p>
+                </div>
             </div>
 
             <div class="short">
