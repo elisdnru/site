@@ -10,8 +10,11 @@
   border-radius: 6px;
 
   padding: 0 0 0 8px;
-  margin-right: 10px;
   float: left;
+}
+
+.entry_date {
+  margin-right: 10px;
 }
 
 .entry_date span, .entry_tags a {
