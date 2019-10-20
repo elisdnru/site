@@ -17,7 +17,8 @@ $this->layout = '/layouts/post';
 /** @var $dataProvider CActiveDataProvider */
 
 $this->title = $model->pagetitle;
-$this->description = $model->description;
+
+Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $model->description]);
 
 $this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog')

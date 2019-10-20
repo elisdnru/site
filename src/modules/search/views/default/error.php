@@ -7,7 +7,8 @@ use app\modules\user\models\Access;
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 
 $this->title = 'Поиск по сайту';
-$this->description = 'Поиск по сайту';
+
+Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => 'Поиск по сайту']);
 
 $this->params['breadcrumbs'] = [
     'Поиск по сайту',

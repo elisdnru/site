@@ -9,7 +9,11 @@ use app\modules\user\models\Access;
 /** @var $query CActiveRecord */
 
 $this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
-$this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
+
+Yii::$app->view->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam),
+]);
 
 $this->params['breadcrumbs'] = [
     'Поиск по сайту',

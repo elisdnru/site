@@ -12,8 +12,6 @@ use app\modules\user\models\Access;
 $this->layout = '/layouts/index';
 
 $this->title = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = '';
-
 
 $this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog/default/index'),

@@ -5,7 +5,8 @@ use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
 $this->title = $page->pagetitle ?: $page->title;
-$this->description = $page->description;
+
+Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $page->description]);
 
 $this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [];
 

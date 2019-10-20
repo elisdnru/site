@@ -9,7 +9,8 @@ use app\modules\user\models\Access;
 /** @var $items CModel[] */
 
 $this->title = $page->pagetitle;
-$this->description = $page->description;
+
+Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $page->description]);
 
 $this->params['breadcrumbs'] = [
     'Карта сайта',

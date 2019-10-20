@@ -10,7 +10,11 @@ use app\modules\user\models\Access;
 $this->layout = '/layouts/index';
 
 $this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+
+Yii::$app->view->registerMetaTag([
+    'name' => 'description',
+    'content' => $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar),
+]);
 
 $this->params['breadcrumbs'] = [
     $page->title => $this->createUrl('index'),

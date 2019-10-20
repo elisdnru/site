@@ -12,7 +12,11 @@ use app\modules\user\models\Access;
 $this->layout = '/layouts/index';
 
 $this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+
+Yii::$app->view->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
+]);
 
 $this->params['breadcrumbs'] = [
     'Блог',

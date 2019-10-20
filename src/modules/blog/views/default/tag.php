@@ -12,7 +12,11 @@ use app\modules\user\models\Access;
 $this->layout = '/layouts/index';
 
 $this->title = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+
+Yii::$app->view->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
+]);
 
 Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
 

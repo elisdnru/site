@@ -8,7 +8,11 @@ use app\modules\user\models\Access;
 $this->layout = '/layouts/index';
 
 $this->title = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
-$this->description = 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.';
+
+Yii::$app->view->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.',
+]);
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('contact')) {
