@@ -5,7 +5,7 @@
 use app\components\AdminController;
 
 $this->title = 'Категории записей';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Записи' => ['/blog/admin/post/index'],
     'Категории записей',

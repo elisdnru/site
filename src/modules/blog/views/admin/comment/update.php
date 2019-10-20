@@ -2,7 +2,7 @@
 /** @var $model \app\modules\blog\models\Comment */
 
 $this->title = 'Редактор комментариев';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Комментарии' => ['index'],
     'Редактор',

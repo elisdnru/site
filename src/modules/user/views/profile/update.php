@@ -5,7 +5,7 @@ use app\modules\user\models\Access;
 /** @var $model \app\modules\user\models\User */
 $this->layout = '/layouts/user';
 $this->title = 'Мой профиль';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Мой профиль' => ['view'],
     'Редактирование'
 ];

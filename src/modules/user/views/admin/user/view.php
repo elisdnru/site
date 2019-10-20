@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 /** @var $model \app\modules\user\models\User */
 
 $this->title = 'Профиль пользователя ' . $model->username;
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],
     $model->username => ['view', 'id' => $model->id],

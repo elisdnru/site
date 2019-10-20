@@ -15,7 +15,7 @@ $this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPag
 $this->description = $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $page->keywords;
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Блог',
 ];
 

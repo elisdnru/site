@@ -17,7 +17,7 @@ $this->keywords = $tag->title;
 
 Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog/default/index'),
     'Записи с меткой «' . $tag->title . '»',
 ];

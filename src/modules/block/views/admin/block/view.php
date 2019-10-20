@@ -2,7 +2,7 @@
 /** @var $model \app\modules\block\models\Block */
 
 $this->title = 'Блок ' . $model->title;
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Блоки' => ['index'],
     $model->title,

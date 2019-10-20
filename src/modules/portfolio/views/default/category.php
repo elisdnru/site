@@ -13,10 +13,10 @@ $this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pa
 $this->description = $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     $page->title => $this->createUrl('index'),
 ];
-$this->breadcrumbs = array_merge($this->breadcrumbs, $category->breadcrumbs);
+$this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->breadcrumbs);
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('portfolio')) {

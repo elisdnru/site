@@ -10,7 +10,7 @@ use app\modules\user\models\User;
 /** @var $model Post */
 
 $this->title = 'Записи блога';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Записи блога',
 ];

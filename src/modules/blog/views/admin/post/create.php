@@ -7,7 +7,7 @@ use app\components\AdminController;
 /** @var $model Post */
 
 $this->title = 'Редактор записи блога';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Записи блога' => ['index'],
     'Редактор',

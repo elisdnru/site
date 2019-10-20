@@ -17,10 +17,10 @@ $this->title = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::p
 $this->description = $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog/default/index'),
 ];
-$this->breadcrumbs = array_merge($this->breadcrumbs, $category->getBreadcrumbs());
+$this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->getBreadcrumbs());
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {

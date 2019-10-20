@@ -2,7 +2,7 @@
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 /** @var $model \app\modules\block\forms\BlockSearch */
 $this->title = 'Блоки';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Блоки',
 ];

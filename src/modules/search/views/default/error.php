@@ -10,7 +10,7 @@ $this->title = 'Поиск по сайту';
 $this->description = 'Поиск по сайту';
 $this->keywords = '';
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Поиск по сайту',
 ];
 

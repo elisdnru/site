@@ -7,7 +7,7 @@ use app\components\AdminController;
 /** @var $model Tag */
 
 $this->title = 'Редактор метки блога';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Блоги' => ['/blog/admin/post'],
     'Метки' => ['index'],

@@ -11,11 +11,11 @@ $this->title = $model->title;
 $this->description = $model->description;
 $this->keywords = $model->keywords;
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Портфолио' => $this->createUrl('/portfolio/default/index')
 ];
-$this->breadcrumbs = array_merge($this->breadcrumbs, $model->category->getBreadcrumbs(true));
-$this->breadcrumbs[] = $model->title;
+$this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
+$this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('portfolio')) {

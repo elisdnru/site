@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 /** @var $user \app\modules\user\models\User */
 
 $this->title = 'Редактор комментариев';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Редактор комментария',
 ];
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {

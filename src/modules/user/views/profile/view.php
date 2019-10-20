@@ -7,7 +7,7 @@ use app\modules\user\models\Access;
 
 $this->layout = '/layouts/user';
 $this->title = 'Профиль пользователя ' . $model->username;
-$this->breadcrumbs = ['Профиль'];
+$this->params['breadcrumbs'] = ['Профиль'];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];

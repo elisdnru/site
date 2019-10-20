@@ -3,7 +3,7 @@
 /** @var $model \app\modules\portfolio\models\Work */
 
 $this->title = 'Редактор работы';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Портфолио' => ['index'],
     'Редактор',

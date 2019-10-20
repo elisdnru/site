@@ -3,7 +3,7 @@
 /** @var $model \app\modules\user\forms\RemindForm */
 $this->layout = '/layouts/user';
 $this->title = 'Восстановление пароля';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Вход на сайт' => $this->createUrl('login'),
     'Восстановление пароля',
 ];

@@ -3,7 +3,7 @@
 /** @var $model \app\modules\user\forms\LoginForm*/
 $this->layout = '/layouts/user';
 $this->title = 'Авторизация';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Вход на сайт'
 ];
 ?>

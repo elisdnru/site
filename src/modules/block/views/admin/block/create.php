@@ -3,7 +3,7 @@
 ?>
 <?php
 $this->title = 'Редактор блоков';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Блоки' => ['index'],
     'Редактор',

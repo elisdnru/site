@@ -3,7 +3,7 @@
 /** @var $model \app\modules\portfolio\models\Category */
 
 $this->title = 'Редактор категории портфолио';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Портфолио' => ['/portfolio/admin/work/index'],
     'Категории' => ['index'],

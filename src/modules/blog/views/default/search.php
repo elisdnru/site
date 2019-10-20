@@ -16,7 +16,7 @@ $this->description = '';
 $this->keywords = '';
 
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog/default/index'),
     'Поиск',
 ];

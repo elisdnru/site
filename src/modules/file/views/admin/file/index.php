@@ -11,7 +11,7 @@ use yii\web\JqueryAsset;
 /** @var $upload_count integer */
 
 $this->title = 'Файловый менеджер';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Файловый менеджер',
 ];

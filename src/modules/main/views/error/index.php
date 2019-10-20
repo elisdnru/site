@@ -4,7 +4,7 @@ use app\modules\user\models\Access;
 
 /** @var $page \app\modules\page\models\Page */
 $this->title = 'Error';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Ошибка ' . ($error['code'] ?? ''),
 ];
 ?>

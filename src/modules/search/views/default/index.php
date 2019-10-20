@@ -12,7 +12,7 @@ $this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProv
 $this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 $this->keywords = '';
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Поиск по сайту',
 ];
 

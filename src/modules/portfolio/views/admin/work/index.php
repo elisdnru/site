@@ -8,7 +8,7 @@ use app\modules\portfolio\models\Category;
 use yii\web\JqueryAsset;
 
 $this->title = 'Работы портфолио';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Портфолио',
 ];

@@ -4,7 +4,7 @@
 use app\modules\user\models\Access;
 
 $this->title = 'Пользователи';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Пользователи',
 ];

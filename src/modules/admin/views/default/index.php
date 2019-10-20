@@ -3,7 +3,7 @@
 use app\components\widgets\IconMenu;
 /** @var $modules \app\components\module\Module[] */
 $this->title = 'Панель управления';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления',
 ];
 

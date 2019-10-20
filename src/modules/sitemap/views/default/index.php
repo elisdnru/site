@@ -12,7 +12,7 @@ $this->title = $page->pagetitle;
 $this->description = $page->description;
 $this->keywords = $page->keywords;
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Карта сайта',
 ];
 

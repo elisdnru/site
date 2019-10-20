@@ -19,7 +19,7 @@ CommentsAsset::register(Yii::$app->view);
 
 <?php if ($material !== null) : ?>
     <?php
-    $this->breadcrumbs = [
+    $this->params['breadcrumbs'] = [
         'Панель управления' => ['/admin/index'],
         'Комментарии' => ['index'],
         $material->title
@@ -30,7 +30,7 @@ CommentsAsset::register(Yii::$app->view);
 
 <?php else : ?>
     <?php
-    $this->breadcrumbs = [
+    $this->params['breadcrumbs'] = [
         'Панель управления' => ['/admin'],
         'Комментарии',
     ];

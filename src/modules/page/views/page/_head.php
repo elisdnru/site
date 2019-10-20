@@ -8,7 +8,7 @@ $this->title = $page->pagetitle ?: $page->title;
 $this->description = $page->description;
 $this->keywords = $page->keywords;
 
-$this->breadcrumbs = $page->alias !== 'index' ? $page->breadcrumbs : [];
+$this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [];
 
 Yii::$app->view->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
 

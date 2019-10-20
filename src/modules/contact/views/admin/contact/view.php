@@ -9,7 +9,7 @@ use app\components\AdminController;
 /** @var $model Contact */
 
 $this->title = 'Сообщение';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Сообщения' => ['index'],
     'Сообщение №' . $model->id,

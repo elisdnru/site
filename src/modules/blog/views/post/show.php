@@ -20,7 +20,7 @@ $this->title = $model->pagetitle;
 $this->description = $model->description;
 $this->keywords = ($model->category ? $model->category->title . ' ' : '') . implode(' ', CHtml::listData($model->tags, 'id', 'title')) . ($model->keywords ? ' ' . $model->keywords : '');
 
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Блог' => $this->createUrl('/blog')
 ];
 
@@ -40,10 +40,10 @@ if ($model->styles) {
 }
 
 if ($model->category) {
-    $this->breadcrumbs = array_merge($this->breadcrumbs, $model->category->getBreadcrumbs(true));
+    $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
 }
 
-$this->breadcrumbs[] = $model->title;
+$this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {

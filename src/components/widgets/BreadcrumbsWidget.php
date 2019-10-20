@@ -9,6 +9,6 @@ class BreadcrumbsWidget extends CWidget
 {
     public function run(): void
     {
-        $this->render('BreadCrumbs', ['breadcrumbs' => Yii::app()->controller->breadcrumbs]);
+        $this->render('BreadCrumbs', ['breadcrumbs' => Yii::app()->controller->params['breadcrumbs']]);
     }
 }

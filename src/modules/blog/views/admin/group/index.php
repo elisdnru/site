@@ -11,7 +11,7 @@ use app\components\Controller;
 /** @var $itemForm \app\modules\blog\forms\GroupForm */
 
 $this->title = 'Тематические группы записей';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Записи' => ['/blog/admin/post'],
     'Тематические группы',

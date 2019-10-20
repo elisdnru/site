@@ -8,7 +8,7 @@ use app\modules\user\models\User;
 /** @var $form CActiveForm */
 
 $this->title = 'Пользователи';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],
     'Редактор',

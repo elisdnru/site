@@ -4,7 +4,7 @@
 use app\assets\CommentsAsset;
 
 $this->title = 'Комментарий';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
     'Комментарии' => ['index'],
     'Комментарий',

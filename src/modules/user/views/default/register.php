@@ -5,7 +5,7 @@ use app\modules\user\models\Access;
 /** @var $model \app\modules\user\models\User */
 $this->layout = '/layouts/user';
 $this->title = 'Регистрация';
-$this->breadcrumbs = [
+$this->params['breadcrumbs'] = [
     'Вход на сайт' => $this->createUrl('login'),
     'Регистрация',
 ];
