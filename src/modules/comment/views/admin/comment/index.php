@@ -46,11 +46,6 @@ CommentsAsset::register(Yii::$app->view);
 
 <?php endif; ?>
 
-<?php $this->widget(\app\components\widgets\ListView::class, [
-    'ajaxUpdate' => false,
-    'dataProvider' => $dataProvider,
-    'itemView' => 'comment.views.admin.comment._view',
-]);
-
+<?php $this->renderPartial('comment.views.admin.comment._list', ['dataProvider' => $dataProvider]); ?>
 
 
