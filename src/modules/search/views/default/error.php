@@ -4,7 +4,7 @@
 use app\components\Controller;
 use app\modules\user\models\Access;
 
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 
 $this->pageTitle = 'Поиск по сайту';
 $this->description = 'Поиск по сайту';
@@ -16,10 +16,10 @@ $this->breadcrumbs = [
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
+        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
     }
     if (Yii::app()->moduleManager->allowed('page')) {
-        $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin')];
+        $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page')];
     }
 }
 ?>

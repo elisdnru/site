@@ -3,6 +3,7 @@
 namespace app\modules\search\models;
 
 use CActiveRecord;
+use yii\db\ActiveRecord;
 
 /**
  * @property string $title
@@ -10,18 +11,9 @@ use CActiveRecord;
  * @property string $material_class
  * @property integer $material_id
  */
-class Search extends CActiveRecord
+class Search extends ActiveRecord
 {
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'search';
     }

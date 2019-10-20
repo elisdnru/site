@@ -15,6 +15,7 @@ use CDbCriteria;
 use app\components\Controller;
 use app\modules\search\forms\SearchForm;
 use Yii;
+use yii\data\ActiveDataProvider;
 
 class DefaultController extends Controller
 {
@@ -26,15 +27,17 @@ class DefaultController extends Controller
         if ($model->validate()) {
             $this->createViewTable();
 
-            $criteria = new CDbCriteria();
-            $criteria->addSearchCondition('title', $model->q);
-            $criteria->addSearchCondition('text', $model->q, true, 'OR');
+            $query = Search::find()
+                ->andWhere([
+                    'or',
+                    ['like', 'title', $model->q],
+                    ['like', 'text', $model->q]
+                ]);
 
-            $dataProvider = new CActiveDataProvider(Search::class, [
-                'criteria' => $criteria,
+            $dataProvider = new ActiveDataProvider([
+                'query' => $query,
                 'pagination' => [
                     'pageSize' => 10,
-                    'pageVar' => 'page',
                 ]
             ]);
 

@@ -1,15 +1,13 @@
 <?php
-/** @var $dataProvider CDataProvider */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 /** @var $query CActiveRecord */
 ?>
-<?php $this->widget(\app\components\widgets\ListView::class, [
-    'dataProvider' => $dataProvider,
-    'itemView' => '_view',
-    'viewData' => [
-        'query' => $query,
-    ],
-    'id' => 'searchList',
-    'ajaxUpdate' => false,
-    'cssFile' => false,
-    'noScript' => true,
-]);
+
+<div class="items">
+    <?php foreach ($dataProvider->getModels() as $model): ?>
+        <?php $this->renderPartial('_view', [
+            'data' => $model,
+            'query' => $query,
+        ]); ?>
+    <?php endforeach; ?>
+</div>

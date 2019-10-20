@@ -5,11 +5,11 @@ use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 /** @var $query CActiveRecord */
 
-$this->pageTitle = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
-$this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->pageTitle = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
+$this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 $this->keywords = '';
 
 $this->breadcrumbs = [
@@ -18,10 +18,10 @@ $this->breadcrumbs = [
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/postAdmin')];
+        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
     }
     if (Yii::app()->moduleManager->allowed('page')) {
-        $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/pageAdmin')];
+        $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page')];
     }
 }
 ?>

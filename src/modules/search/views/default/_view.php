@@ -6,7 +6,7 @@ use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 
 /** @var $data Search */
-/** @var $query CActiveRecord */
+/** @var $query \yii\db\ActiveRecord */
 ?>
 
 <article class="entry list">
