@@ -10,8 +10,8 @@ $this->params['breadcrumbs'] = [
     'Комментарий',
 ];
 
-$this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
-$this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
 
 CommentsAsset::register(Yii::$app->view);
 ?>

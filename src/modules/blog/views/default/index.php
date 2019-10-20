@@ -20,15 +20,15 @@ $this->params['breadcrumbs'] = [
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
-        $this->admin[] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];
-        $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category')];
+        $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
+        $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];
+        $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category')];
         if ($page->id) {
-            $this->admin[] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
+            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
         }
     }
     if (Yii::app()->moduleManager->allowed('blog') && Yii::app()->moduleManager->allowed('comment')) {
-        $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications($this->module->id));
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications($this->module->id));
     }
 }
 ?>

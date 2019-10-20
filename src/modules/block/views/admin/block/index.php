@@ -7,7 +7,7 @@ $this->params['breadcrumbs'] = [
     'Блоки',
 ];
 
-$this->admin[] = ['label' => 'Добавить блок', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Добавить блок', 'url' => $this->createUrl('create')];
 
 use yii\helpers\Html;
 use yii\helpers\Url;

@@ -9,7 +9,7 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
 ?>
 
 <h1>Добавление блока</h1>

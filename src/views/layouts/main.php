@@ -73,10 +73,10 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
         </nav>
     </header>
 
-    <?php if (count($this->admin)) : ?>
+    <?php if (count($this->params['admin'] ?? [])) : ?>
         <div class="adminbar">
             <?php $this->widget(\app\components\widgets\AdminBarWidget::class, [
-                'links' => $this->admin,
+                'links' => $this->params['admin'],
             ]); ?>
         </div>
     <?php endif; ?>

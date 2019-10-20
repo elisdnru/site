@@ -11,7 +11,7 @@ use app\components\AdminController;
 $this->title = 'Комментарии';
 
 if (Yii::app()->moduleManager->allowed('blog')) {
-    $this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('/contact/admin/contact/index')];
+    $this->params['admin'][] = ['label' => 'Сообщения', 'url' => $this->createUrl('/contact/admin/contact/index')];
 }
 
 CommentsAsset::register(Yii::$app->view);

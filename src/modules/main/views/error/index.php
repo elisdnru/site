@@ -10,7 +10,7 @@ $this->params['breadcrumbs'] = [
 ?>
 
 <?php if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    $this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
+    $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
 } ?>
 
 <h2>Ошибка <?php echo $error['code'] ?? ''; ?></h2>

@@ -7,7 +7,7 @@ $this->params['breadcrumbs'] = [
     'Панель управления',
 ];
 
-$this->admin[] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
+$this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
 
 ?>
 <h1>Панель управления</h1>

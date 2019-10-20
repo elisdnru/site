@@ -9,9 +9,9 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];
-$this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->url];
+$this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
 ?>
 
 <h1>Редактирование работы</h1>

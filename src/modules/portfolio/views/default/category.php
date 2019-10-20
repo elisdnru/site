@@ -19,10 +19,10 @@ $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $catego
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('portfolio')) {
-        $this->admin[] = ['label' => 'Редактировать работы', 'url' => $this->createUrl('/portfolio/admin/work/index', ['category' => $category->id])];
-        $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/update', ['category' => $category->id])];
-        $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
-        $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/admin/category/update', ['id' => $category->id])];
+        $this->params['admin'][] = ['label' => 'Редактировать работы', 'url' => $this->createUrl('/portfolio/admin/work/index', ['category' => $category->id])];
+        $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/update', ['category' => $category->id])];
+        $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
+        $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/admin/category/update', ['id' => $category->id])];
     }
 }
 ?>

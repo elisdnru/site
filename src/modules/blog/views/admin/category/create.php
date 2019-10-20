@@ -14,9 +14,9 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
-$this->admin[] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
+$this->params['admin'][] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
 ?>
 
 <h1>Добавление категории блога</h1>

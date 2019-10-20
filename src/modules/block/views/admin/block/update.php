@@ -8,8 +8,8 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
 
 ?>
 

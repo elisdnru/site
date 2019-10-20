@@ -14,10 +14,10 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Метки', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
-$this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')];
-$this->admin[] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
+$this->params['admin'][] = ['label' => 'Метки', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')];
+$this->params['admin'][] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
 ?>
 
 <h1>Редактирование метки блога</h1>

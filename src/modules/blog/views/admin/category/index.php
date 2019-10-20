@@ -11,9 +11,9 @@ $this->params['breadcrumbs'] = [
     'Категории записей',
 ];
 
-$this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
-$this->admin[] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
-$this->admin[] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
+$this->params['admin'][] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
+$this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

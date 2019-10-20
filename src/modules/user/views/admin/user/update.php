@@ -14,8 +14,8 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
 ?>
 
 <h1>Редактирование пользователя</h1>

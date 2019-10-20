@@ -11,10 +11,10 @@ use app\components\AdminController;
 $this->title = 'Комментарии к записям';
 
 if (Yii::app()->moduleManager->allowed('blog')) {
-    $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
+    $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
 }
 if ($material) {
-    $this->admin[] = ['label' => 'Перейти к записи', 'url' => $material->url];
+    $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->url];
 }
 
 CommentsAsset::register(Yii::$app->view);

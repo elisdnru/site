@@ -10,8 +10,8 @@ $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = ['Профиль'];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-    $this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
-    $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/user/admin/user/update', ['id' => $model->id])];
+    $this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
+    $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('/user/admin/user/update', ['id' => $model->id])];
 }
 ?>
 

@@ -11,8 +11,8 @@ $this->params['breadcrumbs'] = [
 ];
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('comment')) {
-        $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
-        $this->admin[] = ['label' => 'Просмотр', 'url' => $model->url];
+        $this->params['admin'][] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
+        $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->url];
     }
 }
 ?>

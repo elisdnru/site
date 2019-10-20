@@ -12,8 +12,8 @@ $this->description = 'Дмитрий Елисеев – разработчик �
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('contact')) {
-        $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('contact'));
-        $this->admin = array_merge($this->admin, Yii::app()->moduleManager->notifications('comment'));
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications('contact'));
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications('comment'));
     }
 }
 ?>

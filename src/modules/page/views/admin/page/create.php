@@ -7,9 +7,9 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Cтраницы', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Cтраницы', 'url' => $this->createUrl('index')];
 if (Yii::app()->moduleManager->allowed('menu')) {
-    $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
+    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
 }
 ?>
 

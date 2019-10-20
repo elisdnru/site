@@ -14,7 +14,7 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
 ?>
 
 <h1>Добавление пользователя</h1>

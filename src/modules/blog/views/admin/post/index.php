@@ -15,7 +15,7 @@ $this->params['breadcrumbs'] = [
     'Записи блога',
 ];
 
-$this->admin = [
+$this->params['admin'] = [
     ['label' => 'Добавить', 'url' => $this->createUrl('create')],
     ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')],
     ['label' => 'Метки', 'url' => $this->createUrl('/blog/admin/tag/index')],

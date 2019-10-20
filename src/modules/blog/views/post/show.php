@@ -46,14 +46,14 @@ $this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
-        $this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/admin/post/update', ['id' => $model->id])];
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
+        $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/admin/post/update', ['id' => $model->id])];
+        $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
         if ($model->category) {
-            $this->admin[] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('admin/category/update', ['id' => $model->category_id])];
+            $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('admin/category/update', ['id' => $model->category_id])];
         }
     }
     if (Yii::app()->moduleManager->allowed('comment')) {
-        $this->admin[] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/admin/comment/index', ['id' => $model->id])];
+        $this->params['admin'][] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/admin/comment/index', ['id' => $model->id])];
     }
 }
 

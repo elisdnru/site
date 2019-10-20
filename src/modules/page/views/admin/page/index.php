@@ -7,10 +7,10 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::app()->moduleManager->allowed('page')) {
-    $this->admin[] = ['label' => 'Добавить страницу', 'url' => $this->createUrl('create')];
+    $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => $this->createUrl('create')];
 }
 if (Yii::app()->moduleManager->allowed('menu')) {
-    $this->admin[] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
+    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
 }
 ?>
 

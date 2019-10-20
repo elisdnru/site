@@ -16,10 +16,10 @@ $this->params['breadcrumbs'] = [
 Yii::app()->clientScript->registerCoreScript('jquery.ui');
 
 if (Yii::app()->moduleManager->allowed('portfolio')) {
-    $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
+    $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
 }
 if (Yii::app()->moduleManager->allowed('portfolio')) {
-    $this->admin[] = ['label' => 'Добавить работу', 'url' => $this->createUrl('create', ['category' => $category])];
+    $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => $this->createUrl('create', ['category' => $category])];
 }
 
 JqueryAsset::register(Yii::$app->view);

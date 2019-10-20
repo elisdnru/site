@@ -13,8 +13,8 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->admin[] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
 ?>
 
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Профиль пользователя']); ?>

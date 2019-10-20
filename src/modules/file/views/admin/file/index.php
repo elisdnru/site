@@ -17,7 +17,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::app()->moduleManager->allowed('page')) {
-    $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
+    $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
 }
 
 JqueryAsset::register(Yii::$app->view);

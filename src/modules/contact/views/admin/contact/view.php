@@ -15,8 +15,8 @@ $this->params['breadcrumbs'] = [
     'Сообщение №' . $model->id,
 ];
 
-$this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('index')];
-$this->admin[] = ['label' => 'Удалить', 'url' => $this->createUrl('delete', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Сообщения', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createUrl('delete', ['id' => $model->id])];
 ?>
 
 <div style="float:right">

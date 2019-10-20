@@ -7,8 +7,8 @@ $this->params['breadcrumbs'] = [
     'Портфолио' => ['/portfolio/admin/work/index'],
     'Категории',
 ];
-$this->admin[] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
-$this->admin[] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
+$this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

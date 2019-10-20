@@ -14,9 +14,9 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::app()->moduleManager->allowed('page')) {
-    $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
+    $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
 }
-$this->admin[] = ['label' => 'Добавить пункт', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => $this->createUrl('create')];
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

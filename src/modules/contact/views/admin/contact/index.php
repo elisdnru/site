@@ -13,7 +13,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::app()->moduleManager->allowed('comment')) {
-    $this->admin[] = ['label' => 'Комментарии', 'url' => $this->createUrl('/comment/admin/comment/index')];
+    $this->params['admin'][] = ['label' => 'Комментарии', 'url' => $this->createUrl('/comment/admin/comment/index')];
 }
 ?>
 

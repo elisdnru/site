@@ -9,7 +9,7 @@ $this->params['breadcrumbs'] = [
     'Пользователи',
 ];
 
-$this->admin[] = ['label' => 'Добавить пользователя', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Добавить пользователя', 'url' => $this->createUrl('create')];
 ?>
 
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>

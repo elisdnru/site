@@ -17,10 +17,10 @@ $this->params['breadcrumbs'] = [
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
-        $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
+        $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
     }
     if (Yii::app()->moduleManager->allowed('page')) {
-        $this->admin[] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page')];
+        $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page')];
     }
 }
 ?>
