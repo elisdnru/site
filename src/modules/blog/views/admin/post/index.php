@@ -47,14 +47,6 @@ $this->admin = [
             }
         ],
         [
-            'name' => 'author_id',
-            'htmlOptions' => ['style' => 'text-align:center'],
-            'filter' => CHtml::listData(User::model()->findAll(), 'id', 'username'),
-            'value' => static function ($data) {
-                return $data->author->username;
-            },
-        ],
-        [
             'name' => 'group_id',
             'header' => 'Группа',
             'filter' => Group::model()->getAssocList(),
