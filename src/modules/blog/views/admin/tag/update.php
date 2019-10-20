@@ -9,7 +9,7 @@ use app\components\AdminController;
 $this->pageTitle = 'Редактор метки блога';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
-    'Блоги' => ['/blog/postAdmin'],
+    'Блоги' => ['/blog/admin/post'],
     'Метки' => ['index'],
     'Редактор',
 ];

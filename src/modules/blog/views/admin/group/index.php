@@ -13,7 +13,7 @@ use app\components\Controller;
 $this->pageTitle = 'Тематические группы записей';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
-    'Записи' => ['/blog/postAdmin'],
+    'Записи' => ['/blog/admin/post'],
     'Тематические группы',
 ];
 
@@ -34,7 +34,7 @@ $this->admin[] = ['label' => 'Категории', 'url' => $this->createUrl('/b
         </tr>
         <?php foreach ($items as $item) :
             $delurl = $this->createUrl('delete', ['id' => $item->id]);
-            $postsurl = $this->createUrl('blog/postAdmin', ['Post[group_id]' => $item->id]);
+            $postsurl = $this->createUrl('blog/admin/post', ['Post[group_id]' => $item->id]);
 
             ?>
             <tr id="item_<?php echo $item->id; ?>">
