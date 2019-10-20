@@ -360,6 +360,7 @@ class Comment extends CActiveRecord
     public function getLiked(): bool
     {
         $a = Yii::app()->session['comment'];
+
         return isset($a['liked'][$this->id]) && $a['liked'][$this->id] === 1;
     }
 
@@ -368,7 +369,7 @@ class Comment extends CActiveRecord
         $a = Yii::app()->session['comment'];
 
         if ($value) {
-            $a['liked'][$this->id] = '1';
+            $a['liked'][$this->id] = 1;
         } else {
             if (isset($a['liked'][$this->id])) {
                 unset($a['liked'][$this->id]);
