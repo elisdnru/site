@@ -22,7 +22,7 @@ services:
             APP_DB_PASSWORD: secret
             MAILER_URI: smtp://mailer:1025?encryption=tcp
             MAILER_FROM_EMAIL: mail@app.test
-            SENTRY_DSN: https://a@sentry.io/1
+            SENTRY_DSN: ~
         volumes:
             - ./:/app
         depends_on:
