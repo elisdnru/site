@@ -3,7 +3,7 @@
 
 use app\modules\user\models\Access;
 
-$this->pageTitle = 'Пользователи';
+$this->title = 'Пользователи';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Пользователи',

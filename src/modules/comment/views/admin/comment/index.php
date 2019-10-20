@@ -8,7 +8,7 @@ use app\components\AdminController;
 /** @var $material CActiveRecord */
 /** @var $dataPrvider CActiveDataProvider */
 
-$this->pageTitle = 'Комментарии';
+$this->title = 'Комментарии';
 
 if (Yii::app()->moduleManager->allowed('blog')) {
     $this->admin[] = ['label' => 'Сообщения', 'url' => $this->createUrl('/contact/admin/contact/index')];

@@ -2,7 +2,7 @@
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\forms\LoginForm*/
 $this->layout = '/layouts/user';
-$this->pageTitle = 'Авторизация';
+$this->title = 'Авторизация';
 $this->breadcrumbs = [
     'Вход на сайт'
 ];

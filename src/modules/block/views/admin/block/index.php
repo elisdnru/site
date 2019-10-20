@@ -1,7 +1,7 @@
 <?php
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 /** @var $model \app\modules\block\forms\BlockSearch */
-$this->pageTitle = 'Блоки';
+$this->title = 'Блоки';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Блоки',

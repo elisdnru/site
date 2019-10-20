@@ -8,7 +8,7 @@ use app\components\AdminController;
 /** @var $material Comment */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = 'Комментарии к записям';
+$this->title = 'Комментарии к записям';
 
 if (Yii::app()->moduleManager->allowed('blog')) {
     $this->admin[] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];

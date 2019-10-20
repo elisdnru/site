@@ -11,7 +11,7 @@ use app\modules\user\models\Access;
 
 $this->layout = '/layouts/index';
 
-$this->pageTitle = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $tag->title;
 

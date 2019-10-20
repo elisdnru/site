@@ -10,7 +10,7 @@ use yii\web\JqueryAsset;
 /** @var $root string */
 /** @var $upload_count integer */
 
-$this->pageTitle = 'Файловый менеджер';
+$this->title = 'Файловый менеджер';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Файловый менеджер',

@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 /** @var $model \app\modules\user\models\User */
 
 $this->layout = '/layouts/user';
-$this->pageTitle = 'Профиль пользователя ' . $model->username;
+$this->title = 'Профиль пользователя ' . $model->username;
 $this->breadcrumbs = ['Профиль'];
 
 if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {

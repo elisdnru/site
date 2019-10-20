@@ -16,7 +16,7 @@ $this->layout = '/layouts/post';
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->pageTitle = $model->pagetitle;
+$this->title = $model->pagetitle;
 $this->description = $model->description;
 $this->keywords = ($model->category ? $model->category->title . ' ' : '') . implode(' ', CHtml::listData($model->tags, 'id', 'title')) . ($model->keywords ? ' ' . $model->keywords : '');
 

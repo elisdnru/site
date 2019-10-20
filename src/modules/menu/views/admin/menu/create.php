@@ -6,7 +6,7 @@ use app\modules\menu\models\Menu;
 
 /** @var $model Menu */
 
-$this->pageTitle = 'Редактор меню';
+$this->title = 'Редактор меню';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Меню' => ['index'],

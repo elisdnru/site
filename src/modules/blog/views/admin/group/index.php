@@ -10,7 +10,7 @@ use app\components\Controller;
 /** @var $form CActiveForm */
 /** @var $itemForm \app\modules\blog\forms\GroupForm */
 
-$this->pageTitle = 'Тематические группы записей';
+$this->title = 'Тематические группы записей';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Записи' => ['/blog/admin/post'],

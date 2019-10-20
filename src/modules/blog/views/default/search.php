@@ -11,7 +11,7 @@ use app\modules\user\models\Access;
 
 $this->layout = '/layouts/index';
 
-$this->pageTitle = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = '';
 $this->keywords = '';
 

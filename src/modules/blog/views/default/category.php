@@ -13,7 +13,7 @@ use app\modules\user\models\Access;
 
 $this->layout = '/layouts/index';
 
-$this->pageTitle = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;
 

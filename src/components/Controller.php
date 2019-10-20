@@ -21,6 +21,7 @@ use Yii;
  */
 class Controller extends CController
 {
+    public $title = '';
     public $breadcrumbs = [];
 
     public $admin = [];

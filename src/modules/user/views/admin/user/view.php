@@ -5,7 +5,7 @@ use app\modules\user\models\Access;
 
 /** @var $model \app\modules\user\models\User */
 
-$this->pageTitle = 'Профиль пользователя ' . $model->username;
+$this->title = 'Профиль пользователя ' . $model->username;
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],

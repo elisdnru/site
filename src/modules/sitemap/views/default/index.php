@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 /** @var $page Page */
 /** @var $items CModel[] */
 
-$this->pageTitle = $page->pagetitle;
+$this->title = $page->pagetitle;
 $this->description = $page->description;
 $this->keywords = $page->keywords;
 

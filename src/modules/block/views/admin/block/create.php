@@ -2,7 +2,7 @@
 /** @var $model \app\modules\block\models\Block */
 ?>
 <?php
-$this->pageTitle = 'Редактор блоков';
+$this->title = 'Редактор блоков';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Блоки' => ['index'],

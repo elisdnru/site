@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 
-$this->pageTitle = 'Поиск по сайту';
+$this->title = 'Поиск по сайту';
 $this->description = 'Поиск по сайту';
 $this->keywords = '';
 

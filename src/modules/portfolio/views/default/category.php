@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 /** @var $page \app\modules\page\models\Page */
 $this->layout = '/layouts/index';
 
-$this->pageTitle = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $category->keywords;
 

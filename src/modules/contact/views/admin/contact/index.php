@@ -6,7 +6,7 @@ use app\components\AdminController;
 
 /** @var $model Contact */
 
-$this->pageTitle = 'Сообщения';
+$this->title = 'Сообщения';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Сообщения',

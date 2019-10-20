@@ -8,7 +8,7 @@ use app\components\AdminController;
 /** @var $prev Contact */
 /** @var $model Contact */
 
-$this->pageTitle = 'Сообщение';
+$this->title = 'Сообщение';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Сообщения' => ['index'],

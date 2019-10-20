@@ -4,7 +4,7 @@
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-$this->pageTitle = $page->pagetitle ?: $page->title;
+$this->title = $page->pagetitle ?: $page->title;
 $this->description = $page->description;
 $this->keywords = $page->keywords;
 

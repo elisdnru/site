@@ -4,7 +4,7 @@ use app\modules\user\models\Access;
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\models\User */
 $this->layout = '/layouts/user';
-$this->pageTitle = 'Мой профиль';
+$this->title = 'Мой профиль';
 $this->breadcrumbs = [
     'Мой профиль' => ['view'],
     'Редактирование'

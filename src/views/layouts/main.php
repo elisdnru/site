@@ -37,7 +37,7 @@ Yii::$app->view->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app(
     <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>" />
     <?php Yii::$app->view->head() ?>
 
-    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <title><?php echo CHtml::encode($this->title); ?></title>
 </head>
 <body>
 <?php Yii::$app->view->beginBody() ?>

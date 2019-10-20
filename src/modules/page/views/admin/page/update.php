@@ -1,7 +1,7 @@
 <?php
 /** @var $model \app\modules\page\models\Page */
 
-$this->pageTitle = 'Редактор страниц';
+$this->title = 'Редактор страниц';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Страницы' => ['index'],

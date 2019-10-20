@@ -9,7 +9,7 @@ use app\modules\user\models\User;
 
 /** @var $model Post */
 
-$this->pageTitle = 'Записи блога';
+$this->title = 'Записи блога';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Записи блога',

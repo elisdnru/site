@@ -2,7 +2,7 @@
 
 use app\components\widgets\IconMenu;
 /** @var $modules \app\components\module\Module[] */
-$this->pageTitle = 'Панель управления';
+$this->title = 'Панель управления';
 $this->breadcrumbs = [
     'Панель управления',
 ];

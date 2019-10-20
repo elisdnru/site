@@ -7,7 +7,7 @@ use app\modules\user\models\User;
 /** @var $model User */
 /** @var $form CActiveForm */
 
-$this->pageTitle = 'Пользователи';
+$this->title = 'Пользователи';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],

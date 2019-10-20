@@ -2,7 +2,7 @@
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\forms\RemindForm */
 $this->layout = '/layouts/user';
-$this->pageTitle = 'Восстановление пароля';
+$this->title = 'Восстановление пароля';
 $this->breadcrumbs = [
     'Вход на сайт' => $this->createUrl('login'),
     'Восстановление пароля',

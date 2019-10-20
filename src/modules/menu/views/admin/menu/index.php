@@ -7,7 +7,7 @@ use app\modules\menu\models\Menu;
 /** @var $items Menu[] */
 /** @var $model Menu */
 
-$this->pageTitle = 'Меню';
+$this->title = 'Меню';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Меню',

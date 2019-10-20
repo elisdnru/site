@@ -6,7 +6,7 @@ use app\components\AdminController;
 
 /** @var $model Tag */
 
-$this->pageTitle = 'Редактор метки блога';
+$this->title = 'Редактор метки блога';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Блоги' => ['/blog/admin/post'],

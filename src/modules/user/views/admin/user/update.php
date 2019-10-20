@@ -7,7 +7,7 @@ use app\modules\user\models\User;
 /** @var $model User */
 /** @var $form CActiveForm */
 
-$this->pageTitle = 'Редактирование данных пользователя';
+$this->title = 'Редактирование данных пользователя';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],

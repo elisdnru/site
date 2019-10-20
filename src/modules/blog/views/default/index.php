@@ -11,7 +11,7 @@ use app\modules\user\models\Access;
 
 $this->layout = '/layouts/index';
 
-$this->pageTitle = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->description = $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 $this->keywords = $page->keywords;
 

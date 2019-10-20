@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 /** @var $query CActiveRecord */
 
-$this->pageTitle = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
+$this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 $this->description = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 $this->keywords = '';
 

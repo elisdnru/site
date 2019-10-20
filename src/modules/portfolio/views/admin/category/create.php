@@ -2,7 +2,7 @@
 
 /** @var $model \app\modules\portfolio\models\Category */
 
-$this->pageTitle = 'Редактор категории портфолио';
+$this->title = 'Редактор категории портфолио';
 $this->breadcrumbs = [
     'Панель управления' => ['/admin'],
     'Портфолио' => ['/portfolio/admin/work/index'],

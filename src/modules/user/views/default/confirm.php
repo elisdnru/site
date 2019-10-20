@@ -2,7 +2,7 @@
 
 $this->layout = '/layouts/user';
 
-$this->pageTitle = 'Подтверждение регистрации';
+$this->title = 'Подтверждение регистрации';
 $this->breadcrumbs = [
     'Вход на сайт' => $this->createUrl('login'),
     'Регистрация' => $this->createUrl('registration'),
