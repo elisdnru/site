@@ -10,7 +10,7 @@ use app\components\AdminController;
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'id' => 'page-form',
         'enableClientValidation' => true,
         'clientOptions' => [

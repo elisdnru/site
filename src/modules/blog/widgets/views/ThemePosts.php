@@ -1,5 +1,8 @@
 <?php
-/** @var $group \app\modules\blog\models\Group */
+/** @var $group Group */
+
+use app\modules\blog\models\Group;
+
 /** @var $current int */
 ?>
 <br />

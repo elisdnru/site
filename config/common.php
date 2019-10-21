@@ -6,11 +6,16 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
+use app\components\module\ModuleManager;
+use app\components\module\routes\ModuleUrlRulesBehavior;
+use app\components\PhpAuthManager;
+use app\extensions\cachetagging\TaggingBehavior;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
 use app\modules\page\widgets\PageWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
+use app\modules\user\components\WebUser;
 
 CHtml::setModelNameConverter(static function ($model) {
     return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;
@@ -66,7 +71,7 @@ return [
         ],
 
         'user' => [
-            'class' => \app\modules\user\components\WebUser::class,
+            'class' => WebUser::class,
             'allowAutoLogin' => true,
             'loginUrl' => ['/user/default/login'],
         ],
@@ -94,12 +99,12 @@ return [
         ],
 
         'authManager' => [
-            'class' => \app\components\PhpAuthManager::class,
+            'class' => PhpAuthManager::class,
             'defaultRoles' => ['role_guest'],
         ],
 
         'moduleManager' => [
-            'class' => \app\components\module\ModuleManager::class,
+            'class' => ModuleManager::class,
         ],
 
         'errorHandler' => [
@@ -111,20 +116,20 @@ return [
         ],
 
         'log' => [
-            'class' => \CLogRouter::class,
+            'class' => CLogRouter::class,
             'routes' => [
                 [
-                    'class' => \CFileLogRoute::class,
+                    'class' => CFileLogRoute::class,
                     'levels' => 'error',
                     'logFile' => 'log_error.log',
                 ],
                 [
-                    'class' => \CFileLogRoute::class,
+                    'class' => CFileLogRoute::class,
                     'levels' => 'warning',
                     'logFile' => 'log_warning.log',
                 ],
                 [
-                    'class' => \CFileLogRoute::class,
+                    'class' => CFileLogRoute::class,
                     'levels' => 'info',
                     'logFile' => 'log_info.log',
                 ],
@@ -135,7 +140,7 @@ return [
             'class' => !getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
             'behaviors' => [
                 'tagging' => [
-                    'class' => \app\extensions\cachetagging\TaggingBehavior::class,
+                    'class' => TaggingBehavior::class,
                 ],
             ],
         ],
@@ -146,7 +151,7 @@ return [
     ],
 
     'behaviors' => [
-        \app\components\module\routes\ModuleUrlRulesBehavior::class,
+        ModuleUrlRulesBehavior::class,
     ],
 
     'params' => [

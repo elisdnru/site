@@ -6,6 +6,7 @@ use app\modules\ulogin\models\UloginModel;
 use app\modules\user\models\Access;
 use CUserIdentity;
 use app\modules\user\models\User;
+use InvalidArgumentException;
 
 class UloginUserIdentity extends CUserIdentity
 {
@@ -15,7 +16,7 @@ class UloginUserIdentity extends CUserIdentity
     public function authenticate(UloginModel $uloginModel = null): bool
     {
         if ($uloginModel === null) {
-            throw new \InvalidArgumentException('Empty model.');
+            throw new InvalidArgumentException('Empty model.');
         }
 
         $user = User::findOne([

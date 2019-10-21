@@ -6,14 +6,16 @@ $this->title = 'Авторизация';
 $this->params['breadcrumbs'] = [
     'Вход на сайт'
 ];
-?>
+
+use app\components\widgets\Portlet;
+use app\modules\ulogin\widgets\UloginWidget; ?>
 
 <h1>Вход в аккаунт</h1>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Войти, используя логин и пароль']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Войти, используя логин и пароль']); ?>
 
 <div class="form">
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'id' => 'login-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -47,13 +49,13 @@ $this->params['breadcrumbs'] = [
 
 <?php $this->endWidget(); ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Регистрация и восстановление']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Регистрация и восстановление']); ?>
 <p style="margin:0;"><a href="<?php echo $this->createUrl('/user/default/registration'); ?>">Регистрация</a> |
     <a href="<?php echo $this->createUrl('/user/default/remind'); ?>">Забыли пароль?</a></p>
 <?php $this->endWidget(); ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Вход через аккаунт в соцсети']); ?>
-<?= \app\modules\ulogin\widgets\UloginWidget::widget([
+<?php $this->beginWidget(Portlet::class, ['title' => 'Вход через аккаунт в соцсети']); ?>
+<?= UloginWidget::widget([
     'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])]
 ]) ?>
 

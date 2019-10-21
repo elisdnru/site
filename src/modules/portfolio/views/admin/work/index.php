@@ -1,10 +1,11 @@
 <?php
 
 /** @var $category Category */
-/** @var $works \app\modules\portfolio\models\Work */
+/** @var $works Work */
 /** @var $pages CPagination */
 
 use app\modules\portfolio\models\Category;
+use app\modules\portfolio\models\Work;
 use yii\web\JqueryAsset;
 use yii\web\View;
 
@@ -92,7 +93,7 @@ JqueryAsset::register(Yii::$app->view);
 
 </div>
 
-<?php $this->widget(\CLinkPager::class, [
+<?php $this->widget(CLinkPager::class, [
     'pages' => $pages,
 ]); ?>
 

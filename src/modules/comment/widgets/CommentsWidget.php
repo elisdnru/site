@@ -8,6 +8,7 @@ use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
 use app\modules\user\models\User;
+use ReflectionClass;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\base\Widget;
@@ -53,7 +54,7 @@ class CommentsWidget extends Widget
             ]);
 
             if ($form->validate()) {
-                $className = (new \ReflectionClass($this->type))->getNamespaceName() . '\Comment';
+                $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
 
                 /** @var Comment $comment */
                 $comment = new $className;

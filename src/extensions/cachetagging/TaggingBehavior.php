@@ -3,6 +3,7 @@
 namespace app\extensions\cachetagging;
 
 use CBehavior;
+use CComponent;
 use ICache;
 
 class TaggingBehavior extends CBehavior
@@ -17,7 +18,7 @@ class TaggingBehavior extends CBehavior
     }
 
     /**
-     * @return ICache|\CComponent
+     * @return ICache|CComponent
      */
     private function getCache(): ICache
     {

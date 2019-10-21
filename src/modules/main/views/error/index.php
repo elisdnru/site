@@ -1,8 +1,9 @@
 <?php
 
+use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-/** @var $page \app\modules\page\models\Page */
+/** @var $page Page */
 $this->title = 'Error';
 $this->params['breadcrumbs'] = [
     'Ошибка ' . ($error['code'] ?? ''),

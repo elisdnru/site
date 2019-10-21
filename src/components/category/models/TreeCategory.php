@@ -2,7 +2,9 @@
 
 namespace app\components\category\models;
 
+use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\TreeActiveDataProvider;
+use app\components\validators\ExistOrEmpty;
 use CActiveDataProvider;
 use CDbCriteria;
 use Yii;
@@ -30,7 +32,7 @@ abstract class TreeCategory extends Category
     public function rules(): array
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', \app\components\validators\ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
+            ['parent_id', ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
             ['parent_id', 'safe', 'on' => 'search'],
         ]);
     }
@@ -73,7 +75,7 @@ abstract class TreeCategory extends Category
     {
         return array_replace(parent::behaviors(), [
             'CategoryBehavior' => [
-                'class' => \app\components\category\behaviors\CategoryTreeBehavior::class,
+                'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

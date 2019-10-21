@@ -2,7 +2,9 @@
 
 namespace app\modules\blog\models;
 
+use app\components\behaviors\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
+use app\components\validators\ExistOrEmpty;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use app\modules\user\models\User;
@@ -85,9 +87,9 @@ class Post extends CActiveRecord implements CommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\components\validators\v2\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
-            ['category_id', 'exist', 'className' => \app\modules\blog\models\Category::class, 'attributeName' => 'id'],
-            ['group_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\blog\models\Group::class, 'attributeName' => 'id'],
+            ['author_id', \app\components\validators\v2\ExistOrEmpty::class, 'className' => User::class, 'attributeName' => 'id'],
+            ['category_id', 'exist', 'className' => Category::class, 'attributeName' => 'id'],
+            ['group_id', ExistOrEmpty::class, 'className' => Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['styles, short, text, description, del_image', 'safe'],
@@ -110,10 +112,10 @@ class Post extends CActiveRecord implements CommentDepends
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, \app\modules\blog\models\Category::class, 'category_id'],
-            'group' => [self::BELONGS_TO, \app\modules\blog\models\Group::class, 'group_id'],
-            'posttags' => [self::HAS_MANY, \app\modules\blog\models\PostTag::class, 'post_id'],
-            'tags' => [self::MANY_MANY, \app\modules\blog\models\Tag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
+            'category' => [self::BELONGS_TO, Category::class, 'category_id'],
+            'group' => [self::BELONGS_TO, Group::class, 'group_id'],
+            'posttags' => [self::HAS_MANY, PostTag::class, 'post_id'],
+            'tags' => [self::MANY_MANY, Tag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
         ];
     }
 
@@ -222,7 +224,7 @@ class Post extends CActiveRecord implements CommentDepends
                 'updateAttribute' => 'update_date',
             ],
             'PurifyShort' => [
-                'class' => \app\components\behaviors\PurifyTextBehavior::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -232,7 +234,7 @@ class Post extends CActiveRecord implements CommentDepends
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\components\behaviors\PurifyTextBehavior::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
@@ -247,7 +249,7 @@ class Post extends CActiveRecord implements CommentDepends
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\components\uploader\FileUploadBehavior::class,
+                'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,

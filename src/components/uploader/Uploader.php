@@ -5,7 +5,9 @@ namespace app\components\uploader;
 use app\components\helpers\FileHelper;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
+use CException;
 use CUploadedFile;
+use RuntimeException;
 use StdClass;
 use Yii;
 use yii\web\UploadedFile;
@@ -22,7 +24,7 @@ class Uploader
      * @param CUploadedFile $file
      * @param string $path
      * @return File|null
-     * @throws \CException
+     * @throws CException
      */
     public function upload(CUploadedFile $file, string $path): ?File
     {
@@ -184,11 +186,11 @@ class Uploader
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);
 
             if (!$thumb->save($targetName, false, 100)) {
-                throw new \RuntimeException('Unable to save ' . $targetName);
+                throw new RuntimeException('Unable to save ' . $targetName);
             }
 
             if (!$thumb->save($targetName . '.webp', ImageHandler::IMG_WEBP, 100)) {
-                throw new \RuntimeException('Unable to save ' . $targetName . 'webp');
+                throw new RuntimeException('Unable to save ' . $targetName . 'webp');
             }
             return true;
         }

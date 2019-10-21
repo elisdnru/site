@@ -3,6 +3,8 @@
 /** @var $model \app\modules\blog\models\Tag */
 
 use app\components\AdminController;
+use app\components\widgets\grid\ButtonColumn;
+use app\components\widgets\grid\LinkColumn;
 
 $this->title = 'Метки записей';
 $this->params['breadcrumbs'] = [
@@ -26,25 +28,25 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => $
     'filter' => $model,
     'columns' => [
         [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
             'name' => 'frequency',
             'htmlOptions' => ['style' => 'width:130px;text-align:center'],
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->url',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

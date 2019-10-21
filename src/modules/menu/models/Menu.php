@@ -2,6 +2,7 @@
 
 namespace app\modules\menu\models;
 
+use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\TreeActiveDataProvider;
 use app\components\category\models\Category;
 use CActiveRecord;
@@ -131,7 +132,7 @@ class Menu extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\components\category\behaviors\CategoryTreeBehavior::class,
+                'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

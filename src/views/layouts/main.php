@@ -2,9 +2,11 @@
 
 use app\assets\AdminBarAsset;
 use app\assets\MainAsset;
+use app\components\widgets\AdminBarWidget;
 use app\extensions\cachetagging\Tags;
 use app\components\Controller;
 use app\modules\menu\models\Menu;
+use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 
 MainAsset::register(Yii::$app->view);
@@ -61,7 +63,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
     endif; ?>
 
         <div class="search">
-            <?= \app\modules\search\widgets\SearchFormWidget::widget() ?>
+            <?= SearchFormWidget::widget() ?>
         </div>
 
         <nav id="main_nav">
@@ -74,7 +76,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
     <?php if (count($this->params['admin'] ?? [])) : ?>
         <div class="adminbar">
-            <?= \app\components\widgets\AdminBarWidget::widget([
+            <?= AdminBarWidget::widget([
                 'links' => $this->params['admin'],
             ]) ?>
         </div>

@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\Post;
 use CHtml;
 use app\components\Controller;
+use DateTimeImmutable;
 use Yii;
 use Zend\Feed\Writer\Feed;
 
@@ -24,7 +25,7 @@ class FeedController extends Controller
         $feed->setDescription('ElisDN');
 
         $feed->setLanguage('ru');
-        $feed->setDateModified(new \DateTimeImmutable());
+        $feed->setDateModified(new DateTimeImmutable());
         $feed->setLink(Yii::app()->request->hostInfo);
         $feed->setCopyright('Copyright ' . date('Y') . ' ' . ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']));
         $feed->setGenerator('ElisDN');
@@ -51,7 +52,7 @@ class FeedController extends Controller
             }
 
             $item->setLink($link);
-            $item->setDateModified(new \DateTimeImmutable($model->date));
+            $item->setDateModified(new DateTimeImmutable($model->date));
             $item->setId('post_' . $model->id);
 
             $feed->addEntry($item);

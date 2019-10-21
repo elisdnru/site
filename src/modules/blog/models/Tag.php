@@ -55,8 +55,8 @@ class Tag extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'frequency' => [self::STAT, \app\modules\blog\models\PostTag::class, 'tag_id'],
-            'posttags' => [self::HAS_MANY, \app\modules\blog\models\PostTag::class, 'tag_id'],
+            'frequency' => [self::STAT, PostTag::class, 'tag_id'],
+            'posttags' => [self::HAS_MANY, PostTag::class, 'tag_id'],
         ];
     }
 

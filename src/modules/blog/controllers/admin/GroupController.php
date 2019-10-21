@@ -2,6 +2,9 @@
 
 namespace app\modules\blog\controllers\admin;
 
+use app\components\crud\actions\DeleteAction;
+use app\components\crud\actions\TableInputAction;
+use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
 use CHttpException;
@@ -16,13 +19,13 @@ class GroupController extends AdminController
     {
         return [
             'index' => [
-                'class' => \app\components\crud\actions\TableInputAction::class,
+                'class' => TableInputAction::class,
                 'modelClass' => Group::class,
-                'formClass' => \app\modules\blog\forms\GroupForm::class,
+                'formClass' => GroupForm::class,
                 'order' => 'title ASC',
                 'view' => 'index',
             ],
-            'delete' => \app\components\crud\actions\DeleteAction::class,
+            'delete' => DeleteAction::class,
         ];
     }
 

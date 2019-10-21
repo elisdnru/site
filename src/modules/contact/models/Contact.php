@@ -5,6 +5,7 @@ namespace app\modules\contact\models;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
+use RuntimeException;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -87,7 +88,7 @@ class Contact extends ActiveRecord
             ->setReplyTo([$this->email => $this->name]);
 
         if (!$mail->send()) {
-            throw new \RuntimeException('Unable to send contact message ' . $this->id);
+            throw new RuntimeException('Unable to send contact message ' . $this->id);
         }
     }
 }

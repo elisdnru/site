@@ -3,9 +3,11 @@
 
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
+use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 
-/** @var $dataProvider \yii\data\ActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 /** @var $query CActiveRecord */
 
 $this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
@@ -31,7 +33,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по сайту</h1>
 
-<?= \app\modules\search\widgets\SearchFormWidget::widget() ?>
+<?= SearchFormWidget::widget() ?>
 
 <?= $this->renderPartial('_loop', [
     'dataProvider' => $dataProvider,

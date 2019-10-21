@@ -3,6 +3,8 @@
 namespace app\components\crud\actions;
 
 use CActiveRecord;
+use CForm;
+use ReflectionClass;
 
 class TableInputAction extends CrudAction
 {
@@ -22,7 +24,7 @@ class TableInputAction extends CrudAction
             'order' => $this->order,
         ]);
 
-        $formName = (new \ReflectionClass($this->formClass))->getShortName();
+        $formName = (new ReflectionClass($this->formClass))->getShortName();
 
         if (isset($_POST[$formName])) {
             $valid = true;
@@ -51,7 +53,7 @@ class TableInputAction extends CrudAction
         }
 
         // Add new
-        /** @var \CForm $form */
+        /** @var CForm $form */
         $form = new $this->formClass;
 
         if (isset($_POST[$formName])) {

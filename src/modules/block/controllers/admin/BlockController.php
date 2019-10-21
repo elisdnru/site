@@ -2,6 +2,11 @@
 
 namespace app\modules\block\controllers\admin;
 
+use app\components\crud\actions\v2\CreateAction;
+use app\components\crud\actions\v2\DeleteAction;
+use app\components\crud\actions\v2\IndexAction;
+use app\components\crud\actions\v2\UpdateAction;
+use app\components\crud\actions\v2\ViewAction;
 use app\modules\block\models\Block;
 use app\modules\block\forms\BlockSearch;
 use CHttpException;
@@ -12,11 +17,11 @@ class BlockController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => \app\components\crud\actions\v2\IndexAction::class,
-            'create' => \app\components\crud\actions\v2\CreateAction::class,
-            'update' =>  \app\components\crud\actions\v2\UpdateAction::class,
-            'delete' => \app\components\crud\actions\v2\DeleteAction::class,
-            'view' => \app\components\crud\actions\v2\ViewAction::class,
+            'index' => IndexAction::class,
+            'create' => CreateAction::class,
+            'update' =>  UpdateAction::class,
+            'delete' => DeleteAction::class,
+            'view' => ViewAction::class,
         ];
     }
 

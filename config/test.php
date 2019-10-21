@@ -15,10 +15,10 @@ return array_replace_recursive(
             ],
 
             'log' => [
-                'class' => \CLogRouter::class,
+                'class' => CLogRouter::class,
                 'routes' => [
                     [
-                        'class' => \CFileLogRoute::class,
+                        'class' => CFileLogRoute::class,
                         'levels' => 'error',
                     ],
                 ],

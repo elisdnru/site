@@ -1,9 +1,12 @@
-<?php $this->beginContent('//layouts/main'); ?>
+<?php $this->beginContent('//layouts/main');
+
+use app\components\widgets\BreadcrumbsWidget;
+use app\components\widgets\MessagesWidget; ?>
 
 <section class="main">
 
-    <?= \app\components\widgets\BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= \app\components\widgets\MessagesWidget::widget() ?>
+    <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= MessagesWidget::widget() ?>
 
     <?php echo $content; ?>
 

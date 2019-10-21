@@ -2,8 +2,11 @@
 
 namespace app\modules\page\models;
 
+use app\components\behaviors\PurifyTextBehavior;
+use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
+use app\components\uploader\FileUploadBehavior;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
@@ -192,7 +195,7 @@ class Page extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\components\category\behaviors\CategoryTreeBehavior::class,
+                'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
@@ -203,7 +206,7 @@ class Page extends CActiveRecord
                 ],
             ],
             'PurifyText' => [
-                'class' => \app\components\behaviors\PurifyTextBehavior::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -216,7 +219,7 @@ class Page extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\components\uploader\FileUploadBehavior::class,
+                'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,

@@ -1,6 +1,9 @@
 <?php
 /** @var $this AdminController */
 
+use app\components\widgets\grid\ButtonColumn;
+use app\components\widgets\grid\LinkColumn;
+use app\components\widgets\grid\ToggleColumn;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
@@ -37,7 +40,7 @@ $this->params['admin'] = [
         ],
         [
             'name' => 'title',
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
         ],
         [
             'name' => 'category_id',
@@ -55,7 +58,7 @@ $this->params['admin'] = [
             }
         ],
         [
-            'class' => \app\components\widgets\grid\ToggleColumn::class,
+            'class' => ToggleColumn::class,
             'name' => 'public',
             'header' => 'О',
             'filter' => [1 => 'Опубликовано', 0 => 'Не опубликовано'],
@@ -63,15 +66,15 @@ $this->params['admin'] = [
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{view}',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

@@ -4,6 +4,7 @@ namespace app\components\module\routes;
 
 use CBehavior;
 use CConsoleApplication;
+use RuntimeException;
 use Yii;
 
 class ModuleUrlRulesBehavior extends CBehavior
@@ -45,7 +46,7 @@ class ModuleUrlRulesBehavior extends CBehavior
     private function getRouteSet(string $name, array $definition): array
     {
         if (!$class = $definition['class'] ?? null) {
-            throw new \RuntimeException('Undefined class for module ' . $name);
+            throw new RuntimeException('Undefined class for module ' . $name);
         }
 
         if (!is_subclass_of($class, UrlProvider::class)) {

@@ -2,6 +2,9 @@
 
 namespace app\components\crud\actions;
 
+use CActiveRecord;
+use ReflectionObject;
+
 class IndexAction extends CrudAction
 {
     /**
@@ -15,10 +18,10 @@ class IndexAction extends CrudAction
 
     public function run(): void
     {
-        /** @var \CActiveRecord $model */
+        /** @var CActiveRecord $model */
         $model = $this->createModel();
 
-        $formName = (new \ReflectionObject($model))->getShortName();
+        $formName = (new ReflectionObject($model))->getShortName();
 
         $modelName = get_class($this->createModel());
 

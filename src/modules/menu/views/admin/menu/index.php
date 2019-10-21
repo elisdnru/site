@@ -2,6 +2,10 @@
 /** @var $this AdminController */
 
 use app\components\AdminController;
+use app\components\widgets\grid\ButtonColumn;
+use app\components\widgets\grid\IndentLinkColumn;
+use app\components\widgets\grid\LinkColumn;
+use app\components\widgets\grid\ToggleColumn;
 use app\modules\menu\models\Menu;
 
 /** @var $items Menu[] */
@@ -33,19 +37,19 @@ $this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => $
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => \app\components\widgets\grid\IndentLinkColumn::class,
+            'class' => IndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
             'name' => 'link',
         ],
         [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \app\components\widgets\grid\ToggleColumn::class,
+            'class' => ToggleColumn::class,
             'name' => 'visible',
             'header' => 'В',
             'filter' => [1 => 'Видимые', 0 => 'Скрытые'],
@@ -53,16 +57,16 @@ $this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => $
             'htmlOptions' => ['style' => 'width:30px;text-align:center'],
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->link',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

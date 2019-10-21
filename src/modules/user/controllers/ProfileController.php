@@ -2,6 +2,8 @@
 
 namespace app\modules\user\controllers;
 
+use app\components\crud\actions\v2\UpdateAction;
+use app\components\crud\actions\v2\ViewAction;
 use app\modules\user\models\Access;
 use CActiveForm;
 use CHttpException;
@@ -33,8 +35,8 @@ class ProfileController extends Controller
     public function actions(): array
     {
         return [
-            'view' => \app\components\crud\actions\v2\ViewAction::class,
-            'edit' => \app\components\crud\actions\v2\UpdateAction::class,
+            'view' => ViewAction::class,
+            'edit' => UpdateAction::class,
         ];
     }
 

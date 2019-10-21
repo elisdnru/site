@@ -1,8 +1,11 @@
 <?php
 /** @var $posts \app\modules\blog\models\Post[] */
+
+use app\components\widgets\Portlet;
+
 ?>
 <?php if (count($posts)) : ?>
-    <?php Yii::app()->controller->beginWidget(\app\components\widgets\Portlet::class, ['title' => null]); ?>
+    <?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => null]); ?>
     <h4>Последние записи:</h4>
 
     <?php foreach ($posts as $post) : ?>

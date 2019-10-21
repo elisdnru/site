@@ -4,6 +4,7 @@ namespace app\components\behaviors;
 
 use CActiveRecord;
 use CActiveRecordBehavior;
+use CComponent;
 use CHtml;
 use CHtmlPurifier;
 use CMarkdownParser;
@@ -152,7 +153,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     private $_preContents = [];
 
     /**
-     * @return CActiveRecord|\CComponent
+     * @return CActiveRecord|CComponent
      */
     protected function getModel(): CActiveRecord
     {

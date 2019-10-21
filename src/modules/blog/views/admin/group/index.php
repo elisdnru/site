@@ -2,13 +2,14 @@
 /** @var $this Controller */
 
 use app\modules\blog\forms\CategoryForm;
+use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
 use app\components\Controller;
 
 /** @var $items Group[] */
 /** @var $categoryForm CategoryForm */
 /** @var $form CActiveForm */
-/** @var $itemForm \app\modules\blog\forms\GroupForm */
+/** @var $itemForm GroupForm */
 
 $this->title = 'Тематические группы записей';
 $this->params['breadcrumbs'] = [
@@ -57,7 +58,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->cre
 <br />
 <div class="form">
 
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'id' => 'category-form',
         'enableClientValidation' => true,
         'clientOptions' => [

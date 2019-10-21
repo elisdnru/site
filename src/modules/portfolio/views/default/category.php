@@ -1,12 +1,14 @@
 <?php
 
 use app\components\helpers\NumberHelper;
+use app\modules\page\models\Page;
+use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
 
 /** @var $dataProvider CDataProvider */
-/** @var $category \app\modules\portfolio\models\Category */
-/** @var $subcategories \app\modules\portfolio\models\Category[] */
-/** @var $page \app\modules\page\models\Page */
+/** @var $category Category */
+/** @var $subcategories Category[] */
+/** @var $page Page */
 $this->layout = '/layouts/index';
 
 $this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

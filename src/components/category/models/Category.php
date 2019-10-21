@@ -2,6 +2,7 @@
 
 namespace app\components\category\models;
 
+use app\components\category\behaviors\CategoryBehavior;
 use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -105,7 +106,7 @@ abstract class Category extends CActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => \app\components\category\behaviors\CategoryBehavior::class,
+                'class' => CategoryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'requestPathAttribute' => 'category',

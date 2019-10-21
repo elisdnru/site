@@ -1,8 +1,9 @@
 <?php
 /** @var $model \app\modules\user\models\User */
-/** @var $dataProvider \yii\data\ActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;

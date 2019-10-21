@@ -2,6 +2,8 @@
 
 namespace app\components\crud\actions;
 
+use ReflectionObject;
+
 class UpdateAction extends CrudAction
 {
     /**
@@ -21,7 +23,7 @@ class UpdateAction extends CrudAction
     {
         $model = $this->loadModel();
 
-        $formName = (new \ReflectionObject($model))->getShortName();
+        $formName = (new ReflectionObject($model))->getShortName();
 
         if (isset($_POST[$formName])) {
             $model->attributes = $_POST[$formName];

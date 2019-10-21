@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\components\module\Module;
 use app\modules\user\models\Access;
 use app\components\AdminController;
 use app\modules\user\models\User;
@@ -29,7 +30,7 @@ class DefaultController extends AdminController
                 $module = Yii::app()->getModule($key);
 
                 if ($module) {
-                    if ($module instanceof \app\components\module\Module && Yii::app()->moduleManager->allowed($module->id)) {
+                    if ($module instanceof Module && Yii::app()->moduleManager->allowed($module->id)) {
                         $modules[$module->group ?? 'Прочее'][$module->name] = $module;
                     }
                 }

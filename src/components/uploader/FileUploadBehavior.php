@@ -2,6 +2,7 @@
 
 namespace app\components\uploader;
 
+use CActiveRecord;
 use CActiveRecordBehavior;
 use app\extensions\file\File;
 use CModelEvent;
@@ -47,7 +48,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
     public $imageHeightAttribute = '';
 
     /**
-     * @param \CActiveRecord $owner
+     * @param CActiveRecord $owner
      */
     public function attach($owner): void
     {
@@ -152,7 +153,7 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
     protected function loadFile(): void
     {
-        /** @var \CActiveRecord $model */
+        /** @var CActiveRecord $model */
         $model = $this->getOwner();
 
         if (preg_match('|^http:\/\/|', $model->{$this->fileAttribute})) {

@@ -1,5 +1,8 @@
 <?php
-/** @var $data \app\modules\portfolio\models\Work */
+/** @var $data Work */
+
+use app\modules\portfolio\models\Work;
+
 ?>
 <div class="entry greed">
 

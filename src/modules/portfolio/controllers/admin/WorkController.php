@@ -2,6 +2,11 @@
 
 namespace app\modules\portfolio\controllers\admin;
 
+use app\components\crud\actions\CreateAction;
+use app\components\crud\actions\DeleteAction;
+use app\components\crud\actions\ToggleAction;
+use app\components\crud\actions\UpdateAction;
+use app\components\crud\actions\ViewAction;
 use CDbCriteria;
 use CHttpException;
 use CPagination;
@@ -23,14 +28,14 @@ class WorkController extends AdminController
     public function actions(): array
     {
         return [
-            'create' => \app\components\crud\actions\CreateAction::class,
-            'update' => \app\components\crud\actions\UpdateAction::class,
+            'create' => CreateAction::class,
+            'update' => UpdateAction::class,
             'toggle' => [
-                'class' => \app\components\crud\actions\ToggleAction::class,
+                'class' => ToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => \app\components\crud\actions\DeleteAction::class,
-            'view' => \app\components\crud\actions\ViewAction::class,
+            'delete' => DeleteAction::class,
+            'view' => ViewAction::class,
         ];
     }
 

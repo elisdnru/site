@@ -1,5 +1,8 @@
 <?php
-/** @var $dataProvider \yii\data\ActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
+
+use yii\data\ActiveDataProvider;
+
 /** @var $query CActiveRecord */
 ?>
 

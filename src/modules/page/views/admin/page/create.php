@@ -1,5 +1,5 @@
 <?php
-/** @var $model \app\modules\page\models\Page */
+/** @var $model Page */
 $this->title = 'Редактор страниц';
 $this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
@@ -11,7 +11,8 @@ $this->params['admin'][] = ['label' => 'Cтраницы', 'url' => $this->create
 if (Yii::app()->moduleManager->allowed('menu')) {
     $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
 }
-?>
+
+use app\modules\page\models\Page; ?>
 
 <h1>Добавление страницы</h1>
 

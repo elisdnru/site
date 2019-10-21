@@ -39,7 +39,7 @@ class Category extends TreeCategory
             'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, \app\modules\portfolio\models\Work::class, 'category_id',
+            'items_count' => [self::STAT, Work::class, 'category_id',
                 'condition' => 'public = 1',
             ],
         ]);

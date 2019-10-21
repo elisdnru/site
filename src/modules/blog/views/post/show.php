@@ -3,12 +3,17 @@
 
 use app\assets\BlogPostAsset;
 use app\components\helpers\StyleHelper;
+use app\components\widgets\ShareWidget;
 use app\extensions\cachetagging\Tags;
+use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
 use app\components\Controller;
 use app\components\helpers\DateHelper;
 use app\components\helpers\NumberHelper;
+use app\modules\blog\widgets\OtherPostsWidget;
+use app\modules\blog\widgets\ThemePostsWidget;
+use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 
 $this->layout = '/layouts/post';
@@ -74,7 +79,7 @@ CTextHighlighter::registerCssFile();
 
         <!--noindex-->
         <?php if ($this->beginCache('banner_post_before', ['dependency' => new Tags('block')])) : ?>
-            <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_post_before']) ?>
+            <?= BlockWidget::widget(['id' => 'banner_post_before']) ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
         <!--/noindex-->
@@ -105,7 +110,7 @@ CTextHighlighter::registerCssFile();
 <aside>
 
     <?php if ($this->beginCache('banner_post_after', ['dependency' => new Tags('block')])) : ?>
-        <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_post_after']) ?>
+        <?= BlockWidget::widget(['id' => 'banner_post_after']) ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
@@ -143,7 +148,7 @@ CTextHighlighter::registerCssFile();
 
     <div class="donate-btn"><a href="/donate">Поддержать проект</a></div>
 
-    <?= \app\components\widgets\ShareWidget::widget([
+    <?= ShareWidget::widget([
         'title' => $model->title,
         'description' => $model->description,
         'image' => $model->imageUrl,
@@ -152,7 +157,7 @@ CTextHighlighter::registerCssFile();
     <div class="clear"></div>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
-        <?= \app\modules\blog\widgets\ThemePostsWidget::widget([
+        <?= ThemePostsWidget::widget([
             'current' => $model->id,
             'group' => $model->group_id,
         ]) ?>
@@ -160,7 +165,7 @@ CTextHighlighter::registerCssFile();
     <?php endif; ?>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
-        <?= \app\modules\blog\widgets\OtherPostsWidget::widget([
+        <?= OtherPostsWidget::widget([
             //'category'=>$model->category_id,
             'skip' => $model->id,
             'limit' => 2,
@@ -170,7 +175,7 @@ CTextHighlighter::registerCssFile();
 
 </aside>
 
-<?= \app\modules\comment\widgets\CommentsWidget::widget([
+<?= CommentsWidget::widget([
     'material_id' => $model->id,
     'authorId' => $model->author_id,
     'type' => Comment::TYPE_OF_COMMENT,

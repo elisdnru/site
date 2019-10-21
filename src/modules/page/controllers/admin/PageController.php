@@ -2,6 +2,11 @@
 
 namespace app\modules\page\controllers\admin;
 
+use app\components\crud\actions\CreateAction;
+use app\components\crud\actions\DeleteAction;
+use app\components\crud\actions\IndexAction;
+use app\components\crud\actions\UpdateAction;
+use app\components\crud\actions\ViewAction;
 use CHttpException;
 use app\components\AdminController;
 use app\modules\page\models\Page;
@@ -19,11 +24,11 @@ class PageController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => \app\components\crud\actions\IndexAction::class,
-            'create' => \app\components\crud\actions\CreateAction::class,
-            'update' => \app\components\crud\actions\UpdateAction::class,
-            'delete' => \app\components\crud\actions\DeleteAction::class,
-            'view' => \app\components\crud\actions\ViewAction::class,
+            'index' => IndexAction::class,
+            'create' => CreateAction::class,
+            'update' => UpdateAction::class,
+            'delete' => DeleteAction::class,
+            'view' => ViewAction::class,
         ];
     }
 

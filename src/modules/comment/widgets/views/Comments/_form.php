@@ -1,7 +1,11 @@
 <?php
 /** @var $user \app\modules\user\models\User */
+
+use app\modules\comment\forms\CommentForm;
+use app\modules\ulogin\widgets\UloginWidget;
+
 /** @var $f CActiveForm */
-/** @var $form \app\modules\comment\forms\CommentForm */
+/** @var $form CommentForm */
 ?>
 <!--noindex-->
 <div id="comment-form" class="form">
@@ -33,7 +37,7 @@
     <?php else : ?>
     <div style="margin-bottom: 10px">
         <div style="float: right; margin-right: -10px">
-            <?= \app\modules\ulogin\widgets\UloginWidget::widget([
+            <?= UloginWidget::widget([
                 'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
             ]) ?>
         </div>

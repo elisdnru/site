@@ -1,6 +1,6 @@
 <?php
 
-/** @var $model \app\modules\portfolio\models\Category */
+/** @var $model Category */
 
 $this->title = 'Редактор категории портфолио';
 $this->params['breadcrumbs'] = [
@@ -12,7 +12,8 @@ $this->params['breadcrumbs'] = [
 
 $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('index')];
 $this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
-?>
+
+use app\modules\portfolio\models\Category; ?>
 
 <h1>Редактирование категории портфолио</h1>
 

@@ -1,8 +1,10 @@
-<?php $this->beginContent('//layouts/main'); ?>
+<?php $this->beginContent('//layouts/main');
+
+use app\components\widgets\MessagesWidget; ?>
 
 <div class="main left_main">
 
-    <?= \app\components\widgets\MessagesWidget::widget() ?>
+    <?= MessagesWidget::widget() ?>
 
     <?php echo $content; ?>
 

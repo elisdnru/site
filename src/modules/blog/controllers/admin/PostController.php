@@ -2,6 +2,12 @@
 
 namespace app\modules\blog\controllers\admin;
 
+use app\components\crud\actions\CreateAction;
+use app\components\crud\actions\DeleteAction;
+use app\components\crud\actions\IndexAction;
+use app\components\crud\actions\ToggleAction;
+use app\components\crud\actions\UpdateAction;
+use app\components\crud\actions\ViewAction;
 use app\modules\blog\models\Post;
 use CHttpException;
 use app\components\AdminController;
@@ -12,15 +18,15 @@ class PostController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => \app\components\crud\actions\IndexAction::class,
-            'create' => \app\components\crud\actions\CreateAction::class,
-            'update' => \app\components\crud\actions\UpdateAction::class,
+            'index' => IndexAction::class,
+            'create' => CreateAction::class,
+            'update' => UpdateAction::class,
             'toggle' => [
-                'class' => \app\components\crud\actions\ToggleAction::class,
+                'class' => ToggleAction::class,
                 'attributes' => ['public']
             ],
-            'delete' => \app\components\crud\actions\DeleteAction::class,
-            'view' => \app\components\crud\actions\ViewAction::class,
+            'delete' => DeleteAction::class,
+            'view' => ViewAction::class,
         ];
     }
 

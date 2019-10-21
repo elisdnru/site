@@ -1,5 +1,6 @@
 <?php
 
+use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\models\User */
@@ -14,10 +15,10 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     $this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
 } ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Редактировать профиль']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Редактировать профиль']); ?>
 
 <div class="form">
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'id' => 'settings-form',
         'enableClientValidation' => true,
         'clientOptions' => [

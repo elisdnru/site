@@ -1,5 +1,6 @@
 <?php
 
+use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 
@@ -13,7 +14,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Регистрация']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Регистрация']); ?>
 
 <div class="form">
 
@@ -70,7 +71,7 @@ $this->params['breadcrumbs'] = [
             <?= Html::activeTextInput($model, 'verifyCode', ['size' => 20, 'maxlength' => 255]) ?><br />
             <?= Html::error($model, 'verifyCode', ['class' => 'errorMessage']) ?>
             <div>
-                <?php $this->widget(\CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
+                <?php $this->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
             </div>
         </div>
 

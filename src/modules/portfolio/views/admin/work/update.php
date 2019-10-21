@@ -1,6 +1,6 @@
 <?php
 
-/** @var $model \app\modules\portfolio\models\Work */
+/** @var $model Work */
 
 $this->title = 'Редактор работы';
 $this->params['breadcrumbs'] = [
@@ -12,7 +12,8 @@ $this->params['breadcrumbs'] = [
 $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->url];
 $this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('index')];
 $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
-?>
+
+use app\modules\portfolio\models\Work; ?>
 
 <h1>Редактирование работы</h1>
 

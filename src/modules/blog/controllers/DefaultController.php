@@ -7,6 +7,7 @@ use app\modules\blog\models\Post;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Tag;
 use CActiveDataProvider;
+use CActiveRecord;
 use CDbCriteria;
 use CHttpException;
 use app\components\Controller;
@@ -94,7 +95,7 @@ class DefaultController extends Controller
 
     /**
      * @param string $path
-     * @return Category|\CActiveRecord
+     * @return Category|CActiveRecord
      * @throws CHttpException
      */
     protected function loadCategoryModel(string $path): Category

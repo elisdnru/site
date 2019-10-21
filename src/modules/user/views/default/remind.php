@@ -1,6 +1,10 @@
 <?php
 /** @var $form CActiveForm */
-/** @var $model \app\modules\user\forms\RemindForm */
+
+use app\components\widgets\Portlet;
+use app\modules\user\forms\RemindForm;
+
+/** @var $model RemindForm */
 $this->layout = '/layouts/user';
 $this->title = 'Восстановление пароля';
 $this->params['breadcrumbs'] = [
@@ -9,10 +13,10 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Восстановление пароля']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Восстановление пароля']); ?>
 
 <div class="form">
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'id' => 'login-form',
         'enableClientValidation' => true,
         'clientOptions' => [

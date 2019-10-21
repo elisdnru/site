@@ -4,9 +4,10 @@
 use app\components\Controller;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
+use yii\db\ActiveRecord;
 
 /** @var $data Search */
-/** @var $query \yii\db\ActiveRecord */
+/** @var $query ActiveRecord */
 ?>
 
 <article class="entry list">

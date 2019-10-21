@@ -1,9 +1,12 @@
 <?php
 
+use app\assets\ColorboxAsset;
+use app\components\widgets\ShareWidget;
 use app\extensions\cachetagging\Tags;
+use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 
-/** @var $model \app\modules\portfolio\models\Work */
+/** @var $model Work */
 
 $this->layout = '/layouts/index';
 
@@ -25,7 +28,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     }
 } ?>
 
-<?php \app\assets\ColorboxAsset::register(Yii::$app->view) ?>
+<?php ColorboxAsset::register(Yii::$app->view) ?>
 
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
@@ -79,7 +82,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 </article>
 
-<?= \app\components\widgets\ShareWidget::widget([
+<?= ShareWidget::widget([
     'title' => $model->title,
     'description' => $model->description,
     'image' => $model->imageUrl,

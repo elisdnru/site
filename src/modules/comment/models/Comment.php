@@ -2,12 +2,14 @@
 
 namespace app\modules\comment\models;
 
+use app\components\behaviors\PurifyTextBehavior;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use app\modules\user\models\User;
+use ReflectionClass;
 use Yii;
 
 /**
@@ -28,7 +30,7 @@ use Yii;
  * @property integer $likes
  * @property User user
  * @property Comment parent
- * @property CommentDepends|\CActiveRecord material
+ * @property CommentDepends|CActiveRecord material
  */
 class Comment extends CActiveRecord
 {
@@ -172,7 +174,7 @@ class Comment extends CActiveRecord
                 'setUpdateOnCreate' => false,
             ],
             'PurifyText' => [
-                'class' => \app\components\behaviors\PurifyTextBehavior::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'encodePreContent' => true,
@@ -190,7 +192,7 @@ class Comment extends CActiveRecord
 
     protected function instantiate($attributes): self
     {
-        $class = (new \ReflectionClass($attributes['type']))->getNamespaceName() . '\Comment';
+        $class = (new ReflectionClass($attributes['type']))->getNamespaceName() . '\Comment';
         return new $class(null);
     }
 

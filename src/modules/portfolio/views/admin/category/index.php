@@ -1,5 +1,10 @@
 <?php
-/** @var $model \app\modules\portfolio\models\Category */
+/** @var $model Category */
+
+use app\components\widgets\grid\ButtonColumn;
+use app\components\widgets\grid\IndentLinkColumn;
+use app\components\widgets\grid\LinkColumn;
+use app\modules\portfolio\models\Category;
 
 $this->title = 'Категории портфолио';
 $this->params['breadcrumbs'] = [
@@ -24,19 +29,19 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
             'htmlOptions' => ['style' => 'width:50px;text-align:center'],
         ],
         [
-            'class' => \app\components\widgets\grid\IndentLinkColumn::class,
+            'class' => IndentLinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

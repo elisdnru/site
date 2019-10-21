@@ -1,6 +1,7 @@
 <?php
 
 use app\components\helpers\SocNetworkHelper;
+use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
 
 /** @var $model \app\modules\user\models\User */
@@ -15,7 +16,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Профиль пользователя']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
     <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50">

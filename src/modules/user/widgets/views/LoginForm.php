@@ -1,5 +1,7 @@
 <?php
 use app\components\helpers\SocNetworkHelper;
+use app\modules\ulogin\widgets\UloginWidget;
+
 /** @var $user \app\modules\user\models\User */
 /** @var $model \app\modules\user\forms\LoginForm */
 ?>
@@ -49,7 +51,7 @@ use app\components\helpers\SocNetworkHelper;
     <?php echo CHtml::endForm(); ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
-        <?= \app\modules\ulogin\widgets\UloginWidget::widget([
+        <?= UloginWidget::widget([
             'params' => [
                 'display' => 'small',
                 'redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])

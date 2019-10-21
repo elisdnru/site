@@ -1,5 +1,11 @@
 <?php
-/** @var $model \app\modules\page\models\Page */
+/** @var $model Page */
+
+use app\components\widgets\grid\ButtonColumn;
+use app\components\widgets\grid\IndentLinkColumn;
+use app\components\widgets\grid\LinkColumn;
+use app\modules\page\models\Page;
+
 $this->title = 'Страницы';
 $this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
@@ -24,24 +30,24 @@ if (Yii::app()->moduleManager->allowed('menu')) {
     'filter' => $model,
     'columns' => [
         [
-            'class' => \app\components\widgets\grid\IndentLinkColumn::class,
+            'class' => IndentLinkColumn::class,
             'name' => 'alias',
         ],
         [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
+            'class' => LinkColumn::class,
             'name' => 'title',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{view}',
             'viewButtonUrl' => '$data->url',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{update}',
         ],
         [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
+            'class' => ButtonColumn::class,
             'template' => '{delete}',
         ],
     ],

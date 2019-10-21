@@ -1,6 +1,7 @@
 <?php
 /** @var $this AdminController */
 
+use app\assets\ColorboxAsset;
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 use yii\web\JqueryAsset;
@@ -171,7 +172,7 @@ jQuery(function ($) {
     <?php echo CHtml::endForm(); ?>
 </div>
 
-<?php \app\assets\ColorboxAsset::register(Yii::$app->view) ?>
+<?php ColorboxAsset::register(Yii::$app->view) ?>
 
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>

@@ -2,6 +2,9 @@
 
 namespace app\modules\comment\components;
 
+use app\components\crud\actions\ToggleAction;
+use app\components\crud\actions\UpdateAction;
+use app\components\crud\actions\ViewAction;
 use app\modules\comment\models\Comment;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -24,12 +27,12 @@ class CommentAdminController extends AdminController
     public function actions(): array
     {
         return [
-            'update' => \app\components\crud\actions\UpdateAction::class,
+            'update' => UpdateAction::class,
             'toggle' => [
-                'class' => \app\components\crud\actions\ToggleAction::class,
+                'class' => ToggleAction::class,
                 'attributes' => ['public', 'moder']
             ],
-            'view' => \app\components\crud\actions\ViewAction::class,
+            'view' => ViewAction::class,
         ];
     }
 

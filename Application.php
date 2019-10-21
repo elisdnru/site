@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace yii\base;
 
+use app\components\uploader\Uploader;
+use app\extensions\file\File;
+use app\extensions\image\ImageHandler;
+
 /**
  * Autocomplete helper
  *
- * @property \app\extensions\image\ImageHandler $image
- * @property \app\extensions\file\File $file
- * @property \app\components\uploader\Uploader $uploader
+ * @property ImageHandler $image
+ * @property File $file
+ * @property Uploader $uploader
  */
 abstract class Application
 {

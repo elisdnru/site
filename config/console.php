@@ -1,11 +1,13 @@
 <?php
 
+use app\extensions\migrate\EMigrateCommand;
+
 return array_replace_recursive(
     require(__DIR__ . '/common.php'),
     [
         'commandMap' => [
             'migrate' => [
-                'class' => \app\extensions\migrate\EMigrateCommand::class,
+                'class' => EMigrateCommand::class,
                 'migrationPath' => 'application.migrations',
                 'migrationTable' => 'migrations',
                 'applicationModuleName' => 'core',

@@ -2,17 +2,20 @@
 
 declare(strict_types=1);
 
+use app\components\module\ModuleManager;
+use app\components\PhpAuthManager;
 use app\extensions\cachetagging\TaggingBehavior;
+use app\modules\user\components\WebUser;
 
 /**
  * Autocomplete helper
  *
  * @property CClientScript $clientScript
- * @property \app\components\PhpAuthManager authManager
- * @property \app\modules\user\components\WebUser $user
+ * @property PhpAuthManager authManager
+ * @property WebUser $user
  * @property \app\components\Controller $controller
  * @property CHttpSession $session
- * @property \app\components\module\ModuleManager $moduleManager
+ * @property ModuleManager $moduleManager
  * @property ICache|TaggingBehavior $cache
  * @property CTextHighlighter $syntaxhighlighter
  */

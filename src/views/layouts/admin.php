@@ -1,5 +1,7 @@
 <?php
 use app\assets\AdminAsset;
+use app\components\widgets\BreadcrumbsWidget;
+use app\components\widgets\MessagesWidget;
 
 AdminAsset::register(Yii::$app->view);
 ?>
@@ -8,8 +10,8 @@ AdminAsset::register(Yii::$app->view);
 
 <section class="main" id="admin">
 
-    <?= \app\components\widgets\BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= \app\components\widgets\MessagesWidget::widget() ?>
+    <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= MessagesWidget::widget() ?>
 
     <?php echo $content; ?>
 

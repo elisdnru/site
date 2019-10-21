@@ -2,6 +2,7 @@
 
 namespace app\modules\contact\controllers;
 
+use app\components\actions\CaptchaAction;
 use app\components\Controller;
 
 class DefaultController extends Controller
@@ -10,7 +11,7 @@ class DefaultController extends Controller
     {
         return [
             'captcha' => [
-                'class' => \app\components\actions\CaptchaAction::class,
+                'class' => CaptchaAction::class,
             ],
         ];
     }

@@ -2,6 +2,10 @@
 
 namespace app\modules\contact\controllers\admin;
 
+use app\components\crud\actions\v2\DeleteAction;
+use app\components\crud\actions\v2\IndexAction;
+use app\components\crud\actions\v2\ToggleAction;
+use app\components\crud\actions\v2\ViewAction;
 use app\modules\contact\forms\ContactSearch;
 use CHttpException;
 use app\modules\contact\models\Contact;
@@ -12,13 +16,13 @@ class ContactController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => \app\components\crud\actions\v2\IndexAction::class,
+            'index' => IndexAction::class,
             'toggle' => [
-                'class' => \app\components\crud\actions\v2\ToggleAction::class,
+                'class' => ToggleAction::class,
                 'attributes' => ['status'],
             ],
-            'delete' => \app\components\crud\actions\v2\DeleteAction::class,
-            'view' => \app\components\crud\actions\v2\ViewAction::class,
+            'delete' => DeleteAction::class,
+            'view' => ViewAction::class,
         ];
     }
 

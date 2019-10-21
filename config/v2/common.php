@@ -1,5 +1,12 @@
 <?php
 
+use app\components\uploader\Uploader;
+use app\extensions\image\ImageHandler;
+use yii\caching\DummyCache;
+use yii\caching\FileCache;
+use yii\db\Connection;
+use yii\web\JqueryAsset;
+
 $runtime = dirname(__DIR__, 2) . '/var/' . PHP_SAPI;
 
 if (!is_dir($runtime)) {
@@ -33,7 +40,7 @@ return [
         ],
 
         'db' => [
-            'class' => \yii\db\Connection::class,
+            'class' => Connection::class,
             'dsn' => getenv('APP_DB_DSN'),
             'username' => getenv('APP_DB_USERNAME'),
             'password' => getenv('APP_DB_PASSWORD'),
@@ -61,7 +68,7 @@ return [
         'assetManager' => [
             'appendTimestamp' => true,
             'bundles' => [
-                \yii\web\JqueryAsset::class => [
+                JqueryAsset::class => [
                     'sourcePath' => null,
                     'baseUrl' => '/build',
                     'js' => ['jquery.js'],
@@ -70,7 +77,7 @@ return [
         ],
 
         'image' => [
-            'class' => \app\extensions\image\ImageHandler::class,
+            'class' => ImageHandler::class,
         ],
 
         'file' => [
@@ -78,7 +85,7 @@ return [
         ],
 
         'uploader' => [
-            'class' => \app\components\uploader\Uploader::class,
+            'class' => Uploader::class,
             'rootPath' => 'upload',
             'emptyImage' => 'images/nophoto.png',
             'allowedThumbnailResolutions' => [
@@ -120,7 +127,7 @@ return [
         ],
 
         'cache' => [
-            'class' => !getenv('APP_DEBUG') ? \yii\caching\FileCache::class : \yii\caching\DummyCache::class,
+            'class' => !getenv('APP_DEBUG') ? FileCache::class : DummyCache::class,
         ],
     ],
 

@@ -1,13 +1,16 @@
 <?php
 /** @var $form CActiveForm */
+
+use app\components\widgets\Portlet;
+
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
 
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Обратная связь']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Обратная связь']); ?>
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'action' => '#contact-form',
         'id' => 'contact-form',
         'enableClientValidation' => false,

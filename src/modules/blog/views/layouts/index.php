@@ -1,15 +1,19 @@
-<?php $this->beginContent('//layouts/main'); ?>
+<?php $this->beginContent('//layouts/main');
+
+use app\components\widgets\BreadcrumbsWidget;
+use app\components\widgets\MessagesWidget;
+use app\modules\block\widgets\BlockWidget; ?>
 
 <div class="main left_main">
 
-    <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_blog_top']) ?>
+    <?= BlockWidget::widget(['id' => 'banner_blog_top']) ?>
 
-    <?= \app\components\widgets\BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= \app\components\widgets\MessagesWidget::widget() ?>
+    <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= MessagesWidget::widget() ?>
 
     <?php echo $content; ?>
 
-    <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_blog_bottom']) ?>
+    <?= BlockWidget::widget(['id' => 'banner_blog_bottom']) ?>
 
 </div>
 

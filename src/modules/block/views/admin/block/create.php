@@ -1,6 +1,7 @@
 <?php
-/** @var $model \app\modules\block\models\Block */
-?>
+/** @var $model Block */
+
+use app\modules\block\models\Block; ?>
 <?php
 $this->title = 'Редактор блоков';
 $this->params['breadcrumbs'] = [

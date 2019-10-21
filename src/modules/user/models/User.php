@@ -3,8 +3,11 @@
 namespace app\modules\user\models;
 
 use app\components\helpers\GravatarHelper;
+use app\components\uploader\v2\FileUploadBehavior;
 use app\components\validators\CaptchaValidator;
 use app\modules\comment\models\Comment;
+use app\modules\user\components\CurrentPasswordValidator;
+use RuntimeException;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -179,7 +182,7 @@ class User extends ActiveRecord
 
             [
                 'old_password',
-                \app\modules\user\components\CurrentPasswordValidator::class,
+                CurrentPasswordValidator::class,
                 'className' => self::class,
                 'validateMethod' => 'validatePassword',
                 'dependsOnAttributes' => ['new_password'],
@@ -293,7 +296,7 @@ class User extends ActiveRecord
                 },
             ],
             'ImageUpload' => [
-                'class' => \app\components\uploader\v2\FileUploadBehavior::class,
+                'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,
@@ -394,7 +397,7 @@ class User extends ActiveRecord
             ->setSubject('Подтверждение регистрации на сайте elisdn.ru')
             ->setTo($this->email);
         if (!$mail->send()) {
-            throw new \RuntimeException('Unable to send confirm to ' . $this->email);
+            throw new RuntimeException('Unable to send confirm to ' . $this->email);
         }
     }
 
@@ -407,7 +410,7 @@ class User extends ActiveRecord
             ->setSubject('Восстановление пароля на сайте elisdn.ru')
             ->setTo($this->email);
         if (!$mail->send()) {
-            throw new \RuntimeException('Unable to send remind to ' . $this->email);
+            throw new RuntimeException('Unable to send remind to ' . $this->email);
         }
     }
 

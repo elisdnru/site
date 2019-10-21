@@ -3,12 +3,13 @@
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 /** @var $model Contact */
-/** @var $dataProvider \yii\data\ActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 
 $this->title = 'Сообщения';
 $this->params['breadcrumbs'] = [

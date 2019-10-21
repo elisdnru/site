@@ -2,8 +2,9 @@
 
 use app\components\helpers\StyleHelper;
 use app\extensions\cachetagging\Tags;
+use app\modules\page\models\Page;
 
-/** @var $page \app\modules\page\models\Page */
+/** @var $page Page */
 /** @var $subpages_layout string */
 
 if ($page->styles) {

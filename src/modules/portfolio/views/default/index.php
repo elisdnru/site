@@ -1,11 +1,13 @@
 <?php
 
 use app\components\helpers\NumberHelper;
+use app\modules\page\models\Page;
+use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
 
 /** @var $dataProvider CDataProvider */
-/** @var $page \app\modules\page\models\Page */
-/** @var $categories \app\modules\portfolio\models\Category[] */
+/** @var $page Page */
+/** @var $categories Category[] */
 $this->layout = '/layouts/index';
 
 $this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);

@@ -1,7 +1,9 @@
 <!-- Подстраницы (табы) -->
 <?php
 use app\extensions\cachetagging\Tags;
-/** @var $page \app\modules\page\models\Page */
+use app\modules\page\models\Page;
+
+/** @var $page Page */
 ?>
 <?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new Tags('page')])) : ?>
     <?php if ($page->parent) : ?>

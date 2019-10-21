@@ -1,6 +1,6 @@
 <?php
-/** @var $dataProvider \yii\data\ActiveDataProvider */
-/** @var $model \app\modules\block\forms\BlockSearch */
+/** @var $dataProvider ActiveDataProvider */
+/** @var $model BlockSearch */
 $this->title = 'Блоки';
 $this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
@@ -9,6 +9,8 @@ $this->params['breadcrumbs'] = [
 
 $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => $this->createUrl('create')];
 
+use app\modules\block\forms\BlockSearch;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager; ?>

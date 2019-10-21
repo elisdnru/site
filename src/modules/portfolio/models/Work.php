@@ -2,8 +2,10 @@
 
 namespace app\modules\portfolio\models;
 
+use app\components\behaviors\PurifyTextBehavior;
 use app\components\helpers\TextHelper;
 use app\components\uploader\FileUploadBehavior;
+use app\components\validators\ExistOrEmpty;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -68,7 +70,7 @@ class Work extends CActiveRecord
         return [
             ['date, category_id, alias, title', 'required'],
             ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\portfolio\models\Category::class, 'attributeName' => 'id'],
+            ['category_id', ExistOrEmpty::class, 'className' => Category::class, 'attributeName' => 'id'],
             ['short, text, description, del_image', 'safe'],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['title, alias, pagetitle', 'length', 'max' => '255'],
@@ -88,7 +90,7 @@ class Work extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, \app\modules\portfolio\models\Category::class, 'category_id'],
+            'category' => [self::BELONGS_TO, Category::class, 'category_id'],
         ];
     }
 
@@ -158,7 +160,7 @@ class Work extends CActiveRecord
     {
         return [
             'PurifyShort' => [
-                'class' => \app\components\behaviors\PurifyTextBehavior::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -167,7 +169,7 @@ class Work extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => \app\components\behaviors\PurifyTextBehavior::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -178,7 +180,7 @@ class Work extends CActiveRecord
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => \app\components\uploader\FileUploadBehavior::class,
+                'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,

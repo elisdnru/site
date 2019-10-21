@@ -1,12 +1,15 @@
 <?php
 /** @var $form CActiveForm */
+
+use app\components\widgets\Portlet;
+
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
-<?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Отправить сообщение']); ?>
+<?php $this->beginWidget(Portlet::class, ['title' => 'Отправить сообщение']); ?>
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
+    <?php $form = $this->beginWidget(CActiveForm::class, [
         'id' => 'contact-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -46,7 +49,7 @@
         <?php echo $form->textField($model, 'verifyCode', ['size' => 22]); ?>
         <?php echo $form->error($model, 'verifyCode'); ?>
         <div>
-            <?php $this->widget(\CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
+            <?php $this->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
         </div>
     </div>
 
