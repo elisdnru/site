@@ -4,7 +4,6 @@ namespace app\modules\user\controllers;
 
 use app\components\actions\CaptchaAction;
 use app\modules\user\models\Access;
-use CActiveForm;
 use app\components\Controller;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\forms\RemindForm;

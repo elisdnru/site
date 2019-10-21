@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace app\modules\contact\forms;
 
 use app\modules\contact\models\Contact;
-use CActiveDataProvider;
-use CDbCriteria;
 use yii\data\ActiveDataProvider;
 
 class ContactSearch extends Contact

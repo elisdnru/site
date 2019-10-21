@@ -6,7 +6,6 @@ use app\components\behaviors\InlineWidgetsBehavior;
 use CController;
 use CHttpException;
 use Yii;
-use yii\helpers\Html;
 use yii\web\View;
 
 /**

@@ -2,7 +2,6 @@
 
 use app\components\helpers\SocNetworkHelper;
 use app\components\widgets\Portlet;
-use app\modules\user\models\Access;
 
 /** @var $model \app\modules\user\models\User */
 

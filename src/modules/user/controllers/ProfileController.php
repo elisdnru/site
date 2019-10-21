@@ -5,7 +5,6 @@ namespace app\modules\user\controllers;
 use app\components\crud\actions\v2\UpdateAction;
 use app\components\crud\actions\v2\ViewAction;
 use app\modules\user\models\Access;
-use CActiveForm;
 use CHttpException;
 use app\components\Controller;
 use app\modules\user\models\User;

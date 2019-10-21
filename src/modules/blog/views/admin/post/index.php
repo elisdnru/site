@@ -8,7 +8,6 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
-use app\modules\user\models\User;
 
 /** @var $model Post */
 

@@ -2,8 +2,6 @@
 
 namespace app\modules\user\components;
 
-use CActiveRecord;
-use CException;
 use CHtml;
 use yii\base\Exception;
 use yii\db\ActiveRecord;

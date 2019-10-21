@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\user\forms;
 
 use app\modules\user\models\User;
-use CDbExpression;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
 

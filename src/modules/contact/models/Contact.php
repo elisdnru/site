@@ -2,9 +2,6 @@
 
 namespace app\modules\contact\models;
 
-use CActiveDataProvider;
-use CActiveRecord;
-use CDbCriteria;
 use RuntimeException;
 use Yii;
 use yii\db\ActiveRecord;

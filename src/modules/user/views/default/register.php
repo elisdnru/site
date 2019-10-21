@@ -1,7 +1,6 @@
 <?php
 
 use app\components\widgets\Portlet;
-use app\modules\user\models\Access;
 use yii\helpers\Html;
 
 /** @var $form CActiveForm */

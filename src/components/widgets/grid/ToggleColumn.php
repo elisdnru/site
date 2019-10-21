@@ -11,7 +11,6 @@ use CException;
 use CGridColumn;
 use CHtml;
 use CJavaScript;
-use CJavaScriptExpression;
 use Yii;
 use yii\web\View;
 

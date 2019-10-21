@@ -8,11 +8,9 @@ use app\components\crud\actions\v2\IndexAction;
 use app\components\crud\actions\v2\UpdateAction;
 use app\components\crud\actions\v2\ViewAction;
 use app\modules\user\forms\UserSearch;
-use CActiveForm;
 use CHttpException;
 use app\components\AdminController;
 use app\modules\user\models\User;
-use Yii;
 
 class UserController extends AdminController
 {
