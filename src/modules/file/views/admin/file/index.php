@@ -171,7 +171,7 @@ jQuery(function ($) {
     <?php echo CHtml::endForm(); ?>
 </div>
 
-<?php $this->widget(\app\components\widgets\ColorboxWidget::class); ?>
+<?php \app\assets\ColorboxAsset::register(Yii::$app->view) ?>
 
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>

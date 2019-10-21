@@ -25,7 +25,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     }
 } ?>
 
-<?php $this->widget(\app\components\widgets\ColorboxWidget::class); ?>
+<?php \app\assets\ColorboxAsset::register(Yii::$app->view) ?>
 
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
