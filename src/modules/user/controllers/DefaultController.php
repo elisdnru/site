@@ -113,7 +113,7 @@ class DefaultController extends Controller
                     if ($user->save()) {
                         $user->sendRemind();
                         Yii::app()->user->setFlash('success', 'Новые параметры отправлены на Email');
-                        $this->refresh();
+                        $this->redirect(['login']);
                     }
                 } else {
                     Yii::app()->user->setFlash('error', 'Пользователь не найден');
