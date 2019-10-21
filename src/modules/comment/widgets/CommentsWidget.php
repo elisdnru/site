@@ -25,7 +25,7 @@ class CommentsWidget extends CWidget
     public function run(): void
     {
         if (!$this->user) {
-            $this->user = User::model()->findByPk(Yii::app()->user->getId());
+            $this->user = User::findOne(Yii::app()->user->getId());
         }
 
         if (!$this->material_id) {
@@ -76,7 +76,6 @@ class CommentsWidget extends CWidget
         $items = Comment::model()
             ->type($this->type)
             ->material($this->material_id)
-            ->with('user')
             ->findAll(['order' => 't.id ASC']);
 
         $comments = [];

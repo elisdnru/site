@@ -5,7 +5,9 @@ namespace app\modules\user\components;
 use CActiveRecord;
 use CException;
 use CHtml;
-use CValidator;
+use yii\base\Exception;
+use yii\db\ActiveRecord;
+use yii\validators\Validator;
 
 /**
  * DCurrentPassword validates that the old password is correct.
@@ -13,7 +15,7 @@ use CValidator;
  * /blog/10
  * @version 1.0
  */
-class CurrentPasswordValidator extends CValidator
+class CurrentPasswordValidator extends Validator
 {
     public $className;
     public $validateMethod = 'validatePassword';
@@ -23,7 +25,7 @@ class CurrentPasswordValidator extends CValidator
     public $emptyMessage = 'Current password required';
     public $notValidMessage = 'Current password is not correct';
 
-    protected function validateAttribute($object, $attribute): void
+    public function validateAttribute($object, $attribute): void
     {
         $this->checkDependsOnAttributes($object);
 
@@ -50,32 +52,32 @@ class CurrentPasswordValidator extends CValidator
         }
     }
 
-    protected function loadModel($object): CActiveRecord
+    protected function loadModel($object): ActiveRecord
     {
         if (empty($this->idAttribute)) {
-            throw new CException('Attribute idAttribute is not defined');
+            throw new Exception('Attribute idAttribute is not defined');
         }
 
         if (empty($object->{$this->idAttribute})) {
-            throw new CException('Attribute ' . $this->idAttribute . ' not found');
+            throw new Exception('Attribute ' . $this->idAttribute . ' not found');
         }
 
         if (empty($this->validateMethod)) {
-            throw new CException('Attribute validateMethod is not defined');
+            throw new Exception('Attribute validateMethod is not defined');
         }
 
         if (empty($this->className)) {
             $this->className = get_class($object);
         }
 
-        $model = CActiveRecord::model($this->className)->findByPk($object->{$this->idAttribute});
+        $model = ([$this->className, 'findOne'])($object->{$this->idAttribute});
 
         if ($model === null) {
-            throw new CException('Model not found');
+            throw new Exception('Model not found');
         }
 
         if (!method_exists($model, $this->validateMethod)) {
-            throw new CException('Method ' . $this->className . '::' . $this->validateMethod . '() not found');
+            throw new Exception('Method ' . $this->className . '::' . $this->validateMethod . '() not found');
         }
 
         return $model;

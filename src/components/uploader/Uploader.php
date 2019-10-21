@@ -8,6 +8,7 @@ use app\extensions\image\ImageHandler;
 use CUploadedFile;
 use StdClass;
 use Yii;
+use yii\web\UploadedFile;
 
 class Uploader
 {
@@ -16,6 +17,13 @@ class Uploader
     public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
 
+    /**
+     * @deprecated
+     * @param CUploadedFile $file
+     * @param string $path
+     * @return File|null
+     * @throws \CException
+     */
     public function upload(CUploadedFile $file, string $path): ?File
     {
         if (!is_dir($path)) {
@@ -23,6 +31,25 @@ class Uploader
         }
 
         $extension = strtolower($file->extensionName);
+        $fileName = FileHelper::getRandomFileName($path, $extension);
+        $baseName = $fileName . '.' . $extension;
+
+        $main = $path . '/' . $baseName;
+
+        if ($file->saveAs($main)) {
+            return Yii::$app->file->set($main);
+        }
+
+        return null;
+    }
+
+    public function v2Upload(UploadedFile $file, string $path): ?File
+    {
+        if (!is_dir($path)) {
+            Yii::$app->file->set($path)->createDir($this->directoryRights);
+        }
+
+        $extension = strtolower($file->getExtension());
         $fileName = FileHelper::getRandomFileName($path, $extension);
         $baseName = $fileName . '.' . $extension;
 

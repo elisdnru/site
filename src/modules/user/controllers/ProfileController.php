@@ -33,14 +33,14 @@ class ProfileController extends Controller
     public function actions(): array
     {
         return [
-            'view' => \app\components\crud\actions\ViewAction::class,
-            'edit' => \app\components\crud\actions\UpdateAction::class,
+            'view' => \app\components\crud\actions\v2\ViewAction::class,
+            'edit' => \app\components\crud\actions\v2\UpdateAction::class,
         ];
     }
 
     public function loadModel(): User
     {
-        $model = User::model()->findByPk(Yii::app()->user->id);
+        $model = User::findOne(Yii::app()->user->id);
         if ($model === null) {
             throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
         }

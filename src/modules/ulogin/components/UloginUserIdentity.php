@@ -18,21 +18,13 @@ class UloginUserIdentity extends CUserIdentity
             throw new \InvalidArgumentException('Empty model.');
         }
 
-        $user = User::model()->find([
-            'condition' => 'identity=:identity AND network=:network',
-            'params' => [
-                ':identity' => $uloginModel->identity,
-                ':network' => $uloginModel->network,
-            ]
+        $user = User::findOne([
+            'identity' => $uloginModel->identity,
+            'network' => $uloginModel->network,
         ]);
 
         if (!$user) {
-            $user = User::model()->find([
-                'condition' => 'email=:email',
-                'params' => [
-                    ':email' => $uloginModel->email,
-                ]
-            ]);
+            $user = User::findOne(['email' => $uloginModel->email]);
             if ($user) {
                 return false;
             }
@@ -43,7 +35,7 @@ class UloginUserIdentity extends CUserIdentity
             $this->username = $user->username;
             $this->isAuthenticated = true;
         } else {
-            $user = new User('ulogin');
+            $user = new User();
 
             $identity = explode('/', trim($uloginModel->identity, '/'));
             $user->username = $uloginModel->identity ? $uloginModel->network . '_' . array_pop($identity) : 'user_' . time();

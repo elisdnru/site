@@ -46,7 +46,7 @@ class RemindForm extends CFormModel
     public function emailExists(): void
     {
         if (!$this->hasErrors()) {
-            if (!$user = User::model()->findByAttributes(['email' => $this->email])) {
+            if (!$user = User::findOne(['email' => $this->email])) {
                 $this->addError('email', 'Пользователь с данным Email не найден среди зарегистрированных.');
             }
         }

@@ -94,9 +94,13 @@ class Comment extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'user' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'user_id'],
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
         ];
+    }
+
+    public function getUser(): ?User
+    {
+        return User::findOne($this->user_id);
     }
 
     /**
@@ -209,6 +213,18 @@ class Comment extends CActiveRecord
             $this->getDbCriteria()->mergeWith([
                 'condition' => 'type=:type',
                 'params' => [':type' => $type],
+            ]);
+        }
+        return $this;
+    }
+
+    // scope
+    public function user($id): self
+    {
+        if ($id) {
+            $this->getDbCriteria()->mergeWith([
+                'condition' => 'user_id=:user',
+                'params' => [':user' => $id],
             ]);
         }
         return $this;

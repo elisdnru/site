@@ -25,7 +25,7 @@ class LoginFormWidget extends CWidget
         }
 
         if (Yii::app()->user->id) {
-            $user = User::model()->findByPk(Yii::app()->user->id);
+            $user = User::findOne(Yii::app()->user->id);
         } else {
             $user = null;
         }

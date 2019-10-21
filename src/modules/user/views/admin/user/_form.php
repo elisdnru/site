@@ -1,109 +1,103 @@
 <?php
+use app\modules\user\models\Access;
+use yii\helpers\Html;
+
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\models\User */
 ?>
 <div class="form">
 
-    <?php use app\modules\user\models\Access;
+    <form action="?" method="post" enctype="multipart/form-data">
 
-    $form = $this->beginWidget(\CActiveForm::class, [
-        'id' => 'user-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-        'htmlOptions' => ['enctype' => 'multipart/form-data']
-    ]); ?>
+        <?= Html::hiddenInput(Yii::app()->request->csrfTokenName, Yii::app()->request->getCsrfToken()) ?>
 
-    <?php echo $form->errorSummary($model, '<b>Во время регистрации обнаружены ошибки:</b><br /><br />'); ?>
+        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <div>
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
         <fieldset>
             <h4>Аккаунт</h4>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'username'); ?><br />
-                <?php echo $form->textField($model, 'username'); ?>
-                <?php echo $form->error($model, 'username'); ?>
+            <div class="row<?= $model->hasErrors('username') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'username') ?><br />
+                <?= Html::activeTextInput($model, 'username') ?><br />
+                <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'new_password'); ?><br />
-                <?php echo $form->passwordField($model, 'new_password'); ?>
-                <?php echo $form->error($model, 'new_password'); ?>
+            <div class="row<?= $model->hasErrors('new_password') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'new_password') ?><br />
+                <?= Html::activeTextInput($model, 'new_password') ?><br />
+                <?= Html::error($model, 'new_password', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'new_confirm'); ?><br />
-                <?php echo $form->passwordField($model, 'new_confirm'); ?>
-                <?php echo $form->error($model, 'new_confirm'); ?>
+            <div class="row<?= $model->hasErrors('new_confirm') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'new_confirm') ?><br />
+                <?= Html::activeTextInput($model, 'new_confirm') ?><br />
+                <?= Html::error($model, 'new_confirm', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'email'); ?><br />
-                <?php echo $form->textField($model, 'email'); ?>
-                <?php echo $form->error($model, 'email'); ?>
+            <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'email') ?><br />
+                <?= Html::activeTextInput($model, 'email') ?><br />
+                <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
             </div>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'role'); ?><br />
-                <?php echo $form->dropDownList($model, 'role', Access::getRoles()); ?><br />
-                <?php echo $form->error($model, 'role'); ?>
+
+            <div class="row<?= $model->hasErrors('role') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'role') ?><br />
+                <?= Html::activeDropDownList($model, 'role', Access::getRoles()) ?><br />
+                <?= Html::error($model, 'role', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>
 
         <fieldset>
             <h4>Анкета</h4>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'lastname'); ?><br />
-                <?php echo $form->textField($model, 'lastname'); ?>
-                <?php echo $form->error($model, 'lastname'); ?>
+            <div class="row<?= $model->hasErrors('lastname') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'lastname') ?><br />
+                <?= Html::activeTextInput($model, 'lastname') ?><br />
+                <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'name'); ?><br />
-                <?php echo $form->textField($model, 'name'); ?>
-                <?php echo $form->error($model, 'name'); ?>
+            <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'name') ?><br />
+                <?= Html::activeTextInput($model, 'name') ?><br />
+                <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'middlename'); ?><br />
-                <?php echo $form->textField($model, 'middlename'); ?>
-                <?php echo $form->error($model, 'middlename'); ?>
+            <div class="row<?= $model->hasErrors('middlename') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'middlename') ?><br />
+                <?= Html::activeTextInput($model, 'middlename') ?><br />
+                <?= Html::error($model, 'middlename', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>
 
         <fieldset>
             <h4>Аватар</h4>
-            <div class="row">
-                <p><img src="<?php echo $model->avatarUrl; ?>" alt=""></p>
-                <?php echo $form->labelEx($model, 'avatar'); ?><br />
-                <?php echo $form->fileField($model, 'avatar', ['size' => 30]); ?><label>
-                    <?php echo $form->error($model, 'avatar'); ?>
+            <div class="row<?= $model->hasErrors('avatar') ? ' error' : '' ?>">
+                <p><img src="<?= $model->getAvatarUrl() ?>" width="50" alt="" /></p>
+                <?= Html::activeFileInput($model, 'avatar') ?><br />
+                <?= Html::error($model, 'avatar', ['class' => 'errorMessage']) ?>
             </div>
 
             <div class="row">
-                <?php echo $form->checkBox($model, 'del_avatar'); ?><?php echo $form->labelEx($model, 'del_avatar'); ?>
+                <?= Html::activeCheckbox($model, 'del_avatar') ?>
             </div>
         </fieldset>
 
         <fieldset>
             <h4>Дополнительные атрибуты</h4>
 
-            <div class="row">
-                <?php echo $form->labelEx($model, 'site'); ?><br />
-                <?php echo $form->textField($model, 'site', ['size' => 50, 'maxlength' => 255]); ?>
-                <?php echo $form->error($model, 'site'); ?>
+            <div class="row<?= $model->hasErrors('site') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'site') ?><br />
+                <?= Html::activeTextInput($model, 'site') ?><br />
+                <?= Html::error($model, 'site', ['class' => 'errorMessage']) ?>
             </div>
 
         </fieldset>
 
         <div class="row buttons">
-            <?php echo CHtml::submitButton('Сохранить'); ?>
+            <?= Html::submitButton('Сохранить'); ?>
         </div>
-    </div>
-
-    <?php $this->endWidget(); ?>
+    </form>
 
 </div><!-- form -->

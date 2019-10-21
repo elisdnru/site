@@ -1,6 +1,8 @@
 <?php
 
 use app\modules\user\models\Access;
+use yii\helpers\Html;
+
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\models\User */
 $this->layout = '/layouts/user';
@@ -14,74 +16,69 @@ $this->params['breadcrumbs'] = [
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Регистрация']); ?>
 
 <div class="form">
-    <?php $form = $this->beginWidget(\CActiveForm::class, [
-        'id' => 'register-form',
-    ]); ?>
 
-    <?php echo $form->errorSummary($model, '<b>Во время регистрации обнаружены ошибки:</b><br /><br />'); ?>
+    <form action="?" method="post">
 
-    <div>
-        <div class="row">
-            <?php echo $form->labelEx($model, 'username'); ?><br />
-            <?php echo $form->textField($model, 'username', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'username'); ?>
+        <?= Html::hiddenInput(Yii::app()->request->csrfTokenName, Yii::app()->request->getCsrfToken()) ?>
+
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
+
+        <div class="row<?= $model->hasErrors('username') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'username') ?><br />
+            <?= Html::activeTextInput($model, 'username', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'email'); ?><br />
-            <?php echo $form->textField($model, 'email', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'email'); ?>
+        <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'email') ?><br />
+            <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'new_password'); ?><br />
-            <?php echo $form->passwordField($model, 'new_password', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'new_password'); ?>
+        <hr />
+
+        <div class="row<?= $model->hasErrors('new_password') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'new_password') ?><br />
+            <?= Html::activePasswordInput($model, 'new_password', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'new_password', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'new_confirm'); ?><br />
-            <?php echo $form->passwordField($model, 'new_confirm', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'new_confirm'); ?>
+        <div class="row<?= $model->hasErrors('new_confirm') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'new_confirm') ?><br />
+            <?= Html::activePasswordInput($model, 'new_confirm', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'new_confirm', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'lastname'); ?><br />
-            <?php echo $form->textField($model, 'lastname', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'lastname'); ?>
+        <hr />
+
+        <div class="row<?= $model->hasErrors('lastname') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'lastname') ?><br />
+            <?= Html::activeTextInput($model, 'lastname', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'name'); ?><br />
-            <?php echo $form->textField($model, 'name', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'name'); ?>
+        <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'name') ?><br />
+            <?= Html::activeTextInput($model, 'name', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row">
-            <?php echo $form->labelEx($model, 'middlename'); ?><br />
-            <?php echo $form->textField($model, 'middlename', ['size' => 40, 'maxlength' => 255]); ?>
-            <?php echo $form->error($model, 'middlename'); ?>
-        </div>
+        <hr />
 
-        <?php if (!Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
-            <div class="row">
-                <?php echo $form->labelEx($model, 'verifyCode'); ?><br />
-                <?php echo $form->textField($model, 'verifyCode', ['size' => 20]); ?>
-                <?php echo $form->error($model, 'verifyCode'); ?>
-                <div>
-                    <?php $this->widget(\CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
-                </div>
+        <div class="row<?= $model->hasErrors('verifyCode') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'verifyCode') ?><br />
+            <?= Html::activeTextInput($model, 'verifyCode', ['size' => 20, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'verifyCode', ['class' => 'errorMessage']) ?>
+            <div>
+                <?php $this->widget(\CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
             </div>
-        <?php endif; ?>
+        </div>
 
         <div class="row buttons">
             <br />
             <?php echo CHtml::submitButton('Зарегистрироваться'); ?>
         </div>
-
-    </div>
-
-    <?php $this->endWidget(); ?>
+    </form>
 
 </div><!-- form -->
 

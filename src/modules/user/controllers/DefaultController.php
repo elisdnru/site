@@ -54,7 +54,7 @@ class DefaultController extends Controller
 
     public function actionRegistration(): void
     {
-        $model = new User(User::SCENARIO_REGISTER);
+        $model = new User(['scenario' => User::SCENARIO_REGISTER]);
 
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
@@ -77,10 +77,7 @@ class DefaultController extends Controller
 
     public function actionConfirm($code): void
     {
-        $user = User::model()->find([
-            'condition' => 'confirm = :code',
-            'params' => [':code' => $code]
-        ]);
+        $user = User::findOne(['confirm' => $code]);
 
         if ($user) {
             $user->confirm = '';
@@ -104,7 +101,7 @@ class DefaultController extends Controller
             $model->attributes = $_POST['RemindForm'];
 
             if ($model->validate()) {
-                $user = User::model()->findByAttributes(['email' => $model->email]);
+                $user = User::findOne(['email' => $model->email]);
 
                 if ($user) {
                     $user->new_password = mb_substr(md5(microtime()), 0, 10, 'UTF-8');
@@ -128,6 +125,6 @@ class DefaultController extends Controller
 
     private function loadUser(): ?User
     {
-        return User::model()->findByPk(Yii::app()->user->id);
+        return User::findOne(Yii::app()->user->id);
     }
 }

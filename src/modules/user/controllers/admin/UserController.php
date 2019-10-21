@@ -2,6 +2,7 @@
 
 namespace app\modules\user\controllers\admin;
 
+use app\modules\user\forms\UserSearch;
 use CActiveForm;
 use CHttpException;
 use app\components\AdminController;
@@ -13,26 +14,27 @@ class UserController extends AdminController
     public function actions(): array
     {
         return [
-            'index' => \app\components\crud\actions\IndexAction::class,
-            'create' => \app\components\crud\actions\CreateAction::class,
-            'update' => \app\components\crud\actions\UpdateAction::class,
-            'toggle' => [
-                'class' => \app\components\crud\actions\ToggleAction::class,
-                'attributes' => ['active']
-            ],
-            'delete' => \app\components\crud\actions\DeleteAction::class,
-            'view' => \app\components\crud\actions\ViewAction::class,
+            'index' => \app\components\crud\actions\v2\IndexAction::class,
+            'create' => \app\components\crud\actions\v2\CreateAction::class,
+            'update' => \app\components\crud\actions\v2\UpdateAction::class,
+            'delete' => \app\components\crud\actions\v2\DeleteAction::class,
+            'view' => \app\components\crud\actions\v2\ViewAction::class,
         ];
+    }
+
+    public function createSearchModel(): User
+    {
+        return new UserSearch();
     }
 
     public function createModel(): User
     {
-        return new User(User::SCENARIO_ADMIN_CREATE);
+        return new User(['scenario' => User::SCENARIO_ADMIN_CREATE]);
     }
 
     public function loadModel($id): User
     {
-        $model = User::model()->findByPk($id);
+        $model = User::findOne($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

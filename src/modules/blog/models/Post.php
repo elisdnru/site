@@ -5,6 +5,7 @@ namespace app\modules\blog\models;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
+use app\modules\user\models\User;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -39,9 +40,10 @@ use Yii;
  * @property string $imageThumdUrl
  * @property integer $comments_count
  * @property integer $comments_new_count
- * @property PostTag posttags
- * @property Category category
- * @property Tag[] tags
+ * @property User $author
+ * @property PostTag $posttags
+ * @property Category $category
+ * @property Tag[] $tags
  *
  * @mixin FileUploadBehavior
  * @method Post published()
@@ -83,7 +85,7 @@ class Post extends CActiveRecord implements CommentDepends
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
+            ['author_id', \app\components\validators\v2\ExistOrEmpty::class, 'className' => \app\modules\user\models\User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => \app\modules\blog\models\Category::class, 'attributeName' => 'id'],
             ['group_id', \app\components\validators\ExistOrEmpty::class, 'className' => \app\modules\blog\models\Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
@@ -109,11 +111,15 @@ class Post extends CActiveRecord implements CommentDepends
         // class name for the relations automatically generated below.
         return [
             'category' => [self::BELONGS_TO, \app\modules\blog\models\Category::class, 'category_id'],
-            'author' => [self::BELONGS_TO, \app\modules\user\models\User::class, 'author_id'],
             'group' => [self::BELONGS_TO, \app\modules\blog\models\Group::class, 'group_id'],
             'posttags' => [self::HAS_MANY, \app\modules\blog\models\PostTag::class, 'post_id'],
             'tags' => [self::MANY_MANY, \app\modules\blog\models\Tag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
         ];
+    }
+
+    public function getAuthor(): ?User
+    {
+        return User::findOne($this->author_id);
     }
 
     /**
@@ -165,7 +171,7 @@ class Post extends CActiveRecord implements CommentDepends
         $criteria->compare('t.public', $this->public);
         $criteria->compare('t.group_id', $this->group_id);
 
-        $criteria->with = ['category', 'author', 'group'];
+        $criteria->with = ['category', 'group'];
 
         return new CActiveDataProvider($this, [
             'criteria' => $criteria,

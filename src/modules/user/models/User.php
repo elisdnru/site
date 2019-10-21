@@ -3,12 +3,12 @@
 namespace app\modules\user\models;
 
 use app\components\helpers\GravatarHelper;
-use CActiveDataProvider;
-use CActiveRecord;
-use CCaptcha;
-use CDbCriteria;
-use CDbExpression;
+use app\components\validators\CaptchaValidator;
+use app\modules\comment\models\Comment;
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * @property integer $id
@@ -38,17 +38,17 @@ use Yii;
  * @property int comments_count_real
  * @property string $fio
  */
-class User extends CActiveRecord
+class User extends ActiveRecord
 {
-    const SCENARIO_REGISTER = 'register';
-    const SCENARIO_SETTINGS = 'settings';
-    const SCENARIO_ADMIN_CREATE = 'admin_create';
-    const SCENARIO_ADMIN_UPDATE = 'admin_update';
-    const SCENARIO_SEARCH = 'search';
+    public const SCENARIO_REGISTER = 'register';
+    public const SCENARIO_SETTINGS = 'settings';
+    public const SCENARIO_ADMIN_CREATE = 'admin_create';
+    public const SCENARIO_ADMIN_UPDATE = 'admin_update';
+    public const SCENARIO_SEARCH = 'search';
 
-    const IMAGE_PATH = 'upload/images/users/avatars';
-    const IMAGE_WIDTH = 100;
-    const IMAGE_HEIGHT = 100;
+    public const IMAGE_PATH = 'upload/images/users/avatars';
+    public const IMAGE_WIDTH = 100;
+    public const IMAGE_HEIGHT = 100;
 
     public $new_password;
     public $new_confirm;
@@ -57,30 +57,13 @@ class User extends CActiveRecord
 
     public $verifyCode;
 
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'users';
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return [
 
             // Login
@@ -95,7 +78,7 @@ class User extends CActiveRecord
             ],
             [
                 'username',
-                'length',
+                'string',
                 'max' => 255,
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -117,8 +100,6 @@ class User extends CActiveRecord
             [
                 'username',
                 'unique',
-                'caseSensitive' => false,
-                'className' => self::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -149,7 +130,7 @@ class User extends CActiveRecord
             ],
             [
                 'email',
-                'length',
+                'string',
                 'max' => 255,
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -160,8 +141,6 @@ class User extends CActiveRecord
             [
                 'email',
                 'unique',
-                'caseSensitive' => false,
-                'className' => self::class,
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
                     self::SCENARIO_REGISTER,
@@ -181,10 +160,9 @@ class User extends CActiveRecord
             ],
             [
                 'new_password',
-                'length',
+                'string',
                 'min' => 6,
                 'max' => 255,
-                'allowEmpty' => true
             ],
             [
                 'new_password',
@@ -199,8 +177,14 @@ class User extends CActiveRecord
                 'message' => 'Пароли не совпадают'
             ],
 
-            ['old_password', \app\modules\user\components\CurrentPasswordValidator::class, 'className' => self::class, 'validateMethod' => 'validatePassword', 'dependsOnAttributes' => ['new_password'], 'on' => 'settings'],
-
+            [
+                'old_password',
+                \app\modules\user\components\CurrentPasswordValidator::class,
+                'className' => self::class,
+                'validateMethod' => 'validatePassword',
+                'dependsOnAttributes' => ['new_password'],
+                'on' => ['settings']
+            ],
 
             // Login
             [
@@ -215,7 +199,7 @@ class User extends CActiveRecord
             // Active
             [
                 'active',
-                'numerical',
+                'integer',
                 'integerOnly' => true,
                 'on' => [
                     self::SCENARIO_ADMIN_CREATE,
@@ -231,12 +215,12 @@ class User extends CActiveRecord
 
             // Name
             [
-                'lastname, name',
+                ['lastname', 'name'],
                 'required'
             ],
             [
-                'lastname, name, middlename',
-                'length',
+                ['lastname', 'name', 'middlename'],
+                'string',
                 'max' => 255
             ],
 
@@ -247,40 +231,28 @@ class User extends CActiveRecord
             ],
             [
                 'site',
-                'length',
+                'string',
                 'max' => 255
             ],
 
             [
                 'verifyCode',
-                'captcha',
-                'allowEmpty' => !CCaptcha::checkRequirements() || !Yii::app()->user->isGuest,
+                CaptchaValidator::class,
+                'allowEmpty' => !Yii::app()->user->isGuest,
                 'message' => 'Код подтверждения введён неверно',
                 'captchaAction' => '/user/default/captcha',
                 'on' => [
                     self::SCENARIO_REGISTER
                 ],
             ],
-
-            ['id, username, password, email, fio, create_datetime, last_modify_datetime, last_visit_datetime, active, identity, network, lastname, name, middlename, role', 'safe', 'on' => 'search'],
         ];
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public function getCommentsCountReal()
     {
-        return [
-            'comments_count_real' => [self::STAT, \app\modules\comment\models\Comment::class, 'user_id',
-                'condition' => 'public=1',
-            ],
-        ];
+        return Comment::model()->user($this->id)->count('public=1');
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [
@@ -309,74 +281,19 @@ class User extends CActiveRecord
         ];
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @param int $pageSize
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize = 10): CActiveDataProvider
-    {
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
-
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('t.id', $this->id);
-        $criteria->compare('t.username', $this->username, true);
-        $criteria->compare(new CDbExpression("CONCAT(t.lastname, ' ', t.name, ' ', t.middlename)"), $this->fio, true);
-        $criteria->compare('t.email', $this->email, true);
-        $criteria->compare('t.identity', $this->identity, true);
-        $criteria->compare('t.network', $this->network, true);
-        $criteria->compare('t.confirm', $this->confirm, true);
-        $criteria->compare('t.role', $this->role);
-        $criteria->compare('t.create_datetime', $this->create_datetime, true);
-        $criteria->compare('t.last_modify_datetime', $this->last_modify_datetime, true);
-        $criteria->compare('t.last_visit_datetime', $this->last_visit_datetime, true);
-        $criteria->compare('t.active', $this->active, true);
-        $criteria->compare('t.avatar', $this->avatar, true);
-        $criteria->compare('t.comments_count', $this->comments_count, true);
-
-        $criteria->compare('t.lastname', $this->lastname, true);
-        $criteria->compare('t.name', $this->name, true);
-        $criteria->compare('t.middlename', $this->middlename, true);
-        $criteria->compare('t.site', $this->site, true);
-
-        return new CActiveDataProvider($this, [
-            'criteria' => $criteria,
-            'sort' => [
-                'defaultOrder' => 't.id DESC',
-                'attributes' => [
-                    'username',
-                    'email',
-                    'fio' => [
-                        'asc' => 't.lastname ASC, t.name ASC, t.middlename ASC',
-                        'desc' => 't.lastname DESC, t.name DESC, t.middlename ASC',
-                    ],
-                    'role',
-                    'date' => [
-                        'asc' => 't.create_datetime ASC',
-                        'desc' => 't.create_datetime DESC',
-                    ],
-                ]
-            ],
-            'pagination' => [
-                'pageSize' => $pageSize,
-                'pageVar' => 'page',
-            ],
-        ]);
-    }
-
     public function behaviors(): array
     {
         return [
             'CTimestamp' => [
-                'class' => 'zii.behaviors.CTimestampBehavior',
-                'createAttribute' => 'create_datetime',
-                'updateAttribute' => 'last_modify_datetime',
-                'setUpdateOnCreate' => true,
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'create_datetime',
+                'updatedAtAttribute' => 'last_modify_datetime',
+                'value' => static function () {
+                    return new Expression('NOW()');
+                },
             ],
             'ImageUpload' => [
-                'class' => \app\components\uploader\FileUploadBehavior::class,
+                'class' => \app\components\uploader\v2\FileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,
@@ -385,9 +302,9 @@ class User extends CActiveRecord
         ];
     }
 
-    protected function beforeSave(): bool
+    public function beforeSave($insert): bool
     {
-        if (parent::beforeSave()) {
+        if (parent::beforeSave($insert)) {
             if ($this->new_password) {
                 $this->password = $this->hashPassword($this->new_password);
             }
@@ -467,12 +384,7 @@ class User extends CActiveRecord
 
         $this->confirm = md5(microtime());
 
-        Yii::$app->db
-            ->createCommand('UPDATE ' . $this->tableName() . ' SET confirm=:confirm WHERE id=:id', [
-                ':confirm' => $this->confirm,
-                ':id' => $this->id,
-            ])
-            ->execute();
+        $this->updateAttributes(['confirm' => $this->confirm]);
 
         $mail = Yii::$app->mailer
             ->compose(['html' => 'confirm'], [
@@ -502,11 +414,11 @@ class User extends CActiveRecord
     public function updateCommentsStat(): void
     {
         $this->updateCommentsCount();
-        $this->updateByPk($this->id, ['comments_count' => $this->comments_count]);
+        $this->updateAttributes(['comments_count' => $this->comments_count]);
     }
 
     protected function updateCommentsCount(): void
     {
-        $this->comments_count = $this->comments_count_real;
+        $this->comments_count = $this->getCommentsCountReal();
     }
 }

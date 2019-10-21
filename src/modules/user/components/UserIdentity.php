@@ -20,7 +20,9 @@ class UserIdentity extends CUserIdentity
      */
     public function authenticate(): bool
     {
-        $user = User::model()->find('LOWER(username)=:name OR LOWER(email)=:name', [':name' => strtolower($this->name)]);
+        $user = User::findBySql('SELECT * FROM users WHERE LOWER(username)=:name OR LOWER(email)=:name', [
+            ':name' => strtolower($this->name),
+        ])->one();
 
         if ($user === null) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;

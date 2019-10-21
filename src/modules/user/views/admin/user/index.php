@@ -1,7 +1,11 @@
 <?php
 /** @var $model \app\modules\user\models\User */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 
 use app\modules\user\models\Access;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\LinkPager;
 
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'] = [
@@ -15,52 +19,65 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
 <p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
 <h1>Пользователи</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', [
-    'id' => 'posts-grid',
-    'dataProvider' => $model->search(50),
-    'filter' => $model,
-    'columns' => [
-        [
-            'class' => \app\components\widgets\grid\ImageLinkColumn::class,
-            'value' => static function (\app\modules\user\models\User $data) {
-                return $data->getAvatarUrl(50, 50);
-            },
-            'width' => 50,
-            'htmlOptions' => ['style' => 'width:32px;text-align:center'],
-        ],
-        [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
-            'name' => 'username',
-            'htmlOptions' => ['style' => 'text-align:center'],
-        ],
-        [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
-            'name' => 'email',
-            'htmlOptions' => ['style' => 'text-align:center'],
-        ],
-        [
-            'class' => \app\components\widgets\grid\LinkColumn::class,
-            'name' => 'fio',
-            'htmlOptions' => ['style' => 'text-align:center'],
-        ],
-        [
-            'name' => 'role',
-            'value' => static function ($data) { return Access::getRoleName($data->role); },
-            'htmlOptions' => ['style' => 'text-align:center'],
-            'filter' => Access::getRoles(),
-        ],
-        [
-            'name' => 'create_datetime',
-            'header' => 'Дата регистрации',
-            'htmlOptions' => ['style' => 'width:130px;text-align:center'],
-        ],
-        [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
-            'template' => '{update}',
-        ],
-        [
-            'class' => \app\components\widgets\grid\ButtonColumn::class,
-            'template' => '{delete}',
-        ],
-    ],
-]);
+<div id="posts-grid" class="grid-view">
+    <div class="summary"><?= $dataProvider->getCount() ?> из <?= $dataProvider->getTotalCount() ?></div>
+    <form action="?" method="get">
+        <table class="items">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><?= $dataProvider->getSort()->link('username', ['class' => 'sort-link', 'label' => 'Логин']) ?></th>
+                    <th><?= $dataProvider->getSort()->link('email', ['class' => 'sort-link', 'label' => 'Email']) ?></th>
+                    <th><?= $dataProvider->getSort()->link('fio', ['class' => 'sort-link', 'label' => 'ФИО']) ?></th>
+                    <th><?= $dataProvider->getSort()->link('role', ['class' => 'sort-link', 'label' => 'Роль']) ?></th>
+                    <th><?= $dataProvider->getSort()->link('create_datetime', ['class' => 'sort-link', 'label' => 'Дата']) ?></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="filters">
+                    <td></td>
+                    <td><?= Html::activeTextInput($model, 'username') ?></td>
+                    <td><?= Html::activeTextInput($model, 'email') ?></td>
+                    <td><?= Html::activeTextInput($model, 'fio') ?></td>
+                    <td><?= Html::activeDropDownList($model, 'role', Access::getRoles(), ['prompt' => '']) ?></td>
+                    <td><?= Html::activeTextInput($model, 'create_datetime') ?></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($dataProvider->getModels() as $user): ?>
+                    <?php /** @var $user \app\modules\user\models\User */ ?>
+                    <tr>
+                        <td style="width:50px">
+                            <img src="<?= $user->getAvatarUrl(50, 50) ?>" width="50px" alt=""/>
+                        </td>
+                        <td style="text-align: center">
+                            <a href="<?= Url::to(['view', 'id' => $user->id]) ?>"><?= Html::encode($user->username) ?></a>
+                        </td>
+                        <td>
+                            <?= Html::encode($user->email) ?>
+                        </td>
+                        <td>
+                            <a href="<?= Url::to(['update', 'id' => $user->id]) ?>"><?= Html::encode($user->getFio()) ?></a>
+                        </td>
+                        <td style="text-align: center">
+                            <?= Html::encode(Access::getRoleName($user->role)) ?>
+                        </td>
+                        <td>
+                            <?= Html::encode($user->create_datetime) ?>
+                        </td>
+                        <td class="button-column"><a href="<?= Url::to(['view', 'id' => $user->id]) ?>"><span class="icon view"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['update', 'id' => $user->id]) ?>"><span class="icon edit"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $user->id]) ?>" class="ajax_del"><span class="icon delete"></span></a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <button type="submit" style="visibility: hidden"></button>
+    </form>
+</div>
+
+<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]) ?>
