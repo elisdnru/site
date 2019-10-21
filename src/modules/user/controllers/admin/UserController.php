@@ -42,12 +42,4 @@ class UserController extends AdminController
         }
         return $model;
     }
-
-    public function performAjaxValidation($model): void
-    {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-form') {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-    }
 }

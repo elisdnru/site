@@ -38,14 +38,6 @@ class ProfileController extends Controller
         ];
     }
 
-    public function performAjaxValidation($model): void
-    {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'settings-form') {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-    }
-
     public function loadModel(): User
     {
         $model = User::model()->findByPk(Yii::app()->user->id);

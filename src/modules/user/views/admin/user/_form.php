@@ -8,7 +8,6 @@
 
     $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'user-form',
-        'enableAjaxValidation' => true,
         'enableClientValidation' => true,
         'clientOptions' => [
             'validateOnSubmit' => true,

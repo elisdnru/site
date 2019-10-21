@@ -27,7 +27,6 @@ class UpdateAction extends CrudAction
             $model->attributes = $_POST[$formName];
 
             $this->clientCallback('beforeUpdate', $model);
-            $this->clientCallback('performAjaxValidation', $model);
 
             if ($model->save()) {
                 $this->success($this->success);

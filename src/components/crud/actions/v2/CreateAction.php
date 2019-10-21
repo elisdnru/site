@@ -19,7 +19,6 @@ class CreateAction extends CrudAction
 
         if ($model->load($_POST)) {
             $this->clientCallback('beforeCreate', $model);
-            $this->clientCallback('performAjaxValidation', $model);
 
             if ($model->save()) {
                 $this->success($this->success);

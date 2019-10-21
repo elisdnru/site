@@ -30,8 +30,6 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
 
-        $this->performAjaxValidation($model);
-
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
             if ($model->validate() && $model->login()) {
@@ -106,8 +104,6 @@ class DefaultController extends Controller
         if (isset($_POST['RemindForm'])) {
             $model->attributes = $_POST['RemindForm'];
 
-            $this->performAjaxValidation($model);
-
             if ($model->validate()) {
                 $user = User::model()->findByAttributes(['email' => $model->email]);
 
@@ -129,14 +125,6 @@ class DefaultController extends Controller
         }
 
         $this->render('remind', ['model' => $model]);
-    }
-
-    protected function performAjaxValidation($model): void
-    {
-        if (isset($_POST['ajax']) && (in_array($_POST['ajax'], ['login-form', 'remind-form', 'register-form']))) {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
     }
 
     private function loadUser(): ?User

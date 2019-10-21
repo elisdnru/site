@@ -16,7 +16,6 @@ $this->params['breadcrumbs'] = [
 <div class="form">
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'register-form',
-        'enableAjaxValidation' => false,
     ]); ?>
 
     <?php if (Yii::app()->user->hasFlash('register-form')) : ?>

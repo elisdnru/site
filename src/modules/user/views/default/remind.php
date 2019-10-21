@@ -22,7 +22,6 @@ $this->params['breadcrumbs'] = [
 <div class="form">
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'login-form',
-        'enableAjaxValidation' => true,
         'enableClientValidation' => true,
         'clientOptions' => [
             'validateOnSubmit' => true,
