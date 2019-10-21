@@ -49,12 +49,12 @@ use app\components\helpers\SocNetworkHelper;
     <?php echo CHtml::endForm(); ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
-        <?php $this->widget(\app\modules\ulogin\widgets\UloginWidget::class, [
+        <?= \app\modules\ulogin\widgets\UloginWidget::widget([
             'params' => [
                 'display' => 'small',
                 'redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])
             ]
-        ]); ?>
+        ]) ?>
     </div>
 
 <?php endif; ?>

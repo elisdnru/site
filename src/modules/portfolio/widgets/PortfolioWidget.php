@@ -6,16 +6,16 @@ use app\assets\PortfolioAsset;
 use CDbCriteria;
 use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
-use CWidget;
 use Yii;
+use yii\base\Widget;
 
-class PortfolioWidget extends CWidget
+class PortfolioWidget extends Widget
 {
     public $tpl = 'Portfolio';
     public $class = '';
     public $limit = 4;
 
-    public function run(): void
+    public function run(): string
     {
         PortfolioAsset::register(Yii::$app->view);
 
@@ -25,7 +25,7 @@ class PortfolioWidget extends CWidget
 
         $items = Work::model()->published()->cache(0, new Tags('portfolio'))->findAll($criteria);
 
-        $this->render($this->tpl, [
+        return $this->render($this->tpl, [
             'items' => $items,
         ]);
     }

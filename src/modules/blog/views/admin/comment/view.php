@@ -18,4 +18,4 @@ CommentsAsset::register(Yii::$app->view);
 
 <h1>Просмотр комментария</h1>
 
-<?php $this->renderPartial('comment.views.admin.comment._view', ['data' => $model]); ?>
+<?= $this->renderPartial('comment.views.admin.comment._view', ['data' => $model]); ?>

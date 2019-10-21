@@ -35,4 +35,4 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <h1>Записи с меткой &laquo;<?php echo CHtml::encode($tag->title); ?>&raquo;</h1>
 
-<?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

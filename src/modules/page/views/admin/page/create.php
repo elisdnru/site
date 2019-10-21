@@ -15,5 +15,5 @@ if (Yii::app()->moduleManager->allowed('menu')) {
 
 <h1>Добавление страницы</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>
 

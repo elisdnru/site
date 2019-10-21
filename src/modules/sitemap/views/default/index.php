@@ -31,7 +31,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
     <!--noindex-->
     <h2>Страницы</h2>
-    <?php $this->renderPartial('_recursive', ['models' => $items['Page'], 'parent' => 0]); ?>
+    <?= $this->renderPartial('_recursive', ['models' => $items['Page'], 'parent' => 0]); ?>
     <!--/noindex-->
 
     <h2>Записи в блоге</h2>

@@ -4,14 +4,14 @@ namespace app\modules\user\widgets;
 
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
-use CWidget;
 use Yii;
+use yii\base\Widget;
 
-class LoginFormWidget extends CWidget
+class LoginFormWidget extends Widget
 {
     public $tpl = 'LoginForm';
 
-    public function run(): void
+    public function run(): string
     {
         $model = new LoginForm();
         $model->rememberMe = true;
@@ -30,7 +30,7 @@ class LoginFormWidget extends CWidget
             $user = null;
         }
 
-        $this->render($this->tpl, [
+        return $this->render($this->tpl, [
             'model' => $model,
             'user' => $user,
         ]);

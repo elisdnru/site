@@ -46,6 +46,6 @@ CommentsAsset::register(Yii::$app->view);
 
 <?php endif; ?>
 
-<?php $this->renderPartial('comment.views.admin.comment._list', ['dataProvider' => $dataProvider]); ?>
+<?= $this->renderPartial('comment.views.admin.comment._list', ['dataProvider' => $dataProvider]); ?>
 
 

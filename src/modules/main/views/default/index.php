@@ -37,11 +37,11 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     </p>
 </div>
 
-<?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_index_top']); ?>
+<?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_index_top']) ?>
 
 <h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
-    <?php $this->widget(\app\modules\blog\widgets\LastPostsWidget::class, ['tpl' => 'home', 'limit' => 10]); ?>
+    <?= \app\modules\blog\widgets\LastPostsWidget::widget(['tpl' => 'home', 'limit' => 10]) ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 

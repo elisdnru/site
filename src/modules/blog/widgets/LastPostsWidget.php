@@ -5,15 +5,15 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\models\Post;
 use CDbCriteria;
 use app\extensions\cachetagging\Tags;
-use CWidget;
+use yii\base\Widget;
 
-class LastPostsWidget extends CWidget
+class LastPostsWidget extends Widget
 {
     public $tpl = 'default';
     public $class = '';
     public $limit = 10;
 
-    public function run(): void
+    public function run(): string
     {
         $criteria = new CDbCriteria;
         $criteria->scopes = ['published'];
@@ -23,7 +23,7 @@ class LastPostsWidget extends CWidget
 
         $posts = Post::model()->cache(0, new Tags('blog'))->findAll($criteria);
 
-        $this->render('LastPosts/' . $this->tpl, [
+        return $this->render('LastPosts/' . $this->tpl, [
             'posts' => $posts,
         ]);
     }

@@ -2,7 +2,7 @@
 /** @var $posts \app\modules\blog\models\Post[] */
 ?>
 <?php if (count($posts)) : ?>
-    <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => null]); ?>
+    <?php Yii::app()->controller->beginWidget(\app\components\widgets\Portlet::class, ['title' => null]); ?>
     <h4>Последние записи:</h4>
 
     <?php foreach ($posts as $post) : ?>
@@ -17,6 +17,6 @@
         </div>
     <?php endforeach; ?>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 <?php endif; ?>

@@ -5,13 +5,11 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\models\Post;
 use CHtml;
 use app\extensions\cachetagging\Tags;
-use CWidget;
+use yii\base\Widget;
 
-class CalendarWidget extends CWidget
+class CalendarWidget extends Widget
 {
-    public $title = 'Calendar';
-
-    public function run(): void
+    public function run(): string
     {
         if (!empty($_GET['date'])) {
             $month = date('m', strtotime($_GET['date']));
@@ -51,7 +49,7 @@ class CalendarWidget extends CWidget
 
         $len = 2;
 
-        $this->render('Calendar/calendar', [
+        return $this->render('Calendar/calendar', [
             'year' => $year,
             'month' => $month,
             'days' => $days,

@@ -28,4 +28,4 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <h1>Записи от <?php echo $date->date; ?></h1>
 
-<?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

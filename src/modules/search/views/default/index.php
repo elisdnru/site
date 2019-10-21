@@ -31,9 +31,9 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по сайту</h1>
 
-<?php $this->widget(\app\modules\search\widgets\SearchFormWidget::class); ?>
+<?= \app\modules\search\widgets\SearchFormWidget::widget() ?>
 
-<?php $this->renderPartial('_loop', [
+<?= $this->renderPartial('_loop', [
     'dataProvider' => $dataProvider,
     'query' => $query,
 ]); ?>

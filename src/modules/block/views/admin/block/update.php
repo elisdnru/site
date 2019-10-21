@@ -20,4 +20,4 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $this->creat
         block|id=<?php echo CHtml::encode($model->alias); ?><?php echo Yii::app()->controller->InlineWidgetsBehavior->endBlock; ?></b>
 </p>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>

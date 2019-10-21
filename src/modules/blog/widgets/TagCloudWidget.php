@@ -4,16 +4,16 @@ namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Tag;
 use app\extensions\cachetagging\Tags;
-use CWidget;
+use yii\base\Widget;
 
-class TagCloudWidget extends CWidget
+class TagCloudWidget extends Widget
 {
     public $tpl = 'TagCloud';
     public $tags = '';
 
-    public function run(): void
+    public function run(): string
     {
         $tags = Tag::model()->with('frequency')->cache(0, new Tags('blog'))->findAll(['order' => 'title ASC']);
-        $this->render($this->tpl, ['tags' => $tags]);
+        return $this->render($this->tpl, ['tags' => $tags]);
     }
 }

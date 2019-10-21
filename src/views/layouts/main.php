@@ -61,7 +61,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
     endif; ?>
 
         <div class="search">
-            <?php $this->widget(\app\modules\search\widgets\SearchFormWidget::class); ?>
+            <?= \app\modules\search\widgets\SearchFormWidget::widget() ?>
         </div>
 
         <nav id="main_nav">
@@ -93,7 +93,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
         <div class="counters">
             <?php if (!YII_DEBUG && !Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
-                <?php $this->renderPartial('//layouts/_counters'); ?>
+                <?= $this->renderPartial('//layouts/_counters'); ?>
             <?php endif; ?>
         </div>
 

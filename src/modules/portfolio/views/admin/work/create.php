@@ -13,4 +13,4 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->cre
 
 <h1>Добавление работы</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>

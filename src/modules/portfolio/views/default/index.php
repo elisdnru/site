@@ -50,4 +50,4 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 <?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?><!--/noindex--><?php endif; ?>
 
-<?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

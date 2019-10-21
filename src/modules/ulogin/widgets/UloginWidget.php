@@ -2,9 +2,9 @@
 
 namespace app\modules\ulogin\widgets;
 
-use CWidget;
+use yii\base\Widget;
 
-class UloginWidget extends CWidget
+class UloginWidget extends Widget
 {
     private static $once = false;
 
@@ -17,12 +17,13 @@ class UloginWidget extends CWidget
         'logout_url' => '/logout'
     ];
 
-    public function run(): void
+    public function run(): string
     {
-        if (!self::$once) {
-            $this->render('uloginWidget', $this->params);
-            self::$once = true;
+        if (self::$once) {
+            return '';
         }
+        self::$once = true;
+        return $this->render('uloginWidget', $this->params);
     }
 
     public function setParams($params): void

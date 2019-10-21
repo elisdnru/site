@@ -3,18 +3,19 @@
 namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;
-use CWidget;
+use yii\base\Widget;
 use yii\caching\TagDependency;
 
-class BlockWidget extends CWidget
+class BlockWidget extends Widget
 {
+    public $title = 'default';
     public $tpl = 'default';
     public $id = '';
 
-    public function run(): void
+    public function run(): string
     {
         if (!$this->id) {
-            echo('<div class="flash-error">[*block|id=?*]</div>');
+            return '<div class="flash-error">[*block|id=?*]</div>';
         }
 
         /** @var Block $block */
@@ -25,9 +26,9 @@ class BlockWidget extends CWidget
             ->one();
 
         if (!$block) {
-            return;
+            return '';
         }
 
-        echo $block->text;
+        return $block->text;
     }
 }

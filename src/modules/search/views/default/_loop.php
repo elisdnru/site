@@ -5,7 +5,7 @@
 
 <div class="items">
     <?php foreach ($dataProvider->getModels() as $model): ?>
-        <?php $this->renderPartial('_view', [
+        <?= $this->renderPartial('_view', [
             'data' => $model,
             'query' => $query,
         ]); ?>

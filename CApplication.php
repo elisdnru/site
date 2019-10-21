@@ -13,7 +13,6 @@ use app\extensions\cachetagging\TaggingBehavior;
  * @property \app\components\Controller $controller
  * @property CHttpSession $session
  * @property \app\components\module\ModuleManager $moduleManager
- * @property CWidgetFactory $widgetFactory
  * @property ICache|TaggingBehavior $cache
  * @property CTextHighlighter $syntaxhighlighter
  */

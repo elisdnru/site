@@ -2,13 +2,13 @@
 
 if ($this->route !== 'user/default/login') : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Личный кабинет']); ?>
-    <?php $this->widget(\app\modules\user\widgets\LoginFormWidget::class); ?>
+    <?= \app\modules\user\widgets\LoginFormWidget::widget() ?>
     <?php $this->endWidget(); ?>
 <?php endif; ?>
 
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
-    <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_sidebar']); ?>
+    <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_sidebar']) ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif;

@@ -21,6 +21,6 @@ $this->params['admin'][] = ['label' => 'Метки', 'url' => $this->createUrl('
 
 <h1>Добавление записи</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>
 
 

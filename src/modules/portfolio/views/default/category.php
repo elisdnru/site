@@ -62,4 +62,4 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     ?></noindex><?php
 endif; ?>
 
-<?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

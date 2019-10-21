@@ -4,15 +4,15 @@ namespace app\modules\contact\widgets;
 
 use app\modules\contact\models\Contact;
 use app\modules\contact\forms\ContactForm;
-use CWidget;
 use Yii;
+use yii\base\Widget;
 
-class ContactWidget extends CWidget
+class ContactWidget extends Widget
 {
     public $tpl = 'default';
     public $scenario = '';
 
-    public function run(): void
+    public function run(): string
     {
         $form = new ContactForm($this->scenario);
 
@@ -31,7 +31,7 @@ class ContactWidget extends CWidget
             }
         }
 
-        $this->render('Contact/' . $this->tpl, [
+        return $this->render('Contact/' . $this->tpl, [
             'model' => $form,
         ]);
     }

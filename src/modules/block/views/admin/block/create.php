@@ -14,4 +14,4 @@ $this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('
 
 <h1>Добавление блока</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>

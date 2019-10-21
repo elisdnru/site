@@ -28,6 +28,6 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <h1>Поиск по блогу</h1>
 
-<?php $this->widget(SearchFormWidget::class); ?>
+<?= SearchFormWidget::widget() ?>
 
-<?php $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

@@ -8,12 +8,12 @@ use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
 use app\modules\user\models\User;
-use CWidget;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\base\Widget;
 use yii\helpers\Json;
 
-class CommentsWidget extends CWidget
+class CommentsWidget extends Widget
 {
     public $material_id;
     public $authorId;
@@ -22,7 +22,7 @@ class CommentsWidget extends CWidget
     public $user;
     public $tpl = 'comments';
 
-    public function run(): void
+    public function run(): string
     {
         if (!$this->user) {
             $this->user = User::findOne(Yii::app()->user->getId());
@@ -86,7 +86,7 @@ class CommentsWidget extends CWidget
 
         CommentsAsset::register(Yii::$app->view);
 
-        $this->render('Comments/' . $this->tpl, [
+        return $this->render('Comments/' . $this->tpl, [
             'comments' => $comments,
             'form' => $form,
             'user' => $this->user,

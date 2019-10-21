@@ -6,7 +6,7 @@
 <!--noindex-->
 <div id="comment-form" class="form">
 
-    <?php $f = $this->beginWidget(CActiveForm::class, [
+    <?php $f = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'action' => '#comment-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -33,9 +33,9 @@
     <?php else : ?>
     <div style="margin-bottom: 10px">
         <div style="float: right; margin-right: -10px">
-            <?php $this->widget(\app\modules\ulogin\widgets\UloginWidget::class, [
+            <?= \app\modules\ulogin\widgets\UloginWidget::widget([
                 'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
-            ]); ?>
+            ]) ?>
         </div>
         <a href="<?php echo Yii::app()->createUrl('/user/default/login'); ?>">Войти</a> |
         <a href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Завести аккаунт</a> |
@@ -91,7 +91,7 @@
         </div>
 
     </fieldset>
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div>
 <!--/noindex-->

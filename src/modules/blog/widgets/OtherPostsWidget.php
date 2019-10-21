@@ -5,9 +5,9 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use CDbCriteria;
-use CWidget;
+use yii\base\Widget;
 
-class OtherPostsWidget extends CWidget
+class OtherPostsWidget extends Widget
 {
     public $tpl = 'OtherPosts';
     public $title = '';
@@ -17,7 +17,7 @@ class OtherPostsWidget extends CWidget
     public $skip = 0;
     public $limit = 5;
 
-    public function run(): void
+    public function run(): string
     {
         $criteria = new CDbCriteria;
         $criteria->scopes = ['published'];
@@ -27,7 +27,7 @@ class OtherPostsWidget extends CWidget
             $category = Category::model()->findByPk(trim($this->category));
 
             if (!$category) {
-                return;
+                return '';
             }
 
             $criteria->addCondition('category_id=:cat');
@@ -55,8 +55,7 @@ class OtherPostsWidget extends CWidget
             $posts = Post::model()->findAll($criteria);
         }
 
-
-        $this->render($this->tpl, [
+        return $this->render($this->tpl, [
             'posts' => $posts,
             'title' => $this->title,
             'label' => $this->label,

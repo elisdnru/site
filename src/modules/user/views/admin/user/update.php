@@ -20,4 +20,4 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $this->creat
 
 <h1>Редактирование пользователя</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>

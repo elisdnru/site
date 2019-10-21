@@ -74,7 +74,7 @@ CTextHighlighter::registerCssFile();
 
         <!--noindex-->
         <?php if ($this->beginCache('banner_post_before', ['dependency' => new Tags('block')])) : ?>
-            <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_post_before']); ?>
+            <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_post_before']) ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
         <!--/noindex-->
@@ -105,7 +105,7 @@ CTextHighlighter::registerCssFile();
 <aside>
 
     <?php if ($this->beginCache('banner_post_after', ['dependency' => new Tags('block')])) : ?>
-        <?php $this->widget(\app\modules\block\widgets\BlockWidget::class, ['id' => 'banner_post_after']); ?>
+        <?= \app\modules\block\widgets\BlockWidget::widget(['id' => 'banner_post_after']) ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
@@ -152,25 +152,25 @@ CTextHighlighter::registerCssFile();
     <div class="clear"></div>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->widget(\app\modules\blog\widgets\ThemePostsWidget::class, [
+        <?= \app\modules\blog\widgets\ThemePostsWidget::widget([
             'current' => $model->id,
             'group' => $model->group_id,
-        ]); ?>
+        ]) ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
-        <?php $this->widget(\app\modules\blog\widgets\OtherPostsWidget::class, [
+        <?= \app\modules\blog\widgets\OtherPostsWidget::widget([
             //'category'=>$model->category_id,
             'skip' => $model->id,
             'limit' => 2,
-        ]); ?>
+        ]) ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
 </aside>
 
-<?php $this->widget(\app\modules\comment\widgets\CommentsWidget::class, [
+<?= \app\modules\comment\widgets\CommentsWidget::widget([
     'material_id' => $model->id,
     'authorId' => $model->author_id,
     'type' => Comment::TYPE_OF_COMMENT,

@@ -7,7 +7,7 @@
 ?>
 <?php if (isset($comments[$parent])) : ?>
     <?php foreach ($comments[$parent] as $comment) : ?>
-        <?php $this->render('Comments/_comment', [
+        <?= $this->render('_comment', [
             'indent' => $indent,
             'comment' => $comment,
             'authorId' => $authorId,
@@ -15,7 +15,7 @@
         ]); ?>
 
         <?php if ($indent < 100 && isset($comments[$comment->id]) && $comments[$comment->id]) : ?>
-            <?php $this->render('Comments/_tree', [
+            <?= $this->render('_tree', [
                 'indent' => $indent + 1,
                 'comments' => $comments,
                 'parent' => $comment->id,

@@ -3,13 +3,13 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\forms\SearchForm;
-use CWidget;
+use yii\base\Widget;
 
-class SearchFormWidget extends CWidget
+class SearchFormWidget extends Widget
 {
     public $tpl = 'SearchForm';
 
-    public function run(): void
+    public function run(): string
     {
         $form = new SearchForm;
 
@@ -17,7 +17,7 @@ class SearchFormWidget extends CWidget
             $form->word = $_REQUEST['word'];
         }
 
-        $this->render($this->tpl, [
+        return $this->render($this->tpl, [
             'form' => $form,
         ]);
     }

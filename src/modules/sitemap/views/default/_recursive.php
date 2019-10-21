@@ -11,7 +11,7 @@ use app\modules\page\models\Page;
     <?php foreach ($models as $model) : ?>
         <?php if ($model->parent_id == $parent && $model->url !== '/prices') : ?>
             <li><a href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a>
-                <?php $this->renderPartial('_recursive', ['models' => $models, 'parent' => $model->id]); ?>
+                <?= $this->renderPartial('_recursive', ['models' => $models, 'parent' => $model->id]); ?>
             </li>
         <?php endif; ?>
     <?php endforeach; ?>

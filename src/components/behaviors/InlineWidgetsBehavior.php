@@ -6,6 +6,7 @@ use CBehavior;
 use CComponent;
 use CController;
 use Yii;
+use yii\base\Widget;
 
 class InlineWidgetsBehavior extends CBehavior
 {
@@ -93,9 +94,8 @@ class InlineWidgetsBehavior extends CBehavior
             $html = $cachedHtml;
         } else {
             ob_start();
-            $widget = Yii::app()->widgetFactory->createWidget($this->getController(), $widgetClass, $attrs);
-            $widget->init();
-            $widget->run();
+            /** @var Widget $widgetClass */
+            echo $widgetClass::widget($attrs);
             $html = trim(ob_get_clean());
             Yii::app()->cache->set($index, $html, $cache);
         }

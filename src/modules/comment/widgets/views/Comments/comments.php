@@ -8,7 +8,7 @@
     <div class="block-title">Комментарии</div>
 
     <div id="commentsList">
-        <?php $this->render('Comments/_tree', [
+        <?= $this->render('_tree', [
             'indent' => 0,
             'comments' => $comments,
             'parent' => 0,
@@ -21,7 +21,7 @@
         <p class="reply-comment"><a href="#comment-form">Оставить комментарий</a></p>
     <?php endif; ?>
 
-    <?php $this->render('Comments/_form', [
+    <?= $this->render('_form', [
         'form' => $form,
         'user' => $user,
     ]); ?>

@@ -19,4 +19,4 @@ $this->params['admin'][] = ['label' => 'Пользователи', 'url' => $thi
 
 <h1>Добавление пользователя</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>

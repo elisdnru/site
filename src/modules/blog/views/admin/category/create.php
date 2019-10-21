@@ -21,4 +21,4 @@ $this->params['admin'][] = ['label' => 'Группы', 'url' => $this->createUrl
 
 <h1>Добавление категории блога</h1>
 
-<?php $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->renderPartial('_form', ['model' => $model]); ?>
