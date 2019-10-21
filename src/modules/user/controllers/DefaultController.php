@@ -64,11 +64,11 @@ class DefaultController extends Controller
 
                 if ($model->save()) {
                     $model->sendCommit();
-                    Yii::app()->user->setFlash('register-form', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
+                    Yii::app()->user->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
 
                     $this->refresh();
                 } else {
-                    Yii::app()->user->setFlash('register-form', 'Пользователь не добавлен');
+                    Yii::app()->user->setFlash('success', 'Пользователь не добавлен');
                 }
             }
         }
@@ -85,13 +85,13 @@ class DefaultController extends Controller
         if ($user) {
             $user->confirm = '';
             if ($user->save()) {
-                Yii::app()->user->setFlash('confirm-message', 'Регистрация подтверждена');
+                Yii::app()->user->setFlash('success', 'Регистрация подтверждена');
                 $this->redirect(['login']);
             } else {
-                Yii::app()->user->setFlash('confirm-message', 'Ошибка');
+                Yii::app()->user->setFlash('error', 'Ошибка');
             }
         } else {
-            Yii::app()->user->setFlash('confirm-message', 'Запись о подтверждении не найдена');
+            Yii::app()->user->setFlash('error', 'Запись о подтверждении не найдена');
         }
 
         $this->render('confirm');
@@ -113,14 +113,14 @@ class DefaultController extends Controller
 
                     if ($user->save()) {
                         $user->sendRemind();
-                        Yii::app()->user->setFlash('remind-message', 'Новые параметры отправлены на Email');
+                        Yii::app()->user->setFlash('success', 'Новые параметры отправлены на Email');
                         $this->refresh();
                     }
                 } else {
-                    Yii::app()->user->setFlash('remind-message', 'Пользователь не найден');
+                    Yii::app()->user->setFlash('error', 'Пользователь не найден');
                 }
             } else {
-                Yii::app()->user->setFlash('remind-message', 'Пользователь не найден');
+                Yii::app()->user->setFlash('error', 'Пользователь не найден');
             }
         }
 

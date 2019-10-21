@@ -15,13 +15,6 @@
         'htmlOptions' => ['enctype' => 'multipart/form-data']
     ]); ?>
 
-    <?php if (Yii::app()->user->hasFlash('register-form')) : ?>
-        <div class="flash-success">
-            <?php echo Yii::app()->user->getFlash('register-form'); ?>
-        </div>
-
-    <?php endif; ?>
-
     <?php echo $form->errorSummary($model, '<b>Во время регистрации обнаружены ошибки:</b><br /><br />'); ?>
 
     <div>

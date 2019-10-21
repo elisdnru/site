@@ -5,13 +5,6 @@
 
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Обратная связь']); ?>
 
-<?php if (Yii::app()->user->hasFlash('contactForm')) : ?>
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('contactForm'); ?>
-    </div>
-
-<?php endif; ?>
-
 <div class="form">
 
     <?php $form = $this->beginWidget(\CActiveForm::class, [

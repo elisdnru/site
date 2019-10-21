@@ -26,13 +26,6 @@ JqueryAsset::register(Yii::$app->view);
 
 <h1>Файловый менеджер</h1>
 
-<?php if (Yii::app()->user->hasFlash('filemanager')) : ?>
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('filemanager'); ?>
-    </div>
-
-<?php endif; ?>
-
 <?php
 $folders = explode('/', $path);
 $nav = '';

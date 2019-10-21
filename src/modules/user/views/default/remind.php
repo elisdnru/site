@@ -11,14 +11,6 @@ $this->params['breadcrumbs'] = [
 
 <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Восстановление пароля']); ?>
 
-<?php if (Yii::app()->user->hasFlash('remind-message')) : ?>
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('remind-message'); ?>
-    </div>
-
-<?php endif; ?>
-
-
 <div class="form">
     <?php $form = $this->beginWidget(\CActiveForm::class, [
         'id' => 'login-form',
