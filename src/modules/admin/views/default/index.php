@@ -30,7 +30,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(IconMenu::class, ['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
+                    <?= IconMenu::widget(['items' => $notifications, 'iconsPath' => '/images/admin/']) ?>
                 </ul>
                 <div class="clear"></div>
             </li>
@@ -59,7 +59,10 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
                                     <h3><?php echo $module->name; ?></h3><?php
                                 endif; ?>
                                 <ul>
-                                    <?php $this->widget(IconMenu::class, ['items' => array_merge(Yii::app()->moduleManager->adminMenu($module->id), Yii::app()->moduleManager->notifications($module->id)), 'iconsPath' => '/images/admin/']); ?>
+                                    <?= IconMenu::widget([
+                                        'items' => array_merge(Yii::app()->moduleManager->adminMenu($module->id), Yii::app()->moduleManager->notifications($module->id)),
+                                        'iconsPath' => '/images/admin/'
+                                    ]) ?>
                                 </ul>
                                 <div class="clear"></div>
                             </li>
@@ -75,9 +78,9 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?php $this->widget(IconMenu::class, ['items' => [
+                    <?= IconMenu::widget(['items' => [
                         ['label' => 'Очистить кэш', 'url' => ['/admin/cache/clear'], 'icon' => 'clear.png'],
-                    ], 'iconsPath' => '/images/admin/']); ?>
+                    ], 'iconsPath' => '/images/admin/']) ?>
                 </ul>
                 <div class="clear"></div>
             </li>
