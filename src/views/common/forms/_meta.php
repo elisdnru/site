@@ -1,3 +1,7 @@
+<?php
+/** @var $model CActiveRecord */
+?>
+
 <fieldset>
     <h4>Мета-информация</h4>
     <div class="row">
