@@ -4,7 +4,7 @@ namespace app\modules\page\models;
 
 use app\components\behaviors\PurifyTextBehavior;
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\components\TreeActiveDataProvider;
+use app\components\category\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
 use app\components\uploader\FileUploadBehavior;
 use CActiveRecord;

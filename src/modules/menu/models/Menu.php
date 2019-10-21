@@ -3,7 +3,7 @@
 namespace app\modules\menu\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\components\TreeActiveDataProvider;
+use app\components\category\TreeActiveDataProvider;
 use app\components\category\models\Category;
 use CActiveRecord;
 use CDbCriteria;
