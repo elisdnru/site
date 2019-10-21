@@ -35,10 +35,7 @@
   border-right: #999 1px solid !important;
   font-size: 12px !important;
   background: #fff;
-  background: -moz-linear-gradient(#fff, #eee) !important;
-  background: -webkit-linear-gradient(#fff, #eee) !important;
-  background: -o-linear-gradient(#fff, #eee) !important;
-  background: -ms-linear-gradient(#fff, #eee) !important;
+  background: linear-gradient(#fff, #eee) !important;
 }
 
 .adminlinks a:hover {

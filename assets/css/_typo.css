@@ -95,10 +95,7 @@ table th {
   padding: 6px 4px;
   text-align: center;
   background: #ddd;
-  background: -moz-linear-gradient(#f6f6f6, #eee);
-  background: -webkit-linear-gradient(#f6f6f6, #eee);
-  background: -o-linear-gradient(#f6f6f6, #eee);
-  background: -ms-linear-gradient(#f6f6f6, #eee);
+  background: linear-gradient(#f6f6f6, #eee);
 }
 
 table th * {

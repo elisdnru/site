@@ -43,10 +43,7 @@ div.form .row.buttons input {
   padding: 3px 10px;
   background: #ddd;
 
-  background: -moz-linear-gradient(#eee, #ccc);
-  background: -webkit-linear-gradient(#eee, #ccc);
-  background: -o-linear-gradient(#eee, #ccc);
-  background: -ms-linear-gradient(#eee, #ccc);
+  background: linear-gradient(#eee, #ccc);
   border-top: #ddd 1px solid;
   border-left: #ddd 1px solid;
   border-bottom: #aaa 1px solid;

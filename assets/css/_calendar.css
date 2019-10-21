@@ -46,20 +46,14 @@ div.calendar table th {
   border: #eee 1px solid;
   color: #333;
   width: 1%;
-  background: -moz-linear-gradient(#fff, #eee);
-  background: -webkit-linear-gradient(#fff, #eee);
-  background: -o-linear-gradient(#fff, #eee);
-  background: -ms-linear-gradient(#fff, #eee);
+  background: linear-gradient(#fff, #eee);
 }
 
 div.calendar table td {
   text-align: center;
   padding: 6px 0;
   border: #eee 1px solid;
-  background: -moz-linear-gradient(#fff, #eee);
-  background: -webkit-linear-gradient(#fff, #eee);
-  background: -o-linear-gradient(#fff, #eee);
-  background: -ms-linear-gradient(#fff, #eee);
+  background: linear-gradient(#fff, #eee);
 }
 
 div.calendar table td[colspan] {

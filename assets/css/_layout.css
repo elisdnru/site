@@ -27,10 +27,7 @@ body {
   padding: 20px 20px 10px 20px;
   position: relative;
   background: #fff;
-  background: -moz-linear-gradient(#fff, #fafafa);
-  background: -webkit-linear-gradient(#fff, #fafafa);
-  background: -o-linear-gradient(#fff, #fafafa);
-  background: -ms-linear-gradient(#fff, #fafafa);
+  background: linear-gradient(#fff, #fafafa);
 }
 
 #header .logo {
@@ -232,10 +229,7 @@ body {
   left: 0;
   top: 0;
   z-index: 2;
-  background: -moz-linear-gradient(#333, #444);
-  background: -webkit-linear-gradient(#333, #444);
-  background: -o-linear-gradient(#333, #444);
-  background: -ms-linear-gradient(#333, #444);
+  background: linear-gradient(#333, #444);
 }
 
 #footer .content {
@@ -357,10 +351,7 @@ body {
     left: 0;
     top: 0;
     z-index: 1;
-    background: -moz-linear-gradient(#ddd, #fff);
-    background: -webkit-linear-gradient(#ddd, #fff);
-    background: -o-linear-gradient(#ddd, #fff);
-    background: -ms-linear-gradient(#ddd, #fff);
+    background: linear-gradient(#ddd, #fff);
   }
 
   div.breadcrumbs span {
@@ -384,10 +375,7 @@ body {
     height: 36px;
     list-style: none;
     background: #fff;
-    background: -moz-linear-gradient(#fff, #eee);
-    background: -webkit-linear-gradient(#fff, #eee);
-    background: -o-linear-gradient(#fff, #eee);
-    background: -ms-linear-gradient(#fff, #eee);
+    background: linear-gradient(#fff, #eee);
     box-shadow: 1px 2px 2px 1px #d6d6d6;
     border-radius: 4px;
     border: none;
