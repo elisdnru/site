@@ -69,6 +69,11 @@ div.form span.required {
   color: red;
 }
 
+div.form .row.required label:after {
+  content: ' *';
+  color: red;
+}
+
 div.form div.error label:first-child,
 div.form label.error,
 div.form span.error {
