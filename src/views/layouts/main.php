@@ -99,11 +99,10 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
         <!--noindex-->
         <div class="nav">
-            <?php $this->beginWidget(\app\components\widgets\NofollowWidget::class); ?>
             <?php $this->widget('zii.widgets.CMenu', [
                 'id' => 'footer_nav_list',
-                'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')]); ?>
-            <?php $this->endWidget(); ?>
+                'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')
+            ]); ?>
         </div>
         <!--/noindex-->
 
