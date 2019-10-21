@@ -7,6 +7,12 @@ return ArrayHelper::merge(
     [
         'controllerMap' => [],
 
-        'components' => [],
+        'components' => [
+            'db' => [
+                'dsn' => 'mysql:host=mysql-test;dbname=test',
+                'username' => 'test',
+                'password' => 'secret',
+            ],
+        ],
     ]
 );
