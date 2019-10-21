@@ -1,7 +1,6 @@
 <?php
 /** @var $this Controller */
 
-use app\assets\BlogPostAsset;
 use app\components\helpers\StyleHelper;
 use app\components\widgets\ShareWidget;
 use app\extensions\cachetagging\Tags;
@@ -62,8 +61,6 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
         $this->params['admin'][] = ['label' => 'Комментарии (' . $model->comments_new_count . ' ' . NumberHelper::Plural($model->comments_new_count, ['новый', 'новых', 'новых']) . ')', 'url' => $this->createUrl('/blog/admin/comment/index', ['id' => $model->id])];
     }
 }
-
-BlogPostAsset::register(Yii::$app->view);
 
 CTextHighlighter::registerCssFile();
 
