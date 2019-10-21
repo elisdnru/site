@@ -2,12 +2,12 @@
 
 namespace app\components\widgets;
 
-use CWidget;
+use yii\base\Widget;
 
-class FollowWidget extends CWidget
+class FollowWidget extends Widget
 {
-    public function run(): void
+    public function run(): string
     {
-        $this->render('Follow');
+        return $this->render('Follow');
     }
 }

@@ -4,7 +4,7 @@ use app\modules\blog\models\Category;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(\app\components\widgets\Portlet::class, ['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
-    <?php $this->widget(\app\components\widgets\FollowWidget::class); ?>
+    <?= \app\components\widgets\FollowWidget::widget() ?>
     <?php $this->endWidget(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

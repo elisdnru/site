@@ -2,13 +2,14 @@
 
 namespace app\components\widgets;
 
-use CWidget;
-use Yii;
+use yii\base\Widget;
 
-class BreadcrumbsWidget extends CWidget
+class BreadcrumbsWidget extends Widget
 {
-    public function run(): void
+    public $links = [];
+
+    public function run(): string
     {
-        $this->render('BreadCrumbs', ['breadcrumbs' => Yii::app()->controller->params['breadcrumbs']]);
+        return $this->render('BreadCrumbs', ['links' => $this->links]);
     }
 }

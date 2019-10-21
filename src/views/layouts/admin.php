@@ -8,8 +8,8 @@ AdminAsset::register(Yii::$app->view);
 
 <section class="main" id="admin">
 
-    <?php $this->widget(\app\components\widgets\BreadcrumbsWidget::class); ?>
-    <?php $this->widget(\app\components\widgets\MessagesWidget::class); ?>
+    <?= \app\components\widgets\BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= \app\components\widgets\MessagesWidget::widget() ?>
 
     <?php echo $content; ?>
 

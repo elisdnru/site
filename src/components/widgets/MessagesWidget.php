@@ -2,12 +2,12 @@
 
 namespace app\components\widgets;
 
-use CWidget;
+use yii\base\Widget;
 
-class MessagesWidget extends CWidget
+class MessagesWidget extends Widget
 {
-    public function run(): void
+    public function run(): string
     {
-        $this->render('Messages');
+        return $this->render('Messages');
     }
 }

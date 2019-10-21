@@ -79,11 +79,11 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 </article>
 
-<?php $this->widget(\app\components\widgets\ShareWidget::class, [
+<?= \app\components\widgets\ShareWidget::widget([
     'title' => $model->title,
     'description' => $model->description,
     'image' => $model->imageUrl,
-]); ?>
+]) ?>
 
 <?php if (preg_match('|<pre\sclass=\"brush\s?:\s?\w+\">|', $model->text)) : ?>
     <?php Yii::app()->syntaxhighlighter->addHighlighter(); ?>

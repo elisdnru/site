@@ -3,20 +3,21 @@
 namespace app\components\widgets;
 
 use app\modules\user\models\Access;
-use CWidget;
 use Yii;
+use yii\base\Widget;
 
-class AdminBarWidget extends CWidget
+class AdminBarWidget extends Widget
 {
     public $title = '';
     public $links = [];
 
-    public function run(): void
+    public function run(): string
     {
         if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
-            $this->render('AdminBar', [
+            return $this->render('AdminBar', [
                 'links' => $this->links
             ]);
         }
+        return '';
     }
 }
