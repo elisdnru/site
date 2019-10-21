@@ -141,7 +141,13 @@
   margin: 0;
 }
 
-.portlet-content input[type=text], .portlet-content input[type=email], .portlet-content input[type=password], .portlet-content input[type=file], .portlet-content textarea, .portlet-content select {
+.portlet-content input[type=text],
+.portlet-content input[type=url],
+.portlet-content input[type=email],
+.portlet-content input[type=password],
+.portlet-content input[type=file],
+.portlet-content textarea,
+.portlet-content select {
   padding: 5px 4px;
   font-size: 13px;
   background: #fff;
@@ -217,7 +223,11 @@
   color: #999;
 }
 
-.portlet input[type=text], .portlet input[type=password], .portlet input[type=email], .portlet textarea {
+.portlet input[type=text],
+.portlet input[type=password],
+.portlet input[type=url],
+.portlet input[type=email],
+.portlet textarea {
   max-width: 100% !important;
   box-sizing: border-box;
 }

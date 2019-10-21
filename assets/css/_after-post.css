@@ -21,11 +21,7 @@
 }
 
 .subscribe-after-post input[type=text],
-.subscribe-after-post input[type=email],
-.subscribe-after-post input[type=password],
-.subscribe-after-post input[type=file],
-.subscribe-after-post textarea,
-.subscribe-after-post select {
+.subscribe-after-post input[type=email] {
   max-width: 100% !important;
   box-sizing: border-box;
   padding: 5px 4px;

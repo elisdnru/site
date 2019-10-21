@@ -221,7 +221,11 @@
   border: #ccc 1px solid;
 }
 
-#comment-form input[type=text], #comment-form textarea, #comment-form select {
+#comment-form input[type=email],
+#comment-form input[type=url],
+#comment-form input[type=text],
+#comment-form textarea,
+#comment-form select {
   padding: 4px 4px;
   font-size: 13px;
   background: #fff;

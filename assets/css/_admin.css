@@ -81,6 +81,8 @@ table.grid a {
   text-decoration: underline;
 }
 
+#admin fieldset input[type=url],
+#admin fieldset input[type=email],
 #admin fieldset input[type=text],
 #admin fieldset input[type=file],
 #admin fieldset input[type=password],
