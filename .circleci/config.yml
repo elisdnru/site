@@ -7,6 +7,12 @@ jobs:
         steps:
             - checkout
 
+            -   restore_cache:
+                    keys:
+                        - vendor-{{ .Branch }}-{{ checksum "composer.lock" }}
+                        - node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
+                        - mysql-{{ .Branch }}
+
             -   run:
                     name: Init
                     command: make refresh
@@ -22,6 +28,21 @@ jobs:
             -   run:
                     name: Down
                     command: make docker-down-clear
+
+            -   save_cache:
+                    key: vendor-{{ .Branch }}-{{ checksum "composer.lock" }}
+                    paths:
+                        - vendor
+
+            -   save_cache:
+                    key: node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
+                    paths:
+                        - node_modules
+
+            -   save_cache:
+                    key: mysql-{{ .Branch }}
+                    paths:
+                        - volumes/mysql
 
             -   run:
                     name: Deploy
