@@ -128,6 +128,7 @@ return [
 
         'cache' => !getenv('APP_DEBUG') ? [
             'class' => FileCache::class,
+            'dirMode' => 0777,
             'fileMode' => 0666,
         ] : [
             'class' => DummyCache::class,
