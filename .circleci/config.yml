@@ -10,8 +10,10 @@ jobs:
             -   restore_cache:
                     keys:
                         - vendor-{{ .Branch }}-{{ checksum "composer.lock" }}
+
+            -   restore_cache:
+                    keys:
                         - node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
-                        - mysql-{{ .Branch }}
 
             -   run:
                     name: Init
@@ -38,11 +40,6 @@ jobs:
                     key: node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
                     paths:
                         - node_modules
-
-            -   save_cache:
-                    key: mysql-{{ .Branch }}
-                    paths:
-                        - volumes/mysql
 
             -   run:
                     name: Deploy
