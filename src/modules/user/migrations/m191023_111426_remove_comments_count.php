@@ -9,9 +9,8 @@ class m191023_111426_remove_comments_count extends EDbMigration
         $this->dropColumn('users', 'comments_count');
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
-        $this->addColumn('users', 'comments_count', 'int(11) NOT NULL');
-        $this->createIndex('comments_count', 'users', 'comments_count');
+        return false;
     }
 }
