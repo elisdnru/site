@@ -41,9 +41,9 @@ return [
 
         'db' => [
             'class' => Connection::class,
-            'dsn' => getenv('APP_DB_DSN'),
-            'username' => getenv('APP_DB_USERNAME'),
-            'password' => getenv('APP_DB_PASSWORD'),
+            'dsn' => getenv('DB_DSN'),
+            'username' => getenv('DB_USERNAME'),
+            'password' => getenv('DB_PASSWORD'),
             'tablePrefix' => '',
             'charset' => 'utf8',
             'enableSchemaCache' => true,

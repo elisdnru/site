@@ -17,9 +17,9 @@ services:
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
-            APP_DB_DSN: mysql:host=mysql;dbname=app
-            APP_DB_USERNAME: app
-            APP_DB_PASSWORD: secret
+            DB_DSN: mysql:host=mysql;dbname=app
+            DB_USERNAME: app
+            DB_PASSWORD: secret
             MAILER_URI: smtp://mailer:1025?encryption=tcp
             MAILER_FROM_EMAIL: mail@app.test
             SENTRY_DSN: ~
@@ -35,9 +35,9 @@ services:
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
-            APP_DB_DSN: mysql:host=mysql;dbname=app
-            APP_DB_USERNAME: app
-            APP_DB_PASSWORD: secret
+            DB_DSN: mysql:host=mysql;dbname=app
+            DB_USERNAME: app
+            DB_PASSWORD: secret
             MAILER_URI: smtp://mailer:1025?encryption=tcp
             MAILER_FROM_EMAIL: mail@app.test
         volumes:

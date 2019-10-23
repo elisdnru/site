@@ -89,10 +89,10 @@ return [
         ],
 
         'db' => [
-            'connectionString' => getenv('APP_DB_DSN'),
+            'connectionString' => getenv('DB_DSN'),
             'enableProfiling' => false,
-            'username' => getenv('APP_DB_USERNAME'),
-            'password' => getenv('APP_DB_PASSWORD'),
+            'username' => getenv('DB_USERNAME'),
+            'password' => getenv('DB_PASSWORD'),
             'tablePrefix' => '',
             'charset' => 'utf8',
             'schemaCachingDuration' => 3600,
