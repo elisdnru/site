@@ -239,8 +239,15 @@ class User extends ActiveRecord
 
             [
                 'verifyCode',
+                'required',
+                'on' => [
+                    self::SCENARIO_REGISTER
+                ],
+            ],
+
+            [
+                'verifyCode',
                 CaptchaValidator::class,
-                'allowEmpty' => !Yii::app()->user->isGuest,
                 'message' => 'Код подтверждения введён неверно',
                 'captchaAction' => '/user/default/captcha',
                 'on' => [
