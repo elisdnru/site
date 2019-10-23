@@ -18,7 +18,7 @@ class WebUser extends CWebUser
         return 'role_guest';
     }
 
-    private function getModel(): User
+    private function getModel(): ?User
     {
         if (!$this->isGuest && $this->_model === null) {
             $this->_model = User::findOne($this->id);
