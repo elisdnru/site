@@ -19,6 +19,14 @@ jobs:
                   name: Test
                   command: make test
 
+            - run:
+                  name: Down
+                  command: make docker-down-clear
+
+            - run:
+                  name: Deploy
+                  command: HOST=$DEPLOY_HOST PORT=$DEPLOY_PORT DIR=$DEPLOY_PATH REVISION=$CIRCLE_SHA1 make deploy
+
 workflows:
     version: 2
     workflow:
