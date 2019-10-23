@@ -9,7 +9,7 @@ jobs:
 
             - run:
                   name: Init
-                  command: make init
+                  command: make refresh
 
             - run:
                   name: Lint
