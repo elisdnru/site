@@ -14,8 +14,9 @@ RUN apt-get install -y libjpeg-dev libpng-dev libfreetype6-dev \
 
 COPY ./php/conf.d /usr/local/etc/php/conf.d
 
-RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet
-
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet \
+    && composer global require hirak/prestissimo --no-plugins --no-scripts
 
 WORKDIR /app
