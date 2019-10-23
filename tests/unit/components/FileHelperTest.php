@@ -11,6 +11,6 @@ class FileHelperTest extends CTestCase
 {
     public function testThumbFileName(): void
     {
-        self::assertEquals('wro-ngf_ajl.exe', FileHelper::escape('../wro-ng/ф_айл.exe'));
+        self::assertEquals('wro-ngф_айл.exe', FileHelper::escape('../wro-ng/ф_айл.exe'));
     }
 }
