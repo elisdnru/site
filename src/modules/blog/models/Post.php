@@ -5,7 +5,6 @@ namespace app\modules\blog\models;
 use app\components\behaviors\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
 use app\components\validators\ExistOrEmpty;
-use app\modules\comment\components\CommentDepends;
 use app\components\helpers\TextHelper;
 use app\modules\user\models\User;
 use CActiveDataProvider;
@@ -40,8 +39,8 @@ use Yii;
  * @property string $url
  * @property string $imageUrl
  * @property string $imageThumdUrl
- * @property integer $comments_count
- * @property integer $comments_new_count
+ * @property integer $commentsCount
+ * @property integer $commentsNewCount
  * @property User $author
  * @property PostTag $posttags
  * @property Category $category
@@ -50,7 +49,7 @@ use Yii;
  * @mixin FileUploadBehavior
  * @method Post published()
  */
-class Post extends CActiveRecord implements CommentDepends
+class Post extends CActiveRecord
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/blogs';
@@ -122,6 +121,11 @@ class Post extends CActiveRecord implements CommentDepends
     public function getAuthor(): ?User
     {
         return User::findOne($this->author_id);
+    }
+
+    public function getCommentsCount(): int
+    {
+        return Comment::model()->material($this->id)->count('public=1');
     }
 
     /**
@@ -380,14 +384,5 @@ class Post extends CActiveRecord implements CommentDepends
             $this->_url = Yii::app()->createUrl('/blog/post/show', ['id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;
-    }
-
-    public function updateCommentsState($comment): void
-    {
-        $comments_count = Comment::model()->material($this->id)->count('public=1');
-        $comments_new_count = Comment::model()->material($this->id)->count('public=1 AND moder=0');
-
-        $this->updateByPk($this->id, ['comments_count' => $comments_count]);
-        $this->updateByPk($this->id, ['comments_new_count' => $comments_new_count]);
     }
 }

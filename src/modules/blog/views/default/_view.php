@@ -25,7 +25,7 @@ foreach ($data->cache(1000)->tags as $tag) {
             <?php endif; ?>
             <div class="tags"><span><?php echo implode(', ', $links); ?></span></div>
             <div class="comments">
-                <span><a href="<?php echo $data->url; ?>#comments"><?php echo $data->comments_count; ?></a></span>
+                <span><a href="<?php echo $data->url; ?>#comments"><?php echo $data->commentsCount; ?></a></span>
             </div>
         </div>
         <?php if ($data->image) : ?>

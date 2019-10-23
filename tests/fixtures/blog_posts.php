@@ -22,8 +22,6 @@ return [
         'image_height' => 0,
         'image_alt' => '',
         'image_show' => 1,
-        'comments_count' => 0,
-        'comments_new_count' => 0,
     ],
     'post_with_author' => [
         'id' => 2,
@@ -46,8 +44,6 @@ return [
         'image_height' => 0,
         'image_alt' => '',
         'image_show' => 1,
-        'comments_count' => 0,
-        'comments_new_count' => 0,
     ],
     'post_with_group' => [
         'id' => 5,
@@ -70,7 +66,5 @@ return [
         'image_height' => 0,
         'image_alt' => '',
         'image_show' => 1,
-        'comments_count' => 0,
-        'comments_new_count' => 0,
     ],
 ];

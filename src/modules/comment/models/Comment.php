@@ -3,7 +3,6 @@
 namespace app\modules\comment\models;
 
 use app\components\behaviors\PurifyTextBehavior;
-use app\modules\comment\components\CommentDepends;
 use app\components\helpers\GravatarHelper;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -30,7 +29,7 @@ use Yii;
  * @property integer $likes
  * @property User user
  * @property Comment parent
- * @property CommentDepends|CActiveRecord material
+ * @property CActiveRecord material
  */
 class Comment extends CActiveRecord
 {
@@ -332,14 +331,6 @@ class Comment extends CActiveRecord
                 ->send();
         }
     }
-
-    private function updateMaterial(): void
-    {
-        if ($this->type && $this->material instanceof CommentDepends) {
-            $this->material->updateCommentsState($this);
-        }
-    }
-
 
     private function updateAuthor(): void
     {

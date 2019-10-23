@@ -21,10 +21,7 @@ use app\modules\ulogin\widgets\UloginWidget;
                 <?php echo CHtml::encode($user->fio); ?>
             </strong>
         </p>
-        <?php if ($user->comments_count) :
-            ?><p class="nomargin">
-            Комментариев: <?php echo CHtml::encode($user->comments_count); ?></p><?php
-        endif; ?>
+        <p class="nomargin">Комментариев: <?php echo CHtml::encode($user->commentsCount); ?></p>
         <p class="nomargin" style="font-size:12px">
             <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">Профиль</a> |
             <a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>">Выход</a>

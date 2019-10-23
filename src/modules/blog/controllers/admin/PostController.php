@@ -38,8 +38,6 @@ class PostController extends AdminController
         $model->image = '';
         $model->category_id = Yii::app()->request->getParam('category');
         $model->date = date('Y-m-d H:i:s');
-        $model->comments_count = 0;
-        $model->comments_new_count = 0;
         return $model;
     }
 

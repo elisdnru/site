@@ -21,7 +21,6 @@ return [
         'name' => '',
         'middlename' => '',
         'site' => '',
-        'comments_count' => 0,
     ],
     [
         'id' => 2,
@@ -43,6 +42,5 @@ return [
         'name' => '',
         'middlename' => '',
         'site' => '',
-        'comments_count' => 0,
     ],
 ];

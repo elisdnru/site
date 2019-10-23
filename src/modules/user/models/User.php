@@ -37,8 +37,7 @@ use yii\db\Expression;
  * @property string $middlename
  * @property string $site
  *
- * @property int $comments_count
- * @property int comments_count_real
+ * @property int $commentsCount
  * @property string $fio
  */
 class User extends ActiveRecord
@@ -251,7 +250,7 @@ class User extends ActiveRecord
         ];
     }
 
-    public function getCommentsCountReal()
+    public function getCommentsCount(): int
     {
         return Comment::model()->user($this->id)->count('public=1');
     }
@@ -316,7 +315,6 @@ class User extends ActiveRecord
                 $this->role = Access::ROLE_USER;
             }
 
-            $this->updateCommentsCount();
             return true;
         }
         return false;
@@ -412,16 +410,5 @@ class User extends ActiveRecord
         if (!$mail->send()) {
             throw new RuntimeException('Unable to send remind to ' . $this->email);
         }
-    }
-
-    public function updateCommentsStat(): void
-    {
-        $this->updateCommentsCount();
-        $this->updateAttributes(['comments_count' => $this->comments_count]);
-    }
-
-    protected function updateCommentsCount(): void
-    {
-        $this->comments_count = $this->getCommentsCountReal();
     }
 }

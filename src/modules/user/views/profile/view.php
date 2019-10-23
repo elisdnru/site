@@ -59,8 +59,7 @@ $this->widget('zii.widgets.CDetailView', [
         [
             'label' => 'Комментариев',
             'type' => 'html',
-            'value' => $model->comments_count,
-            'visible' => $model->comments_count,
+            'value' => $model->commentsCount,
         ],
     ],
 ]);
