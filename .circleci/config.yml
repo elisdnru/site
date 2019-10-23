@@ -7,31 +7,31 @@ jobs:
         steps:
             - checkout
 
-            - run:
-                  name: Init
-                  command: make refresh
+            -   run:
+                    name: Init
+                    command: make refresh
 
-            - run:
-                  name: Lint
-                  command: make lint
+            -   run:
+                    name: Lint
+                    command: make lint
 
-            - run:
-                  name: Test
-                  command: make test
+            -   run:
+                    name: Test
+                    command: make test
 
-            - run:
-                  name: Down
-                  command: make docker-down-clear
+            -   run:
+                    name: Down
+                    command: make docker-down-clear
 
-            - run:
-                  name: Deploy
-                  command: HOST=$DEPLOY_HOST PORT=$DEPLOY_PORT DIR=$DEPLOY_PATH REVISION=$CIRCLE_SHA1 make deploy
+            -   run:
+                    name: Deploy
+                    command: HOST=$DEPLOY_HOST PORT=$DEPLOY_PORT DIR=$DEPLOY_PATH REVISION=$CIRCLE_SHA1 make deploy
 
 workflows:
     version: 2
     workflow:
         jobs:
-            - build:
-                filters:
-                    branches:
-                        only: master
+            -   build:
+                    filters:
+                        branches:
+                            only: master
