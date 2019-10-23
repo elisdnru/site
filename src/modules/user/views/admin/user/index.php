@@ -31,6 +31,7 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
                     <th><?= $dataProvider->getSort()->link('email', ['class' => 'sort-link', 'label' => 'Email']) ?></th>
                     <th><?= $dataProvider->getSort()->link('fio', ['class' => 'sort-link', 'label' => 'ФИО']) ?></th>
                     <th><?= $dataProvider->getSort()->link('role', ['class' => 'sort-link', 'label' => 'Роль']) ?></th>
+                    <th></th>
                     <th><?= $dataProvider->getSort()->link('create_datetime', ['class' => 'sort-link', 'label' => 'Дата']) ?></th>
                     <th></th>
                     <th></th>
@@ -42,6 +43,7 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
                     <td><?= Html::activeTextInput($model, 'email') ?></td>
                     <td><?= Html::activeTextInput($model, 'fio') ?></td>
                     <td><?= Html::activeDropDownList($model, 'role', Access::getRoles(), ['prompt' => '']) ?></td>
+                    <td></td>
                     <td><?= Html::activeTextInput($model, 'create_datetime') ?></td>
                     <td></td>
                     <td></td>
@@ -66,6 +68,13 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
                         </td>
                         <td style="text-align: center">
                             <?= Html::encode(Access::getRoleName($user->role)) ?>
+                        </td>
+                        <td>
+                            <?php if (!$user->confirm): ?>
+                                <img title="Активен" style="width:16px; height:16px;" src="/images/admin/yes.png" alt="">
+                            <?php else: ?>
+                                <img title="Ожидает" style="width:16px; height:16px;" src="/images/admin/message.png" alt="">
+                            <?php endif; ?>
                         </td>
                         <td>
                             <?= Html::encode($user->create_datetime) ?>
