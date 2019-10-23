@@ -9,11 +9,11 @@ jobs:
 
             -   restore_cache:
                     keys:
-                        - vendor-{{ .Branch }}-{{ checksum "composer.lock" }}
+                        - vendor-{{ checksum "composer.lock" }}
 
             -   restore_cache:
                     keys:
-                        - node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
+                        - node_modules-{{ checksum "yarn.lock" }}
 
             -   run:
                     name: Init
@@ -32,12 +32,12 @@ jobs:
                     command: make docker-down-clear
 
             -   save_cache:
-                    key: vendor-{{ .Branch }}-{{ checksum "composer.lock" }}
+                    key: vendor-{{ checksum "composer.lock" }}
                     paths:
                         - vendor
 
             -   save_cache:
-                    key: node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
+                    key: node_modules-{{ checksum "yarn.lock" }}
                     paths:
                         - node_modules
 
