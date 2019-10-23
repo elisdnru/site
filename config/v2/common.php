@@ -126,8 +126,11 @@ return [
             'traceLevel' => YII_DEBUG ? 3 : 0,
         ],
 
-        'cache' => [
-            'class' => !getenv('APP_DEBUG') ? FileCache::class : DummyCache::class,
+        'cache' => !getenv('APP_DEBUG') ? [
+            'class' => FileCache::class,
+            'fileMode' => 0666,
+        ] : [
+            'class' => DummyCache::class,
         ],
     ],
 
