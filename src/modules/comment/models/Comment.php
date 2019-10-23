@@ -299,15 +299,7 @@ class Comment extends CActiveRecord
             $this->sendNotifications();
         }
 
-        $this->updateMaterial();
-        $this->updateAuthor();
         parent::afterSave();
-    }
-
-    protected function afterDelete(): void
-    {
-        $this->updateMaterial();
-        parent::afterDelete();
     }
 
     private function sendNotifications(): void
@@ -329,13 +321,6 @@ class Comment extends CActiveRecord
                 ->setTo($this->email)
                 ->setReplyTo(Yii::app()->params['GENERAL.ADMIN_EMAIL'])
                 ->send();
-        }
-    }
-
-    private function updateAuthor(): void
-    {
-        if ($this->user) {
-            $this->user->updateCommentsStat();
         }
     }
 
