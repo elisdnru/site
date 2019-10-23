@@ -1,9 +1,9 @@
-FROM php:7.1-fpm
+FROM php:7.1-fpm-alpine
 
-RUN apt-get update && apt-get install -y libmcrypt-dev mariadb-client \
+RUN apk update && apk add libmcrypt-dev mariadb-client \
     && docker-php-ext-install mcrypt pdo_mysql
 
-RUN apt-get install -y libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev \
+RUN apk add libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev \
     && docker-php-ext-configure gd \
         --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
