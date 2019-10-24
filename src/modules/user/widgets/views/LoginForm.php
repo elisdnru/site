@@ -39,7 +39,7 @@ use app\modules\ulogin\widgets\UloginWidget;
         <div class="row" style="margin-bottom: 10px"><label><?= CHtml::activeCheckBox($model, 'rememberMe') ?> Запомнить меня</label></div>
 
         <div class="row buttons">
-            <span style="font-size:12px; float: right"><a href="<?= Yii::app()->createUrl('/user/default/registration') ?>">Регистрация</a> | <a href="<?= Yii::app()->createUrl('/user/default/remind') ?>">Забыли?</a></span>
+            <span style="font-size:12px; float: right"><a href="<?= Yii::app()->createUrl('/user/registration/request') ?>">Регистрация</a> | <a href="<?= Yii::app()->createUrl('/user/default/remind') ?>">Забыли?</a></span>
             <?= CHtml::submitButton('Войти') ?>
             <div class="clear"></div>
         </div>

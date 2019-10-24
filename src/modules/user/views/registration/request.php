@@ -70,7 +70,7 @@ $this->params['breadcrumbs'] = [
             <?= Html::activeTextInput($model, 'verifyCode', ['size' => 20, 'maxlength' => 255]) ?><br />
             <?= Html::error($model, 'verifyCode', ['class' => 'errorMessage']) ?>
             <div>
-                <?php Yii::app()->controller->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/default/captcha']); ?>
+                <?php Yii::app()->controller->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/registration/captcha']); ?>
             </div>
         </div>
 

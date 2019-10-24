@@ -30,8 +30,10 @@ class Module extends Base implements UrlProvider
     public static function rules(): array
     {
         return [
-            '<action:login|logout|relogin|registration|remind|confirm>' => 'user/default/<action>',
-            'users/captcha' => 'user/default/captcha',
+            '<action:login|logout|relogin|remind>' => 'user/default/<action>',
+            'registration' => 'user/registration/request',
+            'registration/confirm' => 'user/registration/confirm',
+            'registration/captcha' => 'user/registration/captcha',
             'profile' => 'user/profile/view',
             'profile/edit' => 'user/profile/edit',
         ];

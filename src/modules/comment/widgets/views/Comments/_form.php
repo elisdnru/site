@@ -42,7 +42,7 @@ use app\modules\ulogin\widgets\UloginWidget;
             ]) ?>
         </div>
         <a href="<?= Yii::app()->createUrl('/user/default/login') ?>">Войти</a> |
-        <a href="<?= Yii::app()->createUrl('/user/default/registration') ?>">Завести аккаунт</a> |
+        <a href="<?= Yii::app()->createUrl('/user/registration/request') ?>">Завести аккаунт</a> |
         <span style="color: #666">Войти через</span>
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>

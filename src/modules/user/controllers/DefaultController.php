@@ -12,15 +12,6 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actions(): array
-    {
-        return [
-            'captcha' => [
-                'class' => CaptchaAction::class,
-            ],
-        ];
-    }
-
     public function actionLogin(): void
     {
         $user = $this->loadUser();
@@ -50,47 +41,6 @@ class DefaultController extends Controller
     {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->request->urlReferrer ?: Yii::app()->homeUrl);
-    }
-
-    public function actionRegistration(): void
-    {
-        $model = new User(['scenario' => User::SCENARIO_REGISTER]);
-
-        if (isset($_POST['User'])) {
-            $model->attributes = $_POST['User'];
-
-            if ($model->validate()) {
-                $model->role = Access::ROLE_USER;
-
-                if ($model->save()) {
-                    $model->sendCommit();
-                    Yii::app()->user->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
-
-                    $this->refresh();
-                } else {
-                    Yii::app()->user->setFlash('success', 'Пользователь не добавлен');
-                }
-            }
-        }
-        $this->render('register', ['model' => $model]);
-    }
-
-    public function actionConfirm($code): void
-    {
-        $user = User::findOne(['confirm' => $code]);
-
-        if ($user) {
-            $user->confirm = '';
-            if ($user->save()) {
-                Yii::app()->user->setFlash('success', 'Регистрация подтверждена');
-                $this->redirect(['login']);
-            }
-            Yii::app()->user->setFlash('error', 'Ошибка');
-        } else {
-            Yii::app()->user->setFlash('error', 'Запись о подтверждении не найдена');
-        }
-
-        $this->render('confirm');
     }
 
     public function actionRemind(): void

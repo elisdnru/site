@@ -249,7 +249,7 @@ class User extends ActiveRecord
                 'verifyCode',
                 CaptchaValidator::class,
                 'message' => 'Код подтверждения введён неверно',
-                'captchaAction' => '/user/default/captcha',
+                'captchaAction' => '/user/registration/captcha',
                 'on' => [
                     self::SCENARIO_REGISTER
                 ],
@@ -397,7 +397,7 @@ class User extends ActiveRecord
         $mail = Yii::$app->mailer
             ->compose(['html' => 'confirm'], [
                 'user' => $this,
-                'confirmUrl' => Yii::app()->createAbsoluteUrl('/user/default/confirm', ['code' => $this->confirm]),
+                'confirmUrl' => Yii::app()->createAbsoluteUrl('/user/registration/confirm', ['code' => $this->confirm]),
             ])
             ->setSubject('Подтверждение регистрации на сайте elisdn.ru')
             ->setTo($this->email);
