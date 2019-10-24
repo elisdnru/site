@@ -5,7 +5,7 @@ use app\components\widgets\Portlet;
 
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
-<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Отправить сообщение']); ?>
+<?php Portlet::begin(['title' => 'Отправить сообщение']); ?>
 
 <div class="form">
 
@@ -70,4 +70,4 @@ use app\components\widgets\Portlet;
 
 </div><!-- form -->
 
-<?php Yii::app()->controller->endWidget(); ?>
+<?php Portlet::end(); ?>

@@ -13,7 +13,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Восстановление пароля']); ?>
+<?php Portlet::begin(['title' => 'Восстановление пароля']); ?>
 
 <div class="form">
     <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
@@ -37,4 +37,4 @@ $this->params['breadcrumbs'] = [
     <?php Yii::app()->controller->endWidget(); ?>
 </div><!-- form -->
 
-<?php Yii::app()->controller->endWidget(); ?>
+<?php Portlet::end(); ?>

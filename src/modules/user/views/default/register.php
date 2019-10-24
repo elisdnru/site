@@ -13,7 +13,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Регистрация']); ?>
+<?php Portlet::begin(['title' => 'Регистрация']); ?>
 
 <div class="form">
 
@@ -82,4 +82,4 @@ $this->params['breadcrumbs'] = [
 
 </div><!-- form -->
 
-<?php Yii::app()->controller->endWidget(); ?>
+<?php Portlet::end(); ?>

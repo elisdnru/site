@@ -17,7 +17,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     $this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
 } ?>
 
-<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Редактировать профиль']); ?>
+<?php Portlet::begin(['title' => 'Редактировать профиль']); ?>
 
 <div class="form">
 
@@ -105,5 +105,4 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 </div><!-- form -->
 
-
-<?php Yii::app()->controller->endWidget(); ?>
+<?php Portlet::end(); ?>

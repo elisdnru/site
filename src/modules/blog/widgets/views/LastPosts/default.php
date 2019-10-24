@@ -5,7 +5,7 @@ use app\components\widgets\Portlet;
 
 ?>
 <?php if (count($posts)) : ?>
-    <?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => null]); ?>
+    <?php Portlet::begin(['title' => null]); ?>
     <h4>Последние записи:</h4>
 
     <?php foreach ($posts as $post) : ?>
@@ -20,6 +20,6 @@ use app\components\widgets\Portlet;
         </div>
     <?php endforeach; ?>
 
-    <?php Yii::app()->controller->endWidget(); ?>
+    <?php Portlet::end(); ?>
 
 <?php endif; ?>

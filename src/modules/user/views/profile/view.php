@@ -16,7 +16,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Профиль пользователя']); ?>
+<?php Portlet::begin(['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
     <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50">
@@ -65,6 +65,6 @@ $this->widget('zii.widgets.CDetailView', [
 ]);
 ?>
 
-<?php Yii::app()->controller->endWidget(); ?>
+<?php Portlet::end(); ?>
 
 

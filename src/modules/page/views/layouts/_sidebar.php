@@ -4,14 +4,14 @@ use app\modules\block\widgets\BlockWidget;
 use app\modules\user\widgets\LoginFormWidget;
 
 if ($this->route !== 'user/default/login') : ?>
-    <?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Личный кабинет']); ?>
+    <?php Portlet::begin(['title' => 'Личный кабинет']); ?>
     <?= LoginFormWidget::widget() ?>
-    <?php Yii::app()->controller->endWidget(); ?>
+    <?php Portlet::end(); ?>
 <?php endif; ?>
 
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
-    <?php Yii::app()->controller->beginWidget(Portlet::class, ['htmlOptions' => ['class' => 'portlet banner']]); ?>
+    <?php Portlet::begin(['htmlOptions' => ['class' => 'portlet banner']]); ?>
     <?= BlockWidget::widget(['id' => 'banner_sidebar']) ?>
-    <?php Yii::app()->controller->endWidget(); ?>
+    <?php Portlet::end(); ?>
     <?php $this->endCache(); ?>
 <?php endif;
