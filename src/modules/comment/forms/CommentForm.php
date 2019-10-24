@@ -58,25 +58,4 @@ class CommentForm extends CFormModel
             'yqe2' => 'Судью на мыло',
         ];
     }
-
-    protected function beforeValidate(): bool
-    {
-        if (parent::beforeValidate()) {
-            if ($this->site) {
-                $this->checkSite();
-            }
-            return true;
-        }
-        return false;
-    }
-
-    protected function checkSite(): void
-    {
-        if (!preg_match('|^http:\/\/|', $this->site)) {
-            $this->site = 'http://' . $this->site;
-        }
-        if ($this->site === 'http://') {
-            $this->site = '';
-        }
-    }
 }
