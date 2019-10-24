@@ -5,11 +5,11 @@ use app\components\widgets\Portlet;
 
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
-<?php $this->beginWidget(Portlet::class, ['title' => 'Отправить сообщение']); ?>
+<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Отправить сообщение']); ?>
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(CActiveForm::class, [
+    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'id' => 'contact-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -66,8 +66,8 @@ use app\components\widgets\Portlet;
     <div class="row buttons">
         <?php echo CHtml::submitButton('Отправить сообщение'); ?>
     </div>
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->
 
-<?php $this->endWidget(); ?>
+<?php Yii::app()->controller->endWidget(); ?>

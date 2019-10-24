@@ -12,7 +12,7 @@ use yii\web\View;
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(CActiveForm::class, [
+    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'id' => 'page-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -85,7 +85,7 @@ use yii\web\View;
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
     <script>
     <?php ob_start() ?>

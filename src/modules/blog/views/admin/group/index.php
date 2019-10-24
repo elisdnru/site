@@ -58,7 +58,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->cre
 <br />
 <div class="form">
 
-    <?php $form = $this->beginWidget(CActiveForm::class, [
+    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'id' => 'category-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -84,6 +84,6 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->cre
         <?php echo CHtml::submitButton('Добавить группу'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->

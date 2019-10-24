@@ -13,10 +13,10 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php $this->beginWidget(Portlet::class, ['title' => 'Восстановление пароля']); ?>
+<?php Yii::app()->controller->beginWidget(Portlet::class, ['title' => 'Восстановление пароля']); ?>
 
 <div class="form">
-    <?php $form = $this->beginWidget(CActiveForm::class, [
+    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'id' => 'login-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'] = [
         <?php echo CHtml::submitButton('Восстановить пароль'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 </div><!-- form -->
 
-<?php $this->endWidget(); ?>
+<?php Yii::app()->controller->endWidget(); ?>

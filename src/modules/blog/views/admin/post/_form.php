@@ -14,7 +14,7 @@ use yii\web\View;
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(
+    <?php $form = Yii::app()->controller->beginWidget(
         'CActiveForm',
         [
             'id' => 'blog-post-form',
@@ -208,6 +208,6 @@ use yii\web\View;
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->

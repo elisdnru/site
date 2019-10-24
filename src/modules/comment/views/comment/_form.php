@@ -7,7 +7,7 @@ use app\modules\comment\forms\CommentForm;
 ?>
 <div id="comment-form" class="form">
 
-    <?php $f = $this->beginWidget(CActiveForm::class, [
+    <?php $f = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'action' => '#comment-form',
         'enableClientValidation' => false,
         'clientOptions' => [
@@ -33,6 +33,6 @@ use app\modules\comment\forms\CommentForm;
         </div>
 
     </fieldset>
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->

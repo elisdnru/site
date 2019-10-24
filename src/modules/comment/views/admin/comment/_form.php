@@ -10,7 +10,7 @@ use app\components\AdminController;
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(CActiveForm::class, [
+    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'id' => 'block-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -73,6 +73,6 @@ use app\components\AdminController;
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->

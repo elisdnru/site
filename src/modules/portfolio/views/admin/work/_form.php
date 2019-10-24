@@ -11,7 +11,7 @@ use app\modules\portfolio\models\Work;
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(
+    <?php $form = Yii::app()->controller->beginWidget(
         'CActiveForm',
         [
             'id' => 'new-form',
@@ -115,6 +115,6 @@ use app\modules\portfolio\models\Work;
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->

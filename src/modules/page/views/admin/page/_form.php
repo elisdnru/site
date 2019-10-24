@@ -10,7 +10,7 @@ use app\modules\page\models\Page;
 
 <div class="form">
 
-    <?php $form = $this->beginWidget(CActiveForm::class, [
+    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
         'id' => 'page-form',
         'enableClientValidation' => true,
         'clientOptions' => [
@@ -128,6 +128,6 @@ use app\modules\page\models\Page;
         <?php echo CHtml::submitButton('Сохранить'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php Yii::app()->controller->endWidget(); ?>
 
 </div><!-- form -->
