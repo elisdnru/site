@@ -1,14 +1,17 @@
 <?php
 /** @var $dataProvider CDataProvider */
-
-use app\components\widgets\ListView;
-
+use app\modules\portfolio\models\Work;
 ?>
-<?php $this->widget(ListView::class, [
-    'dataProvider' => $dataProvider,
-    'itemView' => '_view',
-    'id' => 'worklist',
-    'htmlOptions' => [
-        'class' => 'list-view greed_container'
-    ],
-]);
+
+<div id="worklist" class = "greed_container">
+    <div class="items">
+        <?php foreach ($dataProvider->getData() as $work) : ?>
+            <?php /** @var Work $work */ ?>
+            <div class="entry greed">
+                <p class="thumb">
+                    <a href="<?= $work->getUrl() ?>" style="background-image: url('<?= $work->getImageThumbUrl(198) ?>')"><span><?= CHtml::encode($work->title) ?></span></a>
+                </p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
