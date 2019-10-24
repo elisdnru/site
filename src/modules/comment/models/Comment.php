@@ -76,8 +76,6 @@ class Comment extends CActiveRecord
             ['site', 'length', 'max' => 255],
 
             ['text', 'fixedText'],
-
-            ['id, material_id, type, date, user_id, parent_id, text, public, moder', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -120,38 +118,6 @@ class Comment extends CActiveRecord
             'site' => 'Сайт',
             'text' => 'Текст',
         ];
-    }
-
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search(): CActiveDataProvider
-    {
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('id', $this->id);
-        if ($this->type_of_comment) {
-            $criteria->compare('type', $this->type_of_comment);
-        } else {
-            $criteria->compare('type', $this->type);
-        }
-        $criteria->compare('material_id', $this->material_id);
-        $criteria->compare('date', $this->date, true);
-        $criteria->compare('user_id', $this->user_id);
-        $criteria->compare('parent_id', $this->parent_id);
-        $criteria->compare('name', $this->name, true);
-        $criteria->compare('email', $this->email, true);
-        $criteria->compare('site', $this->site, true);
-        $criteria->compare('text', $this->text, true);
-        $criteria->compare('public', $this->public);
-        $criteria->compare('moder', $this->moder);
-
-        return new CActiveDataProvider($this, [
-            'criteria' => $criteria,
-        ]);
     }
 
     public function scopes(): array
