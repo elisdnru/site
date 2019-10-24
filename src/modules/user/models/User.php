@@ -46,7 +46,6 @@ class User extends ActiveRecord
     public const SCENARIO_SETTINGS = 'settings';
     public const SCENARIO_ADMIN_CREATE = 'admin_create';
     public const SCENARIO_ADMIN_UPDATE = 'admin_update';
-    public const SCENARIO_SEARCH = 'search';
 
     public const IMAGE_PATH = 'upload/images/users/avatars';
     public const IMAGE_WIDTH = 100;
