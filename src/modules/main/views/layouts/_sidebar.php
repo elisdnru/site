@@ -7,6 +7,7 @@ use app\modules\blog\widgets\CalendarWidget;
 use app\modules\blog\widgets\TagCloudWidget;
 use app\modules\blog\widgets\UpdatedPostsWidget;
 use app\modules\user\widgets\LoginFormWidget;
+use yii\widgets\Menu;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
     <?php $this->beginWidget(Portlet::class, ['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
@@ -23,7 +24,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <?php endif; ?>
 
 <?php $this->beginWidget(Portlet::class, ['title' => 'Разделы блога']); ?>
-<?php $this->widget('zii.widgets.CMenu', ['id' => 'blog_categories', 'items' => Category::model()->cache(0, new Tags('blog'))->getMenuList(1000)]); ?>
+<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::model()->cache(0, new Tags('blog'))->getMenuList(1000)]) ?>
 <?php $this->endWidget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>

@@ -213,7 +213,7 @@ class CategoryTreeBehavior extends CategoryBehavior
     }
 
     /**
-     * Returns items for zii.widgets.CMenu widget
+     * Returns items for Menu widget
      * @param mixed $parent number, object or array of numbers
      * @param int $sub levels
      * @return array

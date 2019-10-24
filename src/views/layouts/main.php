@@ -67,7 +67,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
         </div>
 
         <nav id="main_nav">
-            <?php $this->widget('zii.widgets.CMenu', [
+            <?= \yii\widgets\Menu::widget([
                 'id' => 'main_nav_list',
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')
             ]); ?>
@@ -101,10 +101,10 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
         <!--noindex-->
         <div class="nav">
-            <?php $this->widget('zii.widgets.CMenu', [
+            <?= \yii\widgets\Menu::widget([
                 'id' => 'footer_nav_list',
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')
-            ]); ?>
+            ]) ?>
         </div>
         <!--/noindex-->
 
