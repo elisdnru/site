@@ -93,7 +93,7 @@ JqueryAsset::register(Yii::$app->view);
 
 </div>
 
-<?php $this->widget(CLinkPager::class, [
+<?php Yii::app()->controller->widget(CLinkPager::class, [
     'pages' => $pages,
 ]); ?>
 

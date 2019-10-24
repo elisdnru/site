@@ -43,7 +43,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $t
 <div class="clear"></div>
 
 <?php
-$this->widget('zii.widgets.CDetailView', [
+Yii::app()->controller->widget('zii.widgets.CDetailView', [
     'data' => $model,
     'tagName' => 'table',
     'itemTemplate' => "<tr><th style=\"width:150px; text-align:left\">{label}</th><td>{value}</td></tr>\n",

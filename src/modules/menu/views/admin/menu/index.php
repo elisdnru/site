@@ -27,7 +27,7 @@ $this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => $
 
 <h1>Пункты меню</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', [
+<?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(30),
     'filter' => $model,

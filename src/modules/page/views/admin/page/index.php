@@ -24,7 +24,7 @@ if (Yii::app()->moduleManager->allowed('menu')) {
 
 <h1>Страницы</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', [
+<?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(30),
     'filter' => $model,

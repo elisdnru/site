@@ -28,7 +28,7 @@ $this->params['admin'] = [
 <p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
 <h1>Записи блога</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', [
+<?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(50),
     'filter' => $model,

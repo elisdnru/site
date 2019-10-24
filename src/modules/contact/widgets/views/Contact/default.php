@@ -49,7 +49,7 @@ use app\components\widgets\Portlet;
         <?= $form->textField($model, 'verifyCode', ['size' => 22]) ?>
         <?= $form->error($model, 'verifyCode') ?>
         <div>
-            <?php $this->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
+            <?php Yii::app()->controller->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
         </div>
     </div>
 

@@ -22,7 +22,7 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => $
 <p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
 <h1>Метки записей блога</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', [
+<?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
     'dataProvider' => $model->search(30),
     'filter' => $model,
