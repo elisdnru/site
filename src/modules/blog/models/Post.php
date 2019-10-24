@@ -128,6 +128,11 @@ class Post extends CActiveRecord
         return Comment::model()->material($this->id)->count('public=1');
     }
 
+    public function getCommentsNewCount(): int
+    {
+        return Comment::model()->material($this->id)->count('public=1 AND moder<>1');
+    }
+
     /**
      * @return array customized attribute labels (name=>label)
      */
