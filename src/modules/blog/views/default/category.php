@@ -34,6 +34,6 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<h1><?php echo CHtml::encode($category->title); ?></h1>
+<h1><?= CHtml::encode($category->title) ?></h1>
 
 <?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>

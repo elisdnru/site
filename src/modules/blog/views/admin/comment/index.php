@@ -30,7 +30,7 @@ CommentsAsset::register(Yii::$app->view);
     ];
     ?>
 
-    <h1>Комментарии к материалу &laquo;<?php echo CHtml::encode($material->title); ?>&raquo;</h1>
+    <h1>Комментарии к материалу &laquo;<?= CHtml::encode($material->title) ?>&raquo;</h1>
 
 <?php else : ?>
     <?php
@@ -42,9 +42,9 @@ CommentsAsset::register(Yii::$app->view);
     ?>
 
     <div style="float:right">
-        <?php echo CHtml::beginForm($this->createUrl('moderAll')); ?>
-        <?php echo CHtml::submitButton('Пометить все новые почтёнными'); ?>
-        <?php echo CHtml::endForm(); ?>
+        <?= CHtml::beginForm($this->createUrl('moderAll')) ?>
+        <?= CHtml::submitButton('Пометить все новые почтёнными') ?>
+        <?= CHtml::endForm() ?>
     </div>
 
     <h1>Комментарии к записям</h1>

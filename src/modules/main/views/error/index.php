@@ -14,13 +14,13 @@ $this->params['breadcrumbs'] = [
     $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
 } ?>
 
-<h2>Ошибка <?php echo $error['code'] ?? ''; ?></h2>
+<h2>Ошибка <?= $error['code'] ?? '' ?></h2>
 
 <?php if (YII_DEBUG) : ?>
-    <p><?php echo isset($error['message']) ? CHtml::encode($error['message']) : ''; ?></p>
+    <p><?= isset($error['message']) ? CHtml::encode($error['message']) : '' ?></p>
 
-    <p>File: <?php echo isset($error['file']) ? CHtml::encode($error['file']) : ''; ?></p>
-    <p>Line: <?php echo isset($error['line']) ? CHtml::encode($error['line']) : ''; ?></p>
+    <p>File: <?= isset($error['file']) ? CHtml::encode($error['file']) : '' ?></p>
+    <p>Line: <?= isset($error['line']) ? CHtml::encode($error['line']) : '' ?></p>
 <?php endif; ?>
 
-<?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
+<?= $this->decodeWidgets(trim($page->text_purified)) ?>

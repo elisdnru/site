@@ -10,9 +10,9 @@ use app\modules\blog\models\Group;
 <ul style="list-style: none; margin: 0">
     <?php foreach ($group->posts as $item) : ?>
         <?php if ($item->id != $current) : ?>
-            <li>&raquo; <a href="<?php echo $item->url ?>"><?php echo $item->title; ?></a></li>
+            <li>&raquo; <a href="<?= $item->url ?>"><?php echo $item->title ?></a></li>
         <?php else : ?>
-            <li>&raquo; <?php echo $item->title; ?></li>
+            <li>&raquo; <?= $item->title ?></li>
         <?php endif; ?>
 
     <?php endforeach; ?>

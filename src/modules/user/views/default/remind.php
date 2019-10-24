@@ -25,13 +25,13 @@ $this->params['breadcrumbs'] = [
     ]); ?>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'email'); ?><br />
-        <?php echo $form->textField($model, 'email', ['size' => 30]); ?><br />
-        <?php echo $form->error($model, 'email'); ?>
+        <?= $form->labelEx($model, 'email') ?><br />
+        <?= $form->textField($model, 'email', ['size' => 30]) ?><br />
+        <?= $form->error($model, 'email') ?>
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Восстановить пароль'); ?>
+        <?= CHtml::submitButton('Восстановить пароль') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

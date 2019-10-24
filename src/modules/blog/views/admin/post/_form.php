@@ -28,44 +28,44 @@ use yii\web\View;
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?= $form->errorSummary($model) ?>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
+        <?= CHtml::submitButton('Сохранить') ?>
     </div>
 
     <fieldset>
         <h4>Основное</h4>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br />
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'title'); ?>
+            <?= $form->labelEx($model, 'title') ?><br />
+            <?= $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'title') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'alias'); ?><br />
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'alias'); ?>
+            <?= $form->labelEx($model, 'alias') ?><br />
+            <?= $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'alias') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'category_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'category_id', ['' => ''] + Category::model()->getTabList()); ?>
+            <?= $form->labelEx($model, 'category_id') ?><br />
+            <?= $form->dropDownList($model, 'category_id', ['' => ''] + Category::model()->getTabList()) ?>
             <br />
-            <?php echo $form->error($model, 'category_id'); ?>
+            <?= $form->error($model, 'category_id') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'date'); ?><br />
-            <?php echo $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'date'); ?>
+            <?= $form->labelEx($model, 'date') ?><br />
+            <?= $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'date') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->checkBox($model, 'public'); ?>
-            <?php echo $form->labelEx($model, 'public'); ?><br />
-            <?php echo $form->error($model, 'public'); ?>
+            <?= $form->checkBox($model, 'public') ?>
+            <?= $form->labelEx($model, 'public') ?><br />
+            <?= $form->error($model, 'public') ?>
         </div>
     </fieldset>
 
@@ -74,81 +74,81 @@ use yii\web\View;
 
         <?php if ($model->image) : ?>
             <div class="image">
-                <a target="_blank" class="clightbox" href="<?php echo $model->imageUrl; ?>"><img src="<?php echo $model->imageThumbUrl; ?>" alt=""></a>
+                <a target="_blank" class="clightbox" href="<?= $model->imageUrl ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
             </div>
             <div class="row">
-                <?php echo $form->checkBox($model, 'del_image'); ?><?php echo $form->labelEx($model, 'del_image'); ?>
+                <?= $form->checkBox($model, 'del_image') ?><?= $form->labelEx($model, 'del_image') ?>
             </div>
 
         <?php endif; ?>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'image'); ?><br />
-            <?php echo $form->fileField($model, 'image'); ?><br />
-            <?php echo $form->error($model, 'image'); ?>
+            <?= $form->labelEx($model, 'image') ?><br />
+            <?= $form->fileField($model, 'image') ?><br />
+            <?= $form->error($model, 'image') ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'image_alt'); ?><br />
-            <?php echo $form->textField($model, 'image_alt', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'image_alt'); ?>
+            <?= $form->labelEx($model, 'image_alt') ?><br />
+            <?= $form->textField($model, 'image_alt', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'image_alt') ?>
         </div>
         <div class="row">
-            <?php echo $form->checkbox($model, 'image_show'); ?>
-            <?php echo $form->labelEx($model, 'image_show'); ?>
+            <?= $form->checkbox($model, 'image_show') ?>
+            <?= $form->labelEx($model, 'image_show') ?>
         </div>
     </fieldset>
 
     <fieldset>
         <h4>Цепочка новостей</h4>
         <div class="row">
-            <?php echo $form->labelEx($model, 'group_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'group_id', [0 => ''] + Group::model()->getAssocList(true)); ?>
+            <?= $form->labelEx($model, 'group_id') ?><br />
+            <?= $form->dropDownList($model, 'group_id', [0 => ''] + Group::model()->getAssocList(true)) ?>
             <br />
-            <?php echo $form->error($model, 'group_id'); ?>
+            <?= $form->error($model, 'group_id') ?>
         </div>
         <div class="row">
-            <?php echo $form->labelEx($model, 'newgroup'); ?><br />
-            <?php echo $form->textField($model, 'newgroup', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'newgroup'); ?>
-        </div>
-    </fieldset>
-
-    <fieldset class="editor">
-        <div class="row">
-            <?php echo $form->labelEx($model, 'short'); ?><br />
-            <?php echo $form->textArea($model, 'short', ['rows' => 6, 'cols' => 80]); ?>
-            <?php echo $form->error($model, 'short'); ?>
+            <?= $form->labelEx($model, 'newgroup') ?><br />
+            <?= $form->textField($model, 'newgroup', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'newgroup') ?>
         </div>
     </fieldset>
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br />
-            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?>
-            <?php echo $form->error($model, 'text'); ?>
+            <?= $form->labelEx($model, 'short') ?><br />
+            <?= $form->textArea($model, 'short', ['rows' => 6, 'cols' => 80]) ?>
+            <?= $form->error($model, 'short') ?>
         </div>
     </fieldset>
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'styles'); ?><br />
-            <?php echo $form->textArea($model, 'styles', ['rows' => 10, 'cols' => 80]); ?>
-            <?php echo $form->error($model, 'styles'); ?>
+            <?= $form->labelEx($model, 'text') ?><br />
+            <?= $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]) ?>
+            <?= $form->error($model, 'text') ?>
+        </div>
+    </fieldset>
+
+    <fieldset class="editor">
+        <div class="row">
+            <?= $form->labelEx($model, 'styles') ?><br />
+            <?= $form->textArea($model, 'styles', ['rows' => 10, 'cols' => 80]) ?>
+            <?= $form->error($model, 'styles') ?>
         </div>
     </fieldset>
 
     <fieldset>
         <h4>Метки</h4>
         <div class="row">
-            <?php echo $form->labelEx($model, 'tagsString'); ?><br />
-            <?php echo $form->textField($model, 'tagsString', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'tagsString'); ?>
+            <?= $form->labelEx($model, 'tagsString') ?><br />
+            <?= $form->textField($model, 'tagsString', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'tagsString') ?>
         </div>
         <div class="row">
             <ul class="tags_list" id="Post_tagsVariants">
                 <?php foreach (CHtml::listData(Tag::model()->findAll(['order' => 'title ASC']), 'id', 'title') as $id => $tag) : ?>
-                    <li id="tag_<?php echo $id; ?>">
-                        <a class="tag" href="#"><?php echo CHtml::encode($tag); ?></a>
+                    <li id="tag_<?= $id ?>">
+                        <a class="tag" href="#"><?= CHtml::encode($tag) ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -199,13 +199,13 @@ use yii\web\View;
     <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
     </script>
 
-    <?php echo $this->renderPartial('//common/forms/_meta', [
+    <?= $this->renderPartial('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
-    ]); ?>
+    ]) ?>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
+        <?= CHtml::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

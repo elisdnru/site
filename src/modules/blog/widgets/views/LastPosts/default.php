@@ -11,12 +11,12 @@ use app\components\widgets\Portlet;
     <?php foreach ($posts as $post) : ?>
         <div class="entry last">
             <?php if ($post->image) : ?>
-                <p class="thumb"><?php echo CHtml::image($post->getImageThumbUrl(100, 100)); ?></p>
+                <p class="thumb"><?= CHtml::image($post->getImageThumbUrl(100, 100)) ?></p>
             <?php endif; ?>
 
-            <div class="title"><a href="<?php echo $post->url; ?>"><?php echo CHtml::encode($post->title); ?></a></div>
+            <div class="title"><a href="<?= $post->url ?>"><?= CHtml::encode($post->title) ?></a></div>
             <!--noindex-->
-            <div class="short"><?php echo trim($post->short_purified); ?></div><!--/noindex-->
+            <div class="short"><?= trim($post->short_purified) ?></div><!--/noindex-->
         </div>
     <?php endforeach; ?>
 

@@ -20,15 +20,15 @@ use app\components\widgets\Portlet;
     ]); ?>
 
     <div class="row inp_text">
-        <?php echo $form->textField($model, 'name', ['placeholder' => 'ФИО', 'title' => 'ФИО']); ?><br />
-        <?php echo $form->textField($model, 'email', ['placeholder' => 'Email', 'title' => 'Email']); ?><br />
-        <?php echo $form->textArea($model, 'text', ['rows' => 4, 'cols' => 30, 'placeholder' => 'Сообщение', 'title' => 'Сообщение']); ?>
+        <?= $form->textField($model, 'name', ['placeholder' => 'ФИО', 'title' => 'ФИО']) ?><br />
+        <?= $form->textField($model, 'email', ['placeholder' => 'Email', 'title' => 'Email']) ?><br />
+        <?= $form->textArea($model, 'text', ['rows' => 4, 'cols' => 30, 'placeholder' => 'Сообщение', 'title' => 'Сообщение']) ?>
         <br />
-        <?php echo $form->checkBox($model, 'accept'); ?><?php echo $form->labelEx($model, 'accept'); ?>
+        <?= $form->checkBox($model, 'accept') ?><?= $form->labelEx($model, 'accept') ?>
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Отправить'); ?>
+        <?= CHtml::submitButton('Отправить') ?>
     </div>
     <?php Yii::app()->controller->endWidget(); ?>
 

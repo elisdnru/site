@@ -20,23 +20,23 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $t
 <?php Portlet::begin(['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
-    <img src="<?php echo $model->avatarUrl; ?>" alt="" width="50">
+    <img src="<?= $model->avatarUrl ?>" alt="" width="50">
 </div>
 
 <div style="margin-left:60px;">
 
     <?php if ($model->id == Yii::app()->user->id) : ?>
         <p style="float:right">
-            <a href="<?php echo $this->createUrl('/user/profile/edit'); ?>">Редактировать</a> |
-            <a href="<?php echo $this->createUrl('/user/default/logout'); ?>">Выход</a>
+            <a href="<?= $this->createUrl('/user/profile/edit') ?>">Редактировать</a> |
+            <a href="<?= $this->createUrl('/user/default/logout') ?>">Выход</a>
         </p>
     <?php endif; ?>
 
     <h3>
         <?php if ($model->network) : ?>
-            <a rel="nofollow" href="<?php echo $model->identity; ?>"><?php echo SocNetworkHelper::getIcon($model->network); ?></a>
+            <a rel="nofollow" href="<?= $model->identity ?>"><?= SocNetworkHelper::getIcon($model->network) ?></a>
         <?php endif; ?>
-        <?php echo CHtml::encode($model->fio); ?>
+        <?= CHtml::encode($model->fio) ?>
     </h3>
 </div>
 

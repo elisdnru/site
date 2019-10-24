@@ -73,7 +73,7 @@ CTextHighlighter::registerCssFile();
 
 <article class="entry">
     <header>
-        <h1><?php echo CHtml::encode($model->title); ?></h1>
+        <h1><?= CHtml::encode($model->title) ?></h1>
 
         <!--noindex-->
         <?php if ($this->beginCache('banner_post_before', ['dependency' => new Tags('block')])) : ?>
@@ -92,13 +92,13 @@ CTextHighlighter::registerCssFile();
                 $properties['height'] = $model->image_height;
             }
             ?>
-            <p class="thumb"><?php echo CHtml::image($model->imageUrl, $model->image_alt, $properties); ?></p>
+            <p class="thumb"><?= CHtml::image($model->imageUrl, $model->image_alt, $properties) ?></p>
         <?php endif; ?>
 
     </header>
 
     <div class="text">
-        <?php echo $this->decodeWidgets($model->text_purified); ?>
+        <?= $this->decodeWidgets($model->text_purified) ?>
     </div>
 
     <div class="clear"></div>
@@ -136,9 +136,9 @@ CTextHighlighter::registerCssFile();
         $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</a>';
     }
     ?>
-    <p class="entry_date">Дата: <span class="enc-date" data-date="<?php echo DateHelper::normdate($model->date); ?>">&nbsp;</span>
+    <p class="entry_date">Дата: <span class="enc-date" data-date="<?= DateHelper::normdate($model->date) ?>">&nbsp;</span>
     </p>
-    <p class="entry_tags">Метки: <?php echo implode('', $links); ?></p>
+    <p class="entry_tags">Метки: <?= implode('', $links) ?></p>
     <div class="clear"></div>
     <!--/noindex-->
 

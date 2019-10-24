@@ -9,13 +9,13 @@
             <div class="entry last">
                 <?php if ($post->image) : ?>
                     <p class="thumb">
-                        <a href="<?php echo $post->url; ?>"><?php echo CHtml::image($post->getImageThumbUrl(100, 100)); ?></a>
+                        <a href="<?= $post->url ?>"><?= CHtml::image($post->getImageThumbUrl(100, 100)) ?></a>
                     </p><!--/noindex-->
                 <?php endif; ?>
-                <div class="title"><a href="<?php echo $post->url; ?>"><?php echo CHtml::encode($post->title); ?></a>
+                <div class="title"><a href="<?= $post->url ?>"><?= CHtml::encode($post->title) ?></a>
                 </div>
                 <!--noindex-->
-                <div class="short"><?php echo trim($post->short_purified); ?></div><!--/noindex-->
+                <div class="short"><?= trim($post->short_purified) ?></div><!--/noindex-->
             </div>
         <?php endforeach; ?>
     </div>

@@ -12,20 +12,20 @@ foreach ($data->cache(1000)->tags as $tag) {
 
 <div class="entry list">
     <div class="header">
-        <div class="title"><a href="<?php echo $data->url; ?>"><?php echo CHtml::encode($data->title); ?></a></div>
+        <div class="title"><a href="<?= $data->url ?>"><?= CHtml::encode($data->title) ?></a></div>
         <!--noindex-->
         <div class="info">
             <div class="date">
-                <span class="enc-date" data-date="<?php echo DateHelper::normdate($data->date); ?>">&nbsp;</span>
+                <span class="enc-date" data-date="<?= DateHelper::normdate($data->date) ?>">&nbsp;</span>
             </div>
             <?php if ($data->category) : ?>
                 <div class="category">
-                    <span><a href="<?php echo $data->category->url; ?>"><?php echo CHtml::encode($data->category->title); ?></a></span>
+                    <span><a href="<?= $data->category->url ?>"><?= CHtml::encode($data->category->title) ?></a></span>
                 </div>
             <?php endif; ?>
-            <div class="tags"><span><?php echo implode(', ', $links); ?></span></div>
+            <div class="tags"><span><?= implode(', ', $links) ?></span></div>
             <div class="comments">
-                <span><a href="<?php echo $data->url; ?>#comments"><?php echo $data->commentsCount; ?></a></span>
+                <span><a href="<?= $data->url ?>#comments"><?= $data->commentsCount ?></a></span>
             </div>
         </div>
         <?php if ($data->image) : ?>
@@ -40,20 +40,20 @@ foreach ($data->cache(1000)->tags as $tag) {
             }
             ?>
             <div class="thumb">
-                <a href="<?php echo $data->url; ?>">
+                <a href="<?= $data->url ?>">
                     <picture>
                         <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
                         <source srcset="<?= $imageUrl ?>" type="image/jpeg">
-                        <?php echo CHtml::image($imageUrl, $data->image_alt, $properties); ?>
+                        <?= CHtml::image($imageUrl, $data->image_alt, $properties) ?>
                     </picture>
                 </a>
             </div>
         <?php endif; ?>
         <!--/noindex-->
     </div>
-    <div class="short"><?php echo trim($data->short_purified); ?></div>
+    <div class="short"><?= trim($data->short_purified) ?></div>
     <!--noindex-->
-    <div class="more"><a href="<?php echo $data->url; ?>">Читать далее</a></div>
+    <div class="more"><a href="<?= $data->url ?>">Читать далее</a></div>
     <!--/noindex-->
     <div class="clear"></div>
 </div>

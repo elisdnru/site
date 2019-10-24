@@ -11,7 +11,7 @@ use app\modules\block\widgets\BlockWidget; ?>
     <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
     <?= MessagesWidget::widget() ?>
 
-    <?php echo $content; ?>
+    <?= $content ?>
 
     <?= BlockWidget::widget(['id' => 'banner_blog_bottom']) ?>
 

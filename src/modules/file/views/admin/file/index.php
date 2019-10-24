@@ -33,13 +33,13 @@ $nav = '';
 ?>
 
 <h3>
-    <a href="<?php echo $this->createUrl('index'); ?>"><?php echo $htmlroot; ?></a>
+    <a href="<?= $this->createUrl('index') ?>"><?= $htmlroot ?></a>
     <?php foreach ($folders as $folder) : ?>
         <?php $nav .= $nav ? '/' . $folder : $folder; ?>
 
         <?php if ($nav) :
             ?>/
-            <a href="<?php echo $this->createUrl('index', ['path' => $nav]); ?>"><?php echo $folder; ?></a><?php
+            <a href="<?= $this->createUrl('index', ['path' => $nav]) ?>"><?= $folder ?></a><?php
         endif; ?>
 
     <?php endforeach; ?>
@@ -50,13 +50,13 @@ $dir = Yii::$app->file->set($root . '/' . $path);
 $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
 ?>
 
-<?php echo CHtml::beginForm($this->createUrl('process', ['path' => $path])); ?>
+<?= CHtml::beginForm($this->createUrl('process', ['path' => $path])) ?>
 
 <table class="grid" style="margin-bottom:20px !important;">
 
     <tr>
         <th style="width:24px;padding:0 !important;">
-            <?php echo CHtml::checkBox('checkall', false, ['class' => 'allfiles_checkbox']); ?>
+            <?= CHtml::checkBox('checkall', false, ['class' => 'allfiles_checkbox']) ?>
         </th>
         <th>Файл</th>
         <th style="width:70px">Размер</th>
@@ -76,44 +76,44 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
             <?php if ($file->getIsDir()) : ?>
                 <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
 
-                <tr id="item_<?php echo md5($file->getBasename()); ?>">
+                <tr id="item_<?= md5($file->getBasename()) ?>">
                     <td style="text-align: center">
                         <?php //echo CHtml::checkBox('del_'.md5($file->getBasename()), false, array('class'=>'folder_checkbox')); ?>
                     </td>
                     <td>
-                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->getBasename(); ?>'); return false;"><?php echo $renameIcon; ?></a>
+                        <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>'); return false;"><?= $renameIcon ?></a>
                         <img src="/images/admin/foldericon.jpg" alt="">
-                        <a href="<?php echo $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>"><?php echo $file->getBasename(); ?></a>
+                        <a href="<?= $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->getBasename()]) ?>"><?= $file->getBasename() ?></a>
                     </td>
                     <td></td>
                     <td style="text-align: center">
-                        <?php echo date('Y-m-d h:i:s', $file->getTimeModified()); ?>
+                        <?= date('Y-m-d h:i:s', $file->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить директорию &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить директорию &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
             <?php else : ?>
                 <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
 
-                <tr id="item_<?php echo md5($file->getBasename()); ?>">
+                <tr id="item_<?= md5($file->getBasename()) ?>">
                     <td style="text-align: center">
-                        <?php echo CHtml::checkBox('del_' . md5($file->getBasename()), false, ['class' => 'file_checkbox']); ?>
+                        <?= CHtml::checkBox('del_' . md5($file->getBasename()), false, ['class' => 'file_checkbox']) ?>
                     </td>
                     <td>
-                        <a class="renameLink floatright" href="#" onclick="renameBox('<?php echo $file->getBasename(); ?>')"><?php echo $renameIcon; ?></a>
+                        <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>')"><?= $renameIcon ?></a>
                         <img src="/images/admin/fileicon.jpg">
-                        <a href="<?php echo $htmlroot . '/' . ($path ? $path . '/' : '') . $file->getBasename(); ?>"><?php echo $file->getBasename(); ?></a>
+                        <a href="<?= $htmlroot . '/' . ($path ? $path . '/' : '') . $file->getBasename() ?>"><?= $file->getBasename() ?></a>
                     </td>
                     <td style="text-align: center">
-                        <?php echo $file->getSize(); ?>
+                        <?= $file->getSize() ?>
                     </td>
                     <td style="text-align: center">
-                        <?php echo date('Y-m-d h:i:s', $file->getTimeModified()); ?>
+                        <?= date('Y-m-d h:i:s', $file->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?php echo md5($file->getBasename()); ?>" title="Удалить файл &laquo;<?php echo $file->getBasename(); ?>&raquo;" href="<?php echo $delurl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить файл &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
@@ -126,10 +126,10 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 </table>
 
 <p>Отмеченные
-    <?php echo CHtml::dropDownList('action', '', [
+    <?= CHtml::dropDownList('action', '', [
         'del' => 'удалить',
-    ]); ?>
-    <?php echo CHtml::submitButton('OK'); ?>
+    ]) ?>
+    <?= CHtml::submitButton('OK') ?>
 </p>
 
 <script>
@@ -144,32 +144,32 @@ jQuery(function ($) {
 <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 
-<?php echo CHtml::endForm(); ?>
+<?= CHtml::endForm() ?>
 
 <hr />
 
-<?php echo CHtml::beginForm(); ?>
+<?= CHtml::beginForm() ?>
 
-<?php echo CHtml::textField('foldername', '', ['size' => 30]); ?>
-<?php echo CHtml::submitButton('Создать директорию'); ?>
+<?= CHtml::textField('foldername', '', ['size' => 30]) ?>
+<?= CHtml::submitButton('Создать директорию') ?>
 
-<?php echo CHtml::endForm(); ?>
+<?= CHtml::endForm() ?>
 
 <hr />
 
 <div class="upload-alternate">
-    <?php echo CHtml::beginForm('', 'post', [
+    <?= CHtml::beginForm('', 'post', [
         'enctype' => 'multipart/form-data'
-    ]); ?>
+    ]) ?>
 
     <p>
         <?php for ($i = 1; $i <= $upload_count; $i++) : ?>
-            <?php echo CHtml::fileField('file_' . $i); ?><br />
+            <?= CHtml::fileField('file_' . $i) ?><br />
         <?php endfor; ?>
     </p>
-    <?php echo CHtml::submitButton('Загрузить файлы'); ?>
+    <?= CHtml::submitButton('Загрузить файлы') ?>
 
-    <?php echo CHtml::endForm(); ?>
+    <?= CHtml::endForm() ?>
 </div>
 
 <?php ColorboxAsset::register(Yii::$app->view) ?>
@@ -177,16 +177,16 @@ jQuery(function ($) {
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>
     <div id="rename" class="form">
-        <?php echo CHtml::beginForm($this->createUrl('rename', ['path' => Yii::app()->request->getQuery('path')])); ?>
-        <?php echo CHtml::hiddenField('name', '', ['id' => 'sourceName']); ?>
+        <?= CHtml::beginForm($this->createUrl('rename', ['path' => Yii::app()->request->getQuery('path')])) ?>
+        <?= CHtml::hiddenField('name', '', ['id' => 'sourceName']) ?>
         <div class="row">
-            <?php echo CHtml::textField('to', '', ['id' => 'destName', 'size' => 24]); ?>
+            <?= CHtml::textField('to', '', ['id' => 'destName', 'size' => 24]) ?>
         </div>
         <div class="row buttons">
-            <?php echo CHtml::submitButton('Переименовать'); ?>
+            <?= CHtml::submitButton('Переименовать') ?>
             <?php echo CHtml::resetButton('Отмена', ['onclick' => 'jQuery.colorbox.close(); return false;']); ?>
         </div>
-        <?php echo CHtml::endForm(); ?>
+        <?= CHtml::endForm() ?>
     </div>
 </div>
 

@@ -16,8 +16,8 @@ use app\modules\block\models\Block; ?>
 <h1>Редактирование блока</h1>
 
 <p class="note">Код для вставки этого блока на страницу:
-    <b><?php echo Yii::app()->controller->InlineWidgetsBehavior->startBlock; ?>
-        block|id=<?php echo CHtml::encode($model->alias); ?><?php echo Yii::app()->controller->InlineWidgetsBehavior->endBlock; ?></b>
+    <b><?= Yii::app()->controller->InlineWidgetsBehavior->startBlock ?>
+        block|id=<?= CHtml::encode($model->alias) ?><?= Yii::app()->controller->InlineWidgetsBehavior->endBlock ?></b>
 </p>
 
 <?= $this->renderPartial('_form', ['model' => $model]); ?>

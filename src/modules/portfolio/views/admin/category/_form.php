@@ -20,54 +20,54 @@ use app\modules\portfolio\models\Category;
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?= $form->errorSummary($model) ?>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
+        <?= CHtml::submitButton('Сохранить') ?>
     </div>
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br />
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'title'); ?>
+            <?= $form->labelEx($model, 'title') ?><br />
+            <?= $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'title') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'alias'); ?><br />
-            <?php echo $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'alias'); ?>
+            <?= $form->labelEx($model, 'alias') ?><br />
+            <?= $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'alias') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'parent_id'); ?><br />
-            <?php echo $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Category::model()->getTabList(), $model->getAssocList()) : Category::model()->getTabList())); ?>
+            <?= $form->labelEx($model, 'parent_id') ?><br />
+            <?= $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Category::model()->getTabList(), $model->getAssocList()) : Category::model()->getTabList())) ?>
             <br />
-            <?php echo $form->error($model, 'parent_id'); ?>
+            <?= $form->error($model, 'parent_id') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->labelEx($model, 'sort'); ?><br />
-            <?php echo $form->textField($model, 'sort', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'sort'); ?>
+            <?= $form->labelEx($model, 'sort') ?><br />
+            <?= $form->textField($model, 'sort', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'sort') ?>
         </div>
     </fieldset>
 
     <fieldset class="editor">
         <div class="row">
-            <?php echo $form->labelEx($model, 'text'); ?><br />
-            <?php echo $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]); ?>
-            <?php echo $form->error($model, 'text'); ?>
+            <?= $form->labelEx($model, 'text') ?><br />
+            <?= $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]) ?>
+            <?= $form->error($model, 'text') ?>
         </div>
     </fieldset>
 
-    <?php echo $this->renderPartial('//common/forms/_meta', [
+    <?= $this->renderPartial('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
-    ]); ?>
+    ]) ?>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
+        <?= CHtml::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

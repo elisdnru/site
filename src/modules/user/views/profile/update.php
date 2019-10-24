@@ -61,7 +61,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
             <h4>Аватар</h4>
 
             <div class="row">
-                <p style="float:right"><img src="<?php echo $model->getAvatarUrl(); ?>" alt="" width="50" height="50"></p>
+                <p style="float:right"><img src="<?= $model->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
                 <?= Html::activeLabel($model, 'avatar') ?><br />
                 <?= Html::activeFileInput($model, 'avatar', ['size' => 30]) ?><label>
                     <?= Html::error($model, 'avatar') ?>
@@ -77,7 +77,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
         <div class="row<?= $model->hasErrors('old_password') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'old_password') ?> &nbsp;
-            (<a target="_blank" href="<?php echo $this->createUrl('/user/default/remind'); ?>">получить</a>)<br />
+            (<a target="_blank" href="<?= $this->createUrl('/user/default/remind') ?>">получить</a>)<br />
             <?= Html::activePasswordInput($model, 'old_password', ['size' => 40, 'maxlength' => 255]) ?><br />
             <?= Html::error($model, 'old_password', ['class' => 'errorMessage']) ?>
         </div>
@@ -97,7 +97,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
         <hr />
 
         <div class="row buttons">
-            <?php echo CHtml::submitButton('Сохранить'); ?>
+            <?= CHtml::submitButton('Сохранить') ?>
         </div>
     </div>
 

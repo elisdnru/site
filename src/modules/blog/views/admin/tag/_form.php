@@ -20,18 +20,18 @@ use app\components\AdminController;
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?= $form->errorSummary($model) ?>
 
     <fieldset>
         <div class="row">
-            <?php echo $form->labelEx($model, 'title'); ?><br />
-            <?php echo $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?php echo $form->error($model, 'title'); ?>
+            <?= $form->labelEx($model, 'title') ?><br />
+            <?= $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+            <?= $form->error($model, 'title') ?>
         </div>
     </fieldset>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Сохранить'); ?>
+        <?= CHtml::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

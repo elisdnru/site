@@ -15,11 +15,11 @@ CarouselAsset::register(Yii::$app->view);
         <ul>
             <?php foreach ($items as $item) : ?>
                 <li>
-                    <a rel="nofollow" href="<?php echo $item->url; ?>"><span class="thumb" style="background-image: url('<?php echo $item->getImageThumbUrl(190, 0); ?>')"><span><?php echo CHtml::encode($item->title); ?></span></span></a>
+                    <a rel="nofollow" href="<?= $item->url ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190, 0) ?>')"><span><?= CHtml::encode($item->title) ?></span></span></a>
                 </li>
             <?php endforeach; ?>
             <li class="more">
-                <a rel="nofollow" href="<?php echo Yii::app()->createUrl('/portfolio/default/index'); ?>">
+                <a rel="nofollow" href="<?= Yii::app()->createUrl('/portfolio/default/index') ?>">
                     <span class="thumb"></span>
                 </a>
             </li>

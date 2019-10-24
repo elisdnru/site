@@ -39,7 +39,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new Tags('portfolio')])) : ?>
         <header>
 
-            <h1><?php echo CHtml::encode($model->title); ?></h1>
+            <h1><?= CHtml::encode($model->title) ?></h1>
 
             <?php if ($model->image && $model->image_show) : ?>
                 <?php
@@ -53,19 +53,19 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
                 ?>
 
                 <p class="thumb">
-                    <a class="lightbox" href="<?php echo $model->imageUrl; ?>"><?php echo CHtml::image($model->getImageThumbUrl(), $model->title, $properties); ?></a>
+                    <a class="lightbox" href="<?= $model->imageUrl ?>"><?= CHtml::image($model->getImageThumbUrl(), $model->title, $properties) ?></a>
                 </p>
 
             <?php endif; ?>
 
             <div class="info">
                 <div class="category">
-                    <span><a href="<?php echo $model->category->url; ?>"><?php echo CHtml::encode($model->category->title); ?></a></span>
+                    <span><a href="<?= $model->category->url ?>"><?= CHtml::encode($model->category->title) ?></a></span>
                 </div>
             </div>
 
             <div class="short">
-                <?php echo trim($model->short_purified); ?>
+                <?= trim($model->short_purified) ?>
             </div>
 
         </header>
@@ -75,7 +75,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     <div class="clear"></div>
 
     <div class="text">
-        <?php echo $this->decodeWidgets(trim($model->text_purified)); ?>
+        <?= $this->decodeWidgets(trim($model->text_purified)) ?>
     </div>
 
     <div class="clear"></div>

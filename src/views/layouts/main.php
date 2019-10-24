@@ -21,7 +21,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 ?>
 <?php Yii::$app->view->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?php echo Yii::app()->language; ?>">
+<html lang="<?= Yii::app()->language ?>">
 <head>
     <?php if (!Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
@@ -33,11 +33,11 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">
-    <link rel="canonical" href="<?php echo Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()); ?>">
+    <link rel="canonical" href="<?= Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()) ?>">
 
     <?php Yii::$app->view->head() ?>
 
-    <title><?php echo CHtml::encode($this->title); ?></title>
+    <title><?= CHtml::encode($this->title) ?></title>
 </head>
 <body>
 <?php Yii::$app->view->beginBody() ?>
@@ -48,7 +48,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
         <?php if ($this->route !== 'main/default/index'): ?><!--noindex--><?php endif; ?>
         <div class="logo">
         <a href="/">
-            <img src="/images/logo.png" alt="<?php echo Yii::app()->params['GENERAL.SITE_NAME']; ?>">
+            <img src="/images/logo.png" alt="<?= Yii::app()->params['GENERAL.SITE_NAME'] ?>">
         </a>
         </div>
         <div class="title">
@@ -84,7 +84,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
     <div id="content">
 
-        <?php echo $content; ?>
+        <?= $content ?>
 
         <div class="clear"></div>
     </div>

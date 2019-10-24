@@ -17,7 +17,7 @@ $this->params['breadcrumbs'] = [
 $this->params['admin'][] = ['label' => 'Добавить пользователя', 'url' => $this->createUrl('create')];
 ?>
 
-<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
 <h1>Пользователи</h1>
 
 <div id="posts-grid" class="grid-view">

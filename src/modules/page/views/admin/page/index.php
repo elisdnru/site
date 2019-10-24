@@ -20,7 +20,7 @@ if (Yii::app()->moduleManager->allowed('menu')) {
 }
 ?>
 
-<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
 
 <h1>Страницы</h1>
 

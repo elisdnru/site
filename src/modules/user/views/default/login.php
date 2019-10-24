@@ -24,24 +24,24 @@ use app\modules\ulogin\widgets\UloginWidget; ?>
     ]); ?>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'username'); ?><br />
-        <?php echo $form->textField($model, 'username', ['size' => 30]); ?><br />
-        <?php echo $form->error($model, 'username'); ?>
+        <?= $form->labelEx($model, 'username') ?><br />
+        <?= $form->textField($model, 'username', ['size' => 30]) ?><br />
+        <?= $form->error($model, 'username') ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'password'); ?><br />
-        <?php echo $form->passwordField($model, 'password', ['size' => 30]); ?><br />
-        <?php echo $form->error($model, 'password'); ?>
+        <?= $form->labelEx($model, 'password') ?><br />
+        <?= $form->passwordField($model, 'password', ['size' => 30]) ?><br />
+        <?= $form->error($model, 'password') ?>
     </div>
     <div class="row rememberMe" style="margin-bottom: 10px">
-        <?php echo $form->checkBox($model, 'rememberMe'); ?>
-        <?php echo $form->label($model, 'rememberMe'); ?>
-        <?php echo $form->error($model, 'rememberMe'); ?>
+        <?= $form->checkBox($model, 'rememberMe') ?>
+        <?= $form->label($model, 'rememberMe') ?>
+        <?= $form->error($model, 'rememberMe') ?>
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Вход в учётную запись'); ?>
+        <?= CHtml::submitButton('Вход в учётную запись') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>
@@ -50,8 +50,8 @@ use app\modules\ulogin\widgets\UloginWidget; ?>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Регистрация и восстановление']); ?>
-<p style="margin:0;"><a href="<?php echo $this->createUrl('/user/default/registration'); ?>">Регистрация</a> |
-    <a href="<?php echo $this->createUrl('/user/default/remind'); ?>">Забыли пароль?</a></p>
+<p style="margin:0;"><a href="<?= $this->createUrl('/user/default/registration') ?>">Регистрация</a> |
+    <a href="<?= $this->createUrl('/user/default/remind') ?>">Забыли пароль?</a></p>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>

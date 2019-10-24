@@ -37,13 +37,13 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<h1><?php echo CHtml::encode($page->title); ?></h1>
+<h1><?= CHtml::encode($page->title) ?></h1>
 
 <?php if (Yii::app()->request->getParam('page', 1) > 1) :
 ?>
 <noindex><?php
     endif; ?>
-    <?php echo $this->decodeWidgets(trim($page->text_purified)); ?>
+    <?= $this->decodeWidgets(trim($page->text_purified)) ?>
     <?php if (Yii::app()->request->getParam('page', 1) > 1) :
     ?></noindex><?php
 endif; ?>

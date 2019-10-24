@@ -6,7 +6,7 @@ use app\components\widgets\MessagesWidget; ?>
 
     <?= MessagesWidget::widget() ?>
 
-    <?php echo $content; ?>
+    <?= $content ?>
 
 </div>
 

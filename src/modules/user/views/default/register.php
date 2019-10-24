@@ -76,7 +76,7 @@ $this->params['breadcrumbs'] = [
 
         <div class="row buttons">
             <br />
-            <?php echo CHtml::submitButton('Зарегистрироваться'); ?>
+            <?= CHtml::submitButton('Зарегистрироваться') ?>
         </div>
     </form>
 

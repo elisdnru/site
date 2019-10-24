@@ -7,7 +7,7 @@ use app\components\widgets\MessagesWidget; ?>
     <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
     <?= MessagesWidget::widget() ?>
 
-    <?php echo $content; ?>
+    <?= $content ?>
 
 </section>
 <?php $this->endContent(); ?>

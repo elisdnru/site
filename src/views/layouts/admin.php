@@ -13,7 +13,7 @@ AdminAsset::register(Yii::$app->view);
     <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
     <?= MessagesWidget::widget() ?>
 
-    <?php echo $content; ?>
+    <?= $content ?>
 
 </section>
 

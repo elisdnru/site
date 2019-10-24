@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
 <article class="entry list">
     <header>
         <h2>
-            <a href="<?php echo $data->material->url; ?>"><?php echo SearchHighlighter::getFragment(strip_tags($data->title), $query); ?></a>
+            <a href="<?= $data->material->url ?>"><?= SearchHighlighter::getFragment(strip_tags($data->title), $query) ?></a>
         </h2>
         <?php if ($data->material->image) : ?>
             <?php
@@ -26,11 +26,11 @@ use yii\db\ActiveRecord;
             }
             ?>
             <p class="thumb">
-                <a href="<?php echo $data->material->url; ?>"><?php echo CHtml::image($data->material->getImageThumbUrl(), '', $properties); ?></a>
+                <a href="<?= $data->material->url ?>"><?= CHtml::image($data->material->getImageThumbUrl(), '', $properties) ?></a>
             </p>
         <?php endif; ?>
     </header>
-    <div class="short"><?php echo SearchHighlighter::getFragment(strip_tags($this->clearWidgets($data->text)), $query); ?>
+    <div class="short"><?= SearchHighlighter::getFragment(strip_tags($this->clearWidgets($data->text)), $query) ?>
         ...
     </div>
     <div class="clear"></div>

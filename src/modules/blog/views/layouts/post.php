@@ -10,7 +10,7 @@ $this->beginContent('//layouts/main'); ?>
     <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
     <?= MessagesWidget::widget() ?>
 
-    <?php echo $content; ?>
+    <?= $content ?>
 
 </div>
 

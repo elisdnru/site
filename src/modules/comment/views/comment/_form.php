@@ -15,21 +15,21 @@ use app\modules\comment\forms\CommentForm;
         ],
     ]); ?>
 
-    <?php echo $f->errorSummary($form, ''); ?>
+    <?= $f->errorSummary($form, '') ?>
 
     <fieldset>
         <div class="row">
-            <?php echo $f->labelEx($form, 'text'); ?><br />
-            <?php echo $f->textArea($form, 'text', ['rows' => 20, 'cols' => 80, 'style' => 'width:99%']); ?>
+            <?= $f->labelEx($form, 'text') ?><br />
+            <?= $f->textArea($form, 'text', ['rows' => 20, 'cols' => 80, 'style' => 'width:99%']) ?>
             <br />
-            <?php echo $f->error($form, 'text'); ?>
+            <?= $f->error($form, 'text') ?>
             <p class="coment_note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt;
                 &lt;pre&gt;</p>
         </div>
 
         <div class="row buttons">
             <br />
-            <?php echo CHtml::submitButton('Сохранить комментарий', ['id' => 'comment_submit']); ?>
+            <?= CHtml::submitButton('Сохранить комментарий', ['id' => 'comment_submit']) ?>
         </div>
 
     </fieldset>

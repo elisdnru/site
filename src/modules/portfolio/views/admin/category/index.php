@@ -16,7 +16,7 @@ $this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl
 $this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
 ?>
 
-<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
 <h1>Категории работ</h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', [

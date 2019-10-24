@@ -50,13 +50,13 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 
         <?php if ($has) : ?>
             <fieldset>
-                <h2><?php echo $group; ?></h2>
+                <h2><?= $group ?></h2>
                 <ul class="adminlist">
                     <?php foreach ($groupModules as $module) : ?>
                         <?php if (Yii::app()->moduleManager->adminMenu($module->id)) : ?>
                             <li>
                                 <?php if ($module->name !== $group) : ?>
-                                    <h3><?php echo $module->name; ?></h3><?php
+                                    <h3><?= $module->name ?></h3><?php
                                 endif; ?>
                                 <ul>
                                     <?= IconMenu::widget([

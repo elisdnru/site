@@ -21,20 +21,20 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createU
 
 <div style="float:right">
 
-    <?php echo CHtml::beginForm($this->createUrl('delete', ['id' => $model->id])); ?>
-    <?php echo CHtml::submitButton('Удалить сообщение'); ?>
-    <?php echo CHtml::endForm(); ?>
+    <?= CHtml::beginForm($this->createUrl('delete', ['id' => $model->id])) ?>
+    <?= CHtml::submitButton('Удалить сообщение') ?>
+    <?= CHtml::endForm() ?>
 </div>
 
-<h1>Сообщение №<?php echo $model->id; ?></h1>
+<h1>Сообщение №<?= $model->id ?></h1>
 
-<?php echo CHtml::beginForm($this->createUrl('toggle', ['id' => $model->id, 'attribute' => 'status'])); ?>
+<?= CHtml::beginForm($this->createUrl('toggle', ['id' => $model->id, 'attribute' => 'status'])) ?>
 <?php if ($model->status): ?>
-    <?php echo CHtml::submitButton('Отметить непрочитанным'); ?>
+    <?= CHtml::submitButton('Отметить непрочитанным') ?>
 <?php else: ?>
-    <?php echo CHtml::submitButton('Прочитать'); ?>
+    <?= CHtml::submitButton('Прочитать') ?>
 <?php endif; ?>
-<?php echo CHtml::endForm(); ?>
+<?= CHtml::endForm() ?>
 
 <br />
 
@@ -46,32 +46,32 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createU
     <?php if ($model->pagetitle) : ?>
         <tr>
         <td width="150">Со страницы</td>
-        <td><?php echo CHtml::encode($model->pagetitle); ?></td></tr><?php
+        <td><?= CHtml::encode($model->pagetitle) ?></td></tr><?php
     endif; ?>
     <tr>
         <td>Автор</td>
-        <td><?php echo CHtml::encode($model->name); ?></td>
+        <td><?= CHtml::encode($model->name) ?></td>
     </tr>
     <tr>
         <td>Email</td>
-        <td><?php echo CHtml::encode($model->email); ?></td>
+        <td><?= CHtml::encode($model->email) ?></td>
     </tr>
     <tr>
         <td>Телефон</td>
-        <td><?php echo CHtml::encode($model->phone); ?></td>
+        <td><?= CHtml::encode($model->phone) ?></td>
     </tr>
     <tr>
         <td>Сообщение</td>
-        <td><?php echo nl2br(CHtml::encode($model->text)); ?></td>
+        <td><?= nl2br(CHtml::encode($model->text)) ?></td>
     </tr>
 </table>
 <?php if ($next) :
 ?><p class="nomargin" style="float: right">
-    <a href="<?php echo $this->createUrl('view', ['id' => $next->id]); ?>">следующее сообщение &rarr;</a>
+    <a href="<?= $this->createUrl('view', ['id' => $next->id]) ?>">следующее сообщение &rarr;</a>
     <?php endif; ?>
 <?php if ($prev) :
 ?><p class="nomargin" style="float: left">
-    <a href="<?php echo $this->createUrl('view', ['id' => $prev->id]); ?>">&larr; предыдущее сообщение</a>
+    <a href="<?= $this->createUrl('view', ['id' => $prev->id]) ?>">&larr; предыдущее сообщение</a>
     <?php endif; ?>
 
 <div class="clear"></div>

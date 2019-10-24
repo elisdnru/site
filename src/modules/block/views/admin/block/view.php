@@ -14,6 +14,6 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $t
 $this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
 ?>
 
-<h1>Просмотр блока &laquo;<?php echo CHtml::encode($model->title); ?>&raquo;</h1>
+<h1>Просмотр блока &laquo;<?= CHtml::encode($model->title) ?>&raquo;</h1>
 
-<?php echo $model->text; ?>
+<?= $model->text ?>

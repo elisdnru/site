@@ -25,7 +25,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<h1><?php echo CHtml::encode($page->title); ?></h1>
+<h1><?= CHtml::encode($page->title) ?></h1>
 
 <div class="sitemap">
 
@@ -37,7 +37,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     <h2>Записи в блоге</h2>
     <ul>
         <?php foreach ($items['BlogPost'] as $model) : ?>
-            <li><a href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a></li>
+            <li><a href="<?= $model->url ?>"><?= CHtml::encode($model->title) ?></a></li>
         <?php endforeach; ?>
     </ul>
 
@@ -45,7 +45,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     <h2>Портфолио</h2>
     <ul>
         <?php foreach ($items['PortfolioWork'] as $model) : ?>
-            <li><a href="<?php echo $model->url; ?>"><?php echo CHtml::encode($model->title); ?></a></li>
+            <li><a href="<?= $model->url ?>"><?= CHtml::encode($model->title) ?></a></li>
         <?php endforeach; ?>
     </ul>
     <!--/noindex-->

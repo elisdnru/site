@@ -15,7 +15,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager; ?>
 
-<p class="floatright"><a href="<?php echo $this->createUrl('create'); ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
 <h1>HTML-Блоки</h1>
 
 <div class="grid-view">

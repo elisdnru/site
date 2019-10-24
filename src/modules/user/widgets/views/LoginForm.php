@@ -7,45 +7,45 @@ use app\modules\ulogin\widgets\UloginWidget;
 ?>
 <?php if ($user) : ?>
     <div style="float:left;">
-        <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">
-            <img src="<?php echo $user->avatarUrl; ?>" alt="" width="50">
+        <a href="<?= Yii::app()->createUrl('/user/profile/view') ?>">
+            <img src="<?= $user->avatarUrl ?>" alt="" width="50">
         </a>
     </div>
     <div style="margin-left:60px;">
         <p class="nomargin"><strong>
                 <?php if ($user->network) : ?>
-                    <a href="<?php echo $user->identity; ?>">
-                        <?php echo SocNetworkHelper::getIcon($user->network); ?>
+                    <a href="<?= $user->identity ?>">
+                        <?= SocNetworkHelper::getIcon($user->network) ?>
                     </a>
                 <?php endif; ?>
-                <?php echo CHtml::encode($user->fio); ?>
+                <?= CHtml::encode($user->fio) ?>
             </strong>
         </p>
-        <p class="nomargin">Комментариев: <?php echo CHtml::encode($user->commentsCount); ?></p>
+        <p class="nomargin">Комментариев: <?= CHtml::encode($user->commentsCount) ?></p>
         <p class="nomargin" style="font-size:12px">
-            <a href="<?php echo Yii::app()->createUrl('/user/profile/view'); ?>">Профиль</a> |
-            <a href="<?php echo Yii::app()->createUrl('/user/default/logout'); ?>">Выход</a>
+            <a href="<?= Yii::app()->createUrl('/user/profile/view') ?>">Профиль</a> |
+            <a href="<?= Yii::app()->createUrl('/user/default/logout') ?>">Выход</a>
         </p>
 
         <div class="clear"></div>
     </div>
 
 <?php else : ?>
-    <?php echo CHtml::beginForm(['/user/default/login']); ?>
+    <?= CHtml::beginForm(['/user/default/login']) ?>
     <div class="login-form">
 
-        <div class="row"><?php echo CHtml::activeTextField($model, 'username', ['style' => 'width:100%', 'placeholder' => 'Логин или Email', 'title' => 'Логин или Email']); ?></div>
-        <div class="row"><?php echo CHtml::activePasswordField($model, 'password', ['style' => 'width:100%', 'placeholder' => 'Пароль', 'title' => 'Пароль']); ?></div>
-        <div class="row" style="margin-bottom: 10px"><label><?php echo CHtml::activeCheckBox($model, 'rememberMe'); ?> Запомнить меня</label></div>
+        <div class="row"><?= CHtml::activeTextField($model, 'username', ['style' => 'width:100%', 'placeholder' => 'Логин или Email', 'title' => 'Логин или Email']) ?></div>
+        <div class="row"><?= CHtml::activePasswordField($model, 'password', ['style' => 'width:100%', 'placeholder' => 'Пароль', 'title' => 'Пароль']) ?></div>
+        <div class="row" style="margin-bottom: 10px"><label><?= CHtml::activeCheckBox($model, 'rememberMe') ?> Запомнить меня</label></div>
 
         <div class="row buttons">
-            <span style="font-size:12px; float: right"><a href="<?php echo Yii::app()->createUrl('/user/default/registration'); ?>">Регистрация</a> | <a href="<?php echo Yii::app()->createUrl('/user/default/remind'); ?>">Забыли?</a></span>
-            <?php echo CHtml::submitButton('Войти'); ?>
+            <span style="font-size:12px; float: right"><a href="<?= Yii::app()->createUrl('/user/default/registration') ?>">Регистрация</a> | <a href="<?= Yii::app()->createUrl('/user/default/remind') ?>">Забыли?</a></span>
+            <?= CHtml::submitButton('Войти') ?>
             <div class="clear"></div>
         </div>
 
     </div>
-    <?php echo CHtml::endForm(); ?>
+    <?= CHtml::endForm() ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
         <?= UloginWidget::widget([

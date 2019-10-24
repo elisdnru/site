@@ -41,12 +41,12 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <?= BlockWidget::widget(['id' => 'banner_index_top']) ?>
 
-<h2 class="index">Новое в <a href="<?php echo $this->createUrl('/blog/default/index'); ?>">Блоге</a>:</h2>
+<h2 class="index">Новое в <a href="<?= $this->createUrl('/blog/default/index') ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
     <?= LastPostsWidget::widget(['tpl' => 'home', 'limit' => 10]) ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
 <div class="clear"></div>
-<p class="nomargin"><a href="<?php echo $this->createUrl('/blog/default/index', ['page' => 2]); ?>">Остальные записи &rarr;</a>
+<p class="nomargin"><a href="<?= $this->createUrl('/blog/default/index', ['page' => 2]) ?>">Остальные записи &rarr;</a>
 </p>

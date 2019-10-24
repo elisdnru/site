@@ -33,22 +33,22 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 }
 ?>
 
-<h1><a rel="nofollow" href="<?php echo $this->createUrl('index'); ?>">Портфолио</a> &rarr;
+<h1><a rel="nofollow" href="<?= $this->createUrl('index') ?>">Портфолио</a> &rarr;
     <?php foreach ($category->breadcrumbs as $title => $url) : ?>
         <?php if (!is_numeric($title)) : ?>
-            <a rel="nofollow" href="<?php echo $url; ?>"><?php echo CHtml::encode($title); ?></a> &rarr;
+            <a rel="nofollow" href="<?= $url ?>"><?= CHtml::encode($title) ?></a> &rarr;
         <?php endif; ?>
     <?php endforeach; ?>
-    <?php echo CHtml::encode($category->title); ?>
+    <?= CHtml::encode($category->title) ?>
 </h1>
 
 <div class="subpages">
     <ul>
         <li class="return">
-            <a rel="nofollow" href="<?php echo $category->parent ? $category->parent->url : $this->createUrl('/portfolio/default/index'); ?>">&larr;
+            <a rel="nofollow" href="<?= $category->parent ? $category->parent->url : $this->createUrl('/portfolio/default/index') ?>">&larr;
                 Выше</a></li>
         <?php foreach ($subcategories as $subcategory) : ?>
-            <li><a rel="nofollow" href="<?php echo $subcategory->url; ?>"><?php echo $subcategory->title; ?></a>
+            <li><a rel="nofollow" href="<?= $subcategory->url ?>"><?= $subcategory->title ?></a>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -59,7 +59,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 ?>
 <noindex><?php
     endif; ?>
-    <?php echo $this->decodeWidgets(trim($category->text)); ?>
+    <?= $this->decodeWidgets(trim($category->text)) ?>
     <?php if (Yii::app()->request->getParam('page', 1) > 1) :
     ?></noindex><?php
 endif; ?>
