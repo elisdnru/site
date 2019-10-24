@@ -44,7 +44,7 @@ class RegistrationController extends Controller
 
                     $this->refresh();
                 } else {
-                    Yii::app()->user->setFlash('success', 'Пользователь не добавлен');
+                    Yii::app()->user->setFlash('error', 'Пользователь не добавлен');
                 }
             }
         }
