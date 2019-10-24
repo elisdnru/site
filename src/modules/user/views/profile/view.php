@@ -3,6 +3,7 @@
 use app\components\helpers\SocNetworkHelper;
 use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
 
 /** @var $model \app\modules\user\models\User */
 
@@ -41,30 +42,23 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
 
 <div class="clear"></div>
 
-<?php
-Yii::app()->controller->widget('zii.widgets.CDetailView', [
-    'data' => $model,
-    'tagName' => 'table',
-    'itemTemplate' => "<tr><th style=\"width:150px; text-align:left\">{label}</th><td>{value}</td></tr>\n",
-    'htmlOptions' => ['class' => 'detail-view nomargin'],
-    'cssFile' => false,
-    'attributes' => [
-        'username',
-        [
-            'label' => 'Сайт',
-            'type' => 'html',
-            'value' => CHtml::link(CHtml::encode($model->site), $model->site),
-            'visible' => $model->site,
-        ],
-        [
-            'label' => 'Комментариев',
-            'type' => 'html',
-            'value' => $model->commentsCount,
-        ],
-    ],
-]);
-?>
-
-<?php Portlet::end(); ?>
-
-
+<table class="detail-view">
+    <tbody>
+        <tr>
+            <th style="width:150px; text-align:left">Username</th>
+            <td><?= Html::encode($model->username) ?></td>
+        </tr>
+        <tr>
+            <th style="width:150px; text-align:left">Сайт</th>
+            <td>
+                <?php if ($model->site) : ?>
+                    <?= Html::a(Html::encode($model->site), $model->site) ?>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <tr>
+            <th style="width:150px; text-align:left">Комментариев</th>
+            <td><?= $model->getCommentsCount() ?></td>
+        </tr>
+    </tbody>
+</table>
