@@ -72,7 +72,6 @@ class User extends ActiveRecord
                 'username',
                 'required',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -82,7 +81,6 @@ class User extends ActiveRecord
                 'string',
                 'max' => 255,
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -93,7 +91,6 @@ class User extends ActiveRecord
                 'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
                 'message' => 'Логин содержит запрещённые символы',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -103,7 +100,6 @@ class User extends ActiveRecord
                 'unique',
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -114,7 +110,6 @@ class User extends ActiveRecord
                 'email',
                 'required',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -124,7 +119,6 @@ class User extends ActiveRecord
                 'email',
                 'message' => 'Неверный формат E-mail адреса',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -134,7 +128,6 @@ class User extends ActiveRecord
                 'string',
                 'max' => 255,
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -144,7 +137,6 @@ class User extends ActiveRecord
                 'unique',
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
@@ -155,7 +147,6 @@ class User extends ActiveRecord
                 'new_password',
                 'required',
                 'on' => [
-                    self::SCENARIO_REGISTER,
                     self::SCENARIO_ADMIN_CREATE,
                 ]
             ],
@@ -234,24 +225,6 @@ class User extends ActiveRecord
                 'site',
                 'string',
                 'max' => 255
-            ],
-
-            [
-                'verifyCode',
-                'required',
-                'on' => [
-                    self::SCENARIO_REGISTER
-                ],
-            ],
-
-            [
-                'verifyCode',
-                CaptchaValidator::class,
-                'message' => 'Код подтверждения введён неверно',
-                'captchaAction' => '/user/registration/captcha',
-                'on' => [
-                    self::SCENARIO_REGISTER
-                ],
             ],
         ];
     }

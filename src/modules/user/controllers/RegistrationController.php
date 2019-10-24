@@ -3,6 +3,7 @@
 namespace app\modules\user\controllers;
 
 use app\components\actions\CaptchaAction;
+use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;
 use app\modules\user\forms\LoginForm;
@@ -23,16 +24,22 @@ class RegistrationController extends Controller
 
     public function actionRequest(): void
     {
-        $model = new User(['scenario' => User::SCENARIO_REGISTER]);
+        $model = new RegistrationForm();
 
-        if (isset($_POST['User'])) {
-            $model->attributes = $_POST['User'];
+        if (isset($_POST['RegistrationForm'])) {
+            $model->attributes = $_POST['RegistrationForm'];
 
             if ($model->validate()) {
-                $model->role = Access::ROLE_USER;
+                $user = new User();
+                $user->username = $model->username;
+                $user->email = $model->email;
+                $user->new_password = $model->password;
+                $user->lastname = $model->lastname;
+                $user->name = $model->name;
+                $user->role = Access::ROLE_USER;
 
-                if ($model->save()) {
-                    $model->sendCommit();
+                if ($user->save(false)) {
+                    $user->sendCommit();
                     Yii::app()->user->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
 
                     $this->refresh();

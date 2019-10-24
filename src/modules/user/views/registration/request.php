@@ -4,7 +4,7 @@ use app\components\widgets\Portlet;
 use yii\helpers\Html;
 
 /** @var $form CActiveForm */
-/** @var $model \app\modules\user\models\User */
+/** @var $model \app\modules\user\forms\RegistrationForm */
 $this->layout = '/layouts/user';
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'] = [
@@ -37,16 +37,16 @@ $this->params['breadcrumbs'] = [
 
         <hr />
 
-        <div class="row<?= $model->hasErrors('new_password') ? ' error' : '' ?> required">
-            <?= Html::activeLabel($model, 'new_password') ?><br />
-            <?= Html::activePasswordInput($model, 'new_password', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'new_password', ['class' => 'errorMessage']) ?>
+        <div class="row<?= $model->hasErrors('password') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'password') ?><br />
+            <?= Html::activePasswordInput($model, 'password', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'password', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row<?= $model->hasErrors('new_confirm') ? ' error' : '' ?> required">
-            <?= Html::activeLabel($model, 'new_confirm') ?><br />
-            <?= Html::activePasswordInput($model, 'new_confirm', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'new_confirm', ['class' => 'errorMessage']) ?>
+        <div class="row<?= $model->hasErrors('confirm') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'confirm') ?><br />
+            <?= Html::activePasswordInput($model, 'confirm', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'confirm', ['class' => 'errorMessage']) ?>
         </div>
 
         <hr />
