@@ -80,6 +80,13 @@ return [
         'data' => null
     ],
 
+    'module_landing' => [
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => 'Управление лендингами',
+        'bizRule' => null,
+        'data' => null
+    ],
+
     'module_user' => [
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Управление пользователями',
@@ -131,6 +138,7 @@ return [
             'module_file',
             'module_menu',
             'module_page',
+            'module_landing',
             'module_user',
             'module_blog',
             'module_portfolio',

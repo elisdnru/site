@@ -4,6 +4,7 @@ namespace app\modules\sitemap\controllers;
 
 use app\modules\blog\models\Post;
 use app\components\Controller;
+use app\modules\landing\models\Landing;
 use app\modules\sitemap\components\Sitemap;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Work;
@@ -17,6 +18,11 @@ class DefaultController extends Controller
         $models = [];
 
         $models['Page'] = Page::model()->cache(0, new Tags('page'))->findAll([
+            'condition' => 'system = 0',
+            'order' => 'title ASC',
+        ]);
+
+        $models['Landing'] = Landing::model()->cache(0, new Tags('landing'))->findAll([
             'condition' => 'system = 0',
             'order' => 'title ASC',
         ]);
@@ -41,6 +47,8 @@ class DefaultController extends Controller
             $sitemap = new Sitemap();
 
             $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), Sitemap::WEEKLY);
+
+            $sitemap->addModels(Landing::model()->findAll(['condition' => 'system = 0']), Sitemap::WEEKLY);
 
             $sitemap->addModels(Post::model()->published()->findAll(), Sitemap::DAILY, 0.8);
 
