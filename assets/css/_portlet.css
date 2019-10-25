@@ -176,7 +176,7 @@
   text-align: center;
 }
 
-.portlet-content .subscribe-form .button input {
+.portlet-content .subscribe-form .button button {
   width: auto;
   padding: 12px 18px;
   color: #fff;

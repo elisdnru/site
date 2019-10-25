@@ -23,7 +23,7 @@ $providers = [
             <input type="email" name="lead_email" placeholder="Ваш Email" required />
         </div>
         <div class="row button">
-            <input type="submit" name="submit" value="Подписаться на статьи">
+            <button type="submit">Подписаться на статьи</button>
         </div>
     </form>
 </div>
