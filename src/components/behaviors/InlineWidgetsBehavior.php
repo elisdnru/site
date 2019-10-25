@@ -3,8 +3,6 @@
 namespace app\components\behaviors;
 
 use CBehavior;
-use CComponent;
-use CController;
 use Yii;
 use yii\base\Widget;
 
@@ -129,13 +127,5 @@ class InlineWidgetsBehavior extends CBehavior
             unset($attrs['cache']);
         }
         return $cache;
-    }
-
-    /**
-     * @return CController|CComponent
-     */
-    protected function getController(): CController
-    {
-        return $this->owner;
     }
 }
