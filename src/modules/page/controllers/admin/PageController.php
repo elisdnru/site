@@ -32,13 +32,6 @@ class PageController extends AdminController
         ];
     }
 
-    public function beforeDelete($model): void
-    {
-        if ($model->system) {
-            throw new CHttpException(403, 'Отказано в доступе');
-        }
-    }
-
     public function createModel(): Page
     {
         $model = new Page();

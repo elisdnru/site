@@ -118,6 +118,9 @@ use app\modules\page\models\Page;
     <fieldset>
         <h4>Индексация</h4>
         <div class="row">
+            <?= $form->checkBox($model, 'system') ?> <?= $form->labelEx($model, 'system') ?><br />
+        </div>
+        <div class="row">
             <?= $form->labelEx($model, 'robots') ?><br />
             <?= $form->dropDownList($model, 'robots', Page::model()->getRobotsList()) ?><br />
             <?= $form->error($model, 'robots') ?>

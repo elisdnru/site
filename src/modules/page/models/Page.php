@@ -102,7 +102,7 @@ class Page extends CActiveRecord
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias, title, image_alt, pagetitle, robots, layout, subpages_layout', 'length', 'max' => 255],
             ['hidetitle, parent_id', 'numerical', 'integerOnly' => true],
-            ['date, styles, text, description, del_image', 'safe'],
+            ['date, styles, text, description, del_image, system', 'safe'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             ['id, layout, subpages_layout, alias, date, title, pagetitle, description, text', 'safe', 'on' => 'search'],
@@ -144,6 +144,7 @@ class Page extends CActiveRecord
             'pagetitle' => 'Заголовок окна (title)',
             'description' => 'Описание (description)',
             'robots' => 'Индексация (robots)',
+            'system' => 'Системная',
             'styles' => 'CSS стили',
             'text' => 'Текст',
             'image' => 'Изображение',
