@@ -57,14 +57,18 @@ module.exports = {
         "colorbox.js": [
           'assets/js/jquery.colorbox-min.js',
           'assets/js/colorbox.js'
-        ]
+        ],
+        "countdown.js": [
+          'assets/js/countdown.js'
+        ],
       },
       transform: {
         'main.js': code => minify(code).code,
         'jquery.js': code => minify(code).code,
         'comments.js': code => minify(code).code,
         'jcarousellite.js': code => minify(code).code,
-        'colorbox.js': code => minify(code).code
+        'colorbox.js': code => minify(code).code,
+        'countdown.js': code => minify(code).code
       }
     })
   ],
