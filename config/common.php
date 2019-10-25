@@ -10,6 +10,7 @@ use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRulesBehavior;
 use app\components\PhpAuthManager;
 use app\components\widgets\inline\CountDownWidget;
+use app\components\widgets\inline\SubscribeNewsWidget;
 use app\components\widgets\inline\SubscribeWebinarsWidget;
 use app\extensions\cachetagging\TaggingBehavior;
 use app\modules\block\widgets\BlockWidget;
@@ -165,6 +166,7 @@ return [
             'portfolio' => PortfolioWidget::class,
             'countdown' => CountDownWidget::class,
             'subscribe_webinars' => SubscribeWebinarsWidget::class,
+            'subscribe_news' => SubscribeNewsWidget::class,
         ],
 
         'GENERAL.SITE_NAME' => 'ElisDN',
