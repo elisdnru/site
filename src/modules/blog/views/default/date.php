@@ -18,7 +18,7 @@ $this->params['breadcrumbs'] = [
     'Записи от ' . $date->date,
 ];
 
-if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать записи', 'url' => $this->createUrl('/blog/admin/post')];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];

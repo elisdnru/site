@@ -9,7 +9,7 @@ return [
         'data' => null
     ],
 
-    'role_control' => [
+    'permission_control' => [
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => 'Пользователь панели управления',
         'children' => [
@@ -104,7 +104,7 @@ return [
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Контент-менеджер',
         'children' => [
-            'role_control',
+            'permission_control',
             'module_admin',
             'module_comment',
             'module_file',
@@ -120,7 +120,7 @@ return [
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Администратор',
         'children' => [
-            'role_control',
+            'permission_control',
             'module_admin',
             'module_block',
             'module_contact',

@@ -13,7 +13,7 @@ class AdminBarWidget extends Widget
 
     public function run(): string
     {
-        if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+        if (Yii::app()->user->checkAccess(Access::CONTROL)) {
             return $this->render('AdminBar', [
                 'links' => $this->links
             ]);

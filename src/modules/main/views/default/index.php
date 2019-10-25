@@ -16,7 +16,7 @@ $this->registerMetaTag([
     'content' => 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.',
 ]);
 
-if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::app()->moduleManager->allowed('contact')) {
         $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications('contact'));
         $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications('comment'));

@@ -50,7 +50,7 @@ if ($model->category) {
 
 $this->params['breadcrumbs'][] = $model->title;
 
-if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::app()->moduleManager->allowed('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('/blog/admin/post/update', ['id' => $model->id])];
         $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];

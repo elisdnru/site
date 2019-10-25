@@ -10,7 +10,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+<?php if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
 } ?>
 

@@ -12,7 +12,7 @@ class CacheController extends AdminController
     {
         return [
             ['allow',
-                'roles' => [Access::ROLE_CONTROL],
+                'roles' => [Access::CONTROL],
             ],
             ['deny',
                 'users' => ['*'],

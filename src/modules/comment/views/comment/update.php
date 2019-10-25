@@ -9,7 +9,7 @@ $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [
     'Редактор комментария',
 ];
-if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
+if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::app()->moduleManager->allowed('comment')) {
         $this->params['admin'][] = ['label' => 'Комментарии', 'url' => $this->createUrl('index')];
         $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->url];

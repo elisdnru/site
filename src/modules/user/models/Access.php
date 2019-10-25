@@ -8,9 +8,9 @@ use Yii;
 
 class Access extends CModel
 {
+    const CONTROL = 'permission_control';
     const ROLE_ADMIN = 'role_admin';
     const ROLE_MANAGER = 'role_manager';
-    const ROLE_CONTROL = 'role_control';
     const ROLE_USER = 'role_user';
 
     public function attributeNames(): array
