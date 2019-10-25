@@ -6,7 +6,6 @@ use app\components\behaviors\PurifyTextBehavior;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
-use app\components\uploader\FileUploadBehavior;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
@@ -23,8 +22,6 @@ use Yii;
  * @property string $styles
  * @property string $text
  * @property string $text_purified
- * @property string $image
- * @property string $image_alt
  * @property string $layout
  * @property string $subpages_layout
  * @property string $parent_id
@@ -48,9 +45,6 @@ use Yii;
  */
 class Page extends CActiveRecord
 {
-    const IMAGE_WIDTH = 250;
-    const IMAGE_PATH = 'upload/images/pages';
-
     const INDEX_FOLLOW = 'index, follow';
     const INDEX_NOFOLLOW = 'index, nofollow';
     const NOINDEX_FOLLOW = 'noindex, follow';
@@ -70,7 +64,6 @@ class Page extends CActiveRecord
         'tabschild' => 'Дочерние вкладки',
     ];
 
-    public $del_image = false;
     public $indent = 0;
 
     /**
@@ -100,9 +93,9 @@ class Page extends CActiveRecord
         return [
             ['alias, title', 'required'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            ['alias, title, image_alt, pagetitle, robots, layout, subpages_layout', 'length', 'max' => 255],
+            ['alias, title, pagetitle, robots, layout, subpages_layout', 'length', 'max' => 255],
             ['hidetitle, parent_id', 'numerical', 'integerOnly' => true],
-            ['date, styles, text, description, del_image, system', 'safe'],
+            ['date, styles, text, description, system', 'safe'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             ['id, layout, subpages_layout, alias, date, title, pagetitle, description, text', 'safe', 'on' => 'search'],
@@ -147,9 +140,6 @@ class Page extends CActiveRecord
             'system' => 'Системная',
             'styles' => 'CSS стили',
             'text' => 'Текст',
-            'image' => 'Изображение',
-            'del_image' => 'Удалить изображение',
-            'image_alt' => 'Описание для изображения',
             'file' => 'Приложенные файлы',
             'parent_id' => 'Родительская страница',
         ];
@@ -174,8 +164,6 @@ class Page extends CActiveRecord
         $criteria->compare('t.pagetitle', $this->pagetitle, true);
         $criteria->compare('t.description', $this->description, true);
         $criteria->compare('t.text', $this->text, true);
-        $criteria->compare('t.image', $this->image, true);
-        $criteria->compare('t.image_alt', $this->image_alt, true);
         $criteria->compare('t.parent_id', $this->parent_id);
         $criteria->compare('t.robots', $this->robots);
 
@@ -219,14 +207,6 @@ class Page extends CActiveRecord
                 ],
                 'processOnBeforeSave' => true,
             ],
-            'ImageUpload' => [
-                'class' => FileUploadBehavior::class,
-                'fileAttribute' => 'image',
-                'deleteAttribute' => 'del_image',
-                'enableWatermark' => true,
-                'filePath' => self::IMAGE_PATH,
-                'defaultThumbWidth' => self::IMAGE_WIDTH,
-            ],
         ];
     }
 
@@ -266,9 +246,6 @@ class Page extends CActiveRecord
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);
-        }
-        if (!$this->image_alt) {
-            $this->image_alt = $this->title;
         }
     }
 

@@ -69,31 +69,6 @@ use app\modules\page\models\Page;
         </div>
     </fieldset>
 
-    <fieldset>
-        <h4>Изображение</h4>
-
-        <?php if ($model->image) : ?>
-            <div class="image">
-                <a target="_blank" class="clightbox" href="<?= $model->imageUrl ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
-            </div>
-            <div class="row">
-                <?= $form->checkBox($model, 'del_image') ?><?= $form->labelEx($model, 'del_image') ?>
-            </div>
-
-        <?php endif; ?>
-
-        <div class="row">
-            <?= $form->labelEx($model, 'image') ?><br />
-            <?= $form->fileField($model, 'image') ?><br />
-            <?= $form->error($model, 'image') ?>
-        </div>
-        <div class="row">
-            <?= $form->labelEx($model, 'image_alt') ?><br />
-            <?= $form->textField($model, 'image_alt', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'image_alt') ?>
-        </div>
-    </fieldset>
-
     <fieldset class="editor">
         <div class="row">
             <?= $form->labelEx($model, 'text') ?><br />

@@ -15,7 +15,7 @@ use yii\db\ActiveRecord;
         <h2>
             <a href="<?= $data->material->url ?>"><?= SearchHighlighter::getFragment(strip_tags($data->title), $query) ?></a>
         </h2>
-        <?php if ($data->material->image) : ?>
+        <?php if ($data->material->hasAttribute('image')) : ?>
             <?php
             $properties = [];
             if (!empty($data->material->image_width)) {
