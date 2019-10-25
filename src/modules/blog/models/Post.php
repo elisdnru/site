@@ -125,12 +125,12 @@ class Post extends CActiveRecord
 
     public function getCommentsCount(): int
     {
-        return Comment::model()->material($this->id)->count('public=1');
+        return Comment::find()->material($this->id)->published()->count();
     }
 
     public function getCommentsNewCount(): int
     {
-        return Comment::model()->material($this->id)->count('public=1 AND moder<>1');
+        return Comment::find()->material($this->id)->published()->unread()->count();
     }
 
     /**

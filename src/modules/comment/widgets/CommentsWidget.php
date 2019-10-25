@@ -69,20 +69,22 @@ class CommentsWidget extends Widget
 
                 if ($comment->save()) {
                     Yii::app()->user->setFlash('success', 'Ваш коментарий добавлен');
-                    Yii::app()->controller->refresh();
+                    Yii::app()->controller->redirect($comment->getUrl());
                 }
             }
         }
 
-        $items = Comment::model()
+        $items = Comment::find()
+            ->where(null)
             ->type($this->type)
             ->material($this->material_id)
-            ->findAll(['order' => 't.id ASC']);
+            ->orderBy(['id' => SORT_ASC])
+            ->all();
 
         $comments = [];
 
         foreach ($items as $item) {
-            $comments[$item->parent_id][] = $item;
+            $comments[$item->parent_id ?? 0][] = $item;
         }
 
         CommentsAsset::register(Yii::$app->view);

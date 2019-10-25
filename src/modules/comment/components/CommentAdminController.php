@@ -2,20 +2,19 @@
 
 namespace app\modules\comment\components;
 
-use app\components\crud\actions\ToggleAction;
-use app\components\crud\actions\UpdateAction;
-use app\components\crud\actions\ViewAction;
+use app\components\crud\actions\v2\ToggleAction;
+use app\components\crud\actions\v2\UpdateAction;
+use app\components\crud\actions\v2\ViewAction;
 use app\modules\comment\models\Comment;
-use CActiveDataProvider;
 use CActiveRecord;
-use CDbCriteria;
 use CException;
 use CHttpException;
 use app\components\AdminController;
+use yii\data\ActiveDataProvider;
 
 class CommentAdminController extends AdminController
 {
-    const COMMENTS_PER_PAGE = 20;
+    private const COMMENTS_PER_PAGE = 20;
 
     public function filters(): array
     {
@@ -38,22 +37,21 @@ class CommentAdminController extends AdminController
 
     public function actionIndex($id = 0): void
     {
-        $criteria = new CDbCriteria;
+        $query = $this->getModelName()::find();
 
         if ($id && $material = $this->loadMaterialModel($id)) {
-            $criteria->compare('material_id', $id);
+            $query->material($id);
         } else {
             $material = null;
         }
 
-        $dataProvider = new CActiveDataProvider(call_user_func([$this->getModelName(), 'model']), [
-            'criteria' => $criteria,
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
             'sort' => [
-                'defaultOrder' => 't.date DESC'
+                'defaultOrder' => ['date' => SORT_DESC],
             ],
             'pagination' => [
                 'pageSize' => self::COMMENTS_PER_PAGE,
-                'pageVar' => 'page',
             ]
         ]);
 
@@ -67,7 +65,7 @@ class CommentAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->child_items) {
+        if ($model->children) {
             $model->public = false;
             $success = $model->save(false);
         } else {
@@ -96,10 +94,7 @@ class CommentAdminController extends AdminController
 
     public function actionModerAll(): void
     {
-        /** @var Comment[] $items */
-        $items = CActiveRecord::model($this->getModelName())->findAllByAttributes(['moder' => 0]);
-
-        foreach ($items as $item) {
+        foreach ($this->getModelName()::find()->unread()->each() as $item) {
             $item->moder = 1;
             $item->save();
         }
@@ -110,7 +105,7 @@ class CommentAdminController extends AdminController
     public function loadModel($id): Comment
     {
         /** @var Comment $model */
-        $model = CActiveRecord::model($this->getModelName())->findByPk($id);
+        $model = $this->getModelName()::findOne($id);
         if ($model === null) {
             throw new CHttpException(404, 'Комментарий не найден');
         }
@@ -122,6 +117,9 @@ class CommentAdminController extends AdminController
         throw new CException('Undefined material model ' . $id);
     }
 
+    /**
+     * @return string|Comment
+     */
     protected function getModelName(): string
     {
         return Comment::class;

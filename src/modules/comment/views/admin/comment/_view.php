@@ -16,10 +16,10 @@ endif; ?><?php if (!$data->public) :
     ?> nopublcomment<?php
 endif; ?>" id="comment_<?= $data->id ?>">
 
-    <?php if ($data->cache(1000)->user) : ?>
-        <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>">
+    <?php if ($data->user) : ?>
+        <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>" alt="">
     <?php else : ?>
-        <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>">
+        <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>" alt="">
     <?php endif; ?>
 
     <header>

@@ -34,10 +34,7 @@ class Module extends Base implements UrlProvider
 
     public static function notifications(): array
     {
-        $comments = Comment::model()->count([
-            'condition' => 'moder=0 AND type=:type',
-            'params' => [':type' => Comment::TYPE_OF_COMMENT],
-        ]);
+        $comments = Comment::find()->unread()->count();
 
         return [
             ['label' => 'Комментарии к записям' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/blog/admin/comment/index'], 'icon' => 'comments.png'],

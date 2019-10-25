@@ -1,29 +1,20 @@
 <?php
+use app\components\helpers\DateHelper;
+use app\components\helpers\SocNetworkHelper;
+use app\components\helpers\TextHelper;
 /** @var $indent int */
 /** @var $authorId int */
 /** @var $comment \app\modules\comment\models\Comment */
 /** @var $user \app\modules\user\models\User */
 ?>
-<article class="comment<?php use app\components\helpers\DateHelper;
-use app\components\helpers\SocNetworkHelper;
-use app\components\helpers\TextHelper;
-
-if ($authorId == $comment->user_id) :
-    ?> author<?php
-endif; ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
-
-    <?php if ($comment->cache(1000)->user) :
-        ?>
+<article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
+    <?php if ($comment->user): ?>
         <img class="userpic" src="<?= $comment->getAvatarUrl(50, 50) ?>" alt="">
-    <?php
-    else :
-        ?>
+    <?php else: ?>
         <img class="userpic" src="<?= CHtml::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
-    <?php
-    endif; ?>
+    <?php endif; ?>
 
     <header>
-
         <span class="link">
             <?php if ($user && $comment->user && $user->id == $comment->user_id) :
                 ?>

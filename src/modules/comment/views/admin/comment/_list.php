@@ -1,15 +1,12 @@
 <?php
-/** @var $dataProvider CDataProvider */
-?>
+/** @var $dataProvider \yii\data\ActiveDataProvider */
+
+use yii\widgets\LinkPager; ?>
 
 <div class="items">
-    <?php foreach ($dataProvider->getData() as $data) : ?>
+    <?php foreach ($dataProvider->getModels() as $data) : ?>
         <?php $this->renderPartial('comment.views.admin.comment._view', ['data' => $data]) ?>
     <?php endforeach; ?>
 </div>
 
-<div class="pager">
-    <?php Yii::app()->controller->widget('system.web.widgets.pagers.CLinkPager', [
-        'pages' => $dataProvider->getPagination(),
-    ]) ?>
-</div>
+<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]) ?>

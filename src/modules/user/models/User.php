@@ -230,7 +230,7 @@ class User extends ActiveRecord
 
     public function getCommentsCount(): int
     {
-        return Comment::model()->user($this->id)->count('public=1');
+        return Comment::find()->user($this->id)->published()->count();
     }
 
     public function attributeLabels(): array

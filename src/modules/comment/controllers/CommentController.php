@@ -63,15 +63,15 @@ class CommentController extends Controller
         ]);
     }
 
-    protected function loadModel($id): Comment
+    private function loadModel($id): Comment
     {
-        if (Yii::app()->moduleManager->allowed('comment')) {
-            $condition = '';
-        } else {
-            $condition = 'public = 1';
+        $query = Comment::find()->andWhere(['id' => $id]);
+
+        if (!Yii::app()->moduleManager->allowed('comment')) {
+            $query->published();
         }
 
-        $model = Comment::model()->findByPk($id, $condition);
+        $model = $query->andWhere(['id' => $id])->one();
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');
         }

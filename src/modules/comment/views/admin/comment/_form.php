@@ -3,6 +3,7 @@
 
 use app\modules\comment\models\Comment;
 use app\components\AdminController;
+use yii\helpers\Html;
 
 /** @var $model Comment */
 /** @var $form CActiveForm */
@@ -10,69 +11,69 @@ use app\components\AdminController;
 
 <div class="form">
 
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'id' => 'block-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-        'htmlOptions' => ['enctype' => 'multipart/form-data']
-    ]); ?>
+    <form action="?" method="post" enctype="multipart/form-data">
 
-    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
+        <?= Html::hiddenInput(Yii::app()->request->csrfTokenName, Yii::app()->request->getCsrfToken()) ?>
 
-    <?= $form->errorSummary($model) ?>
+        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
-    </div>
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
-    <fieldset>
-        <div class="row">
-            <?= $form->labelEx($model, 'date') ?><br />
-            <?= $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'date') ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
-        <div class="row">
-            <?= $form->labelEx($model, 'parent_id') ?><br />
-            <?= $form->textField($model, 'parent_id', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'parent_id') ?>
+
+        <fieldset>
+            <div class="row<?= $model->hasErrors('date') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'date') ?><br />
+                <?= Html::activeTextInput($model, 'date') ?><br />
+                <?= Html::error($model, 'date', ['class' => 'errorMessage']) ?>
+            </div>
+
+            <div class="row<?= $model->hasErrors('parent_id') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'parent_id') ?><br />
+                <?= Html::activeTextInput($model, 'parent_id') ?><br />
+                <?= Html::error($model, 'parent_id', ['class' => 'errorMessage']) ?>
+            </div>
+
+            <?php if ($model->user) : ?>
+                <p class="nomargin">
+                    <a href="<?= $this->createUrl('/user/admin/user/update', ['id' => $model->user_id]) ?>"><?= $model->user->fio ?></a>
+                </p>
+            <?php else : ?>
+
+                <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
+                    <?= Html::activeLabel($model, 'name') ?><br />
+                    <?= Html::activeTextInput($model, 'name') ?><br />
+                    <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
+                </div>
+
+                <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?>">
+                    <?= Html::activeLabel($model, 'email') ?><br />
+                    <?= Html::activeTextInput($model, 'email', ['type' => 'email']) ?><br />
+                    <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+                </div>
+
+                <div class="row<?= $model->hasErrors('site') ? ' error' : '' ?>">
+                    <?= Html::activeLabel($model, 'site') ?><br />
+                    <?= Html::activeTextInput($model, 'site', ['type' => 'url']) ?><br />
+                    <?= Html::error($model, 'site', ['class' => 'errorMessage']) ?>
+                </div>
+            <?php endif; ?>
+        </fieldset>
+
+        <fieldset class="editor">
+            <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'text') ?><br />
+                <?= Html::activeTextarea($model, 'text', ['rows' => 20, 'cols' => 80]) ?><br />
+                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
-        <?php if ($model->user) : ?>
-            <p class="nomargin">
-                <a href="<?= $this->createUrl('/user/admin/user/update', ['id' => $model->user_id]) ?>"><?= $model->user->fio ?></a>
-            </p>
-        <?php else : ?>
-            <div class="row">
-                <?= $form->labelEx($model, 'name') ?><br />
-                <?= $form->textField($model, 'name', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= $form->error($model, 'name') ?>
-            </div>
-            <div class="row">
-                <?= $form->labelEx($model, 'email') ?><br />
-                <?= $form->textField($model, 'email', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= $form->error($model, 'email') ?>
-            </div>
-            <div class="row">
-                <?= $form->labelEx($model, 'site') ?><br />
-                <?= $form->textField($model, 'site', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= $form->error($model, 'site') ?>
-            </div>
-        <?php endif; ?>
-    </fieldset>
 
-    <fieldset class="editor">
-        <div class="row">
-            <?= $form->labelEx($model, 'text') ?><br />
-            <?= $form->textArea($model, 'text', ['rows' => 20, 'cols' => 80]) ?><br />
-            <?= $form->error($model, 'text') ?>
-        </div>
-    </fieldset>
-
-    <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
-    </div>
-
-    <?php Yii::app()->controller->endWidget(); ?>
+    </form>
 
 </div><!-- form -->

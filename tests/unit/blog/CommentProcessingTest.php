@@ -22,7 +22,6 @@ class CommentProcessingTest extends DbTestCase
 
         $comment = new Comment();
 
-        $comment->parent_id = 0;
         $comment->material_id = 1;
         $comment->public = 1;
         $comment->moder = 0;

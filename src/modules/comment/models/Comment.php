@@ -2,12 +2,16 @@
 
 namespace app\modules\comment\models;
 
-use app\components\behaviors\PurifyTextBehavior;
+use app\components\behaviors\v2\PurifyTextBehavior;
 use app\components\helpers\GravatarHelper;
-use CActiveRecord;
+use app\modules\comment\models\query\CommentQuery;
 use app\modules\user\models\User;
 use ReflectionClass;
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * @property string $id
@@ -23,30 +27,20 @@ use Yii;
  * @property integer $public
  * @property integer $moder
  * @property integer $parent_id
- * @property Comment[] child_items
+ * @property Comment[] children
  * @property integer $likes
  * @property User user
  * @property Comment parent
- * @property CActiveRecord material
+ * @property ActiveRecord $material
  */
-class Comment extends CActiveRecord
+class Comment extends ActiveRecord
 {
-    protected $type_of_comment = '';
-    protected $lang_of_system = '';
-
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
+    public const TYPE_OF_COMMENT = null;
 
     /**
      * @return string the associated database table name
      */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'comments';
     }
@@ -56,22 +50,23 @@ class Comment extends CActiveRecord
      */
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
+        $anon = static function (self $model) {
+            return !$model->user_id;
+        };
+
         return [
-            ['material_id, type, text', 'required'],
-            ['user_id, parent_id', 'numerical', 'integerOnly' => true],
-            ['material_id, user_id, type', 'unsafe'],
+            [['text'], 'required'],
+            [['parent_id'], 'integer'],
 
-            ['name', 'length', 'max' => 255],
-            ['name', 'required', 'message' => 'Представьтесь', 'on' => 'anonim'],
+            ['name', 'required', 'message' => 'Представьтесь', 'when' => $anon],
+            ['name', 'string', 'max' => 255, 'when' => $anon],
 
-            ['email', 'length', 'max' => 255],
-            ['email', 'email', 'message' => 'Неверный формат Email адреса'],
-            ['email', 'required', 'message' => 'Введите Email', 'on' => 'anonim'],
+            ['email', 'required', 'message' => 'Введите Email', 'when' => $anon],
+            ['email', 'string', 'max' => 255, 'when' => $anon],
+            ['email', 'email', 'when' => $anon],
 
-            ['site', 'url'],
-            ['site', 'length', 'max' => 255],
+            ['site', 'url', 'when' => $anon],
+            ['site', 'string', 'max' => 255, 'when' => $anon],
 
             ['text', 'fixedText'],
         ];
@@ -83,21 +78,19 @@ class Comment extends CActiveRecord
         $this->$attribute = preg_replace('#([^\n])\n?<pre\>#s', "$1\n\n<pre>", $this->$attribute);
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public function getParent(): ActiveQuery
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return [
-            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-        ];
+        return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
 
-    public function getUser(): ?User
+    public function getChildren(): ActiveQuery
     {
-        return User::findOne($this->user_id);
+        return $this->hasMany(static::class, ['parent_id' => 'id']);
+    }
+
+    public function getUser(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
     /**
@@ -118,23 +111,21 @@ class Comment extends CActiveRecord
         ];
     }
 
-    public function scopes(): array
+    public static function find(): CommentQuery
     {
-        return [
-            'published' => [
-                'condition' => 't.public=1',
-            ],
-        ];
+        return new CommentQuery(static::class);
     }
 
     public function behaviors(): array
     {
         return [
             'CTimestamp' => [
-                'class' => 'zii.behaviors.CTimestampBehavior',
-                'createAttribute' => 'date',
-                'updateAttribute' => null,
-                'setUpdateOnCreate' => false,
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'date',
+                'updatedAtAttribute' => null,
+                'value' => static function () {
+                    return new Expression('NOW()');
+                },
             ],
             'PurifyText' => [
                 'class' => PurifyTextBehavior::class,
@@ -153,86 +144,19 @@ class Comment extends CActiveRecord
         ];
     }
 
-    protected function instantiate($attributes): self
+    public static function instantiate($row): self
     {
-        $class = (new ReflectionClass($attributes['type']))->getNamespaceName() . '\Comment';
+        $class = (new ReflectionClass($row['type']))->getNamespaceName() . '\Comment';
         return new $class(null);
     }
 
-    // scope
-    public function material($id): self
+    public function beforeSave($insert): bool
     {
-        if ($id) {
-            $this->getDbCriteria()->mergeWith([
-                'condition' => 'material_id=:id',
-                'params' => [':id' => $id],
-            ]);
-        }
-        return $this;
-    }
-
-    // scope
-    public function type($type): self
-    {
-        if ($type) {
-            $this->getDbCriteria()->mergeWith([
-                'condition' => 'type=:type',
-                'params' => [':type' => $type],
-            ]);
-        }
-        return $this;
-    }
-
-    // scope
-    public function user($id): self
-    {
-        if ($id) {
-            $this->getDbCriteria()->mergeWith([
-                'condition' => 'user_id=:user',
-                'params' => [':user' => $id],
-            ]);
-        }
-        return $this;
-    }
-
-    public function find($condition = '', $params = [])
-    {
-        $this->type($this->type_of_comment);
-        return parent::find($condition, $params);
-    }
-
-    public function findAll($condition = '', $params = []): array
-    {
-        $this->type($this->type_of_comment);
-        return parent::findAll($condition, $params);
-    }
-
-    public function findAllByAttributes($attributes, $condition = '', $params = []): array
-    {
-        $this->type($this->type_of_comment);
-        return parent::findAllByAttributes($attributes, $condition, $params);
-    }
-
-    public function count($condition = '', $params = []): int
-    {
-        $this->type($this->type_of_comment);
-        return parent::count($condition, $params);
-    }
-
-    protected function beforeValidate(): bool
-    {
-        if (parent::beforeValidate()) {
-            $this->initType();
-            return true;
-        }
-        return false;
-    }
-
-    protected function beforeSave(): bool
-    {
-        if (parent::beforeSave()) {
+        if (parent::beforeSave($insert)) {
             $this->fillDefaultValues();
-            $this->initType();
+            if (!$this->type) {
+                $this->type = static::TYPE_OF_COMMENT;
+            }
             if (!$this->type) {
                 return false;
             }
@@ -243,27 +167,20 @@ class Comment extends CActiveRecord
 
     private function fillDefaultValues(): void
     {
-        if ($this->cache(0)->user) {
+        if ($this->user) {
             $this->email = $this->user->email;
             $this->name = trim($this->user->name . ' ' . $this->user->lastname);
             $this->site = $this->user->site;
         }
     }
 
-    private function initType(): void
-    {
-        if (!$this->type) {
-            $this->type = $this->type_of_comment;
-        }
-    }
-
-    protected function afterSave(): void
+    public function afterSave($insert, $changedAttributes): void
     {
         if ($this->isNewRecord) {
             $this->sendNotifications();
         }
 
-        parent::afterSave();
+        parent::afterSave($insert, $changedAttributes);
     }
 
     private function sendNotifications(): void
@@ -306,7 +223,7 @@ class Comment extends CActiveRecord
         $index = $width . 'x' . $height;
 
         if (!isset($this->_avatarUrl[$index])) {
-            if ($this->cache(1000)->user) {
+            if ($this->user) {
                 $this->_avatarUrl[$index] = $this->user->getAvatarUrl($width, $height);
             } else {
                 $this->_avatarUrl[$index] = GravatarHelper::get($this->email, $width);

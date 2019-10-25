@@ -28,7 +28,7 @@ class AjaxController extends Controller
             throw new CHttpException(403);
         }
 
-        if ($model->child_items) {
+        if ($model->children) {
             $model->public = false;
             $success = $model->save(false);
         } else {
@@ -85,7 +85,7 @@ class AjaxController extends Controller
 
     protected function loadModel($id): Comment
     {
-        $model = Comment::model()->findByPk($id);
+        $model = Comment::findOne($id);
         if ($model === null) {
             throw new CHttpException(404, 'Комментарий не найден');
         }

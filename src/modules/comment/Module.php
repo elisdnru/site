@@ -18,9 +18,7 @@ class Module extends Base implements UrlProvider
 
     public static function notifications(): array
     {
-        $comments = Comment::model()->count([
-            'condition' => 'moder=0',
-        ]);
+        $comments = Comment::find()->unread()->count();
 
         return [
             ['label' => 'Все комментарии' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/comment/admin/comment/index'], 'icon' => 'comments.png'],
