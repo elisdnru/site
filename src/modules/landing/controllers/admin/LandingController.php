@@ -32,13 +32,6 @@ class LandingController extends AdminController
         ];
     }
 
-    public function beforeDelete($model): void
-    {
-        if ($model->system) {
-            throw new CHttpException(403, 'Отказано в доступе');
-        }
-    }
-
     public function createModel(): Landing
     {
         $model = new Landing();
