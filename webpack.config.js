@@ -14,7 +14,8 @@ module.exports = {
     'admin-bar': './assets/css/admin-bar.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
-    colorbox: './assets/css/colorbox.css'
+    colorbox: './assets/css/colorbox.css',
+    highlight: './assets/css/highlight.css'
   },
   output: {
     path: __dirname + '/public/build',

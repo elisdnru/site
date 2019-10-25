@@ -1,6 +1,7 @@
 <?php
 /** @var $this Controller */
 
+use app\assets\HighlightAsset;
 use app\components\helpers\StyleHelper;
 use app\components\widgets\ShareWidget;
 use app\extensions\cachetagging\Tags;
@@ -63,8 +64,7 @@ if (Yii::app()->user->checkAccess(Access::ROLE_CONTROL)) {
     }
 }
 
-CTextHighlighter::registerCssFile();
-
+HighlightAsset::register(Yii::$app->view);
 ?>
 
 <?php if (!$model->public) : ?>
