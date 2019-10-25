@@ -4,7 +4,7 @@ use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
 /** @var $page Page */
-$this->title = 'Error';
+$this->title = 'Ошибка';
 $this->params['breadcrumbs'] = [
     'Ошибка ' . ($error['code'] ?? ''),
 ];
@@ -23,4 +23,5 @@ $this->params['breadcrumbs'] = [
     <p>Line: <?= isset($error['line']) ? CHtml::encode($error['line']) : '' ?></p>
 <?php endif; ?>
 
-<?= $this->decodeWidgets(trim($page->text_purified)) ?>
+<p>Так получилось...</p>
+<p><a href="/">На главную</a></p>
