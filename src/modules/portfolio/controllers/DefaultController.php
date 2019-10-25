@@ -51,7 +51,7 @@ class DefaultController extends PortfolioBaseController
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getStartCriteria();
-        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildsArray()));
+        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildrenArray()));
 
         /** @var Category $cached */
         $cached = $category->cache(3600 * 24);

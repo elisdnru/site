@@ -10,7 +10,7 @@ use Yii;
  * @property string $parentAttribute
  * @property string $parentRelation
  *
- * @property integer[] $childsArray
+ * @property integer[] $childrenArray
  * @property mixed $tabList
  * @property string $path
  * @property string $breadcrumbs
@@ -31,7 +31,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getChildsArray($parent = 0): array
+    public function getChildrenArray($parent = 0): array
     {
         $parents = $this->processParents($parent);
 
@@ -46,18 +46,18 @@ class CategoryTreeBehavior extends CategoryBehavior
         $result = [];
 
         foreach ($parents as $parent_id) {
-            $this->_childsArrayRecursive($items, $result, $parent_id);
+            $this->_childrenArrayRecursive($items, $result, $parent_id);
         }
 
         return array_unique($result);
     }
 
-    protected function _childsArrayRecursive(array &$items, array &$result, $parent_id)
+    protected function _childrenArrayRecursive(array &$items, array &$result, $parent_id)
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id) {
                 $result[] = $item[$this->getPrimaryKeyAttribute()];
-                $this->_childsArrayRecursive($items, $result, $item[$this->getPrimaryKeyAttribute()]);
+                $this->_childrenArrayRecursive($items, $result, $item[$this->getPrimaryKeyAttribute()]);
             }
         }
     }
@@ -187,7 +187,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         }
 
         if ($parent) {
-            $criteria->compare($this->getPrimaryKeyAttribute(), $this->getChildsArray($parent));
+            $criteria->compare($this->getPrimaryKeyAttribute(), $this->getChildrenArray($parent));
         }
 
         $items = $this->cached($this->getModel())->findAll($criteria);
@@ -227,7 +227,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         }
 
         if ($parent) {
-            $criteria->compare($this->getPrimaryKeyAttribute(), $this->getChildsArray($parent));
+            $criteria->compare($this->getPrimaryKeyAttribute(), $this->getChildrenArray($parent));
         }
 
         $items = $this->cached($this->getModel())->findAll($criteria);
@@ -397,7 +397,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         }
 
         if ($parent) {
-            $criteria->compare($this->getPrimaryKeyAttribute(), array_merge([$parent], $this->getChildsArray($parent)));
+            $criteria->compare($this->getPrimaryKeyAttribute(), array_merge([$parent], $this->getChildrenArray($parent)));
         }
 
         $command = $this->createFindCommand($criteria);

@@ -23,7 +23,7 @@ use Yii;
  * @method Category findByAlias($alias)
  * @method Category findByPath($path)
  * @method boolean isChildOf($parent)
- * @method mixed getChildsArray($parent = 0)
+ * @method mixed getChildrenArray($parent = 0)
  * @method mixed getAssocList($parent = 0)
  * @method mixed getAliasList($parent = 0)
  * @method mixed getTabList($parent = 0)

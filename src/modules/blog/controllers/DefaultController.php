@@ -32,7 +32,7 @@ class DefaultController extends Controller
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildsArray()));
+        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildrenArray()));
 
         $this->render('category', [
             'dataProvider' => $this->createProvider($criteria),
