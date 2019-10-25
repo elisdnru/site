@@ -2,19 +2,9 @@
 
 return [
 
-    'role_guest' => [
-        'type' => CAuthItem::TYPE_ROLE,
-        'description' => 'Гость',
-        'bizRule' => null,
-        'data' => null
-    ],
-
     'role_user' => [
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Пользователь',
-        'children' => [
-            'role_guest',
-        ],
         'bizRule' => null,
         'data' => null
     ],

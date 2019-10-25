@@ -8,7 +8,7 @@
 
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRulesBehavior;
-use app\components\PhpAuthManager;
+use app\components\UserAuthManager;
 use app\components\widgets\inline\CountDownWidget;
 use app\components\widgets\inline\MailToWidget;
 use app\components\widgets\inline\SubscribeNewsWidget;
@@ -19,7 +19,6 @@ use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
 use app\modules\page\widgets\PageWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
-use app\modules\user\components\WebUser;
 
 CHtml::setModelNameConverter(static function ($model) {
     return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;
@@ -76,7 +75,6 @@ return [
         ],
 
         'user' => [
-            'class' => WebUser::class,
             'allowAutoLogin' => true,
             'loginUrl' => ['/user/default/login'],
         ],
@@ -104,8 +102,8 @@ return [
         ],
 
         'authManager' => [
-            'class' => PhpAuthManager::class,
-            'defaultRoles' => ['role_guest'],
+            'class' => UserAuthManager::class,
+            'authFile' => __DIR__ . '/auth.php'
         ],
 
         'moduleManager' => [
