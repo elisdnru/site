@@ -2,11 +2,8 @@
 
 namespace app\modules\landing\models;
 
-use app\components\behaviors\PurifyTextBehavior;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
-use app\components\helpers\TextHelper;
-use app\components\uploader\FileUploadBehavior;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;

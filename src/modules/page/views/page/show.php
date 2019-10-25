@@ -1,7 +1,6 @@
 <?php
 
 use app\components\helpers\StyleHelper;
-use app\extensions\cachetagging\Tags;
 use app\modules\page\models\Page;
 
 /** @var $page Page */

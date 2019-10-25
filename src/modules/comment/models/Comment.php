@@ -4,9 +4,7 @@ namespace app\modules\comment\models;
 
 use app\components\behaviors\PurifyTextBehavior;
 use app\components\helpers\GravatarHelper;
-use CActiveDataProvider;
 use CActiveRecord;
-use CDbCriteria;
 use app\modules\user\models\User;
 use ReflectionClass;
 use Yii;

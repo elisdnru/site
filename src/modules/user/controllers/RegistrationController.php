@@ -6,8 +6,6 @@ use app\components\actions\CaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;
-use app\modules\user\forms\LoginForm;
-use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use Yii;
 
