@@ -8,6 +8,7 @@ use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\db\Connection;
 use yii\web\JqueryAsset;
+use yii\widgets\LinkPager;
 
 $runtime = dirname(__DIR__, 2) . '/var/' . PHP_SAPI;
 
@@ -21,6 +22,7 @@ parse_str($mailerUri['query'], $mailerQuery);
 return [
     'id' => 'app',
     'basePath' => dirname(__DIR__, 2) . '/src',
+    'vendorPath' => dirname(__DIR__, 2) . '/vendor',
     'runtimePath' => $runtime,
     'name' => 'Site',
     'sourceLanguage' => 'en',
@@ -159,6 +161,15 @@ return [
             'fileMode' => 0666,
         ] : [
             'class' => DummyCache::class,
+        ],
+    ],
+
+    'container' => [
+        'definitions' => [
+            LinkPager::class => [
+                'prevPageLabel' => '&laquo; назад',
+                'nextPageLabel' => 'далее &raquo;',
+            ],
         ],
     ],
 

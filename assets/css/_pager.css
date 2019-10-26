@@ -30,6 +30,7 @@ ul.paginator .page a {
 }
 
 ul.paginator a:hover {
+  text-decoration: none;
   background: #358fe7;
   color: #fff;
 }
@@ -63,6 +64,88 @@ ul.paginator .last {
 
 @media screen and (min-width: 480px) {
   ul.paginator .previous, ul.paginator .next {
+    display: inline-block;
+  }
+}
+
+ul.pagination {
+  padding: 0;
+  clear: both;
+  line-height: 1.4;
+  text-align: center;
+  margin: 20px 0 20px 0;
+  font-size: 0;
+}
+
+ul.pagination li {
+  display: inline-block;
+  margin: 0;
+  padding: 0 2px;
+  font-size: 13px;
+}
+
+ul.pagination li a,
+ul.pagination li span {
+  margin: 0;
+  display: inline-block;
+  padding: 6px 12px;
+  background: #eee;
+  color: #333;
+}
+
+ul.pagination li a {
+  text-decoration: underline;
+}
+
+ul.pagination li a:hover {
+  background: #358fe7;
+  color: #fff;
+}
+
+ul.pagination .active a {
+  text-decoration: none;
+  background: #444;
+  color: #fff;
+  margin: 0;
+  padding: 6px 12px;
+  cursor: default;
+}
+
+ul.pagination .prev.disabled,
+ul.pagination .next.disable {
+  visibility: hidden;
+}
+
+ul.pagination .prev a,
+ul.pagination .next a {
+  text-decoration: underline;
+}
+
+ul.pagination .prev a:hover,
+ul.pagination .next a:hover {
+  text-decoration: none;
+  background: #358fe7;
+  color: #fff;
+}
+
+ul.pagination .prev a,
+ul.pagination .prev span,
+ul.pagination .next a,
+ul.pagination .next span {
+  background: none;
+}
+
+ul.pagination .prev, ul.pagination .next {
+  display: none;
+}
+
+ul.pagination .first,
+ul.pagination .last {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  ul.pagination .prev, ul.pagination .next {
     display: inline-block;
   }
 }
