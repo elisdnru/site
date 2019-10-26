@@ -10,6 +10,7 @@ use app\modules\page\models\Page;
 use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 use Yii;
+use yii\caching\TagDependency;
 
 class DefaultController extends Controller
 {
@@ -31,9 +32,10 @@ class DefaultController extends Controller
             'order' => 'title ASC',
         ]);
 
-        $models['PortfolioWork'] = Work::model()->cache(0, new Tags('portfolio'))->published()->findAll([
-            'order' => 'title ASC',
-        ]);
+        $models['PortfolioWork'] = Work::find()->published()
+            ->cache(0, new TagDependency(['tags' => 'portfolio']))
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
 
         $this->render('index', [
             'items' => $models,

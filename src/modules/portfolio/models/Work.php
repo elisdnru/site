@@ -2,12 +2,11 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\behaviors\PurifyTextBehavior;
-use app\components\helpers\TextHelper;
-use app\components\uploader\FileUploadBehavior;
-use app\components\validators\ExistOrEmpty;
-use CActiveRecord;
+use app\components\behaviors\v2\PurifyTextBehavior;
+use app\components\uploader\v2\FileUploadBehavior;
+use app\modules\portfolio\models\query\WorkQuery;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * @property integer $id
@@ -34,64 +33,42 @@ use Yii;
  * @mixin FileUploadBehavior
  * @method Work published()
  */
-class Work extends CActiveRecord
+class Work extends ActiveRecord
 {
-    const IMAGE_WIDTH = 250;
-    const IMAGE_PATH = 'upload/images/portfolio';
+    public const IMAGE_WIDTH = 250;
+    public const IMAGE_PATH = 'upload/images/portfolio';
 
     public $del_image = false;
 
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'portfolio_works';
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
+    public static function find(): WorkQuery
+    {
+        return new WorkQuery(self::class);
+    }
+
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return [
-            ['date, category_id, alias, title', 'required'],
-            ['sort, public, image_show', 'numerical', 'integerOnly' => true],
-            ['category_id', ExistOrEmpty::class, 'className' => Category::class, 'attributeName' => 'id'],
-            ['short, text, description, del_image', 'safe'],
-            ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
-            ['title, alias, pagetitle', 'length', 'max' => '255'],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
+            [['date', 'category_id', 'alias', 'title'], 'required'],
+            [['sort', 'public', 'image_show'], 'integer'],
+            // ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
+            [['short', 'text', 'description', 'del_image'], 'safe'],
+            ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
+            [['title', 'alias', 'pagetitle'], 'string', 'max' => '255'],
+            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#s'],
+            ['alias', 'unique'],
         ];
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public function getCategory(): ?Category
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return [
-            'category' => [self::BELONGS_TO, Category::class, 'category_id'],
-        ];
+        return Category::model()->findByPk($this->category_id);
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [
@@ -109,15 +86,6 @@ class Work extends CActiveRecord
             'del_image' => 'Удалить изображение',
             'image_show' => 'Отображать при открытии',
             'public' => 'Опубликовано',
-        ];
-    }
-
-    public function scopes(): array
-    {
-        return [
-            'published' => [
-                'condition' => 't.public=1',
-            ],
         ];
     }
 
@@ -157,9 +125,9 @@ class Work extends CActiveRecord
         ];
     }
 
-    protected function beforeSave(): bool
+    public function beforeSave($insert): bool
     {
-        if (parent::beforeSave()) {
+        if (parent::beforeSave($insert)) {
             $this->fillDefaultValues();
             return true;
         }
@@ -168,9 +136,6 @@ class Work extends CActiveRecord
 
     private function fillDefaultValues(): void
     {
-        if (!$this->alias) {
-            $this->alias = TextHelper::strToChpu($this->title);
-        }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);
         }
@@ -179,41 +144,31 @@ class Work extends CActiveRecord
         }
     }
 
-    protected function afterSave(): void
+    public function afterSave($insert, $changedAttributes): void
     {
         if (!$this->sort) {
-            Yii::$app->db
-                ->createCommand('UPDATE ' . $this->tableName() . ' SET `sort`=`id` WHERE id=:id', [':id' => $this->id])
-                ->execute();
-            $this->sort = $this->id;
+            $this->updateAttributes(['sort' => $this->sort = $this->id]);
         }
-        parent::afterSave();
+        parent::afterSave($insert, $changedAttributes);
     }
 
     public function getAssocList($only_public = false): array
     {
         if ($only_public) {
-            $items = self::model()->published()->findAll(['order' => 'date DESC']);
+            $query = self::find()->published();
         } else {
-            $items = self::model()->findAll(['order' => 'date DESC']);
+            $query = self::find();
         }
 
-        $result = [];
-
-        foreach ($items as $item) {
-            $result[$item['id']] = $item['title'];
-        }
-
-        return $result;
+        return $query
+            ->orderBy(['date' => SORT_DESC])
+            ->select(['title', 'id'])
+            ->indexBy('id')->column();
     }
 
-    public function findByAlias($alias): ?self
+    public static function findByAlias($alias): ?self
     {
-        $model = $this->find([
-            'condition' => 'alias = :alias',
-            'params' => [':alias' => $alias]
-        ]);
-        return $model;
+        return self::find()->andWhere(['alias' => $alias])->one();
     }
 
     private $_url;

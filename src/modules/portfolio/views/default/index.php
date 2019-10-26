@@ -10,11 +10,11 @@ use app\modules\user\models\Access;
 /** @var $categories Category[] */
 $this->layout = '/layouts/index';
 
-$this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = $page->pagetitle;
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar),
+    'content' => $page->description,
 ]);
 
 $this->params['breadcrumbs'] = [

@@ -1,11 +1,13 @@
 <?php
-/** @var $dataProvider CDataProvider */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 use app\modules\portfolio\models\Work;
+use yii\widgets\LinkPager;
+
 ?>
 
 <div id="worklist" class = "greed_container">
     <div class="items">
-        <?php foreach ($dataProvider->getData() as $work) : ?>
+        <?php foreach ($dataProvider->getModels() as $work) : ?>
             <?php /** @var Work $work */ ?>
             <div class="entry greed">
                 <p class="thumb">
@@ -16,6 +18,6 @@ use app\modules\portfolio\models\Work;
     </div>
 </div>
 
-<?php Yii::app()->controller->widget(CLinkPager::class, [
-    'pages' => $dataProvider->getPagination(),
-]); ?>
+<?= LinkPager::widget([
+    'pagination' => $dataProvider->getPagination(),
+]) ?>

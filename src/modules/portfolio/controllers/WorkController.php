@@ -22,13 +22,13 @@ class WorkController extends PortfolioBaseController
 
     protected function loadModel($id): Work
     {
-        if (Yii::$app->moduleManager->allowed('portfolio')) {
-            $condition = '';
-        } else {
-            $condition = 'public = 1';
+        $query = Work::find();
+
+        if (!Yii::$app->moduleManager->allowed('portfolio')) {
+            $query->published();
         }
 
-        $model = Work::model()->cache(0, new Tags('portfolio'))->findByPk($id, $condition);
+        $model = $query->andWhere(['id' => $id])->one();
 
         if ($model === null) {
             throw new CHttpException(404, 'Страница не найдена');

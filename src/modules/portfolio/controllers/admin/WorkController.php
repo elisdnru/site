@@ -2,21 +2,22 @@
 
 namespace app\modules\portfolio\controllers\admin;
 
-use app\components\crud\actions\CreateAction;
-use app\components\crud\actions\DeleteAction;
-use app\components\crud\actions\ToggleAction;
-use app\components\crud\actions\UpdateAction;
-use app\components\crud\actions\ViewAction;
+use app\components\crud\actions\v2\CreateAction;
+use app\components\crud\actions\v2\DeleteAction;
+use app\components\crud\actions\v2\ToggleAction;
+use app\components\crud\actions\v2\UpdateAction;
+use app\components\crud\actions\v2\ViewAction;
 use CDbCriteria;
 use CHttpException;
 use CPagination;
 use app\components\AdminController;
 use app\modules\portfolio\models\Work;
 use Yii;
+use yii\data\Pagination;
 
 class WorkController extends AdminController
 {
-    const ITEMS_PER_PAGE = 50;
+    private const ITEMS_PER_PAGE = 50;
 
     public function filters(): array
     {
@@ -43,23 +44,22 @@ class WorkController extends AdminController
     {
         $category = (int)Yii::app()->request->getParam('category');
 
-        $criteria = new CDbCriteria;
+        $query = Work::find();
 
         if ($category) {
-            $criteria->addCondition('t.category_id = :categoryID');
-            $criteria->params[':categoryID'] = $category;
+            $query->category($category);
         }
 
-        $count = Work::model()->count($criteria);
+        $pages = new Pagination([
+            'totalCount' => (clone $query)->count(),
+            'pageSize' => self::ITEMS_PER_PAGE,
+        ]);
 
-        $pages = new CPagination($count);
-        $pages->pageSize = self::ITEMS_PER_PAGE;
-        $pages->applyLimit($criteria);
-
-        $criteria->order = 't.sort DESC';
-        $criteria->with = ['category'];
-
-        $works = Work::model()->findAll($criteria);
+        $works = $query
+            ->limit($pages->getLimit())
+            ->offset($pages->getOffset())
+            ->orderBy(['sort' => SORT_DESC])
+            ->all();
 
         $this->render('index', [
             'works' => $works,
@@ -113,7 +113,7 @@ class WorkController extends AdminController
 
     public function loadModel($id): Work
     {
-        $model = Work::model()->findByPk($id);
+        $model = Work::findOne($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
         }

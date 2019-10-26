@@ -11,11 +11,11 @@ use app\modules\user\models\Access;
 /** @var $page Page */
 $this->layout = '/layouts/index';
 
-$this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $category->description . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar),
+    'content' => $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageParam),
 ]);
 
 $this->params['breadcrumbs'] = [

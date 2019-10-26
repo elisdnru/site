@@ -19,11 +19,11 @@ class PortfolioWidget extends Widget
     {
         PortfolioAsset::register(Yii::$app->view);
 
-        $criteria = new CDbCriteria;
-        $criteria->limit = $this->limit;
-        $criteria->order = 'sort DESC';
-
-        $items = Work::model()->published()->cache(0, new Tags('portfolio'))->findAll($criteria);
+        $items = Work::find()
+            ->published()
+            ->orderBy(['sort' => SORT_DESC])
+            ->limit($this->limit)
+            ->all();
 
         return $this->render($this->tpl, [
             'items' => $items,

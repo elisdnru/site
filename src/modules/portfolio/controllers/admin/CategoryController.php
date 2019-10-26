@@ -27,13 +27,7 @@ class CategoryController extends AdminController
 
     public function beforeDelete($model): void
     {
-        $count = Work::model()->count(
-            [
-                'condition' => 't.category_id = :ID',
-                'params' => [':ID' => $model->id]
-            ]
-        );
-
+        $count = Work::find()->category($model->id)->count();
         if ($count) {
             throw new CHttpException(400, 'В данной группе есть записи. Удалите их или переместите в другие категории.');
         }
