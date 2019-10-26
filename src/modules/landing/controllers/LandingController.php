@@ -13,7 +13,7 @@ class LandingController extends Controller
     {
         $landing = $this->loadModel($path);
 
-        $this->context->layout = false;
+        $this->layout = false;
 
         return $this->render('show', [
             'landing' => $landing,
