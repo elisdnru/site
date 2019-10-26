@@ -6,6 +6,7 @@ use app\components\behaviors\InlineWidgetsBehavior;
 use CController;
 use CHttpException;
 use Yii;
+use yii\base\Action;
 use yii\web\View;
 
 /**
@@ -31,6 +32,7 @@ class Controller extends CController
     protected function beforeAction($action): bool
     {
         Yii::$app->controller = new \yii\web\Controller($this->id, Yii::$app->getModule($this->module->id));
+        Yii::$app->controller->action = new Action($this->action->id, Yii::$app->controller);
         return parent::beforeAction($action);
     }
 
