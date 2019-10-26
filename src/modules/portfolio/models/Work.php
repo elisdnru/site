@@ -171,13 +171,13 @@ class Work extends ActiveRecord
         return self::find()->andWhere(['alias' => $alias])->one();
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = Url::to(['/portfolio/work/show', 'category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to(['/portfolio/work/show', 'category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
-        return $this->_url;
+        return $this->cachedUrl;
     }
 }

@@ -205,31 +205,31 @@ class Comment extends ActiveRecord
         }
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = $this->material ? $this->material->getUrl() . '#comment_' . $this->id : '#';
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = $this->material ? $this->material->getUrl() . '#comment_' . $this->id : '#';
         }
 
-        return $this->_url;
+        return $this->cachedUrl;
     }
 
-    private $_avatarUrl = [];
+    private $cachedAvatarUrl = [];
 
     public function getAvatarUrl($width = User::IMAGE_WIDTH, $height = User::IMAGE_HEIGHT)
     {
         $index = $width . 'x' . $height;
 
-        if (!isset($this->_avatarUrl[$index])) {
+        if (!isset($this->cachedAvatarUrl[$index])) {
             if ($this->user) {
-                $this->_avatarUrl[$index] = $this->user->getAvatarUrl($width, $height);
+                $this->cachedAvatarUrl[$index] = $this->user->getAvatarUrl($width, $height);
             } else {
-                $this->_avatarUrl[$index] = GravatarHelper::get($this->email, $width);
+                $this->cachedAvatarUrl[$index] = GravatarHelper::get($this->email, $width);
             }
         }
-        return $this->_avatarUrl[$index];
+        return $this->cachedAvatarUrl[$index];
     }
 
     public function getLiked(): bool

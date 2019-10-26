@@ -220,14 +220,14 @@ class Page extends CActiveRecord
         ];
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = Url::to(['/page/page/show', 'path' => $this->getPath()]);
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to(['/page/page/show', 'path' => $this->getPath()]);
         }
-        return $this->_url;
+        return $this->cachedUrl;
     }
 
     protected function beforeSave(): bool

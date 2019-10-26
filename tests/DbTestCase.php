@@ -2,7 +2,7 @@
 
 class DbTestCase extends CDbTestCase
 {
-    private static $_loadFixturesFlag = false;
+    private static $loadFixturesFlag = false;
 
     protected $normalAliases = [
         'normal-alias',
@@ -24,9 +24,9 @@ class DbTestCase extends CDbTestCase
      */
     protected function setUp()
     {
-        if (!self::$_loadFixturesFlag && is_array($this->fixtures)) {
+        if (!self::$loadFixturesFlag && is_array($this->fixtures)) {
             $this->loadFixtures();
-            self::$_loadFixturesFlag = true;
+            self::$loadFixturesFlag = true;
         }
     }
 

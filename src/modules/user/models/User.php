@@ -316,39 +316,39 @@ class User extends ActiveRecord
         return md5('%#w_wrb13&p' . $this->salt . $password);
     }
 
-    private $_fio;
+    private $cachedFio;
 
     public function getFio(): ?string
     {
-        if ($this->_fio === null) {
-            $this->_fio = trim($this->lastname . ' ' . $this->name . ' ' . $this->middlename);
-            if (!$this->_fio) {
-                $this->_fio = $this->username;
+        if ($this->cachedFio === null) {
+            $this->cachedFio = trim($this->lastname . ' ' . $this->name . ' ' . $this->middlename);
+            if (!$this->cachedFio) {
+                $this->cachedFio = $this->username;
             }
         }
-        return $this->_fio;
+        return $this->cachedFio;
     }
 
     public function setFio($value): void
     {
-        $this->_fio = $value;
+        $this->cachedFio = $value;
     }
 
-    private $_avatarUrl;
+    private $cachedAvatarUrl;
 
     public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT): string
     {
-        if ($this->_avatarUrl === null) {
+        if ($this->cachedAvatarUrl === null) {
             if (preg_match('|^https?:\/\/|', $this->avatar)) {
-                $this->_avatarUrl = $this->avatar;
+                $this->cachedAvatarUrl = $this->avatar;
             } elseif ($this->avatar) {
-                $this->_avatarUrl = '/' . Yii::$app->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
+                $this->cachedAvatarUrl = '/' . Yii::$app->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
             } else {
-                $this->_avatarUrl = $this->getDefaultAvatarUrl($width);
+                $this->cachedAvatarUrl = $this->getDefaultAvatarUrl($width);
             }
         }
 
-        return $this->_avatarUrl;
+        return $this->cachedAvatarUrl;
     }
 
     public function getDefaultAvatarUrl($width)

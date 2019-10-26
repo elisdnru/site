@@ -56,7 +56,7 @@ class PurifyTextBehavior extends Behavior
      */
     public $updateOnAfterFind = true;
 
-    private $_contentHash = '';
+    private $contentHash = '';
 
     public function events(): array
     {
@@ -77,7 +77,7 @@ class PurifyTextBehavior extends Behavior
 
         if ($this->sourceAttribute &&
             $this->destinationAttribute &&
-            $this->calculateHash($model->{$this->sourceAttribute}) !== $this->_contentHash
+            $this->calculateHash($model->{$this->sourceAttribute}) !== $this->contentHash
         ) {
             $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
         }
@@ -91,7 +91,7 @@ class PurifyTextBehavior extends Behavior
             return;
         }
 
-        $this->_contentHash = $this->calculateHash($model->{$this->sourceAttribute});
+        $this->contentHash = $this->calculateHash($model->{$this->sourceAttribute});
 
         if ($this->sourceAttribute &&
             $this->destinationAttribute &&
@@ -105,7 +105,7 @@ class PurifyTextBehavior extends Behavior
         }
     }
 
-    protected function processContent(?string $text): string
+    private function processContent(?string $text): string
     {
         if ($this->enableMarkdown) {
             $text = $this->markdownText($text);
@@ -148,7 +148,7 @@ class PurifyTextBehavior extends Behavior
         return $text;
     }
 
-    protected function updateModel(): void
+    private function updateModel(): void
     {
         $model = $this->getModel();
         $model->updateAttributes([
@@ -156,12 +156,12 @@ class PurifyTextBehavior extends Behavior
         ]);
     }
 
-    private $_preContents = [];
+    private $preContents = [];
 
     /**
      * @return ActiveRecord|Component
      */
-    protected function getModel(): ActiveRecord
+    private function getModel(): ActiveRecord
     {
         return $this->owner;
     }
@@ -190,14 +190,14 @@ class PurifyTextBehavior extends Behavior
     {
         do {
             $id = md5(random_int(0, 100000));
-        } while (isset($this->_preContents[$id]));
-        $this->_preContents[$id] = $content;
+        } while (isset($this->preContents[$id]));
+        $this->preContents[$id] = $content;
         return $id;
     }
 
     private function resumeContent(string $id): string
     {
-        return isset($this->_preContents[$id]) ? CHtml::encode($this->_preContents[$id]) : '';
+        return isset($this->preContents[$id]) ? CHtml::encode($this->preContents[$id]) : '';
     }
 
     private function calculateHash(?string $content): string

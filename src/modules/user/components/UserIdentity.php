@@ -12,7 +12,7 @@ use app\modules\user\models\User;
  */
 class UserIdentity extends CUserIdentity
 {
-    private $_id;
+    private $internalId;
 
     /**
      * Authenticates a user.
@@ -31,7 +31,7 @@ class UserIdentity extends CUserIdentity
         } elseif (!$user->validatePassword($this->password)) {
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         } else {
-            $this->_id = (string)$user->getPrimaryKey();
+            $this->internalId = (string)$user->getPrimaryKey();
             $this->username = $user->username;
             $this->errorCode = self::ERROR_NONE;
         }
@@ -41,6 +41,6 @@ class UserIdentity extends CUserIdentity
 
     public function getId(): string
     {
-        return $this->_id;
+        return $this->internalId;
     }
 }

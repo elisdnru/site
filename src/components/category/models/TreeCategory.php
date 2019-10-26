@@ -88,14 +88,14 @@ abstract class TreeCategory extends Category
         ]);
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = Url::to([$this->urlRoute, 'category' => $this->cache(3600)->getPath()]);
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to([$this->urlRoute, 'category' => $this->cache(3600)->getPath()]);
         }
 
-        return $this->_url;
+        return $this->cachedUrl;
     }
 }

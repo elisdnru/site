@@ -86,18 +86,18 @@ class FileUploadBehavior extends CActiveRecordBehavior
         $this->deleteFile();
     }
 
-    protected $_imageUrl;
+    protected $cachedImageUrl;
 
     public function getImageUrl(): string
     {
         $this->initAttributes();
-        if ($this->_imageUrl === null) {
-            $this->_imageUrl = '/' . Yii::$app->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
+        if ($this->cachedImageUrl === null) {
+            $this->cachedImageUrl = '/' . Yii::$app->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
         }
-        return $this->_imageUrl;
+        return $this->cachedImageUrl;
     }
 
-    protected $_imageThumbUrl = [];
+    protected $cachedImageThumbUrl = [];
 
     public function getImageThumbUrl(int $width = 0, int $height = 0): string
     {
@@ -111,11 +111,11 @@ class FileUploadBehavior extends CActiveRecordBehavior
 
         $index = $width . 'x' . $height;
 
-        if (!isset($this->_imageThumbUrl[$index])) {
+        if (!isset($this->cachedImageThumbUrl[$index])) {
             $fileName = Yii::$app->uploader->getThumbUrl($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
-            $this->_imageThumbUrl[$index] = '/' . $fileName;
+            $this->cachedImageThumbUrl[$index] = '/' . $fileName;
         }
-        return $this->_imageThumbUrl[$index];
+        return $this->cachedImageThumbUrl[$index];
     }
 
     protected function processImageSizes(): void

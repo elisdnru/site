@@ -145,14 +145,14 @@ class Tag extends CActiveRecord
         return $tag;
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = Url::to(['/blog/default/tag', 'tag' => $this->title]);
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to(['/blog/default/tag', 'tag' => $this->title]);
         }
 
-        return $this->_url;
+        return $this->cachedUrl;
     }
 }

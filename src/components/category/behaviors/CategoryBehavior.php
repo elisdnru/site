@@ -58,10 +58,10 @@ class CategoryBehavior extends CActiveRecordBehavior
      */
     public $defaultCriteria = [];
 
-    protected $_primaryKey;
-    protected $_tableSchema;
-    protected $_tableName;
-    protected $_criteria;
+    protected $primaryKey;
+    protected $tableSchema;
+    protected $tableName;
+    protected $originalCriteria;
 
     public function getArray(): array
     {
@@ -226,33 +226,33 @@ class CategoryBehavior extends CActiveRecordBehavior
 
     protected function getPrimaryKeyAttribute(): ?string
     {
-        if ($this->_primaryKey === null) {
-            $this->_primaryKey = $this->getTableSchema()->primaryKey;
+        if ($this->primaryKey === null) {
+            $this->primaryKey = $this->getTableSchema()->primaryKey;
         }
-        return $this->_primaryKey;
+        return $this->primaryKey;
     }
 
     protected function getTableSchema(): CDbTableSchema
     {
-        if ($this->_tableSchema === null) {
-            $this->_tableSchema = $this->getModel()->getMetaData()->tableSchema;
+        if ($this->tableSchema === null) {
+            $this->tableSchema = $this->getModel()->getMetaData()->tableSchema;
         }
-        return $this->_tableSchema;
+        return $this->tableSchema;
     }
 
     protected function getTableName(): string
     {
-        if ($this->_tableName === null) {
-            $this->_tableName = $this->getModel()->tableName();
+        if ($this->tableName === null) {
+            $this->tableName = $this->getModel()->tableName();
         }
-        return $this->_tableName;
+        return $this->tableName;
     }
 
     protected function getOwnerCriteria(): CDbCriteria
     {
         $criteria = clone $this->getModel()->getDbCriteria();
         $criteria->mergeWith($this->defaultCriteria);
-        $this->_criteria = clone $criteria;
+        $this->originalCriteria = clone $criteria;
         return $criteria;
     }
 
@@ -263,7 +263,7 @@ class CategoryBehavior extends CActiveRecordBehavior
 
     protected function getOriginalCriteria(): CDbCriteria
     {
-        return clone $this->_criteria;
+        return clone $this->originalCriteria;
     }
 
     /**

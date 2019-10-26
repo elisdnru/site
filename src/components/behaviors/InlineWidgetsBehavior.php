@@ -21,40 +21,35 @@ class InlineWidgetsBehavior extends Behavior
      */
     public $widgets = [];
 
-    protected $_widgetToken;
+    private $widgetToken;
 
     public function init(): void
     {
-        $this->initToken();
-    }
-
-    protected function initToken(): void
-    {
-        $this->_widgetToken = md5(microtime());
+        $this->widgetToken = md5(microtime());
     }
 
     public function decodeWidgets(?string $text): string
     {
-        $text = $this->_clearAutoParagraphs($text);
-        $text = $this->_replaceBlocks($text);
-        $text = $this->_processWidgets($text);
+        $text = $this->clearAutoParagraphs($text);
+        $text = $this->replaceBlocks($text);
+        $text = $this->processWidgets($text);
         return $text;
     }
 
     public function clearWidgets(?string $text): string
     {
-        $text = $this->_clearAutoParagraphs($text);
-        $text = $this->_replaceBlocks($text);
-        $text = $this->_clearWidgets($text);
+        $text = $this->clearAutoParagraphs($text);
+        $text = $this->replaceBlocks($text);
+        $text = $this->clearAllWidgets($text);
         return $text;
     }
 
-    protected function _processWidgets(?string $text): string
+    private function processWidgets(?string $text): string
     {
-        if (preg_match('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', $text)) {
+        if (preg_match('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {
-                while (preg_match('#\{' . $this->_widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->_widgetToken . '\}#is', $text, $p)) {
-                    $text = str_replace($p[0], $this->_loadWidget($class, $p[2] ?? ''), $text);
+                while (preg_match('#\{' . $this->widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->widgetToken . '\}#is', $text, $p)) {
+                    $text = str_replace($p[0], $this->loadWidget($class, $p[2] ?? ''), $text);
                 }
             }
             return $text;
@@ -62,29 +57,29 @@ class InlineWidgetsBehavior extends Behavior
         return $text;
     }
 
-    protected function _clearWidgets(?string $text): string
+    private function clearAllWidgets(?string $text): string
     {
-        return preg_replace('|\{' . $this->_widgetToken . ':.+?' . $this->_widgetToken . '\}|is', '', $text);
+        return preg_replace('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', '', $text);
     }
 
-    protected function _replaceBlocks(?string $text): string
+    private function replaceBlocks(?string $text): string
     {
-        $text = str_replace($this->startBlock, '{' . $this->_widgetToken . ':', $text);
-        $text = str_replace($this->endBlock, $this->_widgetToken . '}', $text);
+        $text = str_replace($this->startBlock, '{' . $this->widgetToken . ':', $text);
+        $text = str_replace($this->endBlock, $this->widgetToken . '}', $text);
         return $text;
     }
 
-    protected function _clearAutoParagraphs(?string $output): string
+    private function clearAutoParagraphs(?string $output): string
     {
         $output = str_replace('<p>' . $this->startBlock, $this->startBlock, $output);
         $output = str_replace($this->endBlock . '</p>', $this->endBlock, $output);
         return $output;
     }
 
-    protected function _loadWidget(string $widgetClass, string $attributes = ''): string
+    private function loadWidget(string $widgetClass, string $attributes = ''): string
     {
-        $attrs = $this->_parseAttributes($attributes);
-        $cache = $this->_extractCacheExpireTime($attrs);
+        $attrs = $this->parseAttributes($attributes);
+        $cache = $this->extractCacheExpireTime($attrs);
 
         $index = 'widget_' . $widgetClass . '_' . serialize($attrs);
 
@@ -101,7 +96,7 @@ class InlineWidgetsBehavior extends Behavior
         return $html;
     }
 
-    protected function _parseAttributes(?string $attributesString): array
+    private function parseAttributes(?string $attributesString): array
     {
         $params = explode(';', $attributesString);
         $attrs = [];
@@ -119,7 +114,7 @@ class InlineWidgetsBehavior extends Behavior
         return $attrs;
     }
 
-    protected function _extractCacheExpireTime(array &$attrs): int
+    private function extractCacheExpireTime(array &$attrs): int
     {
         $cache = 0;
         if (isset($attrs['cache'])) {

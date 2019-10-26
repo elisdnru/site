@@ -46,18 +46,18 @@ class CategoryTreeBehavior extends CategoryBehavior
         $result = [];
 
         foreach ($parents as $parent_id) {
-            $this->_childrenArrayRecursive($items, $result, $parent_id);
+            $this->childrenArrayRecursive($items, $result, $parent_id);
         }
 
         return array_unique($result);
     }
 
-    protected function _childrenArrayRecursive(array &$items, array &$result, $parent_id)
+    protected function childrenArrayRecursive(array &$items, array &$result, $parent_id)
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id) {
                 $result[] = $item[$this->getPrimaryKeyAttribute()];
-                $this->_childrenArrayRecursive($items, $result, $item[$this->getPrimaryKeyAttribute()]);
+                $this->childrenArrayRecursive($items, $result, $item[$this->getPrimaryKeyAttribute()]);
             }
         }
     }
@@ -157,18 +157,18 @@ class CategoryTreeBehavior extends CategoryBehavior
 
         $result = [];
         foreach ($parents as $parent_id) {
-            $this->_getTabListRecursive($items, $result, $parent_id);
+            $this->getTabListRecursive($items, $result, $parent_id);
         }
 
         return $result;
     }
 
-    protected function _getTabListRecursive(array &$items, array &$result, $parent_id, int $indent = 0)
+    protected function getTabListRecursive(array &$items, array &$result, $parent_id, int $indent = 0)
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id && !isset($result[$item[$this->getPrimaryKeyAttribute()]])) {
                 $result[$item[$this->getPrimaryKeyAttribute()]] = str_repeat('-- ', $indent) . $item[$this->titleAttribute];
-                $this->_getTabListRecursive($items, $result, $item[$this->getPrimaryKeyAttribute()], $indent + 1);
+                $this->getTabListRecursive($items, $result, $item[$this->getPrimaryKeyAttribute()], $indent + 1);
             }
         }
     }
@@ -197,16 +197,16 @@ class CategoryTreeBehavior extends CategoryBehavior
             $categories[(int)$item->{$this->parentAttribute}][] = $item;
         }
 
-        return $this->_getUrlListRecursive($categories, $parent);
+        return $this->getUrlListRecursive($categories, $parent);
     }
 
-    protected function _getUrlListRecursive(array $items, $parent, int $indent = 0)
+    protected function getUrlListRecursive(array $items, $parent, int $indent = 0): array
     {
         $parent = (int)$parent;
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
             foreach ($items[$parent] as $item) {
-                $resultArray = $resultArray + [$item->{$this->urlAttribute} => str_repeat('-- ', $indent) . $item->{$this->titleAttribute}] + $this->_getUrlListRecursive($items, $item->getPrimaryKey(), $indent + 1);
+                $resultArray = $resultArray + [$item->{$this->urlAttribute} => str_repeat('-- ', $indent) . $item->{$this->titleAttribute}] + $this->getUrlListRecursive($items, $item->getPrimaryKey(), $indent + 1);
             }
         }
         return $resultArray;
@@ -237,25 +237,26 @@ class CategoryTreeBehavior extends CategoryBehavior
             $categories[(int)$item->{$this->parentAttribute}][] = $item;
         }
 
-        return $this->_getMenuListRecursive($categories, $parent, $sub);
+        return $this->getMenuListRecursive($categories, $parent, $sub);
     }
 
-    protected function _getMenuListRecursive(array $items, $parent, $sub): array
+    protected function getMenuListRecursive(array $items, $parent, $sub): array
     {
         $parent = (int)$parent;
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
             foreach ($items[$parent] as $item) {
                 $active = $item->{$this->linkActiveAttribute};
-                $resultArray[$item->getPrimaryKey()] = [
-                        'id' => $item->getPrimaryKey(),
+                $id = $item->getPrimaryKey();
+                $resultArray[$id] = [
+                        'id' => $id,
                         'label' => $item->{$this->titleAttribute},
                         'url' => $item->{$this->urlAttribute},
                         'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
                         'active' => $active,
                         'itemOptions' => ['class' => 'item_' . $item->getPrimaryKey()],
                         'linkOptions' => $active ? ['rel' => 'nofollow'] : [],
-                    ] + ($sub ? ['items' => $this->_getMenuListRecursive($items, $item->getPrimaryKey(), $sub - 1)] : []);
+                    ] + ($sub ? ['items' => $this->getMenuListRecursive($items, $item->getPrimaryKey(), $sub - 1)] : []);
             }
         }
         return $resultArray;

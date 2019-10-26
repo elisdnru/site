@@ -73,23 +73,23 @@ class EMigrateCommand extends MigrateCommand
      * @see getModulePaths()
      * @see setModulePaths()
      */
-    private $_modulePaths;
-    private $_runModulePaths; // modules for current run
+    private $internalModulePaths;
+    private $internalRunModulePaths; // modules for current run
 
     /**
      * @var array
      * @see getDisabledModules()
      * @see setDisabledModules()
      */
-    private $_disabledModules = [];
+    private $internalDisabledModules = [];
 
     /**
      * @return array list of all modules
      */
     public function getModulePaths()
     {
-        if ($this->_modulePaths === null) {
-            $this->_modulePaths = [];
+        if ($this->internalModulePaths === null) {
+            $this->internalModulePaths = [];
             foreach (Yii::app()->modules as $module => $config) {
                 if (is_array($config)) {
                     $alias = 'application.modules.' . $module . '.' . ltrim($this->migrationSubPath, '.');
@@ -106,23 +106,23 @@ class EMigrateCommand extends MigrateCommand
                             str_replace('.', '/', ltrim($this->migrationSubPath, '.'))
                         );
                     }
-                    $this->_modulePaths[$module] = $alias;
+                    $this->internalModulePaths[$module] = $alias;
                     $path = Yii::getPathOfAlias($alias);
                     if ($path === false || !is_dir($path)) {
-                        $this->_disabledModules[] = $module;
+                        $this->internalDisabledModules[] = $module;
                     }
                 } else {
-                    $this->_modulePaths[$config] = 'application.modules.' . $config . '.' . ltrim($this->migrationSubPath, '.');
+                    $this->internalModulePaths[$config] = 'application.modules.' . $config . '.' . ltrim($this->migrationSubPath, '.');
                 }
             }
         }
         // add a pseudo-module 'core'
-        $this->_modulePaths[$this->applicationModuleName] = $this->migrationPath;
+        $this->internalModulePaths[$this->applicationModuleName] = $this->migrationPath;
         $path = Yii::getPathOfAlias($this->migrationPath);
         if ($path === false || !is_dir($path)) {
-            $this->_disabledModules[] = $this->applicationModuleName;
+            $this->internalDisabledModules[] = $this->applicationModuleName;
         }
-        return $this->_modulePaths;
+        return $this->internalModulePaths;
     }
 
     /**
@@ -141,7 +141,7 @@ class EMigrateCommand extends MigrateCommand
      */
     public function setModulePaths($modulePaths)
     {
-        $this->_modulePaths = $modulePaths;
+        $this->internalModulePaths = $modulePaths;
     }
 
     /**
@@ -151,12 +151,12 @@ class EMigrateCommand extends MigrateCommand
     {
         // make sure modules are initialized
         $this->getModulePaths();
-        foreach ($this->_disabledModules as $module) {
+        foreach ($this->internalDisabledModules as $module) {
             if (!array_key_exists($module, $this->modulePaths)) {
-                unset($this->_disabledModules[$module]);
+                unset($this->internalDisabledModules[$module]);
             }
         }
-        return array_unique($this->_disabledModules);
+        return array_unique($this->internalDisabledModules);
     }
 
     /**
@@ -170,7 +170,7 @@ class EMigrateCommand extends MigrateCommand
      */
     public function setDisabledModules($modules)
     {
-        $this->_disabledModules = is_array($modules) ? $modules : [];
+        $this->internalDisabledModules = is_array($modules) ? $modules : [];
     }
 
     /**
@@ -238,7 +238,7 @@ class EMigrateCommand extends MigrateCommand
             foreach ($this->getEnabledModulePaths() as $module => $pathAlias) {
                 if ($modules === false || in_array($module, $modules, true)) {
                     Yii::import($pathAlias . '.*');
-                    $this->_runModulePaths[$module] = $pathAlias;
+                    $this->internalRunModulePaths[$module] = $pathAlias;
                 }
             }
             return true;
@@ -268,25 +268,25 @@ class EMigrateCommand extends MigrateCommand
 
     public function actionUp($args)
     {
-        $this->_scopeAddModule = true;
+        $this->internalScopeAddModule = true;
         $exitCode = parent::actionUp($args);
-        $this->_scopeAddModule = false;
+        $this->internalScopeAddModule = false;
         return $exitCode;
     }
 
     public function actionDown($args)
     {
-        $this->_scopeAddModule = true;
+        $this->internalScopeAddModule = true;
         $exitCode = parent::actionDown($args);
-        $this->_scopeAddModule = false;
+        $this->internalScopeAddModule = false;
         return $exitCode;
     }
 
     public function actionTo($args)
     {
-        $this->_scopeAddModule = false;
+        $this->internalScopeAddModule = false;
         $exitCode = parent::actionTo($args);
-        $this->_scopeAddModule = true;
+        $this->internalScopeAddModule = true;
         return $exitCode;
     }
 
@@ -296,9 +296,9 @@ class EMigrateCommand extends MigrateCommand
         $migrations = $this->getNewMigrations();
 
         // run mark action
-        $this->_scopeAddModule = false;
+        $this->internalScopeAddModule = false;
         $exitCode = parent::actionMark($args);
-        $this->_scopeAddModule = true;
+        $this->internalScopeAddModule = true;
 
         // update migration table with modules
         /** @var CDbCommand $command */
@@ -341,25 +341,25 @@ class EMigrateCommand extends MigrateCommand
     }
 
     // set to not add modules when getHistory is called for getNewMigrations
-    private $_scopeNewMigrations = false;
-    private $_scopeAddModule = true;
+    private $internalScopeNewMigrations = false;
+    private $internalScopeAddModule = true;
 
     protected function getNewMigrations()
     {
-        $this->_scopeNewMigrations = true;
+        $this->internalScopeNewMigrations = true;
         $migrations = [];
         // get new migrations for all new modules
-        foreach ($this->_runModulePaths as $module => $path) {
+        foreach ($this->internalRunModulePaths as $module => $path) {
             $this->migrationPath = Yii::getPathOfAlias($path);
             foreach (parent::getNewMigrations() as $migration) {
-                if ($this->_scopeAddModule) {
+                if ($this->internalScopeAddModule) {
                     $migrations[$migration] = $module . $this->moduleDelimiter . $migration;
                 } else {
                     $migrations[$migration] = $migration;
                 }
             }
         }
-        $this->_scopeNewMigrations = false;
+        $this->internalScopeNewMigrations = false;
 
         ksort($migrations);
         return array_values($migrations);
@@ -384,7 +384,7 @@ class EMigrateCommand extends MigrateCommand
             echo "done.\n";
         }
 
-        if ($this->_scopeNewMigrations || !$this->_scopeAddModule) {
+        if ($this->internalScopeNewMigrations || !$this->internalScopeAddModule) {
             $select = 'version AS version_name, apply_time';
             $params = [];
         } else {

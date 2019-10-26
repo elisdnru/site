@@ -382,13 +382,13 @@ class Post extends CActiveRecord
         }
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
-        return $this->_url;
+        return $this->cachedUrl;
     }
 }

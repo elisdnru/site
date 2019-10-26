@@ -150,7 +150,7 @@ class Menu extends CActiveRecord
         $items = [];
 
         if ((int)$parent) {
-            $items = $this->_getMenuListRecursive($parent, $sub, $withhidden);
+            $items = $this->getMenuListRecursive($parent, $sub, $withhidden);
         } elseif ($parent) {
             $parentitem = $this->cache(1000)->find([
                 'select' => 'id',
@@ -159,14 +159,14 @@ class Menu extends CActiveRecord
             ]);
 
             if ($parentitem) {
-                $items = $this->_getMenuListRecursive($parentitem->id, $sub, $withhidden);
+                $items = $this->getMenuListRecursive($parentitem->id, $sub, $withhidden);
             }
         }
 
         return $items;
     }
 
-    private function _getMenuListRecursive($parent, $sub = true, $withhidden = false): array
+    private function getMenuListRecursive($parent, $sub = true, $withhidden = false): array
     {
         $criteria = new CDbCriteria;
         $criteria->addCondition('t.parent_id = :parent');
@@ -189,7 +189,7 @@ class Menu extends CActiveRecord
                     'active' => $active,
                     'itemOptions' => ['class' => 'item_' . $item->id],
                     'linkOptions' => $active ? ['rel' => 'nofollow'] : [],
-                ] + ($sub ? ['items' => $this->_getMenuListRecursive($item->id, $sub - 1, $withhidden)] : []);
+                ] + ($sub ? ['items' => $this->getMenuListRecursive($item->id, $sub - 1, $withhidden)] : []);
         }
 
         return $itArray;
@@ -202,14 +202,14 @@ class Menu extends CActiveRecord
         return strpos('/' . $currentUri . '/', '/' . $itemUri . '/') === 0 || strpos('/' . $currentUri . '?', '/' . $itemUri . '?') === 0;
     }
 
-    private $_url;
+    private $cachedUrl;
 
     public function getUrl(): string
     {
-        if ($this->_url === null) {
-            $this->_url = $this->link !== '/index' ? $this->link : '/';
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = $this->link !== '/index' ? $this->link : '/';
         }
 
-        return $this->_url;
+        return $this->cachedUrl;
     }
 }

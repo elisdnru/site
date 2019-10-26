@@ -57,7 +57,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
      */
     public $updateOnAfterFind = true;
 
-    private $_contentHash = '';
+    private $contentHash = '';
 
     /**
      * @param CModelEvent $event event parameter
@@ -69,7 +69,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         if ($this->processOnBeforeSave) {
             if ($this->sourceAttribute &&
                 $this->destinationAttribute &&
-                $this->calculateHash($model->{$this->sourceAttribute}) !== $this->_contentHash
+                $this->calculateHash($model->{$this->sourceAttribute}) !== $this->contentHash
             ) {
                 $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
             }
@@ -83,7 +83,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     {
         $model = $this->getModel();
 
-        $this->_contentHash = $this->calculateHash($model->{$this->sourceAttribute});
+        $this->contentHash = $this->calculateHash($model->{$this->sourceAttribute});
 
         if ($this->processOnAfterFind) {
             if ($this->sourceAttribute &&
@@ -150,7 +150,7 @@ class PurifyTextBehavior extends CActiveRecordBehavior
         ]);
     }
 
-    private $_preContents = [];
+    private $preContents = [];
 
     /**
      * @return CActiveRecord|CComponent
@@ -184,14 +184,14 @@ class PurifyTextBehavior extends CActiveRecordBehavior
     {
         do {
             $id = md5(random_int(0, 100000));
-        } while (isset($this->_preContents[$id]));
-        $this->_preContents[$id] = $content;
+        } while (isset($this->preContents[$id]));
+        $this->preContents[$id] = $content;
         return $id;
     }
 
     private function resumeContent(string $id): string
     {
-        return isset($this->_preContents[$id]) ? CHtml::encode($this->_preContents[$id]) : '';
+        return isset($this->preContents[$id]) ? CHtml::encode($this->preContents[$id]) : '';
     }
 
     private function calculateHash(?string $content): string

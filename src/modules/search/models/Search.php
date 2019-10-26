@@ -18,14 +18,14 @@ class Search extends ActiveRecord
         return 'search';
     }
 
-    private $_material;
+    private $cachedMaterial;
 
     public function getMaterial()
     {
-        if ($this->_material === null) {
-            $this->_material = CActiveRecord::model($this->material_class)->findByPk($this->material_id);
+        if ($this->cachedMaterial === null) {
+            $this->cachedMaterial = CActiveRecord::model($this->material_class)->findByPk($this->material_id);
         }
 
-        return $this->_material;
+        return $this->cachedMaterial;
     }
 }

@@ -27,107 +27,107 @@ class File
     use AntiMagic;
 
     /**
-     * @var array object instances array with key set to $_filepath
+     * @var array object instances array with key set to $filepath
      */
-    private static $_instances = [];
+    private static $instances = [];
     /**
      * @var string filesystem object path submitted by user
      */
-    private $_filepath;
+    private $filepath;
     /**
      * @var string real filesystem object path figured by script on the basis
-     * of $_filepath
+     * of $filepath
      */
-    private $_realpath;
+    private $realpath;
     /**
-     * @var boolean 'true' if filesystem object described by $_realpath exists
+     * @var boolean 'true' if filesystem object described by $realpath exists
      */
-    private $_exists;
+    private $exists;
     /**
-     * @var boolean 'true' if filesystem object described by $_realpath is
+     * @var boolean 'true' if filesystem object described by $realpath is
      * a regular file
      */
-    private $_isFile = false;
+    private $isFile = false;
     /**
-     * @var boolean 'true' if filesystem object described by $_realpath is
+     * @var boolean 'true' if filesystem object described by $realpath is
      * a directory
      */
-    private $_isDir = false;
+    private $isDir = false;
     /**
-     * @var boolean 'true' if file described by $_realpath is uploaded
+     * @var boolean 'true' if file described by $realpath is uploaded
      */
-    private $_isUploaded = false;
+    private $isUploaded = false;
     /**
-     * @var boolean 'true' if filesystem object described by $_realpath is
+     * @var boolean 'true' if filesystem object described by $realpath is
      * readable
      */
-    private $_readable;
+    private $readable;
     /**
-     * @var boolean 'true' if filesystem object described by $_realpath
+     * @var boolean 'true' if filesystem object described by $realpath
      * writeable
      */
-    private $_writeable;
+    private $writeable;
     /**
      * @var string basename of the file (eg. 'myfile.htm'
      * for '/var/www/htdocs/files/myfile.htm')
      */
-    private $_basename;
+    private $basename;
     /**
      * @var string name of the file (eg. 'myfile'
      * for '/var/www/htdocs/files/myfile.htm')
      */
-    private $_filename;
+    private $filename;
     /**
      * @var string directory name of the filesystem object
      * (eg. '/var/www/htdocs/files' for '/var/www/htdocs/files/myfile.htm')
      */
-    private $_dirname;
+    private $dirname;
     /**
      * @var string file extension(eg. 'htm'
      * for '/var/www/htdocs/files/myfile.htm')
      */
-    private $_extension;
+    private $extension;
     /**
      * @var string file extension(eg. 'text/html'
      * for '/var/www/htdocs/files/myfile.htm')
      */
-    private $_mimeType;
+    private $mimeType;
     /**
      * @var integer the time the filesystem object was last modified
      * (Unix timestamp eg. '1213760802')
      */
-    private $_timeModified;
+    private $timeModified;
     /**
      * @var string filesystem object size formatted (eg. '70.4 KB') or
      * in bytes (eg. '72081') see {@link getSize} parameters
      */
-    private $_size;
+    private $size;
     /**
      * @var boolean filesystem object has contents flag
      */
-    private $_isEmpty;
+    private $isEmpty;
     /**
      * @var mixed filesystem object owner name (eg. 'idle') or
      * in ID (eg. '1000') see {@link getOwner} parameters
      */
-    private $_owner;
+    private $owner;
     /**
      * @var mixed filesystem object group name (eg. 'apache') or
      * in ID (eg. '127') see {@link getGroup} parameters
      */
-    private $_group;
+    private $group;
     /**
      * @var string filesystem object permissions (considered octal eg. '0755')
      */
-    private $_permissions;
+    private $permissions;
     /**
      * @var resource file pointer resource (for {@link open} & {@link close})
      */
-    private $_handle;
+    private $handle;
     /**
      * @var CUploadedFile object instance
      */
-    private $_uploadedInstance;
+    private $uploadedInstance;
 
 
     /**
@@ -138,10 +138,10 @@ class File
      */
     private static function getInstance($filePath): self
     {
-        if (!array_key_exists($filePath, self::$_instances)) {
-            self::$_instances[$filePath] = new self();
+        if (!array_key_exists($filePath, self::$instances)) {
+            self::$instances[$filePath] = new self();
         }
-        return self::$_instances[$filePath];
+        return self::$instances[$filePath];
     }
 
     /**
@@ -226,49 +226,49 @@ class File
      */
     private function pathInfo(): void
     {
-        if (is_file($this->_realpath)) {
-            $this->_isFile = true;
-        } elseif (is_dir($this->_realpath)) {
-            $this->_isDir = true;
+        if (is_file($this->realpath)) {
+            $this->isFile = true;
+        } elseif (is_dir($this->realpath)) {
+            $this->isDir = true;
         }
 
-        if ($this->_uploadedInstance) {
-            $this->_isUploaded = true;
+        if ($this->uploadedInstance) {
+            $this->isUploaded = true;
         }
 
-        $pathinfo = pathinfo($this->_isUploaded ? $this->_uploadedInstance->getName() : $this->_realpath);
+        $pathinfo = pathinfo($this->isUploaded ? $this->uploadedInstance->getName() : $this->realpath);
 
-        $this->_dirname = $pathinfo['dirname'];
-        $this->_basename = $pathinfo['basename'];
+        $this->dirname = $pathinfo['dirname'];
+        $this->basename = $pathinfo['basename'];
 
         // PHP version < 5.2 workaround
         if (!isset($pathinfo['filename'])) {
-            $this->_filename = substr($pathinfo['basename'], 0, strrpos($pathinfo['basename'], '.'));
+            $this->filename = substr($pathinfo['basename'], 0, strrpos($pathinfo['basename'], '.'));
         } else {
-            $this->_filename = $pathinfo['filename'];
+            $this->filename = $pathinfo['filename'];
         }
         if (array_key_exists('extension', $pathinfo)) {
-            $this->_extension = $pathinfo['extension'];
+            $this->extension = $pathinfo['extension'];
         } else {
-            $this->_extension = null;
+            $this->extension = null;
         }
     }
 
     /**
      * Returns real filesystem object path figured by script
-     * (see {@link realPath}) on the basis of user supplied $_filepath.
-     * If $_realpath property is set, returned value is read from that property.
+     * (see {@link realPath}) on the basis of user supplied $filepath.
+     * If $realpath property is set, returned value is read from that property.
      *
      * @param string $dir_separator Directory separator char (depends upon OS)
      * @return string Real file path
      */
     public function getRealPath($dir_separator = DIRECTORY_SEPARATOR): string
     {
-        if (!isset($this->_realpath)) {
-            $this->_realpath = $this->realPath($this->_filepath, $dir_separator);
+        if (!isset($this->realpath)) {
+            $this->realpath = $this->realPath($this->filepath, $dir_separator);
         }
 
-        return $this->_realpath;
+        return $this->realpath;
     }
 
     /**
@@ -330,17 +330,17 @@ class File
     /**
      * Tests current filesystem object existance and returns boolean
      * (see {@link exists}).
-     * If $_exists property is set, returned value is read from that property.
+     * If $exists property is set, returned value is read from that property.
      *
      * @return boolean 'True' if file exists, overwise 'false'
      */
     public function getExists(): bool
     {
-        if (!isset($this->_exists)) {
+        if (!isset($this->exists)) {
             $this->exists();
         }
 
-        return $this->_exists;
+        return $this->exists;
     }
 
     /**
@@ -353,7 +353,7 @@ class File
      */
     public function getIsFile(): bool
     {
-        return $this->_isFile;
+        return $this->isFile;
     }
 
     /**
@@ -366,7 +366,7 @@ class File
      */
     public function getIsDir(): bool
     {
-        return $this->_isDir;
+        return $this->isDir;
     }
 
     /**
@@ -376,7 +376,7 @@ class File
      */
     public function getIsUploaded(): bool
     {
-        return $this->_isUploaded;
+        return $this->isUploaded;
     }
 
     /**
@@ -390,36 +390,36 @@ class File
     {
         if (!isset($this->isEmpty)) {
             if (($this->getIsFile() && $this->getSize(false) === 0) ||
-                (!$this->getIsFile() && count($this->dirContents($this->_realpath)) === 0)) {
-                $this->_isEmpty = true;
+                (!$this->getIsFile() && count($this->dirContents($this->realpath)) === 0)) {
+                $this->isEmpty = true;
             } else {
-                $this->_isEmpty = false;
+                $this->isEmpty = false;
             }
         }
 
-        return $this->_isEmpty;
+        return $this->isEmpty;
     }
 
     /**
      * Tests whether the current filesystem object is readable and returns
      * boolean.
-     * If $_readable property is set, returned value is read from that property.
+     * If $readable property is set, returned value is read from that property.
      *
      * @return boolean 'True' if filesystem object is readable, overwise 'false'
      */
     public function getReadable(): bool
     {
-        if (!isset($this->_readable)) {
-            $this->_readable = is_readable($this->_realpath);
+        if (!isset($this->readable)) {
+            $this->readable = is_readable($this->realpath);
         }
 
-        return $this->_readable;
+        return $this->readable;
     }
 
     /**
      * Tests whether the current filesystem object is readable and returns
      * boolean.
-     * If $_writeable property is set, returned value is read from that
+     * If $writeable property is set, returned value is read from that
      * property.
      *
      * @return boolean 'True' if filesystem object is writeable,
@@ -427,11 +427,11 @@ class File
      */
     public function getWriteable(): bool
     {
-        if (!isset($this->_writeable)) {
-            $this->_writeable = is_writable($this->_realpath);
+        if (!isset($this->writeable)) {
+            $this->writeable = is_writable($this->realpath);
         }
 
-        return $this->_writeable;
+        return $this->writeable;
     }
 
     /**
@@ -442,15 +442,15 @@ class File
      */
     private function exists(): bool
     {
-        Yii::trace('Filesystem object availability test: ' . $this->_realpath, 'ext.file');
+        Yii::trace('Filesystem object availability test: ' . $this->realpath, 'ext.file');
 
-        if (file_exists($this->_realpath)) {
-            $this->_exists = true;
+        if (file_exists($this->realpath)) {
+            $this->exists = true;
         } else {
-            $this->_exists = false;
+            $this->exists = false;
         }
 
-        if ($this->_exists) {
+        if ($this->exists) {
             return true;
         }
 
@@ -469,7 +469,7 @@ class File
         if (!$this->getExists()) {
             if ($this->open('w')) {
                 $this->close();
-                return $this->set($this->_realpath);
+                return $this->set($this->realpath);
             }
 
             $this->addLog('Unable to create empty file');
@@ -495,7 +495,7 @@ class File
     public function createDir($permissions = 0754, $directory = null): ?self
     {
         if ($directory === null) {
-            $dir = $this->_realpath;
+            $dir = $this->realpath;
         } else {
             $dir = $directory;
         }
@@ -522,14 +522,14 @@ class File
      */
     private function open($mode): ?self
     {
-        if ($this->_handle === null) {
-            if ($this->_handle = fopen($this->_realpath, $mode)) {
+        if ($this->handle === null) {
+            if ($this->handle = fopen($this->realpath, $mode)) {
                 return $this;
             }
 
             $this->addLog('Unable to open file using mode "' . $mode . '"');
-            return null;
         }
+        return null;
     }
 
     /**
@@ -540,16 +540,16 @@ class File
      */
     private function close(): void
     {
-        if ($this->_handle !== null) {
-            fclose($this->_handle);
-            $this->_handle = null;
+        if ($this->handle !== null) {
+            fclose($this->handle);
+            $this->handle = null;
         }
     }
 
     /**
      * Returns owner of current filesystem object (UNIX systems).
      * Returned value depends upon $getName parameter value.
-     * If $_owner property is set, returned value is read from that property.
+     * If $owner property is set, returned value is read from that property.
      *
      * @param boolean $getName Defaults to 'true', meaning that owner name
      * instead of ID should be returned.
@@ -557,22 +557,22 @@ class File
      */
     public function getOwner($getName = true)
     {
-        if (!isset($this->_owner)) {
-            $this->_owner = $this->getExists() ? fileowner($this->_realpath) : null;
+        if (!isset($this->owner)) {
+            $this->owner = $this->getExists() ? fileowner($this->realpath) : null;
         }
 
-        if (is_int($this->_owner) && function_exists('posix_getpwuid') && $getName === true) {
-            $this->_owner = posix_getpwuid($this->_owner);
-            $this->_owner = $this->_owner['name'];
+        if (is_int($this->owner) && function_exists('posix_getpwuid') && $getName === true) {
+            $this->owner = posix_getpwuid($this->owner);
+            $this->owner = $this->owner['name'];
         }
 
-        return $this->_owner;
+        return $this->owner;
     }
 
     /**
      * Returns group of current filesystem object (UNIX systems).
      * Returned value depends upon $getName parameter value.
-     * If $_group property is set, returned value is read from that property.
+     * If $group property is set, returned value is read from that property.
      *
      * @param boolean $getName Defaults to 'true', meaning that group name
      * instead of ID should be returned.
@@ -580,38 +580,38 @@ class File
      */
     public function getGroup($getName = true)
     {
-        if (!isset($this->_group)) {
-            $this->_group = $this->getExists() ? filegroup($this->_realpath) : null;
+        if (!isset($this->group)) {
+            $this->group = $this->getExists() ? filegroup($this->realpath) : null;
         }
 
-        if (is_int($this->_group) && function_exists('posix_getgrgid') && $getName === true) {
-            $this->_group = posix_getgrgid($this->_group);
-            $this->_group = $this->_group['name'];
+        if (is_int($this->group) && function_exists('posix_getgrgid') && $getName === true) {
+            $this->group = posix_getgrgid($this->group);
+            $this->group = $this->group['name'];
         }
 
-        return $this->_group;
+        return $this->group;
     }
 
     /**
      * Returns permissions of current filesystem object (UNIX systems).
-     * If $_permissions property is set, returned value is read from that
+     * If $permissions property is set, returned value is read from that
      * property.
      *
      * @return string Filesystem object permissions in octal format (i.e. '0755')
      */
     public function getPermissions(): string
     {
-        if (!isset($this->_permissions)) {
-            $this->_permissions = $this->getExists() ? substr(sprintf('%o', fileperms($this->_realpath)), -4) : null;
+        if (!isset($this->permissions)) {
+            $this->permissions = $this->getExists() ? substr(sprintf('%o', fileperms($this->realpath)), -4) : null;
         }
 
-        return $this->_permissions;
+        return $this->permissions;
     }
 
     /**
      * Returns size of current filesystem object.
      * Returned value depends upon $format parameter value.
-     * If $_size property is set, returned value is read from that property.
+     * If $size property is set, returned value is read from that property.
      * Uses {@link dirSize} method for directory size calculation.
      *
      * @param mixed $format Number format (see {@link CNumberFormatter})
@@ -621,17 +621,17 @@ class File
      */
     public function getSize($format = '0.00')
     {
-        if (!isset($this->_size)) {
+        if (!isset($this->size)) {
             if ($this->getIsFile()) {
-                $this->_size = $this->getExists() ? sprintf('%u', filesize($this->_realpath)) : null;
+                $this->size = $this->getExists() ? sprintf('%u', filesize($this->realpath)) : null;
             } else {
-                $this->_size = $this->getExists() ? sprintf('%u', $this->dirSize()) : null;
+                $this->size = $this->getExists() ? sprintf('%u', $this->dirSize()) : null;
             }
         }
-        $size = $this->_size;
+        $size = $this->size;
 
         if ($format !== false) {
-            $size = $this->formatFileSize($this->_size, $format);
+            $size = $this->formatFileSize($this->size, $format);
         }
 
         return $size;
@@ -647,7 +647,7 @@ class File
     private function dirSize(): int
     {
         $size = 0;
-        foreach ($this->dirContents($this->_realpath, true) as $item) {
+        foreach ($this->dirContents($this->realpath, true) as $item) {
             if (is_file($item)) {
                 $size += sprintf('%u', filesize($item));
             }
@@ -685,38 +685,38 @@ class File
      */
     public function getTimeModified(): ?int
     {
-        if (empty($this->_timeModified)) {
-            $this->_timeModified = $this->getExists() ? filemtime($this->_realpath) : null;
+        if (empty($this->timeModified)) {
+            $this->timeModified = $this->getExists() ? filemtime($this->realpath) : null;
         }
 
-        return $this->_timeModified;
+        return $this->timeModified;
     }
 
     /**
-     * Returns the current file extension from $_extension property set
+     * Returns the current file extension from $extension property set
      * by {@link pathInfo} (eg. 'htm' for '/var/www/htdocs/files/myfile.htm').
      *
      * @return string Current file extension without the leading dot
      */
     public function getExtension(): ?string
     {
-        return $this->_extension;
+        return $this->extension;
     }
 
     /**
      * Returns the current file basename (file name plus extension) from
-     * $_basename property set by {@link pathInfo}
+     * $basename property set by {@link pathInfo}
      * (eg. 'myfile.htm' for '/var/www/htdocs/files/myfile.htm').
      *
      * @return string Current file basename
      */
     public function getBasename(): ?string
     {
-        return $this->_basename;
+        return $this->basename;
     }
 
     /**
-     * Returns the current file name (without extension) from $_filename
+     * Returns the current file name (without extension) from $filename
      * property set by {@link pathInfo}
      * (eg. 'myfile' for '/var/www/htdocs/files/myfile.htm')
      *
@@ -724,19 +724,19 @@ class File
      */
     public function getFilename(): ?string
     {
-        return $this->_filename;
+        return $this->filename;
     }
 
     /**
      * Returns the current file directory name (without final slash) from
-     * $_dirname property set by {@link pathInfo}
+     * $dirname property set by {@link pathInfo}
      * (eg. '/var/www/htdocs/files' for '/var/www/htdocs/files/myfile.htm')
      *
      * @return string Current file directory name
      */
     public function getDirname(): ?string
     {
-        return $this->_dirname;
+        return $this->dirname;
     }
 
     /**
@@ -755,11 +755,11 @@ class File
     {
         if ($this->getReadable()) {
             if ($this->getIsFile()) {
-                if ($contents = file_get_contents($this->_realpath)) {
+                if ($contents = file_get_contents($this->realpath)) {
                     return $contents;
                 }
             } else {
-                if ($contents = $this->dirContents($this->_realpath, $recursive, $filter)) {
+                if ($contents = $this->dirContents($this->realpath, $recursive, $filter)) {
                     return $contents;
                 }
             }
@@ -784,7 +784,7 @@ class File
     {
         $descendants = [];
         if (!$directory) {
-            $directory = $this->_realpath;
+            $directory = $this->realpath;
         }
 
         if ($filter !== null) {
@@ -872,7 +872,7 @@ class File
                 $this->create();
             }
 
-            if ($this->getWriteable() && file_put_contents($this->_realpath, $contents, $flags) !== false) {
+            if ($this->getWriteable() && file_put_contents($this->realpath, $contents, $flags) !== false) {
                 return $this;
             }
 
@@ -960,11 +960,11 @@ class File
             if ($this->getWriteable() && $extension !== false) {
                 $extension = trim($extension);
 
-                // drop current extension
                 if ($extension === null || $extension === '') {
+                    // drop current extension
                     $newBaseName = $this->getFilename();
-                } // apply new extension
-                else {
+                } else {
+                    // apply new extension
                     $extension = ltrim($extension, '.');
 
                     if ($this->getExtension() === null) {
@@ -988,7 +988,7 @@ class File
     }
 
     /**
-     * Sets the current filesystem object owner, updates $_owner property
+     * Sets the current filesystem object owner, updates $owner property
      * on success.
      * For UNIX systems.
      *
@@ -997,8 +997,8 @@ class File
      */
     public function setOwner($owner): ?self
     {
-        if ($this->getExists() && chown($this->_realpath, $owner)) {
-            $this->_owner = $owner;
+        if ($this->getExists() && chown($this->realpath, $owner)) {
+            $this->owner = $owner;
             return $this;
         }
 
@@ -1007,7 +1007,7 @@ class File
     }
 
     /**
-     * Sets the current filesystem object group, updates $_group property
+     * Sets the current filesystem object group, updates $group property
      * on success.
      * For UNIX systems.
      *
@@ -1016,8 +1016,8 @@ class File
      */
     public function setGroup($group): ?self
     {
-        if ($this->getExists() && chgrp($this->_realpath, $group)) {
-            $this->_group = $group;
+        if ($this->getExists() && chgrp($this->realpath, $group)) {
+            $this->group = $group;
             return $this;
         }
 
@@ -1026,7 +1026,7 @@ class File
     }
 
     /**
-     * Sets the current filesystem object permissions, updates $_permissions
+     * Sets the current filesystem object permissions, updates $permissions
      * property on success.
      * For UNIX systems.
      *
@@ -1040,8 +1040,8 @@ class File
             // '755' normalize to octal '0755'
             $permissions = octdec(str_pad($permissions, 4, '0', STR_PAD_LEFT));
 
-            if (@chmod($this->_realpath, $permissions)) {
-                $this->_group = $permissions;
+            if (@chmod($this->realpath, $permissions)) {
+                $this->group = $permissions;
                 return $this;
             }
         }
@@ -1085,14 +1085,14 @@ class File
         $destRealPath = $this->resolveDestPath($fileDest);
 
         if ($this->getIsFile()) {
-            if ($this->getReadable() && @copy($this->_realpath, $destRealPath)) {
+            if ($this->getReadable() && @copy($this->realpath, $destRealPath)) {
                 return $this->set($destRealPath);
             }
         } else {
-            Yii::trace('Copying directory "' . $this->_realpath . '" to "' . $destRealPath . '"', 'ext.file');
-            $dirContents = $this->dirContents($this->_realpath, true);
+            Yii::trace('Copying directory "' . $this->realpath . '" to "' . $destRealPath . '"', 'ext.file');
+            $dirContents = $this->dirContents($this->realpath, true);
             foreach ($dirContents as $item) {
-                $itemDest = $destRealPath . str_replace($this->_realpath, '', $item);
+                $itemDest = $destRealPath . str_replace($this->realpath, '', $item);
 
                 if (is_file($item)) {
                     @copy($item, $itemDest);
@@ -1121,9 +1121,9 @@ class File
     {
         $destRealPath = $this->resolveDestPath($fileDest);
 
-        if ($this->getWriteable() && @rename($this->_realpath, $destRealPath)) {
-            $this->_filepath = $fileDest;
-            $this->_realpath = $destRealPath;
+        if ($this->getWriteable() && @rename($this->realpath, $destRealPath)) {
+            $this->filepath = $fileDest;
+            $this->realpath = $destRealPath;
             // update pathinfo properties
             $this->pathInfo();
             return $this;
@@ -1156,7 +1156,7 @@ class File
     public function purge($path = null): ?self
     {
         if (!$path) {
-            $path = $this->_realpath;
+            $path = $this->realpath;
         }
 
         if ($this->getIsFile()) {
@@ -1192,9 +1192,9 @@ class File
     public function delete($purge = true): bool
     {
         if ($this->getWriteable()) {
-            if (($this->getIsFile() && @unlink($this->_realpath)) ||
-                (!$this->getIsFile() && ($purge ? $this->purge() : true) && rmdir($this->_realpath))) {
-                $this->_exists = $this->_readable = $this->_writeable = false;
+            if (($this->getIsFile() && @unlink($this->realpath)) ||
+                (!$this->getIsFile() && ($purge ? $this->purge() : true) && rmdir($this->realpath))) {
+                $this->exists = $this->readable = $this->writeable = false;
                 return true;
             }
         }
@@ -1246,7 +1246,7 @@ class File
                 header('Content-Disposition: attachment;filename="' . $filename . '"');
 
                 if ($serverHandled) {
-                    header('X-Sendfile: ' . $this->_realpath);
+                    header('X-Sendfile: ' . $this->realpath);
                 } else {
                     if ($contents = $this->getContents()) {
                         echo $contents;
@@ -1278,7 +1278,7 @@ class File
 
     /**
      * Returns the MIME type of the current file.
-     * If $_mimeType property is set, returned value is read from that property.
+     * If $mimeType property is set, returned value is read from that property.
      *
      * This method will attempt the following approaches in order:
      * <ol>
@@ -1292,27 +1292,27 @@ class File
      */
     public function getMimeType(): ?string
     {
-        if ($this->_mimeType) {
-            return $this->_mimeType;
+        if ($this->mimeType) {
+            return $this->mimeType;
         }
 
         if ($this->getIsFile()) {
             if ($this->getReadable()) {
-                if ($this->_isUploaded) {
-                    return $this->_mimeType = $this->_uploadedInstance->getType();
+                if ($this->isUploaded) {
+                    return $this->mimeType = $this->uploadedInstance->getType();
                 }
 
                 if (function_exists('finfo_open')) {
-                    if (($info = @finfo_open(FILEINFO_MIME)) && ($result = finfo_file($info, $this->_realpath)) !== false) {
-                        return $this->_mimeType = $result;
+                    if (($info = @finfo_open(FILEINFO_MIME)) && ($result = finfo_file($info, $this->realpath)) !== false) {
+                        return $this->mimeType = $result;
                     }
                 }
 
-                if (function_exists('mime_content_type') && ($result = @mime_content_type($this->_realpath)) !== false) {
-                    return $this->_mimeType = $result;
+                if (function_exists('mime_content_type') && ($result = @mime_content_type($this->realpath)) !== false) {
+                    return $this->mimeType = $result;
                 }
 
-                return $this->_mimeType = $this->getMimeTypeByExtension();
+                return $this->mimeType = $this->getMimeTypeByExtension();
             }
 
             $this->addLog('Unable to get mime type for file');
@@ -1334,13 +1334,13 @@ class File
     public function getMimeTypeByExtension(): ?string
     {
         if ($this->getIsFile()) {
-            Yii::trace('Trying to get MIME type for "' . $this->_realpath . '" from extension "' . $this->_extension . '"', 'ext.file');
+            Yii::trace('Trying to get MIME type for "' . $this->realpath . '" from extension "' . $this->extension . '"', 'ext.file');
             static $extensions;
             if ($extensions === null) {
                 $extensions = require(Yii::getPathOfAlias('system.utils.mimeTypes') . '.php');
             }
 
-            $ext = strtolower($this->_extension);
+            $ext = strtolower($this->extension);
             if (!empty($ext) && isset($extensions[$ext])) {
                 return $extensions[$ext];
             }
