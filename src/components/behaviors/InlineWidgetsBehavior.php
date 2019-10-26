@@ -88,14 +88,14 @@ class InlineWidgetsBehavior extends Behavior
 
         $index = 'widget_' . $widgetClass . '_' . serialize($attrs);
 
-        if ($cache && $cachedHtml = Yii::app()->cache->get($index)) {
+        if ($cache && $cachedHtml = Yii::$app->cache->get($index)) {
             $html = $cachedHtml;
         } else {
             ob_start();
             /** @var Widget $widgetClass */
             echo $widgetClass::widget($attrs);
             $html = trim(ob_get_clean());
-            Yii::app()->cache->set($index, $html, $cache);
+            Yii::$app->cache->set($index, $html, $cache);
         }
 
         return $html;

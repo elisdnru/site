@@ -45,7 +45,7 @@ class DefaultController extends Controller
 
     public function actionXml(): void
     {
-        if (!$xml = Yii::app()->cache->get('sitemap_xml')) {
+        if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
 
             $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), Sitemap::WEEKLY);
@@ -58,7 +58,7 @@ class DefaultController extends Controller
 
             $xml = $sitemap->render();
 
-            Yii::app()->cache->set('sitemap_xml', $xml, 3600);
+            Yii::$app->cache->set('sitemap_xml', $xml, 3600);
         }
 
         header('Content-type: text/xml');
