@@ -53,6 +53,7 @@ site-ready:
 
 site-lint:
 	docker-compose run --rm php-cli composer lint
+	docker-compose run --rm php-cli composer cs-check
 
 site-test:
 	docker-compose run --rm php-cli vendor/bin/phpunit
