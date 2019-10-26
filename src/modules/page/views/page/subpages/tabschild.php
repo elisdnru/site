@@ -1,11 +1,11 @@
 <!-- Подстраницы (дочерние табы) -->
 <?php
-use app\extensions\cachetagging\Tags;
 use app\modules\page\models\Page;
+use yii\caching\TagDependency;
 
 /** @var $page Page */
 ?>
-<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page->id, ['dependency' => new Tags('page')])) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])) : ?>
     <?php if ($page->child_pages) : ?>
         <?php if (!$page->hidetitle) : ?>
             <h1><?= $page->title ?></h1>

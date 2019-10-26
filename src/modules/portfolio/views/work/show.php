@@ -2,9 +2,9 @@
 
 use app\assets\ColorboxAsset;
 use app\components\widgets\ShareWidget;
-use app\extensions\cachetagging\Tags;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
+use yii\caching\TagDependency;
 
 /** @var $model Work */
 
@@ -36,7 +36,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <article class="entry">
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new Tags('portfolio')])) : ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new TagDependency(['tags' => 'portfolio'])])) : ?>
         <header>
 
             <h1><?= CHtml::encode($model->title) ?></h1>

@@ -2,9 +2,10 @@
 use app\components\widgets\Portlet;
 use app\extensions\cachetagging\Tags;
 use app\modules\portfolio\models\Category;
+use yii\caching\TagDependency;
 use yii\widgets\Menu;
 
-if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
+if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?php Portlet::begin(['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
     <?= FollowWidget::widget() ?>
     <?php Portlet::end(); ?>

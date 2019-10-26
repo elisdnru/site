@@ -1,10 +1,10 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;
+use yii\caching\TagDependency;
 use yii\helpers\Url;
 
 $this->context->layout = 'index';
@@ -42,7 +42,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 <?= BlockWidget::widget(['id' => 'banner_index_top']) ?>
 
 <h2 class="index">Новое в <a href="<?= Url::to(['/blog/default/index']) ?>">Блоге</a>:</h2>
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
     <?= LastPostsWidget::widget(['tpl' => 'home', 'limit' => 10]) ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

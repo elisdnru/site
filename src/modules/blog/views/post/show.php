@@ -4,7 +4,6 @@
 use app\assets\HighlightAsset;
 use app\components\helpers\StyleHelper;
 use app\components\widgets\ShareWidget;
-use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
@@ -14,6 +13,7 @@ use app\modules\blog\widgets\OtherPostsWidget;
 use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
+use yii\caching\TagDependency;
 
 $this->context->layout = 'post';
 
@@ -75,7 +75,7 @@ HighlightAsset::register($this);
         <h1><?= CHtml::encode($model->title) ?></h1>
 
         <!--noindex-->
-        <?php if ($this->beginCache('banner_post_before', ['dependency' => new Tags('block')])) : ?>
+        <?php if ($this->beginCache('banner_post_before', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
             <?= BlockWidget::widget(['id' => 'banner_post_before']) ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
@@ -106,7 +106,7 @@ HighlightAsset::register($this);
 
 <aside>
 
-    <?php if ($this->beginCache('banner_post_after', ['dependency' => new Tags('block')])) : ?>
+    <?php if ($this->beginCache('banner_post_after', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
         <?= BlockWidget::widget(['id' => 'banner_post_after']) ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
@@ -153,7 +153,7 @@ HighlightAsset::register($this);
 
     <div class="clear"></div>
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
         <?= ThemePostsWidget::widget([
             'current' => $model->id,
             'group' => $model->group_id,
@@ -161,7 +161,7 @@ HighlightAsset::register($this);
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new Tags('blog')])) : ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
         <?= OtherPostsWidget::widget([
             //'category'=>$model->category_id,
             'skip' => $model->id,

@@ -7,9 +7,10 @@ use app\modules\blog\models\Category;
 use app\modules\blog\widgets\CalendarWidget;
 use app\modules\blog\widgets\TagCloudWidget;
 use app\modules\user\widgets\LoginFormWidget;
+use yii\caching\TagDependency;
 use yii\widgets\Menu;
 
-if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')])) : ?>
+if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?php Portlet::begin(['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
     <?= FollowWidget::widget() ?>
     <?php Portlet::end(); ?>
@@ -17,7 +18,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <?php endif; ?>
 <!--/noindex-->
 
-<?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
+<?php if ($this->beginCache('banner_sidebar', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?php Portlet::begin(['htmlOptions' => ['class' => 'portlet banner']]); ?>
     <?= BlockWidget::widget(['id' => 'banner_sidebar']) ?>
     <?php Portlet::end(); ?>
@@ -35,7 +36,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <?php endif; ?>
 
 <!--noindex-->
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('blog')])) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
     <?php Portlet::begin(['title' => 'Метки']); ?>
     <?= TagCloudWidget::widget() ?>
     <?php Portlet::end(); ?>
@@ -44,7 +45,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <!--/noindex-->
 
 <!--noindex-->
-<?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new Tags('blog')])) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
     <?php Portlet::begin(); ?>
     <?= CalendarWidget::widget() ?>
     <?php Portlet::end(); ?>
@@ -58,7 +59,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new Tags('block')]))
 <?php Portlet::end(); ?>
 <!--/noindex-->
 
-<?php if ($this->beginCache('banner_sidebar_second', ['dependency' => new Tags('block')])) : ?>
+<?php if ($this->beginCache('banner_sidebar_second', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?= BlockWidget::widget(['id' => 'banner_sidebar_second']) ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

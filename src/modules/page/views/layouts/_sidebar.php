@@ -1,7 +1,7 @@
 <?php use app\components\widgets\Portlet;
-use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\user\widgets\LoginFormWidget;
+use yii\caching\TagDependency;
 
 if ($this->context->route !== 'user/default/login') : ?>
     <?php Portlet::begin(['title' => 'Личный кабинет']); ?>
@@ -9,7 +9,7 @@ if ($this->context->route !== 'user/default/login') : ?>
     <?php Portlet::end(); ?>
 <?php endif; ?>
 
-<?php if ($this->beginCache('banner_sidebar', ['dependency' => new Tags('block')])) : ?>
+<?php if ($this->beginCache('banner_sidebar', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?php Portlet::begin(['htmlOptions' => ['class' => 'portlet banner']]); ?>
     <?= BlockWidget::widget(['id' => 'banner_sidebar']) ?>
     <?php Portlet::end(); ?>
