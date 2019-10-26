@@ -5,16 +5,11 @@ namespace app\modules\comment;
 use app\components\GroupUrlRule;
 use app\components\module\routes\UrlProvider;
 use app\modules\comment\models\Comment;
-use app\components\module\Module as Base;
+use CWebModule;
 
-class Module extends Base implements UrlProvider
+class Module extends CWebModule implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getName(): string
-    {
-        return 'Комментарии';
-    }
 
     public static function rules(): array
     {

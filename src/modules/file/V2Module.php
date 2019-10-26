@@ -2,7 +2,7 @@
 
 namespace app\modules\file;
 
-use app\components\module\v2\Module as Base;
+use app\components\module\Module as Base;
 
 class V2Module extends Base
 {

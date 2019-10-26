@@ -2,19 +2,9 @@
 
 namespace app\modules\block;
 
-use app\components\module\Module as Base;
+use CWebModule;
 
-class Module extends Base
+class Module extends CWebModule
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getGroup(): string
-    {
-        return 'Настройки и шаблоны';
-    }
-
-    public function getName(): string
-    {
-        return 'HTML-блоки';
-    }
 }

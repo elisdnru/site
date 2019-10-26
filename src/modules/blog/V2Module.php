@@ -2,7 +2,7 @@
 
 namespace app\modules\blog;
 
-use app\components\module\v2\Module as Base;
+use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
 use app\modules\blog\models\Comment;
 use yii\web\GroupUrlRule;

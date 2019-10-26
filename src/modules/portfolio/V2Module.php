@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio;
 
-use app\components\module\v2\Module as Base;
+use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
 use yii\web\GroupUrlRule;
 

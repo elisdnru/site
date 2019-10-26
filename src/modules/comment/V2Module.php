@@ -4,7 +4,7 @@ namespace app\modules\comment;
 
 use app\components\module\routes\UrlProvider;
 use app\modules\comment\models\Comment;
-use app\components\module\v2\Module as Base;
+use app\components\module\Module as Base;
 use yii\web\GroupUrlRule;
 
 class V2Module extends Base implements UrlProvider

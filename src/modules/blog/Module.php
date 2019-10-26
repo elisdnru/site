@@ -3,23 +3,13 @@
 namespace app\modules\blog;
 
 use app\components\GroupUrlRule;
-use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
 use app\modules\blog\models\Comment;
+use CWebModule;
 
-class Module extends Base implements UrlProvider
+class Module extends CWebModule implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getGroup(): string
-    {
-        return 'Блог';
-    }
-
-    public function getName(): string
-    {
-        return 'Блог';
-    }
 
     public static function rules(): array
     {

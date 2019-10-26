@@ -2,22 +2,12 @@
 
 namespace app\modules\search;
 
-use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
+use CWebModule;
 
-class Module extends Base implements UrlProvider
+class Module extends CWebModule implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getGroup(): string
-    {
-        return 'Контент';
-    }
-
-    public function getName(): string
-    {
-        return 'Поиск';
-    }
 
     public static function rules(): array
     {
