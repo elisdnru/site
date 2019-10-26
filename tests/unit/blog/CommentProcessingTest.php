@@ -1,10 +1,13 @@
 <?php
 
+namespace tests\unit\blog;
+
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
 use app\modules\blog\models\Group;
 use app\modules\user\models\User;
+use tests\DbTestCase;
 
 class CommentProcessingTest extends DbTestCase
 {

@@ -1,5 +1,9 @@
 <?php
 
+namespace tests;
+
+use CDbTestCase;
+
 class DbTestCase extends CDbTestCase
 {
     private static $loadFixturesFlag = false;
