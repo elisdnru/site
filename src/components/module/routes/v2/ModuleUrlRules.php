@@ -9,7 +9,7 @@ use yii\web\Application;
 
 class ModuleUrlRules implements BootstrapInterface
 {
-    public function bootstrap($app)
+    public function bootstrap($app): void
     {
         if (!$app instanceof Application) {
             return;

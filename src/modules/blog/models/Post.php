@@ -359,7 +359,7 @@ class Post extends CActiveRecord
         return $this->tags_string;
     }
 
-    public function setTagsString(?string $value)
+    public function setTagsString(?string $value): void
     {
         $this->tags_string = $value;
     }

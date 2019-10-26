@@ -68,7 +68,7 @@ class UloginUserIdentity extends CUserIdentity
         return $this->id;
     }
 
-    public function getIsAuthenticated()
+    public function getIsAuthenticated(): bool
     {
         return $this->isAuthenticated;
     }

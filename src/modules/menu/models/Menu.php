@@ -145,7 +145,7 @@ class Menu extends CActiveRecord
         ];
     }
 
-    public function getMenuList($parent = 0, $sub = true, $withhidden = false)
+    public function getMenuList($parent = 0, $sub = true, $withhidden = false): array
     {
         $items = [];
 
