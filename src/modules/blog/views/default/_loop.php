@@ -30,7 +30,7 @@ use yii\helpers\Html;
                         <?php endif; ?>
                         <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                         <div class="comments">
-                            <span><a href="<?= $post->url ?>#comments"><?= $post->commentsCount ?></a></span>
+                            <span><?= $post->commentsCount ?></span>
                         </div>
                     </div>
                     <?php if ($post->image) : ?>

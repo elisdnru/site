@@ -27,7 +27,7 @@ use app\components\helpers\DateHelper;
                 <?php endif; ?>
                 <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                 <div class="comments">
-                    <span><a href="<?= $data->url ?>#comments"><?= $data->commentsCount ?></a></span>
+                    <span><?= $data->commentsCount ?></span>
                 </div>
             </div>
             <?php if ($data->image) : ?>
