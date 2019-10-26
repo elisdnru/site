@@ -119,8 +119,8 @@ jQuery(function($) {
             cursor: 'move',
             axis: 'y',
             update: function () {
-                $('#saving').show()
-                var items = listBlock.sortable('serialize')
+                $('#saving').show();
+                var items = listBlock.sortable('serialize');
                 $.ajax({
                     type: 'POST',
                     url: '<?= $this->createUrl('sort') ?>',
@@ -133,10 +133,10 @@ jQuery(function($) {
                     }
                 })
             }
-        })
-        listBlock.disableSelection()
+        });
+        listBlock.disableSelection();
     })
-})
+});
 
 <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
