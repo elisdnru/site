@@ -1,9 +1,9 @@
 <?php
-
 use app\components\widgets\BreadcrumbsWidget;
 use app\components\widgets\MessagesWidget;
+?>
 
-$this->beginContent('@app/views/layouts/main.php'); ?>
+<?php $this->beginContent('@app/views/layouts/main.php'); ?>
 
 <div class="main left_main">
 

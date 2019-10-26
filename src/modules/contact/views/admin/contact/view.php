@@ -65,13 +65,16 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => ['delete', 'id
         <td><?= nl2br(CHtml::encode($model->text)) ?></td>
     </tr>
 </table>
-<?php if ($next) :
-?><p class="nomargin" style="float: right">
-    <a href="<?= Url::to(['view', 'id' => $next->id]) ?>">следующее сообщение &rarr;</a>
-    <?php endif; ?>
-<?php if ($prev) :
-?><p class="nomargin" style="float: left">
-    <a href="<?= Url::to(['view', 'id' => $prev->id]) ?>">&larr; предыдущее сообщение</a>
-    <?php endif; ?>
+
+<?php if ($next) : ?>
+    <p class="nomargin" style="float: right">
+        <a href="<?= Url::to(['view', 'id' => $next->id]) ?>">следующее сообщение &rarr;</a>
+    </p>
+<?php endif; ?>
+<?php if ($prev) : ?>
+    <p class="nomargin" style="float: left">
+        <a href="<?= Url::to(['view', 'id' => $prev->id]) ?>">&larr; предыдущее сообщение</a>
+    </p>
+<?php endif; ?>
 
 <div class="clear"></div>

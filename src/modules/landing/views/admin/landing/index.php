@@ -1,11 +1,11 @@
 <?php
-/** @var $model Landing */
-
 use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\IndentLinkColumn;
 use app\components\widgets\grid\LinkColumn;
 use app\modules\landing\models\Landing;
 use yii\helpers\Url;
+
+/** @var $model Landing */
 
 $this->title = 'Лендинги';
 $this->params['breadcrumbs'] = [

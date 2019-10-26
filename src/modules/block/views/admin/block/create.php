@@ -1,8 +1,7 @@
 <?php
-/** @var $model Block */
-
 use app\modules\block\models\Block;
 
+/** @var $model Block */
 ?>
 <?php
 $this->title = 'Редактор блоков';

@@ -1,7 +1,7 @@
 <?php
-/** @var $model Block */
-
 use app\modules\block\models\Block;
+
+/** @var $model Block */
 
 $this->title = 'Блок ' . $model->title;
 $this->params['breadcrumbs'] = [

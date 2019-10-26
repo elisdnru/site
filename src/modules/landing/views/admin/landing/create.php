@@ -1,8 +1,8 @@
 <?php
-
 use app\modules\landing\models\Landing;
 
 /** @var $model Landing */
+
 $this->title = 'Редактор лендингов';
 $this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],

@@ -1,9 +1,8 @@
 <?php
-/** @var $form SearchForm */
-
 use app\modules\search\forms\SearchForm;
 use yii\helpers\Url;
 
+/** @var $form SearchForm */
 ?>
 <div class="search_form">
     <?= CHtml::beginForm(Url::to(['/search/default/index']), 'get') ?>

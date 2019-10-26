@@ -47,8 +47,12 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     </div>
 <?php endif; ?>
 
-<?php if (Yii::app()->request->getParam('page', 1) > 1): ?><!--noindex--><?php endif; ?>
+<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+    <!--noindex-->
+<?php endif; ?>
 <?= $this->decodeWidgets(trim($page->text_purified)) ?>
-<?php if (Yii::app()->request->getParam('page', 1) > 1): ?><!--/noindex--><?php endif; ?>
+<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+    <!--/noindex-->
+<?php endif; ?>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

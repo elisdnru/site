@@ -1,10 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\modules\blog\models\Tag;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
+/** @var $this \yii\web\View */
 /** @var $tag Tag */
 /** @var $dataProvider CActiveDataProvider */
 

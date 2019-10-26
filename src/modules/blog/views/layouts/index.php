@@ -1,8 +1,10 @@
-<?php $this->beginContent('@app/views/layouts/main.php');
-
+<?php
 use app\components\widgets\BreadcrumbsWidget;
 use app\components\widgets\MessagesWidget;
-use app\modules\block\widgets\BlockWidget; ?>
+use app\modules\block\widgets\BlockWidget;
+?>
+
+<?php $this->beginContent('@app/views/layouts/main.php'); ?>
 
 <div class="main left_main">
 

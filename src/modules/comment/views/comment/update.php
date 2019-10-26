@@ -1,5 +1,4 @@
 <?php
-
 use app\modules\user\models\Access;
 
 /** @var $model \app\modules\comment\models\Comment */
@@ -23,4 +22,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     'model' => $model,
     'form' => $form,
     'user' => $user,
-]); ?>
+]) ?>

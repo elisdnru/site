@@ -1,8 +1,9 @@
 <?php
-
 use app\components\module\Module;
 use app\components\widgets\IconMenu;
+
 /** @var $modules Module[] */
+
 $this->title = 'Панель управления';
 $this->params['breadcrumbs'] = [
     'Панель управления',

@@ -1,7 +1,7 @@
 <?php
-/** @var $model Landing */
-
 use app\modules\landing\models\Landing;
+
+/** @var $model Landing */
 
 $this->title = 'Редактор лендингов';
 $this->params['breadcrumbs'] = [

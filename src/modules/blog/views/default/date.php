@@ -1,10 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\components\DateLimiter;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 
+/** @var $this \yii\web\View */
 /** @var $date DateLimiter */
 /** @var $dataProvider CActiveDataProvider */
 

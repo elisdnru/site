@@ -1,11 +1,11 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
 use yii\helpers\Url;
+
+/** @var $this \yii\web\View */
 
 $this->context->layout = 'index';
 
@@ -48,5 +48,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 <?php endif; ?>
 
 <div class="clear"></div>
-<p class="nomargin"><a href="<?= Url::to(['/blog/default/index', 'page' => 2]) ?>">Остальные записи &rarr;</a>
-</p>
+<p class="nomargin"><a href="<?= Url::to(['/blog/default/index', 'page' => 2]) ?>">Остальные записи &rarr;</a></p>

@@ -1,10 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
+/** @var $this \yii\web\View */
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 
@@ -38,13 +37,12 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <h1><?= CHtml::encode($page->title) ?></h1>
 
-<?php if (Yii::app()->request->getParam('page', 1) > 1) :
-?>
-<noindex><?php
-    endif; ?>
-    <?= $this->decodeWidgets(trim($page->text_purified)) ?>
-    <?php if (Yii::app()->request->getParam('page', 1) > 1) :
-    ?></noindex><?php
-endif; ?>
+<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+    <!--noindex-->
+<?php endif; ?>
+<?= $this->decodeWidgets(trim($page->text_purified)) ?>
+<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+    <!--/noindex-->
+<?php endif; ?>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

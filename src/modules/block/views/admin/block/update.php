@@ -1,4 +1,6 @@
 <?php
+use app\modules\block\models\Block;
+
 /** @var $model Block */
 
 $this->title = 'Редактор блоков';
@@ -10,8 +12,7 @@ $this->params['breadcrumbs'] = [
 
 $this->params['admin'][] = ['label' => 'Блоки', 'url' => ['index']];
 $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id' => $model->id]];
-
-use app\modules\block\models\Block; ?>
+?>
 
 <h1>Редактирование блока</h1>
 

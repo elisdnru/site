@@ -1,8 +1,7 @@
 <?php
-/** @var $posts \app\modules\blog\models\Post[] */
-
 use app\components\widgets\Portlet;
 
+/** @var $posts \app\modules\blog\models\Post[] */
 ?>
 <?php if (count($posts)) : ?>
     <?php Portlet::begin(['title' => null]); ?>

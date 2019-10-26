@@ -1,10 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 use yii\db\ActiveRecord;
 
+/** @var $this \yii\web\View */
 /** @var $data Search */
 /** @var $query ActiveRecord */
 ?>
@@ -16,13 +15,10 @@ use yii\db\ActiveRecord;
         </h2>
         <?php if ($data->material->hasAttribute('image')) : ?>
             <?php
-            $properties = [];
-            if (!empty($data->material->image_width)) {
-                $properties['width'] = $data->material->image_width;
-            }
-            if (!empty($data->material->image_height)) {
-                $properties['height'] = $data->material->image_height;
-            }
+            $properties = array_filter([
+                'width' => $data->material->image_width,
+                'height' => $data->material->image_height,
+            ]);
             ?>
             <p class="thumb">
                 <a href="<?= $data->material->url ?>"><?= CHtml::image($data->material->getImageThumbUrl(), '', $properties) ?></a>

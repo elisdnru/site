@@ -1,9 +1,9 @@
 <?php
-
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
 /** @var $page Page */
+
 $this->title = 'Ошибка';
 $this->params['breadcrumbs'] = [
     'Ошибка ' . ($error['code'] ?? ''),

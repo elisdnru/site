@@ -64,7 +64,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
         <th style="width:16px"></th>
     </tr>
 
-    <?php if ($contents = $dir->getContents()): ?>
+    <?php if ($contents = $dir->getContents()) : ?>
         <?php foreach ($contents as $item) : ?>
             <?php
             $file = Yii::$app->file->set($item);
@@ -137,9 +137,9 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 
 jQuery(function ($) {
     $('.allfiles_checkbox').click(function () {
-        $('.file_checkbox').attr('checked', !!$(this).attr('checked'))
-    })
-})
+        $('.file_checkbox').attr('checked', !!$(this).attr('checked'));
+    });
+});
 
 <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>

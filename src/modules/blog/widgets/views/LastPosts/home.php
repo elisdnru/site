@@ -1,8 +1,7 @@
 <?php
+use app\components\helpers\DateHelper;
 
 /** @var $posts \app\modules\blog\models\Post[] */
-
-use app\components\helpers\DateHelper;
 ?>
 <?php foreach ($posts as $data) : ?>
     <?php

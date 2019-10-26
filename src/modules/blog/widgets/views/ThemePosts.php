@@ -1,8 +1,7 @@
 <?php
-/** @var $group Group */
-
 use app\modules\blog\models\Group;
 
+/** @var $group Group */
 /** @var $current int */
 ?>
 <br />
@@ -14,7 +13,6 @@ use app\modules\blog\models\Group;
         <?php else : ?>
             <li>&raquo; <?= $item->title ?></li>
         <?php endif; ?>
-
     <?php endforeach; ?>
 </ul>
 

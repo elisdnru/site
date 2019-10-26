@@ -1,6 +1,13 @@
 <?php
+use app\modules\block\forms\BlockSearch;
+use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\LinkPager;
+
 /** @var $dataProvider ActiveDataProvider */
 /** @var $model BlockSearch */
+
 $this->title = 'Блоки';
 $this->params['breadcrumbs'] = [
     'Панель управления' => ['/admin'],
@@ -8,12 +15,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['create']];
-
-use app\modules\block\forms\BlockSearch;
-use yii\data\ActiveDataProvider;
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\widgets\LinkPager; ?>
+?>
 
 <p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>HTML-Блоки</h1>

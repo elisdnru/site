@@ -1,5 +1,5 @@
-<!--noindex-->
-<?php use app\components\widgets\FollowWidget;
+<?php
+use app\components\widgets\FollowWidget;
 use app\components\widgets\Portlet;
 use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
@@ -9,8 +9,10 @@ use app\modules\blog\widgets\TagCloudWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use yii\caching\TagDependency;
 use yii\widgets\Menu;
+?>
 
-if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+<!--noindex-->
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?php Portlet::begin(['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
     <?= FollowWidget::widget() ?>
     <?php Portlet::end(); ?>

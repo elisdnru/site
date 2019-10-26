@@ -1,9 +1,8 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
+/** @var $this \yii\web\View */
 /** @var $page Page */
 /** @var $items CModel[] */
 

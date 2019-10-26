@@ -1,8 +1,7 @@
 <?php
-/** @var $f CActiveForm */
-
 use app\modules\comment\forms\CommentForm;
 
+/** @var $f CActiveForm */
 /** @var $form CommentForm */
 ?>
 <div id="comment-form" class="form">

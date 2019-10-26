@@ -1,8 +1,7 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\modules\page\models\Page;
 
+/** @var $this \yii\web\View */
 /** @var $models Page[] */
 /** @var $parent Page */
 ?>

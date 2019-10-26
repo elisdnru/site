@@ -1,6 +1,4 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\assets\HighlightAsset;
 use app\components\helpers\StyleHelper;
 use app\components\widgets\ShareWidget;
@@ -15,10 +13,11 @@ use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
 
-$this->context->layout = 'post';
-
+/** @var $this \yii\web\View */
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
+
+$this->context->layout = 'post';
 
 $this->title = $model->pagetitle;
 
@@ -83,13 +82,10 @@ HighlightAsset::register($this);
 
         <?php if ($model->image && $model->image_show) : ?>
             <?php
-            $properties = [];
-            if ($model->image_width) {
-                $properties['width'] = $model->image_width;
-            }
-            if ($model->image_height) {
-                $properties['height'] = $model->image_height;
-            }
+            $properties = array_filter([
+                'width' => $model->image_width,
+                'height' => $model->image_height,
+            ]);
             ?>
             <p class="thumb"><?= CHtml::image($model->imageUrl, $model->image_alt, $properties) ?></p>
         <?php endif; ?>
@@ -135,7 +131,8 @@ HighlightAsset::register($this);
         $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</a>';
     }
     ?>
-    <p class="entry_date">Дата: <span class="enc-date" data-date="<?= DateHelper::normdate($model->date) ?>">&nbsp;</span>
+    <p class="entry_date">
+        Дата: <span class="enc-date" data-date="<?= DateHelper::normdate($model->date) ?>">&nbsp;</span>
     </p>
     <p class="entry_tags">Метки: <?= implode('', $links) ?></p>
     <div class="clear"></div>
@@ -177,4 +174,4 @@ HighlightAsset::register($this);
     'authorId' => $model->author_id,
     'type' => Comment::TYPE_OF_COMMENT,
     'url' => $model->url,
-]); ?>
+]) ?>

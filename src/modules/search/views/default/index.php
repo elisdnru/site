@@ -1,11 +1,10 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\components\helpers\NumberHelper;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 
+/** @var $this \yii\web\View */
 /** @var $dataProvider ActiveDataProvider */
 /** @var $query CActiveRecord */
 

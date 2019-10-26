@@ -1,11 +1,10 @@
 <?php
-/** @var $this \yii\web\View */
-
 use app\modules\blog\models\Category;
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
+/** @var $this \yii\web\View */
 /** @var $page Page */
 /** @var $category Category */
 /** @var $dataProvider CActiveDataProvider */

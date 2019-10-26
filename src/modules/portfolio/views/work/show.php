@@ -1,5 +1,4 @@
 <?php
-
 use app\assets\ColorboxAsset;
 use app\components\widgets\ShareWidget;
 use app\modules\portfolio\models\Work;
