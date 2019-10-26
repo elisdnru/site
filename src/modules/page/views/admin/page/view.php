@@ -4,5 +4,5 @@
 use app\modules\page\models\Page;
 
 ?>
-<?php $this->reflash() ?>
+<?php $this->context->reflash() ?>
 <?php $this->redirect($model->getUrl());
