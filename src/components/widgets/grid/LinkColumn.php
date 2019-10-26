@@ -7,8 +7,6 @@ use CDataColumn;
 use CHtml;
 use Yii;
 
-Yii::import('zii.widgets.grid.CDataColumn');
-
 class LinkColumn extends CDataColumn
 {
     public $link;

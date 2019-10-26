@@ -14,8 +14,6 @@ use CJavaScript;
 use Yii;
 use yii\web\View;
 
-Yii::import('zii.widgets.grid.CGridColumn');
-
 class ToggleColumn extends CGridColumn
 {
     /**

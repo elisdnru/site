@@ -29,8 +29,6 @@ use CHtml;
 use MigrateCommand;
 use Yii;
 
-Yii::import('system.cli.commands.MigrateCommand');
-
 /**
  * EMigrateCommand manages the database migrations.
  *

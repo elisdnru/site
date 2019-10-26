@@ -3,9 +3,6 @@
 namespace app\components\widgets\grid;
 
 use CButtonColumn;
-use Yii;
-
-Yii::import('zii.widgets.grid.CButtonColumn');
 
 class ButtonColumn extends CButtonColumn
 {

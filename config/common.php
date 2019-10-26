@@ -30,6 +30,13 @@ return [
     'sourceLanguage' => 'en',
     'language' => 'ru',
 
+    'import' => [
+        'zii.widgets.grid.CButtonColumn',
+        'zii.widgets.grid.CDataColumn',
+        'zii.widgets.grid.CGridColumn',
+        'system.cli.commands.MigrateCommand',
+    ],
+
     'modules' => [
         'admin' => ['class' => app\modules\admin\Module::class],
         'block' => ['class' => app\modules\block\Module::class],
