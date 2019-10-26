@@ -54,7 +54,7 @@ class DefaultController extends Controller
 
             $sitemap->addModels(Post::model()->published()->findAll(), Sitemap::DAILY, 0.8);
 
-            $sitemap->addModels(Work::model()->findAll(), Sitemap::WEEKLY);
+            $sitemap->addModels(Work::find()->published()->all(), Sitemap::WEEKLY);
 
             $xml = $sitemap->render();
 
