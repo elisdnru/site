@@ -34,13 +34,6 @@ class Controller extends CController
         return parent::beforeAction($action);
     }
 
-    public function checkIsPost(): void
-    {
-        if (!Yii::app()->request->isPostRequest) {
-            throw new CHttpException(400, 'Bad request');
-        }
-    }
-
     public function registerMetaTag($options, $key = null): void
     {
         Yii::$app->view->registerMetaTag($options, $key);
