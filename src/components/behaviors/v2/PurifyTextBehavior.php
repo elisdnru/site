@@ -75,8 +75,7 @@ class PurifyTextBehavior extends Behavior
             return;
         }
 
-        if (
-            $this->sourceAttribute &&
+        if ($this->sourceAttribute &&
             $this->destinationAttribute &&
             $this->calculateHash($model->{$this->sourceAttribute}) !== $this->_contentHash
         ) {

@@ -29,9 +29,9 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => ['delete', 'id
 <h1>Сообщение №<?= $model->id ?></h1>
 
 <?= CHtml::beginForm(Url::to(['toggle', 'id' => $model->id, 'attribute' => 'status'])) ?>
-<?php if ($model->status): ?>
+<?php if ($model->status) : ?>
     <?= CHtml::submitButton('Отметить непрочитанным') ?>
-<?php else: ?>
+<?php else : ?>
     <?= CHtml::submitButton('Прочитать') ?>
 <?php endif; ?>
 <?= CHtml::endForm() ?>

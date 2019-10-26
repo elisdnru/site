@@ -51,7 +51,7 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $user): ?>
+                <?php foreach ($dataProvider->getModels() as $user) : ?>
                     <?php /** @var $user \app\modules\user\models\User */ ?>
                     <tr>
                         <td style="width:50px">
@@ -70,9 +70,9 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
                             <?= Html::encode(Access::getRoleName($user->role)) ?>
                         </td>
                         <td>
-                            <?php if (!$user->confirm): ?>
+                            <?php if (!$user->confirm) : ?>
                                 <img title="Активен" style="width:16px; height:16px;" src="/images/admin/yes.png" alt="">
-                            <?php else: ?>
+                            <?php else : ?>
                                 <img title="Ожидает" style="width:16px; height:16px;" src="/images/admin/message.png" alt="">
                             <?php endif; ?>
                         </td>

@@ -13,4 +13,3 @@ class SubscribeWebinarsWidget extends Widget
         return $this->render('SubscribeWebinars');
     }
 }
-

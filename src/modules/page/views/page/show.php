@@ -10,7 +10,9 @@ if ($page->styles) {
     $this->registerCss(StyleHelper::minimize(strip_tags($page->styles)));
 }
 ?>
-<?php if ($page->layout === 'blank') : ?><?= $this->decodeWidgets($page->text_purified) ?><?php else : ?>
+<?php if ($page->layout === 'blank') :
+    ?><?= $this->decodeWidgets($page->text_purified) ?><?php
+else : ?>
     <section>
         <header>
             <?= $this->render('_head', ['page' => $page]); ?>

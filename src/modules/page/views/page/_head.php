@@ -19,5 +19,3 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
         $this->params['admin'][] = ['label' => 'Подстраницы', 'url' => ['/page/admin/page/index', 'Page[parent_id]' => $page->id]];
     }
 }
-?>
-

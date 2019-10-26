@@ -10,9 +10,9 @@ use yii\helpers\Url;
 /** @var $user \app\modules\user\models\User */
 ?>
 <article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
-    <?php if ($comment->user): ?>
+    <?php if ($comment->user) : ?>
         <img class="userpic" src="<?= $comment->getAvatarUrl(50, 50) ?>" alt="">
-    <?php else: ?>
+    <?php else : ?>
         <img class="userpic" src="<?= CHtml::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
     <?php endif; ?>
 

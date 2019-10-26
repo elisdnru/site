@@ -41,7 +41,7 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $block): ?>
+                <?php foreach ($dataProvider->getModels() as $block) : ?>
                     <tr>
                         <td>[{widget:block|id=<?= Html::encode($block->alias) ?>}]</td>
                         <td>

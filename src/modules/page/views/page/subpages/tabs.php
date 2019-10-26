@@ -13,14 +13,13 @@ use yii\caching\TagDependency;
 
         <div class="subpages">
             <ul>
-                <?php foreach ($page->parent->child_pages as $child) :
-                    $url = $child->url;
-                    ?>
+                <?php foreach ($page->parent->child_pages as $child) : ?>
+                    <?php $url = $child->url; ?>
                     <?php if (Yii::app()->request->requestUri === $url) : ?>
-                    <li class="active"><a href="<?= $url ?>"><?= $child->title ?></a></li>
-                <?php else : ?>
-                    <li><a href="<?= $url ?>"><?= $child->title ?></a></li>
-                <?php endif; ?>
+                        <li class="active"><a href="<?= $url ?>"><?= $child->title ?></a></li>
+                    <?php else : ?>
+                        <li><a href="<?= $url ?>"><?= $child->title ?></a></li>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>

@@ -16,7 +16,8 @@ class m191007_135558_rehash_passwords extends EDbMigration
 
         foreach ($rows as $row) {
             echo 'Rehash ' . $row['id'] . PHP_EOL;
-            $this->update('users',
+            $this->update(
+                'users',
                 ['password' => password_hash($row['password'], PASSWORD_DEFAULT)],
                 'id = :current_id AND LENGTH(password) = 32',
                 [':current_id' => $row['id']]

@@ -15,7 +15,7 @@ class m180806_105831_remove_language_tables extends EDbMigration
         $this->dropTable('{{menu_lang}}');
 
         if ($this->getDbConnection()->getSchema()->getTable('{{new_lang}}')) {
-           $this->dropTable('{{new_lang}}');
+            $this->dropTable('{{new_lang}}');
         }
 
         $this->dropTable('{{page_lang}}');

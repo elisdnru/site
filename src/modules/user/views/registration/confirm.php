@@ -8,5 +8,3 @@ $this->params['breadcrumbs'] = [
     'Регистрация' => ['registration/request'],
     'Подтверждение регистрации'
 ];
-?>
-

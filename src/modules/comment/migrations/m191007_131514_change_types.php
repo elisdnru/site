@@ -6,7 +6,8 @@ class m191007_131514_change_types extends EDbMigration
 {
     public function safeUp()
     {
-        $this->update('comments',
+        $this->update(
+            'comments',
             ['type' => 'app' . '\modules\blog\models\Post'],
             'type = :old_type',
             [':old_type' => 'app' . '\modules\blog\models\BlogPost']

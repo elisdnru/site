@@ -41,10 +41,13 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
             <tr id="item_<?= $item->id ?>">
                 <td><?= CHtml::activeTextField($item, "[$item->id]title", ['style' => 'width:99%', 'maxlength' => 255]) ?></td>
                 <td style="text-align: center"><a href="<?= $postsurl ?>">Записи</a></td>
-                <td style="text-align: center"><?php if ($item->posts_count === 0) : ?>
+                <td style="text-align: center">
+                    <?php if ($item->posts_count === 0) : ?>
                         <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить группу &laquo;<?= CHtml::encode($item->title) ?>&raquo;" href="<?= $delurl ?>">
                             <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить">
-                        </a>       <?php endif; ?></td>
+                        </a>
+                    <?php endif; ?>
+                </td>
             </tr>
 
         <?php endforeach; ?>

@@ -11,12 +11,7 @@ $publicurl = Url::to(['toggle', 'attribute' => 'public', 'id' => $data->id]);
 $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
 ?>
 
-<article class="comment<?php if (!$data->moder) :
-    ?> newcomment<?php
-endif; ?><?php if (!$data->public) :
-    ?> nopublcomment<?php
-endif; ?>" id="comment_<?= $data->id ?>">
-
+<article class="comment<?= !$data->moder ? ' newcomment' : '' ?><?= !$data->public ? ' nopublcomment' : '' ?>" id="comment_<?= $data->id ?>">
     <?php if ($data->user) : ?>
         <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>" alt="">
     <?php else : ?>
@@ -34,9 +29,7 @@ endif; ?>" id="comment_<?= $data->id ?>">
 
         <span class="like">
             <span id="like_<?= $data->id ?>"><?= $data->likes ?></span>
-            <a rel="nofollow" class="ajax_load like_icon<?php if ($data->liked) :
-                ?> like_active<?php
-            endif; ?>" data-load="like_<?= $data->id ?>" href="<?= Url::to(['comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
+            <a rel="nofollow" class="ajax_load like_icon<?= $data->liked ? ' like_active' : '' ?>" data-load="like_<?= $data->id ?>" href="<?= Url::to(['comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
         </span>
 
         <h2 class="date"><?= $data->date ?></h2>

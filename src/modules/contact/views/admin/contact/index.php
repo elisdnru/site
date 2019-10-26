@@ -50,8 +50,8 @@ if (Yii::$app->moduleManager->allowed('comment')) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $contact): ?>
-                <?php /** @var Contact $contact */ ?>
+                <?php foreach ($dataProvider->getModels() as $contact) : ?>
+                    <?php /** @var Contact $contact */ ?>
                     <tr>
                         <td style="width:130px; text-align:center"><?= $contact->date ?></td>
                         <td style="text-align:center"><?= Html::encode($contact->name) ?></td>
@@ -60,9 +60,9 @@ if (Yii::$app->moduleManager->allowed('comment')) {
                         <td><?= Html::encode($contact->pagetitle) ?></td>
                         <td style="width:30px;text-align:center">
                             <a class="ajax_post" href="<?= Url::to(['toggle', 'id' => $contact->id, 'attribute' => 'status']) ?>">
-                                <?php if ($contact->status): ?>
+                                <?php if ($contact->status) : ?>
                                     <img title="Прочитано" style="width:16px; height:16px;" class="icon-on" src="/images/admin/yes.png" alt="Прочитано">
-                                <?php else: ?>
+                                <?php else : ?>
                                     <img title="Новое" style="width:16px; height:16px;" class="icon-on" src="/images/admin/message.png" alt="Новое">
                                 <?php endif; ?>
                             </a>

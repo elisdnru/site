@@ -39,7 +39,9 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 <div id="wrapper">
 
     <header id="header">
-        <?php if ($this->context->route !== 'main/default/index'): ?><!--noindex--><?php endif; ?>
+        <?php if ($this->context->route !== 'main/default/index') :
+            ?><!--noindex--><?php
+        endif; ?>
         <div class="logo">
         <a href="/">
             <img src="/images/logo.png" alt="<?= Yii::app()->params['GENERAL.SITE_NAME'] ?>">
@@ -48,13 +50,14 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
         <div class="title">
             <?php if ($this->context->route === 'main/default/index') : ?>
                 <h1 class="name">Дмитрий Елисеев</h1>
-            <?php else: ?>
+            <?php else : ?>
                 <div class="name">Дмитрий Елисеев</div>
             <?php endif; ?>
             <div class="slogan">Разработка сайтов и интернет-сервисов</div>
         </div>
-        <?php if ($this->context->route !== 'main/default/index'): ?><!--/noindex--><?php
-    endif; ?>
+        <?php if ($this->context->route !== 'main/default/index') :
+            ?><!--/noindex--><?php
+        endif; ?>
 
         <div class="search">
             <?= SearchFormWidget::widget() ?>
@@ -110,8 +113,9 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
             <?php endif; ?>
         </div>
 
-        <?php if ($this->context->route !== 'main/default/index'): ?><!--noindex--><?php
-        endif; ?>
+        <?php if ($this->context->route !== 'main/default/index') : ?>
+            <!--noindex-->
+        <?php endif; ?>
         <div class="info">
             <p>
                 © ИП Елисеев Дмитрий Николаевич, 2009-<?php echo date('Y') ?><br />
@@ -121,8 +125,9 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
                 <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>')</script>
             </p>
         </div>
-        <?php if ($this->context->route !== 'main/default/index'): ?><!--/noindex--><?php
-    endif; ?>
+        <?php if ($this->context->route !== 'main/default/index') : ?>
+            <!--/noindex-->
+        <?php endif; ?>
 
         <!--noindex-->
         <div class="copy">

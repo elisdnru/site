@@ -17,8 +17,9 @@ class CaptchaValidator extends Validator
     public function validateAttribute($object, $attribute): void
     {
         $value = $object->$attribute;
-        if ($this->allowEmpty && $this->isEmpty($value))
+        if ($this->allowEmpty && $this->isEmpty($value)) {
             return;
+        }
         $captcha = $this->getCaptchaAction();
         if (is_array($value) || !$captcha->validate($value, $this->caseSensitive)) {
             $message = $this->message !== null ? $this->message : Yii::t('yii', 'The verification code is incorrect.');
@@ -29,16 +30,19 @@ class CaptchaValidator extends Validator
     protected function getCaptchaAction(): CCaptchaAction
     {
         if (($captcha = Yii::app()->getController()->createAction($this->captchaAction)) === null) {
-            if (strpos($this->captchaAction, '/') !== false) // contains controller or module
-            {
+            if (strpos($this->captchaAction, '/') !== false) { // contains controller or module
                 if (($ca = Yii::app()->createController($this->captchaAction)) !== null) {
                     list($controller, $actionID) = $ca;
                     $captcha = $controller->createAction($actionID);
                 }
             }
-            if ($captcha === null)
-                throw new CException(Yii::t('yii', 'CCaptchaValidator.action "{id}" is invalid. Unable to find such an action in the current controller.',
-                    array('{id}' => $this->captchaAction)));
+            if ($captcha === null) {
+                throw new CException(Yii::t(
+                    'yii',
+                    'CCaptchaValidator.action "{id}" is invalid. Unable to find such an action in the current controller.',
+                    ['{id}' => $this->captchaAction]
+                ));
+            }
         }
         return $captcha;
     }
@@ -47,9 +51,9 @@ class CaptchaValidator extends Validator
     {
         $captcha = $this->getCaptchaAction();
         $message = $this->message !== null ? $this->message : Yii::t('yii', 'The verification code is incorrect.');
-        $message = strtr($message, array(
+        $message = strtr($message, [
             '{attribute}' => $model->getAttributeLabel($attribute),
-        ));
+        ]);
         $code = $captcha->getVerifyCode(false);
         $hash = $captcha->generateValidationHash($this->caseSensitive ? $code : strtolower($code));
         $js = "
@@ -75,4 +79,3 @@ if(jQuery.trim(value)!='') {
         return $js;
     }
 }
-

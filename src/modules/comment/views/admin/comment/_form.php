@@ -41,7 +41,6 @@ use yii\helpers\Url;
                     <a href="<?= Url::to(['/user/admin/user/update', 'id' => $model->user_id]) ?>"><?= $model->user->fio ?></a>
                 </p>
             <?php else : ?>
-
                 <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
                     <?= Html::activeLabel($model, 'name') ?><br />
                     <?= Html::activeTextInput($model, 'name') ?><br />

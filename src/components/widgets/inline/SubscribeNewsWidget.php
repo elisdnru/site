@@ -13,4 +13,3 @@ class SubscribeNewsWidget extends Widget
         return $this->render('SubscribeNews');
     }
 }
-

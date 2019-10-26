@@ -9,7 +9,7 @@ $providers = [
 ?>
 
 <div id="follow" class="follow">
-    <?php foreach ($providers as $provider): ?>
+    <?php foreach ($providers as $provider) : ?>
         <a rel="noopener" href="<?= CHtml::encode($provider['url']) ?>" title="<?= CHtml::encode($provider['name']) ?>"><span class="follow-<?= $provider['class'] ?>"></span></a>
     <?php endforeach; ?>
 </div>

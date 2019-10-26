@@ -19,8 +19,9 @@ class ExistOrEmpty extends CExistValidator
     protected function validateAttribute($object, $attribute): void
     {
         $value = $object->$attribute;
-        if ($this->allowEmpty && $this->isEmpty($value))
+        if ($this->allowEmpty && $this->isEmpty($value)) {
             return;
+        }
 
         if (is_array($value)) {
             // https://github.com/yiisoft/yii/issues/1955
@@ -32,9 +33,13 @@ class ExistOrEmpty extends CExistValidator
         $className = $this->className ?: get_class($object);
         $attributeName = $this->attributeName === null ? $attribute : $this->attributeName;
         $table = $className::getTableSchema();
-        if (($column = $table->getColumn($attributeName)) === null)
-            throw new CException(Yii::t('yii', 'Table "{table}" does not have a column named "{column}".',
-                array('{column}' => $attributeName, '{table}' => $table->name)));
+        if (($column = $table->getColumn($attributeName)) === null) {
+            throw new CException(Yii::t(
+                'yii',
+                'Table "{table}" does not have a column named "{column}".',
+                ['{column}' => $attributeName, '{table}' => $table->name]
+            ));
+        }
 
         $columnName = $column->name;
         $valueParamName = CDbCriteria::PARAM_PREFIX . CDbCriteria::$paramCount++;
@@ -44,7 +49,7 @@ class ExistOrEmpty extends CExistValidator
 
         if (!$query->exists()) {
             $message = $this->message !== null ? $this->message : Yii::t('yii', '{attribute} "{value}" is invalid.');
-            $this->addError($object, $attribute, $message, array('{value}' => $value));
+            $this->addError($object, $attribute, $message, ['{value}' => $value]);
         }
     }
 }
