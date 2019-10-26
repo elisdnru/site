@@ -15,3 +15,7 @@ use app\modules\portfolio\models\Work;
         <?php endforeach; ?>
     </div>
 </div>
+
+<?php Yii::app()->controller->widget(CLinkPager::class, [
+    'pages' => $dataProvider->getPagination(),
+]); ?>
