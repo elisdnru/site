@@ -11,10 +11,6 @@ use app\modules\user\models\Access;
 
 MainAsset::register(Yii::$app->view);
 
-if (Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) {
-    AdminBarAsset::register(Yii::$app->view);
-}
-
 $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request->csrfToken]);
 
 /** @var $this Controller */
