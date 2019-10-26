@@ -5,6 +5,7 @@
 use app\components\AdminController;
 use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\LinkColumn;
+use yii\helpers\Url;
 
 $this->title = 'Метки записей';
 $this->params['breadcrumbs'] = [
@@ -13,13 +14,13 @@ $this->params['breadcrumbs'] = [
     'Метки записей',
 ];
 
-$this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
-$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')];
-$this->params['admin'][] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
-$this->params['admin'][] = ['label' => 'Добавить метку', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category/index']];
+$this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/group/index']];
+$this->params['admin'][] = ['label' => 'Добавить метку', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Метки записей блога</h1>
 
 <?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [

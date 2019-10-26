@@ -11,7 +11,7 @@ use app\components\AdminController;
 $this->title = 'Комментарии к записям';
 
 if (Yii::$app->moduleManager->allowed('blog')) {
-    $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
+    $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
 }
 if ($material) {
     $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->url];
@@ -42,7 +42,7 @@ CommentsAsset::register(Yii::$app->view);
     ?>
 
     <div style="float:right">
-        <?= CHtml::beginForm($this->createUrl('moderAll')) ?>
+        <?= CHtml::beginForm(['moderAll']) ?>
         <?= CHtml::submitButton('Пометить все новые почтёнными') ?>
         <?= CHtml::endForm() ?>
     </div>

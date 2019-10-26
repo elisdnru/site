@@ -10,8 +10,8 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('index')];
-$this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => ['index']];
+$this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
 
 use app\modules\portfolio\models\Category; ?>
 

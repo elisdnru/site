@@ -4,6 +4,7 @@
 use app\assets\ColorboxAsset;
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
+use yii\helpers\Url;
 use yii\web\JqueryAsset;
 use yii\web\View;
 
@@ -19,7 +20,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->moduleManager->allowed('page')) {
-    $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
+    $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
 
 JqueryAsset::register(Yii::$app->view);
@@ -33,13 +34,13 @@ $nav = '';
 ?>
 
 <h3>
-    <a href="<?= $this->createUrl('index') ?>"><?= $htmlroot ?></a>
+    <a href="<?= Url::to(['index']) ?>"><?= $htmlroot ?></a>
     <?php foreach ($folders as $folder) : ?>
         <?php $nav .= $nav ? '/' . $folder : $folder; ?>
 
         <?php if ($nav) :
             ?>/
-            <a href="<?= $this->createUrl('index', ['path' => $nav]) ?>"><?= $folder ?></a><?php
+            <a href="<?= Url::to(['index', 'path' => $nav]) ?>"><?= $folder ?></a><?php
         endif; ?>
 
     <?php endforeach; ?>
@@ -50,7 +51,7 @@ $dir = Yii::$app->file->set($root . '/' . $path);
 $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
 ?>
 
-<?= CHtml::beginForm($this->createUrl('process', ['path' => $path])) ?>
+<?= CHtml::beginForm(Url::to(['process', 'path' => $path])) ?>
 
 <table class="grid" style="margin-bottom:20px !important;">
 
@@ -74,7 +75,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
             ?>
 
             <?php if ($file->getIsDir()) : ?>
-                <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
+                <?php $delurl = Url::to(['delete', 'name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
 
                 <tr id="item_<?= md5($file->getBasename()) ?>">
                     <td style="text-align: center">
@@ -83,7 +84,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>'); return false;"><?= $renameIcon ?></a>
                         <img src="/images/admin/foldericon.jpg" alt="">
-                        <a href="<?= $this->createUrl('index', ['path' => ($path ? $path . '/' : '') . $file->getBasename()]) ?>"><?= $file->getBasename() ?></a>
+                        <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . $file->getBasename()]) ?>"><?= $file->getBasename() ?></a>
                     </td>
                     <td></td>
                     <td style="text-align: center">
@@ -95,7 +96,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
                 </tr>
 
             <?php else : ?>
-                <?php $delurl = $this->createUrl('delete', ['name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
+                <?php $delurl = Url::to(['delete', 'name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
 
                 <tr id="item_<?= md5($file->getBasename()) ?>">
                     <td style="text-align: center">
@@ -177,7 +178,7 @@ jQuery(function ($) {
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>
     <div id="rename" class="form">
-        <?= CHtml::beginForm($this->createUrl('rename', ['path' => Yii::app()->request->getQuery('path')])) ?>
+        <?= CHtml::beginForm(Url::to(['rename', 'path' => Yii::app()->request->getQuery('path')])) ?>
         <?= CHtml::hiddenField('name', '', ['id' => 'sourceName']) ?>
         <div class="row">
             <?= CHtml::textField('to', '', ['id' => 'destName', 'size' => 24]) ?>

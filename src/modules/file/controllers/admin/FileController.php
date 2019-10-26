@@ -9,6 +9,7 @@ use app\components\AdminController;
 use app\components\helpers\FileHelper;
 use app\components\helpers\TextHelper;
 use Yii;
+use yii\helpers\Url;
 
 class FileController extends AdminController
 {
@@ -97,7 +98,7 @@ class FileController extends AdminController
             throw new CHttpException(400, 'Ошибка переименования');
         }
 
-        $this->redirectOrAjax($this->createUrl('index', ['path' => $path]));
+        $this->redirectOrAjax(Url::to(['index', 'path' => $path]));
     }
 
     protected function uploadPostFile($field, $curpath): bool
@@ -154,7 +155,7 @@ class FileController extends AdminController
             }
         }
 
-        $this->redirectOrAjax($this->createUrl('index', ['path' => $path]));
+        $this->redirectOrAjax(Url::to(['index', 'path' => $path]));
     }
 
     protected function getFileDir(): string

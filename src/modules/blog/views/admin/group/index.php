@@ -5,6 +5,7 @@ use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
 use app\components\Controller;
+use yii\helpers\Url;
 
 /** @var $items Group[] */
 /** @var $categoryForm CategoryForm */
@@ -18,8 +19,8 @@ $this->params['breadcrumbs'] = [
     'Тематические группы',
 ];
 
-$this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
-$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')];
+$this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category/index']];
 ?>
 
 <h1>Тематические группы записей</h1>
@@ -34,8 +35,8 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->cre
             <th width="16"></th>
         </tr>
         <?php foreach ($items as $item) :
-            $delurl = $this->createUrl('delete', ['id' => $item->id]);
-            $postsurl = $this->createUrl('blog/admin/post', ['Post[group_id]' => $item->id]);
+            $delurl = Url::to(['delete', 'id' => $item->id]);
+            $postsurl = Url::to(['blog/admin/post', 'Post[group_id]' => $item->id]);
 
             ?>
             <tr id="item_<?= $item->id ?>">

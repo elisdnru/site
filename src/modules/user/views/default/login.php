@@ -50,8 +50,8 @@ use app\modules\ulogin\widgets\UloginWidget; ?>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Регистрация и восстановление']); ?>
-<p style="margin:0;"><a href="<?= $this->createUrl('/user/registration/request') ?>">Регистрация</a> |
-    <a href="<?= $this->createUrl('/user/default/remind') ?>">Забыли пароль?</a></p>
+<p style="margin:0;"><a href="<?= ['/user/registration/request'] ?>">Регистрация</a> |
+    <a href="<?= ['/user/default/remind'] ?>">Забыли пароль?</a></p>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>

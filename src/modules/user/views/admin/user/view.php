@@ -14,8 +14,8 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('index')];
-$this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['index']];
+$this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $model->id]];
 ?>
 
 <?php Portlet::begin(['title' => 'Профиль пользователя']); ?>
@@ -28,8 +28,8 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $t
 
     <?php if ($model->id == Yii::app()->user->id) : ?>
         <p style="float:right">
-            <a href="<?= $this->createUrl('/user/profile/edit') ?>">Редактировать</a> |
-            <a href="<?= $this->createUrl('/user/default/logout') ?>">Выход</a>
+            <a href="<?= ['/user/profile/edit'] ?>">Редактировать</a> |
+            <a href="<?= ['/user/default/logout'] ?>">Выход</a>
         </p>
     <?php endif; ?>
 

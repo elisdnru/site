@@ -12,8 +12,8 @@ $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = ['Профиль'];
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
-    $this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
-    $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('/user/admin/user/update', ['id' => $model->id])];
+    $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['/user/admin/user/index']];
+    $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/user/admin/user/update', 'id' => $model->id]];
 }
 ?>
 
@@ -27,8 +27,8 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
     <?php if ($model->id == Yii::app()->user->id) : ?>
         <p style="float:right">
-            <a href="<?= $this->createUrl('/user/profile/edit') ?>">Редактировать</a> |
-            <a href="<?= $this->createUrl('/user/default/logout') ?>">Выход</a>
+            <a href="<?= ['/user/profile/edit'] ?>">Редактировать</a> |
+            <a href="<?= ['/user/default/logout'] ?>">Выход</a>
         </p>
     <?php endif; ?>
 

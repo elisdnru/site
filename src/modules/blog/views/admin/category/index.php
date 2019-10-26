@@ -7,6 +7,7 @@ use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\IndentLinkColumn;
 use app\components\widgets\grid\LinkColumn;
 use app\modules\blog\models\Category;
+use yii\helpers\Url;
 
 $this->title = 'Категории записей';
 $this->params['breadcrumbs'] = [
@@ -15,12 +16,12 @@ $this->params['breadcrumbs'] = [
     'Категории записей',
 ];
 
-$this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
-$this->params['admin'][] = ['label' => 'Группы', 'url' => $this->createUrl('/blog/admin/group/index')];
-$this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
+$this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/group/index']];
+$this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Категории блога</h1>
 
 <?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [

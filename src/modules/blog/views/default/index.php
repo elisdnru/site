@@ -24,11 +24,11 @@ $this->params['breadcrumbs'] = [
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::$app->moduleManager->allowed('blog')) {
-        $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
-        $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create')];
-        $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category')];
+        $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post']];
+        $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create']];
+        $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category']];
         if ($page->id) {
-            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
+            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => ['/page/admin/page/update', 'id' => $page->id]];
         }
     }
     if (Yii::$app->moduleManager->allowed('blog') && Yii::$app->moduleManager->allowed('comment')) {

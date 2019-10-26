@@ -7,7 +7,7 @@ $this->params['breadcrumbs'] = [
     'Блоки',
 ];
 
-$this->params['admin'][] = ['label' => 'Добавить блок', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['create']];
 
 use app\modules\block\forms\BlockSearch;
 use yii\data\ActiveDataProvider;
@@ -15,7 +15,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager; ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>HTML-Блоки</h1>
 
 <div class="grid-view">

@@ -14,17 +14,17 @@ $this->title = $model->title;
 $this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
 
 $this->params['breadcrumbs'] = [
-    'Портфолио' => $this->createUrl('/portfolio/default/index')
+    'Портфолио' => ['/portfolio/default/index']
 ];
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
 $this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::$app->moduleManager->allowed('portfolio')) {
-        $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('/portfolio/admin/work/update', ['id' => $model->id])];
-        $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/admin/category/update', ['id' => $model->category_id])];
-        $this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
-        $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/create')];
+        $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/portfolio/admin/work/update', 'id' => $model->id]];
+        $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['/portfolio/admin/category/update', 'id' => $model->category_id]];
+        $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
+        $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create']];
     }
 } ?>
 

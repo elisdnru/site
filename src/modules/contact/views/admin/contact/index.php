@@ -18,7 +18,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->moduleManager->allowed('comment')) {
-    $this->params['admin'][] = ['label' => 'Комментарии', 'url' => $this->createUrl('/comment/admin/comment/index')];
+    $this->params['admin'][] = ['label' => 'Комментарии', 'url' => ['/comment/admin/comment/index']];
 }
 ?>
 
@@ -57,10 +57,10 @@ if (Yii::$app->moduleManager->allowed('comment')) {
                         <td style="width:130px; text-align:center"><?= $contact->date ?></td>
                         <td style="text-align:center"><?= Html::encode($contact->name) ?></td>
                         <td style="text-align:center"><?= Html::encode($contact->email) ?></td>
-                        <td><?= CHtml::link(CHtml::encode(mb_substr($contact->text, 0, 59, 'UTF-8')), $this->createUrl('view', ['id' => $contact->id])) ?></td>
+                        <td><?= CHtml::link(CHtml::encode(mb_substr($contact->text, 0, 59, 'UTF-8')), Url::to(['view', 'id' => $contact->id])) ?></td>
                         <td><?= Html::encode($contact->pagetitle) ?></td>
                         <td style="width:30px;text-align:center">
-                            <a class="ajax_post" href="<?=$this->createUrl('toggle', ['id' => $contact->id, 'attribute' => 'status']) ?>">
+                            <a class="ajax_post" href="<?= Url::to(['toggle', 'id' => $contact->id, 'attribute' => 'status']) ?>">
                                 <?php if ($contact->status): ?>
                                     <img title="Прочитано" style="width:16px; height:16px;" class="icon-on" src="/images/admin/yes.png" alt="Прочитано">
                                 <?php else: ?>

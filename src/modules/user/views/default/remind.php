@@ -8,7 +8,7 @@ use app\modules\user\forms\RemindForm;
 $this->layout = '/layouts/user';
 $this->title = 'Восстановление пароля';
 $this->params['breadcrumbs'] = [
-    'Вход на сайт' => $this->createUrl('login'),
+    'Вход на сайт' => ['login'],
     'Восстановление пароля',
 ];
 ?>

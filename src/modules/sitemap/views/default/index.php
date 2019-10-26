@@ -18,11 +18,11 @@ $this->params['breadcrumbs'] = [
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     if (Yii::$app->moduleManager->allowed('page')) {
-        $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page')];
+        $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page']];
     }
     if ($page->id) {
         if (Yii::$app->moduleManager->allowed('page')) {
-            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/edit', ['id' => $page->id])];
+            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => ['/page/admin/page/edit', 'id' => $page->id]];
         }
     }
 }

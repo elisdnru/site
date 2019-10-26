@@ -14,7 +14,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
-    $this->params['admin'][] = ['label' => 'Пользователи', 'url' => $this->createUrl('/user/admin/user/index')];
+    $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['/user/admin/user/index']];
 } ?>
 
 <?php Portlet::begin(['title' => 'Редактировать профиль']); ?>
@@ -77,7 +77,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
         <div class="row<?= $model->hasErrors('old_password') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'old_password') ?> &nbsp;
-            (<a target="_blank" href="<?= $this->createUrl('/user/default/remind') ?>">получить</a>)<br />
+            (<a target="_blank" href="<?= ['/user/default/remind'] ?>">получить</a>)<br />
             <?= Html::activePasswordInput($model, 'old_password', ['size' => 40, 'maxlength' => 255]) ?><br />
             <?= Html::error($model, 'old_password', ['class' => 'errorMessage']) ?>
         </div>

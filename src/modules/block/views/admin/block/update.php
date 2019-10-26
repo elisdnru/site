@@ -8,8 +8,8 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
-$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Блоки', 'url' => ['index']];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id' => $model->id]];
 
 use app\modules\block\models\Block; ?>
 

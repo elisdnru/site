@@ -10,9 +10,9 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Лендинги', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Лендинги', 'url' => ['index']];
 if (Yii::$app->moduleManager->allowed('page')) {
-    $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
+    $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
 ?>
 

@@ -2,12 +2,13 @@
 /** @var $data \app\modules\comment\models\Comment */
 use app\components\helpers\SocNetworkHelper;
 use app\components\helpers\TextHelper;
+use yii\helpers\Url;
 
-$groupurl = $this->createUrl('index', ['id' => $data->material_id]);
-$editurl = $this->createUrl('update', ['id' => $data->id]);
-$delurl = $this->createUrl('delete', ['id' => $data->id]);
-$publicurl = $this->createUrl('toggle', ['attribute' => 'public', 'id' => $data->id]);
-$moderurl = $this->createUrl('toggle', ['attribute' => 'moder', 'id' => $data->id]);
+$groupurl = Url::to(['index', 'id' => $data->material_id]);
+$editurl = Url::to(['update', 'id' => $data->id]);
+$delurl = Url::to(['delete', 'id' => $data->id]);
+$publicurl = Url::to(['toggle', 'attribute' => 'public', 'id' => $data->id]);
+$moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
 ?>
 
 <article class="comment<?php if (!$data->moder) :

@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->layout = '/layouts/user';
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'] = [
-    'Вход на сайт' => $this->createUrl('login'),
+    'Вход на сайт' => ['login'],
     'Регистрация',
 ];
 ?>

@@ -7,9 +7,9 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Cтраницы', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Cтраницы', 'url' => ['index']];
 if (Yii::$app->moduleManager->allowed('menu')) {
-    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
+    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => ['/menu/admin/menu/index']];
 }
 
 use app\modules\page\models\Page; ?>

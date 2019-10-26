@@ -1,7 +1,8 @@
 <?php
 /** @var $model Block */
 
-use app\modules\block\models\Block; ?>
+use app\modules\block\models\Block;
+use yii\helpers\Url; ?>
 <?php
 $this->title = 'Редактор блоков';
 $this->params['breadcrumbs'] = [
@@ -10,7 +11,7 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Блоки', 'url' => ['index']];
 ?>
 
 <h1>Добавление блока</h1>

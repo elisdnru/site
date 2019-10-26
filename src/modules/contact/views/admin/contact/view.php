@@ -3,6 +3,7 @@
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
+use yii\helpers\Url;
 
 /** @var $next Contact */
 /** @var $prev Contact */
@@ -15,20 +16,20 @@ $this->params['breadcrumbs'] = [
     'Сообщение №' . $model->id,
 ];
 
-$this->params['admin'][] = ['label' => 'Сообщения', 'url' => $this->createUrl('index')];
-$this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createUrl('delete', ['id' => $model->id])];
+$this->params['admin'][] = ['label' => 'Сообщения', 'url' => ['index']];
+$this->params['admin'][] = ['label' => 'Удалить', 'url' => ['delete', 'id' => $model->id]];
 ?>
 
 <div style="float:right">
 
-    <?= CHtml::beginForm($this->createUrl('delete', ['id' => $model->id])) ?>
+    <?= CHtml::beginForm(Url::to(['delete', 'id' => $model->id])) ?>
     <?= CHtml::submitButton('Удалить сообщение') ?>
     <?= CHtml::endForm() ?>
 </div>
 
 <h1>Сообщение №<?= $model->id ?></h1>
 
-<?= CHtml::beginForm($this->createUrl('toggle', ['id' => $model->id, 'attribute' => 'status'])) ?>
+<?= CHtml::beginForm(Url::to(['toggle', 'id' => $model->id, 'attribute' => 'status'])) ?>
 <?php if ($model->status): ?>
     <?= CHtml::submitButton('Отметить непрочитанным') ?>
 <?php else: ?>
@@ -67,11 +68,11 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => $this->createU
 </table>
 <?php if ($next) :
 ?><p class="nomargin" style="float: right">
-    <a href="<?= $this->createUrl('view', ['id' => $next->id]) ?>">следующее сообщение &rarr;</a>
+    <a href="<?= Url::to(['view', 'id' => $next->id]) ?>">следующее сообщение &rarr;</a>
     <?php endif; ?>
 <?php if ($prev) :
 ?><p class="nomargin" style="float: left">
-    <a href="<?= $this->createUrl('view', ['id' => $prev->id]) ?>">&larr; предыдущее сообщение</a>
+    <a href="<?= Url::to(['view', 'id' => $prev->id]) ?>">&larr; предыдущее сообщение</a>
     <?php endif; ?>
 
 <div class="clear"></div>

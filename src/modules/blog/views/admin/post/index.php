@@ -8,6 +8,7 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
+use yii\helpers\Url;
 
 /** @var $model Post */
 
@@ -18,14 +19,14 @@ $this->params['breadcrumbs'] = [
 ];
 
 $this->params['admin'] = [
-    ['label' => 'Добавить', 'url' => $this->createUrl('create')],
-    ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')],
-    ['label' => 'Метки', 'url' => $this->createUrl('/blog/admin/tag/index')],
-    ['label' => 'Тематические группы', 'url' => $this->createUrl('/blog/admin/group/index')],
+    ['label' => 'Добавить', 'url' => ['create']],
+    ['label' => 'Категории', 'url' => ['/blog/admin/category/index']],
+    ['label' => 'Метки', 'url' => ['/blog/admin/tag/index']],
+    ['label' => 'Тематические группы', 'url' => ['/blog/admin/group/index']],
 ];
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Записи блога</h1>
 
 <?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [

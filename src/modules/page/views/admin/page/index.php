@@ -5,6 +5,7 @@ use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\IndentLinkColumn;
 use app\components\widgets\grid\LinkColumn;
 use app\modules\page\models\Page;
+use yii\helpers\Url;
 
 $this->title = 'Страницы';
 $this->params['breadcrumbs'] = [
@@ -13,14 +14,14 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->moduleManager->allowed('page')) {
-    $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => $this->createUrl('create')];
+    $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => ['create']];
 }
 if (Yii::$app->moduleManager->allowed('menu')) {
-    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
+    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => ['/menu/admin/menu/index']];
 }
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 
 <h1>Страницы</h1>
 

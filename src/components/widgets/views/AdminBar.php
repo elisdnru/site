@@ -6,7 +6,8 @@
 
         <?= \yii\widgets\Menu::widget([
             'id' => 'admin_nav',
-            'items' => $links
+            'items' => $links,
+            'activateItems' => false,
         ]) ?>
 
         <div class="clear"></div>

@@ -9,6 +9,7 @@ use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use yii\data\Pagination;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
@@ -19,14 +20,14 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->moduleManager->allowed('portfolio')) {
-    $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
-    $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => $this->createUrl('create', ['category' => $category])];
+    $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
+    $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['create', 'category' => $category]];
 }
 
 JqueryUiAsset::register(Yii::$app->view);
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create', ['category' => $category]) ?>">Добавить</a>
+<p class="floatright"><a href="<?= Url::to(['create', 'category' => $category]) ?>">Добавить</a>
 </p>
 <h1>Портфолио</h1>
 
@@ -58,11 +59,10 @@ JqueryUiAsset::register(Yii::$app->view);
 <div id="listBlock">
 
     <?php foreach ($works as $item) :
-        $editurl = $this->createUrl('update', ['id' => $item->id]);
-        $delurl = $this->createUrl('delete', ['id' => $item->id]);
+        $editurl = Url::to(['update', 'id' => $item->id]);
+        $delurl = Url::to(['delete', 'id' => $item->id]);
 
-        $toggle_public = $this->createUrl('toggle', ['id' => $item->id, 'param' => 'public']);
-
+        $toggle_public = Url::to(['toggle', 'id' => $item->id, 'param' => 'public']);
         ?>
 
         <table id="item_<?= $item->id ?>" class="grid nomargin sortable">
@@ -128,7 +128,7 @@ jQuery(function($) {
                 var items = listBlock.sortable('serialize');
                 $.ajax({
                     type: 'POST',
-                    url: '<?= $this->createUrl('sort') ?>',
+                    url: '<?= ['sort'] ?>',
                     data: items + '&YII_CSRF_TOKEN=' + getCSRFToken(),
                     success: function () {
                         $('#saving').hide()

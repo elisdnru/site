@@ -7,6 +7,7 @@ use app\components\widgets\grid\IndentLinkColumn;
 use app\components\widgets\grid\LinkColumn;
 use app\components\widgets\grid\ToggleColumn;
 use app\modules\menu\models\Menu;
+use yii\helpers\Url;
 
 /** @var $items Menu[] */
 /** @var $model Menu */
@@ -18,12 +19,12 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->moduleManager->allowed('page')) {
-    $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
+    $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
-$this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 
 <h1>Пункты меню</h1>
 

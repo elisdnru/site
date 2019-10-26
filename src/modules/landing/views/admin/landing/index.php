@@ -5,6 +5,7 @@ use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\IndentLinkColumn;
 use app\components\widgets\grid\LinkColumn;
 use app\modules\landing\models\Landing;
+use yii\helpers\Url;
 
 $this->title = 'Лендинги';
 $this->params['breadcrumbs'] = [
@@ -13,14 +14,14 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->moduleManager->allowed('landing')) {
-    $this->params['admin'][] = ['label' => 'Добавить лендинг', 'url' => $this->createUrl('create')];
+    $this->params['admin'][] = ['label' => 'Добавить лендинг', 'url' => ['create']];
 }
 if (Yii::$app->moduleManager->allowed('page')) {
-    $this->params['admin'][] = ['label' => 'Страницы', 'url' => $this->createUrl('/page/admin/page/index')];
+    $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 
 <h1>Лендинги</h1>
 

@@ -13,11 +13,11 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $this->createUrl('view', ['id' => $model->id])];
-$this->params['admin'][] = ['label' => 'Все записи', 'url' => $this->createUrl('index')];
-$this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/blog/admin/category/index')];
-$this->params['admin'][] = ['label' => 'Править категорию', 'url' => $this->createUrl('/blog/admin/category/update', ['id' => $model->category_id])];
-$this->params['admin'][] = ['label' => 'Метки', 'url' => $this->createUrl('/blog/admin/tag/index')];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id' => $model->id]];
+$this->params['admin'][] = ['label' => 'Все записи', 'url' => ['index']];
+$this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category/index']];
+$this->params['admin'][] = ['label' => 'Править категорию', 'url' => ['/blog/admin/category/update', 'id' => $model->category_id]];
+$this->params['admin'][] = ['label' => 'Метки', 'url' => ['/blog/admin/tag/index']];
 ?>
 
 <h1>Редактирование записи</h1>

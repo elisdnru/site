@@ -5,6 +5,7 @@ use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\IndentLinkColumn;
 use app\components\widgets\grid\LinkColumn;
 use app\modules\portfolio\models\Category;
+use yii\helpers\Url;
 
 $this->title = 'Категории портфолио';
 $this->params['breadcrumbs'] = [
@@ -12,11 +13,11 @@ $this->params['breadcrumbs'] = [
     'Портфолио' => ['/portfolio/admin/work/index'],
     'Категории',
 ];
-$this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
-$this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => $this->createUrl('create')];
+$this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
+$this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= $this->createUrl('create') ?>">Добавить</a></p>
+<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Категории работ</h1>
 
 <?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [

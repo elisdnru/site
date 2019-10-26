@@ -10,8 +10,8 @@ $this->params['breadcrumbs'] = [
     $model->title,
 ];
 
-$this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('update', ['id' => $model->id])];
-$this->params['admin'][] = ['label' => 'Блоки', 'url' => $this->createUrl('index')];
+$this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $model->id]];
+$this->params['admin'][] = ['label' => 'Блоки', 'url' => ['index']];
 ?>
 
 <h1>Просмотр блока &laquo;<?= CHtml::encode($model->title) ?>&raquo;</h1>
