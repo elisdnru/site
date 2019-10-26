@@ -15,6 +15,13 @@
         </properties>
     </rule>
 
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="1000N"/>
+            <property name="absoluteLineLimit" value="1000"/>
+        </properties>
+    </rule>
+
     <!-- Paths to check -->
     <file>config</file>
     <file>src</file>
