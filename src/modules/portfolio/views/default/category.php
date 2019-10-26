@@ -46,7 +46,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 <div class="subpages">
     <ul>
         <li class="return">
-            <a rel="nofollow" href="<?= $category->parent ? $category->parent->url : ['/portfolio/default/index'] ?>">&larr;
+            <a rel="nofollow" href="<?= $category->parent ? $category->parent->url : Url::to(['/portfolio/default/index']) ?>">&larr;
                 Выше</a></li>
         <?php foreach ($subcategories as $subcategory) : ?>
             <li><a rel="nofollow" href="<?= $subcategory->url ?>"><?= $subcategory->title ?></a>
