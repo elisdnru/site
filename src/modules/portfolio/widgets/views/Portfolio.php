@@ -3,6 +3,7 @@
 
 use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
+use yii\helpers\Url;
 use yii\web\View;
 
 CarouselAsset::register($this);
@@ -19,7 +20,7 @@ CarouselAsset::register($this);
                 </li>
             <?php endforeach; ?>
             <li class="more">
-                <a rel="nofollow" href="<?= Yii::app()->createUrl('/portfolio/default/index') ?>">
+                <a rel="nofollow" href="<?= Url::to(['/portfolio/default/index']) ?>">
                     <span class="thumb"></span>
                 </a>
             </li>

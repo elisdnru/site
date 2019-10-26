@@ -3,6 +3,7 @@
 
 use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\UloginWidget;
+use yii\helpers\Url;
 
 /** @var $f CActiveForm */
 /** @var $form CommentForm */
@@ -21,10 +22,10 @@ use app\modules\ulogin\widgets\UloginWidget;
     <?= $f->errorSummary($form, '') ?>
 
     <?php if ($user && $user->id) : ?>
-        <a href="<?= Yii::app()->createUrl('/user/profile/view') ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->avatarUrl ?>" alt=""></a>
+        <a href="<?= Url::to(['/user/profile/view']) ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->avatarUrl ?>" alt=""></a>
 
-        <p class='exit' style="float: right"><a href="<?php Yii::app()->createUrl('/user/profile/view'); ?>">профиль</a> |
-            <a href="<?= Yii::app()->createUrl('/user/default/logout') ?>">выход</a></p>
+        <p class='exit' style="float: right"><a href="<?php Url::to(['/user/profile/view']); ?>">профиль</a> |
+            <a href="<?= Url::to(['/user/default/logout']) ?>">выход</a></p>
         <p class="nomargin">
             <?php if ($user->site) : ?>
                 <a rel="nofollow" href="<?= $user->site ?>"><?= $user->fio ?></a>
@@ -38,11 +39,11 @@ use app\modules\ulogin\widgets\UloginWidget;
     <div style="margin-bottom: 10px">
         <div style="float: right; margin-right: -10px">
             <?= UloginWidget::widget([
-                'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => Yii::app()->request->getRequestUri()]) . '#comments', 'display' => 'panel']
+                'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::app()->request->getRequestUri()], true) . '#comments', 'display' => 'panel']
             ]) ?>
         </div>
-        <a href="<?= Yii::app()->createUrl('/user/default/login') ?>">Войти</a> |
-        <a href="<?= Yii::app()->createUrl('/user/registration/request') ?>">Завести аккаунт</a> |
+        <a href="<?= Url::to(['/user/default/login']) ?>">Войти</a> |
+        <a href="<?= Url::to(['/user/registration/request']) ?>">Завести аккаунт</a> |
         <span style="color: #666">Войти через</span>
         <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
     </div>

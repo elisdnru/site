@@ -2,10 +2,11 @@
 /** @var $form SearchForm */
 
 use app\modules\search\forms\SearchForm;
+use yii\helpers\Url;
 
 ?>
 <div class="search_form">
-    <?= CHtml::beginForm(Yii::app()->createUrl('/search/default/index'), 'get') ?>
+    <?= CHtml::beginForm(Url::to(['/search/default/index']), 'get') ?>
     <div class="search_word">
         <?= CHtml::textField('q', $form->q, ['placeholder' => 'Поиск']) ?>
     </div>

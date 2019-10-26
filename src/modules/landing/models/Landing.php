@@ -7,6 +7,7 @@ use app\components\category\TreeActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @property integer $id
@@ -154,7 +155,7 @@ class Landing extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('landing/landing/show', ['path' => $this->getPath()]);
+            $this->_url = Url::to(['landing/landing/show', 'path' => $this->getPath()]);
         }
         return $this->_url;
     }

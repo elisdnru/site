@@ -7,6 +7,7 @@ use app\modules\user\forms\LoginForm;
 use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use Yii;
+use yii\helpers\Url;
 
 class DefaultController extends Controller
 {
@@ -14,7 +15,7 @@ class DefaultController extends Controller
     {
         $user = $this->loadUser();
         if ($user) {
-            $this->redirect(Yii::app()->createUrl('/user/profile/view'));
+            $this->redirect(Url::to(['/user/profile/view']));
         }
 
         $model = new LoginForm();

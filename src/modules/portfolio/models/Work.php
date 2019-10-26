@@ -7,6 +7,7 @@ use app\components\uploader\v2\FileUploadBehavior;
 use app\modules\portfolio\models\query\WorkQuery;
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\Url;
 
 /**
  * @property integer $id
@@ -176,7 +177,7 @@ class Work extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('/portfolio/work/show', ['category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+            $this->_url = Url::to(['/portfolio/work/show', 'category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;
     }

@@ -9,6 +9,7 @@ use app\components\helpers\TextHelper;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @property integer $id
@@ -225,7 +226,7 @@ class Page extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('page/page/show', ['path' => $this->getPath()]);
+            $this->_url = Url::to(['page/page/show', 'path' => $this->getPath()]);
         }
         return $this->_url;
     }

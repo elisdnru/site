@@ -36,7 +36,7 @@ endif; ?>" id="comment_<?= $data->id ?>">
             <span id="like_<?= $data->id ?>"><?= $data->likes ?></span>
             <a rel="nofollow" class="ajax_load like_icon<?php if ($data->liked) :
                 ?> like_active<?php
-            endif; ?>" data-load="like_<?= $data->id ?>" href="<?= Yii::app()->createUrl('comment/ajax/like', ['id' => $data->id]) ?>" title="Мне нравится"></a>
+            endif; ?>" data-load="like_<?= $data->id ?>" href="<?= Url::to(['comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
         </span>
 
         <h2 class="date"><?= $data->date ?></h2>

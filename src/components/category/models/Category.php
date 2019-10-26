@@ -8,6 +8,7 @@ use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @property string $id
@@ -144,7 +145,7 @@ abstract class Category extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl($this->urlRoute, ['category' => $this->alias]);
+            $this->_url = Url::to([$this->urlRoute, 'category' => $this->alias]);
         }
 
         return $this->_url;

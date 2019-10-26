@@ -57,6 +57,6 @@ use yii\helpers\Url; ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>
 <?= UloginWidget::widget([
-    'params' => ['redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])]
+    'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')], true)]
 ]) ?>
 <?php Portlet::end(); ?>

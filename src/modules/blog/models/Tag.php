@@ -6,6 +6,7 @@ use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @property integer $id
@@ -149,7 +150,7 @@ class Tag extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('/blog/default/tag', ['tag' => $this->title]);
+            $this->_url = Url::to(['/blog/default/tag', 'tag' => $this->title]);
         }
 
         return $this->_url;

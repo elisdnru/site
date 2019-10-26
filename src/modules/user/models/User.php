@@ -11,6 +11,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
+use yii\helpers\Url;
 
 /**
  * @property integer $id
@@ -368,7 +369,7 @@ class User extends ActiveRecord
         $mail = Yii::$app->mailer
             ->compose(['html' => 'confirm'], [
                 'user' => $this,
-                'confirmUrl' => Yii::app()->createAbsoluteUrl('/user/registration/confirm', ['code' => $this->confirm]),
+                'confirmUrl' => Url::to(['/user/registration/confirm', 'code' => $this->confirm], true),
             ])
             ->setSubject('Подтверждение регистрации на сайте elisdn.ru')
             ->setTo($this->email);

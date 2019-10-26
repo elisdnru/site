@@ -12,6 +12,7 @@ use CActiveRecord;
 use CDbCriteria;
 use CHtml;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @property integer $id
@@ -386,7 +387,7 @@ class Post extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl('/blog/post/show', ['id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+            $this->_url = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->_url;
     }

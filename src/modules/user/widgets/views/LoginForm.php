@@ -1,13 +1,14 @@
 <?php
 use app\components\helpers\SocNetworkHelper;
 use app\modules\ulogin\widgets\UloginWidget;
+use yii\helpers\Url;
 
 /** @var $user \app\modules\user\models\User */
 /** @var $model \app\modules\user\forms\LoginForm */
 ?>
 <?php if ($user) : ?>
     <div style="float:left;">
-        <a href="<?= Yii::app()->createUrl('/user/profile/view') ?>">
+        <a href="<?= Url::to(['/user/profile/view']) ?>">
             <img src="<?= $user->avatarUrl ?>" alt="" width="50">
         </a>
     </div>
@@ -23,8 +24,8 @@ use app\modules\ulogin\widgets\UloginWidget;
         </p>
         <p class="nomargin">Комментариев: <?= CHtml::encode($user->commentsCount) ?></p>
         <p class="nomargin" style="font-size:12px">
-            <a href="<?= Yii::app()->createUrl('/user/profile/view') ?>">Профиль</a> |
-            <a href="<?= Yii::app()->createUrl('/user/default/logout') ?>">Выход</a>
+            <a href="<?= Url::to(['/user/profile/view']) ?>">Профиль</a> |
+            <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>
         </p>
 
         <div class="clear"></div>
@@ -39,7 +40,7 @@ use app\modules\ulogin\widgets\UloginWidget;
         <div class="row" style="margin-bottom: 10px"><label><?= CHtml::activeCheckBox($model, 'rememberMe') ?> Запомнить меня</label></div>
 
         <div class="row buttons">
-            <span style="font-size:12px; float: right"><a href="<?= Yii::app()->createUrl('/user/registration/request') ?>">Регистрация</a> | <a href="<?= Yii::app()->createUrl('/user/default/remind') ?>">Забыли?</a></span>
+            <span style="font-size:12px; float: right"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> | <a href="<?= Yii::app()->createUrl('/user/default/remind') ?>">Забыли?</a></span>
             <?= CHtml::submitButton('Войти') ?>
             <div class="clear"></div>
         </div>
@@ -51,7 +52,7 @@ use app\modules\ulogin\widgets\UloginWidget;
         <?= UloginWidget::widget([
             'params' => [
                 'display' => 'small',
-                'redirect' => Yii::app()->createAbsoluteUrl('/ulogin/default/login', ['return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')])
+                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')], true)
             ]
         ]) ?>
     </div>

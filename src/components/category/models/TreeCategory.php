@@ -8,6 +8,7 @@ use app\components\validators\ExistOrEmpty;
 use CActiveDataProvider;
 use CDbCriteria;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @property string $parent_id
@@ -93,7 +94,7 @@ abstract class TreeCategory extends Category
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Yii::app()->createUrl($this->urlRoute, ['category' => $this->cache(3600)->getPath()]);
+            $this->_url = Url::to([$this->urlRoute, 'category' => $this->cache(3600)->getPath()]);
         }
 
         return $this->_url;
