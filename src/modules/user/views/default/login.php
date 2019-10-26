@@ -1,7 +1,7 @@
 <?php
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\forms\LoginForm*/
-$this->layout = '/layouts/user';
+$this->context->layout = 'user';
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'] = [
     'Вход на сайт'

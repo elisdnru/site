@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
@@ -199,7 +199,7 @@ use yii\web\View;
     <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
     </script>
 
-    <?= $this->renderPartial('//common/forms/_meta', [
+    <?= $this->render('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
     ]) ?>

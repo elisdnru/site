@@ -5,7 +5,7 @@ use yii\widgets\LinkPager; ?>
 
 <div class="items">
     <?php foreach ($dataProvider->getModels() as $data) : ?>
-        <?php $this->renderPartial('comment.views.admin.comment._view', ['data' => $data]) ?>
+        <?= $this->render('@app/modules/comment/views/admin/comment/_view', ['data' => $data]) ?>
     <?php endforeach; ?>
 </div>
 

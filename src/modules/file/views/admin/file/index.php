@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\assets\ColorboxAsset;
 use app\modules\contact\models\Contact;
@@ -23,7 +23,7 @@ if (Yii::$app->moduleManager->allowed('page')) {
     $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
 
-JqueryAsset::register(Yii::$app->view);
+JqueryAsset::register($this);
 ?>
 
 <h1>Файловый менеджер</h1>
@@ -173,7 +173,7 @@ jQuery(function ($) {
     <?= CHtml::endForm() ?>
 </div>
 
-<?php ColorboxAsset::register(Yii::$app->view) ?>
+<?php ColorboxAsset::register($this) ?>
 
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>

@@ -5,7 +5,7 @@ use app\components\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 
 /** @var $model RemindForm */
-$this->layout = '/layouts/user';
+$this->context->layout = 'user';
 $this->title = 'Восстановление пароля';
 $this->params['breadcrumbs'] = [
     'Вход на сайт' => ['login'],

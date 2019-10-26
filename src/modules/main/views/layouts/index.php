@@ -1,4 +1,4 @@
-<?php $this->beginContent('//layouts/main');
+<?php $this->beginContent('@app/views/layouts/main.php');
 
 use app\components\widgets\MessagesWidget; ?>
 
@@ -12,7 +12,7 @@ use app\components\widgets\MessagesWidget; ?>
 
 <aside class="sidebar right_sidebar">
 
-    <?= $this->renderPartial('/layouts/_sidebar'); ?>
+    <?= $this->render('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

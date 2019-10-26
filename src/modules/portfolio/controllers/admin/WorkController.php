@@ -40,7 +40,7 @@ class WorkController extends AdminController
         ];
     }
 
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $category = (int)Yii::app()->request->getParam('category');
 
@@ -61,7 +61,7 @@ class WorkController extends AdminController
             ->orderBy(['sort' => SORT_DESC])
             ->all();
 
-        $this->render('index', [
+        return $this->render('index', [
             'works' => $works,
             'category' => $category,
             'pages' => $pages,

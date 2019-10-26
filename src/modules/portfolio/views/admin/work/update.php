@@ -17,4 +17,4 @@ use app\modules\portfolio\models\Work; ?>
 
 <h1>Редактирование работы</h1>
 
-<?= $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>

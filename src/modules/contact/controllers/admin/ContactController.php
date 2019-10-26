@@ -26,14 +26,14 @@ class ContactController extends AdminController
         ];
     }
 
-    public function actionView($id): void
+    public function actionView($id): string
     {
         $model = $this->loadModel($id);
 
         $prev = Contact::find()->andWhere(['<', 'id', $id])->orderBy(['id' => SORT_DESC])->limit(1)->one();
         $next = Contact::find()->andWhere(['>', 'id', $id])->orderBy(['id' => SORT_ASC])->limit(1)->one();
 
-        $this->render('view', [
+        return $this->render('view', [
             'model' => $model,
             'prev' => $prev,
             'next' => $next,

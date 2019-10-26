@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 
 /** @var $model Work */
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = $model->title;
 $this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
@@ -28,7 +28,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     }
 } ?>
 
-<?php ColorboxAsset::register(Yii::$app->view) ?>
+<?php ColorboxAsset::register($this) ?>
 
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>

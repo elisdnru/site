@@ -1,2 +1,2 @@
-<?php $this->layout = false; ?>
+<?php $this->context->layout = false; ?>
 <?php echo $content;

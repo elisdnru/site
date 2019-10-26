@@ -19,5 +19,5 @@ if (Yii::$app->moduleManager->allowed('page')) {
 
 <h1>Редактирование лендинга</h1>
 
-<?= $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>
 

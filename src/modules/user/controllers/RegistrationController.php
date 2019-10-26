@@ -20,7 +20,7 @@ class RegistrationController extends Controller
         ];
     }
 
-    public function actionRequest(): void
+    public function actionRequest(): string
     {
         $model = new RegistrationForm();
 
@@ -46,10 +46,10 @@ class RegistrationController extends Controller
                 }
             }
         }
-        $this->render('request', ['model' => $model]);
+        return $this->render('request', ['model' => $model]);
     }
 
-    public function actionConfirm($code): void
+    public function actionConfirm($code): string
     {
         $user = User::findOne(['confirm' => $code]);
 
@@ -64,6 +64,6 @@ class RegistrationController extends Controller
             Yii::app()->user->setFlash('error', 'Запись о подтверждении не найдена');
         }
 
-        $this->render('confirm');
+        return $this->render('confirm');
     }
 }

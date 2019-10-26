@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\components\AdminController;
 use app\modules\portfolio\models\Category;
@@ -95,7 +95,7 @@ use yii\helpers\Html;
             </div>
         </fieldset>
 
-        <?= $this->renderPartial('//common/forms/v2/_meta', ['model' => $model]) ?>
+        <?= $this->render('//common/forms/v2/_meta', ['model' => $model]) ?>
 
         <div class="row buttons">
             <?= Html::submitButton('Сохранить') ?>

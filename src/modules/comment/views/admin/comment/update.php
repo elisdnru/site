@@ -14,4 +14,4 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
 
 <h1>Редактирование комментария</h1>
 
-<?= $this->renderPartial('comment.views.admin.comment._form', ['model' => $model]); ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_form', ['model' => $model]); ?>

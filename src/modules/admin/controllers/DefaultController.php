@@ -22,7 +22,7 @@ class DefaultController extends AdminController
         ];
     }
 
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $modules = [];
 
@@ -35,7 +35,7 @@ class DefaultController extends AdminController
 
         ksort($modules);
 
-        $this->render('index', [
+        return $this->render('index', [
             'modules' => $modules,
             'user' => $this->loadUser(),
         ]);

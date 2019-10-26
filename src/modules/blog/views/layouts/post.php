@@ -3,7 +3,7 @@
 use app\components\widgets\BreadcrumbsWidget;
 use app\components\widgets\MessagesWidget;
 
-$this->beginContent('//layouts/main'); ?>
+$this->beginContent('@app/views/layouts/main.php'); ?>
 
 <div class="main left_main">
 
@@ -16,7 +16,7 @@ $this->beginContent('//layouts/main'); ?>
 
 <aside class="sidebar right_sidebar">
 
-    <?= $this->renderPartial('/layouts/_sidebar'); ?>
+    <?= $this->render('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

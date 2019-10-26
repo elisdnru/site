@@ -4,7 +4,7 @@
 use app\assets\CountDownAsset;
 use yii\helpers\Html;
 
-CountDownAsset::register(Yii::$app->view);
+CountDownAsset::register($this);
 ?>
 
 <div style="text-align: center; margin: 20px 0">

@@ -1,11 +1,11 @@
-<?php $this->beginContent('//layouts/main');
+<?php $this->beginContent('@app/views/layouts/main.php');
 
 use app\components\widgets\BreadcrumbsWidget;
 use app\components\widgets\MessagesWidget; ?>
 
 <aside class="sidebar left_sidebar">
 
-    <?= $this->renderPartial('/layouts/_sidebar'); ?>
+    <?= $this->render('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

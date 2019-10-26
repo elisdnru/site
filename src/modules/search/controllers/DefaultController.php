@@ -17,7 +17,7 @@ use yii\data\ActiveDataProvider;
 
 class DefaultController extends Controller
 {
-    public function actionIndex($q): void
+    public function actionIndex($q): string
     {
         $model = new SearchForm();
         $model->q = $q;
@@ -39,13 +39,12 @@ class DefaultController extends Controller
                 ]
             ]);
 
-            $this->render('index', [
+            return $this->render('index', [
                 'dataProvider' => $dataProvider,
                 'query' => $model->q,
             ]);
-        } else {
-            $this->render('error');
         }
+        return $this->render('error');
     }
 
     private function createViewTable(): void

@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\LinkColumn;

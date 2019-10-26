@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 /** @var $dataProvider CDataProvider */
 /** @var $page Page */
 /** @var $categories Category[] */
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = $page->pagetitle;
 
@@ -52,4 +52,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 <?= $this->decodeWidgets(trim($page->text_purified)) ?>
 <?php if (Yii::app()->request->getParam('page', 1) > 1): ?><!--/noindex--><?php endif; ?>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

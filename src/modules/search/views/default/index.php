@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
@@ -35,7 +35,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <?= SearchFormWidget::widget() ?>
 
-<?= $this->renderPartial('_loop', [
+<?= $this->render('_loop', [
     'dataProvider' => $dataProvider,
     'query' => $query,
 ]); ?>

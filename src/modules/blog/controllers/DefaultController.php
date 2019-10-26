@@ -17,62 +17,62 @@ use app\extensions\cachetagging\Tags;
 
 class DefaultController extends Controller
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $criteria = $this->getBlogCriteria();
 
-        $this->render('index', [
+        return $this->render('index', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
         ]);
     }
 
-    public function actionCategory($category): void
+    public function actionCategory($category): string
     {
         $category = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
         $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildrenArray()));
 
-        $this->render('category', [
+        return $this->render('category', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
             'category' => $category,
         ]);
     }
 
-    public function actionDate($date): void
+    public function actionDate($date): string
     {
         $date = $this->getDateLimiter($date);
 
         $criteria = $this->getBlogCriteria();
         $criteria->addSearchCondition('t.date', $date->searchString, false);
 
-        $this->render('date', [
+        return $this->render('date', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
             'date' => $date,
         ]);
     }
 
-    public function actionTag($tag): void
+    public function actionTag($tag): string
     {
         if (!$tag = $this->loadTagModel($tag)) {
             $this->redirect(['index']);
-            return;
+            return '';
         }
 
         $criteria = $this->getBlogCriteria();
         $criteria->addInCondition('t.id', $tag->getPostIds());
 
-        $this->render('tag', [
+        return $this->render('tag', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
             'tag' => $tag,
         ]);
     }
 
-    public function actionSearch(): void
+    public function actionSearch(): string
     {
         $criteria = $this->getBlogCriteria();
 
@@ -86,7 +86,7 @@ class DefaultController extends Controller
             $criteria->addSearchCondition('t.short_purified', $searchForm->word, true, 'OR');
         }
 
-        $this->render('search', [
+        return $this->render('search', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
             'searchForm' => $searchForm,

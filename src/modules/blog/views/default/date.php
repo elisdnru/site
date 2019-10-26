@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\components\Controller;
 use app\components\DateLimiter;
@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 /** @var $date DateLimiter */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = 'Записи за ' . $date->date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
@@ -28,4 +28,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <h1>Записи от <?= $date->date ?></h1>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

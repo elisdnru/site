@@ -24,7 +24,7 @@ if (Yii::$app->moduleManager->allowed('portfolio')) {
     $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['create', 'category' => $category]];
 }
 
-JqueryUiAsset::register(Yii::$app->view);
+JqueryUiAsset::register($this);
 ?>
 
 <p class="floatright"><a href="<?= Url::to(['create', 'category' => $category]) ?>">Добавить</a>

@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\assets\CommentsAsset;
 use app\modules\blog\models\Comment;
@@ -17,7 +17,7 @@ if ($material) {
     $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->url];
 }
 
-CommentsAsset::register(Yii::$app->view);
+CommentsAsset::register($this);
 ?>
 
 <?php if ($material !== null) : ?>
@@ -51,6 +51,6 @@ CommentsAsset::register(Yii::$app->view);
 
 <?php endif; ?>
 
-<?= $this->renderPartial('comment.views.admin.comment._list', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' => $dataProvider]); ?>
 
 

@@ -18,5 +18,5 @@ use app\modules\page\models\Page; ?>
 
 <h1>Редактирование страницы</h1>
 
-<?= $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>
 

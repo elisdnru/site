@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\components\AdminController;
 use app\modules\user\models\User;
@@ -19,4 +19,4 @@ $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['in
 
 <h1>Добавление пользователя</h1>
 
-<?= $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>

@@ -13,8 +13,8 @@ if ($page->styles) {
 <?php if ($page->layout === 'blank') : ?><?= $this->decodeWidgets($page->text_purified) ?><?php else : ?>
     <section>
         <header>
-            <?= $this->renderPartial('_head', ['page' => $page]); ?>
-            <?= $this->renderPartial($subpages_layout, ['page' => $page]); ?>
+            <?= $this->render('_head', ['page' => $page]); ?>
+            <?= $this->render($subpages_layout, ['page' => $page]); ?>
         </header>
 
         <div class="text">

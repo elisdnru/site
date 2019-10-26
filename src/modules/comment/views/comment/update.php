@@ -19,7 +19,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <h1>Редактирование комментария</h1>
 
-<?= $this->renderPartial('_form', [
+<?= $this->render('_form', [
     'model' => $model,
     'form' => $form,
     'user' => $user,

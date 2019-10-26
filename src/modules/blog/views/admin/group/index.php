@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\forms\GroupForm;

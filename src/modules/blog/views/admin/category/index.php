@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 /** @var $model Category */
 
 use app\components\AdminController;

@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\components\AdminController;
 use app\modules\page\models\Page;
@@ -85,7 +85,7 @@ use app\modules\page\models\Page;
         </div>
     </fieldset>
 
-    <?= $this->renderPartial('//common/forms/_meta', [
+    <?= $this->render('//common/forms/_meta', [
         'form' => $form,
         'model' => $model,
     ]) ?>

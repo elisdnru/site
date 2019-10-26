@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\widgets\SearchFormWidget;
@@ -10,7 +10,7 @@ use app\modules\user\models\Access;
 /** @var $searchForm SearchForm */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
@@ -31,4 +31,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <?= SearchFormWidget::widget() ?>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

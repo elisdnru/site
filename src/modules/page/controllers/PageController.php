@@ -9,14 +9,14 @@ use app\extensions\cachetagging\Tags;
 
 class PageController extends Controller
 {
-    public function actionShow($path = 'index'): void
+    public function actionShow($path = 'index'): string
     {
         $page = $this->loadModel($path);
 
-        $this->layout = '/layouts/' . $page->layout;
+        $this->layout = $page->layout;
         $subpages_layout = 'subpages/' . $page->subpages_layout;
 
-        $this->render('show', [
+        return $this->render('show', [
             'page' => $page,
             'subpages_layout' => $subpages_layout,
         ]);

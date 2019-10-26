@@ -17,7 +17,7 @@ class PortfolioWidget extends Widget
 
     public function run(): string
     {
-        PortfolioAsset::register(Yii::$app->view);
+        PortfolioAsset::register($this->view);
 
         $items = Work::find()
             ->published()

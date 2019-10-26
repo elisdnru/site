@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\modules\comment\models\Comment;
 use app\components\AdminController;

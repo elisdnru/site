@@ -9,13 +9,13 @@ use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 
-MainAsset::register(Yii::$app->view);
+MainAsset::register($this);
 
 $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request->csrfToken]);
 
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 ?>
-<?php Yii::$app->view->beginPage() ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::app()->language ?>">
 <head>
@@ -31,31 +31,31 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">
     <link rel="canonical" href="<?= Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()) ?>">
 
-    <?php Yii::$app->view->head() ?>
+    <?php $this->head() ?>
 
     <title><?= CHtml::encode($this->title) ?></title>
 </head>
 <body>
-<?php Yii::$app->view->beginBody() ?>
+<?php $this->beginBody() ?>
 
 <div id="wrapper">
 
     <header id="header">
-        <?php if ($this->route !== 'main/default/index'): ?><!--noindex--><?php endif; ?>
+        <?php if ($this->context->route !== 'main/default/index'): ?><!--noindex--><?php endif; ?>
         <div class="logo">
         <a href="/">
             <img src="/images/logo.png" alt="<?= Yii::app()->params['GENERAL.SITE_NAME'] ?>">
         </a>
         </div>
         <div class="title">
-            <?php if ($this->route === 'main/default/index') : ?>
+            <?php if ($this->context->route === 'main/default/index') : ?>
                 <h1 class="name">Дмитрий Елисеев</h1>
             <?php else: ?>
                 <div class="name">Дмитрий Елисеев</div>
             <?php endif; ?>
             <div class="slogan">Разработка сайтов и интернет-сервисов</div>
         </div>
-        <?php if ($this->route !== 'main/default/index'): ?><!--/noindex--><?php
+        <?php if ($this->context->route !== 'main/default/index'): ?><!--/noindex--><?php
     endif; ?>
 
         <div class="search">
@@ -91,7 +91,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
         <div class="counters">
             <?php if (!YII_DEBUG && !Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
-                <?= $this->renderPartial('//layouts/_counters'); ?>
+                <?= $this->render('//layouts/_counters'); ?>
             <?php endif; ?>
         </div>
 
@@ -112,7 +112,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
             <?php endif; ?>
         </div>
 
-        <?php if ($this->route !== 'main/default/index'): ?><!--noindex--><?php
+        <?php if ($this->context->route !== 'main/default/index'): ?><!--noindex--><?php
         endif; ?>
         <div class="info">
             <p>
@@ -123,7 +123,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
                 <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>')</script>
             </p>
         </div>
-        <?php if ($this->route !== 'main/default/index'): ?><!--/noindex--><?php
+        <?php if ($this->context->route !== 'main/default/index'): ?><!--/noindex--><?php
     endif; ?>
 
         <!--noindex-->
@@ -143,9 +143,9 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
 <!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
 
-<?php Yii::$app->view->endBody() ?>
+<?php $this->endBody() ?>
 
 </body>
 </html>
-<?php Yii::$app->view->endPage() ?>
+<?php $this->endPage() ?>
 

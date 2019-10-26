@@ -8,7 +8,7 @@ use yii\helpers\Url;
 
 /** @var $model \app\modules\user\models\User */
 
-$this->layout = '/layouts/user';
+$this->context->layout = 'user';
 $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = ['Профиль'];
 

@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 /** @var $dataProvider CDataProvider */
 
 use app\assets\CommentsAsset;
@@ -14,7 +14,7 @@ if (Yii::$app->moduleManager->allowed('blog')) {
     $this->params['admin'][] = ['label' => 'Сообщения', 'url' => ['/contact/admin/contact/index']];
 }
 
-CommentsAsset::register(Yii::$app->view);
+CommentsAsset::register($this);
 ?>
 
 <?php if ($material !== null) : ?>
@@ -46,6 +46,6 @@ CommentsAsset::register(Yii::$app->view);
 
 <?php endif; ?>
 
-<?= $this->renderPartial('comment.views.admin.comment._list', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' => $dataProvider]); ?>
 
 

@@ -16,7 +16,7 @@ class DefaultController extends PortfolioBaseController
 {
     private const PER_PAGE = 9;
 
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $criteria = $this->getStartQuery();
 
@@ -33,14 +33,14 @@ class DefaultController extends PortfolioBaseController
             'order' => 'sort ASC',
         ]);
 
-        $this->render('index', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
             'page' => $this->loadPortfolioPage(),
             'categories' => $categories,
         ]);
     }
 
-    public function actionCategory($category): void
+    public function actionCategory($category): string
     {
         $category = $this->loadCategoryModel($category);
 
@@ -58,7 +58,7 @@ class DefaultController extends PortfolioBaseController
             ],
         ]);
 
-        $this->render('category', [
+        return $this->render('category', [
             'dataProvider' => $dataProvider,
             'page' => $this->loadPortfolioPage(),
             'category' => $category,

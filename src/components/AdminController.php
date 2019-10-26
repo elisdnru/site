@@ -9,7 +9,7 @@ use yii\caching\TagDependency;
 
 abstract class AdminController extends Controller
 {
-    public $layout = '//layouts/admin';
+    public $layout = '@app/views/layouts/admin';
 
     public function filters(): array
     {

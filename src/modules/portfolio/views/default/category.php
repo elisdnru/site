@@ -10,7 +10,7 @@ use yii\helpers\Url;
 /** @var $category Category */
 /** @var $subcategories Category[] */
 /** @var $page Page */
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 
@@ -65,4 +65,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     ?></noindex><?php
 endif; ?>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

@@ -3,10 +3,10 @@ use app\assets\AdminAsset;
 use app\components\widgets\BreadcrumbsWidget;
 use app\components\widgets\MessagesWidget;
 
-AdminAsset::register(Yii::$app->view);
+AdminAsset::register($this);
 ?>
 
-<?php $this->beginContent('//layouts/main'); ?>
+<?php $this->beginContent('@app/views/layouts/main.php'); ?>
 
 <section class="main" id="admin">
 

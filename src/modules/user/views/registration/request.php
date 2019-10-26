@@ -5,7 +5,7 @@ use yii\helpers\Html;
 
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\forms\RegistrationForm */
-$this->layout = '/layouts/user';
+$this->context->layout = 'user';
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'] = [
     'Вход на сайт' => ['login'],

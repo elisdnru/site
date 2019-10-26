@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\modules\blog\models\Post;
 use app\components\AdminController;
@@ -22,6 +22,6 @@ $this->params['admin'][] = ['label' => 'Метки', 'url' => ['/blog/admin/tag/
 
 <h1>Редактирование записи</h1>
 
-<?= $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>
 
 

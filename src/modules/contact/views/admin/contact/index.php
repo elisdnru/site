@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\modules\contact\models\Contact;
 use app\components\AdminController;

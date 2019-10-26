@@ -6,8 +6,8 @@ use app\components\Controller;
 
 class DefaultController extends Controller
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
-        $this->render('index');
+        return $this->render('index');
     }
 }

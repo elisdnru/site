@@ -3,7 +3,7 @@ use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\user\widgets\LoginFormWidget;
 
-if ($this->route !== 'user/default/login') : ?>
+if ($this->context->route !== 'user/default/login') : ?>
     <?php Portlet::begin(['title' => 'Личный кабинет']); ?>
     <?= LoginFormWidget::widget() ?>
     <?php Portlet::end(); ?>

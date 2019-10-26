@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 
 <div class="items">
     <?php foreach ($dataProvider->getModels() as $model): ?>
-        <?= $this->renderPartial('_view', [
+        <?= $this->render('_view', [
             'data' => $model,
             'query' => $query,
         ]); ?>

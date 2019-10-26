@@ -87,7 +87,7 @@ class CommentsWidget extends Widget
             $comments[$item->parent_id ?? 0][] = $item;
         }
 
-        CommentsAsset::register(Yii::$app->view);
+        CommentsAsset::register($this->view);
 
         return $this->render('Comments/' . $this->tpl, [
             'comments' => $comments,

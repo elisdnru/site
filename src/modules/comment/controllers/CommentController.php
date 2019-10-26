@@ -32,7 +32,7 @@ class CommentController extends Controller
         ];
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id): string
     {
         $model = $this->loadModel($id);
 
@@ -56,7 +56,7 @@ class CommentController extends Controller
             }
         }
 
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
             'form' => $form,
             'user' => $user,

@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\models\User */
-$this->layout = '/layouts/user';
+$this->context->layout = 'user';
 $this->title = 'Мой профиль';
 $this->params['breadcrumbs'] = [
     'Мой профиль' => ['view'],

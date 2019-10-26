@@ -1,6 +1,6 @@
 <?php
 
-$this->layout = '/layouts/user';
+$this->context->layout = 'user';
 
 $this->title = 'Подтверждение регистрации';
 $this->params['breadcrumbs'] = [

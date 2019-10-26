@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 /** @var $model \app\modules\blog\models\Tag */
 
 use app\components\AdminController;

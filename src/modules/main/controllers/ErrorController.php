@@ -8,19 +8,16 @@ use Yii;
 
 class ErrorController extends Controller
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         if ($error = Yii::app()->errorHandler->error) {
             if (Yii::app()->request->isAjaxRequest) {
-                echo $error['message'];
-            } else {
-                $this->render('index', [
-                    'error' => $error
-                ]);
-                Yii::app()->end();
+                return $error['message'];
             }
-        } else {
-            throw new CHttpException(404, 'Страница не найдена');
+            return $this->render('index', [
+                'error' => $error
+            ]);
         }
+        throw new CHttpException(404, 'Страница не найдена');
     }
 }

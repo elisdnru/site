@@ -154,18 +154,6 @@ return [
     ],
 
     'params' => [
-        'runtimeWidgets' => [
-            'lastPosts' => LastPostsWidget::class,
-            'page' => PageWidget::class,
-            'block' => BlockWidget::class,
-            'contact' => ContactWidget::class,
-            'portfolio' => PortfolioWidget::class,
-            'countdown' => CountDownWidget::class,
-            'subscribe_webinars' => SubscribeWebinarsWidget::class,
-            'subscribe_news' => SubscribeNewsWidget::class,
-            'mailto' => MailToWidget::class,
-        ],
-
         'GENERAL.SITE_NAME' => 'ElisDN',
         'GENERAL.ADMIN_EMAIL' => 'mail@elisdn.ru',
     ],

@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\modules\blog\models\Tag;
 use app\components\Controller;
@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 /** @var $tag Tag */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
@@ -35,4 +35,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <h1>Записи с меткой &laquo;<?= CHtml::encode($tag->title) ?>&raquo;</h1>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

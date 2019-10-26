@@ -10,7 +10,7 @@ use Yii;
 
 class DefaultController extends Controller
 {
-    public function actionLogin(): void
+    public function actionLogin(): string
     {
         $user = $this->loadUser();
         if ($user) {
@@ -26,7 +26,7 @@ class DefaultController extends Controller
             }
         }
 
-        $this->render('login', ['model' => $model]);
+        return $this->render('login', ['model' => $model]);
     }
 
     public function actionRelogin(): void
@@ -41,7 +41,7 @@ class DefaultController extends Controller
         $this->redirect(Yii::app()->request->urlReferrer ?: Yii::app()->homeUrl);
     }
 
-    public function actionRemind(): void
+    public function actionRemind(): string
     {
         $model = new RemindForm();
 
@@ -68,7 +68,7 @@ class DefaultController extends Controller
             }
         }
 
-        $this->render('remind', ['model' => $model]);
+        return $this->render('remind', ['model' => $model]);
     }
 
     private function loadUser(): ?User

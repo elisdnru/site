@@ -13,9 +13,9 @@ $this->params['breadcrumbs'] = [
 $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $model->id]];
 $this->params['admin'][] = ['label' => 'Комментарии', 'url' => ['index']];
 
-CommentsAsset::register(Yii::$app->view);
+CommentsAsset::register($this);
 ?>
 
 <h1>Просмотр комментария</h1>
 
-<?= $this->renderPartial('comment.views.admin.comment._view', ['data' => $model]); ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_view', ['data' => $model]); ?>

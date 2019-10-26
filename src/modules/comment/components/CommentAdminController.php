@@ -35,7 +35,7 @@ class CommentAdminController extends AdminController
         ];
     }
 
-    public function actionIndex($id = 0): void
+    public function actionIndex($id = 0): string
     {
         $query = $this->getModelName()::find();
 
@@ -55,7 +55,7 @@ class CommentAdminController extends AdminController
             ]
         ]);
 
-        $this->render('index', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
             'material' => $material,
         ]);

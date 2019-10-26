@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\assets\HighlightAsset;
 use app\components\helpers\StyleHelper;
@@ -16,7 +16,7 @@ use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 
-$this->layout = '/layouts/post';
+$this->context->layout = 'post';
 
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
@@ -37,7 +37,7 @@ $this->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->url
 
 if ($model->image) {
     $this->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->imageUrl]);
-    Yii::$app->view->registerLinkTag(['rel' => 'image_src', 'href' => $host . $model->imageUrl]);
+    $this->registerLinkTag(['rel' => 'image_src', 'href' => $host . $model->imageUrl]);
 }
 
 if ($model->styles) {
@@ -64,7 +64,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     }
 }
 
-HighlightAsset::register(Yii::$app->view);
+HighlightAsset::register($this);
 ?>
 
 <?php if (!$model->public) : ?>

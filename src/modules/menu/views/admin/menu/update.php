@@ -1,5 +1,5 @@
 <?php
-/** @var $this AdminController */
+/** @var $this \yii\web\View */
 
 use app\components\AdminController;
 use app\modules\menu\models\Menu;
@@ -21,5 +21,5 @@ if (Yii::$app->moduleManager->allowed('page')) {
 
 <h1>Редактирование пункта меню</h1>
 
-<?= $this->renderPartial('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>
 

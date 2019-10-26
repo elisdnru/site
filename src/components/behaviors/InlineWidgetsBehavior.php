@@ -2,11 +2,11 @@
 
 namespace app\components\behaviors;
 
-use CBehavior;
 use Yii;
+use yii\base\Behavior;
 use yii\base\Widget;
 
-class InlineWidgetsBehavior extends CBehavior
+class InlineWidgetsBehavior extends Behavior
 {
     /**
      * @var string marker of block begin
@@ -23,7 +23,7 @@ class InlineWidgetsBehavior extends CBehavior
 
     protected $_widgetToken;
 
-    public function __construct()
+    public function init(): void
     {
         $this->initToken();
     }

@@ -10,12 +10,12 @@ use Yii;
 
 class WorkController extends PortfolioBaseController
 {
-    public function actionShow($id): void
+    public function actionShow($id): string
     {
         $model = $this->loadModel($id);
         $this->checkUrl($model->url);
 
-        $this->render('show', [
+        return $this->render('show', [
             'model' => $model,
         ]);
     }

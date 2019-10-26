@@ -1,9 +1,19 @@
 <?php
 
+use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\v2\ModuleUrlRules;
 use app\components\uploader\Uploader;
+use app\components\widgets\inline\CountDownWidget;
+use app\components\widgets\inline\MailToWidget;
+use app\components\widgets\inline\SubscribeNewsWidget;
+use app\components\widgets\inline\SubscribeWebinarsWidget;
 use app\extensions\image\ImageHandler;
+use app\modules\block\widgets\BlockWidget;
+use app\modules\blog\widgets\LastPostsWidget;
+use app\modules\contact\widgets\ContactWidget;
+use app\modules\page\widgets\PageWidget;
+use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\db\Connection;
@@ -153,6 +163,23 @@ return [
         'log' => [
             'class' => yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,
+        ],
+
+        'view' => [
+            'as InlineWidgetsBehavior' => [
+                'class' => InlineWidgetsBehavior::class,
+                'widgets' => [
+                    'lastPosts' => LastPostsWidget::class,
+                    'page' => PageWidget::class,
+                    'block' => BlockWidget::class,
+                    'contact' => ContactWidget::class,
+                    'portfolio' => PortfolioWidget::class,
+                    'countdown' => CountDownWidget::class,
+                    'subscribe_webinars' => SubscribeWebinarsWidget::class,
+                    'subscribe_news' => SubscribeNewsWidget::class,
+                    'mailto' => MailToWidget::class,
+                ],
+            ],
         ],
 
         'cache' => !getenv('APP_DEBUG') ? [

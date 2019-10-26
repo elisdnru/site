@@ -14,7 +14,7 @@ use yii\caching\TagDependency;
 
 class DefaultController extends Controller
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $models = [];
 
@@ -37,7 +37,7 @@ class DefaultController extends Controller
             ->orderBy(['title' => SORT_ASC])
             ->all();
 
-        $this->render('index', [
+        return $this->render('index', [
             'items' => $models,
             'page' => $this->loadSitemapPage(),
         ]);

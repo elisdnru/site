@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\modules\blog\models\Category;
 use app\components\Controller;
@@ -11,7 +11,7 @@ use app\modules\user\models\Access;
 /** @var $category Category */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
@@ -36,4 +36,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <h1><?= CHtml::encode($category->title) ?></h1>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

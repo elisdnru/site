@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\components\Controller;
 use app\modules\page\models\Page;
@@ -11,7 +11,7 @@ use app\modules\page\models\Page;
     <?php foreach ($models as $model) : ?>
         <?php if ($model->parent_id == $parent && $model->url !== '/prices') : ?>
             <li><a href="<?= $model->url ?>"><?= CHtml::encode($model->title) ?></a>
-                <?= $this->renderPartial('_recursive', ['models' => $models, 'parent' => $model->id]); ?>
+                <?= $this->render('_recursive', ['models' => $models, 'parent' => $model->id]); ?>
             </li>
         <?php endif; ?>
     <?php endforeach; ?>

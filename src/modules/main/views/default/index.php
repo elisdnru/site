@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\extensions\cachetagging\Tags;
 use app\components\Controller;
@@ -8,7 +8,7 @@ use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;
 use yii\helpers\Url;
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
 

@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\components\Controller;
 use app\modules\page\models\Page;
@@ -34,8 +34,8 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
     <!--noindex-->
     <h2>Страницы</h2>
-    <?= $this->renderPartial('_recursive', ['models' => $items['Page'], 'parent' => 0]) ?>
-    <?= $this->renderPartial('_recursive', ['models' => $items['Landing'], 'parent' => 0]) ?>
+    <?= $this->render('_recursive', ['models' => $items['Page'], 'parent' => 0]) ?>
+    <?= $this->render('_recursive', ['models' => $items['Landing'], 'parent' => 0]) ?>
     <!--/noindex-->
 
     <h2>Записи в блоге</h2>

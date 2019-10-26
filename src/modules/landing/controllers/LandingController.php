@@ -9,13 +9,13 @@ use app\extensions\cachetagging\Tags;
 
 class LandingController extends Controller
 {
-    public function actionShow($path = 'index'): void
+    public function actionShow($path = 'index'): string
     {
         $landing = $this->loadModel($path);
 
-        $this->layout = false;
+        $this->context->layout = false;
 
-        $this->render('show', [
+        return $this->render('show', [
             'landing' => $landing,
         ]);
     }

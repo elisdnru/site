@@ -5,7 +5,7 @@ use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
 use yii\web\View;
 
-CarouselAsset::register(Yii::$app->view);
+CarouselAsset::register($this);
 ?>
 
 <div class="portfolio ribbed">
@@ -39,9 +39,9 @@ jQuery(function($) {
             visible: 4,
             btnNext: '.carouselNextLink',
             btnPrev: '.carouselPrevLink'
-        })
-    })
-})
+        });
+    });
+});
 
-<?php Yii::$app->view->registerJs(ob_get_clean(), View::POS_END); ?>
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>

@@ -1,5 +1,5 @@
 <?php
-/** @var $this Controller */
+/** @var $this \yii\web\View */
 
 use app\components\Controller;
 use app\components\helpers\NumberHelper;
@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 
-$this->layout = '/layouts/index';
+$this->context->layout = 'index';
 
 $this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
@@ -32,7 +32,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
         }
     }
     if (Yii::$app->moduleManager->allowed('blog') && Yii::$app->moduleManager->allowed('comment')) {
-        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications($this->module->id));
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications(Yii::$app->controller->module->id));
     }
 }
 ?>
@@ -48,4 +48,4 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     ?></noindex><?php
 endif; ?>
 
-<?= $this->renderPartial('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
