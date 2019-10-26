@@ -17,7 +17,7 @@ $this->params['breadcrumbs'] = [
     'Сообщения',
 ];
 
-if (Yii::app()->moduleManager->allowed('comment')) {
+if (Yii::$app->moduleManager->allowed('comment')) {
     $this->params['admin'][] = ['label' => 'Комментарии', 'url' => $this->createUrl('/comment/admin/comment/index')];
 }
 ?>

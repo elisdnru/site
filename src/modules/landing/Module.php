@@ -19,14 +19,6 @@ class Module extends Base implements UrlProvider
         return 'Лендинги';
     }
 
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Лендинги', 'url' => ['/landing/admin/landing/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить лендинг', 'url' => ['/landing/admin/landing/create'], 'icon' => 'add.png'],
-        ];
-    }
-
     public static function rules(): array
     {
         return [

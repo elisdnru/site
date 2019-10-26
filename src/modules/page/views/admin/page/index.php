@@ -12,10 +12,10 @@ $this->params['breadcrumbs'] = [
     'Страницы',
 ];
 
-if (Yii::app()->moduleManager->allowed('page')) {
+if (Yii::$app->moduleManager->allowed('page')) {
     $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => $this->createUrl('create')];
 }
-if (Yii::app()->moduleManager->allowed('menu')) {
+if (Yii::$app->moduleManager->allowed('menu')) {
     $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('/menu/admin/menu/index')];
 }
 ?>

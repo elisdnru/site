@@ -21,7 +21,7 @@ class PostController extends Controller
 
     protected function loadModel($id): Post
     {
-        if (Yii::app()->moduleManager->allowed('blog')) {
+        if (Yii::$app->moduleManager->allowed('blog')) {
             $condition = '';
         } else {
             $condition = 'public = 1';

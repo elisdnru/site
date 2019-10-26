@@ -22,7 +22,7 @@ class WorkController extends PortfolioBaseController
 
     protected function loadModel($id): Work
     {
-        if (Yii::app()->moduleManager->allowed('portfolio')) {
+        if (Yii::$app->moduleManager->allowed('portfolio')) {
             $condition = '';
         } else {
             $condition = 'public = 1';

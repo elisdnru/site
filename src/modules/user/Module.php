@@ -19,14 +19,6 @@ class Module extends Base implements UrlProvider
         return 'Пользователи';
     }
 
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Пользователи', 'url' => ['/user/admin/user/index'], 'icon' => 'users.png'],
-            ['label' => 'Добавить пользователя', 'url' => ['/user/admin/user/create'], 'icon' => 'add_user.png'],
-        ];
-    }
-
     public static function rules(): array
     {
         return [

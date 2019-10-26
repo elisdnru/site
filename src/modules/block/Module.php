@@ -17,12 +17,4 @@ class Module extends Base
     {
         return 'HTML-блоки';
     }
-
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Блоки', 'url' => ['/block/admin/block/index'], 'icon' => 'code.png'],
-            ['label' => 'Добавить блок', 'url' => ['/block/admin/block/create'], 'icon' => 'add.png'],
-        ];
-    }
 }

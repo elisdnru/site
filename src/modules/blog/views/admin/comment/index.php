@@ -10,7 +10,7 @@ use app\components\AdminController;
 
 $this->title = 'Комментарии к записям';
 
-if (Yii::app()->moduleManager->allowed('blog')) {
+if (Yii::$app->moduleManager->allowed('blog')) {
     $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post/index')];
 }
 if ($material) {

@@ -19,14 +19,6 @@ class Module extends Base implements UrlProvider
         return 'Страницы';
     }
 
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Страницы', 'url' => ['/page/admin/page/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить страницу', 'url' => ['/page/admin/page/create'], 'icon' => 'add.png'],
-        ];
-    }
-
     public static function rules(): array
     {
         return [

@@ -20,7 +20,7 @@ $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model-
 $this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
-    if (Yii::app()->moduleManager->allowed('portfolio')) {
+    if (Yii::$app->moduleManager->allowed('portfolio')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => $this->createUrl('/portfolio/admin/work/update', ['id' => $model->id])];
         $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/portfolio/admin/category/update', ['id' => $model->category_id])];
         $this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];

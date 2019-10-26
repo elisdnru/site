@@ -14,7 +14,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => $this->createUrl('index')];
-if (Yii::app()->moduleManager->allowed('page')) {
+if (Yii::$app->moduleManager->allowed('page')) {
     $this->params['admin'][] = ['label' => 'Создать страницу', 'url' => $this->createUrl('/page/admin/page/create')];
 }
 ?>

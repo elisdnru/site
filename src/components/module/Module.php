@@ -10,14 +10,4 @@ class Module extends CWebModule
     {
         return 'Прочее';
     }
-
-    public static function adminMenu(): array
-    {
-        return [];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
-    }
 }

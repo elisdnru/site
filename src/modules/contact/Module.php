@@ -16,15 +16,6 @@ class Module extends Base implements UrlProvider
         return 'Обратная связь';
     }
 
-    public static function notifications(): array
-    {
-        $messages = Contact::find()->andWhere(['status' => Contact::STATUS_NEW])->count();
-
-        return [
-            ['label' => 'Сообщения' . ($messages ? ' (' . $messages . ')' : ''), 'url' => ['/contact/admin/contact/index'], 'icon' => 'message.png'],
-        ];
-    }
-
     public static function rules(): array
     {
         return [

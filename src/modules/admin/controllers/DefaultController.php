@@ -30,7 +30,7 @@ class DefaultController extends AdminController
                 $module = Yii::app()->getModule($key);
 
                 if ($module) {
-                    if ($module instanceof Module && Yii::app()->moduleManager->allowed($module->id)) {
+                    if ($module instanceof Module && Yii::$app->moduleManager->allowed($module->id)) {
                         $modules[$module->group ?? 'Прочее'][$module->name] = $module;
                     }
                 }

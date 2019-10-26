@@ -26,7 +26,7 @@ $this->params['breadcrumbs'] = [
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->getBreadcrumbs());
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
-    if (Yii::app()->moduleManager->allowed('blog')) {
+    if (Yii::$app->moduleManager->allowed('blog')) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => $this->createUrl('/blog/admin/post')];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => $this->createUrl('/blog/admin/post/create', ['category' => $category->id])];
         $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => $this->createUrl('/blog/admin/category/update', ['id' => $category->id])];

@@ -67,7 +67,7 @@ class CommentController extends Controller
     {
         $query = Comment::find()->andWhere(['id' => $id]);
 
-        if (!Yii::app()->moduleManager->allowed('comment')) {
+        if (!Yii::$app->moduleManager->allowed('comment')) {
             $query->published();
         }
 

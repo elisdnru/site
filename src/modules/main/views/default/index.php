@@ -17,9 +17,9 @@ $this->registerMetaTag([
 ]);
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
-    if (Yii::app()->moduleManager->allowed('contact')) {
-        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications('contact'));
-        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::app()->moduleManager->notifications('comment'));
+    if (Yii::$app->moduleManager->allowed('contact')) {
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications('contact'));
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications('comment'));
     }
 }
 ?>

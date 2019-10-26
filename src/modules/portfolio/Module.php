@@ -20,15 +20,6 @@ class Module extends Base implements UrlProvider
         return 'Портфолио';
     }
 
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index'], 'icon' => 'foldericon.jpg'],
-            ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create'], 'icon' => 'add.png'],
-        ];
-    }
-
     public static function rules(): array
     {
         return [

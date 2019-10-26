@@ -106,10 +106,6 @@ return [
             'authFile' => __DIR__ . '/auth.php'
         ],
 
-        'moduleManager' => [
-            'class' => ModuleManager::class,
-        ],
-
         'errorHandler' => [
             'errorAction' => YII_DEBUG ? null : '/main/error/index',
         ],

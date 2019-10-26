@@ -17,12 +17,4 @@ class Module extends Base
     {
         return 'Меню';
     }
-
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Пункты', 'url' => ['/menu/admin/menu/index'], 'icon' => 'fileicon.jpg'],
-            ['label' => 'Добавить пункт', 'url' => ['/menu/admin/menu/create'], 'icon' => 'add.png'],
-        ];
-    }
 }

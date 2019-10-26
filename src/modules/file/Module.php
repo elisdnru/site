@@ -17,11 +17,4 @@ class Module extends Base
     {
         return 'Файлы';
     }
-
-    public static function adminMenu(): array
-    {
-        return [
-            ['label' => 'Файлы', 'url' => ['/file/admin/file/index'], 'icon' => 'fileicon.jpg'],
-        ];
-    }
 }

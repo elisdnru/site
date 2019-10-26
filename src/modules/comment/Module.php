@@ -16,15 +16,6 @@ class Module extends Base implements UrlProvider
         return 'Комментарии';
     }
 
-    public static function notifications(): array
-    {
-        $comments = Comment::find()->unread()->count();
-
-        return [
-            ['label' => 'Все комментарии' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/comment/admin/comment/index'], 'icon' => 'comments.png'],
-        ];
-    }
-
     public static function rules(): array
     {
         return [

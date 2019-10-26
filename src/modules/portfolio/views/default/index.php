@@ -22,12 +22,12 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::app()->user->checkAccess(Access::CONTROL)) {
-    if (Yii::app()->moduleManager->allowed('portfolio')) {
+    if (Yii::$app->moduleManager->allowed('portfolio')) {
         $this->params['admin'][] = ['label' => 'Работы', 'url' => $this->createUrl('/portfolio/admin/work/index')];
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => $this->createUrl('/portfolio/admin/work/create')];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => $this->createUrl('/portfolio/admin/category/index')];
     }
-    if (Yii::app()->moduleManager->allowed('page')) {
+    if (Yii::$app->moduleManager->allowed('page')) {
         if ($page->id) {
             $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => $this->createUrl('/page/admin/page/update', ['id' => $page->id])];
         }

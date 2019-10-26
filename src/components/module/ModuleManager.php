@@ -2,10 +2,9 @@
 
 namespace app\components\module;
 
-use CApplicationComponent;
 use Yii;
 
-class ModuleManager extends CApplicationComponent
+class ModuleManager
 {
     public function allowed(string $module): bool
     {
@@ -28,8 +27,18 @@ class ModuleManager extends CApplicationComponent
         return [];
     }
 
-    private function getModuleClass(string $module): string
+    private function getModuleClass(string $name): string
     {
-        return Yii::app()->modules[$module]['class'] ?? '';
+        $modules = Yii::$app->getModules();
+        $module = $modules[$name] ?? null;
+
+        if ($module !== null && is_object($module)) {
+            return get_class($module);
+        }
+        if ($module !== null && is_array($module)) {
+            return $module['class'];
+        }
+
+        throw new \InvalidArgumentException('Cannot detect module class ' . $name);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use app\components\module\ModuleManager;
 use app\components\module\routes\v2\ModuleUrlRules;
 use app\components\uploader\Uploader;
 use app\extensions\image\ImageHandler;
@@ -96,6 +97,10 @@ return [
                     'js' => ['jquery.js'],
                 ],
             ],
+        ],
+
+        'moduleManager' => [
+            'class' => ModuleManager::class,
         ],
 
         'image' => [

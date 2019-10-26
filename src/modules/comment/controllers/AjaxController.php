@@ -24,7 +24,7 @@ class AjaxController extends Controller
             throw new CHttpException(403);
         }
 
-        if (!(Yii::app()->moduleManager->allowed('comment') || $model->user_id == Yii::app()->user->id)) {
+        if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::app()->user->id)) {
             throw new CHttpException(403);
         }
 
@@ -50,7 +50,7 @@ class AjaxController extends Controller
 
         $model = $this->loadModel($id);
 
-        if (!(Yii::app()->moduleManager->allowed('comment') || $model->user_id == Yii::app()->user->id)) {
+        if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::app()->user->id)) {
             throw new CHttpException('403');
         }
 
