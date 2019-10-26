@@ -15,7 +15,7 @@ class LandingUrlRule extends CBaseUrlRule
     {
         if ($route === 'landing/landing/show') {
             if (isset($params['path'])) {
-                return $params['path'] . (isset($params['landing']) ? '/landing-' . (int)$params['landing'] : '');
+                return $params['path'];
             }
         }
         return false;

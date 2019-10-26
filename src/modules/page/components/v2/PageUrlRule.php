@@ -21,7 +21,7 @@ class PageUrlRule implements UrlRuleInterface
             throw new InvalidArgumentException('Empty page path.');
         }
 
-        return $params['path'] . (isset($params['page']) ? '/page-' . (int)$params['page'] : '');
+        return $params['path'];
     }
 
     public function parseRequest($manager, $request)

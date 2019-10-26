@@ -15,7 +15,7 @@ class PageUrlRule extends CBaseUrlRule
     {
         if ($route === 'page/page/show') {
             if (isset($params['path'])) {
-                return $params['path'] . (isset($params['page']) ? '/page-' . (int)$params['page'] : '');
+                return $params['path'];
             }
         }
         return false;

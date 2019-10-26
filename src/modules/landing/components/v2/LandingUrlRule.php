@@ -21,7 +21,7 @@ class LandingUrlRule implements UrlRuleInterface
             throw new InvalidArgumentException('Empty landing path.');
         }
 
-        return $params['path'] . (isset($params['landing']) ? '/landing-' . (int)$params['landing'] : '');
+        return $params['path'];
     }
 
     public function parseRequest($manager, $request)
