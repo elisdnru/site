@@ -24,16 +24,12 @@ class DefaultController extends AdminController
 
     public function actionIndex(): void
     {
-        if (count(Yii::app()->modules)) {
-            foreach (Yii::app()->modules as $key => $value) {
-                $key = strtolower($key);
-                $module = Yii::app()->getModule($key);
+        $modules = [];
 
-                if ($module) {
-                    if ($module instanceof Module && Yii::$app->moduleManager->allowed($module->id)) {
-                        $modules[$module->group ?? 'Прочее'][$module->name] = $module;
-                    }
-                }
+        foreach (Yii::$app->modules as $key => $value) {
+            $module = Yii::$app->getModule($key);
+            if ($module && $module instanceof Module && Yii::$app->moduleManager->allowed($module->id)) {
+                $modules[$module->getGroup()][$module->name] = $module;
             }
         }
 
