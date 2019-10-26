@@ -1,4 +1,6 @@
 <?php
+// phpcs:disable
+// PSR1.Files.SideEffects
 
 use Symfony\Component\Dotenv\Dotenv;
 
