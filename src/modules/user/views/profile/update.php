@@ -3,6 +3,7 @@
 use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var $form CActiveForm */
 /** @var $model \app\modules\user\models\User */
@@ -77,7 +78,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
         <div class="row<?= $model->hasErrors('old_password') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'old_password') ?> &nbsp;
-            (<a target="_blank" href="<?= ['/user/default/remind'] ?>">получить</a>)<br />
+            (<a target="_blank" href="<?= Url::to(['/user/default/remind']) ?>">получить</a>)<br />
             <?= Html::activePasswordInput($model, 'old_password', ['size' => 40, 'maxlength' => 255]) ?><br />
             <?= Html::error($model, 'old_password', ['class' => 'errorMessage']) ?>
         </div>

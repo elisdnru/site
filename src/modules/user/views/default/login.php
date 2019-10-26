@@ -8,7 +8,8 @@ $this->params['breadcrumbs'] = [
 ];
 
 use app\components\widgets\Portlet;
-use app\modules\ulogin\widgets\UloginWidget; ?>
+use app\modules\ulogin\widgets\UloginWidget;
+use yii\helpers\Url; ?>
 
 <h1>Вход в аккаунт</h1>
 
@@ -50,8 +51,8 @@ use app\modules\ulogin\widgets\UloginWidget; ?>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Регистрация и восстановление']); ?>
-<p style="margin:0;"><a href="<?= ['/user/registration/request'] ?>">Регистрация</a> |
-    <a href="<?= ['/user/default/remind'] ?>">Забыли пароль?</a></p>
+<p style="margin:0;"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> |
+    <a href="<?= Url::to(['/user/default/remind']) ?>">Забыли пароль?</a></p>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>

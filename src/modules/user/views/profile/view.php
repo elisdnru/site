@@ -4,6 +4,7 @@ use app\components\helpers\SocNetworkHelper;
 use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var $model \app\modules\user\models\User */
 
@@ -27,8 +28,8 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
     <?php if ($model->id == Yii::app()->user->id) : ?>
         <p style="float:right">
-            <a href="<?= ['/user/profile/edit'] ?>">Редактировать</a> |
-            <a href="<?= ['/user/default/logout'] ?>">Выход</a>
+            <a href="<?= Url::to(['/user/profile/edit']) ?>">Редактировать</a> |
+            <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>
         </p>
     <?php endif; ?>
 
