@@ -155,7 +155,7 @@ class Landing extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Url::to(['landing/landing/show', 'path' => $this->getPath()]);
+            $this->_url = Url::to(['/landing/landing/show', 'path' => $this->getPath()]);
         }
         return $this->_url;
     }

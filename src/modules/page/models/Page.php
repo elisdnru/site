@@ -226,7 +226,7 @@ class Page extends CActiveRecord
     public function getUrl(): string
     {
         if ($this->_url === null) {
-            $this->_url = Url::to(['page/page/show', 'path' => $this->getPath()]);
+            $this->_url = Url::to(['/page/page/show', 'path' => $this->getPath()]);
         }
         return $this->_url;
     }
