@@ -30,7 +30,7 @@ class Controller extends CController
 
     protected function beforeAction($action): bool
     {
-        Yii::$app->controller = $this;
+        Yii::$app->controller = new \yii\web\Controller($this->id, Yii::$app->getModule($this->module->id));
         return parent::beforeAction($action);
     }
 
