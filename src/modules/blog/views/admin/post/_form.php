@@ -5,7 +5,6 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Tag;
-use app\components\AdminController;
 use yii\web\View;
 
 /** @var $model Post */

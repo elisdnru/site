@@ -4,7 +4,6 @@
 use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
-use app\components\Controller;
 use yii\helpers\Url;
 
 /** @var $items Group[] */

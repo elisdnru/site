@@ -1,7 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\AdminController;
 use app\modules\menu\models\Menu;
 use app\modules\page\models\Page;
 use yii\web\View;

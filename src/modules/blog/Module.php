@@ -4,7 +4,6 @@ namespace app\modules\blog;
 
 use app\components\GroupUrlRule;
 use app\components\module\routes\UrlProvider;
-use app\modules\blog\models\Comment;
 use CWebModule;
 
 class Module extends CWebModule implements UrlProvider

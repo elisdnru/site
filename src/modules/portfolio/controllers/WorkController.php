@@ -5,7 +5,6 @@ namespace app\modules\portfolio\controllers;
 use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
-use app\extensions\cachetagging\Tags;
 use Yii;
 
 class WorkController extends PortfolioBaseController

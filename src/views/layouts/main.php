@@ -1,10 +1,8 @@
 <?php
 
-use app\assets\AdminBarAsset;
 use app\assets\MainAsset;
 use app\components\widgets\AdminBarWidget;
 use app\extensions\cachetagging\Tags;
-use app\components\Controller;
 use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;

@@ -3,7 +3,6 @@
 
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\widgets\SearchFormWidget;
-use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
 

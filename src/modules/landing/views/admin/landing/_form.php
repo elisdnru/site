@@ -1,7 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\AdminController;
 use app\modules\landing\models\Landing;
 
 /** @var $model Landing */

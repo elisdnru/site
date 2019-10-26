@@ -3,7 +3,6 @@
 
 use app\assets\CommentsAsset;
 use app\modules\blog\models\Comment;
-use app\components\AdminController;
 
 /** @var $material Comment */
 /** @var $dataProvider CActiveDataProvider */

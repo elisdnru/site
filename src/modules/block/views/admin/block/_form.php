@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\modules\block\models\Block;
-use app\components\AdminController;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 

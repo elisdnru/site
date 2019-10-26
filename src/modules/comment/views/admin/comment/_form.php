@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\modules\comment\models\Comment;
-use app\components\AdminController;
 use yii\helpers\Html;
 use yii\helpers\Url;
 

@@ -3,7 +3,6 @@
 
 use app\assets\ColorboxAsset;
 use app\modules\contact\models\Contact;
-use app\components\AdminController;
 use yii\helpers\Url;
 use yii\web\JqueryAsset;
 use yii\web\View;

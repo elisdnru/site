@@ -1,6 +1,5 @@
 <?php
 
-use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;

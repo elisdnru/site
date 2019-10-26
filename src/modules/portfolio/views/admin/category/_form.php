@@ -1,7 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\AdminController;
 use app\modules\portfolio\models\Category;
 
 /** @var $model Category */

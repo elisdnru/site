@@ -7,7 +7,6 @@ use app\components\helpers\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
-use Yii;
 use yii\helpers\Url;
 
 /**

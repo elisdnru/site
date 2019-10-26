@@ -1,7 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\Controller;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 

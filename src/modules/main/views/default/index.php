@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\extensions\cachetagging\Tags;
-use app\components\Controller;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;

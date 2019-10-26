@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 /** @var $model \app\modules\blog\models\Tag */
 
-use app\components\AdminController;
 use app\components\widgets\grid\ButtonColumn;
 use app\components\widgets\grid\LinkColumn;
 use yii\helpers\Url;

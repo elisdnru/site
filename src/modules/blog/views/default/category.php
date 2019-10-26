@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\modules\blog\models\Category;
-use app\components\Controller;
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;

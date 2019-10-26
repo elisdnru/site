@@ -8,7 +8,6 @@ use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
-use app\components\Controller;
 use app\components\helpers\DateHelper;
 use app\components\helpers\NumberHelper;
 use app\modules\blog\widgets\OtherPostsWidget;

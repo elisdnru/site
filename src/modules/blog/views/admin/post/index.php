@@ -7,7 +7,6 @@ use app\components\widgets\grid\ToggleColumn;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
-use app\components\AdminController;
 use yii\helpers\Url;
 
 /** @var $model Post */

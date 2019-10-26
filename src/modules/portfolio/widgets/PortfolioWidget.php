@@ -3,10 +3,7 @@
 namespace app\modules\portfolio\widgets;
 
 use app\assets\PortfolioAsset;
-use CDbCriteria;
 use app\modules\portfolio\models\Work;
-use app\extensions\cachetagging\Tags;
-use Yii;
 use yii\base\Widget;
 
 class PortfolioWidget extends Widget

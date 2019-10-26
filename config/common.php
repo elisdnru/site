@@ -6,19 +6,9 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
-use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRulesBehavior;
 use app\components\UserAuthManager;
-use app\components\widgets\inline\CountDownWidget;
-use app\components\widgets\inline\MailToWidget;
-use app\components\widgets\inline\SubscribeNewsWidget;
-use app\components\widgets\inline\SubscribeWebinarsWidget;
 use app\extensions\cachetagging\TaggingBehavior;
-use app\modules\block\widgets\BlockWidget;
-use app\modules\blog\widgets\LastPostsWidget;
-use app\modules\contact\widgets\ContactWidget;
-use app\modules\page\widgets\PageWidget;
-use app\modules\portfolio\widgets\PortfolioWidget;
 
 CHtml::setModelNameConverter(static function ($model) {
     return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;

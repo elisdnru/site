@@ -6,7 +6,6 @@ use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
-use Yii;
 use yii\helpers\Url;
 
 /**

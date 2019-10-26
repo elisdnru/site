@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\modules\blog\models\Category;
-use app\components\AdminController;
 
 /** @var $model Category */
 /** @var $form CActiveForm */

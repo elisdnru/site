@@ -8,7 +8,6 @@ use app\extensions\cachetagging\TaggingBehavior;
 /**
  * Autocomplete helper
  *
- * @property CClientScript $clientScript
  * @property UserAuthManager authManager
  * @property \CWebUser $user
  * @property \app\components\Controller $controller

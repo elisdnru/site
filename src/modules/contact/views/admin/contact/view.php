@@ -2,7 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\modules\contact\models\Contact;
-use app\components\AdminController;
 use yii\helpers\Url;
 
 /** @var $next Contact */

@@ -1,7 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\Controller;
 use app\components\DateLimiter;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;

@@ -8,7 +8,6 @@ use app\components\category\TreeActiveDataProvider;
 use app\components\helpers\TextHelper;
 use CActiveRecord;
 use CDbCriteria;
-use Yii;
 use yii\helpers\Url;
 
 /**

@@ -3,7 +3,6 @@
 /** @var $dataProvider CDataProvider */
 
 use app\assets\CommentsAsset;
-use app\components\AdminController;
 
 /** @var $material CActiveRecord */
 /** @var $dataPrvider CActiveDataProvider */

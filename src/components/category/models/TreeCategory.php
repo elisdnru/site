@@ -7,7 +7,6 @@ use app\components\category\TreeActiveDataProvider;
 use app\components\validators\ExistOrEmpty;
 use CActiveDataProvider;
 use CDbCriteria;
-use Yii;
 use yii\helpers\Url;
 
 /**

@@ -1,7 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\Controller;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 use yii\db\ActiveRecord;
