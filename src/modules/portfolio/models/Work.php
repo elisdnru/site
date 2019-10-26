@@ -6,9 +6,7 @@ use app\components\behaviors\PurifyTextBehavior;
 use app\components\helpers\TextHelper;
 use app\components\uploader\FileUploadBehavior;
 use app\components\validators\ExistOrEmpty;
-use CActiveDataProvider;
 use CActiveRecord;
-use CDbCriteria;
 use Yii;
 
 /**
@@ -76,9 +74,6 @@ class Work extends CActiveRecord
             ['title, alias, pagetitle', 'length', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, date, category_id, title, pagetitle, description, text, public', 'safe', 'on' => 'search'],
         ];
     }
 
@@ -115,36 +110,6 @@ class Work extends CActiveRecord
             'image_show' => 'Отображать при открытии',
             'public' => 'Опубликовано',
         ];
-    }
-
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search(): CActiveDataProvider
-    {
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
-
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('t.id', $this->id);
-        $criteria->compare('t.sort', $this->sort);
-        $criteria->compare('t.date', $this->date, true);
-        $criteria->compare('t.category_id', $this->category_id);
-        $criteria->compare('t.alias', $this->alias, true);
-        $criteria->compare('t.title', $this->title, true);
-        $criteria->compare('t.pagetitle', $this->pagetitle, true);
-        $criteria->compare('t.description', $this->description, true);
-        $criteria->compare('t.short', $this->short, true);
-        $criteria->compare('t.text', $this->text, true);
-        $criteria->compare('t.image', $this->image, true);
-        $criteria->compare('t.image_show', $this->image_show);
-        $criteria->compare('t.public', $this->public);
-
-        return new CActiveDataProvider($this, [
-            'criteria' => $criteria,
-        ]);
     }
 
     public function scopes(): array
