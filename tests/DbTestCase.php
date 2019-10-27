@@ -8,10 +8,7 @@ class DbTestCase extends CDbTestCase
 {
     private static $loadFixturesFlag = false;
 
-    /**
-     * Load fixtures one time
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!self::$loadFixturesFlag && is_array($this->fixtures)) {
             $this->loadFixtures();
@@ -19,20 +16,12 @@ class DbTestCase extends CDbTestCase
         }
     }
 
-    /**
-     * Load fixtures
-     * @param null $fixtures
-     */
-    public function loadFixtures($fixtures = null)
+    public function loadFixtures(array $fixtures = null): void
     {
         if ($fixtures === null) {
             $fixtures = $this->fixtures;
         }
 
         $this->getFixtureManager()->load($fixtures);
-    }
-
-    public function testDummy()
-    {
     }
 }
