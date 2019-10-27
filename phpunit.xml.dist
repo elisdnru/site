@@ -16,6 +16,7 @@
         </whitelist>
     </filter>
     <php>
+        <env name="APP_ENV" value="test" force="true"/>
         <env name="APP_DEBUG" value="1" force="true"/>
     </php>
 </phpunit>
