@@ -19,16 +19,16 @@ use yii\helpers\Url;
     <header>
         <span class="link">
             <?php if ($user && $comment->user && $user->id == $comment->user_id) : ?>
-                <a rel="nofollow" href="<?= Url::to(['comment/comment/update', 'id' => $comment->id]) ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий"></a>
+                <a rel="nofollow" href="<?= Url::to(['/comment/comment/update', 'id' => $comment->id]) ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий"></a>
             <?php endif; ?>
             <?php if ($user && $comment->user && $user->id == $comment->user_id) : ?>
-                <a rel="nofollow" class="ajax_del" data-del="comment_<?= $comment->id ?>" href="<?= Url::to(['comment/ajax/delete', 'id' => $comment->id]) ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                <a rel="nofollow" class="ajax_del" data-del="comment_<?= $comment->id ?>" href="<?= Url::to(['/comment/ajax/delete', 'id' => $comment->id]) ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
             <?php endif; ?>
         </span>
 
         <span class="like">
             <span id="like_<?= $comment->id ?>"><?= $comment->likes ?></span>
-            <span class="ajax_like like_icon<?= $comment->liked ? ' like_active' : '' ?>" data-load="like_<?= $comment->id ?>" data-url="<?= Url::to(['comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
+            <span class="ajax_like like_icon<?= $comment->liked ? ' like_active' : '' ?>" data-load="like_<?= $comment->id ?>" data-url="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
         </span>
 
         <h2 class="date enc-date" data-date="<?= DateHelper::normdate($comment->date, true) ?>">&nbsp;</h2>

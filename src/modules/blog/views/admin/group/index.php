@@ -35,7 +35,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
         </tr>
         <?php foreach ($items as $item) :
             $delurl = Url::to(['delete', 'id' => $item->id]);
-            $postsurl = Url::to(['blog/admin/post', 'Post[group_id]' => $item->id]);
+            $postsurl = Url::to(['/blog/admin/post', 'Post[group_id]' => $item->id]);
 
             ?>
             <tr id="item_<?= $item->id ?>">
