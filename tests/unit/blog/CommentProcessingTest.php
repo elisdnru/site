@@ -19,7 +19,7 @@ class CommentProcessingTest extends DbTestCase
         'user'=> User::class,
     ];
 
-    public function testComment()
+    public function testComment(): void
     {
         Post::model()->findByPk(1);
 

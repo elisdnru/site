@@ -16,21 +16,6 @@ use tests\DbTestCase;
  */
 class CategoryTest extends DbTestCase
 {
-    private $normalAliases = [
-        'normal-alias',
-        'normal_alias',
-        'normalAlias_2',
-        '3_normalAlias',
-    ];
-
-    private $failAliases = [
-        ' crazy_alias',
-        'crazy_alias ',
-        'crazy.alias',
-        'crazy/alias',
-        'crazy alias',
-    ];
-
     /**
      * @var Category
      */
@@ -43,65 +28,37 @@ class CategoryTest extends DbTestCase
         'user' => User::class,
     ];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->category = new Category();
     }
 
-    public function testTitleIsRequired()
+    public function testRequired(): void
     {
-        $this->category->title = '';
-        $this->assertFalse($this->category->validate(['title']));
+        $this->assertFalse($this->category->validate());
+        $this->assertEquals([
+            'alias' => ['Необходимо заполнить поле «URL транслитом».'],
+            'title' => ['Необходимо заполнить поле «Наименование».'],
+        ], $this->category->getErrors());
     }
 
-    public function testAliasIsRequired()
+    public function testParentIdExists(): void
     {
-        $this->category->alias = '';
-        $this->assertFalse($this->category->validate(['alias']));
-    }
-
-    public function testAliasSymbols()
-    {
-        foreach ($this->normalAliases as $alias) {
-            $this->category->alias = $alias;
-            $this->assertTrue($this->category->validate(['alias']), 'Alias ' . $alias);
-        }
-
-        foreach ($this->failAliases as $alias) {
-            $this->category->alias = $alias;
-            $this->assertFalse($this->category->validate(['alias']), 'Alias ' . $alias);
-        }
-    }
-
-    public function testTitleMaxLength()
-    {
-        $this->category->title = str_repeat('q', 256);
-        $this->assertFalse($this->category->validate(['title']));
-
-        $this->category->title = str_repeat('q', 255);
-        $this->assertTrue($this->category->validate(['title']));
-    }
-
-    public function testParentIdIsExist()
-    {
-        $this->category->parent_id = 0;
-        $this->assertTrue($this->category->validate(['parent_id']), 'Empty parent');
-
         $this->category->parent_id = 1;
-        $this->assertTrue($this->category->validate(['parent_id']), 'Existing parent');
+        $this->assertTrue($this->category->validate(['parent_id']));
 
         $this->category->parent_id = 100;
-        $this->assertFalse($this->category->validate(['parent_id']), 'Other parent');
+        $this->assertFalse($this->category->validate(['parent_id']));
     }
 
-    public function testParentRelation()
+    public function testParentRelation(): void
     {
         $category = $this->blog_category('child_category');
         $this->assertInstanceOf(Category::class, $category->parent);
     }
 
-    public function testPostsCountRelation()
+    public function testPostsCountRelation(): void
     {
         $category = $this->blog_category('category_with_posts');
         $this->assertEquals(2, $category->posts_count);
@@ -110,7 +67,7 @@ class CategoryTest extends DbTestCase
         $this->assertEquals(0, $category->posts_count);
     }
 
-    public function testPostsRelation()
+    public function testPostsRelation(): void
     {
         $category = $this->blog_category('category_with_posts');
         $this->assertCount(2, $category->posts);
@@ -119,7 +76,7 @@ class CategoryTest extends DbTestCase
         $this->assertCount(0, $category->posts);
     }
 
-    public function testChildRelation()
+    public function testChildRelation(): void
     {
         $category = $this->blog_category('parent_category');
         $this->assertCount(1, $category->child_items);
@@ -128,7 +85,7 @@ class CategoryTest extends DbTestCase
         $this->assertCount(0, $category->child_items);
     }
 
-    public function testPublicItemsCountRelation()
+    public function testPublicItemsCountRelation(): void
     {
         $category = $this->blog_category('category_with_posts');
         $this->assertEquals(1, $category->items_count);

@@ -17,7 +17,7 @@ class PostProcessingTest extends DbTestCase
         'user'=> User::class,
     ];
 
-    public function testShort()
+    public function testShort(): void
     {
         /** @var Post $post */
         $post = Post::model()->findByPk(1);
@@ -27,7 +27,7 @@ class PostProcessingTest extends DbTestCase
         $this->assertEquals('Lorem ipsum dolor sit amet.', $post->short_purified);
     }
 
-    public function testText()
+    public function testText(): void
     {
         /** @var Post $post */
         $post = Post::model()->findByPk(1);

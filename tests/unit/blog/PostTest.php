@@ -14,21 +14,6 @@ use tests\DbTestCase;
  */
 class PostTest extends DbTestCase
 {
-    private $normalAliases = [
-        'normal-alias',
-        'normal_alias',
-        'normalAlias_2',
-        '3_normalAlias',
-    ];
-
-    private $failAliases = [
-        ' crazy_alias',
-        'crazy_alias ',
-        'crazy.alias',
-        'crazy/alias',
-        'crazy alias',
-    ];
-
     /**
      * @var Post
      */
@@ -42,49 +27,23 @@ class PostTest extends DbTestCase
         'user'=> User::class,
     ];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->post = new Post();
     }
 
-    public function testTitleIsRequired()
+    public function testTitleIsRequired(): void
     {
-        $this->post->title = '';
-        $this->assertFalse($this->post->validate(['title']));
-
-        $this->post->title = 'Test title';
-        $this->assertTrue($this->post->validate(['title']));
+        $this->assertFalse($this->post->validate());
+        $this->assertEquals([
+            'alias' => ['Необходимо заполнить поле «URL транслитом».'],
+            'title' => ['Необходимо заполнить поле «Заголовок».'],
+            'category_id' => ['Необходимо заполнить поле «Раздел».'],
+        ], $this->post->getErrors());
     }
 
-    public function testAliasIsRequired()
-    {
-        $this->post->alias = '';
-        $this->assertFalse($this->post->validate(['alias']));
-    }
-
-    public function testAliasSymbols()
-    {
-        foreach ($this->normalAliases as $alias) {
-            $this->post->alias = $alias;
-            $this->assertTrue($this->post->validate(['alias']), 'Alias ' . $alias);
-        }
-
-        foreach ($this->failAliases as $alias) {
-            $this->post->alias = $alias;
-            $this->assertFalse($this->post->validate(['alias']), 'Alias ' . $alias);
-        }
-    }
-
-    public function testTitleMaxLength()
-    {
-        $this->post->title = str_repeat('s', 255);
-        $this->assertTrue($this->post->validate(['title']));
-        $this->post->title = str_repeat('s', 256);
-        $this->assertFalse($this->post->validate(['title']));
-    }
-
-    public function testCreateAndUpdateDate()
+    public function testCreateAndUpdateDate(): void
     {
         $source = Post::model()->findByPk(2);
 
@@ -112,7 +71,7 @@ class PostTest extends DbTestCase
         $this->assertNotEquals($update_date, $post->update_date, 'New updated date');
     }
 
-    public function testCategoryIdIsExist()
+    public function testCategoryIdExists(): void
     {
         $this->post->category_id = 0;
         $this->assertFalse($this->post->validate(['category_id']), 'Empty category');
@@ -124,7 +83,7 @@ class PostTest extends DbTestCase
         $this->assertFalse($this->post->validate(['category_id']), 'Other category');
     }
 
-    public function testAuthorIdIsExist()
+    public function testAuthorIdExists(): void
     {
         $this->post->author_id = 0;
         $this->assertTrue($this->post->validate(['author_id']), 'Empty author');
@@ -136,7 +95,7 @@ class PostTest extends DbTestCase
         $this->assertFalse($this->post->validate(['author_id']), 'Other author');
     }
 
-    public function testGroupIdIsExist()
+    public function testGroupIdExists(): void
     {
         $this->post->group_id = 0;
         $this->assertTrue($this->post->validate(['group_id']), 'Empty group');
@@ -148,44 +107,21 @@ class PostTest extends DbTestCase
         $this->assertFalse($this->post->validate(['group_id']), 'Other group');
     }
 
-    public function testBelongsToCategory()
+    public function testBelongsToCategory(): void
     {
         $post = $this->blog_post('post_with_category');
         $this->assertInstanceOf(Category::class, $post->category);
     }
 
-    public function testBelongsToAuthor()
+    public function testBelongsToAuthor(): void
     {
         $post = $this->blog_post('post_with_author');
         $this->assertInstanceOf(User::class, $post->author);
     }
 
-    public function testBelongsToGroup()
+    public function testBelongsToGroup(): void
     {
         $post = $this->blog_post('post_with_group');
         $this->assertInstanceOf(Group::class, $post->group);
-    }
-
-    public function testSafeAttributesOnSearchScenario()
-    {
-        $category = new Post('search');
-
-        $mustBeSafe = [
-            'id',
-            'date',
-            'category_id',
-            'author_id',
-            'title',
-            'text',
-            'public',
-            'group_id',
-        ];
-
-        $safeAttrs = $category->safeAttributeNames;
-
-        sort($mustBeSafe);
-        sort($safeAttrs);
-
-        $this->assertGreaterThanOrEqual($mustBeSafe, $safeAttrs);
     }
 }
