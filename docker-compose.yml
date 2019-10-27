@@ -42,7 +42,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
         volumes:
             - .:/app
-            - ./volumes/composer:/root/.composer/
         depends_on:
             - mysql
             - mysql-test
