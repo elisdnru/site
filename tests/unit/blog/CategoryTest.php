@@ -16,10 +16,25 @@ use tests\DbTestCase;
  */
 class CategoryTest extends DbTestCase
 {
+    private $normalAliases = [
+        'normal-alias',
+        'normal_alias',
+        'normalAlias_2',
+        '3_normalAlias',
+    ];
+
+    private $failAliases = [
+        ' crazy_alias',
+        'crazy_alias ',
+        'crazy.alias',
+        'crazy/alias',
+        'crazy alias',
+    ];
+
     /**
      * @var Category
      */
-    protected $category;
+    private $category;
 
     public $fixtures = [
         'blog_post' => Post::class,

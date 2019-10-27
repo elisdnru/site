@@ -8,21 +8,6 @@ class DbTestCase extends CDbTestCase
 {
     private static $loadFixturesFlag = false;
 
-    protected $normalAliases = [
-        'normal-alias',
-        'normal_alias',
-        'normalAlias_2',
-        '3_normalAlias',
-    ];
-
-    protected $failAliases = [
-        ' crazy_alias',
-        'crazy_alias ',
-        'crazy.alias',
-        'crazy/alias',
-        'crazy alias',
-    ];
-
     /**
      * Load fixtures one time
      */

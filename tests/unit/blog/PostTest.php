@@ -14,6 +14,21 @@ use tests\DbTestCase;
  */
 class PostTest extends DbTestCase
 {
+    private $normalAliases = [
+        'normal-alias',
+        'normal_alias',
+        'normalAlias_2',
+        '3_normalAlias',
+    ];
+
+    private $failAliases = [
+        ' crazy_alias',
+        'crazy_alias ',
+        'crazy.alias',
+        'crazy/alias',
+        'crazy alias',
+    ];
+
     /**
      * @var Post
      */
