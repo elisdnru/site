@@ -191,11 +191,11 @@ class File
             clearstatcache();
             $realPath = $this->realPath($filePath);
             $instance = self::getInstance($realPath);
-            $instance->_filepath = $filePath;
-            $instance->_realpath = $realPath;
+            $instance->filepath = $filePath;
+            $instance->realpath = $realPath;
 
             if ($instance->exists()) {
-                $instance->_uploadedInstance = $uploaded;
+                $instance->uploadedInstance = $uploaded;
 
                 $instance->pathInfo();
                 $instance->getReadable();
