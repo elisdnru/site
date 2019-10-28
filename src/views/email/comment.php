@@ -3,7 +3,7 @@
 /** @var $current \app\modules\comment\models\Comment */
 ?>
 <?php
-$url = 'http://' . $_SERVER['SERVER_NAME'] . $comment->material->url;
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $comment->material->getUrl();
 ?>
 
 <p>

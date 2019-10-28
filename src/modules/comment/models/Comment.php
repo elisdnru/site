@@ -31,7 +31,7 @@ use yii\db\Expression;
  * @property integer $likes
  * @property User user
  * @property Comment parent
- * @property ActiveRecord $material
+ * @property Material $material
  */
 class Comment extends ActiveRecord
 {

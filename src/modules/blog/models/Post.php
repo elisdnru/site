@@ -6,6 +6,7 @@ use app\components\behaviors\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
 use app\components\validators\ExistOrEmpty;
 use app\components\helpers\TextHelper;
+use app\modules\comment\models\Material;
 use app\modules\user\models\User;
 use CActiveDataProvider;
 use CActiveRecord;
@@ -50,7 +51,7 @@ use yii\helpers\Url;
  * @mixin FileUploadBehavior
  * @method Post published()
  */
-class Post extends CActiveRecord
+class Post extends CActiveRecord implements Material
 {
     const IMAGE_WIDTH = 250;
     const IMAGE_PATH = 'upload/images/blogs';
