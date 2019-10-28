@@ -2,15 +2,14 @@
 
 namespace app\modules\comment\components;
 
-use app\components\crud\actions\v2\ToggleAction;
-use app\components\crud\actions\v2\UpdateAction;
-use app\components\crud\actions\v2\ViewAction;
 use app\modules\comment\models\Comment;
 use CActiveRecord;
 use CException;
 use CHttpException;
 use app\components\AdminController;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\web\HttpException;
 
 class CommentAdminController extends AdminController
 {
@@ -21,18 +20,6 @@ class CommentAdminController extends AdminController
         return array_merge(parent::filters(), [
             'PostOnly + delete, moder, moderAll',
         ]);
-    }
-
-    public function actions(): array
-    {
-        return [
-            'update' => UpdateAction::class,
-            'toggle' => [
-                'class' => ToggleAction::class,
-                'attributes' => ['public', 'moder']
-            ],
-            'view' => ViewAction::class,
-        ];
     }
 
     public function actionIndex($id = 0): string
@@ -58,6 +45,41 @@ class CommentAdminController extends AdminController
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'material' => $material,
+        ]);
+    }
+
+    public function actionUpdate($id): void
+    {
+        $model = $this->loadModel($id);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect(['view', 'id' => $model->id]);
+        }
+        $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionToggle($id, $attribute): void
+    {
+        $model = $this->loadModel($id);
+
+        if (!in_array($attribute, ['public', 'moder'], true)) {
+            throw new HttpException(400, 'Missing attribute ' . $attribute);
+        }
+
+        $model->$attribute = $model->$attribute ? '0' : '1';
+        $model->save();
+
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+        }
+    }
+
+    public function actionView($id): void
+    {
+        $model = $this->loadModel($id);
+        $this->render('view', [
+            'model' => $model,
         ]);
     }
 

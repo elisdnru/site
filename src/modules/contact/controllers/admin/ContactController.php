@@ -2,28 +2,60 @@
 
 namespace app\modules\contact\controllers\admin;
 
-use app\components\crud\actions\v2\DeleteAction;
-use app\components\crud\actions\v2\IndexAction;
-use app\components\crud\actions\v2\ToggleAction;
-use app\components\crud\actions\v2\ViewAction;
 use app\modules\contact\forms\ContactSearch;
 use CHttpException;
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
+use Yii;
+use yii\web\HttpException;
 
 class ContactController extends AdminController
 {
-    public function actions(): array
+    public function actionIndex(): void
     {
-        return [
-            'index' => IndexAction::class,
-            'toggle' => [
-                'class' => ToggleAction::class,
-                'attributes' => ['status'],
-            ],
-            'delete' => DeleteAction::class,
-            'view' => ViewAction::class,
-        ];
+        $model = new ContactSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'model' => $model,
+        ]);
+    }
+
+    public function actionUpdate($id): void
+    {
+        $model = $this->loadModel($id);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect(['view', 'id' => $model->id]);
+        }
+        $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionDelete($id): void
+    {
+        $model = $this->loadModel($id);
+        $model->delete();
+
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+        }
+    }
+
+    public function actionToggle($id, $attribute): void
+    {
+        $model = $this->loadModel($id);
+
+        if ($attribute !== 'status') {
+            throw new HttpException(400, 'Missing attribute ' . $attribute);
+        }
+
+        $model->$attribute = $model->$attribute ? '0' : '1';
+        $model->save();
+
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+        }
     }
 
     public function actionView($id): string

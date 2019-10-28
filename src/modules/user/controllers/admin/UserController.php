@@ -2,37 +2,66 @@
 
 namespace app\modules\user\controllers\admin;
 
-use app\components\crud\actions\v2\CreateAction;
-use app\components\crud\actions\v2\DeleteAction;
-use app\components\crud\actions\v2\IndexAction;
-use app\components\crud\actions\v2\UpdateAction;
-use app\components\crud\actions\v2\ViewAction;
 use app\modules\user\forms\UserSearch;
 use CHttpException;
 use app\components\AdminController;
 use app\modules\user\models\User;
+use Yii;
 
 class UserController extends AdminController
 {
-    public function actions(): array
+    public function actionIndex(): void
     {
-        return [
-            'index' => IndexAction::class,
-            'create' => CreateAction::class,
-            'update' => UpdateAction::class,
-            'delete' => DeleteAction::class,
-            'view' => ViewAction::class,
-        ];
+        $model = new UserSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'model' => $model,
+        ]);
     }
 
-    public function createSearchModel(): User
+    public function actionCreate(): void
     {
-        return new UserSearch();
+        $model = new User(['scenario' => User::SCENARIO_ADMIN_CREATE]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect(['view', 'id' => $model->id]);
+        }
+        $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
-    public function createModel(): User
+    public function actionUpdate($id): void
     {
-        return new User(['scenario' => User::SCENARIO_ADMIN_CREATE]);
+        $model = $this->loadModel($id);
+        $model->scenario = User::SCENARIO_ADMIN_UPDATE;
+        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
+            $model->last_visit_datetime = null;
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect(['view', 'id' => $model->id]);
+        }
+        $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionDelete($id): void
+    {
+        $model = $this->loadModel($id);
+        $model->delete();
+
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
+    }
+
+    public function actionView($id): void
+    {
+        $model = $this->loadModel($id);
+        $this->render('view', [
+            'model' => $model,
+        ]);
     }
 
     public function loadModel($id): User
@@ -40,10 +69,6 @@ class UserController extends AdminController
         $model = User::findOne($id);
         if ($model === null) {
             throw new CHttpException(404, 'Не найдено');
-        }
-        $model->scenario = User::SCENARIO_ADMIN_UPDATE;
-        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
-            $model->last_visit_datetime = null;
         }
         return $model;
     }

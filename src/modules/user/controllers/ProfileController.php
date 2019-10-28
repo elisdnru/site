@@ -2,8 +2,6 @@
 
 namespace app\modules\user\controllers;
 
-use app\components\crud\actions\v2\UpdateAction;
-use app\components\crud\actions\v2\ViewAction;
 use app\modules\user\models\Access;
 use CHttpException;
 use app\components\Controller;
@@ -31,12 +29,32 @@ class ProfileController extends Controller
         ];
     }
 
-    public function actions(): array
+    public function actionUpdate(): void
     {
-        return [
-            'view' => ViewAction::class,
-            'edit' => UpdateAction::class,
-        ];
+        $model = $this->loadModel();
+        $model->scenario = 'settings';
+
+        if ($model->create_datetime === '0000-00-00 00:00:00') {
+            $model->create_datetime = '1900-01-01 00:00:00';
+        }
+        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
+            $model->last_visit_datetime = null;
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect(['view', 'id' => $model->id]);
+        }
+        $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionView(): void
+    {
+        $model = $this->loadModel();
+        $this->render('view', [
+            'model' => $model,
+        ]);
     }
 
     public function loadModel(): User
@@ -44,13 +62,6 @@ class ProfileController extends Controller
         $model = User::findOne(Yii::$app->user->id);
         if ($model === null) {
             throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
-        }
-        $model->scenario = 'settings';
-        if ($model->create_datetime === '0000-00-00 00:00:00') {
-            $model->create_datetime = '1900-01-01 00:00:00';
-        }
-        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
-            $model->last_visit_datetime = null;
         }
         return $model;
     }

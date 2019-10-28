@@ -2,31 +2,76 @@
 
 namespace app\modules\blog\controllers\admin;
 
-use app\components\crud\actions\CreateAction;
-use app\components\crud\actions\DeleteAction;
-use app\components\crud\actions\IndexAction;
-use app\components\crud\actions\UpdateAction;
-use app\components\crud\actions\ViewAction;
 use app\modules\blog\models\Tag;
 use CHttpException;
 use app\components\AdminController;
+use Yii;
 
 class TagController extends AdminController
 {
-    public function actions(): array
+    public function actionIndex(): void
     {
-        return [
-            'index' => IndexAction::class,
-            'create' => CreateAction::class,
-            'update' => UpdateAction::class,
-            'delete' => DeleteAction::class,
-            'view' => ViewAction::class,
-        ];
+        $model = new Tag('search');
+
+        $model->unsetAttributes();
+        $model->attributes = Yii::$app->request->get('Tag');
+
+        $this->render('index', [
+            'model' => $model,
+        ]);
     }
 
-    public function createModel(): Tag
+    public function actionCreate(): void
     {
-        return new Tag();
+        $model = new Tag();
+
+        if ($post = Yii::$app->request->post('Tag')) {
+            $model->attributes = $post;
+
+            if ($model->save()) {
+                $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+
+        $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionUpdate($id): void
+    {
+        $model = $this->loadModel($id);
+
+        if ($post = Yii::$app->request->post('Tag')) {
+            $model->attributes = $post;
+
+            if ($model->save()) {
+                $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+
+        $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionDelete($id): void
+    {
+        $model = $this->loadModel($id);
+        $model->delete();
+
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
+    }
+
+    public function actionView($id): void
+    {
+        $model = $this->loadModel($id);
+
+        $this->render('view', [
+            'model' => $model,
+        ]);
     }
 
     public function loadModel($id): Tag
