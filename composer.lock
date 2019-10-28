@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e11f851418440136214b6db1cfab4fc5",
+    "content-hash": "9231d070a6d6c7a955fc7d086b205bce",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -238,16 +238,16 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.11.0",
+            "version": "v4.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7"
+                "reference": "a617e55bc62a87eec73bd456d146d134ad716f03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7",
-                "reference": "83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/a617e55bc62a87eec73bd456d146d134ad716f03",
+                "reference": "a617e55bc62a87eec73bd456d146d134ad716f03",
                 "shasum": ""
             },
             "require": {
@@ -281,7 +281,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2019-07-14T18:58:38+00:00"
+            "time": "2019-10-28T03:44:26+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1333,16 +1333,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "5896f9f0a00a7525797764ba42091dfbde22a746"
+                "reference": "217c9e550eb3e06bbe48a4da4031223e1aab76f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/5896f9f0a00a7525797764ba42091dfbde22a746",
-                "reference": "5896f9f0a00a7525797764ba42091dfbde22a746",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/217c9e550eb3e06bbe48a4da4031223e1aab76f0",
+                "reference": "217c9e550eb3e06bbe48a4da4031223e1aab76f0",
                 "shasum": ""
             },
             "require": {
@@ -1411,7 +1411,7 @@
                 "logging",
                 "sentry"
             ],
-            "time": "2019-09-23T11:52:12+00:00"
+            "time": "2019-10-10T08:16:00+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1981,16 +1981,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.28",
+            "version": "2.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "80bf3a6e04a0128f753cb73ba7255d8e2ae3a02f"
+                "reference": "f972275551172a4b2e293979d77aa0c795ae36a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/80bf3a6e04a0128f753cb73ba7255d8e2ae3a02f",
-                "reference": "80bf3a6e04a0128f753cb73ba7255d8e2ae3a02f",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/f972275551172a4b2e293979d77aa0c795ae36a2",
+                "reference": "f972275551172a4b2e293979d77aa0c795ae36a2",
                 "shasum": ""
             },
             "require": {
@@ -2077,7 +2077,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-10-08T13:14:18+00:00"
+            "time": "2019-10-22T13:47:14+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -2186,16 +2186,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "a16378c4db99be661afc76805242281603d20a7c"
+                "reference": "6dcf9e760a6b476f3e9d80abbc9ce9c4aa921f9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/a16378c4db99be661afc76805242281603d20a7c",
-                "reference": "a16378c4db99be661afc76805242281603d20a7c",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/6dcf9e760a6b476f3e9d80abbc9ce9c4aa921f9c",
+                "reference": "6dcf9e760a6b476f3e9d80abbc9ce9c4aa921f9c",
                 "shasum": ""
             },
             "require": {
@@ -2249,7 +2249,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2019-10-08T20:08:44+00:00"
+            "time": "2019-10-10T17:38:20+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -3948,16 +3948,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.5.0",
+            "version": "3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "0afebf16a2e7f1e434920fa976253576151effe9"
+                "reference": "65b12cdeaaa6cd276d4c3033a95b9b88b12701e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/0afebf16a2e7f1e434920fa976253576151effe9",
-                "reference": "0afebf16a2e7f1e434920fa976253576151effe9",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/65b12cdeaaa6cd276d4c3033a95b9b88b12701e7",
+                "reference": "65b12cdeaaa6cd276d4c3033a95b9b88b12701e7",
                 "shasum": ""
             },
             "require": {
@@ -3995,7 +3995,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-09-26T23:12:26+00:00"
+            "time": "2019-10-28T04:36:32+00:00"
         },
         {
             "name": "symfony/console",
