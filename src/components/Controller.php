@@ -28,13 +28,6 @@ class Controller extends CController
         }
     }
 
-    public function checkUrl($url): void
-    {
-        if ('/' . Yii::$app->request->getPathInfo() !== $url) {
-            $this->redirect($url, true, 301);
-        }
-    }
-
     public function render($view, $data = null, $return = false): string
     {
         Yii::$app->controller->layout = $this->layout;

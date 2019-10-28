@@ -12,7 +12,10 @@ class WorkController extends PortfolioBaseController
     public function actionShow($id): string
     {
         $model = $this->loadModel($id);
-        $this->checkUrl($model->url);
+
+        if ('/' . Yii::$app->request->getPathInfo() !== $model->getUrl()) {
+            $this->redirect($model->getUrl(), true, 301);
+        }
 
         return $this->render('show', [
             'model' => $model,
