@@ -45,7 +45,7 @@ return [
         'comment' => ['class' => app\modules\comment\Module::class],
         'contact' => ['class' => app\modules\contact\Module::class],
         'file' => ['class' => app\modules\file\Module::class],
-        'main' => ['class' => app\modules\main\Module::class],
+        'home' => ['class' => app\modules\home\Module::class],
         'menu' => ['class' => app\modules\menu\Module::class],
         'page' => ['class' => app\modules\page\Module::class],
         'landing' => ['class' => app\modules\landing\Module::class],

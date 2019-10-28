@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main;
+namespace app\modules\home;
 
 use app\components\module\routes\UrlProvider;
 use CWebModule;
@@ -12,8 +12,8 @@ class Module extends CWebModule implements UrlProvider
     public static function rules(): array
     {
         return [
-            '' => 'main/default/index',
-            'error' => 'main/default/error',
+            '' => 'home/default/index',
+            'error' => 'home/default/error',
         ];
     }
 

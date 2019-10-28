@@ -50,7 +50,7 @@ return [
         'comment' => ['class' => app\modules\comment\V2Module::class],
         'contact' => ['class' => app\modules\contact\V2Module::class],
         'file' => ['class' => app\modules\file\V2Module::class],
-        'main' => ['class' => app\modules\main\V2Module::class],
+        'home' => ['class' => app\modules\home\V2Module::class],
         'menu' => ['class' => app\modules\menu\V2Module::class],
         'page' => ['class' => app\modules\page\V2Module::class],
         'landing' => ['class' => app\modules\landing\V2Module::class],
