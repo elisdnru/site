@@ -24,9 +24,9 @@ class DefaultController extends Controller
                 Yii::$app->session->setFlash('error', 'Какая-то техническая ошибка при авторизации');
             }
 
-            $this->redirect(Yii::$app->request->get('return', Yii::app()->homeUrl));
+            $this->redirect(Yii::$app->request->get('return', Yii::$app->homeUrl));
         } else {
-            $this->redirect(Yii::app()->homeUrl);
+            $this->redirect(Yii::$app->homeUrl);
         }
     }
 }
