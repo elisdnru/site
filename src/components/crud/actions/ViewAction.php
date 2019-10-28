@@ -2,12 +2,9 @@
 
 namespace app\components\crud\actions;
 
-use CJSON;
-
 class ViewAction extends CrudAction
 {
     public $view = 'view';
-    public $json = false;
 
     public function run(): void
     {
@@ -15,12 +12,8 @@ class ViewAction extends CrudAction
 
         $this->clientCallback('beforeView', $model);
 
-        if ($this->json && isset($_GET['json'])) {
-            echo CJSON::encode($model);
-        } else {
-            $this->controller->render($this->view, [
-                'model' => $model,
-            ]);
-        }
+        $this->controller->render($this->view, [
+            'model' => $model,
+        ]);
     }
 }
