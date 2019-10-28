@@ -9,7 +9,6 @@ use app\components\AdminController;
 use app\components\helpers\FileHelper;
 use app\components\helpers\TextHelper;
 use Yii;
-use yii\helpers\Url;
 
 class FileController extends AdminController
 {
@@ -74,7 +73,7 @@ class FileController extends AdminController
             throw new CHttpException(400, 'Ошибка удаления');
         }
 
-        $this->redirectOrAjax();
+        $this->redirectIfNotAjax(['index']);
     }
 
     public function actionRename($path): void
@@ -98,7 +97,7 @@ class FileController extends AdminController
             throw new CHttpException(400, 'Ошибка переименования');
         }
 
-        $this->redirectOrAjax(Url::to(['index', 'path' => $path]));
+        $this->redirectIfNotAjax(['index', 'path' => $path]);
     }
 
     protected function uploadPostFile($field, $curpath): bool
@@ -155,7 +154,7 @@ class FileController extends AdminController
             }
         }
 
-        $this->redirectOrAjax(Url::to(['index', 'path' => $path]));
+        $this->redirectIfNotAjax(['index', 'path' => $path]);
     }
 
     protected function getFileDir(): string

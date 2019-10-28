@@ -21,7 +21,7 @@ class Controller extends CController
         $this->redirect(Yii::$app->request->getUrl() . $anchor, $terminate);
     }
 
-    public function redirectOrAjax($route = ['index']): void
+    public function redirectIfNotAjax($route): void
     {
         if (!Yii::$app->request->getIsAjax()) {
             $this->redirect(Yii::$app->request->post('returnUrl', $route));

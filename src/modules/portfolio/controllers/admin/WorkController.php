@@ -96,7 +96,7 @@ class WorkController extends AdminController
             }
         }
 
-        $this->redirectOrAjax();
+        $this->redirectIfNotAjax(['index']);
     }
 
     public function createModel(): Work

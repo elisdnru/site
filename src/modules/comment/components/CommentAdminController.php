@@ -76,7 +76,7 @@ class CommentAdminController extends AdminController
             throw new CHttpException(400, 'Error');
         }
 
-        $this->redirectOrAjax();
+        $this->redirectIfNotAjax(['index']);
     }
 
     public function actionModer($id): void
@@ -89,7 +89,7 @@ class CommentAdminController extends AdminController
             throw new CHttpException(400, 'Error');
         }
 
-        $this->redirectOrAjax();
+        $this->redirectIfNotAjax(['index']);
     }
 
     public function actionModerAll(): void
@@ -99,7 +99,7 @@ class CommentAdminController extends AdminController
             $item->save();
         }
 
-        $this->redirectOrAjax();
+        $this->redirectIfNotAjax(['index']);
     }
 
     public function loadModel($id): Comment
