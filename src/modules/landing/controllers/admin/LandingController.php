@@ -37,7 +37,7 @@ class LandingController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                $this->redirect(['update', 'id' => $model->id]);
             }
         }
 
@@ -54,7 +54,7 @@ class LandingController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                $this->redirect(['update', 'id' => $model->id]);
             }
         }
 
@@ -77,9 +77,7 @@ class LandingController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $this->render('view', [
-            'model' => $model,
-        ]);
+        $this->redirect($model->getUrl());
     }
 
     public function loadModel($id): Landing

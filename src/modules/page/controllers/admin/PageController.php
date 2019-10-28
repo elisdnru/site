@@ -78,9 +78,7 @@ class PageController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $this->render('view', [
-            'model' => $model,
-        ]);
+        $this->redirect($model->getUrl());
     }
 
     public function loadModel($id): Page

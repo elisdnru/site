@@ -72,13 +72,9 @@ class CategoryController extends AdminController
         }
     }
 
-    public function actionView($id): void
+    public function actionView(): void
     {
-        $model = $this->loadModel($id);
-
-        $this->render('view', [
-            'model' => $model,
-        ]);
+        $this->redirect(['index']);
     }
 
     public function loadModel($id): Category

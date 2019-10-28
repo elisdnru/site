@@ -35,15 +35,6 @@ class Controller extends CController
         }
     }
 
-    public function reflash(): void
-    {
-        foreach (['notice', 'success', 'error'] as $type) {
-            if (Yii::$app->session->hasFlash($type)) {
-                Yii::$app->session->setFlash($type, Yii::$app->session->getFlash($type));
-            }
-        }
-    }
-
     public function render($view, $data = null, $return = false): string
     {
         Yii::$app->controller->layout = $this->layout;

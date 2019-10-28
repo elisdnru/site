@@ -104,9 +104,8 @@ class WorkController extends AdminController
     public function actionView($id): void
     {
         $model = $this->loadModel($id);
-        $this->render('view', [
-            'model' => $model,
-        ]);
+
+        $this->redirect($model->getUrl());
     }
 
     public function actionSort(): void
