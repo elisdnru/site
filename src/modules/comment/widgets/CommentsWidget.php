@@ -13,6 +13,7 @@ use Yii;
 use yii\base\InvalidArgumentException;
 use yii\base\Widget;
 use yii\helpers\Json;
+use yii\web\Cookie;
 
 class CommentsWidget extends Widget
 {
@@ -101,9 +102,15 @@ class CommentsWidget extends Widget
 
     protected function saveFormState($attributes): void
     {
-        $cookie = new CHttpCookie('comment_form_data', Json::encode($attributes));
-        $cookie->expire = time() + 3600 * 24 * 180;
-        Yii::$app->response->cookies['comment_form_data'] = $cookie;
+        /** @var Cookie $cookie */
+        $cookie = Yii::createObject([
+            'class' => Cookie::class,
+            'name' => 'comment_form_data',
+            'value' => Json::encode($attributes),
+            'expire' => time() + 3600 * 24 * 180,
+        ]);
+
+        Yii::$app->response->cookies->add($cookie);
     }
 
     protected function loadFormState(): array
