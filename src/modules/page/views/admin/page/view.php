@@ -4,5 +4,5 @@
 use app\modules\page\models\Page;
 
 ?>
-<?php $this->context->reflash() ?>
-<?php $this->redirect($model->getUrl());
+<?php Yii::app()->controller->reflash() ?>
+<?php Yii::app()->controller->redirect($model->getUrl());
