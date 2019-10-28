@@ -9,9 +9,6 @@ use yii\web\View;
 
 class Controller extends CController
 {
-    public $title = '';
-    public $params = [];
-
     protected function beforeAction($action): bool
     {
         Yii::$app->controller = new \yii\web\Controller($this->id, Yii::$app->getModule($this->module->id));
