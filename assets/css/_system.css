@@ -30,15 +30,6 @@ p.note_bot a {
   color: #666;
 }
 
-div.breadcrumbs {
-  padding: 0;
-  margin-bottom: 12px;
-}
-
-div.breadcrumbs span {
-  font-weight: normal;
-}
-
 fieldset.editor {
   padding: 10px 0 0 0 !important;
 }

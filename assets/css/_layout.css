@@ -354,10 +354,6 @@ body {
     background: linear-gradient(#ddd, #fff);
   }
 
-  div.breadcrumbs span {
-    display: inline;
-  }
-
   #main_nav {
     margin: 0;
     overflow: hidden;

@@ -10,11 +10,7 @@ div.breadcrumbs {
   position: relative;
   font-size: 13px;
   z-index: 3;
-}
-
-div.breadcrumbs span {
-  display: none;
-  font-weight: normal;
+  padding: 0;
 }
 
 div.breadcrumbs a {
@@ -25,6 +21,17 @@ div.breadcrumbs a {
 div.breadcrumbs a:hover {
   text-decoration: none;
   color: #098ff4;
+}
+
+div.breadcrumbs span {
+  display: none;
+  font-weight: normal;
+}
+
+@media screen and (min-width: 600px) {
+  div.breadcrumbs span {
+    display: inline;
+  }
 }
 
 .thumb img {
