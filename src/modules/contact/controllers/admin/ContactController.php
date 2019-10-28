@@ -72,16 +72,6 @@ class ContactController extends AdminController
         ]);
     }
 
-    public function createModel(): Contact
-    {
-        return new Contact();
-    }
-
-    public function createSearchModel(): ContactSearch
-    {
-        return new ContactSearch();
-    }
-
     public function loadModel($id): Contact
     {
         $model = Contact::findOne($id);

@@ -14,7 +14,6 @@ use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
-use app\components\UserIdentity;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\db\Connection;

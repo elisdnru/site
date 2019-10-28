@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use app\components\UserAuthManager;
 use app\extensions\cachetagging\TaggingBehavior;
 
 /**
