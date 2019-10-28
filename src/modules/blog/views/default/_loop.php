@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <div id="blogList">
     <div class="items">
         <?php foreach ($dataProvider->getData() as $post) : ?>
-            <?php /** @var Post $post */ ?>
+            <?php /** @var \app\modules\blog\models\Post $post */ ?>
             <?php
             $links = [];
             foreach ($post->cache(1000)->tags as $tag) {

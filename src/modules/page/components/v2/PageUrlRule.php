@@ -24,6 +24,9 @@ class PageUrlRule implements UrlRuleInterface
         return $params['path'];
     }
 
+    /**
+     * @inheritDoc
+     */
     public function parseRequest($manager, $request)
     {
         if (!preg_match('|^(?P<path>\w[\w_/-]+)$|', $request->getPathInfo(), $matches)) {

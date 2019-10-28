@@ -13,7 +13,7 @@ use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
 
-/** @var $this \yii\web\View */
+/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
 

@@ -3,7 +3,7 @@ use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 
-/** @var $this \yii\web\View */
+/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 

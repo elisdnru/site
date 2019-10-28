@@ -3,7 +3,7 @@ use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 use yii\db\ActiveRecord;
 
-/** @var $this \yii\web\View */
+/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
 /** @var $data Search */
 /** @var $query ActiveRecord */
 ?>

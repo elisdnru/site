@@ -30,7 +30,7 @@ use yii\helpers\Url;
  * @property string $url
  * @property Page[] child_pages
  *
- * DTreeCategoryBehavior
+ * @mixin CategoryTreeBehavior
  * @method mixed getArray()
  * @method Page findByAlias($alias)
  * @method Page findByPath($path)

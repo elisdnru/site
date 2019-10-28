@@ -10,6 +10,8 @@ use CDbCriteria;
 /**
  * @property integer $id
  * @property string $title
+ *
+ * @mixin CategoryBehavior
  */
 class Group extends CActiveRecord
 {
