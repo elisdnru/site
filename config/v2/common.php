@@ -12,7 +12,6 @@ use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
-use app\modules\page\widgets\PageWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
@@ -170,7 +169,6 @@ return [
                 'class' => InlineWidgetsBehavior::class,
                 'widgets' => [
                     'lastPosts' => LastPostsWidget::class,
-                    'page' => PageWidget::class,
                     'block' => BlockWidget::class,
                     'contact' => ContactWidget::class,
                     'portfolio' => PortfolioWidget::class,
