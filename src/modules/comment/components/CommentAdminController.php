@@ -98,7 +98,9 @@ class CommentAdminController extends AdminController
             throw new CHttpException(400, 'Error');
         }
 
-        $this->redirectIfNotAjax(['index']);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
     }
 
     public function actionModer($id): void
@@ -111,7 +113,9 @@ class CommentAdminController extends AdminController
             throw new CHttpException(400, 'Error');
         }
 
-        $this->redirectIfNotAjax(['index']);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
     }
 
     public function actionModerAll(): void
@@ -121,7 +125,9 @@ class CommentAdminController extends AdminController
             $item->save();
         }
 
-        $this->redirectIfNotAjax(['index']);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
     }
 
     public function loadModel($id): Comment

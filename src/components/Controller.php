@@ -21,13 +21,6 @@ class Controller extends CController
         $this->redirect(Yii::$app->request->getUrl() . $anchor, $terminate);
     }
 
-    public function redirectIfNotAjax($route): void
-    {
-        if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect($route);
-        }
-    }
-
     public function render($view, $data = null, $return = false): string
     {
         Yii::$app->controller->layout = $this->layout;

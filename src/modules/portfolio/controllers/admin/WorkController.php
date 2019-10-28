@@ -138,7 +138,9 @@ class WorkController extends AdminController
             }
         }
 
-        $this->redirectIfNotAjax(['index']);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
     }
 
     public function loadModel($id): Work

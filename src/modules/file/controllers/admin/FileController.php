@@ -73,7 +73,9 @@ class FileController extends AdminController
             throw new CHttpException(400, 'Ошибка удаления');
         }
 
-        $this->redirectIfNotAjax(['index']);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index']);
+        }
     }
 
     public function actionRename($path): void
@@ -97,7 +99,9 @@ class FileController extends AdminController
             throw new CHttpException(400, 'Ошибка переименования');
         }
 
-        $this->redirectIfNotAjax(['index', 'path' => $path]);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index', 'path' => $path]);
+        }
     }
 
     protected function uploadPostFile($field, $curpath): bool
@@ -154,7 +158,9 @@ class FileController extends AdminController
             }
         }
 
-        $this->redirectIfNotAjax(['index', 'path' => $path]);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(['index', 'path' => $path]);
+        }
     }
 
     protected function getFileDir(): string
