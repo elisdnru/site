@@ -8,7 +8,6 @@ use yii\helpers\Url;
 
 $this->title = 'Метки записей';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Записи' => ['/blog/admin/post/index'],
     'Метки записей',
 ];

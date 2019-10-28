@@ -15,7 +15,6 @@ use yii\widgets\LinkPager;
 
 $this->title = 'Работы портфолио';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Портфолио',
 ];
 

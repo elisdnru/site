@@ -30,7 +30,6 @@ CommentsAsset::register($this);
 <?php else : ?>
     <?php
     $this->params['breadcrumbs'] = [
-        'Панель управления' => ['/admin'],
         'Комментарии',
     ];
     ?>

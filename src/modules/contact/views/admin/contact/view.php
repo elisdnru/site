@@ -10,7 +10,6 @@ use yii\helpers\Url;
 
 $this->title = 'Сообщение';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Сообщения' => ['index'],
     'Сообщение №' . $model->id,
 ];

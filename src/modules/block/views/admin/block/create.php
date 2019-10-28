@@ -6,7 +6,6 @@ use app\modules\block\models\Block;
 <?php
 $this->title = 'Редактор блоков';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Блоки' => ['index'],
     'Редактор',
 ];

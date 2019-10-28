@@ -5,7 +5,6 @@ use app\modules\landing\models\Landing;
 
 $this->title = 'Редактор лендингов';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Лендинги' => ['index'],
     'Редактор',
 ];

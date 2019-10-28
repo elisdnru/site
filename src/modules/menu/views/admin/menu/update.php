@@ -7,7 +7,6 @@ use app\modules\menu\models\Menu;
 
 $this->title = 'Редактор меню';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Меню' => ['index'],
     'Редактор',
 ];

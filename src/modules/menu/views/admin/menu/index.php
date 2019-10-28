@@ -13,7 +13,6 @@ use yii\helpers\Url;
 
 $this->title = 'Меню';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Меню',
 ];
 

@@ -10,7 +10,6 @@ use yii\widgets\LinkPager;
 
 $this->title = 'Блоки';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Блоки',
 ];
 

@@ -2,7 +2,6 @@
 /** @var $model Work */
 $this->title = 'Редактор работы';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Портфолио' => ['index'],
     'Редактор',
 ];

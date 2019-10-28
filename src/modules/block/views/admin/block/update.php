@@ -6,7 +6,6 @@ use yii\helpers\Html;
 
 $this->title = 'Редактор блоков';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Блоки' => ['index'],
     'Редактор',
 ];

@@ -9,7 +9,6 @@ use yii\helpers\Url;
 
 $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],
     $model->username => ['view', 'id' => $model->id],
     'Редактор',

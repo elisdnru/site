@@ -1,4 +1,5 @@
 <?php
+
 use app\assets\AdminAsset;
 use app\components\widgets\BreadcrumbsWidget;
 use app\components\widgets\MessagesWidget;
@@ -10,7 +11,12 @@ AdminAsset::register($this);
 
 <section class="main" id="admin">
 
-    <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= BreadcrumbsWidget::widget([
+        'links' => array_filter(array_merge(
+            $this->context->route === 'admin/default/index' ? [] : ['Панель управления' => ['/admin']],
+            $this->params['breadcrumbs']
+        ))
+    ]) ?>
     <?= MessagesWidget::widget() ?>
 
     <?= $content ?>

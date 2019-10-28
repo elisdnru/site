@@ -7,7 +7,6 @@ use app\modules\blog\models\Tag;
 
 $this->title = 'Редактор метки блога';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Блоги' => ['/blog/admin/post'],
     'Метки' => ['index'],
     'Редактор',

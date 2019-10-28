@@ -14,7 +14,6 @@ use yii\web\View;
 
 $this->title = 'Файловый менеджер';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Файловый менеджер',
 ];
 

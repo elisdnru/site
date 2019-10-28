@@ -7,7 +7,6 @@ use app\modules\blog\models\Category;
 
 $this->title = 'Редактор категории блога';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Блоги' => ['/blog/admin/post'],
     'Категории' => ['index'],
     'Редактор',

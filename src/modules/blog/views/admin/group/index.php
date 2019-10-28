@@ -13,7 +13,6 @@ use yii\helpers\Url;
 
 $this->title = 'Тематические группы записей';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Записи' => ['/blog/admin/post'],
     'Тематические группы',
 ];

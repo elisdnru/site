@@ -4,7 +4,6 @@
 
 $this->title = 'Редактор категории портфолио';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Портфолио' => ['/portfolio/admin/work/index'],
     'Категории' => ['index'],
     'Редактор',

@@ -8,7 +8,6 @@ use app\modules\user\models\User;
 
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Пользователи' => ['index'],
     'Редактор',
 ];

@@ -10,7 +10,6 @@ use yii\helpers\Url;
 
 $this->title = 'Категории записей';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Записи' => ['/blog/admin/post/index'],
     'Категории записей',
 ];

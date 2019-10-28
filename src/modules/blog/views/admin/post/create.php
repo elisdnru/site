@@ -7,7 +7,6 @@ use app\modules\blog\models\Post;
 
 $this->title = 'Редактор записи блога';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Записи блога' => ['index'],
     'Редактор',
 ];

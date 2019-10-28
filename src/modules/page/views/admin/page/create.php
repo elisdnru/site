@@ -2,7 +2,6 @@
 /** @var $model Page */
 $this->title = 'Редактор страниц';
 $this->params['breadcrumbs'] = [
-    'Панель управления' => ['/admin'],
     'Страницы' => ['index'],
     'Редактор',
 ];
