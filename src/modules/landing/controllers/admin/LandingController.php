@@ -35,7 +35,7 @@ class LandingController extends AdminController
     public function createModel(): Landing
     {
         $model = new Landing();
-        $model->parent_id = Yii::app()->request->getParam('parent');
+        $model->parent_id = Yii::$app->request->get('parent');
         return $model;
     }
 

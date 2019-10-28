@@ -36,7 +36,7 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['
 <?php endif; ?>
 
 <!--noindex-->
-<?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::app()->request->getQuery('date'), ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::$app->request->get('date'), ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
     <?php Portlet::begin(); ?>
     <?= CalendarWidget::widget() ?>
     <?php Portlet::end(); ?>

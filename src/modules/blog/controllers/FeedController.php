@@ -26,15 +26,15 @@ class FeedController extends Controller
 
         $feed->setLanguage('ru');
         $feed->setDateModified(new DateTimeImmutable());
-        $feed->setLink(Yii::app()->request->hostInfo);
+        $feed->setLink(Yii::$app->request->hostInfo);
         $feed->setCopyright('Copyright ' . date('Y') . ' ' . ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']));
         $feed->setGenerator('ElisDN');
 
         foreach ($posts as $model) {
             $item = $feed->createEntry();
 
-            $link = Yii::app()->request->hostInfo . $model->url;
-            $image = Yii::app()->request->hostInfo . $model->getImageThumbUrl();
+            $link = Yii::$app->request->hostInfo . $model->url;
+            $image = Yii::$app->request->hostInfo . $model->getImageThumbUrl();
 
             $item->setTitle($model->title);
 

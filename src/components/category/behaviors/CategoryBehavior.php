@@ -175,7 +175,7 @@ class CategoryBehavior extends CActiveRecordBehavior
      */
     public function getLinkActive(): bool
     {
-        return mb_strpos(Yii::app()->request->getParam($this->requestPathAttribute), $this->getModel()->{$this->aliasAttribute}, null, 'UTF-8') === 0;
+        return mb_strpos(Yii::$app->request->get($this->requestPathAttribute), $this->getModel()->{$this->aliasAttribute}, null, 'UTF-8') === 0;
     }
 
     /**

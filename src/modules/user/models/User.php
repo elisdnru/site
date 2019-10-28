@@ -353,7 +353,7 @@ class User extends ActiveRecord
 
     public function getDefaultAvatarUrl($width)
     {
-        return GravatarHelper::get($this->email, $width, Yii::app()->request->hostInfo . '/images/noavatar.png');
+        return GravatarHelper::get($this->email, $width, Yii::$app->request->hostInfo . '/images/noavatar.png');
     }
 
     public function sendCommit(): void

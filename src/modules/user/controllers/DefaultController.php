@@ -20,8 +20,8 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
 
-        if (isset($_POST['LoginForm'])) {
-            $model->attributes = $_POST['LoginForm'];
+        if ($post = Yii::$app->request->post('LoginForm')) {
+            $model->attributes = $post;
             if ($model->validate() && $model->login()) {
                 $this->redirect(Yii::app()->user->returnUrl);
             }
@@ -39,15 +39,15 @@ class DefaultController extends Controller
     public function actionLogout(): void
     {
         Yii::app()->user->logout();
-        $this->redirect(Yii::app()->request->urlReferrer ?: Yii::app()->homeUrl);
+        $this->redirect(Yii::$app->request->getReferrer() ?: Yii::app()->homeUrl);
     }
 
     public function actionRemind(): string
     {
         $model = new RemindForm();
 
-        if (isset($_POST['RemindForm'])) {
-            $model->attributes = $_POST['RemindForm'];
+        if ($post = Yii::$app->request->post('RemindForm')) {
+            $model->attributes = $post;
 
             if ($model->validate()) {
                 $user = User::findOne(['email' => $model->email]);

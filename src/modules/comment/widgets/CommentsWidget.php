@@ -44,8 +44,8 @@ class CommentsWidget extends Widget
             $form->attributes = $this->loadFormState();
         }
 
-        if (isset($_POST['CommentForm'])) {
-            $form->attributes = $_POST['CommentForm'];
+        if ($post = Yii::$app->request->post('CommentForm')) {
+            $form->attributes = $post;
 
             $this->saveFormState([
                 'name' => $form->name,
@@ -103,13 +103,13 @@ class CommentsWidget extends Widget
     {
         $cookie = new CHttpCookie('comment_form_data', Json::encode($attributes));
         $cookie->expire = time() + 3600 * 24 * 180;
-        Yii::app()->request->cookies['comment_form_data'] = $cookie;
+        Yii::$app->response->cookies['comment_form_data'] = $cookie;
     }
 
     protected function loadFormState(): array
     {
-        $cookie = Yii::app()->request->cookies['comment_form_data'];
-        if ($cookie !== null) {
+        $cookie = Yii::$app->request->cookies['comment_form_data'];
+        if (!empty($cookie)) {
             try {
                 return Json::decode($cookie->value);
             } catch (InvalidArgumentException $e) {

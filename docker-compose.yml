@@ -17,6 +17,7 @@ services:
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
+            COOKIE_SECRET: secret
             DB_DSN: mysql:host=mysql;dbname=app
             DB_USERNAME: app
             DB_PASSWORD: secret
@@ -35,6 +36,7 @@ services:
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
+            COOKIE_SECRET: secret
             DB_DSN: mysql:host=mysql;dbname=app
             DB_USERNAME: app
             DB_PASSWORD: secret

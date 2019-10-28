@@ -3,6 +3,7 @@
 namespace app\components\crud\actions;
 
 use ReflectionObject;
+use Yii;
 
 class CreateAction extends CrudAction
 {
@@ -21,8 +22,8 @@ class CreateAction extends CrudAction
 
         $formName = (new ReflectionObject($model))->getShortName();
 
-        if (isset($_POST[$formName])) {
-            $model->attributes = $_POST[$formName];
+        if ($post = Yii::$app->request->post($formName)) {
+            $model->attributes = $post;
 
             $this->clientCallback('beforeCreate', $model);
 

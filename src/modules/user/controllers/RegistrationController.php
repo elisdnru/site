@@ -24,8 +24,8 @@ class RegistrationController extends Controller
     {
         $model = new RegistrationForm();
 
-        if (isset($_POST['RegistrationForm'])) {
-            $model->attributes = $_POST['RegistrationForm'];
+        if ($post = Yii::$app->request->post('RegistrationForm')) {
+            $model->attributes = $post;
 
             if ($model->validate()) {
                 $user = new User();

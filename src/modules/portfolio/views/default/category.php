@@ -56,11 +56,11 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     <div class="clear"></div>
 </div>
 
-<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->
 <?php endif; ?>
 <?= $this->decodeWidgets(trim($category->text)) ?>
-<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--/noindex-->
 <?php endif; ?>
 

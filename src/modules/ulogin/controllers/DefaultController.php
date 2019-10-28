@@ -10,10 +10,10 @@ class DefaultController extends Controller
 {
     public function actionLogin(): void
     {
-        if (!empty($_POST['token'])) {
-            if ($_POST['token'] !== 'undefined') {
+        if ($token = Yii::$app->request->post('token')) {
+            if ($token !== 'undefined') {
                 $ulogin = new UloginModel();
-                $ulogin->attributes = $_POST;
+                $ulogin->attributes = Yii::$app->request->post();
 
                 $ulogin->getAuthData();
 
@@ -24,8 +24,7 @@ class DefaultController extends Controller
                 Yii::app()->user->setFlash('error', 'Какая-то техническая ошибка при авторизации');
             }
 
-            $return = Yii::app()->request->getParam('return');
-            $this->redirect($return ?: Yii::app()->homeUrl);
+            $this->redirect(Yii::$app->request->get('return', Yii::app()->homeUrl));
         } else {
             $this->redirect(Yii::app()->homeUrl);
         }

@@ -11,7 +11,7 @@ class ErrorController extends Controller
     public function actionIndex(): string
     {
         if ($error = Yii::app()->errorHandler->error) {
-            if (Yii::app()->request->isAjaxRequest) {
+            if (Yii::$app->request->getIsAjax()) {
                 return $error['message'];
             }
             return $this->render('index', [

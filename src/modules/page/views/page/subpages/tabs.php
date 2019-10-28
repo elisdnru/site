@@ -15,7 +15,7 @@ use yii\caching\TagDependency;
             <ul>
                 <?php foreach ($page->parent->child_pages as $child) : ?>
                     <?php $url = $child->url; ?>
-                    <?php if (Yii::app()->request->requestUri === $url) : ?>
+                    <?php if (Yii::$app->request->getPathInfo() === $url) : ?>
                         <li class="active"><a href="<?= $url ?>"><?= $child->title ?></a></li>
                     <?php else : ?>
                         <li><a href="<?= $url ?>"><?= $child->title ?></a></li>

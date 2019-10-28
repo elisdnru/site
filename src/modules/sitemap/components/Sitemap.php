@@ -26,7 +26,7 @@ class Sitemap
      */
     public function addUrl($url, $changeFreq = self::DAILY, $priority = 0.5, $lastMod = 0): void
     {
-        $host = Yii::app()->request->hostInfo;
+        $host = Yii::$app->request->hostInfo;
         $item = [
             'loc' => $host . $url,
             'changefreq' => $changeFreq,
@@ -46,7 +46,7 @@ class Sitemap
      */
     public function addModels($models, $changeFreq = self::DAILY, $priority = 0.5): void
     {
-        $host = Yii::app()->request->hostInfo;
+        $host = Yii::$app->request->hostInfo;
         foreach ($models as $model) {
             $item = [
                 'loc' => $host . $model->getUrl(),

@@ -27,7 +27,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">
-    <link rel="canonical" href="<?= Yii::app()->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::app()->request->getPathInfo()) ?>">
+    <link rel="canonical" href="<?= Yii::$app->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::$app->request->getPathInfo()) ?>">
 
     <?php $this->head() ?>
 
@@ -106,7 +106,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
         <!--/noindex-->
 
         <div class="system_nav">
-            <?php if (Yii::app()->request->getPathInfo() !== 'sitemap') : ?>
+            <?php if (Yii::$app->request->getPathInfo() !== 'sitemap') : ?>
                 <a href="/sitemap">Карта сайта</a>
             <?php else : ?>
                 <span>Карта сайта</span>

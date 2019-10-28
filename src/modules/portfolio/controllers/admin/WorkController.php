@@ -40,7 +40,7 @@ class WorkController extends AdminController
 
     public function actionIndex(): string
     {
-        $category = (int)Yii::app()->request->getParam('category');
+        $category = (int)Yii::$app->request->get('category');
 
         $query = Work::find();
 
@@ -70,7 +70,7 @@ class WorkController extends AdminController
     {
         $success = true;
 
-        $items = Yii::app()->request->getPost('item');
+        $items = Yii::$app->request->post('item');
 
         if ($items) {
             $sort = 0;
@@ -104,7 +104,7 @@ class WorkController extends AdminController
         $model = new Work();
         $model->public = 1;
         $model->image_show = 1;
-        $model->category_id = Yii::app()->request->getQuery('category');
+        $model->category_id = Yii::$app->request->get('category');
         $model->date = date('Y-m-d H:i:s');
         return $model;
     }

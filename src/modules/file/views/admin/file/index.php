@@ -177,7 +177,7 @@ jQuery(function ($) {
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>
     <div id="rename" class="form">
-        <?= CHtml::beginForm(Url::to(['rename', 'path' => Yii::app()->request->getQuery('path')])) ?>
+        <?= CHtml::beginForm(Url::to(['rename', 'path' => Yii::$app->request->get('path')])) ?>
         <?= CHtml::hiddenField('name', '', ['id' => 'sourceName']) ?>
         <div class="row">
             <?= CHtml::textField('to', '', ['id' => 'destName', 'size' => 24]) ?>

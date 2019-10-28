@@ -36,7 +36,7 @@ class PageController extends AdminController
     {
         $model = new Page();
         $model->date = time();
-        $model->parent_id = Yii::app()->request->getParam('parent', 0);
+        $model->parent_id = Yii::$app->request->get('parent', 0);
         return $model;
     }
 

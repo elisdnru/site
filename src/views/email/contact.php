@@ -3,7 +3,7 @@
 
 use yii\helpers\Html;
 ?>
-<p>Новое сообщение в обратную связь на сайте <?= Yii::app()->request->getHostInfo() ?></p>
+<p>Новое сообщение в обратную связь на сайте <?= Yii::$app->request->getHostInfo() ?></p>
 
 <p>
     <b>Имя:</b> <?= Html::encode($contact->name) ?><br />

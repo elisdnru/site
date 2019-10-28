@@ -3,6 +3,7 @@
 namespace app\components\crud\actions;
 
 use ReflectionObject;
+use Yii;
 
 class UpdateAction extends CrudAction
 {
@@ -25,8 +26,8 @@ class UpdateAction extends CrudAction
 
         $formName = (new ReflectionObject($model))->getShortName();
 
-        if (isset($_POST[$formName])) {
-            $model->attributes = $_POST[$formName];
+        if ($post = Yii::$app->request->post($formName)) {
+            $model->attributes = $post;
 
             $this->clientCallback('beforeUpdate', $model);
 

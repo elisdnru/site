@@ -137,9 +137,9 @@ class ToggleColumn extends CGridColumn
             $confirmation = '';
         }
 
-        if (Yii::app()->request->enableCsrfValidation) {
+        if (Yii::$app->request->enableCsrfValidation) {
             $csrfTokenName = Yii::app()->request->csrfTokenName;
-            $csrfToken = Yii::app()->request->csrfToken;
+            $csrfToken = Yii::$app->request->csrfToken;
             $csrf = "\n\t\tdata:{ '$csrfTokenName':'$csrfToken' },";
         } else {
             $csrf = '';

@@ -16,11 +16,11 @@ class ContactWidget extends Widget
     {
         $form = new ContactForm($this->scenario);
 
-        if (isset($_POST['ContactForm'])) {
-            $form->attributes = $_POST['ContactForm'];
+        if ($post = Yii::$app->request->post('ContactForm')) {
+            $form->attributes = $post;
             if ($form->validate()) {
                 $contact = new Contact();
-                $contact->attributes = $_POST['ContactForm'];
+                $contact->attributes = $post;
 
                 $contact->pagetitle = Yii::app()->controller->title;
 

@@ -43,8 +43,8 @@ class CommentController extends Controller
 
         $form->attributes = $model->attributes;
 
-        if (isset($_POST['CommentForm'])) {
-            $form->attributes = $_POST['CommentForm'];
+        if ($post = Yii::$app->request->post('CommentForm')) {
+            $form->attributes = $post;
 
             if ($form->validate()) {
                 $model->attributes = $form->attributes;

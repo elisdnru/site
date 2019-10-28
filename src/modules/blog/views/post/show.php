@@ -27,7 +27,7 @@ $this->params['breadcrumbs'] = [
     'Блог' => ['/blog']
 ];
 
-$host = Yii::app()->request->getHostInfo();
+$host = Yii::$app->request->getHostInfo();
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
 $this->registerMetaTag(['property' => 'og:description', 'content' => $model->description]);

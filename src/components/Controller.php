@@ -21,19 +21,19 @@ class Controller extends CController
 
     public function refresh($terminate = true, $anchor = ''): void
     {
-        $this->redirect(Yii::app()->getRequest()->getUrl() . $anchor, $terminate);
+        $this->redirect(Yii::$app->request->getUrl() . $anchor, $terminate);
     }
 
     public function redirectOrAjax($route = ['index']): void
     {
-        if (!Yii::app()->request->isAjaxRequest) {
-            $this->redirect($_POST['returnUrl'] ?? $route);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->redirect(Yii::$app->request->post('returnUrl', $route));
         }
     }
 
     public function checkUrl($url): void
     {
-        if ('/' . Yii::app()->getRequest()->getPathInfo() !== $url) {
+        if ('/' . Yii::$app->request->getPathInfo() !== $url) {
             $this->redirect($url, true, 301);
         }
     }

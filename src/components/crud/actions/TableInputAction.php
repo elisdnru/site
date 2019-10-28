@@ -5,6 +5,7 @@ namespace app\components\crud\actions;
 use CActiveRecord;
 use CForm;
 use ReflectionClass;
+use Yii;
 
 class TableInputAction extends CrudAction
 {
@@ -26,20 +27,20 @@ class TableInputAction extends CrudAction
 
         $formName = (new ReflectionClass($this->formClass))->getShortName();
 
-        if (isset($_POST[$formName])) {
+        if ($post = Yii::$app->request->post($formName)) {
             $valid = true;
 
             foreach ($items as $item) {
-                if (isset($_POST[$formName][$item->getPrimaryKey()])) {
-                    $item->attributes = $_POST[$formName][$item->getPrimaryKey()];
+                if (isset($post[$item->getPrimaryKey()])) {
+                    $item->attributes = $post[$item->getPrimaryKey()];
                 }
                 $valid = $item->validate() && $valid;
             }
 
             if ($valid) {
                 foreach ($items as $item) {
-                    if (isset($_POST[$formName][$item->getPrimaryKey()])) {
-                        $item->attributes = $_POST[$formName][$item->getPrimaryKey()];
+                    if (isset($post[$item->getPrimaryKey()])) {
+                        $item->attributes = $post[$item->getPrimaryKey()];
                         $item->save();
                     }
                 }
@@ -56,12 +57,12 @@ class TableInputAction extends CrudAction
         /** @var CForm $form */
         $form = new $this->formClass;
 
-        if (isset($_POST[$formName])) {
-            $form->attributes = $_POST[$formName];
+        if (isset($post)) {
+            $form->attributes = $post;
 
             if ($form->validate()) {
                 $model = $this->createModel();
-                $model->attributes = $_POST[$formName];
+                $model->attributes = $post;
 
                 if ($model->save()) {
                     $this->success($this->addSuccess);

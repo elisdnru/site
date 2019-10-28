@@ -47,11 +47,11 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
     </div>
 <?php endif; ?>
 
-<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->
 <?php endif; ?>
 <?= $this->decodeWidgets(trim($page->text_purified)) ?>
-<?php if (Yii::app()->request->getParam('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--/noindex-->
 <?php endif; ?>
 

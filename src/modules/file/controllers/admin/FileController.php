@@ -79,8 +79,8 @@ class FileController extends AdminController
 
     public function actionRename($path): void
     {
-        $name = FileHelper::escape(Yii::app()->request->getParam('name'));
-        $to = FileHelper::escape(Yii::app()->request->getParam('to'));
+        $name = FileHelper::escape(Yii::$app->request->post('name'));
+        $to = FileHelper::escape(Yii::$app->request->post('to'));
 
         if (!$name || !$to) {
             throw new CHttpException(400, 'Некорректный запрос');
@@ -132,7 +132,7 @@ class FileController extends AdminController
 
     public function actionProcess($path): void
     {
-        $action = Yii::app()->request->getPost('action');
+        $action = Yii::$app->request->post('action');
 
         if ($action) {
             $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
@@ -144,7 +144,7 @@ class FileController extends AdminController
                 if ($file->getBasename() !== '.htaccess') {
                     switch ($action) {
                         case 'del':
-                            if (Yii::app()->request->getPost('del_' . md5($file->getBasename()))) {
+                            if (Yii::$app->request->post('del_' . md5($file->getBasename()))) {
                                 if ($file->Delete()) {
                                     Yii::app()->user->setFlash('success', 'Удалено');
                                 }

@@ -36,7 +36,7 @@ class PostController extends AdminController
         $model->public = 1;
         $model->image_show = 1;
         $model->image = '';
-        $model->category_id = Yii::app()->request->getParam('category');
+        $model->category_id = Yii::$app->request->get('category');
         $model->date = date('Y-m-d H:i:s');
         return $model;
     }

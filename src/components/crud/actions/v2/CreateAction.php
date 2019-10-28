@@ -2,6 +2,8 @@
 
 namespace app\components\crud\actions\v2;
 
+use Yii;
+
 class CreateAction extends CrudAction
 {
     /**
@@ -17,7 +19,7 @@ class CreateAction extends CrudAction
     {
         $model = $this->createModel();
 
-        if ($model->load($_POST)) {
+        if ($model->load(Yii::$app->request->post())) {
             $this->clientCallback('beforeCreate', $model);
 
             if ($model->save()) {

@@ -14,10 +14,10 @@ class ShareWidget extends Widget
 
     public function run(): string
     {
-        $host = Yii::app()->request->getHostInfo();
+        $host = Yii::$app->request->getHostInfo();
 
         return $this->render('Share', [
-            'url' => $this->url ?: $host . '/' . Yii::app()->request->getPathInfo(),
+            'url' => $this->url ?: $host . '/' . Yii::$app->request->getPathInfo(),
             'title' => $this->title,
             'description' => mb_substr(strip_tags($this->description), 0, 200, 'UTF-8') . '...',
             'image' => $this->image ? $host . $this->image : '',

@@ -10,7 +10,7 @@ class DownloadController extends Controller
 {
     public function actionThumb(): void
     {
-        $file = trim(Yii::app()->request->requestUri, '/');
+        $file = trim(Yii::$app->request->getPathInfo(), '/');
 
         if (!Yii::$app->uploader->checkThumbExists($file)) {
             throw new CHttpException(404, 'Not found');

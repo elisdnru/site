@@ -22,7 +22,7 @@ class CrudAction extends CAction
 
     protected function checkIsPostRequest(): void
     {
-        if (!Yii::app()->request->isPostRequest) {
+        if (!Yii::$app->request->isPost) {
             throw new CHttpException(400, Yii::t('yii', 'Your request is invalid.'));
         }
     }
@@ -36,14 +36,14 @@ class CrudAction extends CAction
 
     protected function success($message): void
     {
-        if (!Yii::app()->request->isAjaxRequest) {
+        if (!Yii::$app->request->getIsAjax()) {
             Yii::app()->user->setFlash($this->flashSuccess, Yii::t(Messages::class . '.crud', $message));
         }
     }
 
     protected function error($message): void
     {
-        if (!Yii::app()->request->isAjaxRequest) {
+        if (!Yii::$app->request->getIsAjax()) {
             Yii::app()->user->setFlash($this->flashError, Yii::t(Messages::class . '.crud', $message));
         } else {
             throw new CHttpException(400, $message);
@@ -52,15 +52,15 @@ class CrudAction extends CAction
 
     protected function redirectToView(CActiveRecord $model): void
     {
-        if (!Yii::app()->request->isAjaxRequest) {
+        if (!Yii::$app->request->getIsAjax()) {
             $this->controller->redirect(['view', 'id' => $model->getPrimaryKey()]);
         }
     }
 
     protected function redirectToReferrer(): void
     {
-        if (!Yii::app()->request->isAjaxRequest) {
-            $this->controller->redirect($_POST['returnUrl'] ?? ['index']);
+        if (!Yii::$app->request->getIsAjax()) {
+            $this->controller->redirect(Yii::$app->request->post('returnUrl', ['index']));
         }
     }
 
@@ -73,7 +73,7 @@ class CrudAction extends CAction
     protected function loadModel(): CActiveRecord
     {
         $this->checkMethodExists('loadModel');
-        $id = Yii::app()->request->getParam('id');
+        $id = Yii::$app->request->get('id');
         return $this->controller->loadModel($id);
     }
 

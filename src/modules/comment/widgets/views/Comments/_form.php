@@ -41,13 +41,13 @@ use yii\helpers\Url;
         <div style="margin-bottom: 10px">
             <div style="float: right; margin-right: -10px">
                 <?= UloginWidget::widget([
-                    'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::app()->request->getRequestUri()], true) . '#comments', 'display' => 'panel']
+                    'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments', 'display' => 'panel']
                 ]) ?>
             </div>
             <a href="<?= Url::to(['/user/default/login']) ?>">Войти</a> |
             <a href="<?= Url::to(['/user/registration/request']) ?>">Завести аккаунт</a> |
             <span style="color: #666">Войти через</span>
-            <?php Yii::app()->user->returnUrl = Yii::app()->request->requestUri; ?>
+            <?php Yii::app()->user->returnUrl = Yii::$app->request->getUrl(); ?>
         </div>
 
         <div class="row">

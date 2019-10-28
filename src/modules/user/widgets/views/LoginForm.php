@@ -52,7 +52,7 @@ use yii\helpers\Url;
         <?= UloginWidget::widget([
             'params' => [
                 'display' => 'small',
-                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::app()->getRequest()->getRequestUri(), '/')], true)
+                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::$app->request->getUrl(), '/')], true)
             ]
         ]) ?>
     </div>

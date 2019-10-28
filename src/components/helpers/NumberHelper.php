@@ -42,7 +42,7 @@ class NumberHelper
 
     public static function pageString(string $param = 'page'): string
     {
-        $page = (int)Yii::app()->request->getQuery($param, 1);
+        $page = (int)Yii::$app->request->get($param, 1);
         return $page > 1 ? ' - Страница ' . $page : '';
     }
 }
