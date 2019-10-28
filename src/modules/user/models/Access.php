@@ -20,7 +20,7 @@ class Access extends CModel
 
     public static function getRoles(): array
     {
-        return CHtml::listData(Yii::app()->authManager->roles, 'name', 'description');
+        return CHtml::listData(Yii::$app->authManager->getRoles(), 'name', 'description');
     }
 
     public static function getRoleName(?string $role): string

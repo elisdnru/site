@@ -2,7 +2,8 @@
 
 namespace app\modules\user\forms;
 
-use app\modules\user\components\UserIdentity;
+use app\components\UserIdentity;
+use app\modules\user\models\User;
 use CFormModel;
 use Yii;
 
@@ -16,8 +17,6 @@ class LoginForm extends CFormModel
     public $username;
     public $password;
     public $rememberMe;
-
-    private $identity;
 
     /**
      * Declares the validation rules.
@@ -54,31 +53,47 @@ class LoginForm extends CFormModel
      */
     public function authenticate(): void
     {
-        if (!$this->hasErrors()) {
-            $this->identity = new UserIdentity($this->username, $this->password);
-            if (!$this->identity->authenticate()) {
-                $this->addError('password', 'Некорректное имя пользователя или пароль.');
-            }
+        if ($this->hasErrors()) {
+            return;
+        }
+
+        if (!$this->loadIdentity($this->username, $this->password)) {
+            $this->addError('password', 'Некорректное имя пользователя или пароль.');
         }
     }
 
-    /**
-     * Logs in the user using the given username and password in the model.
-     * @return boolean whether login is successful
-     */
     public function login(): bool
     {
-        if ($this->identity === null) {
-            $this->identity = new UserIdentity($this->username, $this->password);
-            $this->identity->authenticate();
-        }
+        $identity = $this->loadIdentity($this->username, $this->password);
 
-        if ($this->identity->errorCode === UserIdentity::ERROR_NONE) {
+        if ($identity !== null) {
             $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
-            Yii::app()->user->login($this->identity, $duration);
+            Yii::$app->user->login($identity, $duration);
             return true;
         }
 
         return false;
+    }
+
+    private function loadIdentity($username, $password): ?UserIdentity
+    {
+        /** @var User $user */
+        $user = User::findBySql('SELECT * FROM users WHERE LOWER(username) = :name OR LOWER(email) = :name', [
+            ':name' => strtolower($username),
+        ])->one();
+
+        if ($user === null) {
+            return null;
+        }
+
+        if ($user->confirm) {
+            return null;
+        }
+
+        if (!$user->validatePassword($password)) {
+            return null;
+        }
+
+        return new UserIdentity($user->id);
     }
 }

@@ -97,7 +97,7 @@ class Post extends CActiveRecord
             ['tagsString', 'length', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'caseSensitive' => false, 'message' => 'Такой {attribute} уже используется'],
-            ['author_id', 'default', 'value' => Yii::app()->user->id],
+            ['author_id', 'default', 'value' => Yii::$app->user->id],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             ['id, date, category_id, author_id, title, pagetitle, description, image_alt, text, public', 'safe', 'on' => 'search'],

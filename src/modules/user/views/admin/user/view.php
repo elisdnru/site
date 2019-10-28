@@ -27,7 +27,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 
 <div style="margin-left:60px;">
 
-    <?php if ($model->id == Yii::app()->user->id) : ?>
+    <?php if ($model->id == Yii::$app->user->id) : ?>
         <p style="float:right">
             <a href="<?= Url::to(['/user/profile/edit']) ?>">Редактировать</a> |
             <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>

@@ -47,7 +47,7 @@ use yii\helpers\Url;
             <a href="<?= Url::to(['/user/default/login']) ?>">Войти</a> |
             <a href="<?= Url::to(['/user/registration/request']) ?>">Завести аккаунт</a> |
             <span style="color: #666">Войти через</span>
-            <?php Yii::app()->user->returnUrl = Yii::$app->request->getUrl(); ?>
+            <?php Yii::$app->user->returnUrl = Yii::$app->request->getUrl(); ?>
         </div>
 
         <div class="row">

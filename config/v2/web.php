@@ -1,5 +1,6 @@
 <?php
 
+use app\components\UserIdentity;
 use yii\helpers\ArrayHelper;
 
 return ArrayHelper::merge(
@@ -8,6 +9,12 @@ return ArrayHelper::merge(
         'components' => [
             'request' => [
                 'cookieValidationKey' => getenv('COOKIE_SECRET'),
+            ],
+
+            'user' => [
+                'identityClass' => UserIdentity::class,
+                'enableAutoLogin' => true,
+                'loginUrl' => ['/user/default/login'],
             ],
         ],
     ]

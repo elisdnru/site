@@ -43,6 +43,6 @@ class DefaultController extends AdminController
 
     private function loadUser(): ?User
     {
-        return User::findOne(Yii::app()->user->id);
+        return User::findOne(Yii::$app->user->id);
     }
 }

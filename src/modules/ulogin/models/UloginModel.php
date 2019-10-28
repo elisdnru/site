@@ -2,7 +2,9 @@
 
 namespace app\modules\ulogin\models;
 
-use app\modules\ulogin\components\UloginUserIdentity;
+use app\components\UserIdentity;
+use app\modules\user\models\Access;
+use app\modules\user\models\User;
 use CModel;
 use Yii;
 
@@ -53,10 +55,10 @@ class UloginModel extends CModel
 
     public function login(): bool
     {
-        $identity = new UloginUserIdentity('', '');
-        if ($identity->authenticate($this)) {
+        $identity = $this->authenticate();
+        if ($identity !== null) {
             $duration = 3600 * 24 * 30;
-            Yii::app()->user->login($identity, $duration);
+            Yii::$app->user->login($identity, $duration);
             return true;
         }
         return false;
@@ -75,5 +77,36 @@ class UloginModel extends CModel
             , 'error_type'
             , 'error_message'
         ];
+    }
+
+    private function authenticate(): ?UserIdentity
+    {
+        if ($user = User::findOne(['identity' => $this->identity, 'network' => $this->network])) {
+            return new UserIdentity($user->id);
+        }
+
+        if ($user = User::findOne(['email' => $this->email])) {
+            return null;
+        }
+
+        $user = new User();
+
+        $identity = explode('/', trim($this->identity, '/'));
+        $user->username = $this->identity ? $this->network . '_' . array_pop($identity) : 'user_' . time();
+        $user->identity = $this->identity;
+        $user->network = $this->network;
+        $user->email = $this->email;
+        $user->new_password = microtime();
+        $user->new_confirm = $user->new_password;
+        $user->role = Access::ROLE_USER;
+        $user->lastname = $this->lastname;
+        $user->name = $this->name;
+        $user->avatar = !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $this->photo) ? $this->photo : '';
+
+        if (!$user->save()) {
+            return null;
+        }
+
+        return new UserIdentity($user->id);
     }
 }

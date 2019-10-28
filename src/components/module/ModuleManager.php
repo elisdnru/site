@@ -8,7 +8,7 @@ class ModuleManager
 {
     public function allowed(string $module): bool
     {
-        return Yii::app()->user->checkAccess('module_' . $module);
+        return Yii::$app->user->can('module_' . $module);
     }
 
     public function notifications(string $module): array

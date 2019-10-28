@@ -20,7 +20,7 @@ $this->params['breadcrumbs'] = [
     $page->title,
 ];
 
-if (Yii::app()->user->checkAccess(Access::CONTROL)) {
+if (Yii::$app->user->can(Access::CONTROL)) {
     if (Yii::$app->moduleManager->allowed('portfolio')) {
         $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create']];

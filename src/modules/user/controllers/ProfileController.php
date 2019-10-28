@@ -41,7 +41,7 @@ class ProfileController extends Controller
 
     public function loadModel(): User
     {
-        $model = User::findOne(Yii::app()->user->id);
+        $model = User::findOne(Yii::$app->user->id);
         if ($model === null) {
             throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
         }

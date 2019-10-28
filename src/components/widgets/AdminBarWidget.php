@@ -14,7 +14,7 @@ class AdminBarWidget extends Widget
 
     public function run(): string
     {
-        if (Yii::app()->user->checkAccess(Access::CONTROL)) {
+        if (Yii::$app->user->can(Access::CONTROL)) {
             AdminBarAsset::register($this->view);
             return $this->render('AdminBar', [
                 'links' => $this->links

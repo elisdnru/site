@@ -25,7 +25,7 @@ abstract class AdminController extends Controller
         Yii::app()->cache->clear($tag);
         TagDependency::invalidate(Yii::$app->cache, $tag);
 
-        if (Yii::app()->user->isGuest) {
+        if (Yii::$app->user->getIsGuest()) {
             throw new CHttpException(403, 'Отказано в доступе');
         }
 

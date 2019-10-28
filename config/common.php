@@ -8,6 +8,7 @@
 
 use app\components\module\routes\ModuleUrlRulesBehavior;
 use app\components\UserAuthManager;
+use app\components\WebUser;
 use app\extensions\cachetagging\TaggingBehavior;
 
 CHtml::setModelNameConverter(static function ($model) {
@@ -72,7 +73,8 @@ return [
         ],
 
         'user' => [
-            'allowAutoLogin' => true,
+            'class' => WebUser::class,
+            'allowAutoLogin' => false,
             'loginUrl' => ['/user/default/login'],
         ],
 

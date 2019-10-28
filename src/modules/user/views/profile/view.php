@@ -11,7 +11,7 @@ $this->context->layout = 'user';
 $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = ['Профиль'];
 
-if (Yii::app()->user->checkAccess(Access::CONTROL)) {
+if (Yii::$app->user->can(Access::CONTROL)) {
     $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['/user/admin/user/index']];
     $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/user/admin/user/update', 'id' => $model->id]];
 }
@@ -25,7 +25,7 @@ if (Yii::app()->user->checkAccess(Access::CONTROL)) {
 
 <div style="margin-left:60px;">
 
-    <?php if ($model->id == Yii::app()->user->id) : ?>
+    <?php if ($model->id == Yii::$app->user->id) : ?>
         <p style="float:right">
             <a href="<?= Url::to(['/user/profile/edit']) ?>">Редактировать</a> |
             <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>

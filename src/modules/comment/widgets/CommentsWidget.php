@@ -26,7 +26,7 @@ class CommentsWidget extends Widget
     public function run(): string
     {
         if (!$this->user) {
-            $this->user = User::findOne(Yii::app()->user->getId());
+            $this->user = User::findOne(Yii::$app->user->getId());
         }
 
         if (!$this->material_id) {

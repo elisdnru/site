@@ -23,7 +23,7 @@ class DefaultController extends Controller
         if ($post = Yii::$app->request->post('LoginForm')) {
             $model->attributes = $post;
             if ($model->validate() && $model->login()) {
-                $this->redirect(Yii::app()->user->returnUrl);
+                $this->redirect(Yii::$app->user->returnUrl);
             }
         }
 
@@ -32,13 +32,13 @@ class DefaultController extends Controller
 
     public function actionRelogin(): void
     {
-        Yii::app()->user->logout();
+        Yii::$app->user->logout();
         $this->redirect(['login']);
     }
 
     public function actionLogout(): void
     {
-        Yii::app()->user->logout();
+        Yii::$app->user->logout();
         $this->redirect(Yii::$app->request->getReferrer() ?: Yii::app()->homeUrl);
     }
 
@@ -74,6 +74,6 @@ class DefaultController extends Controller
 
     private function loadUser(): ?User
     {
-        return User::findOne(Yii::app()->user->id);
+        return User::findOne(Yii::$app->user->id);
     }
 }

@@ -4,6 +4,7 @@ use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\v2\ModuleUrlRules;
 use app\components\uploader\Uploader;
+use app\components\V2UserAuthManager;
 use app\components\widgets\inline\CountDownWidget;
 use app\components\widgets\inline\MailToWidget;
 use app\components\widgets\inline\SubscribeNewsWidget;
@@ -13,6 +14,7 @@ use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\contact\widgets\ContactWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
+use app\components\UserIdentity;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\db\Connection;
@@ -108,6 +110,13 @@ return [
                     'js' => ['jquery.js'],
                 ],
             ],
+        ],
+
+        'authManager' => [
+            'class' => V2UserAuthManager::class,
+            'itemFile' => __DIR__ . '/rbac/items.php',
+            'ruleFile' => __DIR__ . '/rbac/rules.php',
+            'assignmentFile' => __DIR__ . '/rbac/assignments.php',
         ],
 
         'moduleManager' => [

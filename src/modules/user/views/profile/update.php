@@ -15,7 +15,7 @@ $this->params['breadcrumbs'] = [
     'Редактирование'
 ];
 
-if (Yii::app()->user->checkAccess(Access::CONTROL)) {
+if (Yii::$app->user->can(Access::CONTROL)) {
     $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['/user/admin/user/index']];
 } ?>
 

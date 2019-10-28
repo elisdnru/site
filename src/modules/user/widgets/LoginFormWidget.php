@@ -24,8 +24,8 @@ class LoginFormWidget extends Widget
             }
         }
 
-        if (Yii::app()->user->id) {
-            $user = User::findOne(Yii::app()->user->id);
+        if (Yii::$app->user->id) {
+            $user = User::findOne(Yii::$app->user->id);
         } else {
             $user = null;
         }

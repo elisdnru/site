@@ -17,7 +17,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 <!DOCTYPE html>
 <html lang="<?= Yii::app()->language ?>">
 <head>
-    <?php if (!Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
+    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
     <?php endif; ?>
 
@@ -91,7 +91,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
     <div class="content">
 
         <div class="counters">
-            <?php if (!YII_DEBUG && !Yii::app()->user->checkAccess(Access::ROLE_ADMIN)) : ?>
+            <?php if (!YII_DEBUG && !Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
                 <?= $this->render('//layouts/_counters'); ?>
             <?php endif; ?>
         </div>

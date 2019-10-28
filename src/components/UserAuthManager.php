@@ -12,14 +12,14 @@ class UserAuthManager extends CPhpAuthManager
     {
         parent::init();
 
-        if (Yii::app()->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
             return;
         }
 
-        if (!$user = User::findOne(Yii::app()->user->id)) {
+        if (!$user = User::findOne(Yii::$app->user->id)) {
             return;
         }
 
-        $this->assign($user->role, Yii::app()->user->id);
+        $this->assign($user->role, Yii::$app->user->id);
     }
 }
