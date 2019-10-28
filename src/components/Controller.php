@@ -7,7 +7,7 @@ use Yii;
 use yii\base\Action;
 use yii\web\View;
 
-class Controller extends CController
+abstract class Controller extends CController
 {
     protected function beforeAction($action): bool
     {

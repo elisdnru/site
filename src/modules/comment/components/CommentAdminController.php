@@ -11,7 +11,7 @@ use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\HttpException;
 
-class CommentAdminController extends AdminController
+abstract class CommentAdminController extends AdminController
 {
     private const COMMENTS_PER_PAGE = 20;
 
