@@ -24,7 +24,7 @@ class CacheController extends AdminController
     {
         Yii::app()->cache->flush();
         Yii::$app->cache->flush();
-        Yii::app()->user->setFlash('success', 'Кэш очищен');
+        Yii::$app->session->setFlash('success', 'Кэш очищен');
         $this->redirect(['default/index']);
     }
 }

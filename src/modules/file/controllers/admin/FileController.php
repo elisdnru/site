@@ -146,7 +146,7 @@ class FileController extends AdminController
                         case 'del':
                             if (Yii::$app->request->post('del_' . md5($file->getBasename()))) {
                                 if ($file->Delete()) {
-                                    Yii::app()->user->setFlash('success', 'Удалено');
+                                    Yii::$app->session->setFlash('success', 'Удалено');
                                 }
                             }
                             break;

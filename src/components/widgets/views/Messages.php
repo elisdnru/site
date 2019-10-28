@@ -1,17 +1,17 @@
-<?php if (Yii::app()->user->hasFlash('notice')) : ?>
+<?php if (Yii::$app->session->hasFlash('notice')) : ?>
     <div class="flash-notice">
-        <?= Yii::app()->user->getFlash('notice') ?>
+        <?= Yii::$app->session->getFlash('notice') ?>
     </div>
 <?php endif; ?>
 
-<?php if (Yii::app()->user->hasFlash('success')) : ?>
+<?php if (Yii::$app->session->hasFlash('success')) : ?>
     <div class="flash-success">
-        <?= Yii::app()->user->getFlash('success') ?>
+        <?= Yii::$app->session->getFlash('success') ?>
     </div>
 <?php endif; ?>
 
-<?php if (Yii::app()->user->hasFlash('error')) : ?>
+<?php if (Yii::$app->session->hasFlash('error')) : ?>
     <div class="flash-error">
-        <?= Yii::app()->user->getFlash('error') ?>
+        <?= Yii::$app->session->getFlash('error') ?>
     </div>
 <?php endif; ?>

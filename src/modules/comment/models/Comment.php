@@ -234,14 +234,14 @@ class Comment extends ActiveRecord
 
     public function getLiked(): bool
     {
-        $a = Yii::app()->session['comment'];
+        $a = Yii::$app->session['comment'];
 
         return isset($a['liked'][$this->id]) && $a['liked'][$this->id] === 1;
     }
 
     public function setLiked(bool $value): void
     {
-        $a = Yii::app()->session['comment'];
+        $a = Yii::$app->session['comment'];
 
         if ($value) {
             $a['liked'][$this->id] = 1;
@@ -251,6 +251,6 @@ class Comment extends ActiveRecord
             }
         }
 
-        Yii::app()->session['comment'] = $a;
+        Yii::$app->session['comment'] = $a;
     }
 }

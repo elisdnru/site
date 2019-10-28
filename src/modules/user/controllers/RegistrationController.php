@@ -38,11 +38,11 @@ class RegistrationController extends Controller
 
                 if ($user->save(false)) {
                     $user->sendCommit();
-                    Yii::app()->user->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
+                    Yii::$app->session->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
 
                     $this->refresh();
                 } else {
-                    Yii::app()->user->setFlash('error', 'Пользователь не добавлен');
+                    Yii::$app->session->setFlash('error', 'Пользователь не добавлен');
                 }
             }
         }
@@ -56,12 +56,12 @@ class RegistrationController extends Controller
         if ($user) {
             $user->confirm = '';
             if ($user->save()) {
-                Yii::app()->user->setFlash('success', 'Регистрация подтверждена');
+                Yii::$app->session->setFlash('success', 'Регистрация подтверждена');
                 $this->redirect(['default/login']);
             }
-            Yii::app()->user->setFlash('error', 'Ошибка');
+            Yii::$app->session->setFlash('error', 'Ошибка');
         } else {
-            Yii::app()->user->setFlash('error', 'Запись о подтверждении не найдена');
+            Yii::$app->session->setFlash('error', 'Запись о подтверждении не найдена');
         }
 
         return $this->render('confirm');

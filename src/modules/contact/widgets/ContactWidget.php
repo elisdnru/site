@@ -25,7 +25,7 @@ class ContactWidget extends Widget
                 $contact->pagetitle = Yii::$app->view->title;
 
                 if ($contact->save()) {
-                    Yii::app()->user->setFlash('success', 'Ваше сообщение принято');
+                    Yii::$app->session->setFlash('success', 'Ваше сообщение принято');
                     Yii::app()->controller->refresh();
                 }
             }

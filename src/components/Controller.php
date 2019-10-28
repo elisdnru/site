@@ -38,8 +38,8 @@ class Controller extends CController
     public function reflash(): void
     {
         foreach (['notice', 'success', 'error'] as $type) {
-            if (Yii::app()->user->hasFlash($type)) {
-                Yii::app()->user->setFlash($type, Yii::app()->user->getFlash($type));
+            if (Yii::$app->session->hasFlash($type)) {
+                Yii::$app->session->setFlash($type, Yii::$app->session->getFlash($type));
             }
         }
     }

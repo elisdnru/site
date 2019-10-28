@@ -12,11 +12,11 @@ use Yii;
 class CrudAction extends CAction
 {
     /*
-     * @var string $flash key for Yii::app()->user->setFlash($flashSuccess, $message);
+     * @var string $flash key for Yii::$app->session->setFlash($flashSuccess, $message);
      */
     public $flashSuccess = 'success';
     /*
-     * @var string $flash key for Yii::app()->user->setFlash($flashError, $message);
+     * @var string $flash key for Yii::$app->session->setFlash($flashError, $message);
      */
     public $flashError = 'error';
 
@@ -37,14 +37,14 @@ class CrudAction extends CAction
     protected function success($message): void
     {
         if (!Yii::$app->request->getIsAjax()) {
-            Yii::app()->user->setFlash($this->flashSuccess, Yii::t(Messages::class . '.crud', $message));
+            Yii::$app->session->setFlash($this->flashSuccess, Yii::t(Messages::class . '.crud', $message));
         }
     }
 
     protected function error($message): void
     {
         if (!Yii::$app->request->getIsAjax()) {
-            Yii::app()->user->setFlash($this->flashError, Yii::t(Messages::class . '.crud', $message));
+            Yii::$app->session->setFlash($this->flashError, Yii::t(Messages::class . '.crud', $message));
         } else {
             throw new CHttpException(400, $message);
         }

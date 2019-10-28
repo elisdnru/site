@@ -18,10 +18,10 @@ class DefaultController extends Controller
                 $ulogin->getAuthData();
 
                 if (!($ulogin->validate() && $ulogin->login())) {
-                    Yii::app()->user->setFlash('error', 'Возможно этот Email используется в другом аккаунте');
+                    Yii::$app->session->setFlash('error', 'Возможно этот Email используется в другом аккаунте');
                 }
             } else {
-                Yii::app()->user->setFlash('error', 'Какая-то техническая ошибка при авторизации');
+                Yii::$app->session->setFlash('error', 'Какая-то техническая ошибка при авторизации');
             }
 
             $this->redirect(Yii::$app->request->get('return', Yii::app()->homeUrl));

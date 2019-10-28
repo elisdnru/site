@@ -58,14 +58,14 @@ class DefaultController extends Controller
 
                     if ($user->save()) {
                         $user->sendRemind();
-                        Yii::app()->user->setFlash('success', 'Новые параметры отправлены на Email');
+                        Yii::$app->session->setFlash('success', 'Новые параметры отправлены на Email');
                         $this->redirect(['login']);
                     }
                 } else {
-                    Yii::app()->user->setFlash('error', 'Пользователь не найден');
+                    Yii::$app->session->setFlash('error', 'Пользователь не найден');
                 }
             } else {
-                Yii::app()->user->setFlash('error', 'Пользователь не найден');
+                Yii::$app->session->setFlash('error', 'Пользователь не найден');
             }
         }
 
