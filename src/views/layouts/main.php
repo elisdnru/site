@@ -15,7 +15,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::app()->language ?>">
+<html lang="<?= Yii::$app->language ?>">
 <head>
     <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
