@@ -111,6 +111,7 @@ class CommentsWidget extends Widget
         ]);
 
         Yii::$app->response->cookies->add($cookie);
+        Yii::$app->response->send();
     }
 
     protected function loadFormState(): array
