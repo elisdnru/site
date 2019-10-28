@@ -6,6 +6,7 @@ use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
 use Yii;
+use yii\helpers\Url;
 
 class WorkController extends PortfolioBaseController
 {
@@ -14,7 +15,7 @@ class WorkController extends PortfolioBaseController
         $model = $this->loadModel($id);
 
         if ('/' . Yii::$app->request->getPathInfo() !== $model->getUrl()) {
-            $this->redirect($model->getUrl(), true, 301);
+            $this->redirect(Url::current(['alias' => $model->alias]), true, 301);
         }
 
         return $this->render('show', [

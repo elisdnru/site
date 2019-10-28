@@ -6,6 +6,7 @@ use app\modules\blog\models\Post;
 use CHttpException;
 use app\components\Controller;
 use Yii;
+use yii\helpers\Url;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
         $model = $this->loadModel($id);
 
         if ('/' . Yii::$app->request->getPathInfo() !== $model->getUrl()) {
-            $this->redirect($model->getUrl(), true, 301);
+            $this->redirect(Url::current(['alias' => $model->alias]), true, 301);
         }
 
         return $this->render('show', [
