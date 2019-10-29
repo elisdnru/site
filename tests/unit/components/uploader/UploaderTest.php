@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace tests\components\uploader;
 
 use app\components\uploader\Uploader;
-use CTestCase;
+use Codeception\Test\Unit;
 
-class UploaderTest extends CTestCase
+class UploaderTest extends Unit
 {
     public function testThumbFileName(): void
     {

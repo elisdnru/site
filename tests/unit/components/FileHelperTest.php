@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace tests\unit\components;
 
 use app\components\helpers\FileHelper;
-use CTestCase;
+use Codeception\Test\Unit;
 
-class FileHelperTest extends CTestCase
+class FileHelperTest extends Unit
 {
     public function testThumbFileName(): void
     {

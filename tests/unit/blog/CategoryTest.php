@@ -3,30 +3,53 @@
 namespace tests\unit\blog;
 
 use app\modules\blog\models\Category;
-use app\modules\blog\models\Post;
-use app\modules\blog\models\Group;
-use app\modules\user\models\User;
-use tests\DbTestCase;
+use Codeception\Test\Unit;
+use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\GroupFixture;
+use tests\fixtures\blog\PostFixture;
+use tests\fixtures\user\UserFixture;
 
 /**
  * @method blog_post($id)
- * @method blog_category($id)
+ * @method tester->grabFixture('blog_category', $id)
  * @method blog_postGroup($id)
  * @method user($id)
  */
-class CategoryTest extends DbTestCase
+class CategoryTest extends Unit
 {
+    /**
+     * @var \tests\UnitTester
+     */
+    protected $tester;
+
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    protected function _before()
+    {
+        $this->tester->haveFixtures([
+            'blog_post' => [
+                'class' => PostFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_posts.php'
+            ],
+            'blog_category' => [
+                'class' => CategoryFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_categories.php'
+            ],
+            'blog_post_group' => [
+                'class' => GroupFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_post_groups.php'
+            ],
+            'user' => [
+                'class' => UserFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/users.php'
+            ]
+        ]);
+    }
+
     /**
      * @var Category
      */
     private $category;
-
-    public $fixtures = [
-        'blog_post' => Post::class,
-        'blog_category' => Category::class,
-        'blog_postGroup' => Group::class,
-        'user' => User::class,
-    ];
 
     protected function setUp(): void
     {
@@ -54,43 +77,43 @@ class CategoryTest extends DbTestCase
 
     public function testParentRelation(): void
     {
-        $category = $this->blog_category('child_category');
+        $category = $this->tester->grabFixture('blog_category', 'child_category');
         $this->assertInstanceOf(Category::class, $category->parent);
-    }
-
-    public function testPostsCountRelation(): void
-    {
-        $category = $this->blog_category('category_with_posts');
-        $this->assertEquals(2, $category->posts_count);
-
-        $category = $this->blog_category('category_without_posts');
-        $this->assertEquals(0, $category->posts_count);
     }
 
     public function testPostsRelation(): void
     {
-        $category = $this->blog_category('category_with_posts');
+        $category = $this->tester->grabFixture('blog_category', 'category_with_posts');
         $this->assertCount(2, $category->posts);
 
-        $category = $this->blog_category('category_without_posts');
+        $category = $this->tester->grabFixture('blog_category', 'category_without_posts');
         $this->assertCount(0, $category->posts);
+    }
+
+    public function testPostsCountRelation(): void
+    {
+        $category = $this->tester->grabFixture('blog_category', 'category_with_posts');
+        $this->assertEquals(2, $category->posts_count);
+
+        $category = $this->tester->grabFixture('blog_category', 'category_without_posts');
+        $this->assertEquals(0, $category->posts_count);
     }
 
     public function testChildRelation(): void
     {
-        $category = $this->blog_category('parent_category');
+        $category = $this->tester->grabFixture('blog_category', 'parent_category');
         $this->assertCount(1, $category->child_items);
 
-        $category = $this->blog_category('child_category');
+        $category = $this->tester->grabFixture('blog_category', 'child_category');
         $this->assertCount(0, $category->child_items);
     }
 
     public function testPublicItemsCountRelation(): void
     {
-        $category = $this->blog_category('category_with_posts');
+        $category = $this->tester->grabFixture('blog_category', 'category_with_posts');
         $this->assertEquals(1, $category->items_count);
 
-        $category = $this->blog_category('category_without_posts');
+        $category = $this->tester->grabFixture('blog_category', 'category_without_posts');
         $this->assertEquals(0, $category->items_count);
     }
 }

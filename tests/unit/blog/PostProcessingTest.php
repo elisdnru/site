@@ -2,20 +2,43 @@
 
 namespace tests\unit\blog;
 
-use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
-use app\modules\blog\models\Group;
-use app\modules\user\models\User;
-use tests\DbTestCase;
+use Codeception\Test\Unit;
+use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\GroupFixture;
+use tests\fixtures\blog\PostFixture;
+use tests\fixtures\user\UserFixture;
 
-class PostProcessingTest extends DbTestCase
+class PostProcessingTest extends Unit
 {
-    public $fixtures = [
-        'blog_post'=> Post::class,
-        'blog_category'=> Category::class,
-        'blog_postGroup'=> Group::class,
-        'user'=> User::class,
-    ];
+    /**
+     * @var \tests\UnitTester
+     */
+    protected $tester;
+
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    protected function _before()
+    {
+        $this->tester->haveFixtures([
+            'blog_post' => [
+                'class' => PostFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_posts.php'
+            ],
+            'blog_category' => [
+                'class' => CategoryFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_categories.php'
+            ],
+            'blog_post_group' => [
+                'class' => GroupFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_post_groups.php'
+            ],
+            'user' => [
+                'class' => UserFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/users.php'
+            ]
+        ]);
+    }
 
     public function testShort(): void
     {

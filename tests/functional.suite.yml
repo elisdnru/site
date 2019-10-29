@@ -1,0 +1,6 @@
+actor: FunctionalTester
+modules:
+    enabled:
+        - Yii2
+        - \tests\Helper\Functional
+    step_decorators: ~

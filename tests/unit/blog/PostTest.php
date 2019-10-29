@@ -4,28 +4,57 @@ namespace tests\unit\blog;
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
-use app\modules\blog\models\Comment;
 use app\modules\blog\models\Group;
 use app\modules\user\models\User;
-use tests\DbTestCase;
+use Codeception\Test\Unit;
+use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\GroupFixture;
+use tests\fixtures\blog\PostFixture;
+use tests\fixtures\comment\CommentFixture;
+use tests\fixtures\user\UserFixture;
 
 /**
- * @method blog_post($id)
+ * @method tester->grabFixture('blog_post', $id)
  */
-class PostTest extends DbTestCase
+class PostTest extends Unit
 {
+    /**
+     * @var \tests\UnitTester
+     */
+    protected $tester;
+
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    protected function _before()
+    {
+        $this->tester->haveFixtures([
+            'comment' => [
+                'class' => CommentFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/comments.php'
+            ],
+            'blog_post' => [
+                'class' => PostFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_posts.php'
+            ],
+            'blog_category' => [
+                'class' => CategoryFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_categories.php'
+            ],
+            'blog_post_group' => [
+                'class' => GroupFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/blog_post_groups.php'
+            ],
+            'user' => [
+                'class' => UserFixture::class,
+                'dataFile' => codecept_data_dir() . 'fixtures/users.php'
+            ]
+        ]);
+    }
+
     /**
      * @var Post
      */
-    protected $post;
-
-    public $fixtures = [
-        'comment'=> Comment::class,
-        'blog_post'=> Post::class,
-        'blog_category'=> Category::class,
-        'blog_postGroup'=> Group::class,
-        'user'=> User::class,
-    ];
+    private $post;
 
     protected function setUp(): void
     {
@@ -51,7 +80,7 @@ class PostTest extends DbTestCase
 
         $post = new Post();
 
-        $post->setAttributes($source->attributes, false);
+        $post->setAttributes($source->getAttributes(), false);
         $post->id = null;
         $post->alias = 'alias_create_date';
         $post->title = 'alias_create_date';
@@ -60,10 +89,10 @@ class PostTest extends DbTestCase
 
         $this->assertTrue($post->save(), 'Save model');
 
-        $post = Post::model()->findByPk($post->getPrimaryKey());
+        $post = Post::model()->findByPk($post->id);
 
-        $this->assertNotEquals('0000-00-00 00:00:00', 'First create date');
-        $this->assertNotEquals('0000-00-00 00:00:00', 'First update date');
+        $this->assertNotEquals('0000-00-00 00:00:00', $post->date, 'First create date');
+        $this->assertNotEquals('0000-00-00 00:00:00', $post->update_date, 'First update date');
 
         $this->assertStringMatchesFormat('%d-%d-%d %d:%d:%d', $post->date, 'Create date format');
         $this->assertStringMatchesFormat('%d-%d-%d %d:%d:%d', $post->update_date, 'Update date format');
@@ -109,19 +138,19 @@ class PostTest extends DbTestCase
 
     public function testBelongsToCategory(): void
     {
-        $post = $this->blog_post('post_with_category');
+        $post = $this->tester->grabFixture('blog_post', 'post_with_category');
         $this->assertInstanceOf(Category::class, $post->category);
     }
 
     public function testBelongsToAuthor(): void
     {
-        $post = $this->blog_post('post_with_author');
+        $post = $this->tester->grabFixture('blog_post', 'post_with_author');
         $this->assertInstanceOf(User::class, $post->author);
     }
 
     public function testBelongsToGroup(): void
     {
-        $post = $this->blog_post('post_with_group');
+        $post = $this->tester->grabFixture('blog_post', 'post_with_group');
         $this->assertInstanceOf(Group::class, $post->group);
     }
 }
