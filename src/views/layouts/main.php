@@ -7,9 +7,12 @@ use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 MainAsset::register($this);
+
+$this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
 /** @var $this View */
 ?>
@@ -28,7 +31,6 @@ MainAsset::register($this);
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">
-    <link rel="canonical" href="<?= Yii::$app->request->getHostInfo() . '/' . preg_replace('#/page-\d+#', '', Yii::$app->request->getPathInfo()) ?>">
 
     <?php $this->head() ?>
 
