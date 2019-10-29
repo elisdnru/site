@@ -16,14 +16,6 @@ class LoginFormWidget extends Widget
         $model = new LoginForm();
         $model->rememberMe = true;
 
-        if ($post = Yii::$app->request->post('LoginForm')) {
-            $model->attributes = $post;
-
-            if ($model->validate() && $model->login()) {
-                return Yii::$app->controller->refresh();
-            }
-        }
-
         if (Yii::$app->user->id) {
             $user = User::findOne(Yii::$app->user->id);
         } else {
