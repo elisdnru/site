@@ -4,6 +4,7 @@ use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var $dataProvider CDataProvider */
@@ -37,10 +38,10 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <h1><a rel="nofollow" href="<?= Url::to(['index']) ?>">Портфолио</a> &rarr;
     <?php foreach ($category->breadcrumbs as $title => $url) : ?>
         <?php if (!is_numeric($title)) : ?>
-            <a rel="nofollow" href="<?= $url ?>"><?= CHtml::encode($title) ?></a> &rarr;
+            <a rel="nofollow" href="<?= $url ?>"><?= Html::encode($title) ?></a> &rarr;
         <?php endif; ?>
     <?php endforeach; ?>
-    <?= CHtml::encode($category->title) ?>
+    <?= Html::encode($category->title) ?>
 </h1>
 
 <div class="subpages">

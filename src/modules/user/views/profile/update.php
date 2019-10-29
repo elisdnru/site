@@ -99,7 +99,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <hr />
 
         <div class="row buttons">
-            <?= CHtml::submitButton('Сохранить') ?>
+            <?= Html::submitButton('Сохранить') ?>
         </div>
     </div>
 

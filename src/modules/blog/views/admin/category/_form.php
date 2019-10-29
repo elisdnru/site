@@ -1,8 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\blog\models\Category;
 use yii\helpers\Html;
+use yii\web\View;
 
 /** @var $model Category */
 /** @var $form CActiveForm */
@@ -25,7 +26,7 @@ use yii\helpers\Html;
     <?= $form->errorSummary($model) ?>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <fieldset>
@@ -69,7 +70,7 @@ use yii\helpers\Html;
     ]) ?>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

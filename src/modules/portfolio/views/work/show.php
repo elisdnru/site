@@ -4,6 +4,7 @@ use app\components\widgets\ShareWidget;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
+use yii\helpers\Html;
 
 /** @var $model Work */
 
@@ -38,7 +39,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new TagDependency(['tags' => 'portfolio'])])) : ?>
         <header>
 
-            <h1><?= CHtml::encode($model->title) ?></h1>
+            <h1><?= Html::encode($model->title) ?></h1>
 
             <?php if ($model->image && $model->image_show) : ?>
                 <?php
@@ -59,7 +60,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
             <div class="info">
                 <div class="category">
-                    <span><a href="<?= $model->category->url ?>"><?= CHtml::encode($model->category->title) ?></a></span>
+                    <span><a href="<?= $model->category->url ?>"><?= Html::encode($model->category->title) ?></a></span>
                 </div>
             </div>
 

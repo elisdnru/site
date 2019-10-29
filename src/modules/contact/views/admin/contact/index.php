@@ -1,10 +1,11 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\contact\models\Contact;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
 /** @var $model Contact */
@@ -55,7 +56,7 @@ if (Yii::$app->moduleManager->allowed('comment')) {
                         <td style="width:130px; text-align:center"><?= $contact->date ?></td>
                         <td style="text-align:center"><?= Html::encode($contact->name) ?></td>
                         <td style="text-align:center"><?= Html::encode($contact->email) ?></td>
-                        <td><?= CHtml::link(CHtml::encode(mb_substr($contact->text, 0, 59, 'UTF-8')), Url::to(['view', 'id' => $contact->id])) ?></td>
+                        <td><?= Html::a(Html::encode(mb_substr($contact->text, 0, 59, 'UTF-8')), Url::to(['view', 'id' => $contact->id])) ?></td>
                         <td><?= Html::encode($contact->pagetitle) ?></td>
                         <td style="width:30px;text-align:center">
                             <a class="ajax_post" href="<?= Url::to(['toggle', 'id' => $contact->id, 'attribute' => 'status']) ?>">

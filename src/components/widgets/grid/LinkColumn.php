@@ -4,8 +4,9 @@ namespace app\components\widgets\grid;
 
 use CActiveRecord;
 use CDataColumn;
-use CHtml;
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 class LinkColumn extends CDataColumn
@@ -23,7 +24,7 @@ class LinkColumn extends CDataColumn
         $url = $this->getItemUrl($row, $data);
         $value = $this->getItemValue($row, $data);
         $text = $this->grid->getFormatter()->format($value, $this->type);
-        echo $value === null ? $this->grid->nullDisplay : CHtml::link($text, $url);
+        echo $value === null ? $this->grid->nullDisplay : Html::a($text, $url);
     }
 
     protected function getItemValue(int $row, $data)
@@ -32,7 +33,7 @@ class LinkColumn extends CDataColumn
             return $this->evaluateExpression($this->value, ['data' => $data, 'row' => $row]);
         }
         if (!empty($this->name)) {
-            return CHtml::value($data, $this->name);
+            return ArrayHelper::getValue($data, $this->name);
         }
         return null;
     }

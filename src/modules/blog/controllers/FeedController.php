@@ -7,6 +7,7 @@ use CHtml;
 use app\components\Controller;
 use DateTimeImmutable;
 use Yii;
+use yii\helpers\Html;
 use Zend\Feed\Writer\Feed;
 
 class FeedController extends Controller
@@ -40,10 +41,10 @@ class FeedController extends Controller
 
             $description = '';
             if ($model->image) {
-                $description .= CHtml::link(CHtml::image($image, $model->title, ['style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
+                $description .= Html::a(CHtml::image($image, $model->title, ['style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
             }
             $description .= $model->short_purified;
-            $description .= CHtml::tag('p', [], CHtml::link('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
+            $description .= Html::tag('p', [], Html::a('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
 
             $item->setDescription($description);
 

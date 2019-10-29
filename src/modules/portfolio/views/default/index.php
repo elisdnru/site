@@ -3,6 +3,7 @@
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
 
 /** @var $dataProvider CDataProvider */
 /** @var $page Page */
@@ -34,7 +35,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1><?= CHtml::encode($page->title) ?></h1>
+<h1><?= Html::encode($page->title) ?></h1>
 
 <?php if ($categories) : ?>
     <div class="subpages">

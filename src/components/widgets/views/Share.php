@@ -1,5 +1,8 @@
 <?php
 /** @var $title string */
+
+use yii\helpers\Html;
+
 /** @var $description string */
 /** @var $image string */
 ?>
@@ -39,6 +42,6 @@ $providers = [
 
 <div id="share" class="share">
     <?php foreach ($providers as $provider) : ?>
-        <a rel="nofollow noopener" href="<?= CHtml::encode($provider['url']) ?>"><span class="share-<?= $provider['class'] ?>"></span></a>
+        <a rel="nofollow noopener" href="<?= Html::encode($provider['url']) ?>"><span class="share-<?= $provider['class'] ?>"></span></a>
     <?php endforeach; ?>
 </div>

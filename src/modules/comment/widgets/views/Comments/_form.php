@@ -95,7 +95,7 @@ use yii\helpers\Url;
 
     <div class="row buttons">
         <br />
-        <?= CHtml::submitButton('Отправить комментарий', ['id' => 'comment_submit']) ?>
+        <?= Html::submitButton('Отправить комментарий', ['id' => 'comment_submit']) ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

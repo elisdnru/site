@@ -3,9 +3,9 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
-use CHtml;
 use app\extensions\cachetagging\Tags;
 use yii\base\Widget;
+use yii\helpers\Url;
 
 class CalendarWidget extends Widget
 {
@@ -24,8 +24,8 @@ class CalendarWidget extends Widget
         $prevMonth = date('Y-m', mktime(0, 0, 0, $month - 1, 1, $year));
         $nextMonth = date('Y-m', mktime(0, 0, 0, $month + 1, 1, $year));
 
-        $pnc = ['&lt;' => CHtml::normalizeUrl(['/blog/default/date', 'date' => $prevMonth]),
-            '&gt;' => CHtml::normalizeUrl(['/blog/default/date', 'date' => $nextMonth])];
+        $pnc = ['&lt;' => Url::to(['/blog/default/date', 'date' => $prevMonth]),
+            '&gt;' => Url::to(['/blog/default/date', 'date' => $nextMonth])];
 
         // Today
         $days = [];
@@ -44,7 +44,7 @@ class CalendarWidget extends Widget
 
         foreach ($posts as $post) {
             $postTime = strtotime($post->date);
-            $days[date('j', $postTime)] = [CHtml::normalizeUrl(['/blog/default/date', 'date' => date('Y-m-d', $postTime)]), 'linked-day'];
+            $days[date('j', $postTime)] = [Url::to(['/blog/default/date', 'date' => date('Y-m-d', $postTime)]), 'linked-day'];
         }
 
         $len = 2;

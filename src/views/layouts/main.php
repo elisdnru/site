@@ -7,10 +7,11 @@ use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
+use yii\web\View;
 
 MainAsset::register($this);
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -31,7 +32,7 @@ MainAsset::register($this);
 
     <?php $this->head() ?>
 
-    <title><?= CHtml::encode($this->title) ?></title>
+    <title><?= \yii\helpers\Html::encode($this->title) ?></title>
 </head>
 <body>
 <?php $this->beginBody() ?>

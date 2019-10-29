@@ -1,8 +1,10 @@
 <?php
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $page Page */
 /** @var $items CModel[] */
 
@@ -26,7 +28,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1><?= CHtml::encode($page->title) ?></h1>
+<h1><?= Html::encode($page->title) ?></h1>
 
 <div class="sitemap">
 
@@ -39,7 +41,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h2>Записи в блоге</h2>
     <ul>
         <?php foreach ($items['BlogPost'] as $model) : ?>
-            <li><a href="<?= $model->url ?>"><?= CHtml::encode($model->title) ?></a></li>
+            <li><a href="<?= $model->url ?>"><?= Html::encode($model->title) ?></a></li>
         <?php endforeach; ?>
     </ul>
 
@@ -47,7 +49,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h2>Портфолио</h2>
     <ul>
         <?php foreach ($items['PortfolioWork'] as $model) : ?>
-            <li><a href="<?= $model->url ?>"><?= CHtml::encode($model->title) ?></a></li>
+            <li><a href="<?= $model->url ?>"><?= Html::encode($model->title) ?></a></li>
         <?php endforeach; ?>
     </ul>
     <!--/noindex-->

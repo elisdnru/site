@@ -1,8 +1,10 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\contact\models\Contact;
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
 /** @var $next Contact */
 /** @var $prev Contact */
@@ -20,20 +22,20 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => ['delete', 'id
 
 <div style="float:right">
 
-    <?= CHtml::beginForm(Url::to(['delete', 'id' => $model->id])) ?>
-    <?= CHtml::submitButton('Удалить сообщение') ?>
-    <?= CHtml::endForm() ?>
+    <?= Html::beginForm(Url::to(['delete', 'id' => $model->id])) ?>
+    <?= Html::submitButton('Удалить сообщение') ?>
+    <?= Html::endForm() ?>
 </div>
 
 <h1>Сообщение №<?= $model->id ?></h1>
 
-<?= CHtml::beginForm(Url::to(['toggle', 'id' => $model->id, 'attribute' => 'status'])) ?>
+<?= Html::beginForm(Url::to(['toggle', 'id' => $model->id, 'attribute' => 'status'])) ?>
 <?php if ($model->status) : ?>
-    <?= CHtml::submitButton('Отметить непрочитанным') ?>
+    <?= Html::submitButton('Отметить непрочитанным') ?>
 <?php else : ?>
-    <?= CHtml::submitButton('Прочитать') ?>
+    <?= Html::submitButton('Прочитать') ?>
 <?php endif; ?>
-<?= CHtml::endForm() ?>
+<?= Html::endForm() ?>
 
 <br />
 
@@ -45,23 +47,23 @@ $this->params['admin'][] = ['label' => 'Удалить', 'url' => ['delete', 'id
     <?php if ($model->pagetitle) : ?>
         <tr>
         <td width="150">Со страницы</td>
-        <td><?= CHtml::encode($model->pagetitle) ?></td></tr><?php
+        <td><?= Html::encode($model->pagetitle) ?></td></tr><?php
     endif; ?>
     <tr>
         <td>Автор</td>
-        <td><?= CHtml::encode($model->name) ?></td>
+        <td><?= Html::encode($model->name) ?></td>
     </tr>
     <tr>
         <td>Email</td>
-        <td><?= CHtml::encode($model->email) ?></td>
+        <td><?= Html::encode($model->email) ?></td>
     </tr>
     <tr>
         <td>Телефон</td>
-        <td><?= CHtml::encode($model->phone) ?></td>
+        <td><?= Html::encode($model->phone) ?></td>
     </tr>
     <tr>
         <td>Сообщение</td>
-        <td><?= nl2br(CHtml::encode($model->text)) ?></td>
+        <td><?= nl2br(Html::encode($model->text)) ?></td>
     </tr>
 </table>
 

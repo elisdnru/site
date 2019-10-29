@@ -37,7 +37,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
         <?php if ($model->network) : ?>
             <a rel="nofollow" href="<?= $model->identity ?>"><?= SocNetworkHelper::getIcon($model->network) ?></a>
         <?php endif; ?>
-        <?= CHtml::encode($model->fio) ?>
+        <?= Html::encode($model->fio) ?>
     </h3>
 </div>
 

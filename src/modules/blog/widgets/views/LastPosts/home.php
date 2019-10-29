@@ -1,5 +1,6 @@
 <?php
 use app\components\helpers\DateHelper;
+use yii\helpers\Html;
 
 /** @var $posts \app\modules\blog\models\Post[] */
 ?>
@@ -7,13 +8,13 @@ use app\components\helpers\DateHelper;
     <?php
     $links = [];
     foreach ($data->cache(1000)->tags as $tag) {
-        $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</a>';
+        $links[] = '<a href="' . Html::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
 
     <div class="entry list">
         <div class="header">
-            <div class="title"><a href="<?= $data->url ?>"><?= CHtml::encode($data->title) ?></a></div>
+            <div class="title"><a href="<?= $data->url ?>"><?= Html::encode($data->title) ?></a></div>
             <!--noindex-->
             <div class="info">
                 <div class="date">
@@ -21,7 +22,7 @@ use app\components\helpers\DateHelper;
                 </div>
                 <?php if ($data->category) : ?>
                     <div class="category">
-                        <span><a href="<?= $data->category->url ?>"><?= CHtml::encode($data->category->title) ?></a></span>
+                        <span><a href="<?= $data->category->url ?>"><?= Html::encode($data->category->title) ?></a></span>
                     </div>
                 <?php endif; ?>
                 <div class="tags"><span><?= implode(', ', $links) ?></span></div>

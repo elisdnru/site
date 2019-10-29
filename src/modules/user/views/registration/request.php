@@ -1,11 +1,12 @@
 <?php
 
 use app\components\widgets\Portlet;
+use app\modules\user\forms\RegistrationForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
 
 /** @var $form CActiveForm */
-/** @var $model \app\modules\user\forms\RegistrationForm */
+/** @var $model RegistrationForm */
 $this->context->layout = 'user';
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'] = [
@@ -79,7 +80,7 @@ $this->params['breadcrumbs'] = [
 
         <div class="row buttons">
             <br />
-            <?= CHtml::submitButton('Зарегистрироваться') ?>
+            <?= \yii\helpers\Html::submitButton('Зарегистрироваться') ?>
         </div>
     </form>
 

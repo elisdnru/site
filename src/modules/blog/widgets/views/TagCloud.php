@@ -1,5 +1,8 @@
 <?php
 /** @var $tags array */
+
+use yii\helpers\Html;
+
 ?>
 <div id="tag_cloud" class="tags">
     <?php foreach ($tags as $tag) : ?>
@@ -12,7 +15,7 @@
             $size = 16;
         }
         ?>
-        <a href="<?= CHtml::encode($tag->url) ?>" style="font-size: <?= $size ?>pt"><?= CHtml::encode($tag->title) ?></a>
+        <a href="<?= Html::encode($tag->url) ?>" style="font-size: <?= $size ?>pt"><?= Html::encode($tag->title) ?></a>
     <?php endforeach; ?>
 </div>
 

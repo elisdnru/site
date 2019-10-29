@@ -2,7 +2,7 @@
 
 namespace app\components\widgets\grid;
 
-use CHtml;
+use yii\helpers\Html;
 
 class IndentLinkColumn extends LinkColumn
 {
@@ -15,7 +15,7 @@ class IndentLinkColumn extends LinkColumn
         $indent = $this->getItemIndent($data, $row);
         $spacer = str_repeat('&nbsp;', $indent * 4);
         $text = $this->grid->getFormatter()->format($value, $this->type);
-        echo $value === null ? $this->grid->nullDisplay : $spacer . CHtml::link($text, $url);
+        echo $value === null ? $this->grid->nullDisplay : $spacer . Html::a($text, $url);
     }
 
     protected function getItemIndent($data, int $row): int

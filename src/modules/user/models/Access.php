@@ -2,9 +2,9 @@
 
 namespace app\modules\user\models;
 
-use CHtml;
 use CModel;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 class Access extends CModel
 {
@@ -20,7 +20,7 @@ class Access extends CModel
 
     public static function getRoles(): array
     {
-        return CHtml::listData(Yii::$app->authManager->getRoles(), 'name', 'description');
+        return ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description');
     }
 
     public static function getRoleName(?string $role): string

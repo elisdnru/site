@@ -14,7 +14,7 @@ use yii\widgets\LinkPager;
             <?php
             $links = [];
             foreach ($post->cache(1000)->tags as $tag) {
-                $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
+                $links[] = '<a href="' . Html::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
             }
             ?>
             <div class="entry list">

@@ -1,5 +1,6 @@
 <?php
 use app\modules\block\models\Block;
+use yii\helpers\Html;
 
 /** @var $model Block */
 
@@ -13,6 +14,6 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 $this->params['admin'][] = ['label' => 'Блоки', 'url' => ['index']];
 ?>
 
-<h1>Просмотр блока &laquo;<?= CHtml::encode($model->title) ?>&raquo;</h1>
+<h1>Просмотр блока &laquo;<?= Html::encode($model->title) ?>&raquo;</h1>
 
 <?= $model->text ?>

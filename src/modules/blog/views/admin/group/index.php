@@ -1,11 +1,12 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
 /** @var $items Group[] */
 /** @var $categoryForm CategoryForm */
@@ -25,7 +26,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 <h1>Тематические группы записей</h1>
 
 <div class="form">
-    <?= CHtml::beginForm() ?>
+    <?= Html::beginForm() ?>
 
     <table class="grid">
         <tr>
@@ -43,7 +44,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
                 <td style="text-align: center"><a href="<?= $postsurl ?>">Записи</a></td>
                 <td style="text-align: center">
                     <?php if ($item->posts_count === 0) : ?>
-                        <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить группу &laquo;<?= CHtml::encode($item->title) ?>&raquo;" href="<?= $delurl ?>">
+                        <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить группу &laquo;<?= Html::encode($item->title) ?>&raquo;" href="<?= $delurl ?>">
                             <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить">
                         </a>
                     <?php endif; ?>
@@ -53,9 +54,9 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
         <?php endforeach; ?>
     </table>
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
-    <?= CHtml::endForm() ?>
+    <?= Html::endForm() ?>
 </div><!-- form -->
 
 <br />
@@ -86,7 +87,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
         </tr>
     </table>
     <div class="row buttons">
-        <?= CHtml::submitButton('Добавить группу') ?>
+        <?= Html::submitButton('Добавить группу') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

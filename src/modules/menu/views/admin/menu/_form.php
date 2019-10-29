@@ -27,7 +27,7 @@ use yii\web\View;
     <?= $form->errorSummary($model) ?>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <fieldset>
@@ -69,7 +69,7 @@ use yii\web\View;
         <hr />
         <div class="row">
             <label>Ссылка на страницу</label><br />
-            <?= CHtml::dropDownList('sss', '/' . $model->link, ['' => ''] + Page::model()->getUrlList(), ['class' => 'm_selector']) ?>
+            <?= Html::dropDownList('sss', '/' . $model->link, ['' => ''] + Page::model()->getUrlList(), ['class' => 'm_selector']) ?>
             <br />
         </div>
 
@@ -84,7 +84,7 @@ use yii\web\View;
     </fieldset>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

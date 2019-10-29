@@ -12,6 +12,8 @@ use CGridColumn;
 use CHtml;
 use CJavaScript;
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -123,9 +125,9 @@ class ToggleColumn extends CGridColumn
         }
         if ($this->name !== null && $this->header === null) {
             if ($provider instanceof CActiveDataProvider) {
-                return CHtml::encode($provider->model->getAttributeLabel($this->name));
+                return Html::encode($provider->model->getAttributeLabel($this->name));
             }
-            return CHtml::encode($this->name);
+            return Html::encode($this->name);
         }
         return parent::getHeaderCellContent();
     }
@@ -196,7 +198,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
             if (!empty($this->value)) {
                 $value = $this->evaluateExpression($this->value, ['data' => $data, 'row' => $row]);
             } elseif (!empty($this->name)) {
-                $value = CHtml::value($data, $this->name);
+                $value = ArrayHelper::getValue($data, $this->name);
             }
 
             if (!empty($this->linkUrl)) {
@@ -212,7 +214,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
             $offImage = CHtml::image($this->offImageUrl, $this->titles[0], ['title' => $this->titles[0], 'style' => $iconStyle, 'class' => 'icon-off']);
 
             if (!empty($url)) {
-                echo CHtml::link($onImage . $offImage, $url, ['class' => 'toggle-link ' . $this->class . ($value ? ' toggle-true' : '')]);
+                echo Html::a($onImage . $offImage, $url, ['class' => 'toggle-link ' . $this->class . ($value ? ' toggle-true' : '')]);
             } else {
                 echo $value ? $onImage : $offImage;
             }

@@ -3,6 +3,7 @@
 
 use app\assets\ColorboxAsset;
 use app\modules\contact\models\Contact;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\JqueryAsset;
 use yii\web\View;
@@ -49,13 +50,13 @@ $dir = Yii::$app->file->set($root . '/' . $path);
 $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
 ?>
 
-<?= CHtml::beginForm(Url::to(['process', 'path' => $path])) ?>
+<?= Html::beginForm(Url::to(['process', 'path' => $path])) ?>
 
 <table class="grid" style="margin-bottom:20px !important;">
 
     <tr>
         <th style="width:24px;padding:0 !important;">
-            <?= CHtml::checkBox('checkall', false, ['class' => 'allfiles_checkbox']) ?>
+            <?= Html::checkBox('checkall', false, ['class' => 'allfiles_checkbox']) ?>
         </th>
         <th>Файл</th>
         <th style="width:70px">Размер</th>
@@ -77,7 +78,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 
                 <tr id="item_<?= md5($file->getBasename()) ?>">
                     <td style="text-align: center">
-                        <?php //echo CHtml::checkBox('del_'.md5($file->getBasename()), false, array('class'=>'folder_checkbox')); ?>
+                        <?php //echo yii\helpers\Html::checkBox('del_'.md5($file->getBasename()), false, array('class'=>'folder_checkbox')); ?>
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>'); return false;"><?= $renameIcon ?></a>
@@ -98,7 +99,7 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 
                 <tr id="item_<?= md5($file->getBasename()) ?>">
                     <td style="text-align: center">
-                        <?= CHtml::checkBox('del_' . md5($file->getBasename()), false, ['class' => 'file_checkbox']) ?>
+                        <?= Html::checkBox('del_' . md5($file->getBasename()), false, ['class' => 'file_checkbox']) ?>
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>')"><?= $renameIcon ?></a>
@@ -125,10 +126,10 @@ $renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать
 </table>
 
 <p>Отмеченные
-    <?= CHtml::dropDownList('action', '', [
+    <?= Html::dropDownList('action', '', [
         'del' => 'удалить',
     ]) ?>
-    <?= CHtml::submitButton('OK') ?>
+    <?= Html::submitButton('OK') ?>
 </p>
 
 <script>
@@ -143,32 +144,32 @@ jQuery(function ($) {
 <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 
-<?= CHtml::endForm() ?>
+<?= Html::endForm() ?>
 
 <hr />
 
-<?= CHtml::beginForm() ?>
+<?= Html::beginForm() ?>
 
-<?= CHtml::textField('foldername', '', ['size' => 30]) ?>
-<?= CHtml::submitButton('Создать директорию') ?>
+<?= Html::textInput('foldername', '', ['size' => 30]) ?>
+<?= Html::submitButton('Создать директорию') ?>
 
-<?= CHtml::endForm() ?>
+<?= Html::endForm() ?>
 
 <hr />
 
 <div class="upload-alternate">
-    <?= CHtml::beginForm('', 'post', [
+    <?= Html::beginForm('', 'post', [
         'enctype' => 'multipart/form-data'
     ]) ?>
 
     <p>
         <?php for ($i = 1; $i <= $upload_count; $i++) : ?>
-            <?= CHtml::fileField('file_' . $i) ?><br />
+            <?= Html::fileInput('file_' . $i) ?><br />
         <?php endfor; ?>
     </p>
-    <?= CHtml::submitButton('Загрузить файлы') ?>
+    <?= Html::submitButton('Загрузить файлы') ?>
 
-    <?= CHtml::endForm() ?>
+    <?= Html::endForm() ?>
 </div>
 
 <?php ColorboxAsset::register($this) ?>
@@ -176,16 +177,16 @@ jQuery(function ($) {
 <div style="display:none">
     <p><a id="renameLink" href="#rename"></a></p>
     <div id="rename" class="form">
-        <?= CHtml::beginForm(Url::to(['rename', 'path' => Yii::$app->request->get('path')])) ?>
-        <?= CHtml::hiddenField('name', '', ['id' => 'sourceName']) ?>
+        <?= Html::beginForm(Url::to(['rename', 'path' => Yii::$app->request->get('path')])) ?>
+        <?= Html::hiddenInput('name', '', ['id' => 'sourceName']) ?>
         <div class="row">
-            <?= CHtml::textField('to', '', ['id' => 'destName', 'size' => 24]) ?>
+            <?= Html::textInput('to', '', ['id' => 'destName', 'size' => 24]) ?>
         </div>
         <div class="row buttons">
-            <?= CHtml::submitButton('Переименовать') ?>
-            <?php echo CHtml::resetButton('Отмена', ['onclick' => 'jQuery.colorbox.close(); return false;']); ?>
+            <?= Html::submitButton('Переименовать') ?>
+            <?php echo yii\helpers\Html::resetButton('Отмена', ['onclick' => 'jQuery.colorbox.close(); return false;']); ?>
         </div>
-        <?= CHtml::endForm() ?>
+        <?= Html::endForm() ?>
     </div>
 </div>
 

@@ -2,6 +2,7 @@
 use app\components\helpers\DateHelper;
 use app\components\helpers\SocNetworkHelper;
 use app\components\helpers\TextHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var $indent int */
@@ -13,7 +14,7 @@ use yii\helpers\Url;
     <?php if ($comment->user) : ?>
         <img class="userpic" src="<?= $comment->getAvatarUrl(50, 50) ?>" alt="">
     <?php else : ?>
-        <img class="userpic" src="<?= CHtml::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
+        <img class="userpic" src="<?= Html::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
     <?php endif; ?>
 
     <header>
@@ -39,9 +40,9 @@ use yii\helpers\Url;
 
         <span class="author">
             <?php if ($comment->site) : ?>
-                <cite><a href="<?= CHtml::encode($comment->site) ?>"><?= CHtml::encode($comment->name) ?></a></cite>
+                <cite><a href="<?= Html::encode($comment->site) ?>"><?= Html::encode($comment->name) ?></a></cite>
             <?php elseif ($comment->name) : ?>
-                <cite><?= CHtml::encode($comment->name) ?></cite>
+                <cite><?= Html::encode($comment->name) ?></cite>
             <?php else : ?>
                 <cite><em>Неизвестный</em></cite>
             <?php endif; ?>

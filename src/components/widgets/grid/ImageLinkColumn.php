@@ -3,6 +3,7 @@
 namespace app\components\widgets\grid;
 
 use CHtml;
+use yii\helpers\Html;
 
 class ImageLinkColumn extends LinkColumn
 {
@@ -23,7 +24,7 @@ class ImageLinkColumn extends LinkColumn
         $options = $this->getImageOptions();
         $image = CHtml::image($value, '', $options);
 
-        echo $value === null ? $this->grid->nullDisplay : CHtml::link($image, $url);
+        echo $value === null ? $this->grid->nullDisplay : Html::a($image, $url);
     }
 
     protected function getImageOptions(): array

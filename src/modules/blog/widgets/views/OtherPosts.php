@@ -1,5 +1,8 @@
 <?php
 /** @var $posts \app\modules\blog\models\Post[] */
+
+use yii\helpers\Html;
+
 ?>
 <?php if (count($posts)) : ?>
     <div class="block-title">Другие статьи</div>
@@ -12,7 +15,7 @@
                         <a href="<?= $post->url ?>"><?= CHtml::image($post->getImageThumbUrl(100, 100)) ?></a>
                     </p><!--/noindex-->
                 <?php endif; ?>
-                <div class="title"><a href="<?= $post->url ?>"><?= CHtml::encode($post->title) ?></a>
+                <div class="title"><a href="<?= $post->url ?>"><?= Html::encode($post->title) ?></a>
                 </div>
                 <!--noindex-->
                 <div class="short"><?= trim($post->short_purified) ?></div><!--/noindex-->

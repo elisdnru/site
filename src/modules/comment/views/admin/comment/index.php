@@ -1,8 +1,10 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $dataProvider CDataProvider */
 
 use app\assets\CommentsAsset;
+use yii\helpers\Html;
+use yii\web\View;
 
 /** @var $material CActiveRecord */
 /** @var $dataPrvider CActiveDataProvider */
@@ -25,7 +27,7 @@ CommentsAsset::register($this);
     ];
     ?>
 
-    <h1>Комментарии к материалу &laquo;<?= CHtml::encode($material->title) ?>&raquo;</h1>
+    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->title) ?>&raquo;</h1>
 
 <?php else : ?>
     <?php
@@ -35,9 +37,9 @@ CommentsAsset::register($this);
     ?>
 
     <div style="float:right">
-        <?= CHtml::beginForm(['moderAll']) ?>
-        <?= CHtml::submitButton('Пометить все новые почтёнными') ?>
-        <?= CHtml::endForm() ?>
+        <?= Html::beginForm(['moderAll']) ?>
+        <?= Html::submitButton('Пометить все новые почтёнными') ?>
+        <?= Html::endForm() ?>
     </div>
 
     <h1>Комментарии</h1>

@@ -1,6 +1,8 @@
 <?php
-/** @var $dataProvider \yii\data\ActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 use app\modules\portfolio\models\Work;
+use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 ?>
@@ -11,7 +13,7 @@ use yii\widgets\LinkPager;
             <?php /** @var Work $work */ ?>
             <div class="entry greed">
                 <p class="thumb">
-                    <a href="<?= $work->getUrl() ?>" style="background-image: url('<?= $work->getImageThumbUrl(198) ?>')"><span><?= CHtml::encode($work->title) ?></span></a>
+                    <a href="<?= $work->getUrl() ?>" style="background-image: url('<?= $work->getImageThumbUrl(198) ?>')"><span><?= Html::encode($work->title) ?></span></a>
                 </p>
             </div>
         <?php endforeach; ?>

@@ -11,8 +11,8 @@ use app\modules\user\models\User;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
-use CHtml;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 /**
@@ -353,7 +353,7 @@ class Post extends CActiveRecord implements Material
         if ($this->tags_string === null) {
             /** @var self $cached */
             $cached = $this->cache(0);
-            $list = CHtml::listData($cached->tags, 'id', 'title');
+            $list = ArrayHelper::map($cached->tags, 'id', 'title');
             $this->tags_string = implode(', ', $list);
         }
 

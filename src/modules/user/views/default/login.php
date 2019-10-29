@@ -45,7 +45,7 @@ use yii\helpers\Url; ?>
     </div>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Вход в учётную запись') ?>
+        <?= Html::submitButton('Вход в учётную запись') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

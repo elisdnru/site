@@ -31,7 +31,7 @@ use yii\helpers\Html;
     </div>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Отправить') ?>
+        <?= Html::submitButton('Отправить') ?>
     </div>
     <?php Yii::app()->controller->endWidget(); ?>
 

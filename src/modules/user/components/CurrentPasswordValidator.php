@@ -2,9 +2,9 @@
 
 namespace app\modules\user\components;
 
-use CHtml;
 use yii\base\Exception;
 use yii\db\ActiveRecord;
+use yii\helpers\Html;
 use yii\validators\Validator;
 
 /**
@@ -37,7 +37,7 @@ class CurrentPasswordValidator extends Validator
         if (!$value) {
             $this->addError($object, $attribute, $this->emptyMessage);
         } elseif (!$model->{$this->validateMethod}($value)) {
-            $this->addError($object, $attribute, $this->notValidMessage, ['{value}' => CHtml::encode($value)]);
+            $this->addError($object, $attribute, $this->notValidMessage, ['{value}' => Html::encode($value)]);
         }
     }
 

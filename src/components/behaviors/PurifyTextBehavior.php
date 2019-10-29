@@ -2,12 +2,12 @@
 
 namespace app\components\behaviors;
 
-use CHtml;
 use CHtmlPurifier;
 use CMarkdownParser;
 use yii\base\Behavior;
 use yii\base\Component;
 use yii\db\ActiveRecord;
+use yii\helpers\Html;
 
 class PurifyTextBehavior extends Behavior
 {
@@ -27,7 +27,7 @@ class PurifyTextBehavior extends Behavior
     public $enableMarkdown = false;
 
     /**
-     * @var bool use CHtml::encode instead of HTML Purifier for <pre> and <code> contents
+     * @var bool use yii\helpers\Html::encode instead of HTML Purifier for <pre> and <code> contents
      */
     public $encodePreContent = false;
 
@@ -197,7 +197,7 @@ class PurifyTextBehavior extends Behavior
 
     private function resumeContent(string $id): string
     {
-        return isset($this->preContents[$id]) ? CHtml::encode($this->preContents[$id]) : '';
+        return isset($this->preContents[$id]) ? Html::encode($this->preContents[$id]) : '';
     }
 
     private function calculateHash(?string $content): string

@@ -2,6 +2,7 @@
 /** @var $data \app\modules\comment\models\Comment */
 use app\components\helpers\SocNetworkHelper;
 use app\components\helpers\TextHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 $groupurl = Url::to(['index', 'id' => $data->material_id]);
@@ -40,9 +41,9 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
 
         <span class="author">
             <?php if ($data->site) : ?>
-                <cite><a rel="nofollow" href="<?= CHtml::encode($data->site) ?>"><?= CHtml::encode($data->name) ?></a></cite>
+                <cite><a rel="nofollow" href="<?= Html::encode($data->site) ?>"><?= Html::encode($data->name) ?></a></cite>
             <?php elseif ($data->name) : ?>
-                <?= CHtml::encode($data->name) ?>
+                <?= Html::encode($data->name) ?>
             <?php else : ?>
                 <i>Неизвестный</i>
             <?php endif; ?>
@@ -54,7 +55,7 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
         <?= TextHelper::fixBR($data->text_purified) ?>
         <p>
             <?php if ($data->material) : ?>
-                <a href="<?= $data->url ?>"><?= CHtml::encode($data->material->title) ?></a><?php
+                <a href="<?= $data->url ?>"><?= Html::encode($data->material->title) ?></a><?php
             endif; ?>
             <!-- | <a href="<?= $groupurl ?>">Комментарии</a> -->
         </p>

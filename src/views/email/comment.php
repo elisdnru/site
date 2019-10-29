@@ -1,7 +1,8 @@
 <?php
 /** @var $comment \app\modules\comment\models\Comment */
 /** @var $current \app\modules\comment\models\Comment */
-?>
+
+use yii\helpers\Html; ?>
 <?php
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $comment->material->getUrl();
 ?>
@@ -14,7 +15,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $comment->material->getUrl();
 
 <p>
     ------<br />
-    <?= nl2br(mb_substr(CHtml::encode($current->text), 0, 50, 'UTF-8')) ?>...
+    <?= nl2br(mb_substr(Html::encode($current->text), 0, 50, 'UTF-8')) ?>...
     <br />------
 </p>
 

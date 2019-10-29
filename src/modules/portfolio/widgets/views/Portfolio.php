@@ -3,6 +3,7 @@
 
 use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -16,7 +17,7 @@ CarouselAsset::register($this);
         <ul>
             <?php foreach ($items as $item) : ?>
                 <li>
-                    <a rel="nofollow" href="<?= $item->url ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190, 0) ?>')"><span><?= CHtml::encode($item->title) ?></span></span></a>
+                    <a rel="nofollow" href="<?= $item->url ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190, 0) ?>')"><span><?= Html::encode($item->title) ?></span></span></a>
                 </li>
             <?php endforeach; ?>
             <li class="more">

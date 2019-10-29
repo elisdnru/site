@@ -34,7 +34,7 @@ $this->params['breadcrumbs'] = [
     </div>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Восстановить пароль') ?>
+        <?= Html::submitButton('Восстановить пароль') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

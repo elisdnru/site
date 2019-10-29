@@ -2,8 +2,10 @@
 use app\modules\blog\models\Tag;
 use app\components\helpers\NumberHelper;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $tag Tag */
 /** @var $dataProvider CActiveDataProvider */
 
@@ -31,6 +33,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1>Записи с меткой &laquo;<?= CHtml::encode($tag->title) ?>&raquo;</h1>
+<h1>Записи с меткой &laquo;<?= Html::encode($tag->title) ?>&raquo;</h1>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

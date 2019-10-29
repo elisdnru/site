@@ -31,7 +31,7 @@ use yii\helpers\Html;
 
         <div class="row buttons">
             <br />
-            <?= CHtml::submitButton('Сохранить комментарий', ['id' => 'comment_submit']) ?>
+            <?= Html::submitButton('Сохранить комментарий', ['id' => 'comment_submit']) ?>
         </div>
 
     </fieldset>

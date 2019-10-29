@@ -5,6 +5,8 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Tag;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\web\View;
 
 /** @var $model Post */
@@ -30,7 +32,7 @@ use yii\web\View;
     <?= $form->errorSummary($model) ?>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <fieldset>
@@ -145,9 +147,9 @@ use yii\web\View;
         </div>
         <div class="row">
             <ul class="tags_list" id="Post_tagsVariants">
-                <?php foreach (CHtml::listData(Tag::model()->findAll(['order' => 'title ASC']), 'id', 'title') as $id => $tag) : ?>
+                <?php foreach (ArrayHelper::map(Tag::model()->findAll(['order' => 'title ASC']), 'id', 'title') as $id => $tag) : ?>
                     <li id="tag_<?= $id ?>">
-                        <a class="tag" href="#"><?= CHtml::encode($tag) ?></a>
+                        <a class="tag" href="#"><?= Html::encode($tag) ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -204,7 +206,7 @@ use yii\web\View;
     ]) ?>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

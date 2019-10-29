@@ -1,4 +1,7 @@
 <?php
+
+use yii\helpers\Html;
+
 $providers = [
     ['name' => 'RSS', 'class' => 'feed', 'url' => 'https://feeds.feedburner.com/elisdn'],
     ['name' => 'Twitter', 'class' => 'twitter', 'url' => 'https://twitter.com/elisdnru'],
@@ -10,7 +13,7 @@ $providers = [
 
 <div id="follow" class="follow">
     <?php foreach ($providers as $provider) : ?>
-        <a rel="noopener" href="<?= CHtml::encode($provider['url']) ?>" title="<?= CHtml::encode($provider['name']) ?>"><span class="follow-<?= $provider['class'] ?>"></span></a>
+        <a rel="noopener" href="<?= Html::encode($provider['url']) ?>" title="<?= Html::encode($provider['name']) ?>"><span class="follow-<?= $provider['class'] ?>"></span></a>
     <?php endforeach; ?>
 </div>
 

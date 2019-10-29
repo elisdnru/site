@@ -3,8 +3,10 @@ use app\modules\blog\models\Category;
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $page Page */
 /** @var $category Category */
 /** @var $dataProvider CActiveDataProvider */
@@ -32,6 +34,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1><?= CHtml::encode($category->title) ?></h1>
+<h1><?= Html::encode($category->title) ?></h1>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

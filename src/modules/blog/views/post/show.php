@@ -1,5 +1,6 @@
 <?php
 use app\assets\HighlightAsset;
+use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\helpers\StyleHelper;
 use app\components\widgets\ShareWidget;
 use app\modules\block\widgets\BlockWidget;
@@ -12,8 +13,10 @@ use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
+use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
+/** @var $this View|InlineWidgetsBehavior */
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
 
@@ -71,7 +74,7 @@ HighlightAsset::register($this);
 
 <article class="entry">
     <header>
-        <h1><?= CHtml::encode($model->title) ?></h1>
+        <h1><?= Html::encode($model->title) ?></h1>
 
         <!--noindex-->
         <?php if ($this->beginCache('banner_post_before', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
@@ -128,7 +131,7 @@ HighlightAsset::register($this);
     <?php
     $links = [];
     foreach ($model->tags as $tag) {
-        $links[] = '<a href="' . CHtml::encode($tag->url) . '">' . CHtml::encode($tag->title) . '</a>';
+        $links[] = '<a href="' . Html::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
     <p class="entry_date">

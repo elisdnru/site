@@ -1,9 +1,13 @@
 <?php
+
+use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\helpers\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
+/** @var $this View|InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 
@@ -35,7 +39,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1><?= CHtml::encode($page->title) ?></h1>
+<h1><?= Html::encode($page->title) ?></h1>
 
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->

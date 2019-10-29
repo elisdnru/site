@@ -1,8 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\blog\models\Tag;
 use yii\helpers\Html;
+use yii\web\View;
 
 /** @var $model Tag */
 /** @var $form CActiveForm */
@@ -33,7 +34,7 @@ use yii\helpers\Html;
     </fieldset>
 
     <div class="row buttons">
-        <?= CHtml::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить') ?>
     </div>
 
     <?php Yii::app()->controller->endWidget(); ?>

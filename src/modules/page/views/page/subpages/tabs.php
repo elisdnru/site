@@ -2,13 +2,14 @@
 <?php
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
+use yii\helpers\Html;
 
 /** @var $page Page */
 ?>
 <?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])) : ?>
     <?php if ($page->parent) : ?>
         <?php if (!$page->hidetitle) : ?>
-            <h1><?= CHtml::link($page->parent->title, $page->parent->url) ?></h1>
+            <h1><?= Html::a($page->parent->title, $page->parent->url) ?></h1>
         <?php endif; ?>
 
         <div class="subpages">
