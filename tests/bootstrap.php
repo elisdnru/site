@@ -17,10 +17,10 @@ require_once __DIR__.'/../config/env.php';
 
 require_once __DIR__ . '/../bootstrap.php';
 
-Yii::createWebApplication(__DIR__.'/../config/test.php');
+Yii::createWebApplication(__DIR__.'/../config/v1/test.php');
 
-$yii2Config = require __DIR__ . '/../config/v2/test.php';
-new yii\web\Application($yii2Config);
+$config = require __DIR__ . '/../config/test.php';
+new yii\web\Application($config);
 
 Yii::import('system.test.CTestCase');
 Yii::import('system.test.CDbTestCase');

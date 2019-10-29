@@ -16,13 +16,13 @@ require_once __DIR__ . '/../config/env.php';
 
 require_once __DIR__ . '/../bootstrap.php';
 
-Yii::createWebApplication(__DIR__ . '/../config/web.php');
+Yii::createWebApplication(__DIR__ . '/../config/v1/web.php');
 
-$yii2Config = require __DIR__ . '/../config/v2/web.php';
-$app2 = new yii\web\Application($yii2Config);
+$config = require __DIR__ . '/../config/web.php';
+$app = new yii\web\Application($config);
 
 ob_start();
-$app2->run();
+$app->run();
 $html = ob_get_clean();
 
 echo str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);

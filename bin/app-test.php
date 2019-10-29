@@ -13,8 +13,8 @@ require_once __DIR__ . '/../config/env.php';
 
 require_once __DIR__ . '/../bootstrap.php';
 
-Yii::createConsoleApplication(__DIR__ . '/../config/console-test.php');
+Yii::createConsoleApplication(__DIR__ . '/../config/v1/console-test.php');
 
-$yii2Config = require __DIR__ . '/../config/v2/console-test.php';
-$app = new yii\console\Application($yii2Config);
+$config = require __DIR__ . '/../config/console-test.php';
+$app = new yii\console\Application($config);
 $app->run();
