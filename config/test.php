@@ -14,16 +14,6 @@ return array_replace_recursive(
                 'hostInfo' => 'http://localhost',
             ],
 
-            'log' => [
-                'class' => CLogRouter::class,
-                'routes' => [
-                    [
-                        'class' => CFileLogRoute::class,
-                        'levels' => 'error',
-                    ],
-                ],
-            ],
-
             'db' => [
                 'connectionString' => 'mysql:host=mysql-test;dbname=test',
                 'username' => 'test',

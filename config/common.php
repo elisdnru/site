@@ -91,10 +91,6 @@ return [
             'schemaCachingDuration' => 3600,
         ],
 
-        'errorHandler' => [
-            'errorAction' => YII_DEBUG ? null : '/home/error/index',
-        ],
-
         'widgetFactory' => [
             'enableSkin' => true,
         ],
@@ -128,14 +124,5 @@ return [
                 ],
             ],
         ],
-    ],
-
-    'preload' => [
-        'log',
-    ],
-
-    'params' => [
-        'GENERAL.SITE_NAME' => 'ElisDN',
-        'GENERAL.ADMIN_EMAIL' => 'mail@elisdn.ru',
     ],
 ];
