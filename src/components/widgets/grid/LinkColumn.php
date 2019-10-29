@@ -6,6 +6,7 @@ use CActiveRecord;
 use CDataColumn;
 use CHtml;
 use Yii;
+use yii\helpers\Url;
 
 class LinkColumn extends CDataColumn
 {
@@ -42,7 +43,7 @@ class LinkColumn extends CDataColumn
             return $this->evaluateExpression($this->link, ['data' => $data, 'row' => $row]);
         }
         if ($this->link !== false) {
-            return Yii::app()->controller->createUrl('update', ['id' => $data->getPrimaryKey()]);
+            return Url::to(['update', 'id' => $data->getPrimaryKey()]);
         }
         return '';
     }

@@ -12,6 +12,7 @@ use CGridColumn;
 use CHtml;
 use CJavaScript;
 use Yii;
+use yii\helpers\Url;
 use yii\web\View;
 
 class ToggleColumn extends CGridColumn
@@ -201,7 +202,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
             if (!empty($this->linkUrl)) {
                 $url = $this->evaluateExpression($this->linkUrl, ['data' => $data, 'row' => $row]);
             } elseif ($this->linkUrl !== false) {
-                $url = Yii::app()->controller->createUrl('toggle', ['id' => $data->primaryKey, 'attribute' => $this->name]);
+                $url = Url::to(['toggle', 'id' => $data->primaryKey, 'attribute' => $this->name]);
             } else {
                 $url = '';
             }
