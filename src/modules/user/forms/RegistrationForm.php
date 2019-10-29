@@ -2,7 +2,6 @@
 
 namespace app\modules\user\forms;
 
-use app\components\validators\CaptchaValidator;
 use app\modules\user\models\User;
 use yii\base\Model;
 
@@ -47,7 +46,7 @@ class RegistrationForm extends Model
 
             ['verifyCode', 'required'],
 
-            ['verifyCode', CaptchaValidator::class, 'captchaAction' => '/user/registration/captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/user/registration/captcha'],
         ];
     }
 

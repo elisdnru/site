@@ -148,10 +148,6 @@ return [
         'log',
     ],
 
-    'behaviors' => [
-        ModuleUrlRulesBehavior::class,
-    ],
-
     'params' => [
         'GENERAL.SITE_NAME' => 'ElisDN',
         'GENERAL.ADMIN_EMAIL' => 'mail@elisdn.ru',

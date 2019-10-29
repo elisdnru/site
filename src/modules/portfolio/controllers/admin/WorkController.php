@@ -2,21 +2,27 @@
 
 namespace app\modules\portfolio\controllers\admin;
 
-use CHttpException;
 use app\components\AdminController;
 use app\modules\portfolio\models\Work;
 use Yii;
 use yii\data\Pagination;
+use yii\filters\VerbFilter;
 use yii\web\HttpException;
+use yii\web\Response;
 
 class WorkController extends AdminController
 {
     private const ITEMS_PER_PAGE = 50;
 
-    public function filters(): array
+    public function behaviors(): array
     {
-        return array_merge(parent::filters(), [
-            'PostOnly + sort',
+        return array_merge(parent::behaviors(), [
+            [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'sort' => ['post'],
+                ],
+            ]
         ]);
     }
 
@@ -48,7 +54,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionCreate(): void
+    public function actionCreate()
     {
         $model = new Work();
         $model->public = 1;
@@ -57,25 +63,25 @@ class WorkController extends AdminController
         $model->date = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionToggle($id, $attribute): void
+    public function actionToggle($id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -87,28 +93,30 @@ class WorkController extends AdminController
         $model->save();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
         }
+        return null;
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionView($id): void
+    public function actionView($id): Response
     {
         $model = $this->loadModel($id);
 
-        $this->redirect($model->getUrl());
+        return $this->redirect($model->getUrl());
     }
 
-    public function actionSort(): void
+    public function actionSort(): ?Response
     {
         $success = true;
 
@@ -139,15 +147,16 @@ class WorkController extends AdminController
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
     public function loadModel($id): Work
     {
         $model = Work::findOne($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Не найдено');
+            throw new HttpException(404, 'Не найдено');
         }
         return $model;
     }

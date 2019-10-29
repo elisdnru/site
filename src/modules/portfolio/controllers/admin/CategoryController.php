@@ -2,27 +2,28 @@
 
 namespace app\modules\portfolio\controllers\admin;
 
-use CHttpException;
 use app\components\AdminController;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use Yii;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class CategoryController extends AdminController
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $model = new Category('search');
 
         $model->unsetAttributes();
         $model->attributes = Yii::$app->request->get('Category');
 
-        $this->render('index', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
 
-    public function actionCreate(): void
+    public function actionCreate()
     {
         $model = new Category();
 
@@ -30,16 +31,16 @@ class CategoryController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
 
@@ -47,41 +48,42 @@ class CategoryController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
 
         $count = Work::find()->category($model->id)->count();
         if ($count) {
-            throw new CHttpException(400, 'В данной группе есть записи. Удалите их или переместите в другие категории.');
+            throw new HttpException(400, 'В данной группе есть записи. Удалите их или переместите в другие категории.');
         }
 
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionView(): void
+    public function actionView(): Response
     {
-        $this->redirect(['index']);
+        return $this->redirect(['index']);
     }
 
     public function loadModel($id): Category
     {
         $model = Category::model()->findByPk($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Не найдено');
+            throw new HttpException(404, 'Не найдено');
         }
         return $model;
     }

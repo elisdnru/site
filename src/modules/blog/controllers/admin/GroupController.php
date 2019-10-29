@@ -5,16 +5,17 @@ namespace app\modules\blog\controllers\admin;
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
-use CHttpException;
 use app\components\AdminController;
 use Yii;
+use yii\web\HttpException;
+use yii\web\Response;
 
 /**
  * @method renderTableForm($params)
  */
 class GroupController extends AdminController
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $items = Group::model()->findAll([
             'order' => 'title ASC',
@@ -59,10 +60,10 @@ class GroupController extends AdminController
             }
         }
 
-        $this->render('index', ['itemForm' => $form, 'items' => $items]);
+        return $this->render('index', ['itemForm' => $form, 'items' => $items]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -72,21 +73,22 @@ class GroupController extends AdminController
         ]);
 
         if ($count) {
-            throw new CHttpException(400, 'В данной группе есть новости. Удалите их или переместите в другие группы.');
+            throw new HttpException(400, 'В данной группе есть новости. Удалите их или переместите в другие группы.');
         }
 
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
     public function loadModel($id): Group
     {
         $model = Group::model()->findByPk((int)$id);
         if ($model === null) {
-            throw new CHttpException(404, 'Не найдено');
+            throw new HttpException(404, 'Не найдено');
         }
         return $model;
     }

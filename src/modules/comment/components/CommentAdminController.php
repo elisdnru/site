@@ -5,20 +5,27 @@ namespace app\modules\comment\components;
 use app\modules\comment\models\Comment;
 use CActiveRecord;
 use CException;
-use CHttpException;
 use app\components\AdminController;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\filters\VerbFilter;
 use yii\web\HttpException;
+use yii\web\Response;
 
 abstract class CommentAdminController extends AdminController
 {
     private const COMMENTS_PER_PAGE = 20;
 
-    public function filters(): array
+    public function behaviors(): array
     {
-        return array_merge(parent::filters(), [
-            'PostOnly + delete, moder, moderAll',
+        return array_merge(parent::behaviors(), [
+            [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'moder' => ['post'],
+                    'moderAll' => ['post'],
+                ],
+            ],
         ]);
     }
 
@@ -48,18 +55,18 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionToggle($id, $attribute): void
+    public function actionToggle($id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -71,19 +78,20 @@ abstract class CommentAdminController extends AdminController
         $model->save();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
         }
+        return null;
     }
 
-    public function actionView($id): void
+    public function actionView($id): string
     {
         $model = $this->loadModel($id);
-        $this->render('view', [
+        return $this->render('view', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -95,30 +103,32 @@ abstract class CommentAdminController extends AdminController
         }
 
         if (!$success) {
-            throw new CHttpException(400, 'Error');
+            throw new HttpException(400, 'Error');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionModer($id): void
+    public function actionModer($id): ?Response
     {
         $model = $this->loadModel($id);
 
         $model->moder = !$model->moder;
 
         if (!$model->save()) {
-            throw new CHttpException(400, 'Error');
+            throw new HttpException(400, 'Error');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionModerAll(): void
+    public function actionModerAll(): ?Response
     {
         foreach ($this->getModelName()::find()->unread()->each() as $item) {
             $item->moder = 1;
@@ -126,8 +136,9 @@ abstract class CommentAdminController extends AdminController
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
     public function loadModel($id): Comment
@@ -135,7 +146,7 @@ abstract class CommentAdminController extends AdminController
         /** @var Comment $model */
         $model = $this->getModelName()::findOne($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Комментарий не найден');
+            throw new HttpException(404, 'Комментарий не найден');
         }
         return $model;
     }

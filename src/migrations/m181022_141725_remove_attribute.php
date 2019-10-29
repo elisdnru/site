@@ -2,13 +2,13 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m181022_141725_remove_attribute extends EDbMigration
+class m181022_141725_remove_attribute extends Migration
 {
     public function safeUp()
     {
-        if ($this->getDbConnection()->getSchema()->getTable('{{attribute}}')) {
+        if ($this->getDb()->getTableSchema('{{attribute}}')) {
             $this->dropTable('{{attribute_value}}');
             $this->dropTable('{{attribute}}');
         }

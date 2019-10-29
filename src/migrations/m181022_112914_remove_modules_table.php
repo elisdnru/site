@@ -2,13 +2,13 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m181022_112914_remove_modules_table extends EDbMigration
+class m181022_112914_remove_modules_table extends Migration
 {
     public function safeUp()
     {
-        if ($this->getDbConnection()->getSchema()->getTable('{{module}}')) {
+        if ($this->getDb()->getTableSchema('{{module}}')) {
             $this->dropTable('{{module}}');
         }
     }

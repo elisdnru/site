@@ -2,34 +2,30 @@
 
 namespace app\modules\user\controllers;
 
-use app\modules\user\models\Access;
-use CHttpException;
 use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
+use yii\filters\AccessControl;
+use yii\web\HttpException;
 
 class ProfileController extends Controller
 {
-    public function filters(): array
+    public function behaviors(): array
     {
         return [
-            'accessControl',
-        ];
-    }
-
-    public function accessRules(): array
-    {
-        return [
-            ['allow',
-                'roles' => [Access::ROLE_USER],
-            ],
-            ['deny',
-                'users' => ['*'],
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
             ],
         ];
     }
 
-    public function actionUpdate(): void
+    public function actionUpdate()
     {
         $model = $this->loadModel();
         $model->scenario = 'settings';
@@ -42,17 +38,18 @@ class ProfileController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('update', [
+
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionView(): void
+    public function actionView(): string
     {
         $model = $this->loadModel();
-        $this->render('view', [
+        return $this->render('view', [
             'model' => $model,
         ]);
     }
@@ -61,7 +58,7 @@ class ProfileController extends Controller
     {
         $model = User::findOne(Yii::$app->user->id);
         if ($model === null) {
-            throw new CHttpException(403, 'Войдите или зарегистрируйтесь');
+            throw new HttpException(403, 'Войдите или зарегистрируйтесь');
         }
         return $model;
     }

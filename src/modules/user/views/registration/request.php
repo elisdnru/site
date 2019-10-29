@@ -1,6 +1,7 @@
 <?php
 
 use app\components\widgets\Portlet;
+use yii\captcha\Captcha;
 use yii\helpers\Html;
 
 /** @var $form CActiveForm */
@@ -19,7 +20,7 @@ $this->params['breadcrumbs'] = [
 
     <form action="?" method="post">
 
-        <?= Html::hiddenInput(Yii::app()->request->csrfTokenName, Yii::app()->request->getCsrfToken()) ?>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
         <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
@@ -67,10 +68,12 @@ $this->params['breadcrumbs'] = [
 
         <div class="row<?= $model->hasErrors('verifyCode') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'verifyCode') ?><br />
-            <?= Html::activeTextInput($model, 'verifyCode', ['size' => 20, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'verifyCode', ['class' => 'errorMessage']) ?>
             <div>
-                <?php Yii::app()->controller->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/user/registration/captcha']); ?>
+                <?= Captcha::widget([
+                    'model' => $model,
+                    'attribute' => 'verifyCode',
+                    'captchaAction' => '/user/registration/captcha',
+                ]) ?>
             </div>
         </div>
 

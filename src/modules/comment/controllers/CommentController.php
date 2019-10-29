@@ -3,35 +3,14 @@
 namespace app\modules\comment\controllers;
 
 use app\modules\user\models\User;
-use CHttpException;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
 use app\components\Controller;
 use Yii;
+use yii\web\HttpException;
 
 class CommentController extends Controller
 {
-    public function filters(): array
-    {
-        return array_merge(parent::filters(), [
-            'accessControl',
-        ]);
-    }
-
-    public function accessRules(): array
-    {
-        return [
-            ['allow',
-                'actions' => ['update'],
-                'users' => ['?'],
-            ],
-            ['deny',
-                'actions' => ['*'],
-                'users' => ['*'],
-            ],
-        ];
-    }
-
     public function actionUpdate($id): string
     {
         $model = $this->loadModel($id);
@@ -51,7 +30,7 @@ class CommentController extends Controller
 
                 if ($model->save()) {
                     Yii::$app->session->setFlash('success', 'Ваш коментарий сохранён');
-                    $this->redirect($model->getUrl());
+                    return $this->redirect($model->getUrl());
                 }
             }
         }
@@ -73,7 +52,7 @@ class CommentController extends Controller
 
         $model = $query->andWhere(['id' => $id])->one();
         if ($model === null) {
-            throw new CHttpException(404, 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
 
         return $model;

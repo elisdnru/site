@@ -9,6 +9,7 @@ $this->params['breadcrumbs'] = [
 
 use app\components\widgets\Portlet;
 use app\modules\ulogin\widgets\UloginWidget;
+use yii\helpers\Html;
 use yii\helpers\Url; ?>
 
 <h1>Вход в аккаунт</h1>
@@ -23,6 +24,8 @@ use yii\helpers\Url; ?>
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <div class="row">
         <?= $form->labelEx($model, 'username') ?><br />

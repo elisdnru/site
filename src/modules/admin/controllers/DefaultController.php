@@ -7,17 +7,21 @@ use app\modules\user\models\Access;
 use app\components\AdminController;
 use app\modules\user\models\User;
 use Yii;
+use yii\filters\AccessControl;
 
 class DefaultController extends AdminController
 {
-    public function accessRules(): array
+    public function behaviors(): array
     {
         return [
-            ['allow',
-                'roles' => [Access::CONTROL],
-            ],
-            ['deny',
-                'users' => ['*'],
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [Access::CONTROL],
+                    ],
+                ],
             ],
         ];
     }

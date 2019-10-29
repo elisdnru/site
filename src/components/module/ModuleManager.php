@@ -2,6 +2,7 @@
 
 namespace app\components\module;
 
+use InvalidArgumentException;
 use Yii;
 
 class ModuleManager
@@ -47,6 +48,6 @@ class ModuleManager
             return $module['class'];
         }
 
-        throw new \InvalidArgumentException('Cannot detect module class ' . $name);
+        throw new InvalidArgumentException('Cannot detect module class ' . $name);
     }
 }

@@ -2,13 +2,13 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m191007_121851_rename_migrations_table extends EDbMigration
+class m191007_121851_rename_migrations_table extends Migration
 {
     public function safeUp()
     {
-        if ($this->getDbConnection()->getSchema()->getTable('{{migration}}')) {
+        if ($this->getDb()->getTableSchema('{{migration}}')) {
             $this->renameTable('{{migration}}', 'migrations');
             $this->execute('CREATE OR REPLACE VIEW {{migration}} AS SELECT * FROM migrations');
         }

@@ -3,46 +3,47 @@
 namespace app\modules\contact\controllers\admin;
 
 use app\modules\contact\forms\ContactSearch;
-use CHttpException;
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 use Yii;
 use yii\web\HttpException;
+use yii\web\Response;
 
 class ContactController extends AdminController
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $model = new ContactSearch();
         $dataProvider = $model->search(Yii::$app->request->queryParams);
-        $this->render('index', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
         }
+        return null;
     }
 
-    public function actionToggle($id, $attribute): void
+    public function actionToggle($id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -54,8 +55,9 @@ class ContactController extends AdminController
         $model->save();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
         }
+        return null;
     }
 
     public function actionView($id): string
@@ -76,7 +78,7 @@ class ContactController extends AdminController
     {
         $model = Contact::findOne($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Не найдено');
+            throw new HttpException(404, 'Не найдено');
         }
         return $model;
     }

@@ -4,6 +4,7 @@
 use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var $items Group[] */
@@ -67,6 +68,8 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <?= $form->errorSummary($itemForm) ?>
 

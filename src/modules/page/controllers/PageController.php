@@ -2,10 +2,10 @@
 
 namespace app\modules\page\controllers;
 
-use CHttpException;
 use app\components\Controller;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
+use yii\web\HttpException;
 
 class PageController extends Controller
 {
@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         $page = Page::model()->cache(0, new Tags('page'))->findByPath($path);
         if ($page === null) {
-            throw new CHttpException('404', 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
         return $page;
     }

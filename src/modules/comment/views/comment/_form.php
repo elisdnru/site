@@ -1,5 +1,6 @@
 <?php
 use app\modules\comment\forms\CommentForm;
+use yii\helpers\Html;
 
 /** @var $f CActiveForm */
 /** @var $form CommentForm */
@@ -13,6 +14,8 @@ use app\modules\comment\forms\CommentForm;
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <?= $f->errorSummary($form, '') ?>
 

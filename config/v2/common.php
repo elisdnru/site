@@ -2,7 +2,9 @@
 
 use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
+use app\components\module\routes\ModuleUrlRulesBehavior;
 use app\components\module\routes\v2\ModuleUrlRules;
+use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
 use app\components\V2UserAuthManager;
 use app\components\widgets\inline\CountDownWidget;
@@ -16,6 +18,7 @@ use app\modules\contact\widgets\ContactWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
+use yii\captcha\CaptchaAction;
 use yii\db\Connection;
 use yii\web\JqueryAsset;
 use yii\widgets\LinkPager;
@@ -39,6 +42,7 @@ return [
     'language' => 'ru',
 
     'bootstrap' => [
+        ModuleUrlRulesBehavior::class,
         ModuleUrlRules::class,
     ],
 
@@ -109,6 +113,12 @@ return [
                     'js' => ['jquery.js'],
                 ],
             ],
+        ],
+
+        'errorHandler' => [
+            'class' => SentryErrorHandler::class,
+            'errorAction' => 'home/error/index',
+            'sentryActive' => !(bool)getenv('APP_DEBUG'),
         ],
 
         'authManager' => [
@@ -203,6 +213,9 @@ return [
                 'prevPageLabel' => '&laquo; назад',
                 'nextPageLabel' => 'далее &raquo;',
             ],
+            CaptchaAction::class => [
+                'backColor' => 0xffffff,
+            ]
         ],
     ],
 

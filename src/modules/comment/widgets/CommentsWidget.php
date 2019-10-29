@@ -4,7 +4,6 @@ namespace app\modules\comment\widgets;
 
 use app\assets\CommentsAsset;
 use CException;
-use CHttpCookie;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
 use app\modules\user\models\User;
@@ -111,7 +110,6 @@ class CommentsWidget extends Widget
         ]);
 
         Yii::$app->response->cookies->add($cookie);
-        Yii::$app->response->send();
     }
 
     protected function loadFormState(): array

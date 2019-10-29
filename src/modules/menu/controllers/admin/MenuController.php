@@ -2,26 +2,27 @@
 
 namespace app\modules\menu\controllers\admin;
 
-use CHttpException;
 use app\components\AdminController;
 use app\modules\menu\models\Menu;
 use Yii;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class MenuController extends AdminController
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $model = new Menu('search');
 
         $model->unsetAttributes();
         $model->attributes = Yii::$app->request->get('Menu');
 
-        $this->render('index', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
 
-    public function actionCreate(): void
+    public function actionCreate()
     {
         $model = new Menu();
         $model->visible = 1;
@@ -30,16 +31,16 @@ class MenuController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
 
@@ -47,31 +48,32 @@ class MenuController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionToggle($id, $attribute): void
+    public function actionToggle($id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
         if ($attribute !== 'visible') {
-            throw new CHttpException(400, 'Missing attribute '. $attribute);
+            throw new HttpException(400, 'Missing attribute '. $attribute);
         }
 
         $model->$attribute = $model->$attribute ? 0 : 1;
@@ -79,20 +81,21 @@ class MenuController extends AdminController
         $model->save();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
         }
+        return null;
     }
 
-    public function actionView(): void
+    public function actionView(): string
     {
-        $this->redirect(['index']);
+        return $this->redirect(['index']);
     }
 
     public function loadModel($id): Menu
     {
         $model = Menu::model()->findByPk($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
         return $model;
     }

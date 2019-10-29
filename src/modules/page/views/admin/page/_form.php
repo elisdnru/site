@@ -2,6 +2,7 @@
 /** @var $this \yii\web\View */
 
 use app\modules\page\models\Page;
+use yii\helpers\Html;
 
 /** @var $model Page */
 /** @var $form CActiveForm */
@@ -17,6 +18,8 @@ use app\modules\page\models\Page;
         ],
         'htmlOptions' => ['enctype' => 'multipart/form-data']
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 

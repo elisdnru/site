@@ -25,7 +25,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
     <form action="?" method="post" enctype="multipart/form-data">
 
-        <?= Html::hiddenInput(Yii::app()->request->csrfTokenName, Yii::app()->request->getCsrfToken()) ?>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
         <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 

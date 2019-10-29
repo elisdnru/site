@@ -2,12 +2,12 @@
 
 namespace app\modules\user\controllers;
 
-use app\components\actions\CaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
+use yii\captcha\CaptchaAction;
 
 class RegistrationController extends Controller
 {
@@ -20,7 +20,7 @@ class RegistrationController extends Controller
         ];
     }
 
-    public function actionRequest(): string
+    public function actionRequest()
     {
         $model = new RegistrationForm();
 
@@ -39,17 +39,16 @@ class RegistrationController extends Controller
                 if ($user->save(false)) {
                     $user->sendCommit();
                     Yii::$app->session->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
-
-                    $this->refresh();
-                } else {
-                    Yii::$app->session->setFlash('error', 'Пользователь не добавлен');
+                    return $this->refresh();
                 }
+
+                Yii::$app->session->setFlash('error', 'Пользователь не добавлен');
             }
         }
         return $this->render('request', ['model' => $model]);
     }
 
-    public function actionConfirm($code): string
+    public function actionConfirm($code)
     {
         $user = User::findOne(['confirm' => $code]);
 
@@ -57,7 +56,7 @@ class RegistrationController extends Controller
             $user->confirm = '';
             if ($user->save()) {
                 Yii::$app->session->setFlash('success', 'Регистрация подтверждена');
-                $this->redirect(['default/login']);
+                return $this->redirect(['default/login']);
             }
             Yii::$app->session->setFlash('error', 'Ошибка');
         } else {

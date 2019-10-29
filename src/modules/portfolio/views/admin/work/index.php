@@ -128,7 +128,7 @@ jQuery(function($) {
                 $.ajax({
                     type: 'POST',
                     url: '<?= ['sort'] ?>',
-                    data: items + '&YII_CSRF_TOKEN=' + getCSRFToken(),
+                    data: items + '&_csrf=' + getCSRFToken(),
                     success: function () {
                         $('#saving').hide()
                     },

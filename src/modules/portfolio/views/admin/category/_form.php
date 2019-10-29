@@ -2,6 +2,7 @@
 /** @var $this \yii\web\View */
 
 use app\modules\portfolio\models\Category;
+use yii\helpers\Html;
 
 /** @var $model Category */
 /** @var $form CActiveForm */
@@ -16,6 +17,8 @@ use app\modules\portfolio\models\Category;
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 

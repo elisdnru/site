@@ -3,7 +3,6 @@
 namespace app\modules\portfolio\controllers;
 
 use app\modules\portfolio\models\query\WorkQuery;
-use CHttpException;
 use app\modules\page\models\Page;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Category;
@@ -11,6 +10,7 @@ use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
+use yii\web\HttpException;
 
 class DefaultController extends PortfolioBaseController
 {
@@ -71,7 +71,7 @@ class DefaultController extends PortfolioBaseController
         /** @var Category $category */
         $category = Category::model()->findByPath($path);
         if ($category === null) {
-            throw new CHttpException('404', 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
         return $category;
     }

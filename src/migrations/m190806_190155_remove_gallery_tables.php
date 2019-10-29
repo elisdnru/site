@@ -2,19 +2,19 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m190806_190155_remove_gallery_tables extends EDbMigration
+class m190806_190155_remove_gallery_tables extends Migration
 {
     public function safeUp()
     {
-        if ($this->getDbConnection()->getSchema()->getTable('{{new}}')) {
+        if ($this->getDb()->getTableSchema('{{new}}')) {
             $this->dropColumn('{{new}}', 'gallery_id');
         }
 
         $this->dropColumn('{{blog_post}}', 'gallery_id');
 
-        if ($this->getDbConnection()->getSchema()->getTable('{{gallery_photo}}')) {
+        if ($this->getDb()->getTableSchema('{{gallery_photo}}')) {
             $this->dropTable('{{gallery_photo}}');
             $this->dropTable('{{gallery_category}}');
         }

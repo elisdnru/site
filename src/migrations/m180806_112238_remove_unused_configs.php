@@ -2,13 +2,13 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m180806_112238_remove_unused_configs extends EDbMigration
+class m180806_112238_remove_unused_configs extends Migration
 {
     public function safeUp()
     {
-        if ($this->getDbConnection()->getSchema()->getTable('{{config}}')) {
+        if ($this->getDb()->getTableSchema('{{config}}')) {
             $this->delete('{{config}}', ['in', 'param', [
                 'CALLME.SEND_ADMIN_EMAILS',
                 'INTEREST.ALL_LINK',

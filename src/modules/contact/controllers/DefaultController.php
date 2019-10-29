@@ -2,8 +2,8 @@
 
 namespace app\modules\contact\controllers;
 
-use app\components\actions\CaptchaAction;
 use app\components\Controller;
+use yii\captcha\CaptchaAction;
 
 class DefaultController extends Controller
 {

@@ -3,6 +3,7 @@
 
 use app\components\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
+use yii\helpers\Html;
 
 /** @var $model RemindForm */
 $this->context->layout = 'user';
@@ -23,6 +24,8 @@ $this->params['breadcrumbs'] = [
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <div class="row">
         <?= $form->labelEx($model, 'email') ?><br />

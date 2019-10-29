@@ -88,7 +88,7 @@ window.getCSRFToken = function (){
     event.preventDefault();
 
     var data = new FormData();
-    data.set('YII_CSRF_TOKEN', getCSRFToken());
+    data.set('_csrf', getCSRFToken());
     axios({
       method: 'post',
       url: link.href,
@@ -120,7 +120,7 @@ window.getCSRFToken = function (){
     event.preventDefault();
 
     var data = new FormData();
-    data.set('YII_CSRF_TOKEN', getCSRFToken());
+    data.set('_csrf', getCSRFToken());
     axios({
       method: 'post',
       url: link.href,
@@ -152,7 +152,7 @@ window.getCSRFToken = function (){
     event.preventDefault();
 
     var data = new FormData();
-    data.set('YII_CSRF_TOKEN', getCSRFToken());
+    data.set('_csrf', getCSRFToken());
     axios({
       method: 'post',
       url: link.href,

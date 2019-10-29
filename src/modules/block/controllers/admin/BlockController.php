@@ -4,58 +4,60 @@ namespace app\modules\block\controllers\admin;
 
 use app\modules\block\models\Block;
 use app\modules\block\forms\BlockSearch;
-use CHttpException;
 use app\components\AdminController;
 use Yii;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class BlockController extends AdminController
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $model = new BlockSearch();
         $dataProvider = $model->search(Yii::$app->request->queryParams);
-        $this->render('index', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
             'model' => $model,
         ]);
     }
 
-    public function actionCreate(): void
+    public function actionCreate()
     {
         $model = new Block();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionView($id): void
+    public function actionView($id): string
     {
         $model = $this->loadModel($id);
-        $this->render('view', [
+        return $this->render('view', [
             'model' => $model,
         ]);
     }
@@ -64,7 +66,7 @@ class BlockController extends AdminController
     {
         $model = Block::findOne($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Не найдено');
+            throw new HttpException(404, 'Не найдено');
         }
         return $model;
     }

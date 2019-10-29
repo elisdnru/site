@@ -8,7 +8,7 @@ use Yii;
 
 abstract class PortfolioBaseController extends Controller
 {
-    protected function beforeAction($action): bool
+    public function beforeAction($action): bool
     {
         PortfolioAsset::register(Yii::$app->view);
 

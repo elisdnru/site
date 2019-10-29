@@ -2,20 +2,20 @@
 
 namespace app\modules\portfolio\controllers;
 
-use CHttpException;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
 use Yii;
 use yii\helpers\Url;
+use yii\web\HttpException;
 
 class WorkController extends PortfolioBaseController
 {
-    public function actionShow($id): string
+    public function actionShow($id)
     {
         $model = $this->loadModel($id);
 
         if ('/' . Yii::$app->request->getPathInfo() !== $model->getUrl()) {
-            $this->redirect(Url::current(['alias' => $model->alias]), true, 301);
+            return $this->redirect(Url::current(['alias' => $model->alias]), 301);
         }
 
         return $this->render('show', [
@@ -34,7 +34,7 @@ class WorkController extends PortfolioBaseController
         $model = $query->andWhere(['id' => $id])->one();
 
         if ($model === null) {
-            throw new CHttpException(404, 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
 
         return $model;

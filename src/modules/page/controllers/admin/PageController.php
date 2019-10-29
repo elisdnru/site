@@ -2,33 +2,27 @@
 
 namespace app\modules\page\controllers\admin;
 
-use CHttpException;
 use app\components\AdminController;
 use app\modules\page\models\Page;
 use Yii;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class PageController extends AdminController
 {
-    public function filters(): array
-    {
-        return array_merge(parent::filters(), [
-            'PostOnly + deleteFile',
-        ]);
-    }
-
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $model = new Page('search');
 
         $model->unsetAttributes();
         $model->attributes = Yii::$app->request->get('Page');
 
-        $this->render('index', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
 
-    public function actionCreate(): void
+    public function actionCreate()
     {
         $model = new Page();
         $model->date = time();
@@ -38,16 +32,16 @@ class PageController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
 
@@ -55,37 +49,38 @@ class PageController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionView($id): void
+    public function actionView($id): Response
     {
         $model = $this->loadModel($id);
 
-        $this->redirect($model->getUrl());
+        return $this->redirect($model->getUrl());
     }
 
     public function loadModel($id): Page
     {
         $model = Page::model()->findByPk($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
         if ($model->date === '0000-00-00') {
             $model->date = date('Y-m-d');

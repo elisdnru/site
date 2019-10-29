@@ -2,6 +2,7 @@
 /** @var $form CActiveForm */
 
 use app\components\widgets\Portlet;
+use yii\helpers\Html;
 
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
@@ -16,6 +17,8 @@ use app\components\widgets\Portlet;
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <?= $form->errorSummary($model) ?>
 

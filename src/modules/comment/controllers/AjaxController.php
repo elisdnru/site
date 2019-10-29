@@ -2,30 +2,38 @@
 
 namespace app\modules\comment\controllers;
 
-use CHttpException;
 use app\modules\comment\models\Comment;
 use app\components\Controller;
 use Yii;
+use yii\filters\VerbFilter;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class AjaxController extends Controller
 {
-    public function filters(): array
+    public function behaviors(): array
     {
-        return array_merge(parent::filters(), [
-            'PostOnly + delete, hide, like',
+        return array_merge(parent::behaviors(), [
+            [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'hide' => ['post'],
+                    'like' => ['post'],
+                ],
+            ],
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
 
         if (!Yii::$app->user->id) {
-            throw new CHttpException(403);
+            throw new HttpException(403);
         }
 
         if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::$app->user->id)) {
-            throw new CHttpException(403);
+            throw new HttpException(403);
         }
 
         if ($model->children) {
@@ -36,38 +44,40 @@ class AjaxController extends Controller
         }
 
         if (!$success) {
-            throw new CHttpException(400, 'Ошибка удаления');
+            throw new HttpException(400, 'Ошибка удаления');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: '/');
+            return $this->redirect(Yii::$app->request->getReferrer() ?: '/');
         }
+        return null;
     }
 
-    public function actionHide($id): void
+    public function actionHide($id): ?Response
     {
         if (!Yii::$app->user->id) {
-            throw new CHttpException(403);
+            throw new HttpException(403);
         }
 
         $model = $this->loadModel($id);
 
         if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::$app->user->id)) {
-            throw new CHttpException('403');
+            throw new HttpException(403);
         }
 
         $model->public = $model->public ? 0 : 1;
 
         if (!$model->save()) {
-            throw new CHttpException(400, 'Ошибка');
+            throw new HttpException(400, 'Ошибка');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: '/');
+            return $this->redirect(Yii::$app->request->getReferrer() ?: '/');
         }
+        return null;
     }
 
-    public function actionLike($id): void
+    public function actionLike($id): int
     {
         $model = $this->loadModel($id);
 
@@ -80,18 +90,17 @@ class AjaxController extends Controller
         }
 
         if (!$model->save()) {
-            throw new CHttpException(400, 'Ошибка');
+            throw new HttpException(400, 'Ошибка');
         }
 
-        echo $model->likes;
-        Yii::app()->end();
+        return $model->likes;
     }
 
     protected function loadModel($id): Comment
     {
         $model = Comment::findOne($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Комментарий не найден');
+            throw new HttpException(404, 'Комментарий не найден');
         }
         return $model;
     }

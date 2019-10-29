@@ -3,6 +3,7 @@
 
 use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\UloginWidget;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var $f CActiveForm */
@@ -18,6 +19,8 @@ use yii\helpers\Url;
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <?= $f->errorSummary($form, '') ?>
 

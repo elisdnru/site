@@ -11,7 +11,7 @@ use Zend\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         /** @var Post[] $posts */
         $posts = Post::model()->published()->findAll([
@@ -58,8 +58,9 @@ class FeedController extends Controller
             $feed->addEntry($item);
         }
 
-        header('Content-Type: text/xml;charset=UTF-8');
-        echo $feed->export('rss');
-        Yii::app()->end();
+        return Yii::$app->response->sendContentAsFile($feed->export('rss'), 'feed.xml', [
+            'mimeType' => 'text/xml',
+            'inline' => true,
+        ]);
     }
 }

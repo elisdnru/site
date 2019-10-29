@@ -4,27 +4,35 @@ namespace app\modules\file\controllers\admin;
 
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
-use CHttpException;
 use app\components\AdminController;
 use app\components\helpers\FileHelper;
 use app\components\helpers\TextHelper;
 use Yii;
+use yii\filters\VerbFilter;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class FileController extends AdminController
 {
-    const THUMB_IMAGE_WIDTH = 84;
-    const FILES_UPLOAD_COUNT = 7;
+    public const THUMB_IMAGE_WIDTH = 84;
+    public const FILES_UPLOAD_COUNT = 7;
 
     protected $uploadRootPath = 'upload/media';
 
-    public function filters(): array
+    public function behaviors(): array
     {
-        return array_merge(parent::filters(), [
-            'PostOnly + delete, rename, process',
+        return array_merge(parent::behaviors(), [
+            [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'rename' => ['post'],
+                    'process' => ['post'],
+                ],
+            ]
         ]);
     }
 
-    public function actionIndex($path = ''): string
+    public function actionIndex($path = '')
     {
         $root = Yii::getPathOfAlias('webroot') . '/' . $this->getFileDir();
         $htmlroot = '/' . $this->getFileDir();
@@ -41,7 +49,7 @@ class FileController extends AdminController
                     $this->uploadPostFile('file_' . $i, $curpath);
                 }
             }
-            $this->refresh();
+            return $this->refresh();
         }
 
         if (!empty($_POST['foldername'])) {
@@ -60,31 +68,32 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionDelete($name): void
+    public function actionDelete($name): ?Response
     {
         $name = FileHelper::escape($name);
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
-            throw new CHttpException(404, 'Файл не найден');
+            throw new HttpException(404, 'Файл не найден');
         }
 
         if (!$file->delete()) {
-            throw new CHttpException(400, 'Ошибка удаления');
+            throw new HttpException(400, 'Ошибка удаления');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionRename($path): void
+    public function actionRename($path): ?Response
     {
         $name = FileHelper::escape(Yii::$app->request->post('name'));
         $to = FileHelper::escape(Yii::$app->request->post('to'));
 
         if (!$name || !$to) {
-            throw new CHttpException(400, 'Некорректный запрос');
+            throw new HttpException(400, 'Некорректный запрос');
         }
 
         $name = ($path ? $path . '/' : '') . $name;
@@ -92,16 +101,17 @@ class FileController extends AdminController
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
-            throw new CHttpException(404, 'Файл не найден');
+            throw new HttpException(404, 'Файл не найден');
         }
 
         if (!$file->rename($to)) {
-            throw new CHttpException(400, 'Ошибка переименования');
+            throw new HttpException(400, 'Ошибка переименования');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index', 'path' => $path]);
+            return $this->redirect(['index', 'path' => $path]);
         }
+        return null;
     }
 
     protected function uploadPostFile($field, $curpath): bool
@@ -133,7 +143,7 @@ class FileController extends AdminController
         return $success;
     }
 
-    public function actionProcess($path): void
+    public function actionProcess($path): ?Response
     {
         $action = Yii::$app->request->post('action');
 
@@ -159,8 +169,9 @@ class FileController extends AdminController
         }
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index', 'path' => $path]);
+            return $this->redirect(['index', 'path' => $path]);
         }
+        return null;
     }
 
     protected function getFileDir(): string

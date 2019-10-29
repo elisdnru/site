@@ -3,10 +3,8 @@
 use yii\helpers\ArrayHelper;
 
 return ArrayHelper::merge(
-    require(__DIR__ . '/common.php'),
+    require(__DIR__ . '/console.php'),
     [
-        'controllerMap' => [],
-
         'components' => [
             'db' => [
                 'dsn' => 'mysql:host=mysql-test;dbname=test',

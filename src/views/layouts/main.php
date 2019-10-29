@@ -6,10 +6,9 @@ use app\extensions\cachetagging\Tags;
 use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
 
 MainAsset::register($this);
-
-$this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request->csrfToken]);
 
 /** @var $this \yii\web\View */
 ?>
@@ -24,6 +23,7 @@ $this->registerMetaTag(['name' => 'csrf-token', 'content' => Yii::app()->request
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB">
+    <?= Html::csrfMetaTags() ?>
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">

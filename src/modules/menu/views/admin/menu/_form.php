@@ -3,6 +3,7 @@
 
 use app\modules\menu\models\Menu;
 use app\modules\page\models\Page;
+use yii\helpers\Html;
 use yii\web\View;
 
 /** @var $model Menu */
@@ -18,6 +19,8 @@ use yii\web\View;
             'validateOnSubmit' => true,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 

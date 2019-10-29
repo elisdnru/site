@@ -17,6 +17,8 @@ require_once __DIR__.'/../config/env.php';
 
 require_once __DIR__ . '/../bootstrap.php';
 
+Yii::createWebApplication(__DIR__.'/../config/test.php');
+
 $yii2Config = require __DIR__ . '/../config/v2/test.php';
 new yii\web\Application($yii2Config);
 
@@ -25,5 +27,3 @@ Yii::import('system.test.CDbTestCase');
 Yii::import('system.test.CWebTestCase');
 
 require_once(__DIR__.'/DbTestCase.php');
-
-Yii::createWebApplication(__DIR__.'/../config/test.php');

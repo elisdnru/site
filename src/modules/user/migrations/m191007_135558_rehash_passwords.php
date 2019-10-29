@@ -2,19 +2,20 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
+use yii\db\Query;
 
-class m191007_135558_rehash_passwords extends EDbMigration
+class m191007_135558_rehash_passwords extends Migration
 {
     public function safeUp()
     {
         $this->alterColumn('users', 'password', 'varchar(255) DEFAULT NULL');
 
-        $rows = $this->dbConnection->createCommand()
+        $rows = (new Query())
             ->select('id, password')
             ->from('users')
             ->andWhere('LENGTH(password) = 32')
-            ->queryAll();
+            ->all($this->getDb());
 
         foreach ($rows as $row) {
             echo 'Rehash ' . $row['id'] . PHP_EOL;

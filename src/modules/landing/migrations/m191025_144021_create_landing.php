@@ -2,9 +2,9 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m191025_144021_create_landing extends EDbMigration
+class m191025_144021_create_landing extends Migration
 {
     public function safeUp()
     {

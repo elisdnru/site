@@ -2,23 +2,14 @@
 
 namespace app\components\module\routes;
 
-use CBehavior;
 use CConsoleApplication;
 use RuntimeException;
 use Yii;
+use yii\base\BootstrapInterface;
 
-class ModuleUrlRulesBehavior extends CBehavior
+class ModuleUrlRulesBehavior implements BootstrapInterface
 {
-    public $modules = [];
-
-    public function events(): array
-    {
-        return [
-            'onBeginRequest' => 'beginRequest',
-        ];
-    }
-
-    public function beginRequest(): void
+    public function bootstrap($app): void
     {
         if (Yii::app() instanceof CConsoleApplication) {
             return;

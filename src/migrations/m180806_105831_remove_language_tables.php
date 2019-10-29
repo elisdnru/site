@@ -2,13 +2,13 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m180806_105831_remove_language_tables extends EDbMigration
+class m180806_105831_remove_language_tables extends Migration
 {
     public function safeUp()
     {
-        if ($this->getDbConnection()->getSchema()->getTable('{{block_lang}}')) {
+        if ($this->getDb()->getTableSchema('{{block_lang}}')) {
             $this->dropTable('{{block_lang}}');
         }
 
@@ -16,7 +16,7 @@ class m180806_105831_remove_language_tables extends EDbMigration
         $this->dropTable('{{blog_category_lang}}');
         $this->dropTable('{{menu_lang}}');
 
-        if ($this->getDbConnection()->getSchema()->getTable('{{new_lang}}')) {
+        if ($this->getDb()->getTableSchema('{{new_lang}}')) {
             $this->dropTable('{{new_lang}}');
         }
 

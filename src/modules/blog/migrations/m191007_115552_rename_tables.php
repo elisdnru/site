@@ -2,9 +2,9 @@
 // phpcs:disable
 // PSR1.Classes.ClassDeclaration.MissingNamespace
 
-use app\extensions\migrate\EDbMigration;
+use yii\db\Migration;
 
-class m191007_115552_rename_tables extends EDbMigration
+class m191007_115552_rename_tables extends Migration
 {
     private const TABLES = [
         'blog_category' => 'blog_categories',

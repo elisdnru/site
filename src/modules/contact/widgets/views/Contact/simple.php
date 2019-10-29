@@ -2,6 +2,7 @@
 /** @var $form CActiveForm */
 
 use app\components\widgets\Portlet;
+use yii\helpers\Html;
 
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
@@ -18,6 +19,8 @@ use app\components\widgets\Portlet;
             'validateOnSubmit' => false,
         ],
     ]); ?>
+
+    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
     <div class="row inp_text">
         <?= $form->textField($model, 'name', ['placeholder' => 'ФИО', 'title' => 'ФИО']) ?><br />

@@ -14,6 +14,7 @@ use app\components\Controller;
 use app\components\DateLimiter;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
+use yii\web\HttpException;
 
 class DefaultController extends Controller
 {
@@ -55,11 +56,10 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionTag($tag): string
+    public function actionTag($tag)
     {
         if (!$tag = $this->loadTagModel($tag)) {
-            $this->redirect(['index']);
-            return '';
+            return $this->redirect(['index']);
         }
 
         $criteria = $this->getBlogCriteria();
@@ -102,7 +102,7 @@ class DefaultController extends Controller
     {
         $category = Category::model()->findByPath($path);
         if (!$category) {
-            throw new CHttpException('404', 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
         return $category;
     }
@@ -116,7 +116,7 @@ class DefaultController extends Controller
     {
         $dateLimiter = new DateLimiter($date);
         if (!$dateLimiter->validate()) {
-            throw new CHttpException('404', 'Страница не найдена');
+            throw new HttpException(404, 'Страница не найдена');
         }
         return $dateLimiter;
     }

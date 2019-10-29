@@ -11,6 +11,7 @@ use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 use Yii;
 use yii\caching\TagDependency;
+use yii\web\Response;
 
 class DefaultController extends Controller
 {
@@ -43,7 +44,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionXml(): void
+    public function actionXml(): Response
     {
         if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
@@ -61,9 +62,10 @@ class DefaultController extends Controller
             Yii::$app->cache->set('sitemap_xml', $xml, 3600);
         }
 
-        header('Content-type: text/xml');
-        echo $xml;
-        Yii::app()->end();
+        return Yii::$app->response->sendContentAsFile($xml, 'sitemap.xml', [
+            'mimeType' => 'text/xml',
+            'inline' => true,
+        ]);
     }
 
     /**

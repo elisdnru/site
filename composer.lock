@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9231d070a6d6c7a955fc7d086b205bce",
+    "content-hash": "ecb7ece394730ec6a98b1cc98c54ab87",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -282,6 +282,46 @@
                 "html"
             ],
             "time": "2019-10-28T03:44:26+00:00"
+        },
+        {
+            "name": "fishvision/yii2-migrate",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fishvision/yii2-migrate.git",
+                "reference": "9bf914bcbac5e71318079a50597e5d29bc42ac5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fishvision/yii2-migrate/zipball/9bf914bcbac5e71318079a50597e5d29bc42ac5a",
+                "reference": "9bf914bcbac5e71318079a50597e5d29bc42ac5a",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "fishvision\\migrate\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Berriman",
+                    "email": "alexb@fishvision.com"
+                }
+            ],
+            "description": "Extended migration support",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2017-06-08T01:59:47+00:00"
         },
         {
             "name": "guzzlehttp/promises",

@@ -3,25 +3,26 @@
 namespace app\modules\blog\controllers\admin;
 
 use app\modules\blog\models\Post;
-use CHttpException;
 use app\components\AdminController;
 use Yii;
+use yii\web\HttpException;
+use yii\web\Response;
 
 class PostController extends AdminController
 {
-    public function actionIndex(): void
+    public function actionIndex(): string
     {
         $model = new Post('search');
 
         $model->unsetAttributes();
         $model->attributes = Yii::$app->request->get('Post');
 
-        $this->render('index', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
 
-    public function actionCreate(): void
+    public function actionCreate()
     {
         $model = new Post();
         $model->public = 1;
@@ -34,16 +35,16 @@ class PostController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
-    public function actionUpdate($id): void
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
 
@@ -51,31 +52,32 @@ class PostController extends AdminController
             $model->attributes = $post;
 
             if ($model->save()) {
-                $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         }
 
-        $this->render('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    public function actionDelete($id): void
+    public function actionDelete($id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(['index']);
+            return $this->redirect(['index']);
         }
+        return null;
     }
 
-    public function actionToggle($id, $attribute): void
+    public function actionToggle($id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
         if ($attribute !== 'public') {
-            throw new CHttpException(400, 'Missing attribute '. $attribute);
+            throw new HttpException(400, 'Missing attribute '. $attribute);
         }
 
         $model->$attribute = $model->$attribute ? 0 : 1;
@@ -83,22 +85,23 @@ class PostController extends AdminController
         $model->save();
 
         if (!Yii::$app->request->getIsAjax()) {
-            $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
         }
+        return null;
     }
 
-    public function actionView($id): void
+    public function actionView($id): Response
     {
         $model = $this->loadModel($id);
 
-        $this->redirect($model->getUrl());
+        return $this->redirect($model->getUrl());
     }
 
     public function loadModel($id): Post
     {
         $model = Post::model()->findByPk($id);
         if ($model === null) {
-            throw new CHttpException(404, 'Не найдено');
+            throw new HttpException(404, 'Не найдено');
         }
         return $model;
     }

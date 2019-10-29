@@ -4,37 +4,43 @@ namespace app\components;
 
 use Yii;
 use yii\caching\TagDependency;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 abstract class AdminController extends Controller
 {
     public $layout = '@app/views/layouts/admin';
 
-    public function accessRules(): array
+    public function behaviors(): array
     {
         return [
-            ['allow',
-                'roles' => ['module_' . $this->module->id],
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['module_' . $this->module->id],
+                    ],
+                ],
             ],
-            ['deny',
-                'users' => ['*'],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'delete' => ['post'],
+                    'toggle' => ['post'],
+                ],
             ],
-        ];
-    }
-
-    public function filters(): array
-    {
-        return [
-            'accessControl',
-            'postOnly + delete, toggle',
         ];
     }
 
     public function beforeAction($action): bool
     {
-        $tag = $this->getModule()->getId();
-        Yii::app()->cache->clear($tag);
-        TagDependency::invalidate(Yii::$app->cache, $tag);
-
-        return parent::beforeAction($action);
+        if (parent::beforeAction($action)) {
+            $tag = $this->module->id;
+            TagDependency::invalidate(Yii::$app->cache, $tag);
+            Yii::app()->cache->clear($tag);
+            return true;
+        }
+        return false;
     }
 }
