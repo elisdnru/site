@@ -25,4 +25,9 @@ class V2Module extends Base
             ['label' => 'Добавить блок', 'url' => ['/block/admin/block/create'], 'icon' => 'add.png'],
         ];
     }
+
+    public static function notifications(): array
+    {
+        return [];
+    }
 }

@@ -2,18 +2,13 @@
 
 namespace app\modules\admin;
 
-use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
+use yii\base\Module as Base;
 use yii\web\GroupUrlRule;
 
 class V2Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getName(): string
-    {
-        return 'Панель управления';
-    }
 
     public static function rules(): array
     {

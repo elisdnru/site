@@ -27,6 +27,11 @@ class V2Module extends Base implements UrlProvider
         ];
     }
 
+    public static function notifications(): array
+    {
+        return [];
+    }
+
     public static function rules(): array
     {
         return [

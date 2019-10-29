@@ -4,20 +4,16 @@ namespace app\components\module;
 
 use yii\base\Module as Base;
 
-class Module extends Base
+abstract class Module extends Base
 {
     public function getGroup(): string
     {
         return 'Прочее';
     }
 
-    public static function adminMenu(): array
-    {
-        return [];
-    }
+    abstract public function getName(): string;
 
-    public static function notifications(): array
-    {
-        return [];
-    }
+    abstract public static function adminMenu(): array;
+
+    abstract public static function notifications(): array;
 }

@@ -2,8 +2,8 @@
 
 namespace app\modules\home;
 
-use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
+use yii\base\Module as Base;
 
 class V2Module extends Base implements UrlProvider
 {

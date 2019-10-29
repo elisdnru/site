@@ -24,4 +24,9 @@ class V2Module extends Base
             ['label' => 'Файлы', 'url' => ['/file/admin/file/index'], 'icon' => 'fileicon.jpg'],
         ];
     }
+
+    public static function notifications(): array
+    {
+        return [];
+    }
 }

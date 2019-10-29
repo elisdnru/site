@@ -14,7 +14,11 @@ class ModuleManager
     public function notifications(string $module): array
     {
         if ($class = $this->getModuleClass($module)) {
-            return method_exists($class, 'notifications') ? call_user_func($class . '::notifications') : [];
+            if (!is_subclass_of($class, Module::class)) {
+                return [];
+            }
+            /** @var Module $class */
+            return $class::notifications();
         }
         return [];
     }
@@ -22,7 +26,11 @@ class ModuleManager
     public function adminMenu(string $module): array
     {
         if ($class = $this->getModuleClass($module)) {
-            return method_exists($class, 'adminMenu') ? call_user_func($class . '::adminMenu') : [];
+            if (!is_subclass_of($class, Module::class)) {
+                return [];
+            }
+            /** @var Module $class */
+            return $class::adminMenu();
         }
         return [];
     }

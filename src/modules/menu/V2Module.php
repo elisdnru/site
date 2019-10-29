@@ -25,4 +25,9 @@ class V2Module extends Base
             ['label' => 'Добавить пункт', 'url' => ['/menu/admin/menu/create'], 'icon' => 'add.png'],
         ];
     }
+
+    public static function notifications(): array
+    {
+        return [];
+    }
 }

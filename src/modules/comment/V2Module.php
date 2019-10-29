@@ -16,6 +16,11 @@ class V2Module extends Base implements UrlProvider
         return 'Комментарии';
     }
 
+    public static function adminMenu(): array
+    {
+        return [];
+    }
+
     public static function notifications(): array
     {
         $comments = Comment::find()->unread()->count();

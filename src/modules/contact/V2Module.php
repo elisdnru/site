@@ -16,6 +16,11 @@ class V2Module extends Base implements UrlProvider
         return 'Обратная связь';
     }
 
+    public static function adminMenu(): array
+    {
+        return [];
+    }
+
     public static function notifications(): array
     {
         $messages = Contact::find()->andWhere(['status' => Contact::STATUS_NEW])->count();
