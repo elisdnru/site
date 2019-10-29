@@ -41,12 +41,6 @@ class PageUrlRule implements UrlRuleInterface
             return false;
         }
 
-        $_GET['path'] = $matches['path'];
-
-        if (isset($matches['page'])) {
-            $_GET['page'] = $matches['page'];
-        }
-
-        return 'page/page/show';
+        return ['page/page/show', $matches];
     }
 }

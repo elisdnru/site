@@ -41,12 +41,6 @@ class LandingUrlRule implements UrlRuleInterface
             return false;
         }
 
-        $_GET['path'] = $matches['path'];
-
-        if (isset($matches['landing'])) {
-            $_GET['landing'] = $matches['landing'];
-        }
-
-        return 'landing/landing/show';
+        return ['landing/landing/show', $matches];
     }
 }
