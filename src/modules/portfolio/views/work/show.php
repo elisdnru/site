@@ -86,7 +86,3 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     'description' => $model->description,
     'image' => $model->imageUrl,
 ]) ?>
-
-<?php if (preg_match('|<pre\sclass=\"brush\s?:\s?\w+\">|', $model->text)) : ?>
-    <?php Yii::app()->syntaxhighlighter->addHighlighter(); ?>
-<?php endif; ?>
