@@ -8,6 +8,7 @@ use app\components\Controller;
 use DateTimeImmutable;
 use Yii;
 use yii\helpers\Html;
+use yii\web\Response;
 use Zend\Feed\Writer\Feed;
 
 class FeedController extends Controller
@@ -44,7 +45,7 @@ class FeedController extends Controller
                 $description .= Html::a(CHtml::image($image, $model->title, ['style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
             }
             $description .= $model->short_purified;
-            $description .= Html::tag('p', [], Html::a('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
+            $description .= Html::tag('p', Html::a('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
 
             $item->setDescription($description);
 
@@ -59,9 +60,8 @@ class FeedController extends Controller
             $feed->addEntry($item);
         }
 
-        return Yii::$app->response->sendContentAsFile($feed->export('rss'), 'feed.xml', [
-            'mimeType' => 'text/xml',
-            'inline' => true,
-        ]);
+        Yii::$app->response->format = Response::FORMAT_RAW;
+        Yii::$app->response->headers['Content-Type'] = 'application/rss+xml;charset=UTF-8';
+        return $feed->export('rss');
     }
 }

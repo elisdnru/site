@@ -44,7 +44,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionXml(): Response
+    public function actionXml(): string
     {
         if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
@@ -62,10 +62,9 @@ class DefaultController extends Controller
             Yii::$app->cache->set('sitemap_xml', $xml, 3600);
         }
 
-        return Yii::$app->response->sendContentAsFile($xml, 'sitemap.xml', [
-            'mimeType' => 'text/xml',
-            'inline' => true,
-        ]);
+        Yii::$app->response->format = Response::FORMAT_RAW;
+        Yii::$app->response->headers['Content-Type'] = 'application/xml;charset=UTF-8';
+        return $xml;
     }
 
     /**
