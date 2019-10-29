@@ -106,7 +106,7 @@ return [
         ],
 
         'errorHandler' => [
-            'errorAction' => YII_DEBUG ? null : '/main/error/index',
+            'errorAction' => YII_DEBUG ? null : '/home/error/index',
         ],
 
         'widgetFactory' => [
