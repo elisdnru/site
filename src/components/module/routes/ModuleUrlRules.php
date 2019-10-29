@@ -6,7 +6,7 @@ use RuntimeException;
 use yii\base\BootstrapInterface;
 use yii\web\Application;
 
-class ModuleUrlRulesBehavior implements BootstrapInterface
+class ModuleUrlRules implements BootstrapInterface
 {
     public function bootstrap($app): void
     {
