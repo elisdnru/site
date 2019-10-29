@@ -2,8 +2,8 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\behaviors\v2\PurifyTextBehavior;
-use app\components\uploader\v2\FileUploadBehavior;
+use app\components\behaviors\PurifyTextBehavior;
+use app\components\uploader\FileUploadBehavior;
 use app\modules\portfolio\models\query\WorkQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -30,7 +30,7 @@ use yii\helpers\Url;
  * @property string $imageThumdUrl
  * @property Category category
  *
- * @mixin FileUploadBehavior
+ * @mixin \app\components\uploader\FileUploadBehavior
  * @method Work published()
  */
 class Work extends ActiveRecord

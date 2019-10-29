@@ -2,22 +2,21 @@
 
 namespace app\components\module\routes;
 
-use CConsoleApplication;
 use RuntimeException;
-use Yii;
 use yii\base\BootstrapInterface;
+use yii\web\Application;
 
 class ModuleUrlRulesBehavior implements BootstrapInterface
 {
     public function bootstrap($app): void
     {
-        if (Yii::app() instanceof CConsoleApplication) {
+        if (!$app instanceof Application) {
             return;
         }
 
         $sets = [];
 
-        foreach (Yii::app()->getModules() as $name => $definition) {
+        foreach ($app->getModules() as $name => $definition) {
             if (($set = $this->getRouteSet($name, $definition)) !== []) {
                 $sets[] = $set;
             }
@@ -27,7 +26,7 @@ class ModuleUrlRulesBehavior implements BootstrapInterface
             return $b['priority'] <=> $a['priority'];
         });
 
-        $urlManager = Yii::app()->getUrlManager();
+        $urlManager = $app->getUrlManager();
 
         foreach ($sets as $set) {
             $urlManager->addRules($set['routes']);

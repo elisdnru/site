@@ -1,15 +1,16 @@
 <?php
 
-namespace app\components\behaviors\v2;
+namespace app\components\behaviors\v1;
 
+use CActiveRecord;
+use CActiveRecordBehavior;
+use CComponent;
 use CHtml;
 use CHtmlPurifier;
 use CMarkdownParser;
-use yii\base\Behavior;
-use yii\base\Component;
-use yii\db\ActiveRecord;
+use CModelEvent;
 
-class PurifyTextBehavior extends Behavior
+class PurifyTextBehavior extends CActiveRecordBehavior
 {
     /**
      * @var string source attribute name
@@ -58,54 +59,47 @@ class PurifyTextBehavior extends Behavior
 
     private $contentHash = '';
 
-    public function events(): array
-    {
-        return [
-            ActiveRecord::EVENT_BEFORE_INSERT => 'beforeSave',
-            ActiveRecord::EVENT_BEFORE_UPDATE => 'beforeSave',
-            ActiveRecord::EVENT_AFTER_FIND => 'afterFind',
-        ];
-    }
-
-    public function beforeSave(): void
+    /**
+     * @param CModelEvent $event event parameter
+     */
+    public function beforeSave($event): void
     {
         $model = $this->getModel();
 
-        if (!$this->processOnBeforeSave) {
-            return;
-        }
-
-        if ($this->sourceAttribute &&
-            $this->destinationAttribute &&
-            $this->calculateHash($model->{$this->sourceAttribute}) !== $this->contentHash
-        ) {
-            $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
-        }
-    }
-
-    public function afterFind(): void
-    {
-        $model = $this->getModel();
-
-        if (!$this->processOnAfterFind) {
-            return;
-        }
-
-        $this->contentHash = $this->calculateHash($model->{$this->sourceAttribute});
-
-        if ($this->sourceAttribute &&
-            $this->destinationAttribute &&
-            $model->{$this->sourceAttribute} &&
-            !$model->{$this->destinationAttribute}
-        ) {
-            $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
-            if ($this->updateOnAfterFind) {
-                $this->updateModel();
+        if ($this->processOnBeforeSave) {
+            if ($this->sourceAttribute &&
+                $this->destinationAttribute &&
+                $this->calculateHash($model->{$this->sourceAttribute}) !== $this->contentHash
+            ) {
+                $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
             }
         }
     }
 
-    private function processContent(?string $text): string
+    /**
+     * @param CModelEvent $event event parameter
+     */
+    public function afterFind($event): void
+    {
+        $model = $this->getModel();
+
+        $this->contentHash = $this->calculateHash($model->{$this->sourceAttribute});
+
+        if ($this->processOnAfterFind) {
+            if ($this->sourceAttribute &&
+                $this->destinationAttribute &&
+                $model->{$this->sourceAttribute} &&
+                !$model->{$this->destinationAttribute}
+            ) {
+                $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
+                if ($this->updateOnAfterFind) {
+                    $this->updateModel();
+                }
+            }
+        }
+    }
+
+    protected function processContent(?string $text): string
     {
         if ($this->enableMarkdown) {
             $text = $this->markdownText($text);
@@ -148,10 +142,10 @@ class PurifyTextBehavior extends Behavior
         return $text;
     }
 
-    private function updateModel(): void
+    protected function updateModel(): void
     {
         $model = $this->getModel();
-        $model->updateAttributes([
+        $model->updateByPk($model->getPrimaryKey(), [
             $this->destinationAttribute => $model->{$this->destinationAttribute}
         ]);
     }
@@ -159,11 +153,11 @@ class PurifyTextBehavior extends Behavior
     private $preContents = [];
 
     /**
-     * @return ActiveRecord|Component
+     * @return CActiveRecord|CComponent
      */
-    private function getModel(): ActiveRecord
+    protected function getModel(): CActiveRecord
     {
-        return $this->owner;
+        return $this->getOwner();
     }
 
     private function storePreContent(array $matches): string

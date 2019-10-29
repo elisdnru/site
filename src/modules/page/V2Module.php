@@ -37,7 +37,7 @@ class V2Module extends Base implements UrlProvider
         return [
             'page/page/show' => 'site/error',
             'page/page' => 'site/error',
-            ['class' => components\v2\PageUrlRule::class, 'cache' => 3600 * 24],
+            ['class' => components\PageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 

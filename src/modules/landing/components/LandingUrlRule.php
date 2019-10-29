@@ -2,42 +2,45 @@
 
 namespace app\modules\landing\components;
 
-use CBaseUrlRule;
 use app\modules\landing\models\Landing;
 use Yii;
+use yii\base\InvalidArgumentException;
+use yii\web\UrlRuleInterface;
 
-class LandingUrlRule extends CBaseUrlRule
+class LandingUrlRule implements UrlRuleInterface
 {
-    public $connectionID = 'db';
     public $cache = 0;
 
-    public function createUrl($manager, $route, $params, $ampersand)
+    public function createUrl($manager, $route, $params)
     {
-        if ($route === 'landing/landing/show') {
-            if (isset($params['path'])) {
-                return $params['path'];
-            }
+        if ($route !== 'landing/landing/show') {
+            return false;
         }
-        return false;
+
+        if (empty($params['path'])) {
+            throw new InvalidArgumentException('Empty landing path.');
+        }
+
+        return $params['path'];
     }
 
-    public function parseUrl($manager, $request, $pathInfo, $rawPathInfo)
+    /**
+     * @inheritDoc
+     */
+    public function parseRequest($manager, $request)
     {
-        if (preg_match('|^(?P<path>\w[\w_/-]+)$|', $pathInfo, $matches)) {
-            if (Yii::app()->hasModule($matches['path'])) {
-                return false;
-            }
-
-            if (Landing::model()->cache($this->cache)->findByPath($matches['path'])) {
-                $_GET['path'] = $matches['path'];
-
-                if (isset($matches['landing'])) {
-                    $_GET['landing'] = $matches['landing'];
-                }
-
-                return 'landing/landing/show';
-            }
+        if (!preg_match('|^(?P<path>\w[\w_/-]+)$|', $request->getPathInfo(), $matches)) {
+            return false;
         }
-        return false;
+
+        if (Yii::$app->hasModule($matches['path'])) {
+            return false;
+        }
+
+        if (!Landing::model()->cache($this->cache)->findByPath($matches['path'])) {
+            return false;
+        }
+
+        return ['landing/landing/show', $matches];
     }
 }

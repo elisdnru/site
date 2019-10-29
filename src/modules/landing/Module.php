@@ -12,7 +12,7 @@ class Module extends CWebModule implements UrlProvider
     public static function rules(): array
     {
         return [
-            ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
+            ['class' => components\v1\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 

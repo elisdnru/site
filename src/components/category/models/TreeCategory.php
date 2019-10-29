@@ -4,7 +4,7 @@ namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
-use app\components\validators\ExistOrEmpty;
+use app\components\validators\v1\ExistOrEmpty;
 use CActiveDataProvider;
 use CDbCriteria;
 use yii\helpers\Url;

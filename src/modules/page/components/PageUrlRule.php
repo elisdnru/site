@@ -2,44 +2,45 @@
 
 namespace app\modules\page\components;
 
-use CBaseUrlRule;
 use app\modules\page\models\Page;
 use Yii;
+use yii\base\InvalidArgumentException;
+use yii\web\UrlRuleInterface;
 
-class PageUrlRule extends CBaseUrlRule
+class PageUrlRule implements UrlRuleInterface
 {
-    public $connectionID = 'db';
     public $cache = 0;
 
-    public function createUrl($manager, $route, $params, $ampersand)
+    public function createUrl($manager, $route, $params)
     {
-        if ($route === 'page/page/show') {
-            if (isset($params['path'])) {
-                return $params['path'];
-            }
+        if ($route !== 'page/page/show') {
+            return false;
         }
-        return false;
+
+        if (empty($params['path'])) {
+            throw new InvalidArgumentException('Empty page path.');
+        }
+
+        return $params['path'];
     }
 
-    public function parseUrl($manager, $request, $pathInfo, $rawPathInfo)
+    /**
+     * @inheritDoc
+     */
+    public function parseRequest($manager, $request)
     {
-        if (preg_match('|^(?P<path>\w[\w\d_/-]+)/page-(?P<page>\d+)$|', $pathInfo, $matches) ||
-            preg_match('|^(?P<path>\w[\w\d_/-]+)$|', $pathInfo, $matches)
-        ) {
-            if (Yii::app()->hasModule($matches['path'])) {
-                return false;
-            }
-
-            if (Page::model()->cache($this->cache)->findByPath($matches['path'])) {
-                $_GET['path'] = $matches['path'];
-
-                if (isset($matches['page'])) {
-                    $_GET['page'] = $matches['page'];
-                }
-
-                return 'page/page/show';
-            }
+        if (!preg_match('|^(?P<path>\w[\w_/-]+)$|', $request->getPathInfo(), $matches)) {
+            return false;
         }
-        return false;
+
+        if (Yii::$app->hasModule($matches['path'])) {
+            return false;
+        }
+
+        if (!Page::model()->cache($this->cache)->findByPath($matches['path'])) {
+            return false;
+        }
+
+        return ['page/page/show', $matches];
     }
 }

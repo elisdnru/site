@@ -1,14 +1,14 @@
 <?php
 
-namespace app\components\uploader\v2;
+namespace app\components\uploader\v1;
 
+use CActiveRecord;
+use CActiveRecordBehavior;
 use app\extensions\file\File;
+use CModelEvent;
+use CUploadedFile;
+use CValidator;
 use Yii;
-use yii\base\Behavior;
-use yii\base\ModelEvent;
-use yii\db\ActiveRecord;
-use yii\validators\Validator;
-use yii\web\UploadedFile;
 
 /**
  * DFileUploadBehavior will automatically load image to model.
@@ -34,10 +34,10 @@ use yii\web\UploadedFile;
  * </pre>
  *
  */
-class FileUploadBehavior extends Behavior
+class FileUploadBehavior extends CActiveRecordBehavior
 {
     public $fileAttribute = 'file';
-    public $fileTypes = ['jpg', 'jpeg', 'gif', 'png'];
+    public $fileTypes = 'jpg,jpeg,gif,png';
     public $enableWatermark = false;
     public $storageAttribute; // set if it different from fileAttribute
     public $deleteAttribute; // field for "Delete image" checkbox
@@ -48,36 +48,27 @@ class FileUploadBehavior extends Behavior
     public $imageHeightAttribute = '';
 
     /**
-     * @param ActiveRecord $owner
+     * @param CActiveRecord $owner
      */
     public function attach($owner): void
     {
         parent::attach($owner);
-        $fileValidator = Validator::createValidator('file', $owner, $this->fileAttribute, [
-            'extensions' => $this->fileTypes,
-            'skipOnEmpty' => true,
+        $fileValidator = CValidator::createValidator('file', $owner, $this->fileAttribute, [
+            'types' => $this->fileTypes,
+            'allowEmpty' => true,
+            'safe' => false,
         ]);
-        $owner->getValidators()->append($fileValidator);
-    }
-
-    public function events(): array
-    {
-        return [
-            ActiveRecord::EVENT_BEFORE_INSERT => 'beforeSave',
-            ActiveRecord::EVENT_BEFORE_UPDATE => 'beforeSave',
-            ActiveRecord::EVENT_BEFORE_DELETE => 'beforeDelete',
-        ];
+        $owner->getValidatorList()->add($fileValidator);
     }
 
     /**
      * Responds to {@link CModel::onBeforeSave} event.
-     * @param ModelEvent $event event parameter
+     * @param CModelEvent $event event parameter
      */
     public function beforeSave($event): void
     {
         $this->initAttributes();
-        $model = $this->owner;
-
+        $model = $this->getOwner();
         if (isset($model->{$this->deleteAttribute}) && $model->{$this->deleteAttribute}) {
             $this->deleteFile();
         }
@@ -87,7 +78,7 @@ class FileUploadBehavior extends Behavior
 
     /**
      * Responds to {@link CModel::onBeforeDelete} event.
-     * @param ModelEvent $event event parameter
+     * @param CModelEvent $event event parameter
      */
     public function beforeDelete($event): void
     {
@@ -101,7 +92,7 @@ class FileUploadBehavior extends Behavior
     {
         $this->initAttributes();
         if ($this->cachedImageUrl === null) {
-            $this->cachedImageUrl = '/' . Yii::$app->uploader->getUrl($this->filePath, $this->owner->{$this->storageAttribute});
+            $this->cachedImageUrl = '/' . Yii::$app->uploader->getUrl($this->filePath, $this->getOwner()->{$this->storageAttribute});
         }
         return $this->cachedImageUrl;
     }
@@ -121,7 +112,7 @@ class FileUploadBehavior extends Behavior
         $index = $width . 'x' . $height;
 
         if (!isset($this->cachedImageThumbUrl[$index])) {
-            $fileName = Yii::$app->uploader->getThumbUrl($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
+            $fileName = Yii::$app->uploader->getThumbUrl($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
             $this->cachedImageThumbUrl[$index] = '/' . $fileName;
         }
         return $this->cachedImageThumbUrl[$index];
@@ -130,17 +121,17 @@ class FileUploadBehavior extends Behavior
     protected function processImageSizes(): void
     {
         if ($this->imageWidthAttribute && $this->imageHeightAttribute) {
-            $model = $this->owner;
+            $model = $this->getOwner();
             if ($model->{$this->storageAttribute}) {
                 $width = $this->defaultThumbWidth;
                 $height = $this->defaultThumbHeight;
 
-                $thumbName = Yii::$app->uploader->createThumbFileName($this->owner->{$this->storageAttribute}, $width, $height);
+                $thumbName = Yii::$app->uploader->createThumbFileName($this->getOwner()->{$this->storageAttribute}, $width, $height);
 
                 if (Yii::$app->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
                     $file = Yii::$app->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
-                    $file = Yii::$app->uploader->createThumb($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
+                    $file = Yii::$app->uploader->createThumb($this->filePath, $this->getOwner()->{$this->storageAttribute}, $width, $height);
                 }
 
                 if ($file) {
@@ -162,8 +153,8 @@ class FileUploadBehavior extends Behavior
 
     protected function loadFile(): void
     {
-        /** @var ActiveRecord $model */
-        $model = $this->owner;
+        /** @var CActiveRecord $model */
+        $model = $this->getOwner();
 
         if (preg_match('|^http:\/\/|', $model->{$this->fileAttribute})) {
             $fileUrl = $model->{$this->fileAttribute};
@@ -173,14 +164,14 @@ class FileUploadBehavior extends Behavior
                 $model->{$this->fileAttribute} = '';
                 $model->{$this->storageAttribute} = $upload->getBasename();
             }
-        } elseif ($model->{$this->fileAttribute} instanceof UploadedFile) {
+        } elseif ($model->{$this->fileAttribute} instanceof CUploadedFile) {
             $uploadedFile = $model->{$this->fileAttribute};
             $this->deleteFile();
 
             if ($upload = $this->uploadFile($uploadedFile)) {
                 $model->{$this->storageAttribute} = $upload->getBasename();
             }
-        } elseif ($file = UploadedFile::getInstance($model, $this->fileAttribute)) {
+        } elseif ($file = CUploadedFile::getInstance($model, $this->fileAttribute)) {
             $this->deleteFile();
 
             if ($upload = $this->uploadFile($file)) {
@@ -191,7 +182,7 @@ class FileUploadBehavior extends Behavior
 
     protected function deleteFile(): void
     {
-        $model = $this->owner;
+        $model = $this->getOwner();
         if ($model->{$this->storageAttribute}) {
             Yii::$app->uploader->delete($model->{$this->storageAttribute}, $this->filePath);
             if (isset($model->{$this->deleteAttribute})) {
@@ -206,8 +197,8 @@ class FileUploadBehavior extends Behavior
         return Yii::$app->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
     }
 
-    private function uploadFile(UploadedFile $uploadedFile): ?File
+    private function uploadFile(CUploadedFile $uploadedFile): ?File
     {
-        return Yii::$app->uploader->v2Upload($uploadedFile, $this->filePath);
+        return Yii::$app->uploader->v1Upload($uploadedFile, $this->filePath);
     }
 }

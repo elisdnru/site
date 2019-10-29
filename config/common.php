@@ -3,7 +3,7 @@
 use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRulesBehavior;
-use app\components\module\routes\v2\ModuleUrlRules;
+use app\components\module\routes\v1\ModuleUrlRules;
 use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;

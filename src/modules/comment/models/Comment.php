@@ -2,7 +2,7 @@
 
 namespace app\modules\comment\models;
 
-use app\components\behaviors\v2\PurifyTextBehavior;
+use app\components\behaviors\PurifyTextBehavior;
 use app\components\helpers\GravatarHelper;
 use app\modules\comment\models\query\CommentQuery;
 use app\modules\user\models\User;

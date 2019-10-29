@@ -14,7 +14,7 @@ class Module extends CWebModule implements UrlProvider
         return [
             'page/page/show' => 'site/error',
             'page/page' => 'site/error',
-            ['class' => components\PageUrlRule::class, 'cache' => 3600 * 24],
+            ['class' => components\v1\PageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 

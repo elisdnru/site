@@ -3,7 +3,7 @@
 namespace app\modules\user\models;
 
 use app\components\helpers\GravatarHelper;
-use app\components\uploader\v2\FileUploadBehavior;
+use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
 use app\modules\user\components\CurrentPasswordValidator;
 use RuntimeException;

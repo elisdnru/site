@@ -26,7 +26,7 @@ class Uploader
      * @return File|null
      * @throws CException
      */
-    public function upload(CUploadedFile $file, string $path): ?File
+    public function v1Upload(CUploadedFile $file, string $path): ?File
     {
         if (!is_dir($path)) {
             Yii::$app->file->set($path)->createDir($this->directoryRights);
@@ -45,7 +45,7 @@ class Uploader
         return null;
     }
 
-    public function v2Upload(UploadedFile $file, string $path): ?File
+    public function upload(UploadedFile $file, string $path): ?File
     {
         if (!is_dir($path)) {
             Yii::$app->file->set($path)->createDir($this->directoryRights);

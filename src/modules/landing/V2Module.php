@@ -35,7 +35,7 @@ class V2Module extends Base implements UrlProvider
     public static function rules(): array
     {
         return [
-            ['class' => components\v2\LandingUrlRule::class, 'cache' => 3600 * 24],
+            ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 

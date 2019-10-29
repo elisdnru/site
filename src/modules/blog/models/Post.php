@@ -2,9 +2,9 @@
 
 namespace app\modules\blog\models;
 
-use app\components\behaviors\PurifyTextBehavior;
-use app\components\uploader\FileUploadBehavior;
-use app\components\validators\ExistOrEmpty;
+use app\components\behaviors\v1\PurifyTextBehavior;
+use app\components\uploader\v1\FileUploadBehavior;
+use app\components\validators\v1\ExistOrEmpty;
 use app\components\helpers\TextHelper;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
@@ -48,7 +48,7 @@ use yii\helpers\Url;
  * @property Category $category
  * @property Tag[] $tags
  *
- * @mixin FileUploadBehavior
+ * @mixin \app\components\uploader\v1\FileUploadBehavior
  * @method Post published()
  */
 class Post extends CActiveRecord implements Material
@@ -88,7 +88,7 @@ class Post extends CActiveRecord implements Material
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\components\validators\v2\ExistOrEmpty::class, 'className' => User::class, 'attributeName' => 'id'],
+            ['author_id', \app\components\validators\ExistOrEmpty::class, 'className' => User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => Category::class, 'attributeName' => 'id'],
             ['group_id', ExistOrEmpty::class, 'className' => Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
