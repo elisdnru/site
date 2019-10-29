@@ -3,9 +3,9 @@
 namespace app\modules\search;
 
 use app\components\module\routes\UrlProvider;
-use CWebModule;
+use yii\base\Module as Base;
 
-class Module extends CWebModule implements UrlProvider
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 

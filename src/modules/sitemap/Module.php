@@ -3,9 +3,9 @@
 namespace app\modules\sitemap;
 
 use app\components\module\routes\UrlProvider;
-use CWebModule;
+use yii\base\Module as Base;
 
-class Module extends CWebModule implements UrlProvider
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -13,7 +13,11 @@ class Module extends CWebModule implements UrlProvider
     {
         return [
             'sitemap' => 'sitemap/default/index',
-            ['sitemap/default/xml', 'pattern' => 'sitemap.xml', 'urlSuffix' => ''],
+            [
+                'pattern' => 'sitemap.xml',
+                'route' => 'sitemap/default/xml',
+                'suffix' => ''
+            ],
         ];
     }
 

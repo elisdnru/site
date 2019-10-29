@@ -3,7 +3,6 @@
 use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRules;
-use app\components\module\routes\v1\ModuleUrlRules as V1ModuleUrlRules;
 use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
@@ -43,26 +42,25 @@ return [
 
     'bootstrap' => [
         ModuleUrlRules::class,
-        V1ModuleUrlRules::class,
     ],
 
     'modules' => [
-        'admin' => ['class' => app\modules\admin\V2Module::class],
-        'block' => ['class' => app\modules\block\V2Module::class],
-        'blog' => ['class' => app\modules\blog\V2Module::class],
-        'comment' => ['class' => app\modules\comment\V2Module::class],
-        'contact' => ['class' => app\modules\contact\V2Module::class],
-        'file' => ['class' => app\modules\file\V2Module::class],
-        'home' => ['class' => app\modules\home\V2Module::class],
-        'menu' => ['class' => app\modules\menu\V2Module::class],
-        'page' => ['class' => app\modules\page\V2Module::class],
-        'landing' => ['class' => app\modules\landing\V2Module::class],
-        'portfolio' => ['class' => app\modules\portfolio\V2Module::class],
-        'search' => ['class' => app\modules\search\V2Module::class],
-        'sitemap' => ['class' => app\modules\sitemap\V2Module::class],
-        'ulogin' => ['class' => app\modules\ulogin\V2Module::class],
-        'image' => ['class' => app\modules\image\V2Module::class],
-        'user' => ['class' => app\modules\user\V2Module::class],
+        'admin' => ['class' => app\modules\admin\Module::class],
+        'block' => ['class' => app\modules\block\Module::class],
+        'blog' => ['class' => app\modules\blog\Module::class],
+        'comment' => ['class' => app\modules\comment\Module::class],
+        'contact' => ['class' => app\modules\contact\Module::class],
+        'file' => ['class' => app\modules\file\Module::class],
+        'home' => ['class' => app\modules\home\Module::class],
+        'menu' => ['class' => app\modules\menu\Module::class],
+        'page' => ['class' => app\modules\page\Module::class],
+        'landing' => ['class' => app\modules\landing\Module::class],
+        'portfolio' => ['class' => app\modules\portfolio\Module::class],
+        'search' => ['class' => app\modules\search\Module::class],
+        'sitemap' => ['class' => app\modules\sitemap\Module::class],
+        'ulogin' => ['class' => app\modules\ulogin\Module::class],
+        'image' => ['class' => app\modules\image\Module::class],
+        'user' => ['class' => app\modules\user\Module::class],
     ],
 
     'components' => [

@@ -2,11 +2,11 @@
 
 namespace app\modules\admin;
 
-use app\components\GroupUrlRule;
 use app\components\module\routes\UrlProvider;
-use CWebModule;
+use yii\base\Module as Base;
+use yii\web\GroupUrlRule;
 
-class Module extends CWebModule implements UrlProvider
+class Module extends Base implements UrlProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
