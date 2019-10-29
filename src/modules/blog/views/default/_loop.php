@@ -1,6 +1,8 @@
 <?php
 use app\components\helpers\DateHelper;
+use yii\data\Pagination;
 use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 /** @var $dataProvider CDataProvider */
 ?>
@@ -65,8 +67,12 @@ use yii\helpers\Html;
         <?php endforeach; ?>
     </div>
     <div class="pager">
-        <?php Yii::app()->controller->widget('system.web.widgets.pagers.CLinkPager', [
-            'pages' => $dataProvider->getPagination(),
+        <?= LinkPager::widget([
+            'pagination' => new Pagination([
+                'totalCount' => $dataProvider->getPagination()->getItemCount(),
+                'defaultPageSize' => $dataProvider->getPagination()->getPageSize(),
+                'forcePageParam' => false,
+            ]),
         ]) ?>
     </div>
 </div>
