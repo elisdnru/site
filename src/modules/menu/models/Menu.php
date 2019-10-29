@@ -197,7 +197,7 @@ class Menu extends CActiveRecord
 
     private function getLinkActive(): bool
     {
-        $currentUri = Yii::$app->request->getPathInfo();
+        $currentUri = '/' . Yii::$app->request->getPathInfo();
         $itemUri = $this->getUrl();
         return strpos('/' . $currentUri . '/', '/' . $itemUri . '/') === 0 || strpos('/' . $currentUri . '?', '/' . $itemUri . '?') === 0;
     }
