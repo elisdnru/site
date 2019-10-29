@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace app\components;
 
-use CHttpException;
 use yii\web\ErrorHandler;
+use yii\web\HttpException;
 use function Sentry\captureException;
 
 class SentryErrorHandler extends ErrorHandler
@@ -16,18 +16,14 @@ class SentryErrorHandler extends ErrorHandler
     {
         parent::logException($exception);
 
-        if ((bool)getenv('APP_DEBUG')) {
+        if ($this->sentryActive) {
             $this->reportException($exception);
         }
     }
 
     public function reportException($exception): void
     {
-        if (!$this->sentryActive) {
-            return;
-        }
-
-        if ($exception instanceof CHttpException && in_array($exception->getCode(), [404, 403], true)) {
+        if ($exception instanceof HttpException && in_array($exception->getCode(), [404, 403], true)) {
             return;
         }
 
