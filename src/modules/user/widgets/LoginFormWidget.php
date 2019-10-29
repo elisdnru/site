@@ -11,7 +11,7 @@ class LoginFormWidget extends Widget
 {
     public $tpl = 'LoginForm';
 
-    public function run(): string
+    public function run()
     {
         $model = new LoginForm();
         $model->rememberMe = true;
@@ -20,7 +20,7 @@ class LoginFormWidget extends Widget
             $model->attributes = $post;
 
             if ($model->validate() && $model->login()) {
-                Yii::app()->controller->refresh();
+                return Yii::$app->controller->refresh();
             }
         }
 

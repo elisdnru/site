@@ -12,7 +12,7 @@ class ContactWidget extends Widget
     public $tpl = 'default';
     public $scenario = '';
 
-    public function run(): string
+    public function run()
     {
         $form = new ContactForm($this->scenario);
 
@@ -26,7 +26,7 @@ class ContactWidget extends Widget
 
                 if ($contact->save()) {
                     Yii::$app->session->setFlash('success', 'Ваше сообщение принято');
-                    Yii::app()->controller->refresh();
+                    Yii::$app->controller->refresh();
                 }
             }
         }
