@@ -4,6 +4,7 @@
 use app\components\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var $model RemindForm */
 $this->context->layout = 'user';
@@ -18,6 +19,7 @@ $this->params['breadcrumbs'] = [
 
 <div class="form">
     <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
+        'action' => Url::current(),
         'id' => 'login-form',
         'enableClientValidation' => true,
         'clientOptions' => [

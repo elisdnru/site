@@ -3,6 +3,7 @@
 
 use app\components\widgets\Portlet;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>
@@ -11,6 +12,7 @@ use yii\helpers\Html;
 <div class="form">
 
     <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
+        'action' => Url::current(),
         'id' => 'contact-form',
         'enableClientValidation' => true,
         'clientOptions' => [

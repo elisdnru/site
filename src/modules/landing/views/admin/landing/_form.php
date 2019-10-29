@@ -3,6 +3,7 @@
 
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $model Landing */
@@ -12,6 +13,7 @@ use yii\web\View;
 <div class="form">
 
     <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
+        'action' => Url::current(),
         'id' => 'landing-form',
         'enableClientValidation' => true,
         'clientOptions' => [

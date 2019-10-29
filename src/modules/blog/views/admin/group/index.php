@@ -63,6 +63,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 <div class="form">
 
     <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
+        'action' => Url::current(),
         'id' => 'category-form',
         'enableClientValidation' => true,
         'clientOptions' => [

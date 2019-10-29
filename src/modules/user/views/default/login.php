@@ -18,6 +18,7 @@ use yii\helpers\Url; ?>
 
 <div class="form">
     <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
+        'action' => Url::current(),
         'id' => 'login-form',
         'enableClientValidation' => true,
         'clientOptions' => [

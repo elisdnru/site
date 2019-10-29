@@ -1,6 +1,7 @@
 <?php
 use app\modules\comment\forms\CommentForm;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var $f CActiveForm */
 /** @var $form CommentForm */
