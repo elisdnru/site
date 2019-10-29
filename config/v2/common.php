@@ -6,7 +6,7 @@ use app\components\module\routes\ModuleUrlRulesBehavior;
 use app\components\module\routes\v2\ModuleUrlRules;
 use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
-use app\components\V2UserAuthManager;
+use app\components\AuthManager;
 use app\components\widgets\inline\CountDownWidget;
 use app\components\widgets\inline\MailToWidget;
 use app\components\widgets\inline\SubscribeNewsWidget;
@@ -122,7 +122,7 @@ return [
         ],
 
         'authManager' => [
-            'class' => V2UserAuthManager::class,
+            'class' => AuthManager::class,
             'itemFile' => __DIR__ . '/rbac/items.php',
             'ruleFile' => __DIR__ . '/rbac/rules.php',
             'assignmentFile' => __DIR__ . '/rbac/assignments.php',

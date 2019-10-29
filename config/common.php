@@ -6,9 +6,6 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
-use app\components\module\routes\ModuleUrlRulesBehavior;
-use app\components\UserAuthManager;
-use app\components\WebUser;
 use app\extensions\cachetagging\TaggingBehavior;
 
 CHtml::setModelNameConverter(static function ($model) {
@@ -72,12 +69,6 @@ return [
             ],
         ],
 
-        'user' => [
-            'class' => WebUser::class,
-            'allowAutoLogin' => false,
-            'loginUrl' => ['/user/default/login'],
-        ],
-
         'clientScript' => [
             'coreScriptPosition' => CClientScript::POS_END,
             'defaultScriptFilePosition' => CClientScript::POS_END,
@@ -98,11 +89,6 @@ return [
             'tablePrefix' => '',
             'charset' => 'utf8',
             'schemaCachingDuration' => 3600,
-        ],
-
-        'authManager' => [
-            'class' => UserAuthManager::class,
-            'authFile' => __DIR__ . '/auth.php'
         ],
 
         'errorHandler' => [
