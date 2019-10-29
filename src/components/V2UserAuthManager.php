@@ -3,32 +3,27 @@
 namespace app\components;
 
 use app\modules\user\models\User;
-use Yii;
 use yii\rbac\Assignment;
 use yii\rbac\PhpManager;
 
 class V2UserAuthManager extends PhpManager
 {
-    public function init(): void
+    public function getAssignments($userId): array
     {
-        parent::init();
-
-        if (!Yii::$app->has('user')) {
-            return;
+        if (array_key_exists($userId, $this->assignments)) {
+            return $this->assignments[$userId];
         }
 
-        if (Yii::$app->user->getIsGuest()) {
-            return;
+        if (!$user = User::findOne($userId)) {
+            return $this->assignments[$userId] = [];
         }
 
-        if (!$user = User::findOne(Yii::$app->user->getId())) {
-            return;
-        }
-
-        $this->assignments[$user->id][$user->role] = new Assignment([
-            'userId' => $user->id,
-            'roleName' => $user->role,
-            'createdAt' => time(),
-        ]);
+        return $this->assignments[$userId] = [
+            $user->role => new Assignment([
+                'userId' => $user->id,
+                'roleName' => $user->role,
+                'createdAt' => time()
+            ])
+        ];
     }
 }
