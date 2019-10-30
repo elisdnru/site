@@ -21,10 +21,13 @@ docker-pull:
 docker-build:
 	docker-compose build
 
-site-init: site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
+site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
 site-clear:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine sh -c 'rm -rf .ready var/*'
+
+site-permissions:
+	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload
 
 site-composer-install:
 	docker-compose run --rm php-cli composer install

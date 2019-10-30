@@ -19,13 +19,14 @@ use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\captcha\CaptchaAction;
 use yii\db\Connection;
+use yii\helpers\FileHelper;
 use yii\web\JqueryAsset;
 use yii\widgets\LinkPager;
 
 $runtime = dirname(__DIR__) . '/var/' . PHP_SAPI;
 
 if (!is_dir($runtime)) {
-    CFileHelper::createDirectory($runtime);
+    FileHelper::createDirectory($runtime, 0777);
 }
 
 $mailerUri = parse_url(getenv('MAILER_URI'));

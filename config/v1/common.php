@@ -15,7 +15,7 @@ CHtml::setModelNameConverter(static function ($model) {
 $runtime = dirname(__DIR__, 2) . '/var/' . PHP_SAPI;
 
 if (!is_dir($runtime)) {
-    CFileHelper::createDirectory($runtime);
+    CFileHelper::createDirectory($runtime, 0777);
 }
 
 $assetsVersion = @filemtime(dirname(__DIR__, 2) . '/public/build');
