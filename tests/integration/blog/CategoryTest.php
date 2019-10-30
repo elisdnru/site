@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\blog;
+namespace tests\integration\blog;
 
 use app\modules\blog\models\Category;
 use Codeception\Test\Unit;
@@ -18,7 +18,7 @@ use tests\fixtures\user\UserFixture;
 class CategoryTest extends Unit
 {
     /**
-     * @var \tests\UnitTester
+     * @var \tests\IntegrationTester
      */
     protected $tester;
 

@@ -10,7 +10,3 @@ bootstrap: _bootstrap.php
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-modules:
-    config:
-        Yii2:
-            configFile: 'config/test.php'

@@ -1,0 +1,10 @@
+suite_namespace: tests\integration
+actor: IntegrationTester
+modules:
+    enabled:
+        - Asserts
+        - Yii2:
+            part: [orm, email, fixtures]
+            configFile: 'config/test.php'
+        - \tests\Helper\Integration
+    step_decorators: ~

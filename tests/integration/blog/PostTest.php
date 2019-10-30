@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\blog;
+namespace tests\integration\blog;
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
@@ -19,7 +19,7 @@ use tests\fixtures\user\UserFixture;
 class PostTest extends Unit
 {
     /**
-     * @var \tests\UnitTester
+     * @var \tests\IntegrationTester
      */
     protected $tester;
 
@@ -62,7 +62,7 @@ class PostTest extends Unit
         $this->post = new Post();
     }
 
-    public function testTitleIsRequired(): void
+    public function testValidation(): void
     {
         $this->assertFalse($this->post->validate());
         $this->assertEquals([

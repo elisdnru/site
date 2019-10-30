@@ -1,8 +1,7 @@
+suite_namespace: tests\unit
 actor: UnitTester
 modules:
     enabled:
         - Asserts
-        - Yii2:
-             part: [orm, email, fixtures]
         - \tests\Helper\Unit
     step_decorators: ~

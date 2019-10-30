@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\blog;
+namespace tests\integration\blog;
 
 use app\modules\blog\models\Post;
 use Codeception\Test\Unit;
@@ -12,7 +12,7 @@ use tests\fixtures\user\UserFixture;
 class PostProcessingTest extends Unit
 {
     /**
-     * @var \tests\UnitTester
+     * @var \tests\IntegrationTester
      */
     protected $tester;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\blog;
+namespace tests\integration\blog;
 
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
@@ -14,7 +14,7 @@ use tests\fixtures\user\UserFixture;
 class CommentProcessingTest extends Unit
 {
     /**
-     * @var \tests\UnitTester
+     * @var \tests\IntegrationTester
      */
     protected $tester;
 
@@ -48,11 +48,11 @@ class CommentProcessingTest extends Unit
 
     public function testComment(): void
     {
-        Post::model()->findByPk(1);
+        $post = Post::model()->findByPk(1);
 
         $comment = new Comment();
 
-        $comment->material_id = 1;
+        $comment->material_id = $post->id;
         $comment->public = 1;
         $comment->moder = 0;
         $comment->user_id = 1;
