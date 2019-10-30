@@ -56,7 +56,7 @@ site-lint:
 	docker-compose run --rm php-cli composer cs-check
 
 site-test:
-	docker-compose run --rm php-cli vendor/bin/codecept run unit,integration
+	docker-compose run --rm php-cli vendor/bin/codecept run unit,integration,acceptance
 
 assets-build:
 	docker-compose run --rm node-cli npm run build

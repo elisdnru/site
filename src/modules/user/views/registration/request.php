@@ -19,7 +19,7 @@ $this->params['breadcrumbs'] = [
 
 <div class="form">
 
-    <form action="?" method="post">
+    <form action="?" method="post" id="register-form">
 
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 

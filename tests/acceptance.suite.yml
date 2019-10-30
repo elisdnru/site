@@ -1,0 +1,11 @@
+suite_namespace: tests\acceptance
+actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+             url: http://nginx:81
+        - Yii2:
+            part: [init, orm, fixtures]
+            configFile: 'config/test.php'
+        - \tests\Helper\Acceptance
+    step_decorators: ~

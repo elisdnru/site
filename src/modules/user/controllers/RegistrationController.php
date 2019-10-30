@@ -16,6 +16,7 @@ class RegistrationController extends Controller
         return [
             'captcha' => [
                 'class' => CaptchaAction::class,
+                'fixedVerifyCode' => YII_ENV_TEST ? 'test' : null,
             ],
         ];
     }

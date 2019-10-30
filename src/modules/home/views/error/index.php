@@ -1,6 +1,7 @@
 <?php
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\helpers\Html;
 
 /** @var $page Page */
 
@@ -20,6 +21,12 @@ $this->params['breadcrumbs'] = [
 } ?>
 
 <h2><?= $name ?></h2>
+
+<?php if (YII_DEBUG) : ?>
+    <div class="alert alert-danger">
+        <?= nl2br(Html::encode($message)) ?>
+    </div>
+<?php endif; ?>
 
 <p>Так получилось...</p>
 <p><a href="/">На главную</a></p>
