@@ -4,7 +4,7 @@ $this->context->layout = 'user';
 
 $this->title = 'Подтверждение регистрации';
 $this->params['breadcrumbs'] = [
-    'Вход на сайт' => ['login'],
+    'Вход на сайт' => ['default/login'],
     'Регистрация' => ['registration/request'],
     'Подтверждение регистрации'
 ];

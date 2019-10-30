@@ -10,7 +10,7 @@ use yii\helpers\Html;
 $this->context->layout = 'user';
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'] = [
-    'Вход на сайт' => ['login'],
+    'Вход на сайт' => ['default/login'],
     'Регистрация',
 ];
 ?>

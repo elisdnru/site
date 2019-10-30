@@ -10,7 +10,7 @@ use yii\helpers\Url;
 $this->context->layout = 'user';
 $this->title = 'Восстановление пароля';
 $this->params['breadcrumbs'] = [
-    'Вход на сайт' => ['login'],
+    'Вход на сайт' => ['default/login'],
     'Восстановление пароля',
 ];
 ?>
