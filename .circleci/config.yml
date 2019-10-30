@@ -19,18 +19,6 @@ jobs:
                     name: Init
                     command: make init
 
-            -   run:
-                    name: Lint
-                    command: make lint
-
-            -   run:
-                    name: Test
-                    command: make test
-
-            -   run:
-                    name: Down
-                    command: make docker-down-clear
-
             -   save_cache:
                     key: vendor-{{ checksum "composer.lock" }}
                     paths:
@@ -40,6 +28,23 @@ jobs:
                     key: node_modules-{{ checksum "yarn.lock" }}
                     paths:
                         - node_modules
+
+            -   run:
+                    name: Lint
+                    command: make lint
+
+            -   run:
+                    name: Test
+                    command: make test
+
+            -   store_artifacts:
+                    path: ./tests/_output
+                    prefix: tests
+                    when: always
+
+            -   run:
+                    name: Down
+                    command: make docker-down-clear
 
             -   run:
                     name: Deploy
