@@ -24,7 +24,7 @@ docker-build:
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
 site-clear:
-	docker run --rm -v ${PWD}:/app --workdir=/app alpine sh -c 'rm -rf .ready var/*'
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/*'
 
 site-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload
