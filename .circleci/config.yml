@@ -17,7 +17,7 @@ jobs:
 
             -   run:
                     name: Init
-                    command: make refresh
+                    command: make init
 
             -   run:
                     name: Lint

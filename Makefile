@@ -1,9 +1,7 @@
 up: docker-up
 down: docker-down
 restart: docker-down docker-up
-init: refresh ready
-refresh: docker-down-clear site-clear docker-pull docker-build docker-up site-init
-ready: site-ready
+init: docker-down-clear site-clear docker-pull docker-build docker-up site-init site-ready
 check: lint test
 lint: site-lint
 test: site-test
