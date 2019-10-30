@@ -25,7 +25,7 @@ class ProfileController extends Controller
         ];
     }
 
-    public function actionUpdate()
+    public function actionEdit()
     {
         $model = $this->loadModel();
         $model->scenario = 'settings';
@@ -41,7 +41,7 @@ class ProfileController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('update', [
+        return $this->render('edit', [
             'model' => $model,
         ]);
     }

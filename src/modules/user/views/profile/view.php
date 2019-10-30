@@ -27,7 +27,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
     <?php if ($model->id == Yii::$app->user->id) : ?>
         <p style="float:right">
-            <a href="<?= Url::to(['/user/profile/edit']) ?>">Редактировать</a> |
+            <a href="<?= Url::to(['edit']) ?>">Редактировать</a> |
             <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>
         </p>
     <?php endif; ?>
