@@ -81,7 +81,7 @@ class Contact extends ActiveRecord
                 'contact' => $this,
             ])
             ->setSubject('Сообщение №' . $this->id . ' на сайте elisdn.ru')
-            ->setTo(Yii::app()->params['GENERAL.ADMIN_EMAIL'])
+            ->setTo(Yii::$app->params['GENERAL.ADMIN_EMAIL'])
             ->setReplyTo([$this->email => $this->name]);
 
         if (!$mail->send()) {

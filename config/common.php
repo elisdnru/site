@@ -218,5 +218,7 @@ return [
         ],
     ],
 
-    'params' => [],
+    'params' => [
+        'GENERAL.ADMIN_EMAIL' => getenv('MAILER_FROM_EMAIL'),
+    ],
 ];

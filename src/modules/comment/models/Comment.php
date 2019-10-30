@@ -200,7 +200,7 @@ class Comment extends ActiveRecord
                 ])
                 ->setSubject('Новый комментарий на сайте elisdn.ru')
                 ->setTo($this->email)
-                ->setReplyTo(Yii::app()->params['GENERAL.ADMIN_EMAIL'])
+                ->setReplyTo(Yii::$app->params['GENERAL.ADMIN_EMAIL'])
                 ->send();
         }
     }
