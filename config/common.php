@@ -104,6 +104,7 @@ return [
         ],
 
         'assetManager' => [
+            'linkAssets' => true,
             'appendTimestamp' => true,
             'bundles' => [
                 JqueryAsset::class => [
