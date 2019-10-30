@@ -13,7 +13,7 @@ use yii\helpers\Url;
 /** @var $page Page */
 $this->context->layout = 'index';
 
-$this->title = 'Портфолио - ' . $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
+$this->title = $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
 
 $this->registerMetaTag([
     'name' => 'description',

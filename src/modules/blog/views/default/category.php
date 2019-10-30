@@ -13,7 +13,7 @@ use yii\web\View;
 
 $this->context->layout = 'index';
 
-$this->title = $category->pagetitle . ' - ' . $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
 $this->registerMetaTag([
     'name' => 'description',
