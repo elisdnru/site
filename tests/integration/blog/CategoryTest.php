@@ -27,22 +27,10 @@ class CategoryTest extends Unit
     protected function _before()
     {
         $this->tester->haveFixtures([
-            'blog_post' => [
-                'class' => PostFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/blog_posts.php'
-            ],
-            'blog_category' => [
-                'class' => CategoryFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/blog_categories.php'
-            ],
-            'blog_post_group' => [
-                'class' => GroupFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/blog_post_groups.php'
-            ],
-            'user' => [
-                'class' => UserFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/users.php'
-            ]
+            'blog_post' => PostFixture::class,
+            'blog_category' => CategoryFixture::class,
+            'blog_post_group' => GroupFixture::class,
+            'user' => UserFixture::class,
         ]);
     }
 

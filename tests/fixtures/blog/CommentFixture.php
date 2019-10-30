@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace tests\fixtures\comment;
+namespace tests\fixtures\blog;
 
-use app\modules\comment\models\Comment;
-use tests\fixtures\blog\PostFixture;
+use app\modules\blog\models\Comment;
 use tests\fixtures\user\UserFixture;
 use yii\test\ActiveFixture;
 
 class CommentFixture extends ActiveFixture
 {
     public $modelClass = Comment::class;
+    public $dataFile = __DIR__ . '/../../_data/fixtures/comments.php';
     public $depends = [
         PostFixture::class,
         UserFixture::class,

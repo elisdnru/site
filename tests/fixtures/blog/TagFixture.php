@@ -9,4 +9,5 @@ use yii\test\ActiveFixture;
 class TagFixture extends ActiveFixture
 {
     public $modelClass = Tag::class;
+    public $dataFile = __DIR__ . '/../../_data/fixtures/blog_tags.php';
 }
