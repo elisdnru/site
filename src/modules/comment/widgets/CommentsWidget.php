@@ -69,7 +69,9 @@ class CommentsWidget extends Widget
 
                 if ($comment->save()) {
                     Yii::$app->session->setFlash('success', 'Ваш коментарий добавлен');
-                    Yii::app()->controller->redirect($comment->getUrl());
+                    Yii::$app->controller->redirect($comment->getUrl());
+                    Yii::$app->end();
+                    return '';
                 }
             }
         }
