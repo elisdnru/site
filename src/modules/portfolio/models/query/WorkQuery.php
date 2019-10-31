@@ -32,9 +32,9 @@ class WorkQuery extends ActiveQuery
 
     /**
      * @param Connection $db
-     * @return Work|ActiveRecord
+     * @return Work|ActiveRecord|null
      */
-    public function one($db = null): Work
+    public function one($db = null): ?Work
     {
         return parent::one($db);
     }
