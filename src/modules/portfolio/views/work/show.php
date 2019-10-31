@@ -10,7 +10,7 @@ use yii\helpers\Html;
 
 $this->context->layout = 'index';
 
-$this->title = $model->title;
+$this->title = $model->pagetitle;
 $this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
 
 $this->params['breadcrumbs'] = [
