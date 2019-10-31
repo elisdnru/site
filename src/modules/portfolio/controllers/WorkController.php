@@ -15,7 +15,7 @@ class WorkController extends PortfolioBaseController
         $model = $this->loadModel($id);
 
         if ('/' . Yii::$app->request->getPathInfo() !== $model->getUrl()) {
-            return $this->redirect(Url::current(['alias' => $model->alias]), 301);
+            return $this->redirect(Url::current(['alias' => $model->alias, 'category' => $model->category->getPath()]), 301);
         }
 
         return $this->render('show', [
