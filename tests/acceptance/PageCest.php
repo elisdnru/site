@@ -1,0 +1,46 @@
+<?php
+
+namespace tests\acceptance;
+
+use tests\AcceptanceTester;
+use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\GroupFixture;
+use tests\fixtures\blog\PostFixture;
+use tests\fixtures\page\PageFixture;
+use tests\fixtures\user\UserFixture;
+
+class PageCest
+{
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    public function _before(AcceptanceTester $I): void
+    {
+        $I->haveFixtures([
+            'page' => PageFixture::class,
+        ]);
+    }
+
+    public function root(AcceptanceTester $I): void
+    {
+        $I->amOnPage('info');
+        $I->seeResponseCodeIs(200);
+        $I->see('Info', 'h1');
+        $I->see('Info Title', 'title');
+        $I->seeInSource('<p>Info Content</p>');
+    }
+
+    public function path(AcceptanceTester $I): void
+    {
+        $I->amOnPage('info/about');
+        $I->seeResponseCodeIs(200);
+        $I->see('About', 'h1');
+        $I->see('About Title', 'title');
+        $I->seeInSource('<p>About Content</p>');
+    }
+
+    public function notRoot(AcceptanceTester $I): void
+    {
+        $I->amOnPage('about');
+        $I->seeResponseCodeIs(404);
+    }
+}

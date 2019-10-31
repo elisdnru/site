@@ -1,0 +1,38 @@
+<?php
+
+return [
+    'child' => [
+        'id' => 1,
+        'date' => '2016-12-11 12:34',
+        'parent_id' => 2,
+        'alias' => 'about',
+        'title' => 'About',
+        'hidetitle' => 0,
+        'text' => 'About Content',
+        'text_purified' => '<p>About Content</p>',
+        'pagetitle' => 'About Title',
+        'description' => '',
+        'robots' => 'index, follow',
+        'layout' => 'fullscreen',
+        'subpages_layout' => 'default',
+        'styles' => '',
+        'system' => 0,
+    ],
+    'parent' => [
+        'id' => 2,
+        'date' => '2016-12-11 12:34',
+        'parent_id' => 0,
+        'alias' => 'info',
+        'title' => 'Info',
+        'hidetitle' => 0,
+        'text' => 'Info Content',
+        'text_purified' => '<p>Info Content</p>',
+        'pagetitle' => 'Info Title',
+        'description' => '',
+        'robots' => 'index, follow',
+        'layout' => 'fullscreen',
+        'subpages_layout' => 'default',
+        'styles' => '',
+        'system' => 0,
+    ],
+];
