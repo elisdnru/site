@@ -14,9 +14,6 @@ return [
     'permission_control' => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Пользователь панели управления',
-        'children' => [
-            'role_user',
-        ],
         'ruleName' => null,
         'data' => null
     ],
@@ -27,6 +24,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Панель управления',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -34,6 +34,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Блоки',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -41,6 +44,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление сообщениями',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -48,6 +54,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление комментариями',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -55,6 +64,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление файлами',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -62,6 +74,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление меню',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -69,6 +84,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление страницами',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -76,6 +94,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление лендингами',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -83,6 +104,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление пользователями',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -90,6 +114,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление блогом',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -97,6 +124,9 @@ return [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление портфолио',
         'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
         'data' => null
     ],
 
@@ -106,13 +136,13 @@ return [
         'type' => Item::TYPE_ROLE,
         'description' => 'Контент-менеджер',
         'children' => [
-            'permission_control',
             'module_admin',
             'module_comment',
             'module_file',
             'module_menu',
             'module_new',
             'module_page',
+            'role_user',
         ],
         'ruleName' => null,
         'data' => null
@@ -122,7 +152,6 @@ return [
         'type' => Item::TYPE_ROLE,
         'description' => 'Администратор',
         'children' => [
-            'permission_control',
             'module_admin',
             'module_block',
             'module_contact',
@@ -134,6 +163,7 @@ return [
             'module_user',
             'module_blog',
             'module_portfolio',
+            'role_user',
         ],
         'ruleName' => null,
         'data' => null
