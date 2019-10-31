@@ -14,7 +14,11 @@ class RegistrationController extends Controller
     public function actions(): array
     {
         return [
-            'captcha' => [
+            'captcha1' => [
+                'class' => MathCaptchaAction::class,
+                'fixedVerifyCode' => YII_ENV_TEST ? 42 : null,
+            ],
+            'captcha2' => [
                 'class' => MathCaptchaAction::class,
                 'fixedVerifyCode' => YII_ENV_TEST ? 42 : null,
             ],

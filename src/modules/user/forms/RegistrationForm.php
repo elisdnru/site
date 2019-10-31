@@ -13,7 +13,8 @@ class RegistrationForm extends Model
     public $confirm;
     public $lastname;
     public $name;
-    public $test;
+    public $test1;
+    public $test2;
 
     public function rules(): array
     {
@@ -44,8 +45,11 @@ class RegistrationForm extends Model
             [['lastname', 'name'], 'required'],
             [['lastname', 'name'], 'string', 'max' => 255],
 
-            ['test', 'required'],
-            ['test', 'captcha', 'captchaAction' => '/user/registration/captcha'],
+            ['test1', 'required'],
+            ['test1', 'captcha', 'captchaAction' => '/user/registration/captcha1'],
+
+            ['test2', 'required'],
+            ['test2', 'captcha', 'captchaAction' => '/user/registration/captcha2'],
         ];
     }
 
@@ -59,6 +63,8 @@ class RegistrationForm extends Model
             'name' => 'Имя',
             'lastname' => 'Фамилия',
             'test' => 'Тест на сообразительность',
+            'test1' => 'Код 1',
+            'test2' => 'Код 2',
         ];
     }
 }

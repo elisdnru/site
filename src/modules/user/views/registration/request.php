@@ -70,11 +70,19 @@ $this->params['breadcrumbs'] = [
             <div>
                 <?= Captcha::widget([
                     'model' => $model,
-                    'attribute' => 'test',
-                    'captchaAction' => '/user/registration/captcha',
+                    'attribute' => 'test1',
+                    'captchaAction' => '/user/registration/captcha1',
                 ]) ?>
             </div>
-            <?= Html::error($model, 'test', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'test1', ['class' => 'errorMessage']) ?>
+            <div>
+                <?= Captcha::widget([
+                    'model' => $model,
+                    'attribute' => 'test2',
+                    'captchaAction' => '/user/registration/captcha2',
+                ]) ?>
+            </div>
+            <?= Html::error($model, 'test2', ['class' => 'errorMessage']) ?>
         </div>
 
         <div class="row buttons">

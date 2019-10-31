@@ -38,7 +38,7 @@ class Module extends Base implements UrlProvider
             '<action:login|logout|relogin|remind>' => 'user/default/<action>',
             'registration' => 'user/registration/request',
             'registration/confirm' => 'user/registration/confirm',
-            'registration/captcha' => 'user/registration/captcha',
+            'registration/captcha<id:\d+>' => 'user/registration/captcha<id>',
             'profile' => 'user/profile/view',
             'profile/edit' => 'user/profile/edit',
         ];
