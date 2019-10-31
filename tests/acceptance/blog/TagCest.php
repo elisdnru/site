@@ -12,10 +12,7 @@ class TagCest
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([
-            'tag' => [
-                'class' => TagFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/blog_tags.php'
-            ],
+            'tag' => TagFixture::class,
         ]);
     }
 

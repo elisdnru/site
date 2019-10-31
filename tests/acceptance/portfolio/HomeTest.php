@@ -12,10 +12,7 @@ class HomeTest
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([
-            'category' => [
-                'class' => CategoryFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/portfolio_categories.php'
-            ],
+            'category' => CategoryFixture::class,
         ]);
     }
 

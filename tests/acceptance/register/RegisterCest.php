@@ -12,10 +12,7 @@ class RegisterCest
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([
-            'user' => [
-                'class' => UserFixture::class,
-                'dataFile' => codecept_data_dir() . 'fixtures/users.php'
-            ]
+            'user' => UserFixture::class,
         ]);
     }
 
