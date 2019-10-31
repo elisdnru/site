@@ -6,6 +6,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture as BlogCategoryFixture;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
+use tests\fixtures\landing\LandingFixture;
 use tests\fixtures\page\PageFixture;
 use tests\fixtures\portfolio\CategoryFixture as PortfolioCategoryFixture;
 use tests\fixtures\portfolio\WorkFixture;
@@ -24,6 +25,7 @@ class SearchCest
             'portfolio_categories' => PortfolioCategoryFixture::class,
             'portfolio_works' => WorkFixture::class,
             'pages' => PageFixture::class,
+            'landings' => LandingFixture::class,
             'users' => UserFixture::class,
         ]);
     }
@@ -62,5 +64,17 @@ class SearchCest
 
         $I->see('Поиск по сайту', 'h1');
         $I->seeInSource('<mark>about</mark>');
+    }
+
+    public function landing(AcceptanceTester $I): void
+    {
+        $I->amOnPage('');
+        $I->seeElement('.search_form');
+
+        $I->fillField('q', 'course');
+        $I->click('', '.search_form');
+
+        $I->see('Поиск по сайту', 'h1');
+        $I->seeInSource('<mark>course</mark>');
     }
 }
