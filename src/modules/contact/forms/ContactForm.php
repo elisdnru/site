@@ -16,7 +16,7 @@ class ContactForm extends CFormModel
     public $email;
     public $phone;
     public $text;
-    public $verifyCode;
+    public $test;
     public $accept;
 
     /**
@@ -34,7 +34,7 @@ class ContactForm extends CFormModel
             ['accept', 'compare', 'compareValue' => '1'],
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            ['verifyCode', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements(), 'captchaAction' => '/contact/default/captcha', 'except' => 'safe'],
+            ['test', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements(), 'captchaAction' => '/contact/default/captcha', 'except' => 'safe'],
         ];
     }
 
@@ -50,7 +50,7 @@ class ContactForm extends CFormModel
             'email' => 'Email',
             'phone' => 'Телефон',
             'text' => 'Сообщение',
-            'verifyCode' => 'Проверочный код',
+            'test' => 'Проверочный код',
             'accept' => 'Я добровольно отправляю свои данные',
         ];
     }

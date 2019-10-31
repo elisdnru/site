@@ -65,16 +65,16 @@ $this->params['breadcrumbs'] = [
 
         <hr />
 
-        <div class="row<?= $model->hasErrors('verifyCode') ? ' error' : '' ?> required">
-            <?= Html::activeLabel($model, 'verifyCode') ?><br />
+        <div class="row<?= $model->hasErrors('test') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'test') ?><br />
             <div>
                 <?= Captcha::widget([
                     'model' => $model,
-                    'attribute' => 'verifyCode',
+                    'attribute' => 'test',
                     'captchaAction' => '/user/registration/captcha',
                 ]) ?>
             </div>
-            <?= Html::error($model, 'verifyCode', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'test', ['class' => 'errorMessage']) ?>
         </div>
 
         <div class="row buttons">

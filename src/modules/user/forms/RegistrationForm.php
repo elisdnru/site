@@ -13,7 +13,7 @@ class RegistrationForm extends Model
     public $confirm;
     public $lastname;
     public $name;
-    public $verifyCode;
+    public $test;
 
     public function rules(): array
     {
@@ -44,9 +44,8 @@ class RegistrationForm extends Model
             [['lastname', 'name'], 'required'],
             [['lastname', 'name'], 'string', 'max' => 255],
 
-            ['verifyCode', 'required'],
-
-            ['verifyCode', 'captcha', 'captchaAction' => '/user/registration/captcha'],
+            ['test', 'required'],
+            ['test', 'captcha', 'captchaAction' => '/user/registration/captcha'],
         ];
     }
 
@@ -59,7 +58,7 @@ class RegistrationForm extends Model
             'confirm' => 'Подтверждение пароля',
             'name' => 'Имя',
             'lastname' => 'Фамилия',
-            'verifyCode' => 'Проверочный код',
+            'test' => 'Тест на сообразительность',
         ];
     }
 }

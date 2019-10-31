@@ -1,5 +1,6 @@
 <?php
 
+use app\components\actions\MathCaptchaAction;
 use app\components\behaviors\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRules;
@@ -17,7 +18,6 @@ use app\modules\contact\widgets\ContactWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
-use yii\captcha\CaptchaAction;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
 use yii\web\JqueryAsset;
@@ -213,9 +213,10 @@ return [
                 'prevPageLabel' => '&laquo; назад',
                 'nextPageLabel' => 'далее &raquo;',
             ],
-            CaptchaAction::class => [
+            MathCaptchaAction::class => [
                 'backColor' => 0xffffff,
-            ]
+                'foreColor' => 0xa00090,
+            ],
         ],
     ],
 

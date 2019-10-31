@@ -2,12 +2,12 @@
 
 namespace app\modules\user\controllers;
 
+use app\components\actions\MathCaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
-use yii\captcha\CaptchaAction;
 
 class RegistrationController extends Controller
 {
@@ -15,8 +15,8 @@ class RegistrationController extends Controller
     {
         return [
             'captcha' => [
-                'class' => CaptchaAction::class,
-                'fixedVerifyCode' => YII_ENV_TEST ? 'test' : null,
+                'class' => MathCaptchaAction::class,
+                'fixedVerifyCode' => YII_ENV_TEST ? 42 : null,
             ],
         ];
     }

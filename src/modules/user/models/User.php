@@ -56,7 +56,7 @@ class User extends ActiveRecord
     public $old_password;
     public $del_avatar = false;
 
-    public $verifyCode;
+    public $test;
 
     public static function tableName(): string
     {
@@ -252,7 +252,7 @@ class User extends ActiveRecord
             'active' => 'Активен',
             'avatar' => 'Аватар',
             'del_avatar' => 'Сбросить аватар',
-            'verifyCode' => 'Проверочный код',
+            'test' => 'Проверочный код',
 
             'name' => 'Имя',
             'lastname' => 'Фамилия',

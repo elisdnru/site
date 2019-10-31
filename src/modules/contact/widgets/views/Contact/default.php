@@ -50,9 +50,9 @@ use yii\helpers\Url;
     </div>
 
     <div class="row">
-        <?= $form->labelEx($model, 'verifyCode') ?><br />
-        <?= $form->textField($model, 'verifyCode', ['size' => 22]) ?>
-        <?= $form->error($model, 'verifyCode') ?>
+        <?= $form->labelEx($model, 'test') ?><br />
+        <?= $form->textField($model, 'test', ['size' => 22]) ?>
+        <?= $form->error($model, 'test') ?>
         <div>
             <?php Yii::app()->controller->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
         </div>

@@ -2,8 +2,8 @@
 
 namespace app\modules\contact\controllers;
 
+use app\components\actions\MathCaptchaAction;
 use app\components\Controller;
-use yii\captcha\CaptchaAction;
 
 class DefaultController extends Controller
 {
@@ -11,7 +11,7 @@ class DefaultController extends Controller
     {
         return [
             'captcha' => [
-                'class' => CaptchaAction::class,
+                'class' => MathCaptchaAction::class,
             ],
         ];
     }
