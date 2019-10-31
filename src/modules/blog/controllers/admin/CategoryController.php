@@ -6,7 +6,8 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
 use Yii;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class CategoryController extends AdminController
@@ -67,7 +68,7 @@ class CategoryController extends AdminController
         ]);
 
         if ($count) {
-            throw new HttpException(402, 'В данной группе есть записи. Удалите их или переместите в другие категории.');
+            throw new BadRequestHttpException('В данной группе есть записи. Удалите их или переместите в другие категории.');
         }
 
         $model->delete();
@@ -87,7 +88,7 @@ class CategoryController extends AdminController
     {
         $model = Category::model()->findByPk($id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

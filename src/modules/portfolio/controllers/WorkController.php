@@ -6,7 +6,7 @@ use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
 use Yii;
 use yii\helpers\Url;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class WorkController extends PortfolioBaseController
 {
@@ -34,7 +34,7 @@ class WorkController extends PortfolioBaseController
         $model = $query->andWhere(['id' => $id])->one();
 
         if ($model === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
 
         return $model;

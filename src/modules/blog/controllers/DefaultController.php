@@ -9,12 +9,11 @@ use app\modules\blog\models\Tag;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
-use CHttpException;
 use app\components\Controller;
 use app\components\DateLimiter;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -96,13 +95,13 @@ class DefaultController extends Controller
     /**
      * @param string $path
      * @return Category|CActiveRecord
-     * @throws CHttpException
+     * @throws NotFoundHttpException
      */
     protected function loadCategoryModel(string $path): Category
     {
         $category = Category::model()->findByPath($path);
         if (!$category) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         return $category;
     }
@@ -116,7 +115,7 @@ class DefaultController extends Controller
     {
         $dateLimiter = new DateLimiter($date);
         if (!$dateLimiter->validate()) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         return $dateLimiter;
     }

@@ -6,7 +6,8 @@ use app\modules\contact\forms\ContactSearch;
 use app\modules\contact\models\Contact;
 use app\components\AdminController;
 use Yii;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class ContactController extends AdminController
@@ -48,7 +49,7 @@ class ContactController extends AdminController
         $model = $this->loadModel($id);
 
         if ($attribute !== 'status') {
-            throw new HttpException(400, 'Missing attribute ' . $attribute);
+            throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
         $model->$attribute = $model->$attribute ? '0' : '1';
@@ -78,7 +79,7 @@ class ContactController extends AdminController
     {
         $model = Contact::findOne($id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

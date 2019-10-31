@@ -7,7 +7,7 @@ use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
 use app\components\Controller;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class CommentController extends Controller
 {
@@ -52,7 +52,7 @@ class CommentController extends Controller
 
         $model = $query->andWhere(['id' => $id])->one();
         if ($model === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
 
         return $model;

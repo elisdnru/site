@@ -7,7 +7,8 @@ use app\modules\blog\models\Post;
 use app\modules\blog\models\Group;
 use app\components\AdminController;
 use Yii;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 /**
@@ -73,7 +74,7 @@ class GroupController extends AdminController
         ]);
 
         if ($count) {
-            throw new HttpException(400, 'В данной группе есть новости. Удалите их или переместите в другие группы.');
+            throw new BadRequestHttpException('В данной группе есть новости. Удалите их или переместите в другие группы.');
         }
 
         $model->delete();
@@ -88,7 +89,7 @@ class GroupController extends AdminController
     {
         $model = Group::model()->findByPk((int)$id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

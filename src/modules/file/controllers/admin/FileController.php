@@ -9,7 +9,8 @@ use app\components\helpers\FileHelper;
 use app\components\helpers\TextHelper;
 use Yii;
 use yii\filters\VerbFilter;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class FileController extends AdminController
@@ -74,11 +75,11 @@ class FileController extends AdminController
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
-            throw new HttpException(404, 'Файл не найден');
+            throw new NotFoundHttpException('Файл не найден');
         }
 
         if (!$file->delete()) {
-            throw new HttpException(400, 'Ошибка удаления');
+            throw new BadRequestHttpException('Ошибка удаления');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
@@ -93,7 +94,7 @@ class FileController extends AdminController
         $to = FileHelper::escape(Yii::$app->request->post('to'));
 
         if (!$name || !$to) {
-            throw new HttpException(400, 'Некорректный запрос');
+            throw new BadRequestHttpException('Некорректный запрос');
         }
 
         $name = ($path ? $path . '/' : '') . $name;
@@ -101,11 +102,11 @@ class FileController extends AdminController
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
-            throw new HttpException(404, 'Файл не найден');
+            throw new NotFoundHttpException('Файл не найден');
         }
 
         if (!$file->rename($to)) {
-            throw new HttpException(400, 'Ошибка переименования');
+            throw new BadRequestHttpException('Ошибка переименования');
         }
 
         if (!Yii::$app->request->getIsAjax()) {

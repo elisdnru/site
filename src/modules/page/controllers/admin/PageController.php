@@ -5,7 +5,7 @@ namespace app\modules\page\controllers\admin;
 use app\components\AdminController;
 use app\modules\page\models\Page;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class PageController extends AdminController
@@ -80,7 +80,7 @@ class PageController extends AdminController
     {
         $model = Page::model()->findByPk($id);
         if ($model === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         if ($model->date === '0000-00-00') {
             $model->date = date('Y-m-d');

@@ -6,7 +6,7 @@ use app\modules\block\models\Block;
 use app\modules\block\forms\BlockSearch;
 use app\components\AdminController;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class BlockController extends AdminController
@@ -66,7 +66,7 @@ class BlockController extends AdminController
     {
         $model = Block::findOne($id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

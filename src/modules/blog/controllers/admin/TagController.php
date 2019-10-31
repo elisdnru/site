@@ -5,7 +5,7 @@ namespace app\modules\blog\controllers\admin;
 use app\modules\blog\models\Tag;
 use app\components\AdminController;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class TagController extends AdminController
@@ -77,7 +77,7 @@ class TagController extends AdminController
         $model = Tag::model()->findByPk($id);
 
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

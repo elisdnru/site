@@ -5,7 +5,8 @@ namespace app\modules\blog\controllers\admin;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
 use Yii;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class PostController extends AdminController
@@ -77,7 +78,7 @@ class PostController extends AdminController
         $model = $this->loadModel($id);
 
         if ($attribute !== 'public') {
-            throw new HttpException(400, 'Missing attribute '. $attribute);
+            throw new BadRequestHttpException('Missing attribute '. $attribute);
         }
 
         $model->$attribute = $model->$attribute ? 0 : 1;
@@ -101,7 +102,7 @@ class PostController extends AdminController
     {
         $model = Post::model()->findByPk($id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

@@ -10,7 +10,7 @@ use app\modules\portfolio\models\Work;
 use app\extensions\cachetagging\Tags;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class DefaultController extends PortfolioBaseController
 {
@@ -71,7 +71,7 @@ class DefaultController extends PortfolioBaseController
         /** @var Category $category */
         $category = Category::model()->findByPath($path);
         if ($category === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         return $category;
     }

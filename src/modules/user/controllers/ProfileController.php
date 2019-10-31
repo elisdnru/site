@@ -6,7 +6,7 @@ use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\HttpException;
+use yii\web\ForbiddenHttpException;
 
 class ProfileController extends Controller
 {
@@ -59,7 +59,7 @@ class ProfileController extends Controller
     {
         $model = User::findOne(Yii::$app->user->id);
         if ($model === null) {
-            throw new HttpException(403, 'Войдите или зарегистрируйтесь');
+            throw new ForbiddenHttpException('Войдите или зарегистрируйтесь');
         }
         return $model;
     }

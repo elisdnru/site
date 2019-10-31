@@ -6,7 +6,9 @@ use app\modules\comment\models\Comment;
 use app\components\Controller;
 use Yii;
 use yii\filters\VerbFilter;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\ForbiddenHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class AjaxController extends Controller
@@ -29,11 +31,11 @@ class AjaxController extends Controller
         $model = $this->loadModel($id);
 
         if (!Yii::$app->user->id) {
-            throw new HttpException(403);
+            throw new ForbiddenHttpException();
         }
 
         if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::$app->user->id)) {
-            throw new HttpException(403);
+            throw new ForbiddenHttpException();
         }
 
         if ($model->children) {
@@ -44,7 +46,7 @@ class AjaxController extends Controller
         }
 
         if (!$success) {
-            throw new HttpException(400, 'Ошибка удаления');
+            throw new BadRequestHttpException('Ошибка удаления');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
@@ -56,19 +58,19 @@ class AjaxController extends Controller
     public function actionHide($id): ?Response
     {
         if (!Yii::$app->user->id) {
-            throw new HttpException(403);
+            throw new ForbiddenHttpException();
         }
 
         $model = $this->loadModel($id);
 
         if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::$app->user->id)) {
-            throw new HttpException(403);
+            throw new ForbiddenHttpException();
         }
 
         $model->public = $model->public ? 0 : 1;
 
         if (!$model->save()) {
-            throw new HttpException(400, 'Ошибка');
+            throw new BadRequestHttpException('Ошибка');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
@@ -90,7 +92,7 @@ class AjaxController extends Controller
         }
 
         if (!$model->save()) {
-            throw new HttpException(400, 'Ошибка');
+            throw new BadRequestHttpException('Ошибка');
         }
 
         return $model->likes;
@@ -100,7 +102,7 @@ class AjaxController extends Controller
     {
         $model = Comment::findOne($id);
         if ($model === null) {
-            throw new HttpException(404, 'Комментарий не найден');
+            throw new NotFoundHttpException('Комментарий не найден');
         }
         return $model;
     }

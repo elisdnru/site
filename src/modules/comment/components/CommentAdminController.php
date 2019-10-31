@@ -9,7 +9,8 @@ use app\components\AdminController;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 abstract class CommentAdminController extends AdminController
@@ -71,7 +72,7 @@ abstract class CommentAdminController extends AdminController
         $model = $this->loadModel($id);
 
         if (!in_array($attribute, ['public', 'moder'], true)) {
-            throw new HttpException(400, 'Missing attribute ' . $attribute);
+            throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
         $model->$attribute = $model->$attribute ? '0' : '1';
@@ -103,7 +104,7 @@ abstract class CommentAdminController extends AdminController
         }
 
         if (!$success) {
-            throw new HttpException(400, 'Error');
+            throw new BadRequestHttpException('Error');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
@@ -119,7 +120,7 @@ abstract class CommentAdminController extends AdminController
         $model->moder = !$model->moder;
 
         if (!$model->save()) {
-            throw new HttpException(400, 'Error');
+            throw new BadRequestHttpException('Error');
         }
 
         if (!Yii::$app->request->getIsAjax()) {
@@ -146,7 +147,7 @@ abstract class CommentAdminController extends AdminController
         /** @var Comment $model */
         $model = $this->getModelName()::findOne($id);
         if ($model === null) {
-            throw new HttpException(404, 'Комментарий не найден');
+            throw new NotFoundHttpException('Комментарий не найден');
         }
         return $model;
     }

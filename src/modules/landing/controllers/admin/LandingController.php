@@ -5,7 +5,7 @@ namespace app\modules\landing\controllers\admin;
 use app\components\AdminController;
 use app\modules\landing\models\Landing;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class LandingController extends AdminController
@@ -79,7 +79,7 @@ class LandingController extends AdminController
     {
         $model = Landing::model()->findByPk($id);
         if ($model === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         return $model;
     }

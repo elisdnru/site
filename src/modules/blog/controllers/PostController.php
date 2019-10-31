@@ -6,7 +6,7 @@ use app\modules\blog\models\Post;
 use app\components\Controller;
 use Yii;
 use yii\helpers\Url;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class PostController extends Controller
 {
@@ -33,7 +33,7 @@ class PostController extends Controller
 
         $model = Post::model()->findByPk($id, $condition);
         if ($model === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
 
         return $model;

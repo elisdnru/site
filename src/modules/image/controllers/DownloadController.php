@@ -4,7 +4,7 @@ namespace app\modules\image\controllers;
 
 use app\components\Controller;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class DownloadController extends Controller
@@ -14,7 +14,7 @@ class DownloadController extends Controller
         $file = trim(Yii::$app->request->getPathInfo(), '/');
 
         if (!Yii::$app->uploader->checkThumbExists($file)) {
-            throw new HttpException(404, 'Not found');
+            throw new NotFoundHttpException('Not found');
         }
 
         return $this->redirect('/' . $file);

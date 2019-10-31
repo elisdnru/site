@@ -5,7 +5,8 @@ namespace app\modules\menu\controllers\admin;
 use app\components\AdminController;
 use app\modules\menu\models\Menu;
 use Yii;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class MenuController extends AdminController
@@ -73,7 +74,7 @@ class MenuController extends AdminController
         $model = $this->loadModel($id);
 
         if ($attribute !== 'visible') {
-            throw new HttpException(400, 'Missing attribute '. $attribute);
+            throw new BadRequestHttpException('Missing attribute '. $attribute);
         }
 
         $model->$attribute = $model->$attribute ? 0 : 1;
@@ -95,7 +96,7 @@ class MenuController extends AdminController
     {
         $model = Menu::model()->findByPk($id);
         if ($model === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         return $model;
     }

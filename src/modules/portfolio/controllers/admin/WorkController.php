@@ -7,7 +7,8 @@ use app\modules\portfolio\models\Work;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\VerbFilter;
-use yii\web\HttpException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class WorkController extends AdminController
@@ -86,7 +87,7 @@ class WorkController extends AdminController
         $model = $this->loadModel($id);
 
         if ($attribute !== 'public') {
-            throw new HttpException(400, 'Missing attribute ' . $attribute);
+            throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
         $model->$attribute = $model->$attribute ? '0' : '1';
@@ -156,7 +157,7 @@ class WorkController extends AdminController
     {
         $model = Work::findOne($id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

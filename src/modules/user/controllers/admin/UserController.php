@@ -6,7 +6,7 @@ use app\modules\user\forms\UserSearch;
 use app\components\AdminController;
 use app\modules\user\models\User;
 use Yii;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class UserController extends AdminController
@@ -70,7 +70,7 @@ class UserController extends AdminController
     {
         $model = User::findOne($id);
         if ($model === null) {
-            throw new HttpException(404, 'Не найдено');
+            throw new NotFoundHttpException('Не найдено');
         }
         return $model;
     }

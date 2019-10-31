@@ -5,7 +5,7 @@ namespace app\modules\landing\controllers;
 use app\components\Controller;
 use app\modules\landing\models\Landing;
 use app\extensions\cachetagging\Tags;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class LandingController extends Controller
 {
@@ -24,7 +24,7 @@ class LandingController extends Controller
     {
         $landing = Landing::model()->cache(0, new Tags('landing'))->findByPath($path);
         if ($landing === null) {
-            throw new HttpException(404, 'Страница не найдена');
+            throw new NotFoundHttpException('Страница не найдена');
         }
         return $landing;
     }
