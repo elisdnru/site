@@ -25,21 +25,24 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $I = $this;
 
-        $I->amOnPage('login');
-        $I->fillField('LoginForm[username]', 'admin');
-        $I->fillField('LoginForm[password]', 'password');
-        $I->click('Вход в учётную запись', '#login-form');
-        $I->see('Новое в Блоге');
+        $I->setCookie('_identity', $this->encodeCookie('_identity', $this->generateIdentity(1, '')));
     }
 
     public function amLoggedInByUser(): void
     {
         $I = $this;
+        $I->setCookie('_identity', $this->encodeCookie('_identity', $this->generateIdentity(2, '')));
+    }
 
-        $I->amOnPage('login');
-        $I->fillField('LoginForm[username]', 'user');
-        $I->fillField('LoginForm[password]', 'password');
-        $I->click('Вход в учётную запись', '#login-form');
-        $I->see('Новое в Блоге');
+    private function encodeCookie(string $name, string $value): string
+    {
+        $data = serialize([$name, $value]);
+        $hash = hash_hmac('sha256', $data, 'test', false);
+        return $hash . $data;
+    }
+
+    private function generateIdentity(int $userId, string $authKey): string
+    {
+        return json_encode([$userId, $authKey, 0], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 }

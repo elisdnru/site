@@ -11,6 +11,9 @@ return ArrayHelper::merge(
                 'username' => 'test',
                 'password' => 'secret',
             ],
+            'request' => [
+                'cookieValidationKey' => 'test',
+            ],
         ],
     ]
 );
