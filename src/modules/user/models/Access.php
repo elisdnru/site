@@ -9,6 +9,7 @@ use yii\helpers\ArrayHelper;
 class Access extends CModel
 {
     const CONTROL = 'permission_control';
+    const FULL = 'permission_full';
     const ROLE_ADMIN = 'role_admin';
     const ROLE_MANAGER = 'role_manager';
     const ROLE_USER = 'role_user';

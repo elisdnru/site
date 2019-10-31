@@ -5,13 +5,31 @@ namespace app\modules\blog\controllers\admin;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
+use app\modules\user\models\Access;
 use Yii;
+use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class CategoryController extends AdminController
 {
+    public function behaviors(): array
+    {
+        return ArrayHelper::merge(parent::behaviors(), [
+            [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [Access::FULL],
+                    ],
+                ],
+            ],
+        ]);
+    }
+
     public function actionIndex(): string
     {
         $model = new Category('search');

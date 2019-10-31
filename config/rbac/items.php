@@ -18,6 +18,16 @@ return [
         'data' => null
     ],
 
+    'permission_full' => [
+        'type' => Item::TYPE_PERMISSION,
+        'description' => 'Особый доступ',
+        'ruleName' => null,
+        'children' => [
+            'permission_control',
+        ],
+        'data' => null
+    ],
+
     /* */
 
     'module_admin' => [
@@ -152,6 +162,7 @@ return [
         'type' => Item::TYPE_ROLE,
         'description' => 'Администратор',
         'children' => [
+            'permission_full',
             'module_admin',
             'module_block',
             'module_contact',
