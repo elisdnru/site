@@ -16,7 +16,7 @@ require_once __DIR__ . '/../config/env.php';
 
 require_once __DIR__ . '/../bootstrap.php';
 
-$file = getenv('APP_ENV') === 'test' ? 'test' : 'web';
+$file = getenv('APP_ENV') === 'test' ? 'web-test' : 'web';
 
 Yii::createWebApplication(__DIR__ . '/../config/v1/' . $file . '.php');
 

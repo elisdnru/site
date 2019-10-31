@@ -6,6 +6,6 @@ modules:
              url: http://nginx:81
         - Yii2:
             part: [init, orm, fixtures]
-            configFile: 'config/test.php'
+            configFile: 'config/web-test.php'
         - \tests\Helper\Acceptance
     step_decorators: ~

@@ -1,14 +1,11 @@
 <?php
 
-use yii\helpers\ArrayHelper;
-
-return ArrayHelper::merge(
-    require(__DIR__ . '/common.php'),
+return array_replace_recursive(
     require(__DIR__ . '/web.php'),
     [
         'components' => [
             'db' => [
-                'dsn' => 'mysql:host=mysql-test;dbname=test',
+                'connectionString' => 'mysql:host=mysql-test;dbname=test',
                 'username' => 'test',
                 'password' => 'secret',
             ],
