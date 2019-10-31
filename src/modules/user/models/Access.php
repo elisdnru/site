@@ -2,22 +2,16 @@
 
 namespace app\modules\user\models;
 
-use CModel;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class Access extends CModel
+class Access
 {
-    const CONTROL = 'permission_control';
-    const FULL = 'permission_full';
-    const ROLE_ADMIN = 'role_admin';
-    const ROLE_MANAGER = 'role_manager';
-    const ROLE_USER = 'role_user';
-
-    public function attributeNames(): array
-    {
-        return [];
-    }
+    public const CONTROL = 'permission_control';
+    public const FULL = 'permission_full';
+    public const ROLE_ADMIN = 'role_admin';
+    public const ROLE_MANAGER = 'role_manager';
+    public const ROLE_USER = 'role_user';
 
     public static function getRoles(): array
     {
