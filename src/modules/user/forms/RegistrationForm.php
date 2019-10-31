@@ -62,7 +62,7 @@ class RegistrationForm extends Model
             'confirm' => 'Подтверждение пароля',
             'name' => 'Имя',
             'lastname' => 'Фамилия',
-            'test' => 'Тест на сообразительность',
+            'test' => 'Решите примеры',
             'test1' => 'Код 1',
             'test2' => 'Код 2',
         ];
