@@ -3,11 +3,7 @@
 namespace tests\acceptance;
 
 use tests\AcceptanceTester;
-use tests\fixtures\blog\CategoryFixture;
-use tests\fixtures\blog\GroupFixture;
-use tests\fixtures\blog\PostFixture;
 use tests\fixtures\page\PageFixture;
-use tests\fixtures\user\UserFixture;
 
 class PageCest
 {

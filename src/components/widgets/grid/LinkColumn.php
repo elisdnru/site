@@ -4,7 +4,6 @@ namespace app\components\widgets\grid;
 
 use CActiveRecord;
 use CDataColumn;
-use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
