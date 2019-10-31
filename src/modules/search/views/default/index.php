@@ -1,10 +1,12 @@
 <?php
 use app\components\helpers\NumberHelper;
+use app\modules\search\components\SearchHighlighter;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
+use yii\widgets\LinkPager;
 
-/** @var $this \yii\web\View */
+/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
 /** @var $dataProvider ActiveDataProvider */
 /** @var $query CActiveRecord */
 
@@ -33,7 +35,34 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <?= SearchFormWidget::widget() ?>
 
-<?= $this->render('_loop', [
-    'dataProvider' => $dataProvider,
-    'query' => $query,
-]); ?>
+<div class="items">
+    <?php foreach ($dataProvider->getModels() as $model) : ?>
+        <article class="entry list">
+            <header>
+                <h2>
+                    <a href="<?= $model->material->url ?>"><?= SearchHighlighter::getFragment(strip_tags($model->title), $query) ?></a>
+                </h2>
+                <?php if ($model->material->hasAttribute('image')) : ?>
+                    <?php
+                    $properties = array_filter([
+                        'width' => $model->material->image_width,
+                        'height' => $model->material->image_height,
+                    ]);
+                    ?>
+                    <p class="thumb">
+                        <a href="<?= $model->material->url ?>"><?= CHtml::image($model->material->getImageThumbUrl(), '', $properties) ?></a>
+                    </p>
+                <?php endif; ?>
+            </header>
+            <div class="short"><?= SearchHighlighter::getFragment(strip_tags($this->clearWidgets($model->text)), $query) ?>
+                ...
+            </div>
+            <div class="clear"></div>
+        </article>
+
+    <?php endforeach; ?>
+</div>
+
+<?= LinkPager::widget([
+    'pagination' => $dataProvider->getPagination(),
+]) ?>
