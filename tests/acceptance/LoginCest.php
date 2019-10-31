@@ -30,7 +30,7 @@ class LoginCest
         $I->click('Вход в учётную запись', '#login-form');
 
         $I->see('Новое в Блоге');
-        $I->see('Профиль', 'a');
+        $I->seeLink('Профиль', '/profile');
         $I->seeCookie('_identity');
         $I->dontSeeElement('.adminbar');
     }
