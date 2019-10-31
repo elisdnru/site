@@ -39,7 +39,7 @@ class SearchCest
         $I->click('', '.search_form');
 
         $I->see('Поиск по сайту', 'h1');
-        $I->seeInSource('<mark>post</mark> 1');
+        $I->seeInSource('<a href="/blog/1/post-1"><mark>post</mark> 1</a>');
     }
 
     public function work(AcceptanceTester $I): void
@@ -51,7 +51,7 @@ class SearchCest
         $I->click('', '.search_form');
 
         $I->see('Поиск по сайту', 'h1');
-        $I->seeInSource('<mark>work</mark> 1');
+        $I->seeInSource('<a href="/portfolio/category-2/1/work-1"><mark>work</mark> 1</a>');
     }
 
     public function page(AcceptanceTester $I): void
@@ -63,7 +63,7 @@ class SearchCest
         $I->click('', '.search_form');
 
         $I->see('Поиск по сайту', 'h1');
-        $I->seeInSource('<mark>about</mark>');
+        $I->seeInSource('<a href="/info/about"><mark>about</mark></a>');
     }
 
     public function landing(AcceptanceTester $I): void
@@ -75,6 +75,6 @@ class SearchCest
         $I->click('', '.search_form');
 
         $I->see('Поиск по сайту', 'h1');
-        $I->seeInSource('<mark>course</mark>');
+        $I->seeInSource('<a href="/course"><mark>course</mark></a>');
     }
 }
