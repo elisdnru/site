@@ -45,7 +45,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <table class="detail-view">
     <tbody>
         <tr>
-            <th style="width:150px; text-align:left">Username</th>
+            <th style="width:150px; text-align:left">Логин</th>
             <td><?= Html::encode($model->username) ?></td>
         </tr>
         <tr>

@@ -166,13 +166,15 @@ class User extends ActiveRecord
                 'new_confirm',
                 'compare',
                 'compareAttribute' => 'new_password',
-                'message' => 'Пароли не совпадают'
+                'message' => 'Пароли не совпадают.'
             ],
 
             [
                 'old_password',
                 CurrentPasswordValidator::class,
                 'className' => self::class,
+                'emptyMessage' => 'Введите текущий пароль.',
+                'notValidMessage' => 'Неверный текущий пароль.',
                 'validateMethod' => 'validatePassword',
                 'dependsOnAttributes' => ['new_password'],
                 'on' => ['settings']

@@ -23,11 +23,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div class="form">
 
-    <form action="?" method="post" enctype="multipart/form-data">
+    <form action="?" method="post" enctype="multipart/form-data" id="profile-form">
 
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
-
-        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
         <div>
             <h4>Пользователь</h4>
@@ -65,8 +63,8 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <div class="row">
                 <p style="float:right"><img src="<?= $model->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
                 <?= Html::activeLabel($model, 'avatar') ?><br />
-                <?= Html::activeFileInput($model, 'avatar', ['size' => 30]) ?><label>
-                    <?= Html::error($model, 'avatar') ?>
+                <?= Html::activeTextInput($model, 'avatar', ['type' => 'file', 'size' => 30]) ?>
+                <?= Html::error($model, 'avatar') ?>
             </div>
 
             <div class="row">

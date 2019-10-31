@@ -34,6 +34,12 @@ class AcceptanceTester extends \Codeception\Actor
         $I->setCookie('_identity', $this->encodeCookie('_identity', $this->generateIdentity(2, '')));
     }
 
+    public function amLoggedInBy(int $id): void
+    {
+        $I = $this;
+        $I->setCookie('_identity', $this->encodeCookie('_identity', $this->generateIdentity($id, '')));
+    }
+
     private function encodeCookie(string $name, string $value): string
     {
         $data = serialize([$name, $value]);

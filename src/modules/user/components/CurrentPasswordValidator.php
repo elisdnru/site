@@ -19,6 +19,7 @@ class CurrentPasswordValidator extends Validator
     public $validateMethod = 'validatePassword';
     public $idAttribute = 'id';
     public $allowEmpty = true;
+    public $skipOnEmpty = false;
     public $dependsOnAttributes = [];
     public $emptyMessage = 'Current password required';
     public $notValidMessage = 'Current password is not correct';
