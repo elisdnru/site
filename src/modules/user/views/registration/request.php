@@ -23,8 +23,6 @@ $this->params['breadcrumbs'] = [
 
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
-
         <div class="row<?= $model->hasErrors('username') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'username') ?><br />
             <?= Html::activeTextInput($model, 'username', ['size' => 40, 'maxlength' => 255]) ?><br />
@@ -76,6 +74,7 @@ $this->params['breadcrumbs'] = [
                     'captchaAction' => '/user/registration/captcha',
                 ]) ?>
             </div>
+            <?= Html::error($model, 'verifyCode', ['class' => 'errorMessage']) ?>
         </div>
 
         <div class="row buttons">

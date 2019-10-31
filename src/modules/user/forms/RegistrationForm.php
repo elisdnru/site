@@ -25,7 +25,7 @@ class RegistrationForm extends Model
                 'username',
                 'match',
                 'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
-                'message' => 'Логин содержит запрещённые символы',
+                'message' => 'Логин содержит запрещённые символы.',
             ],
             ['username', 'unique', 'targetClass' => User::class],
 
@@ -37,9 +37,9 @@ class RegistrationForm extends Model
 
             ['password', 'filter', 'filter' => 'trim'],
             ['password', 'required'],
-            ['password', 'string', 'min' => 6, 'max' => 255],
+            ['password', 'string', 'min' => 6, 'max' => 255, 'tooShort' => 'Пароль должен быть не короче 6 символов.'],
 
-            ['confirm', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают'],
+            ['confirm', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.'],
 
             [['lastname', 'name'], 'required'],
             [['lastname', 'name'], 'string', 'max' => 255],
