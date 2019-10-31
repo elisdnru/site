@@ -21,17 +21,12 @@ class LogoutCest
 
     public function user(AcceptanceTester $I): void
     {
-        $I->amLoggedInByAdmin();
-        $I->amOnPage('');
-        $I->see('Новое в Блоге');
-        $I->seeElement('.adminbar');
-
+        $I->amLoggedInByUser();
         $I->amOnPage('logout');
         $I->see('Новое в Блоге');
-        $I->dontSeeElement('.adminbar');
     }
 
-    public function admin(AcceptanceTester $I): void
+    public function guest(AcceptanceTester $I): void
     {
         $I->amOnPage('logout');
         $I->see('Новое в Блоге');
