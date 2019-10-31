@@ -21,13 +21,13 @@ class ConfirmCest
 
     public function success(AcceptanceTester $I): void
     {
-        $I->amOnPage('registration/confirm?code=confirm-token');
+        $I->amOnPage('join/confirm?code=confirm-token');
         $I->see('Регистрация подтверждена', '.flash-success');
     }
 
     public function wrong(AcceptanceTester $I): void
     {
-        $I->amOnPage('registration/confirm?code=wrong-token');
+        $I->amOnPage('join/confirm?code=wrong-token');
         $I->see('Запись о подтверждении не найдена', '.flash-error');
     }
 }

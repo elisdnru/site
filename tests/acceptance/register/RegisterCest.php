@@ -21,7 +21,7 @@ class RegisterCest
 
     public function success(AcceptanceTester $I): void
     {
-        $I->amOnPage('registration');
+        $I->amOnPage('join');
         $I->see('Регистрация', '.portlet-title');
         $I->seeElement('#register-form');
 
@@ -41,7 +41,7 @@ class RegisterCest
 
     public function empty(AcceptanceTester $I): void
     {
-        $I->amOnPage('registration');
+        $I->amOnPage('join');
         $I->see('Регистрация', '.portlet-title');
         $I->seeElement('#register-form');
 
@@ -57,7 +57,7 @@ class RegisterCest
 
     public function notValid(AcceptanceTester $I): void
     {
-        $I->amOnPage('registration');
+        $I->amOnPage('join');
         $I->see('Регистрация', '.portlet-title');
         $I->seeElement('#register-form');
 
