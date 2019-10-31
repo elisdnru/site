@@ -24,6 +24,8 @@ class HomeTest
         $I->see('Портфолио', 'title');
         $I->dontSee('Category 1', '.subpages');
         $I->see('Category 2', '.subpages');
+        $I->seeLink('Work 1', 'portfolio/category-2/1/work-1');
+        $I->dontSeeLink('Work 2');
     }
 
     public function page(AcceptanceTester $I): void

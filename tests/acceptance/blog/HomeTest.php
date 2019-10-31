@@ -11,6 +11,8 @@ class HomeTest
         $I->amOnPage('blog');
         $I->seeResponseCodeIs(200);
         $I->see('Блог', 'h1');
+        $I->seeLink('Post 1', '/blog/1/post-1');
+        $I->dontSeeLink('Post 2');
     }
 
     public function page(AcceptanceTester $I): void

@@ -4,6 +4,7 @@ namespace tests\acceptance\portfolio;
 
 use tests\AcceptanceTester;
 use tests\fixtures\portfolio\CategoryFixture;
+use tests\fixtures\portfolio\WorkFixture;
 
 class CategoryCest
 {
@@ -13,6 +14,7 @@ class CategoryCest
     {
         $I->haveFixtures([
             'category' => CategoryFixture::class,
+            'work' => WorkFixture::class,
         ]);
     }
 
@@ -22,6 +24,8 @@ class CategoryCest
         $I->seeResponseCodeIs(200);
         $I->see('Category 2', 'h1');
         $I->see('Title 2', 'title');
+        $I->seeInSource('<p>Category 2</p>');
+        $I->seeInSource('<span>Work 1</span>');
     }
 
     public function notRoot(AcceptanceTester $I): void
@@ -36,6 +40,8 @@ class CategoryCest
         $I->seeResponseCodeIs(200);
         $I->see('Category 1', 'h1');
         $I->see('Category 1', '.breadcrumbs');
+        $I->seeInSource('<p>Category 1</p>');
+        $I->dontSeeInSource('<span>Work 1</span>');
     }
 
     public function page(AcceptanceTester $I): void
@@ -44,5 +50,6 @@ class CategoryCest
         $I->seeResponseCodeIs(200);
         $I->see('Category 2', 'h1');
         $I->see('Title 2 - Страница 2', 'title');
+        $I->seeInSource('<p>Category 2</p>');
     }
 }

@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View */
+/** @var $this View|\app\components\behaviors\InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $category Category */
 /** @var $dataProvider CActiveDataProvider */
@@ -36,4 +36,12 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <h1><?= Html::encode($category->title) ?></h1>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
+<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
+    <!--noindex-->
+<?php endif; ?>
+<?= $this->decodeWidgets(trim($category->text)) ?>
+<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
+    <!--/noindex-->
+<?php endif; ?>
+
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>
