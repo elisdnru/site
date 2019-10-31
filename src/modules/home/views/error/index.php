@@ -22,11 +22,9 @@ $this->params['breadcrumbs'] = [
 
 <h2><?= $name ?></h2>
 
-<?php if (YII_DEBUG) : ?>
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
-    </div>
-<?php endif; ?>
+<div class="flash flash-error">
+    <?= nl2br(Html::encode($message)) ?>
+</div>
 
 <p>Так получилось...</p>
 <p><a href="/">На главную</a></p>
