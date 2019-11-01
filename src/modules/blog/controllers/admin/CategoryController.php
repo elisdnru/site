@@ -106,7 +106,7 @@ class CategoryController extends AdminController
     {
         $model = Category::model()->findByPk($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

@@ -102,7 +102,7 @@ class PostController extends AdminController
     {
         $model = Post::model()->findByPk($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

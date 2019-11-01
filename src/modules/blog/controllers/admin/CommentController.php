@@ -14,7 +14,7 @@ class CommentController extends Base
     {
         $model = Post::model()->findByPk((int)$id);
         if ($model === null) {
-            throw new NotFoundHttpException('Материал не найден');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

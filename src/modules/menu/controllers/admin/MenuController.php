@@ -96,7 +96,7 @@ class MenuController extends AdminController
     {
         $model = Menu::model()->findByPk($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

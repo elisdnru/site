@@ -89,7 +89,7 @@ class GroupController extends AdminController
     {
         $model = Group::model()->findByPk((int)$id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

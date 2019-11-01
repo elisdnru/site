@@ -101,7 +101,7 @@ class DefaultController extends Controller
     {
         $category = Category::model()->findByPath($path);
         if (!$category) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $category;
     }
@@ -115,7 +115,7 @@ class DefaultController extends Controller
     {
         $dateLimiter = new DateLimiter($date);
         if (!$dateLimiter->validate()) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $dateLimiter;
     }

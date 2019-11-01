@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         $page = Page::model()->cache(0, new Tags('page'))->findByPath($path);
         if ($page === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $page;
     }

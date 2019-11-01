@@ -147,7 +147,7 @@ abstract class CommentAdminController extends AdminController
         /** @var Comment $model */
         $model = $this->getModelName()::findOne($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Комментарий не найден');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

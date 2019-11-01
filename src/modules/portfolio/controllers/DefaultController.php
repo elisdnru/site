@@ -71,7 +71,7 @@ class DefaultController extends PortfolioBaseController
         /** @var Category $category */
         $category = Category::model()->findByPath($path);
         if ($category === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $category;
     }

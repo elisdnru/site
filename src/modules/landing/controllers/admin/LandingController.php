@@ -79,7 +79,7 @@ class LandingController extends AdminController
     {
         $model = Landing::model()->findByPk($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

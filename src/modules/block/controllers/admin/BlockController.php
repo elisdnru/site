@@ -66,7 +66,7 @@ class BlockController extends AdminController
     {
         $model = Block::findOne($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

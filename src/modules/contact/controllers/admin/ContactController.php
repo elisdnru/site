@@ -79,7 +79,7 @@ class ContactController extends AdminController
     {
         $model = Contact::findOne($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

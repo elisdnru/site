@@ -102,7 +102,7 @@ class AjaxController extends Controller
     {
         $model = Comment::findOne($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Комментарий не найден');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

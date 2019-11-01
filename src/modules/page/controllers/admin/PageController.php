@@ -80,7 +80,7 @@ class PageController extends AdminController
     {
         $model = Page::model()->findByPk($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         if ($model->date === '0000-00-00') {
             $model->date = date('Y-m-d');

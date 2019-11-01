@@ -75,7 +75,7 @@ class FileController extends AdminController
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
-            throw new NotFoundHttpException('Файл не найден');
+            throw new NotFoundHttpException();
         }
 
         if (!$file->delete()) {
@@ -102,7 +102,7 @@ class FileController extends AdminController
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
-            throw new NotFoundHttpException('Файл не найден');
+            throw new NotFoundHttpException();
         }
 
         if (!$file->rename($to)) {

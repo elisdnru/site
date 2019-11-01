@@ -34,7 +34,7 @@ class WorkController extends PortfolioBaseController
         $model = $query->andWhere(['id' => $id])->one();
 
         if ($model === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
 
         return $model;

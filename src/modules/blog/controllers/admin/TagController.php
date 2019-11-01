@@ -77,7 +77,7 @@ class TagController extends AdminController
         $model = Tag::model()->findByPk($id);
 
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

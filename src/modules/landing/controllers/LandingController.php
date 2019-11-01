@@ -24,7 +24,7 @@ class LandingController extends Controller
     {
         $landing = Landing::model()->cache(0, new Tags('landing'))->findByPath($path);
         if ($landing === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
         return $landing;
     }

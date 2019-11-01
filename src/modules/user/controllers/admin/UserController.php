@@ -70,7 +70,7 @@ class UserController extends AdminController
     {
         $model = User::findOne($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

@@ -157,7 +157,7 @@ class WorkController extends AdminController
     {
         $model = Work::findOne($id);
         if ($model === null) {
-            throw new NotFoundHttpException('Не найдено');
+            throw new NotFoundHttpException();
         }
         return $model;
     }

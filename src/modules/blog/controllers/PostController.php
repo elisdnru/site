@@ -33,7 +33,7 @@ class PostController extends Controller
 
         $model = Post::model()->findByPk($id, $condition);
         if ($model === null) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException();
         }
 
         return $model;

@@ -14,7 +14,7 @@ class DownloadController extends Controller
         $file = trim(Yii::$app->request->getPathInfo(), '/');
 
         if (!Yii::$app->uploader->checkThumbExists($file)) {
-            throw new NotFoundHttpException('Not found');
+            throw new NotFoundHttpException();
         }
 
         return $this->redirect('/' . $file);
