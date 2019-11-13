@@ -26,7 +26,7 @@ use yii\web\View;
 ym(18406216, 'init', {
     clickmap: false,
     trackLinks: true,
-    accurateTrackBounce: true,
+    accurateTrackBounce: false,
     webvisor: false
 });
 <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
