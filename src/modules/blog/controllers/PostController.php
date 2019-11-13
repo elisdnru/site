@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 
 class PostController extends Controller
 {
-    public function actionShow($id)
+    public function actionShow($id, $alias = null)
     {
         $model = $this->loadModel($id);
 
