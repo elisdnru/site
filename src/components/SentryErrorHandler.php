@@ -23,7 +23,7 @@ class SentryErrorHandler extends ErrorHandler
 
     public function reportException($exception): void
     {
-        if ($exception instanceof HttpException && in_array($exception->getCode(), [404, 403], true)) {
+        if ($exception instanceof HttpException && in_array($exception->statusCode, [404, 403], true)) {
             return;
         }
 
