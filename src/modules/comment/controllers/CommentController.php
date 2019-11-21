@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 
 class CommentController extends Controller
 {
-    public function actionUpdate($id): string
+    public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
 
