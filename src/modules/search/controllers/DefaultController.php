@@ -17,10 +17,10 @@ use yii\data\ActiveDataProvider;
 
 class DefaultController extends Controller
 {
-    public function actionIndex($q): string
+    public function actionIndex(): string
     {
         $model = new SearchForm();
-        $model->q = $q;
+        $model->q = Yii::$app->request->get('q');
 
         if ($model->validate()) {
             $this->createViewTable();
