@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\purifier\v1;
+namespace app\components\purifier;
 
 use CActiveRecord;
 use CActiveRecordBehavior;
@@ -10,7 +10,7 @@ use CHtmlPurifier;
 use CMarkdownParser;
 use CModelEvent;
 
-class PurifyTextBehavior extends CActiveRecordBehavior
+class PurifyTextBehaviorV1 extends CActiveRecordBehavior
 {
     /**
      * @var string source attribute name

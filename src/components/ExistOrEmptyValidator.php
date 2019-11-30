@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\validators;
+namespace app\components;
 
 use CDbCriteria;
 use CExistValidator;
@@ -9,7 +9,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 
-class ExistOrEmpty extends CExistValidator
+class ExistOrEmptyValidator extends CExistValidator
 {
     protected function isEmpty($value, $trim = false): bool
     {

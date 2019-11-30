@@ -2,9 +2,9 @@
 
 namespace app\modules\blog\models;
 
-use app\components\purifier\v1\PurifyTextBehavior;
-use app\components\uploader\v1\FileUploadBehavior;
-use app\components\validators\v1\ExistOrEmpty;
+use app\components\purifier\PurifyTextBehaviorV1;
+use app\components\uploader\FileUploadBehaviorV1;
+use app\components\ExistOrEmptyValidatorV1;
 use app\components\Transliterator;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
@@ -48,7 +48,7 @@ use yii\helpers\Url;
  * @property Category $category
  * @property Tag[] $tags
  *
- * @mixin \app\components\uploader\v1\FileUploadBehavior
+ * @mixin \app\components\uploader\FileUploadBehaviorV1
  * @method Post published()
  */
 class Post extends CActiveRecord implements Material
@@ -88,9 +88,9 @@ class Post extends CActiveRecord implements Material
         // will receive user inputs.
         return [
             ['category_id, alias, title', 'required'],
-            ['author_id', \app\components\validators\ExistOrEmpty::class, 'className' => User::class, 'attributeName' => 'id'],
+            ['author_id', \app\components\ExistOrEmptyValidator::class, 'className' => User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => Category::class, 'attributeName' => 'id'],
-            ['group_id', ExistOrEmpty::class, 'className' => Group::class, 'attributeName' => 'id'],
+            ['group_id', ExistOrEmptyValidatorV1::class, 'className' => Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['styles, short, text, description, del_image', 'safe'],
@@ -236,7 +236,7 @@ class Post extends CActiveRecord implements Material
                 'updateAttribute' => 'update_date',
             ],
             'PurifyShort' => [
-                'class' => PurifyTextBehavior::class,
+                'class' => PurifyTextBehaviorV1::class,
                 'sourceAttribute' => 'short',
                 'destinationAttribute' => 'short_purified',
                 'purifierOptions' => [
@@ -246,7 +246,7 @@ class Post extends CActiveRecord implements Material
                 'processOnBeforeSave' => true,
             ],
             'PurifyText' => [
-                'class' => PurifyTextBehavior::class,
+                'class' => PurifyTextBehaviorV1::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
@@ -261,7 +261,7 @@ class Post extends CActiveRecord implements Material
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
-                'class' => FileUploadBehavior::class,
+                'class' => FileUploadBehaviorV1::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'del_image',
                 'enableWatermark' => true,

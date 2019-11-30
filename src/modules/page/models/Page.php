@@ -2,7 +2,7 @@
 
 namespace app\modules\page\models;
 
-use app\components\purifier\v1\PurifyTextBehavior;
+use app\components\purifier\PurifyTextBehaviorV1;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
 use app\components\Transliterator;
@@ -195,7 +195,7 @@ class Page extends CActiveRecord
                 ],
             ],
             'PurifyText' => [
-                'class' => PurifyTextBehavior::class,
+                'class' => PurifyTextBehaviorV1::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [

@@ -4,7 +4,7 @@ namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
-use app\components\validators\v1\ExistOrEmpty;
+use app\components\ExistOrEmptyValidatorV1;
 use CActiveDataProvider;
 use CDbCriteria;
 use yii\helpers\Url;
@@ -32,7 +32,7 @@ abstract class TreeCategory extends Category
     public function rules(): array
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', ExistOrEmpty::class, 'className' => get_class($this), 'attributeName' => 'id'],
+            ['parent_id', ExistOrEmptyValidatorV1::class, 'className' => get_class($this), 'attributeName' => 'id'],
             ['parent_id', 'safe', 'on' => 'search'],
         ]);
     }

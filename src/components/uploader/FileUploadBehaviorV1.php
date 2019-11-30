@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\uploader\v1;
+namespace app\components\uploader;
 
 use CActiveRecord;
 use CActiveRecordBehavior;
@@ -34,7 +34,7 @@ use Yii;
  * </pre>
  *
  */
-class FileUploadBehavior extends CActiveRecordBehavior
+class FileUploadBehaviorV1 extends CActiveRecordBehavior
 {
     public $fileAttribute = 'file';
     public $fileTypes = 'jpg,jpeg,gif,png';

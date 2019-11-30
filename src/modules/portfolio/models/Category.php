@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\validators\v1\ExistOrEmpty;
+use app\components\ExistOrEmptyValidatorV1;
 use app\components\category\models\TreeCategory;
 
 /**
@@ -23,7 +23,7 @@ class Category extends TreeCategory
     public function rules(): array
     {
         return array_merge(parent::rules(), [
-            ['parent_id', ExistOrEmpty::class, 'className' => self::class, 'attributeName' => 'id'],
+            ['parent_id', ExistOrEmptyValidatorV1::class, 'className' => self::class, 'attributeName' => 'id'],
         ]);
     }
 

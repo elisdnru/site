@@ -1,10 +1,10 @@
 <?php
 
-namespace app\components\validators\v1;
+namespace app\components;
 
 use CExistValidator;
 
-class ExistOrEmpty extends CExistValidator
+class ExistOrEmptyValidatorV1 extends CExistValidator
 {
     protected function isEmpty($value, $trim = false): bool
     {
