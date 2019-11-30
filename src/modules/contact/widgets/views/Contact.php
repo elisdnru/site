@@ -1,7 +1,7 @@
 <?php
 /** @var $form CActiveForm */
 
-use app\components\widgets\Portlet;
+use app\widgets\Portlet;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
 use yii\helpers\Url;

@@ -1,4 +1,4 @@
-<?php use app\components\widgets\Portlet;
+<?php use app\widgets\Portlet;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use yii\caching\TagDependency;

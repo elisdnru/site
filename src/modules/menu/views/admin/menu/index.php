@@ -1,10 +1,10 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\widgets\grid\ButtonColumn;
-use app\components\widgets\grid\IndentLinkColumn;
-use app\components\widgets\grid\LinkColumn;
-use app\components\widgets\grid\ToggleColumn;
+use app\widgets\grid\ButtonColumn;
+use app\widgets\grid\IndentLinkColumn;
+use app\widgets\grid\LinkColumn;
+use app\widgets\grid\ToggleColumn;
 use app\modules\menu\models\Menu;
 use yii\helpers\Url;
 

@@ -1,6 +1,6 @@
 <?php
 use app\assets\ColorboxAsset;
-use app\components\widgets\ShareWidget;
+use app\widgets\ShareWidget;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;

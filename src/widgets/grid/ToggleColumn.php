@@ -4,7 +4,7 @@
  * @version 1.2
  */
 
-namespace app\components\widgets\grid;
+namespace app\widgets\grid;
 
 use CActiveDataProvider;
 use CGridColumn;

@@ -7,7 +7,7 @@ $this->params['breadcrumbs'] = [
     'Вход на сайт'
 ];
 
-use app\components\widgets\Portlet;
+use app\widgets\Portlet;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url; ?>

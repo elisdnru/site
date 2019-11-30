@@ -1,7 +1,7 @@
 <?php
 /** @var $form CActiveForm */
 
-use app\components\widgets\Portlet;
+use app\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 use yii\helpers\Html;
 

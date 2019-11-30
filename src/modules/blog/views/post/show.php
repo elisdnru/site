@@ -1,9 +1,9 @@
 <?php
 use app\assets\HighlightAsset;
 use app\components\Pluraliser;
-use app\components\widgets\InlineWidgetsBehavior;
+use app\components\InlineWidgetsBehavior;
 use app\components\StyleHelper;
-use app\components\widgets\ShareWidget;
+use app\widgets\ShareWidget;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
@@ -17,7 +17,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|\app\components\widgets\InlineWidgetsBehavior */
+/** @var $this View|\app\widgets\InlineWidgetsBehavior */
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
 

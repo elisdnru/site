@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\widgets;
+namespace app\widgets;
 
 use app\assets\AdminBarAsset;
 use app\modules\user\models\Access;

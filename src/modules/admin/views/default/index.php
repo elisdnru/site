@@ -1,6 +1,6 @@
 <?php
 use app\components\module\Module;
-use app\components\widgets\IconMenu;
+use app\widgets\IconMenu;
 
 /** @var $modules Module[] */
 

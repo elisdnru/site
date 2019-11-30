@@ -1,16 +1,16 @@
 <?php
 
 use app\components\MathCaptchaAction;
-use app\components\widgets\InlineWidgetsBehavior;
+use app\components\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRules;
 use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
-use app\components\widgets\inline\CountDownWidget;
-use app\components\widgets\inline\MailToWidget;
-use app\components\widgets\inline\SubscribeNewsWidget;
-use app\components\widgets\inline\SubscribeWebinarsWidget;
+use app\widgets\inline\CountDownWidget;
+use app\widgets\inline\MailToWidget;
+use app\widgets\inline\SubscribeNewsWidget;
+use app\widgets\inline\SubscribeWebinarsWidget;
 use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;

@@ -1,5 +1,5 @@
 <?php
-use app\components\widgets\Portlet;
+use app\widgets\Portlet;
 use yii\helpers\Html;
 
 /** @var $posts \app\modules\blog\models\Post[] */

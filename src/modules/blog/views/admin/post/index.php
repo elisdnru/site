@@ -1,9 +1,9 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\widgets\grid\ButtonColumn;
-use app\components\widgets\grid\LinkColumn;
-use app\components\widgets\grid\ToggleColumn;
+use app\widgets\grid\ButtonColumn;
+use app\widgets\grid\LinkColumn;
+use app\widgets\grid\ToggleColumn;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;

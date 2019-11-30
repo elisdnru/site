@@ -1,6 +1,6 @@
 <?php
-use app\components\widgets\BreadcrumbsWidget;
-use app\components\widgets\MessagesWidget;
+use app\widgets\BreadcrumbsWidget;
+use app\widgets\MessagesWidget;
 use app\modules\block\widgets\BlockWidget;
 ?>
 

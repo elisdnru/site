@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\widgets\grid;
+namespace app\widgets\grid;
 
 use CHtml;
 use yii\helpers\Html;

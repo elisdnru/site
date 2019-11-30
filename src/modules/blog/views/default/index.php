@@ -1,13 +1,13 @@
 <?php
 
-use app\components\widgets\InlineWidgetsBehavior;
+use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|\app\components\widgets\InlineWidgetsBehavior */
+/** @var $this View|\app\components\InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 

@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\widgets\LinkPager;
 
-/** @var $this \yii\web\View|\app\components\widgets\InlineWidgetsBehavior */
+/** @var $this \yii\web\View|\app\components\InlineWidgetsBehavior */
 /** @var $dataProvider ActiveDataProvider */
 /** @var $query CActiveRecord */
 

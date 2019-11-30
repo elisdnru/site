@@ -1,7 +1,7 @@
 <?php
 
 use app\components\SocNetwork;
-use app\components\widgets\Portlet;
+use app\widgets\Portlet;
 use yii\helpers\Html;
 use yii\helpers\Url;
 

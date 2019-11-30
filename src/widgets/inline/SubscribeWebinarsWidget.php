@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\components\widgets\inline;
+namespace app\widgets\inline;
 
 use yii\base\Widget;
 

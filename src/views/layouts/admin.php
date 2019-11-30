@@ -1,8 +1,8 @@
 <?php
 
 use app\assets\AdminAsset;
-use app\components\widgets\BreadcrumbsWidget;
-use app\components\widgets\MessagesWidget;
+use app\widgets\BreadcrumbsWidget;
+use app\widgets\MessagesWidget;
 
 AdminAsset::register($this);
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 use app\assets\MainAsset;
-use app\components\widgets\AdminBarWidget;
+use app\widgets\AdminBarWidget;
 use app\extensions\cachetagging\Tags;
 use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;

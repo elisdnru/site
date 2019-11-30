@@ -1,6 +1,6 @@
 <?php $this->beginContent('@app/views/layouts/main.php');
 
-use app\components\widgets\MessagesWidget; ?>
+use app\widgets\MessagesWidget; ?>
 
 <div class="main left_main">
 

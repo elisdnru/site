@@ -1,7 +1,7 @@
 <?php
-use app\components\widgets\grid\ButtonColumn;
-use app\components\widgets\grid\IndentLinkColumn;
-use app\components\widgets\grid\LinkColumn;
+use app\widgets\grid\ButtonColumn;
+use app\widgets\grid\IndentLinkColumn;
+use app\widgets\grid\LinkColumn;
 use app\modules\landing\models\Landing;
 use yii\helpers\Url;
 

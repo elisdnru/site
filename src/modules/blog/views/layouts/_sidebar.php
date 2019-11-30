@@ -1,6 +1,6 @@
 <?php
-use app\components\widgets\FollowWidget;
-use app\components\widgets\Portlet;
+use app\widgets\FollowWidget;
+use app\widgets\Portlet;
 use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;

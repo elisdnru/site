@@ -1,6 +1,6 @@
 <?php
 
-use app\components\widgets\Portlet;
+use app\widgets\Portlet;
 use app\modules\user\forms\RegistrationForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
