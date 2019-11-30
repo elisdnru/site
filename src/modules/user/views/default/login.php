@@ -1,6 +1,6 @@
 <?php
 /** @var $form CActiveForm */
-/** @var $model \app\modules\user\forms\LoginForm*/
+/** @var $model \app\modules\user\forms\LoginForm */
 $this->context->layout = 'user';
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'] = [
@@ -17,39 +17,32 @@ use yii\helpers\Url; ?>
 <?php Portlet::begin(['title' => 'Войти, используя логин и пароль']); ?>
 
 <div class="form">
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => Url::current(),
-        'id' => 'login-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-    ]); ?>
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+    <form action="?" method="post" id="login-form">
 
-    <div class="row">
-        <?= $form->labelEx($model, 'username') ?><br />
-        <?= $form->textField($model, 'username', ['size' => 30]) ?><br />
-        <?= $form->error($model, 'username') ?>
-    </div>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <div class="row">
-        <?= $form->labelEx($model, 'password') ?><br />
-        <?= $form->passwordField($model, 'password', ['size' => 30]) ?><br />
-        <?= $form->error($model, 'password') ?>
-    </div>
-    <div class="row rememberMe" style="margin-bottom: 10px">
-        <?= $form->checkBox($model, 'rememberMe') ?>
-        <?= $form->label($model, 'rememberMe') ?>
-        <?= $form->error($model, 'rememberMe') ?>
-    </div>
+        <div class="row">
+            <?= Html::activeLabel($model, 'username') ?><br />
+            <?= Html::activeTextInput($model, 'username', ['size' => 30]) ?><br />
+            <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
+        </div>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Вход в учётную запись') ?>
-    </div>
+        <div class="row">
+            <?= Html::activeLabel($model, 'password') ?><br />
+            <?= Html::activePasswordInput($model, 'password', ['size' => 30]) ?><br />
+            <?= Html::error($model, 'password', ['class' => 'errorMessage']) ?>
+        </div>
+        <div class="row rememberMe" style="margin-bottom: 10px">
+            <?= Html::activeCheckbox($model, 'rememberMe') ?><br />
+            <?= Html::error($model, 'rememberMe', ['class' => 'errorMessage']) ?>
+        </div>
 
-    <?php Yii::app()->controller->endWidget(); ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Вход в учётную запись') ?>
+        </div>
+
+    </form>
 </div><!-- form -->
 
 <?php Portlet::end(); ?>

@@ -21,11 +21,8 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
 
-        if ($post = Yii::$app->request->post('LoginForm')) {
-            $model->attributes = $post;
-            if ($model->validate() && $model->login()) {
-                return $this->redirect(Yii::$app->user->returnUrl);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->login()) {
+            return $this->redirect(Yii::$app->user->returnUrl);
         }
 
         return $this->render('login', ['model' => $model]);

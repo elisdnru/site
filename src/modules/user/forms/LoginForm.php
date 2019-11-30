@@ -4,15 +4,15 @@ namespace app\modules\user\forms;
 
 use app\components\UserIdentity;
 use app\modules\user\models\User;
-use CFormModel;
 use Yii;
+use yii\base\Model;
 
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-class LoginForm extends CFormModel
+class LoginForm extends Model
 {
     public $username;
     public $password;
@@ -27,7 +27,7 @@ class LoginForm extends CFormModel
     {
         return [
             // username and password are required
-            ['username, password', 'required'],
+            [['username', 'password'], 'required'],
             // rememberMe needs to be a boolean
             ['rememberMe', 'boolean'],
             // password needs to be authenticated
