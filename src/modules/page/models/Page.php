@@ -5,7 +5,7 @@ namespace app\modules\page\models;
 use app\components\purifier\v1\PurifyTextBehavior;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
-use app\components\TextHelper;
+use app\components\Transliterator;
 use CActiveRecord;
 use CDbCriteria;
 use yii\helpers\Url;
@@ -242,7 +242,7 @@ class Page extends CActiveRecord
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = TextHelper::slug($this->title);
+            $this->alias = Transliterator::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

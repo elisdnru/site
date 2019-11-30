@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\components\AdminController;
 use app\components\FileHelper;
-use app\components\TextHelper;
+use app\components\Transliterator;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
@@ -126,7 +126,7 @@ class FileController extends AdminController
                 return 'Отказано в доступе к загрузке файла .htaccess';
             }
 
-            $file = $curpath . '/' . TextHelper::slug($uploaded->getFilename()) . '.' . $uploaded->getExtension();
+            $file = $curpath . '/' . Transliterator::slug($uploaded->getFilename()) . '.' . $uploaded->getExtension();
 
             if (!$uploaded->Move($file)) {
                 $success = true;
@@ -136,7 +136,7 @@ class FileController extends AdminController
                 $orig = Yii::$app->image->load($file);
 
                 if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
-                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::slug($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
+                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . Transliterator::slug($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
                 }
             }
         }

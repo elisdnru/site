@@ -20,6 +20,6 @@ class FileHelper
 
     public static function escape($name): string
     {
-        return TextHelper::translit(str_replace(['..', '~', '"', '"', '/', ':'], '', $name));
+        return Transliterator::translit(str_replace(['..', '~', '"', '"', '/', ':'], '', $name));
     }
 }

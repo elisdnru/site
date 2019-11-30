@@ -1,7 +1,7 @@
 <?php
 use app\components\DateFormatter;
+use app\components\purifier\CommentFilter;
 use app\components\SocNetwork;
-use app\components\TextHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -52,7 +52,7 @@ use yii\helpers\Url;
 
     <div class="text">
         <?php if ($comment->public) : ?>
-            <?= TextHelper::fixBR($comment->text_purified) ?>
+            <?= CommentFilter::fixMarkup($comment->text_purified) ?>
         <?php else : ?>
             <em>Комментарий удалён</em>
         <?php endif; ?>

@@ -3,7 +3,7 @@
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryBehavior;
-use app\components\TextHelper;
+use app\components\Transliterator;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;
@@ -129,7 +129,7 @@ abstract class Category extends CActiveRecord
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = TextHelper::slug($this->title);
+            $this->alias = Transliterator::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

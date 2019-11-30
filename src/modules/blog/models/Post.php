@@ -5,7 +5,7 @@ namespace app\modules\blog\models;
 use app\components\purifier\v1\PurifyTextBehavior;
 use app\components\uploader\v1\FileUploadBehavior;
 use app\components\validators\v1\ExistOrEmpty;
-use app\components\TextHelper;
+use app\components\Transliterator;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
 use CActiveDataProvider;
@@ -296,7 +296,7 @@ class Post extends CActiveRecord implements Material
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = TextHelper::slug($this->title);
+            $this->alias = Transliterator::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);
