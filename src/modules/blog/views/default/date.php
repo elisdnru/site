@@ -1,19 +1,18 @@
 <?php
-use app\components\DateLimiter;
 use app\components\NumberHelper;
 use app\modules\user\models\Access;
 
 /** @var $this \yii\web\View */
-/** @var $date DateLimiter */
+/** @var $date string */
 /** @var $dataProvider CActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = 'Записи за ' . $date->date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Записи за ' . $date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
 
 $this->params['breadcrumbs'] = [
     'Блог' => ['/blog/default/index'],
-    'Записи от ' . $date->date,
+    'Записи от ' . $date,
 ];
 
 if (Yii::$app->user->can(Access::CONTROL)) {
@@ -24,6 +23,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1>Записи от <?= $date->date ?></h1>
+<h1>Записи от <?= $date ?></h1>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

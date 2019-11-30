@@ -44,15 +44,19 @@ class DefaultController extends Controller
 
     public function actionDate($date): string
     {
-        $date = $this->getDateLimiter($date);
+        $limiter = new DateLimiter($date);
+
+        if (!$limiter->isValid()) {
+            throw new NotFoundHttpException();
+        }
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addSearchCondition('t.date', $date->searchString, false);
+        $criteria->addSearchCondition('t.date', $limiter->getSearchString(), false);
 
         return $this->render('date', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
-            'date' => $date,
+            'date' => $limiter->getDate(),
         ]);
     }
 
@@ -108,15 +112,6 @@ class DefaultController extends Controller
     protected function loadTagModel(string $title): ?Tag
     {
         return Tag::model()->findByTitle($title);
-    }
-
-    protected function getDateLimiter(string $date): DateLimiter
-    {
-        $dateLimiter = new DateLimiter($date);
-        if (!$dateLimiter->validate()) {
-            throw new NotFoundHttpException();
-        }
-        return $dateLimiter;
     }
 
     protected function getBlogCriteria(): CDbCriteria
