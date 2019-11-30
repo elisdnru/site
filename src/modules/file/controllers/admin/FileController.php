@@ -126,7 +126,7 @@ class FileController extends AdminController
                 return 'Отказано в доступе к загрузке файла .htaccess';
             }
 
-            $file = $curpath . '/' . TextHelper::strToChpu($uploaded->getFilename()) . '.' . $uploaded->getExtension();
+            $file = $curpath . '/' . TextHelper::slug($uploaded->getFilename()) . '.' . $uploaded->getExtension();
 
             if (!$uploaded->Move($file)) {
                 $success = true;
@@ -136,7 +136,7 @@ class FileController extends AdminController
                 $orig = Yii::$app->image->load($file);
 
                 if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
-                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::strToChpu($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
+                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . TextHelper::slug($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
                 }
             }
         }

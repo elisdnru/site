@@ -11,25 +11,15 @@ class TextHelper
         return Inflector::transliterate($string);
     }
 
-    public static function strToChpu($string): string
+    public static function slug($string): string
     {
         return Inflector::slug($string);
     }
 
-    public static function firstWord($str)
-    {
-        $words = explode(' ', $str);
-        return $words[0] ?? '';
-    }
-
     public static function fixBR($text)
     {
-        $text = preg_replace_callback('@(<p>.*?</p>)@s', [self::class, 'pregCallback'], $text);
-        return $text;
-    }
-
-    protected static function pregCallback($matches): string
-    {
-        return nl2br($matches[0]);
+        return preg_replace_callback('@(<p>.*?</p>)@s', static function ($matches): string {
+            return nl2br($matches[0]);
+        }, $text);
     }
 }

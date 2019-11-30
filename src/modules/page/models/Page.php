@@ -242,7 +242,7 @@ class Page extends CActiveRecord
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = TextHelper::strToChpu($this->title);
+            $this->alias = TextHelper::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);
