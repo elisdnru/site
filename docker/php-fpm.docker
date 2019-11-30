@@ -1,16 +1,20 @@
-FROM php:7.1-fpm-alpine
+FROM php:7.3-fpm-alpine
 
-RUN apk update && apk add libmcrypt-dev mariadb-client \
-    && docker-php-ext-install mcrypt pdo_mysql
+RUN apk update && apk add mariadb-client \
+    && docker-php-ext-install pdo_mysql
 
 RUN apk add libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev \
     && docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
         --with-png-dir=/usr/lib \
         --with-webp-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2 \
     && docker-php-ext-install gd
+
+RUN apk add libmcrypt-dev autoconf g++ make \
+    && pecl install -o -f mcrypt \
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable mcrypt
 
 COPY ./php/conf.d /usr/local/etc/php/conf.d
 
