@@ -2,13 +2,13 @@
 
 namespace app\modules\blog\forms;
 
-use CFormModel;
+use yii\base\Model;
 
 /**
  * @property integer $id
  * @property string $title
  */
-class GroupForm extends CFormModel
+class GroupForm extends Model
 {
     public $title;
 
@@ -21,10 +21,7 @@ class GroupForm extends CFormModel
         // will receive user inputs.
         return [
             ['title', 'required'],
-            ['title', 'length', 'max' => 255],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, title', 'safe', 'on' => 'search'],
+            ['title', 'string', 'max' => 255],
         ];
     }
 

@@ -48,16 +48,12 @@ class GroupController extends AdminController
 
         $form = new GroupForm();
 
-        if (isset($post)) {
-            $form->attributes = $post;
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            $model = new Group();
+            $model->attributes = $form->attributes;
 
-            if ($form->validate()) {
-                $model = new Group();
-                $model->attributes = $form->attributes;
-
-                if ($model->save()) {
-                    $this->refresh();
-                }
+            if ($model->save()) {
+                $this->refresh();
             }
         }
 

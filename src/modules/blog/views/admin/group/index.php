@@ -62,18 +62,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 <br />
 <div class="form">
 
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => Url::current(),
-        'id' => 'category-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-    ]); ?>
-
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
-
-    <?= $form->errorSummary($itemForm) ?>
+    <?= Html::beginForm() ?>
 
     <table class="grid">
         <tr>
@@ -82,8 +71,10 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
         </tr>
 
         <tr>
-            <td><?= $form->textField($itemForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]) ?>
-                <br /></td>
+            <td>
+                <?= Html::activeTextInput($itemForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]) ?><br />
+                <?= Html::error($itemForm, 'title') ?>
+            </td>
             <td></td>
         </tr>
     </table>
@@ -91,6 +82,6 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
         <?= Html::submitButton('Добавить группу') ?>
     </div>
 
-    <?php Yii::app()->controller->endWidget(); ?>
+    <?= Html::endForm() ?>
 
 </div><!-- form -->
