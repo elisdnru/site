@@ -2,9 +2,9 @@
 
 namespace app\components;
 
-class SocNetworkHelper
+class SocNetwork
 {
-    public static function getIcon(string $network): string
+    public static function icon(string $network): string
     {
         return '<span class="social-icon ' . $network . '"></span>';
     }

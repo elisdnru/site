@@ -1,5 +1,5 @@
 <?php
-use app\components\SocNetworkHelper;
+use app\components\SocNetwork;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -17,7 +17,7 @@ use yii\helpers\Url;
         <p class="nomargin"><strong>
                 <?php if ($user->network) : ?>
                     <a href="<?= $user->identity ?>">
-                        <?= SocNetworkHelper::getIcon($user->network) ?>
+                        <?= SocNetwork::icon($user->network) ?>
                     </a>
                 <?php endif; ?>
                 <?= Html::encode($user->fio) ?>

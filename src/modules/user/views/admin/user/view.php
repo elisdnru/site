@@ -1,6 +1,6 @@
 <?php
 
-use app\components\SocNetworkHelper;
+use app\components\SocNetwork;
 use app\components\widgets\Portlet;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -35,7 +35,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 
     <h3>
         <?php if ($model->network) : ?>
-            <a rel="nofollow" href="<?= $model->identity ?>"><?= SocNetworkHelper::getIcon($model->network) ?></a>
+            <a rel="nofollow" href="<?= $model->identity ?>"><?= SocNetwork::icon($model->network) ?></a>
         <?php endif; ?>
         <?= Html::encode($model->fio) ?>
     </h3>

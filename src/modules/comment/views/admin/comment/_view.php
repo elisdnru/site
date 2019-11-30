@@ -1,6 +1,6 @@
 <?php
 /** @var $data \app\modules\comment\models\Comment */
-use app\components\SocNetworkHelper;
+use app\components\SocNetwork;
 use app\components\TextHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -36,7 +36,7 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
         <h2 class="date"><?= $data->date ?></h2>
 
         <?php if ($data->user && $data->user->network) : ?>
-            <a target="_blank" rel="nofollow" href="<?= $data->user->identity ?>"><?= SocNetworkHelper::getIcon($data->user->network) ?></a>
+            <a target="_blank" rel="nofollow" href="<?= $data->user->identity ?>"><?= SocNetwork::icon($data->user->network) ?></a>
         <?php endif; ?>
 
         <span class="author">
