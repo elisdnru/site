@@ -237,6 +237,8 @@
 }
 
 @media screen and (min-width: 600px) {
+  #comment-form input[type=email],
+  #comment-form input[type=url],
   #comment-form input[type=text] {
     width: 50% !important;
   }
