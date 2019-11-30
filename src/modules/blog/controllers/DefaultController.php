@@ -13,6 +13,7 @@ use app\components\Controller;
 use app\components\DateLimiter;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
+use Yii;
 use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
@@ -75,20 +76,18 @@ class DefaultController extends Controller
     {
         $criteria = $this->getBlogCriteria();
 
-        $searchForm = new SearchForm();
+        $form = new SearchForm();
 
-        if (isset($_REQUEST['word'])) {
-            $searchForm->word = $_REQUEST['word'];
-
-            $criteria->addSearchCondition('t.title', $searchForm->word);
-            $criteria->addSearchCondition('t.text_purified', $searchForm->word, true, 'OR');
-            $criteria->addSearchCondition('t.short_purified', $searchForm->word, true, 'OR');
+        if ($form->load(Yii::$app->request->queryParams)) {
+            $criteria->addSearchCondition('t.title', $form->word);
+            $criteria->addSearchCondition('t.text_purified', $form->word, true, 'OR');
+            $criteria->addSearchCondition('t.short_purified', $form->word, true, 'OR');
         }
 
         return $this->render('search', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
-            'searchForm' => $searchForm,
+            'searchForm' => $form,
         ]);
     }
 
