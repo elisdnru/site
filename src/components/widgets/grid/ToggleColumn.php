@@ -7,10 +7,10 @@
 namespace app\components\widgets\grid;
 
 use CActiveDataProvider;
-use CException;
 use CGridColumn;
 use CHtml;
 use CJavaScript;
+use InvalidArgumentException;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -71,9 +71,6 @@ class ToggleColumn extends CGridColumn
 
     private static $increment_id = 0;
 
-    /**
-     * @throws CException
-     */
     public function init(): void
     {
         parent::init();
@@ -91,7 +88,7 @@ class ToggleColumn extends CGridColumn
         }
 
         if (empty($this->name) && empty($this->value)) {
-            throw new CException('Either "name" or "value" must be specified for DToggleColumn.');
+            throw new InvalidArgumentException('Either "name" or "value" must be specified for DToggleColumn.');
         }
 
         $this->registerClientScript();

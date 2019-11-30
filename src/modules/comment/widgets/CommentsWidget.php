@@ -3,7 +3,6 @@
 namespace app\modules\comment\widgets;
 
 use app\assets\CommentsAsset;
-use CException;
 use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
 use app\modules\user\models\User;
@@ -30,11 +29,11 @@ class CommentsWidget extends Widget
         }
 
         if (!$this->material_id) {
-            throw new CException('Not setted a Material_ID');
+            throw new InvalidArgumentException('Empty material_id.');
         }
 
         if (!$this->type) {
-            throw new CException('Not setted a TYPE of comments');
+            throw new InvalidArgumentException('Empty type of comments.');
         }
 
         $form = new CommentForm();

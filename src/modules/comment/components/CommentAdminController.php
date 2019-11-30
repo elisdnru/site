@@ -3,8 +3,8 @@
 namespace app\modules\comment\components;
 
 use app\modules\comment\models\Comment;
+use BadMethodCallException;
 use CActiveRecord;
-use CException;
 use app\components\AdminController;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -154,7 +154,7 @@ abstract class CommentAdminController extends AdminController
 
     protected function loadMaterialModel($id): CActiveRecord
     {
-        throw new CException('Undefined material model ' . $id);
+        throw new BadMethodCallException('Undefined material model ' . $id);
     }
 
     /**

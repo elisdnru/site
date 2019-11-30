@@ -3,9 +3,9 @@
 namespace app\extensions\file;
 
 use app\extensions\AntiMagic;
-use CException;
 use CHttpException;
 use CUploadedFile;
+use RuntimeException;
 use Yii;
 use YiiBase;
 
@@ -170,7 +170,7 @@ class File
      * @param boolean $greedy If true file properties (such as 'Size', 'Owner',
      * 'Permission', etc.) would be autoloaded
      * @return File CFile instance for the specified filesystem object
-     * @throws CException
+     * @throws RuntimeException
      */
     public function set($filePath, $greedy = false): File
     {
@@ -216,7 +216,7 @@ class File
             return $instance;
         }
 
-        throw new CException('Path to filesystem object is not specified within ' . __METHOD__ . ' method');
+        throw new RuntimeException('Path to filesystem object is not specified within ' . __METHOD__ . ' method');
     }
 
     /**
@@ -490,7 +490,6 @@ class File
      * supplied by {@link set} method of the CFile
      * @return mixed Updated the current CFile object on success, 'false'
      * on fail.
-     * @throws CException
      */
     public function createDir($permissions = 0754, $directory = null): ?self
     {
@@ -813,7 +812,7 @@ class File
                 }
             }
         } else {
-            throw new CHttpException(500, 'Unable to get directory contents for "' . $directory . DIRECTORY_SEPARATOR . '"');
+            throw new RuntimeException('Unable to get directory contents for "' . $directory . DIRECTORY_SEPARATOR . '"');
         }
 
         return $descendants;

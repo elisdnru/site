@@ -3,8 +3,8 @@
 namespace app\components\validators;
 
 use CDbCriteria;
-use CException;
 use CExistValidator;
+use InvalidArgumentException;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
@@ -34,7 +34,7 @@ class ExistOrEmpty extends CExistValidator
         $attributeName = $this->attributeName === null ? $attribute : $this->attributeName;
         $table = $className::getTableSchema();
         if (($column = $table->getColumn($attributeName)) === null) {
-            throw new CException(Yii::t(
+            throw new InvalidArgumentException(Yii::t(
                 'yii',
                 'Table "{table}" does not have a column named "{column}".',
                 ['{column}' => $attributeName, '{table}' => $table->name]

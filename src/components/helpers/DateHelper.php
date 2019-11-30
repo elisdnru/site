@@ -2,7 +2,7 @@
 
 namespace app\components\helpers;
 
-use CException;
+use InvalidArgumentException;
 
 class DateHelper
 {
@@ -11,7 +11,7 @@ class DateHelper
         if (is_numeric($date)) {
             $time = $date;
         } elseif (!$time = strtotime($date)) {
-            throw new CException('Invalid Date');
+            throw new InvalidArgumentException('Invalid Date');
         }
 
         $months = ['', 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
