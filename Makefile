@@ -19,7 +19,7 @@ docker-pull:
 	docker-compose pull
 
 docker-build:
-	docker-compose build --parallel
+	docker-compose build
 
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
