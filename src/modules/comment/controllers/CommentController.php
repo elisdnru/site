@@ -15,23 +15,19 @@ class CommentController extends Controller
     {
         $model = $this->loadModel($id);
 
-        $form = new CommentForm('useredit');
+        $form = new CommentForm(['scenario' => 'useredit']);
         $form->yqe1 = 1;
 
         $user = $this->loadUser();
 
         $form->attributes = $model->attributes;
 
-        if ($post = Yii::$app->request->post('CommentForm')) {
-            $form->attributes = $post;
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            $model->attributes = $form->attributes;
 
-            if ($form->validate()) {
-                $model->attributes = $form->attributes;
-
-                if ($model->save()) {
-                    Yii::$app->session->setFlash('success', 'Ваш коментарий сохранён');
-                    return $this->redirect($model->getUrl());
-                }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Ваш коментарий сохранён');
+                return $this->redirect($model->getUrl());
             }
         }
 

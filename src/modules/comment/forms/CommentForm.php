@@ -2,13 +2,13 @@
 
 namespace app\modules\comment\forms;
 
-use CFormModel;
+use yii\base\Model;
 
 /**
  * @property string $user
  * @property string $text
  */
-class CommentForm extends CFormModel
+class CommentForm extends Model
 {
     public $name;
     public $email;
@@ -27,17 +27,17 @@ class CommentForm extends CFormModel
         // will receive user inputs.
         return [
             ['text', 'required', 'message' => 'Напишите текст комментария.'],
-            ['parent_id', 'numerical', 'integerOnly' => true],
+            ['parent_id', 'integer'],
 
-            ['name', 'length', 'max' => 255],
+            ['name', 'string', 'max' => 255],
             ['name', 'required', 'message' => 'Представьтесь, пожалуйста.', 'on' => 'anonim'],
 
-            ['email', 'length', 'max' => 255],
+            ['email', 'string', 'max' => 255],
             ['email', 'email', 'message' => 'Неверный формат E-mail адреса.'],
             ['email', 'required', 'message' => 'Введите Email', 'on' => 'anonim'],
 
             ['site', 'url'],
-            ['site', 'length', 'max' => 255],
+            ['site', 'string', 'max' => 255],
 
             ['yqe1', 'in', 'range' => [1], 'message' => 'Отметьте, что Вы человек.'],
             ['yqe2', 'in', 'range' => [0], 'message' => 'Вы уверены, что Вы бот?'],

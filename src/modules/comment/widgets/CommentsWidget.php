@@ -44,9 +44,7 @@ class CommentsWidget extends Widget
             $form->attributes = $this->loadFormState();
         }
 
-        if ($post = Yii::$app->request->post('CommentForm')) {
-            $form->attributes = $post;
-
+        if ($form->load(Yii::$app->request->post())) {
             $this->saveFormState([
                 'name' => $form->name,
                 'email' => $form->email,
