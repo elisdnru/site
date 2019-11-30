@@ -7,10 +7,10 @@ use app\components\module\routes\ModuleUrlRules;
 use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
-use app\widgets\inline\CountDownWidget;
-use app\widgets\inline\MailToWidget;
-use app\widgets\inline\SubscribeNewsWidget;
-use app\widgets\inline\SubscribeWebinarsWidget;
+use app\widgets\inline\CountDown;
+use app\widgets\inline\MailTo;
+use app\widgets\inline\SubscribeNews;
+use app\widgets\inline\SubscribeWebinars;
 use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
@@ -191,10 +191,10 @@ return [
                     'block' => BlockWidget::class,
                     'contact' => ContactWidget::class,
                     'portfolio' => PortfolioWidget::class,
-                    'countdown' => CountDownWidget::class,
-                    'subscribe_webinars' => SubscribeWebinarsWidget::class,
-                    'subscribe_news' => SubscribeNewsWidget::class,
-                    'mailto' => MailToWidget::class,
+                    'countdown' => CountDown::class,
+                    'subscribe_webinars' => SubscribeWebinars::class,
+                    'subscribe_news' => SubscribeNews::class,
+                    'mailto' => MailTo::class,
                 ],
             ],
         ],

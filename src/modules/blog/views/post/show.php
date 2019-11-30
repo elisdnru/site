@@ -3,7 +3,7 @@ use app\assets\HighlightAsset;
 use app\components\Pluraliser;
 use app\components\InlineWidgetsBehavior;
 use app\components\StyleHelper;
-use app\widgets\ShareWidget;
+use app\widgets\Share;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
@@ -17,7 +17,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|\app\widgets\InlineWidgetsBehavior */
+/** @var $this View|\app\components\InlineWidgetsBehavior */
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
 
@@ -146,7 +146,7 @@ HighlightAsset::register($this);
 
     <div class="donate-btn"><a href="/donate">Поддержать проект</a></div>
 
-    <?= ShareWidget::widget([
+    <?= Share::widget([
         'title' => $model->title,
         'description' => $model->description,
         'image' => $model->imageUrl,

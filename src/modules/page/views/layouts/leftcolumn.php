@@ -1,7 +1,7 @@
 <?php $this->beginContent('@app/views/layouts/main.php');
 
-use app\widgets\BreadcrumbsWidget;
-use app\widgets\MessagesWidget; ?>
+use app\widgets\Breadcrumbs;
+use app\widgets\Messages; ?>
 
 <aside class="sidebar left_sidebar">
 
@@ -12,8 +12,8 @@ use app\widgets\MessagesWidget; ?>
 
 <div class="main right_main">
 
-    <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= MessagesWidget::widget() ?>
+    <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= Messages::widget() ?>
 
     <?= $content ?>
 

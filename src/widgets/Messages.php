@@ -4,7 +4,7 @@ namespace app\widgets;
 
 use yii\base\Widget;
 
-class MessagesWidget extends Widget
+class Messages extends Widget
 {
     public function run(): string
     {

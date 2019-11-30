@@ -1,10 +1,10 @@
 <?php $this->beginContent('@app/views/layouts/main.php');
 
-use app\widgets\MessagesWidget; ?>
+use app\widgets\Messages; ?>
 
 <div class="main left_main">
 
-    <?= MessagesWidget::widget() ?>
+    <?= Messages::widget() ?>
 
     <?= $content ?>
 

@@ -6,15 +6,16 @@ namespace app\widgets\inline;
 
 use yii\base\Widget;
 
-class MailToWidget extends Widget
+class CountDown extends Widget
 {
-    public $email;
+    public $title;
     public $date;
 
     public function run(): string
     {
-        return $this->render('MailTo', [
-            'email' => $this->email,
+        return $this->render('CountDown', [
+            'title' => $this->title,
+            'date' => $this->date,
         ]);
     }
 }

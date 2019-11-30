@@ -1,7 +1,7 @@
 <?php
 
 use app\assets\MainAsset;
-use app\widgets\AdminBarWidget;
+use app\widgets\AdminBar;
 use app\extensions\cachetagging\Tags;
 use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
@@ -76,7 +76,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
     <?php if (count($this->params['admin'] ?? [])) : ?>
         <div class="adminbar">
-            <?= AdminBarWidget::widget([
+            <?= AdminBar::widget([
                 'links' => $this->params['admin'],
             ]) ?>
         </div>

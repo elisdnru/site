@@ -1,4 +1,4 @@
-<?php use app\widgets\FollowWidget;
+<?php use app\widgets\Follow;
 use app\widgets\Portlet;
 use app\extensions\cachetagging\Tags;
 use app\modules\portfolio\models\Category;
@@ -7,7 +7,7 @@ use yii\widgets\Menu;
 
 if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?php Portlet::begin(['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
-    <?= FollowWidget::widget() ?>
+    <?= Follow::widget() ?>
     <?php Portlet::end(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

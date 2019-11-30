@@ -5,7 +5,7 @@ namespace app\widgets;
 use Yii;
 use yii\base\Widget;
 
-class ShareWidget extends Widget
+class Share extends Widget
 {
     public $url = '';
     public $title = '';

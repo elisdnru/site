@@ -1,6 +1,6 @@
 <?php
-use app\widgets\BreadcrumbsWidget;
-use app\widgets\MessagesWidget;
+use app\widgets\Breadcrumbs;
+use app\widgets\Messages;
 use app\modules\block\widgets\BlockWidget;
 ?>
 
@@ -10,8 +10,8 @@ use app\modules\block\widgets\BlockWidget;
 
     <?= BlockWidget::widget(['id' => 'banner_blog_top']) ?>
 
-    <?= BreadcrumbsWidget::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= MessagesWidget::widget() ?>
+    <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?= Messages::widget() ?>
 
     <?= $content ?>
 

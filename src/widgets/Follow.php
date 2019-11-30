@@ -4,7 +4,7 @@ namespace app\widgets;
 
 use yii\base\Widget;
 
-class FollowWidget extends Widget
+class Follow extends Widget
 {
     public function run(): string
     {

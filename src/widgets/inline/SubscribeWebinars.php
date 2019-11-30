@@ -6,10 +6,10 @@ namespace app\widgets\inline;
 
 use yii\base\Widget;
 
-class SubscribeNewsWidget extends Widget
+class SubscribeWebinars extends Widget
 {
     public function run(): string
     {
-        return $this->render('SubscribeNews');
+        return $this->render('SubscribeWebinars');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 use app\assets\ColorboxAsset;
-use app\widgets\ShareWidget;
+use app\widgets\Share;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
@@ -82,7 +82,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 </article>
 
-<?= ShareWidget::widget([
+<?= Share::widget([
     'title' => $model->title,
     'description' => $model->description,
     'image' => $model->imageUrl,
