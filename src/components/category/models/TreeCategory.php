@@ -39,7 +39,7 @@ abstract class TreeCategory extends Category
 
     public function attributeLabels(): array
     {
-        return array_merge(self::staticAtributeLabels(), [
+        return array_merge(self::staticAttributeLabels(), [
             'parent_id' => 'Родительский пункт',
         ]);
     }

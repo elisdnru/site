@@ -60,10 +60,10 @@ abstract class Category extends CActiveRecord
 
     public function attributeLabels(): array
     {
-        return self::staticAtributeLabels();
+        return self::staticAttributeLabels();
     }
 
-    public static function staticAtributeLabels(): array
+    public static function staticAttributeLabels(): array
     {
         return [
             'id' => 'ID',

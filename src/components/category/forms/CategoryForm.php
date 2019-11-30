@@ -34,6 +34,6 @@ abstract class CategoryForm extends CFormModel
 
     public function attributeLabels(): array
     {
-        return Category::staticAtributeLabels();
+        return Category::staticAttributeLabels();
     }
 }
