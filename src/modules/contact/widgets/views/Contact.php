@@ -2,6 +2,7 @@
 /** @var $form CActiveForm */
 
 use app\components\widgets\Portlet;
+use yii\captcha\Captcha;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -11,67 +12,56 @@ use yii\helpers\Url;
 
 <div class="form">
 
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => Url::current(),
-        'id' => 'contact-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-    ]); ?>
+    <form action="?" method="post">
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <?= $form->errorSummary($model) ?>
-
-    <div class="row">
-        <?= $form->labelEx($model, 'name') ?><br />
-        <?= $form->textField($model, 'name', ['size' => 40]) ?><br />
-        <?= $form->error($model, 'name') ?>
-    </div>
-
-    <div class="row">
-        <?= $form->labelEx($model, 'email') ?><br />
-        <?= $form->textField($model, 'email', ['size' => 40]) ?><br />
-        <?= $form->error($model, 'email') ?>
-    </div>
-
-    <div class="row">
-        <?= $form->labelEx($model, 'phone') ?><br />
-        <?= $form->textField($model, 'phone', ['size' => 40]) ?><br />
-        <?= $form->error($model, 'phone') ?>
-    </div>
-
-    <div class="row">
-        <?= $form->labelEx($model, 'text') ?><br />
-        <?= $form->textArea($model, 'text', ['rows' => 8, 'cols' => 50, 'style' => 'width:99%']) ?>
-        <br />
-        <?= $form->error($model, 'text') ?>
-    </div>
-
-    <div class="row">
-        <?= $form->labelEx($model, 'test') ?><br />
-        <?= $form->textField($model, 'test', ['size' => 22]) ?>
-        <?= $form->error($model, 'test') ?>
-        <div>
-            <?php Yii::app()->controller->widget(CCaptcha::class, ['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
+        <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?><?= $model->isAttributeRequired('name') ? ' required' : '' ?>">
+            <?= Html::activeLabel($model, 'name') ?><br />
+            <?= Html::activeTextInput($model, 'name', ['size' => 40]) ?><br />
+            <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
         </div>
-    </div>
 
-    <br />
+        <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?><?= $model->isAttributeRequired('email') ? ' required' : '' ?>">
+            <?= Html::activeLabel($model, 'email') ?><br />
+            <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 40]) ?><br />
+            <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+        </div>
 
-    <div class="row">
-        <?= $form->checkBox($model, 'accept') ?>
-        <?= $form->labelEx($model, 'accept') ?><br />
-        <?= $form->error($model, 'accept') ?>
-    </div>
+        <div class="row<?= $model->hasErrors('phone') ? ' error' : '' ?><?= $model->isAttributeRequired('phone') ? ' required' : '' ?>">
+            <?= Html::activeLabel($model, 'phone') ?><br />
+            <?= Html::activeTextInput($model, 'phone', ['type' => 'tel', 'size' => 40]) ?><br />
+            <?= Html::error($model, 'phone', ['class' => 'errorMessage']) ?>
+        </div>
 
-    <br />
+        <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?><?= $model->isAttributeRequired('text') ? ' required' : '' ?>">
+            <?= Html::activeLabel($model, 'text') ?><br />
+            <?= Html::activeTextarea($model, 'text', ['rows' => 8, 'cols' => 50, 'style' => 'width:99%']) ?><br />
+            <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+        </div>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Отправить сообщение') ?>
-    </div>
-    <?php Yii::app()->controller->endWidget(); ?>
+        <div class="row<?= $model->hasErrors('test') ? ' error' : '' ?><?= $model->isAttributeRequired('test') ? ' required' : '' ?>">
+            <?= Html::activeLabel($model, 'test') ?><br />
+            <?= Html::activeTextInput($model, 'test', ['size' => 22]) ?><br />
+            <?= Html::error($model, 'test', ['class' => 'errorMessage']) ?>
+            <div>
+                <?php Captcha::widget(['buttonLabel' => '<br />Показать другой код<br />', 'captchaAction' => '/contact/default/captcha']); ?>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row<?= $model->hasErrors('accept') ? ' error' : '' ?><?= $model->isAttributeRequired('accept') ? ' required' : '' ?>">
+            <?= Html::activeCheckbox($model, 'accept') ?><br />
+            <?= Html::error($model, 'accept', ['class' => 'errorMessage']) ?>
+        </div>
+
+        <br />
+
+        <div class="row buttons">
+            <?= Html::submitButton('Отправить сообщение') ?>
+        </div>
+    </form>
 
 </div><!-- form -->
 

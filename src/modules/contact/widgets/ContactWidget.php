@@ -11,22 +11,19 @@ class ContactWidget extends Widget
 {
     public $scenario = '';
 
-    public function run()
+    public function run(): string
     {
         $form = new ContactForm($this->scenario);
 
-        if ($post = Yii::$app->request->post('ContactForm')) {
-            $form->attributes = $post;
-            if ($form->validate()) {
-                $contact = new Contact();
-                $contact->attributes = $post;
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            $contact = new Contact();
+            $contact->attributes = $form->attributes;
 
-                $contact->pagetitle = Yii::$app->view->title;
+            $contact->pagetitle = Yii::$app->view->title;
 
-                if ($contact->save()) {
-                    Yii::$app->session->setFlash('success', 'Ваше сообщение принято');
-                    Yii::$app->controller->refresh();
-                }
+            if ($contact->save()) {
+                Yii::$app->session->setFlash('success', 'Ваше сообщение принято');
+                Yii::$app->controller->refresh();
             }
         }
 

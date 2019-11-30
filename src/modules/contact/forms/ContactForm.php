@@ -2,15 +2,14 @@
 
 namespace app\modules\contact\forms;
 
-use CCaptcha;
-use CFormModel;
+use yii\base\Model;
 
 /**
  * ContactForm class.
  * ContactForm is the data structure for keeping
  * contact form data. It is used by the 'contact' action of 'SiteController'.
  */
-class ContactForm extends CFormModel
+class ContactForm extends Model
 {
     public $name;
     public $email;
@@ -27,14 +26,12 @@ class ContactForm extends CFormModel
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return [
-            ['name, email, text, accept', 'required'],
-            ['name', 'length', 'max' => 200],
-            ['email, phone', 'length', 'max' => 100],
+            [['name', 'email', 'text', 'accept'], 'required'],
+            ['name', 'string', 'max' => 200],
+            [['email', 'phone'], 'string', 'max' => 100],
             ['email', 'email'],
             ['accept', 'compare', 'compareValue' => '1'],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['test', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements(), 'captchaAction' => '/contact/default/captcha', 'except' => 'safe'],
+            ['test', 'captcha', 'captchaAction' => '/contact/default/captcha'],
         ];
     }
 
