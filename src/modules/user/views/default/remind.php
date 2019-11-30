@@ -4,7 +4,6 @@
 use app\components\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 /** @var $model RemindForm */
 $this->context->layout = 'user';
@@ -18,28 +17,22 @@ $this->params['breadcrumbs'] = [
 <?php Portlet::begin(['title' => 'Восстановление пароля']); ?>
 
 <div class="form">
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => Url::current(),
-        'id' => 'remind-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-    ]); ?>
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+    <form action="?" method="post" id="remind-form">
 
-    <div class="row">
-        <?= $form->labelEx($model, 'email') ?><br />
-        <?= $form->textField($model, 'email', ['size' => 30]) ?><br />
-        <?= $form->error($model, 'email') ?>
-    </div>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Восстановить пароль') ?>
-    </div>
+        <div class="row">
+            <?= Html::activeLabel($model, 'email') ?><br />
+            <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 30]) ?><br />
+            <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+        </div>
 
-    <?php Yii::app()->controller->endWidget(); ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Восстановить пароль') ?>
+        </div>
+
+    </form>
 </div><!-- form -->
 
 <?php Portlet::end(); ?>

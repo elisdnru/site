@@ -44,23 +44,17 @@ class DefaultController extends Controller
     {
         $model = new RemindForm();
 
-        if ($post = Yii::$app->request->post('RemindForm')) {
-            $model->attributes = $post;
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $user = User::findOne(['email' => $model->email]);
 
-            if ($model->validate()) {
-                $user = User::findOne(['email' => $model->email]);
+            if ($user) {
+                $user->new_password = mb_substr(md5(microtime()), 0, 10, 'UTF-8');
+                $user->new_confirm = $user->new_password;
 
-                if ($user) {
-                    $user->new_password = mb_substr(md5(microtime()), 0, 10, 'UTF-8');
-                    $user->new_confirm = $user->new_password;
-
-                    if ($user->save()) {
-                        $user->sendRemind();
-                        Yii::$app->session->setFlash('success', 'Новые параметры отправлены на Email');
-                        return $this->redirect(['login']);
-                    }
-                } else {
-                    Yii::$app->session->setFlash('error', 'Пользователь не найден');
+                if ($user->save()) {
+                    $user->sendRemind();
+                    Yii::$app->session->setFlash('success', 'Новые параметры отправлены на Email');
+                    return $this->redirect(['login']);
                 }
             } else {
                 Yii::$app->session->setFlash('error', 'Пользователь не найден');

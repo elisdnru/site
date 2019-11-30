@@ -3,14 +3,14 @@
 namespace app\modules\user\forms;
 
 use app\modules\user\models\User;
-use CFormModel;
+use yii\base\Model;
 
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-class RemindForm extends CFormModel
+class RemindForm extends Model
 {
     public $email;
 
@@ -25,7 +25,6 @@ class RemindForm extends CFormModel
             // username and password are required
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'emailExists'],
         ];
     }
 
@@ -37,18 +36,5 @@ class RemindForm extends CFormModel
         return [
             'email' => 'Введите Email',
         ];
-    }
-
-    /**
-     * Check user exists.
-     * This is the 'userExists' validator as declared in rules().
-     */
-    public function emailExists(): void
-    {
-        if (!$this->hasErrors()) {
-            if (!$user = User::findOne(['email' => $this->email])) {
-                $this->addError('email', 'Пользователь с данным Email не найден среди зарегистрированных.');
-            }
-        }
     }
 }
