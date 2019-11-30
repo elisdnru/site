@@ -6,7 +6,7 @@ use app\components\widgets\ShareWidget;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
-use app\components\DateHelper;
+use app\components\DateFormatter;
 use app\components\NumberHelper;
 use app\modules\blog\widgets\OtherPostsWidget;
 use app\modules\blog\widgets\ThemePostsWidget;
@@ -135,7 +135,7 @@ HighlightAsset::register($this);
     }
     ?>
     <p class="entry_date">
-        Дата: <span class="enc-date" data-date="<?= DateHelper::normdate($model->date) ?>">&nbsp;</span>
+        Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date) ?>">&nbsp;</span>
     </p>
     <p class="entry_tags">Метки: <?= implode('', $links) ?></p>
     <div class="clear"></div>

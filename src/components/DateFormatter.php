@@ -4,9 +4,9 @@ namespace app\components;
 
 use InvalidArgumentException;
 
-class DateHelper
+class DateFormatter
 {
-    public static function normdate($date, bool $showTime = false, bool $showMonth = true): string
+    public static function format($date, bool $showTime = false, bool $showMonth = true): string
     {
         if (is_numeric($date)) {
             $time = $date;

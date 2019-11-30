@@ -1,5 +1,5 @@
 <?php
-use app\components\DateHelper;
+use app\components\DateFormatter;
 use app\components\SocNetworkHelper;
 use app\components\TextHelper;
 use yii\helpers\Html;
@@ -32,7 +32,7 @@ use yii\helpers\Url;
             <span class="ajax_like like_icon<?= $comment->liked ? ' like_active' : '' ?>" data-load="like_<?= $comment->id ?>" data-url="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
         </span>
 
-        <h2 class="date enc-date" data-date="<?= DateHelper::normdate($comment->date, true) ?>">&nbsp;</h2>
+        <h2 class="date enc-date" data-date="<?= DateFormatter::format($comment->date, true) ?>">&nbsp;</h2>
 
         <?php if ($comment->user && $comment->user->network) : ?>
             <a href="<?= $comment->user->identity ?>"><?= SocNetworkHelper::getIcon($comment->user->network) ?></a>

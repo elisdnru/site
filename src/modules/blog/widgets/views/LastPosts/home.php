@@ -1,5 +1,5 @@
 <?php
-use app\components\DateHelper;
+use app\components\DateFormatter;
 use yii\helpers\Html;
 
 /** @var $posts \app\modules\blog\models\Post[] */
@@ -18,7 +18,7 @@ use yii\helpers\Html;
             <!--noindex-->
             <div class="info">
                 <div class="date">
-                    <span class="enc-date" data-date="<?= DateHelper::normdate($data->date) ?>">&nbsp;</span>
+                    <span class="enc-date" data-date="<?= DateFormatter::format($data->date) ?>">&nbsp;</span>
                 </div>
                 <?php if ($data->category) : ?>
                     <div class="category">

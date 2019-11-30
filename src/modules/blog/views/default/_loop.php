@@ -1,5 +1,5 @@
 <?php
-use app\components\DateHelper;
+use app\components\DateFormatter;
 use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
@@ -23,7 +23,7 @@ use yii\widgets\LinkPager;
                     <!--noindex-->
                     <div class="info">
                         <div class="date">
-                            <span class="enc-date" data-date="<?= DateHelper::normdate($post->date) ?>">&nbsp;</span>
+                            <span class="enc-date" data-date="<?= DateFormatter::format($post->date) ?>">&nbsp;</span>
                         </div>
                         <?php if ($post->category) : ?>
                             <div class="category">
