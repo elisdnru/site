@@ -1,6 +1,6 @@
 <?php
 use app\modules\blog\models\Category;
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
@@ -13,11 +13,11 @@ use yii\web\View;
 
 $this->context->layout = 'index';
 
-$this->title = $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
+    'content' => $category->description . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [

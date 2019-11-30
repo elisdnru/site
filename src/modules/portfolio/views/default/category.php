@@ -1,23 +1,24 @@
 <?php
 
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $dataProvider CDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 /** @var $category Category */
 /** @var $subcategories Category[] */
 /** @var $page Page */
 $this->context->layout = 'index';
 
-$this->title = $category->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
+$this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $category->description . NumberHelper::pageString($dataProvider->getPagination()->pageParam),
+    'content' => $category->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1),
 ]);
 
 $this->params['breadcrumbs'] = [

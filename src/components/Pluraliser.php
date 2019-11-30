@@ -2,30 +2,25 @@
 
 namespace app\components;
 
-use Yii;
-
-class NumberHelper
+class Pluraliser
 {
     /**
      * Множественное число
      * https://github.com/mbakirov/UHelpers/
-     * @param int $howmuch
+     * @param int $amount
      * @param array $input array('товар', 'товара', 'товаров')
      * @return string
      */
-    public static function plural(int $howmuch, array $input): string
+    public static function plural(int $amount, array $input): string
     {
-        $l2 = substr($howmuch, -2);
-        $l1 = substr($howmuch, -1);
+        $l2 = substr($amount, -2);
+        $l1 = substr($amount, -1);
 
         if ($l2 > 10 && $l2 < 20) {
             return $input[2];
         }
 
         switch ($l1) {
-            case 0:
-                return $input[2];
-                break;
             case 1:
                 return $input[0];
                 break;
@@ -34,15 +29,10 @@ class NumberHelper
             case 4:
                 return $input[1];
                 break;
+            case 0:
             default:
                 return $input[2];
                 break;
         }
-    }
-
-    public static function pageString(string $param = 'page'): string
-    {
-        $page = (int)Yii::$app->request->get($param, 1);
-        return $page > 1 ? ' - Страница ' . $page : '';
     }
 }

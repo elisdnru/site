@@ -1,5 +1,5 @@
 <?php
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
 
 /** @var $this \yii\web\View */
@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 
 $this->context->layout = 'index';
 
-$this->title = 'Записи за ' . $date . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Записи за ' . $date . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
 
 $this->params['breadcrumbs'] = [
     'Блог' => ['/blog/default/index'],

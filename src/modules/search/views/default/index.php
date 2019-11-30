@@ -1,5 +1,5 @@
 <?php
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
@@ -10,11 +10,11 @@ use yii\widgets\LinkPager;
 /** @var $dataProvider ActiveDataProvider */
 /** @var $query CActiveRecord */
 
-$this->title = 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam);
+$this->title = 'Поиск по сайту' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Поиск по сайту' . NumberHelper::pageString($dataProvider->getPagination()->pageParam),
+    'content' => 'Поиск по сайту' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1),
 ]);
 
 $this->params['breadcrumbs'] = [

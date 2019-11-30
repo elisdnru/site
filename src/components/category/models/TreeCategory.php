@@ -67,6 +67,7 @@ abstract class TreeCategory extends Category
             'pagination' => [
                 'pageSize' => $pageSize,
                 'pageVar' => 'page',
+                'validateCurrentPage' => false,
             ],
         ]);
     }

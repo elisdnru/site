@@ -212,6 +212,7 @@ class Post extends CActiveRecord implements Material
             'pagination' => [
                 'pageSize' => $pageSize,
                 'pageVar' => 'page',
+                'validateCurrentPage' => false,
             ],
         ]);
     }

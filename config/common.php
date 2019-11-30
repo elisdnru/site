@@ -18,6 +18,7 @@ use app\modules\contact\widgets\ContactWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
+use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
 use yii\web\JqueryAsset;
@@ -212,6 +213,9 @@ return [
             LinkPager::class => [
                 'prevPageLabel' => '&laquo; назад',
                 'nextPageLabel' => 'далее &raquo;',
+            ],
+            Pagination::class => [
+                'validatePage' => false,
             ],
             MathCaptchaAction::class => [
                 'backColor' => 0xffffff,

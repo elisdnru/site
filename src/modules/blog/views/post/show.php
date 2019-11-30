@@ -1,5 +1,6 @@
 <?php
 use app\assets\HighlightAsset;
+use app\components\Pluraliser;
 use app\components\widgets\InlineWidgetsBehavior;
 use app\components\StyleHelper;
 use app\components\widgets\ShareWidget;
@@ -7,7 +8,7 @@ use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
 use app\components\DateFormatter;
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\blog\widgets\OtherPostsWidget;
 use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
@@ -61,7 +62,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     }
     if (Yii::$app->moduleManager->allowed('comment')) {
         $count = $model->getCommentsNewCount();
-        $this->params['admin'][] = ['label' => 'Комментарии (' . $count . ' ' . NumberHelper::Plural($count, ['новый', 'новых', 'новых']) . ')', 'url' => ['/blog/admin/comment/index', 'id' => $model->id]];
+        $this->params['admin'][] = ['label' => 'Комментарии (' . $count . ' ' . Pluraliser::plural($count, ['новый', 'новых', 'новых']) . ')', 'url' => ['/blog/admin/comment/index', 'id' => $model->id]];
     }
 }
 

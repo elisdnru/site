@@ -1,7 +1,7 @@
 <?php
 
 use app\components\widgets\InlineWidgetsBehavior;
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
@@ -13,11 +13,11 @@ use yii\web\View;
 
 $this->context->layout = 'index';
 
-$this->title = $page->pagetitle . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = $page->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $page->description . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
+    'content' => $page->description . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [

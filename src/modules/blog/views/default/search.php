@@ -1,7 +1,7 @@
 <?php
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\widgets\SearchFormWidget;
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
 
 /** @var $this \yii\web\View */
@@ -10,7 +10,7 @@ use app\modules\user\models\Access;
 
 $this->context->layout = 'index';
 
-$this->title = 'Поиск по записям' . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Поиск по записям' . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
 
 $this->params['breadcrumbs'] = [
     'Блог' => ['/blog/default/index'],

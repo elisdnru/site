@@ -1,6 +1,6 @@
 <?php
 use app\modules\blog\models\Tag;
-use app\components\NumberHelper;
+use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
@@ -11,11 +11,11 @@ use yii\web\View;
 
 $this->context->layout = 'index';
 
-$this->title = 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar);
+$this->title = 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Записи с меткой ' . $tag->title . NumberHelper::pageString($dataProvider->getPagination()->pageVar)
+    'content' => 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1)
 ]);
 
 $this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);

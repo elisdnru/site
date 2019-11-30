@@ -130,6 +130,7 @@ class DefaultController extends Controller
             'pagination' => [
                 'pageSize' => 10,
                 'pageVar' => 'page',
+                'validateCurrentPage' => false,
             ]
         ]);
         return $dataProvider;

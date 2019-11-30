@@ -98,6 +98,7 @@ abstract class Category extends CActiveRecord
             'pagination' => [
                 'pageSize' => $pageSize,
                 'pageVar' => 'page',
+                'validateCurrentPage' => false,
             ],
         ]);
     }
