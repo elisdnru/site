@@ -1,13 +1,13 @@
 <?php
 
-use app\components\StyleHelper;
+use app\components\CSSMinimizer;
 use app\modules\page\models\Page;
 
 /** @var $page Page */
 /** @var $subpages_layout string */
 
 if ($page->styles) {
-    $this->registerCss(StyleHelper::minimize(strip_tags($page->styles)));
+    $this->registerCss(CSSMinimizer::minimize(strip_tags($page->styles)));
 }
 ?>
 <?php if ($page->layout === 'blank') :

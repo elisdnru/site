@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class StyleHelper
+class CSSMinimizer
 {
     public static function minimize(?string $css): string
     {

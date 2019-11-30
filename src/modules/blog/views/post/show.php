@@ -2,7 +2,7 @@
 use app\assets\HighlightAsset;
 use app\components\Pluraliser;
 use app\components\InlineWidgetsBehavior;
-use app\components\StyleHelper;
+use app\components\CSSMinimizer;
 use app\widgets\Share;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
@@ -43,7 +43,7 @@ if ($model->image) {
 }
 
 if ($model->styles) {
-    $this->registerCss(StyleHelper::minimize(strip_tags($model->styles)));
+    $this->registerCss(CSSMinimizer::minimize(strip_tags($model->styles)));
 }
 
 if ($model->category) {
