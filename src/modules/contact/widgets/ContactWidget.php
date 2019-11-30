@@ -9,7 +9,6 @@ use yii\base\Widget;
 
 class ContactWidget extends Widget
 {
-    public $tpl = 'default';
     public $scenario = '';
 
     public function run()
@@ -31,7 +30,7 @@ class ContactWidget extends Widget
             }
         }
 
-        return $this->render('Contact/' . $this->tpl, [
+        return $this->render('Contact', [
             'model' => $form,
         ]);
     }
