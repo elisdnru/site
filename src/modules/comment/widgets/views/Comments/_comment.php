@@ -1,7 +1,7 @@
 <?php
-use app\components\helpers\DateHelper;
-use app\components\helpers\SocNetworkHelper;
-use app\components\helpers\TextHelper;
+use app\components\DateHelper;
+use app\components\SocNetworkHelper;
+use app\components\TextHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 

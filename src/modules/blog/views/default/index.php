@@ -1,13 +1,13 @@
 <?php
 
-use app\components\behaviors\InlineWidgetsBehavior;
-use app\components\helpers\NumberHelper;
+use app\components\widgets\InlineWidgetsBehavior;
+use app\components\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|InlineWidgetsBehavior */
+/** @var $this View|\app\components\widgets\InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 

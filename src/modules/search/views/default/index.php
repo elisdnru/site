@@ -1,12 +1,12 @@
 <?php
-use app\components\helpers\NumberHelper;
+use app\components\NumberHelper;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\widgets\LinkPager;
 
-/** @var $this \yii\web\View|\app\components\behaviors\InlineWidgetsBehavior */
+/** @var $this \yii\web\View|\app\components\widgets\InlineWidgetsBehavior */
 /** @var $dataProvider ActiveDataProvider */
 /** @var $query CActiveRecord */
 

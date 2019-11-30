@@ -2,10 +2,10 @@
 
 namespace app\modules\page\models;
 
-use app\components\behaviors\v1\PurifyTextBehavior;
+use app\components\purifier\v1\PurifyTextBehavior;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\TreeActiveDataProvider;
-use app\components\helpers\TextHelper;
+use app\components\TextHelper;
 use CActiveRecord;
 use CDbCriteria;
 use yii\helpers\Url;

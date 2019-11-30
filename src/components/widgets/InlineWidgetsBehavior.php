@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\behaviors;
+namespace app\components\widgets;
 
 use Yii;
 use yii\base\Behavior;

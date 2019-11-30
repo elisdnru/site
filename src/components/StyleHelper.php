@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\components\helpers;
+namespace app\components;
 
 class StyleHelper
 {

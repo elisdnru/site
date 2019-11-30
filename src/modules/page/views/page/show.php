@@ -1,6 +1,6 @@
 <?php
 
-use app\components\helpers\StyleHelper;
+use app\components\StyleHelper;
 use app\modules\page\models\Page;
 
 /** @var $page Page */

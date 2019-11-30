@@ -1,6 +1,6 @@
 <?php
 
-use app\components\helpers\SocNetworkHelper;
+use app\components\SocNetworkHelper;
 use app\components\widgets\Portlet;
 use yii\helpers\Html;
 use yii\helpers\Url;

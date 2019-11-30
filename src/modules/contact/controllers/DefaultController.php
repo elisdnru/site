@@ -2,7 +2,7 @@
 
 namespace app\modules\contact\controllers;
 
-use app\components\actions\MathCaptchaAction;
+use app\components\MathCaptchaAction;
 use app\components\Controller;
 
 class DefaultController extends Controller

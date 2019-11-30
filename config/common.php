@@ -1,7 +1,7 @@
 <?php
 
-use app\components\actions\MathCaptchaAction;
-use app\components\behaviors\InlineWidgetsBehavior;
+use app\components\MathCaptchaAction;
+use app\components\widgets\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRules;
 use app\components\SentryErrorHandler;

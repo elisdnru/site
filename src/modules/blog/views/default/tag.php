@@ -1,6 +1,6 @@
 <?php
 use app\modules\blog\models\Tag;
-use app\components\helpers\NumberHelper;
+use app\components\NumberHelper;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;

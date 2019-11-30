@@ -1,5 +1,5 @@
 <?php
-use app\components\helpers\DateHelper;
+use app\components\DateHelper;
 use yii\helpers\Html;
 
 /** @var $posts \app\modules\blog\models\Post[] */

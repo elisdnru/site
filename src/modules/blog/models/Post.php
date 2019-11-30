@@ -2,10 +2,10 @@
 
 namespace app\modules\blog\models;
 
-use app\components\behaviors\v1\PurifyTextBehavior;
+use app\components\purifier\v1\PurifyTextBehavior;
 use app\components\uploader\v1\FileUploadBehavior;
 use app\components\validators\v1\ExistOrEmpty;
-use app\components\helpers\TextHelper;
+use app\components\TextHelper;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
 use CActiveDataProvider;

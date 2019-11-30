@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\behaviors\PurifyTextBehavior;
+use app\components\purifier\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\portfolio\models\query\WorkQuery;
 use yii\db\ActiveRecord;

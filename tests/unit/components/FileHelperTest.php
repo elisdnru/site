@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tests\unit\components;
 
-use app\components\helpers\FileHelper;
+use app\components\FileHelper;
 use Codeception\Test\Unit;
 
 class FileHelperTest extends Unit

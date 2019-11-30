@@ -1,6 +1,6 @@
 <?php
 use app\components\DateLimiter;
-use app\components\helpers\NumberHelper;
+use app\components\NumberHelper;
 use app\modules\user\models\Access;
 
 /** @var $this \yii\web\View */

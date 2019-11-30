@@ -1,5 +1,5 @@
 <?php
-use app\components\helpers\DateHelper;
+use app\components\DateHelper;
 use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;

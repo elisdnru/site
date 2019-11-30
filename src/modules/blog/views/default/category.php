@@ -1,12 +1,12 @@
 <?php
 use app\modules\blog\models\Category;
-use app\components\helpers\NumberHelper;
+use app\components\NumberHelper;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|\app\components\behaviors\InlineWidgetsBehavior */
+/** @var $this View|\app\components\widgets\InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $category Category */
 /** @var $dataProvider CActiveDataProvider */

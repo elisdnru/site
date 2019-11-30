@@ -2,7 +2,7 @@
 
 namespace app\modules\user\controllers;
 
-use app\components\actions\MathCaptchaAction;
+use app\components\MathCaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;

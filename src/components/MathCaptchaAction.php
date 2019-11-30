@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\actions;
+namespace app\components;
 
 use yii\captcha\CaptchaAction;
 

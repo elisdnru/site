@@ -3,7 +3,7 @@
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryBehavior;
-use app\components\helpers\TextHelper;
+use app\components\TextHelper;
 use CActiveDataProvider;
 use CActiveRecord;
 use CDbCriteria;

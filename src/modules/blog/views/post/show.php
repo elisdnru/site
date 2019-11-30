@@ -1,13 +1,13 @@
 <?php
 use app\assets\HighlightAsset;
-use app\components\behaviors\InlineWidgetsBehavior;
-use app\components\helpers\StyleHelper;
+use app\components\widgets\InlineWidgetsBehavior;
+use app\components\StyleHelper;
 use app\components\widgets\ShareWidget;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
-use app\components\helpers\DateHelper;
-use app\components\helpers\NumberHelper;
+use app\components\DateHelper;
+use app\components\NumberHelper;
 use app\modules\blog\widgets\OtherPostsWidget;
 use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
@@ -16,7 +16,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|InlineWidgetsBehavior */
+/** @var $this View|\app\components\widgets\InlineWidgetsBehavior */
 /** @var $model Post */
 /** @var $dataProvider CActiveDataProvider */
 

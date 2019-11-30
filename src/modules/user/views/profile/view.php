@@ -1,5 +1,5 @@
 <?php
-use app\components\helpers\SocNetworkHelper;
+use app\components\SocNetworkHelper;
 use app\components\widgets\Portlet;
 use app\modules\user\models\Access;
 use yii\helpers\Html;

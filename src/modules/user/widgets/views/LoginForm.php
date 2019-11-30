@@ -1,5 +1,5 @@
 <?php
-use app\components\helpers\SocNetworkHelper;
+use app\components\SocNetworkHelper;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;

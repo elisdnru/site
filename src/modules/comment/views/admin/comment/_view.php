@@ -1,7 +1,7 @@
 <?php
 /** @var $data \app\modules\comment\models\Comment */
-use app\components\helpers\SocNetworkHelper;
-use app\components\helpers\TextHelper;
+use app\components\SocNetworkHelper;
+use app\components\TextHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
