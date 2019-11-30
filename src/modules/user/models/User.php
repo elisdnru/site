@@ -2,7 +2,7 @@
 
 namespace app\modules\user\models;
 
-use app\components\GravatarHelper;
+use app\components\Gravatar;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
 use app\modules\user\components\CurrentPasswordValidator;
@@ -355,7 +355,7 @@ class User extends ActiveRecord
 
     public function getDefaultAvatarUrl($width)
     {
-        return GravatarHelper::get($this->email, $width, Yii::$app->request->hostInfo . '/images/noavatar.png');
+        return Gravatar::url($this->email, $width, Yii::$app->request->hostInfo . '/images/noavatar.png');
     }
 
     public function sendCommit(): void

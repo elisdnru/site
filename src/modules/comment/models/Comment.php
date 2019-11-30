@@ -3,7 +3,7 @@
 namespace app\modules\comment\models;
 
 use app\components\purifier\PurifyTextBehavior;
-use app\components\GravatarHelper;
+use app\components\Gravatar;
 use app\modules\comment\models\query\CommentQuery;
 use app\modules\user\models\User;
 use ReflectionClass;
@@ -226,7 +226,7 @@ class Comment extends ActiveRecord
             if ($this->user) {
                 $this->cachedAvatarUrl[$index] = $this->user->getAvatarUrl($width, $height);
             } else {
-                $this->cachedAvatarUrl[$index] = GravatarHelper::get($this->email, $width);
+                $this->cachedAvatarUrl[$index] = Gravatar::url($this->email, $width);
             }
         }
         return $this->cachedAvatarUrl[$index];
