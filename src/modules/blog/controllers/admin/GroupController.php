@@ -22,7 +22,7 @@ class GroupController extends AdminController
             'order' => 'title ASC',
         ]);
 
-        if ($post = Yii::$app->request->post('GroupForm')) {
+        if ($post = Yii::$app->request->post('Group')) {
             $valid = true;
 
             foreach ($items as $item) {
