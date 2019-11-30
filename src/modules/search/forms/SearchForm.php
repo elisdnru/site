@@ -2,12 +2,12 @@
 
 namespace app\modules\search\forms;
 
-use CFormModel;
+use yii\base\Model;
 
 /**
  * @property integer $word
  */
-class SearchForm extends CFormModel
+class SearchForm extends Model
 {
     public $q;
 
@@ -32,5 +32,10 @@ class SearchForm extends CFormModel
         return [
             'q' => 'Слово',
         ];
+    }
+
+    public function formName(): string
+    {
+        return '';
     }
 }

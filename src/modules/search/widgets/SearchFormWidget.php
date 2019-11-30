@@ -3,6 +3,7 @@
 namespace app\modules\search\widgets;
 
 use app\modules\search\forms\SearchForm;
+use Yii;
 use yii\base\Widget;
 
 class SearchFormWidget extends Widget
@@ -11,11 +12,9 @@ class SearchFormWidget extends Widget
 
     public function run(): string
     {
-        $form = new SearchForm;
+        $form = new SearchForm();
 
-        if (isset($_REQUEST['q'])) {
-            $form->q = $_REQUEST['q'];
-        }
+        $form->load(Yii::$app->request->queryParams);
 
         return $this->render($this->tpl, [
             'form' => $form,

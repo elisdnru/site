@@ -20,9 +20,8 @@ class DefaultController extends Controller
     public function actionIndex(): string
     {
         $model = new SearchForm();
-        $model->q = Yii::$app->request->get('q');
 
-        if ($model->validate()) {
+        if ($model->load(Yii::$app->request->queryParams) && $model->validate()) {
             $this->createViewTable();
 
             $query = Search::find()
@@ -44,6 +43,7 @@ class DefaultController extends Controller
                 'query' => $model->q,
             ]);
         }
+
         return $this->render('error');
     }
 
