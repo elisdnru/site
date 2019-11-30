@@ -2,10 +2,10 @@
 
 namespace app\modules\file\controllers\admin;
 
+use app\components\FileNameFilter;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\components\AdminController;
-use app\components\FileHelper;
 use app\components\Transliterator;
 use Yii;
 use yii\filters\VerbFilter;
@@ -71,7 +71,7 @@ class FileController extends AdminController
 
     public function actionDelete($name): ?Response
     {
-        $name = FileHelper::escape($name);
+        $name = FileNameFilter::escape($name);
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
@@ -90,8 +90,8 @@ class FileController extends AdminController
 
     public function actionRename($path): ?Response
     {
-        $name = FileHelper::escape(Yii::$app->request->post('name'));
-        $to = FileHelper::escape(Yii::$app->request->post('to'));
+        $name = FileNameFilter::escape(Yii::$app->request->post('name'));
+        $to = FileNameFilter::escape(Yii::$app->request->post('to'));
 
         if (!$name || !$to) {
             throw new BadRequestHttpException('Некорректный запрос');

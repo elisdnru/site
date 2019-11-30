@@ -2,9 +2,9 @@
 
 namespace app\components;
 
-class FileHelper
+class FileNameGenerator
 {
-    public static function getRandomFileName($path, $extension = ''): string
+    public static function generate($path, $extension = ''): string
     {
         $extension = $extension ? '.' . $extension : '';
         $path = $path ? $path . '/' : '';
@@ -16,10 +16,5 @@ class FileHelper
         } while (file_exists($file));
 
         return $name;
-    }
-
-    public static function escape($name): string
-    {
-        return Transliterator::translit(str_replace(['..', '~', '"', '"', '/', ':'], '', $name));
     }
 }

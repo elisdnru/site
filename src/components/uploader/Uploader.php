@@ -2,7 +2,7 @@
 
 namespace app\components\uploader;
 
-use app\components\FileHelper;
+use app\components\FileNameGenerator;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 use CException;
@@ -33,7 +33,7 @@ class Uploader
         }
 
         $extension = strtolower($file->extensionName);
-        $fileName = FileHelper::getRandomFileName($path, $extension);
+        $fileName = FileNameGenerator::generate($path, $extension);
         $baseName = $fileName . '.' . $extension;
 
         $main = $path . '/' . $baseName;
@@ -52,7 +52,7 @@ class Uploader
         }
 
         $extension = strtolower($file->getExtension());
-        $fileName = FileHelper::getRandomFileName($path, $extension);
+        $fileName = FileNameGenerator::generate($path, $extension);
         $baseName = $fileName . '.' . $extension;
 
         $main = $path . '/' . $baseName;
@@ -69,7 +69,7 @@ class Uploader
         $content = file_get_contents($url);
 
         if ($content) {
-            $fileName = FileHelper::getRandomFileName($path, $extension);
+            $fileName = FileNameGenerator::generate($path, $extension);
             $baseName = $fileName . '.' . $extension;
 
             $orig = $path . '/' . $baseName;
