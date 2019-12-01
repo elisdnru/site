@@ -127,7 +127,7 @@ jQuery(function($) {
                 var items = listBlock.sortable('serialize');
                 $.ajax({
                     type: 'POST',
-                    url: '<?= ['sort'] ?>',
+                    url: '<?= Url::to(['sort']) ?>',
                     data: items + '&_csrf=' + getCSRFToken(),
                     success: function () {
                         $('#saving').hide()
