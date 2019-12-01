@@ -1,5 +1,5 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;

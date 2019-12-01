@@ -12,7 +12,7 @@ use app\widgets\Messages; ?>
 
 <aside class="sidebar right_sidebar">
 
-    <?= $this->render('/layouts/_sidebar'); ?>
+    <?= $this->render('/layouts/_sidebar') ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

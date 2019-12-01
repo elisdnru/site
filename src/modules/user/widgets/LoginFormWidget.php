@@ -11,7 +11,7 @@ class LoginFormWidget extends Widget
 {
     public $tpl = 'LoginForm';
 
-    public function run()
+    public function run(): string
     {
         $model = new LoginForm();
         $model->rememberMe = true;

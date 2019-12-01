@@ -125,7 +125,7 @@ class DefaultController extends Controller
 
     protected function createProvider(CDbCriteria $criteria): CActiveDataProvider
     {
-        $dataProvider = new CActiveDataProvider(Post::model()->cache(0, new Tags('blog')), [
+        return new CActiveDataProvider(Post::model()->cache(0, new Tags('blog')), [
             'criteria' => $criteria,
             'pagination' => [
                 'pageSize' => 10,
@@ -133,7 +133,6 @@ class DefaultController extends Controller
                 'validateCurrentPage' => false,
             ]
         ]);
-        return $dataProvider;
     }
 
     protected function loadBlogPage(): Page

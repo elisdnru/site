@@ -17,4 +17,4 @@ $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['in
 
 <h1>Добавление пользователя</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>

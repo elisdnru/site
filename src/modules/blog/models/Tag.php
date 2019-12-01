@@ -138,12 +138,10 @@ class Tag extends CActiveRecord
 
     public function findByTitle($title): ?self
     {
-        $tag = $this->find([
+        return $this->find([
             'condition' => 'title = :title',
             'params' => [':title' => $title],
         ]);
-
-        return $tag;
     }
 
     private $cachedUrl;

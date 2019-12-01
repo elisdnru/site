@@ -215,7 +215,7 @@ class ImageHandler
         }
     }
 
-    public function resize($toWidth, $toHeight, $proportional = true)
+    public function resize($toWidth, $toHeight, $proportional = true): self
     {
         $this->checkLoaded();
 
@@ -252,7 +252,7 @@ class ImageHandler
         return $this;
     }
 
-    public function thumb($toWidth, $toHeight, $proportional = true)
+    public function thumb($toWidth, $toHeight, $proportional = true): self
     {
         $this->checkLoaded();
 
@@ -338,7 +338,7 @@ class ImageHandler
     }
 
 
-    public function flip($mode)
+    public function flip($mode): self
     {
         $this->checkLoaded();
 
@@ -379,7 +379,7 @@ class ImageHandler
         return $this;
     }
 
-    public function rotate($degrees)
+    public function rotate($degrees): self
     {
         $this->checkLoaded();
 
@@ -392,7 +392,7 @@ class ImageHandler
         return $this;
     }
 
-    public function crop($width, $height, $startX = null, $startY = null)
+    public function crop($width, $height, $startX = null, $startY = null): self
     {
         $this->checkLoaded();
 
@@ -434,7 +434,7 @@ class ImageHandler
         $offsetX = 0,
         $offsetY = 0,
         $angle = 0
-    ) {
+    ): self {
         $this->checkLoaded();
 
         $bBox = imagettfbbox($size, $angle, $fontFile, $text);
@@ -473,7 +473,7 @@ class ImageHandler
         return $this;
     }
 
-    public function adaptiveThumb($width, $height)
+    public function adaptiveThumb($width, $height): self
     {
         $this->checkLoaded();
 
@@ -498,7 +498,7 @@ class ImageHandler
         return $this;
     }
 
-    public function resizeCanvas($toWidth, $toHeight, $backgroundColor = [255, 255, 255])
+    public function resizeCanvas($toWidth, $toHeight, $backgroundColor = [255, 255, 255]): self
     {
         $this->checkLoaded();
 
@@ -534,7 +534,7 @@ class ImageHandler
         return $this;
     }
 
-    public function grayscale()
+    public function grayscale(): self
     {
         $newImage = imagecreatetruecolor($this->width, $this->height);
 
@@ -548,7 +548,7 @@ class ImageHandler
         return $this;
     }
 
-    public function show($inFormat = null, $jpegQuality = 75)
+    public function show($inFormat = null, $jpegQuality = 75): self
     {
         $this->checkLoaded();
 
@@ -580,7 +580,7 @@ class ImageHandler
         return $this;
     }
 
-    public function save($file = null, $toFormat = null, $jpegQuality = 75, $touch = false)
+    public function save($file = null, $toFormat = null, $jpegQuality = 75, $touch = false): self
     {
         if (empty($file)) {
             $file = $this->fileName;

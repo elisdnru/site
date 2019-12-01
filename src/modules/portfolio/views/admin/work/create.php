@@ -13,4 +13,4 @@ use app\modules\portfolio\models\Work; ?>
 
 <h1>Добавление работы</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>

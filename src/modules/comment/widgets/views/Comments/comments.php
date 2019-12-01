@@ -24,6 +24,6 @@
     <?= $this->render('_form', [
         'form' => $form,
         'user' => $user,
-    ]); ?>
+    ]) ?>
 
 </div>

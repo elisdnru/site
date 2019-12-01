@@ -31,7 +31,7 @@ class ExistOrEmptyValidator extends CExistValidator
 
         /** @var ActiveRecord $className */
         $className = $this->className ?: get_class($object);
-        $attributeName = $this->attributeName === null ? $attribute : $this->attributeName;
+        $attributeName = $this->attributeName ?? $attribute;
         $table = $className::getTableSchema();
         if (($column = $table->getColumn($attributeName)) === null) {
             throw new InvalidArgumentException(Yii::t(
@@ -48,7 +48,7 @@ class ExistOrEmptyValidator extends CExistValidator
             ->addParams([$valueParamName => $value]);
 
         if (!$query->exists()) {
-            $message = $this->message !== null ? $this->message : Yii::t('yii', '{attribute} "{value}" is invalid.');
+            $message = $this->message ?? Yii::t('yii', '{attribute} "{value}" is invalid.');
             $this->addError($object, $attribute, $message, ['{value}' => $value]);
         }
     }

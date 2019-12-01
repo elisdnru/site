@@ -7,7 +7,7 @@ use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|\app\components\InlineWidgetsBehavior */
+/** @var $this View|InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $dataProvider CActiveDataProvider */
 
@@ -49,4 +49,4 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <!--/noindex-->
 <?php endif; ?>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>

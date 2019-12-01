@@ -4,7 +4,6 @@
 use app\widgets\Portlet;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 /** @var $model \app\modules\contact\forms\ContactForm */
 ?>

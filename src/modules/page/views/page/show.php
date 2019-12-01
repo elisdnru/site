@@ -15,8 +15,8 @@ if ($page->styles) {
 else : ?>
     <section>
         <header>
-            <?= $this->render('_head', ['page' => $page]); ?>
-            <?= $this->render($subpages_layout, ['page' => $page]); ?>
+            <?= $this->render('_head', ['page' => $page]) ?>
+            <?= $this->render($subpages_layout, ['page' => $page]) ?>
         </header>
 
         <div class="text">

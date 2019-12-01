@@ -20,4 +20,4 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
     <b>[{widget:block|id=<?= Html::encode($model->alias) ?>}]</b>
 </p>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>

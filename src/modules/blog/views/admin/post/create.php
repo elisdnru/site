@@ -19,6 +19,6 @@ $this->params['admin'][] = ['label' => 'Метки', 'url' => ['/blog/admin/tag/
 
 <h1>Добавление записи</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>
 
 

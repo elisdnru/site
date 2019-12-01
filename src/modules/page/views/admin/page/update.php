@@ -17,5 +17,5 @@ use app\modules\page\models\Page; ?>
 
 <h1>Редактирование страницы</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>
 

@@ -1,5 +1,5 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\assets\ColorboxAsset;
 use app\modules\contact\models\Contact;

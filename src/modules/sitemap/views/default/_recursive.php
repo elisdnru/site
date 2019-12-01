@@ -11,7 +11,7 @@ use yii\web\View;
     <?php foreach ($models as $model) : ?>
         <?php if ($model->parent_id == $parent && $model->url !== '/prices') : ?>
             <li><a href="<?= $model->url ?>"><?= Html::encode($model->title) ?></a>
-                <?= $this->render('_recursive', ['models' => $models, 'parent' => $model->id]); ?>
+                <?= $this->render('_recursive', ['models' => $models, 'parent' => $model->id]) ?>
             </li>
         <?php endif; ?>
     <?php endforeach; ?>

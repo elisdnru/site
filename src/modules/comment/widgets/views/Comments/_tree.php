@@ -12,7 +12,7 @@
             'comment' => $comment,
             'authorId' => $authorId,
             'user' => $user,
-        ]); ?>
+        ]) ?>
 
         <?php if ($indent < 100 && isset($comments[$comment->id]) && $comments[$comment->id]) : ?>
             <?= $this->render('_tree', [

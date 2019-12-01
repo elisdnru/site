@@ -25,4 +25,4 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <h1>Записи от <?= $date ?></h1>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>

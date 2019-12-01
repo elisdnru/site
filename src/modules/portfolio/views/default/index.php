@@ -56,4 +56,4 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <!--/noindex-->
 <?php endif; ?>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>

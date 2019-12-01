@@ -34,7 +34,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
     <?php $this->head() ?>
 
-    <title><?= \yii\helpers\Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?></title>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -70,7 +70,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
             <?= \yii\widgets\Menu::widget([
                 'id' => 'main_nav_list',
                 'items' => Menu::model()->cache(0, new Tags('menu'))->getMenuList('main-menu')
-            ]); ?>
+            ]) ?>
         </nav>
     </header>
 
@@ -95,7 +95,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
         <div class="counters">
             <?php if (!YII_DEBUG && !Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
-                <?= $this->render('//layouts/_counters'); ?>
+                <?= $this->render('//layouts/_counters') ?>
             <?php endif; ?>
         </div>
 

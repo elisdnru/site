@@ -52,7 +52,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return array_unique($result);
     }
 
-    protected function childrenArrayRecursive(array &$items, array &$result, $parent_id)
+    protected function childrenArrayRecursive(array &$items, array &$result, $parent_id): void
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id) {
@@ -163,7 +163,7 @@ class CategoryTreeBehavior extends CategoryBehavior
         return $result;
     }
 
-    protected function getTabListRecursive(array &$items, array &$result, $parent_id, int $indent = 0)
+    protected function getTabListRecursive(array &$items, array &$result, $parent_id, int $indent = 0): void
     {
         foreach ($items as $item) {
             if ((int)$item[$this->parentAttribute] === (int)$parent_id && !isset($result[$item[$this->getPrimaryKeyAttribute()]])) {

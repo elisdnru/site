@@ -45,10 +45,10 @@ use yii\helpers\Url;
  */
 class Page extends CActiveRecord
 {
-    const INDEX_FOLLOW = 'index, follow';
-    const INDEX_NOFOLLOW = 'index, nofollow';
-    const NOINDEX_FOLLOW = 'noindex, follow';
-    const NOINDEX_NOFOLLOW = 'noindex, nofollow';
+    public const INDEX_FOLLOW = 'index, follow';
+    public const INDEX_NOFOLLOW = 'index, nofollow';
+    public const NOINDEX_FOLLOW = 'noindex, follow';
+    public const NOINDEX_NOFOLLOW = 'noindex, nofollow';
 
     public const LAYOUTS = [
         'default' => 'По умолчанию',

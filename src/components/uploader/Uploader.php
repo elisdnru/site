@@ -74,7 +74,7 @@ class Uploader
 
             $orig = $path . '/' . $baseName;
 
-            $f = fopen($orig, 'w');
+            $f = fopen($orig, 'wb');
             fwrite($f, $content);
             fclose($f);
 

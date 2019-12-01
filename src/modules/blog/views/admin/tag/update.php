@@ -20,4 +20,4 @@ $this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/gr
 
 <h1>Редактирование метки блога</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>

@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
         <fieldset class="editor">
             <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'text') ?><br />
-                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]); ?><br />
+                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]) ?><br />
                 <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>

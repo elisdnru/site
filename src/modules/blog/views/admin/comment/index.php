@@ -51,6 +51,6 @@ CommentsAsset::register($this);
 
 <?php endif; ?>
 
-<?= $this->render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' => $dataProvider]) ?>
 
 

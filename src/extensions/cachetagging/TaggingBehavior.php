@@ -8,7 +8,7 @@ use ICache;
 
 class TaggingBehavior extends CBehavior
 {
-    const PREFIX = '__tag__';
+    public const PREFIX = '__tag__';
 
     public function clear($tags): void
     {

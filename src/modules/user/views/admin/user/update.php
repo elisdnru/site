@@ -18,4 +18,4 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
 
 <h1>Редактирование пользователя</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>

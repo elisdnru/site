@@ -96,7 +96,7 @@ use yii\helpers\Html;
         </fieldset>
 
         <div class="row buttons">
-            <?= Html::submitButton('Сохранить'); ?>
+            <?= Html::submitButton('Сохранить') ?>
         </div>
     </form>
 

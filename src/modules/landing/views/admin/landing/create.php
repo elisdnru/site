@@ -17,5 +17,5 @@ if (Yii::$app->moduleManager->allowed('page')) {
 
 <h1>Добавление лендинга</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>
 

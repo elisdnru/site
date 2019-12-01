@@ -161,11 +161,10 @@ class CategoryBehavior extends CActiveRecordBehavior
 
     public function findByAlias(string $alias): ?CActiveRecord
     {
-        $model = $this->cached($this->getModel())->find([
+        return $this->cached($this->getModel())->find([
             'condition' => 't.' . $this->aliasAttribute . '=:alias',
             'params' => [':alias' => $alias],
         ]);
-        return $model;
     }
 
     /**

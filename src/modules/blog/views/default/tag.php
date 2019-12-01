@@ -35,4 +35,4 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <h1>Записи с меткой &laquo;<?= Html::encode($tag->title) ?>&raquo;</h1>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>

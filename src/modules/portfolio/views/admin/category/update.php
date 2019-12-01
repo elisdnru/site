@@ -16,4 +16,4 @@ use app\modules\portfolio\models\Category; ?>
 
 <h1>Редактирование категории портфолио</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model]) ?>

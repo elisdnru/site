@@ -1,5 +1,5 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\menu\models\Menu;
 use app\modules\page\models\Page;

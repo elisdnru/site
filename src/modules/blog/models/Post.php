@@ -48,13 +48,13 @@ use yii\helpers\Url;
  * @property Category $category
  * @property Tag[] $tags
  *
- * @mixin \app\components\uploader\FileUploadBehaviorV1
+ * @mixin FileUploadBehaviorV1
  * @method Post published()
  */
 class Post extends CActiveRecord implements Material
 {
-    const IMAGE_WIDTH = 250;
-    const IMAGE_PATH = 'upload/images/blogs';
+    private const IMAGE_WIDTH = 250;
+    private const IMAGE_PATH = 'upload/images/blogs';
 
     public $del_image = false;
 
