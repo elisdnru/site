@@ -79,9 +79,9 @@ class CommentQuery extends ActiveQuery
 
     /**
      * @param Connection $db
-     * @return Comment|ActiveRecord
+     * @return Comment|ActiveRecord|null
      */
-    public function one($db = null): Comment
+    public function one($db = null): ?Comment
     {
         return parent::one($db);
     }
