@@ -4,6 +4,7 @@ namespace tests\acceptance\blog;
 
 use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\CommentFixture;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
@@ -19,6 +20,7 @@ class ShowCest
             'group' => GroupFixture::class,
             'user' => UserFixture::class,
             'post' => PostFixture::class,
+            'comment' => CommentFixture::class,
         ]);
     }
 
@@ -48,5 +50,14 @@ class ShowCest
     {
         $I->amOnPage('blog/0/post');
         $I->seeResponseCodeIs(404);
+    }
+
+    public function comments(AcceptanceTester $I): void
+    {
+        $I->amOnPage('blog/6/post-comments');
+        $I->seeResponseCodeIs(200);
+        $I->see('Post With Comments', 'h1');
+        $I->seeInSource('<p>Public Comment</p>');
+        $I->dontSeeInSource('<p>Draft Comment</p>');
     }
 }

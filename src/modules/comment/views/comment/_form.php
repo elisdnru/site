@@ -5,9 +5,9 @@ use yii\helpers\Html;
 
 /** @var $form CommentForm */
 ?>
-<div id="comment-form" class="form">
+<div class="form">
 
-    <form action="?" method="post">
+    <form action="?" method="post" id="comment-form">
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
         <fieldset>
