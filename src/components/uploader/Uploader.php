@@ -5,7 +5,6 @@ namespace app\components\uploader;
 use app\components\FileNameGenerator;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
-use CException;
 use CUploadedFile;
 use RuntimeException;
 use StdClass;
@@ -24,7 +23,6 @@ class Uploader
      * @param CUploadedFile $file
      * @param string $path
      * @return File|null
-     * @throws CException
      */
     public function v1Upload(CUploadedFile $file, string $path): ?File
     {
