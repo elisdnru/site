@@ -11,7 +11,7 @@ Disallow: /comment
 Disallow: /blog/date/
 Disallow: /blog/search
 Disallow: /search
-Disallow: /portfolio
+Disallow: /portfolio/*/*
 
 User-agent: Mediapartners-Google
 Disallow:
