@@ -10,6 +10,7 @@ Disallow: /error
 Disallow: /comment
 Disallow: /blog/date/
 Disallow: /search
+Disallow: /portfolio
 Host: https://elisdn.ru
 
 User-agent: Mediapartners-Google
