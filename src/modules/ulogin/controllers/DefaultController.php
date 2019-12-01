@@ -17,12 +17,12 @@ class DefaultController extends Controller
             return $this->redirect(Yii::$app->homeUrl);
         }
         if ($token !== 'undefined') {
-            $ulogin = new UloginModel();
-            $ulogin->attributes = Yii::$app->request->post();
+            $uLogin = new UloginModel();
+            $uLogin->attributes = Yii::$app->request->post();
 
-            $ulogin->getAuthData();
+            $uLogin->loadAuthData();
 
-            if (!($ulogin->validate() && $ulogin->login())) {
+            if (!($uLogin->validate() && $uLogin->login())) {
                 Yii::$app->session->setFlash('error', 'Возможно этот Email используется в другом аккаунте');
             }
         } else {

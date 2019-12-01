@@ -5,12 +5,11 @@ namespace app\modules\ulogin\models;
 use app\components\UserIdentity;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
-use CModel;
 use Yii;
+use yii\base\Model;
 
-class UloginModel extends CModel
+class UloginModel extends Model
 {
-
     public $identity;
     public $network;
     public $email;
@@ -24,10 +23,10 @@ class UloginModel extends CModel
     public function rules(): array
     {
         return [
-            ['identity,network,token', 'required'],
+            [['identity', 'network', 'token'], 'required'],
             ['email', 'email'],
-            ['identity,network,email', 'length', 'max' => 255],
-            ['lastname, name, photo', 'length', 'max' => 255],
+            [['identity', 'network', 'email'], 'string', 'max' => 255],
+            [['lastname', 'name', 'photo'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,7 +42,7 @@ class UloginModel extends CModel
         ];
     }
 
-    public function getAuthData(): void
+    public function loadAuthData(): void
     {
         if ($authData = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=' . $_SERVER['HTTP_HOST']), true)) {
             $this->setAttributes($authData);
@@ -67,15 +66,15 @@ class UloginModel extends CModel
     public function attributeNames(): array
     {
         return [
-            'identity'
-            , 'network'
-            , 'email'
-            , 'lastname'
-            , 'name'
-            , 'photo'
-            , 'token'
-            , 'error_type'
-            , 'error_message'
+            'identity',
+            'network',
+            'email',
+            'lastname',
+            'name',
+            'photo',
+            'token',
+            'error_type',
+            'error_message',
         ];
     }
 
