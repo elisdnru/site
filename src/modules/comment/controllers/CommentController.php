@@ -2,11 +2,11 @@
 
 namespace app\modules\comment\controllers;
 
-use app\modules\user\models\User;
+use app\modules\comment\forms\CommentEditForm;
 use app\modules\comment\models\Comment;
-use app\modules\comment\forms\CommentForm;
 use app\components\Controller;
 use Yii;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 
 class CommentController extends Controller
@@ -15,16 +15,10 @@ class CommentController extends Controller
     {
         $model = $this->loadModel($id);
 
-        $form = new CommentForm(['scenario' => 'useredit']);
-        $form->yqe1 = 1;
-
-        $user = $this->loadUser();
-
-        $form->attributes = $model->attributes;
+        $form = new CommentEditForm($model);
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $model->attributes = $form->attributes;
-
+            $model->text = $form->text;
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Ваш коментарий сохранён');
                 return $this->redirect($model->getUrl());
@@ -34,28 +28,24 @@ class CommentController extends Controller
         return $this->render('update', [
             'model' => $model,
             'form' => $form,
-            'user' => $user,
         ]);
     }
 
     private function loadModel($id): Comment
     {
-        $query = Comment::find()->andWhere(['id' => $id]);
+        $model = Comment::find()
+            ->published()
+            ->andWhere(['id' => $id])
+            ->one();
 
-        if (!Yii::$app->moduleManager->allowed('comment')) {
-            $query->published();
-        }
-
-        $model = $query->andWhere(['id' => $id])->one();
         if ($model === null) {
             throw new NotFoundHttpException();
         }
 
-        return $model;
-    }
+        if (!($model->user_id === Yii::$app->user->id || Yii::$app->moduleManager->allowed('comment'))) {
+            throw new ForbiddenHttpException();
+        }
 
-    private function loadUser(): ?User
-    {
-        return User::findOne(Yii::$app->user->id);
+        return $model;
     }
 }

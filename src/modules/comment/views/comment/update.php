@@ -21,5 +21,4 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?= $this->render('_form', [
     'model' => $model,
     'form' => $form,
-    'user' => $user,
 ]) ?>

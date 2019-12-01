@@ -6,12 +6,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var $model Comment */
-/** @var $form CActiveForm */
 ?>
 
 <div class="form">
 
-    <form action="?" method="post" enctype="multipart/form-data">
+    <form action="?" method="post">
 
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 

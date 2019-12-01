@@ -1,40 +1,30 @@
 <?php
+
 use app\modules\comment\forms\CommentForm;
 use yii\helpers\Html;
 
-/** @var $f CActiveForm */
 /** @var $form CommentForm */
 ?>
 <div id="comment-form" class="form">
 
-    <?php $f = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => '#comment-form',
-        'enableClientValidation' => false,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-    ]); ?>
+    <form action="?" method="post">
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <fieldset>
 
-    <?= $f->errorSummary($form, '') ?>
+            <div class="row<?= $form->hasErrors('text') ? ' error' : '' ?>">
+                <?= Html::activeLabel($form, 'text') ?><br />
+                <?= Html::activeTextarea($form, 'text', ['rows' => 20, 'cols' => 80, 'style' => 'width:99%']) ?><br />
+                <?= Html::error($form, 'text', ['class' => 'errorMessage']) ?>
+                <p class="coment_note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;pre&gt;</p>
+            </div>
 
-    <fieldset>
-        <div class="row">
-            <?= $f->labelEx($form, 'text') ?><br />
-            <?= $f->textArea($form, 'text', ['rows' => 20, 'cols' => 80, 'style' => 'width:99%']) ?>
-            <br />
-            <?= $f->error($form, 'text') ?>
-            <p class="coment_note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt;
-                &lt;pre&gt;</p>
-        </div>
+            <div class="row buttons">
+                <br />
+                <?= Html::submitButton('Сохранить комментарий', ['id' => 'comment_submit']) ?>
+            </div>
 
-        <div class="row buttons">
-            <br />
-            <?= Html::submitButton('Сохранить комментарий', ['id' => 'comment_submit']) ?>
-        </div>
-
-    </fieldset>
-    <?php Yii::app()->controller->endWidget(); ?>
+        </fieldset>
+    </form>
 
 </div><!-- form -->
