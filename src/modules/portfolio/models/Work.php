@@ -30,7 +30,7 @@ use yii\helpers\Url;
  * @property string $imageThumdUrl
  * @property Category category
  *
- * @mixin \app\components\uploader\FileUploadBehavior
+ * @mixin FileUploadBehavior
  * @method Work published()
  */
 class Work extends ActiveRecord
