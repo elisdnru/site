@@ -9,6 +9,7 @@ Disallow: /confirmregister
 Disallow: /error
 Disallow: /comment
 Disallow: /blog/date/
+Disallow: /blog/search
 Disallow: /search
 Disallow: /portfolio
 
