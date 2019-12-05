@@ -18,12 +18,7 @@ use yii\helpers\Url;
  * @property string $pagetitle
  * @property string $description
  *
- * DCategoryBehavior
- * @method mixed getArray()
- * @method Category findByAlias($alias)
- * @method mixed getAssocList($parent = 0)
- * @method mixed getAliasList($parent = 0)
- * @method mixed getMenuList($sub = 0, $parent = 0)
+ * @mixin CategoryBehavior
  */
 abstract class Category extends CActiveRecord
 {

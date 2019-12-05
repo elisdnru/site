@@ -19,18 +19,7 @@ use yii\helpers\Url;
  * @property string $url
  * @property Landing[] child_landings
  *
- * DTreeCategoryBehavior
- * @method mixed getArray()
- * @method Landing findByAlias($alias)
- * @method Landing findByPath($path)
- * @method boolean isChildOf($parent)
- * @method mixed getChildrenArray($parent = 0)
- * @method mixed getAssocList($parent = 0)
- * @method mixed getAliasList($parent = 0)
- * @method mixed getTabList($parent = 0)
- * @method mixed getMenuList($sub = 0, $parent = 0)
- * @method string getPath($separator = '/')
- * @method mixed getBreadcrumbs($lastLink = false)
+ * @mixin CategoryTreeBehavior
  */
 class Landing extends CActiveRecord
 {

@@ -31,17 +31,6 @@ use yii\helpers\Url;
  * @property Page[] child_pages
  *
  * @mixin CategoryTreeBehavior
- * @method mixed getArray()
- * @method Page findByAlias($alias)
- * @method Page findByPath($path)
- * @method boolean isChildOf($parent)
- * @method mixed getChildrenArray($parent = 0)
- * @method mixed getAssocList($parent = 0)
- * @method mixed getAliasList($parent = 0)
- * @method mixed getTabList($parent = 0)
- * @method mixed getMenuList($sub = 0, $parent = 0)
- * @method string getPath($separator = '/')
- * @method mixed getBreadcrumbs($lastLink = false)
  */
 class Page extends CActiveRecord
 {
