@@ -4,7 +4,6 @@ use app\widgets\Portlet;
 use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
-use app\modules\blog\widgets\CalendarWidget;
 use app\modules\blog\widgets\TagCloudWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use yii\caching\TagDependency;
@@ -41,15 +40,6 @@ use yii\widgets\Menu;
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
     <?php Portlet::begin(['title' => 'Метки']); ?>
     <?= TagCloudWidget::widget() ?>
-    <?php Portlet::end(); ?>
-    <?php $this->endCache(); ?>
-<?php endif; ?>
-<!--/noindex-->
-
-<!--noindex-->
-<?php if ($this->beginCache(__FILE__ . __LINE__ . Yii::$app->request->get('date'), ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
-    <?php Portlet::begin(); ?>
-    <?= CalendarWidget::widget() ?>
     <?php Portlet::end(); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
