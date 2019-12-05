@@ -4,12 +4,10 @@ namespace app\components\category\behaviors;
 
 use CActiveRecord;
 use CDbCriteria;
+use CException;
 use Yii;
 
 /**
- * @property string $parentAttribute
- * @property string $parentRelation
- *
  * @property integer[] $childrenArray
  * @property mixed $tabList
  * @property string $path
@@ -30,6 +28,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * Returns array of primary keys of children items
      * @param mixed $parent number, object or array of numbers
      * @return array
+     * @throws CException
      */
     public function getChildrenArray($parent = 0): array
     {
@@ -177,6 +176,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * Returns tabulated array ($url=>$title, $url=>$title, ...)
      * @param mixed $parent number, object or array of numbers
      * @return array
+     * @throws CException
      */
     public function getUrlList($parent = 0): array
     {
@@ -214,9 +214,10 @@ class CategoryTreeBehavior extends CategoryBehavior
 
     /**
      * Returns items for Menu widget
-     * @param mixed $parent number, object or array of numbers
      * @param int $sub levels
+     * @param mixed $parent number, object or array of numbers
      * @return array
+     * @throws CException
      */
     public function getMenuList(int $sub = 0, $parent = 0): array
     {

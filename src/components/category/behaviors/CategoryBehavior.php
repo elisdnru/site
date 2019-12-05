@@ -11,12 +11,6 @@ use CDbTableSchema;
 use Yii;
 
 /**
- * @property string $urlAttribute
- * @property string $titleAttribute
- * @property string $aliasAttribute
- * @property string $linkActiveAttribute
- * @property string $requestPathAttribute
- *
  * @property integer[] $array
  * @property mixed $assocList
  * @property mixed $aliasList
@@ -145,8 +139,9 @@ class CategoryBehavior extends CActiveRecordBehavior
 
         foreach ($items as $item) {
             $active = $item->{$this->linkActiveAttribute};
-            $result[$item->getPrimaryKey()] = [
-                'id' => $item->getPrimaryKey(),
+            $id = $item->getPrimaryKey();
+            $result[$id] = [
+                'id' => $id,
                 'label' => $item->{$this->titleAttribute},
                 'url' => $item->{$this->urlAttribute},
                 'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
@@ -265,9 +260,6 @@ class CategoryBehavior extends CActiveRecordBehavior
         return clone $this->originalCriteria;
     }
 
-    /**
-     * @return CActiveRecord|self
-     */
     private function getModel(): CActiveRecord
     {
         /** @var CActiveRecord $owner */
