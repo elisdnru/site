@@ -75,4 +75,18 @@ class RegisterCest
         $I->see('Пароли не совпадают.', '.errorMessage');
         $I->see('Неправильный код проверки.', '.errorMessage');
     }
+
+    public function captcha1(AcceptanceTester $I): void
+    {
+        $I->amOnPage('registration/captcha1');
+        $I->seeResponseCodeIs(200);
+        $I->seeInSource('PNG');
+    }
+
+    public function captcha2(AcceptanceTester $I): void
+    {
+        $I->amOnPage('registration/captcha2');
+        $I->seeResponseCodeIs(200);
+        $I->seeInSource('PNG');
+    }
 }
