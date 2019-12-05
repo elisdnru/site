@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11960493413ca81c33b8e4687701f5e9",
+    "content-hash": "f79443aac0334cd4c5b9f78e9812a601",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1932,22 +1932,23 @@
         },
         {
             "name": "yiisoft/yii",
-            "version": "1.1.21",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii.git",
-                "reference": "733ac5856b0b72228346b5a6af10b0b9df18ad6c"
+                "reference": "0ddd94f43afa7ab8f8dd8d548ea8107f5a6aaafa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii/zipball/733ac5856b0b72228346b5a6af10b0b9df18ad6c",
-                "reference": "733ac5856b0b72228346b5a6af10b0b9df18ad6c",
+                "url": "https://api.github.com/repos/yiisoft/yii/zipball/0ddd94f43afa7ab8f8dd8d548ea8107f5a6aaafa",
+                "reference": "0ddd94f43afa7ab8f8dd8d548ea8107f5a6aaafa",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.1.0"
             },
             "require-dev": {
+                "pear/archive_tar": "~1.4.6",
                 "phing/phing": "2.*",
                 "phpseclib/mcrypt_compat": "^1.0",
                 "phpunit/phpunit": "~4.8.34",
@@ -1974,52 +1975,52 @@
             "authors": [
                 {
                     "name": "Qiang Xue",
-                    "role": "Founder and project lead",
                     "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/"
+                    "homepage": "http://www.yiiframework.com/",
+                    "role": "Founder and project lead"
                 },
                 {
                     "name": "Alexander Makarov",
-                    "role": "Core framework development",
                     "email": "sam@rmcreative.ru",
-                    "homepage": "http://rmcreative.ru/"
+                    "homepage": "http://rmcreative.ru/",
+                    "role": "Core framework development"
                 },
                 {
                     "name": "Maurizio Domba",
-                    "role": "Core framework development",
-                    "homepage": "http://mdomba.info/"
+                    "homepage": "http://mdomba.info/",
+                    "role": "Core framework development"
                 },
                 {
                     "name": "Carsten Brandt",
-                    "role": "Core framework development",
                     "email": "mail@cebe.cc",
-                    "homepage": "http://cebe.cc/"
-                },
-                {
-                    "name": "Wei Zhuo",
-                    "role": "Project site maintenance and development",
-                    "email": "weizhuo@gmail.com"
-                },
-                {
-                    "name": "Sebastián Thierer",
-                    "role": "Component development",
-                    "email": "sebas@artfos.com"
-                },
-                {
-                    "name": "Jeffrey Winesett",
-                    "role": "Documentation and marketing",
-                    "email": "jefftulsa@gmail.com"
+                    "homepage": "http://cebe.cc/",
+                    "role": "Core framework development"
                 },
                 {
                     "name": "Timur Ruziev",
-                    "role": "Core framework development",
                     "email": "resurtm@gmail.com",
-                    "homepage": "http://resurtm.com/"
+                    "homepage": "http://resurtm.com/",
+                    "role": "Core framework development"
                 },
                 {
                     "name": "Paul Klimov",
-                    "role": "Core framework development",
-                    "email": "klimov.paul@gmail.com"
+                    "email": "klimov.paul@gmail.com",
+                    "role": "Core framework development"
+                },
+                {
+                    "name": "Wei Zhuo",
+                    "email": "weizhuo@gmail.com",
+                    "role": "Project site maintenance and development"
+                },
+                {
+                    "name": "Sebastián Thierer",
+                    "email": "sebas@artfos.com",
+                    "role": "Component development"
+                },
+                {
+                    "name": "Jeffrey Winesett",
+                    "email": "jefftulsa@gmail.com",
+                    "role": "Documentation and marketing"
                 }
             ],
             "description": "Yii Web Programming Framework",
@@ -2028,7 +2029,7 @@
                 "framework",
                 "yii"
             ],
-            "time": "2019-04-02T07:32:41+00:00"
+            "time": "2019-12-04T23:18:41+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -5232,6 +5233,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "yiisoft/yii": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,

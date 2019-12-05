@@ -17,7 +17,7 @@
         "fishvision/yii2-migrate": "^1.0",
         "sentry/sdk": "^2.0.3",
         "symfony/dotenv": "^4.1",
-        "yiisoft/yii": "^1.1",
+        "yiisoft/yii": "dev-master",
         "yiisoft/yii2": "^2.0",
         "yiisoft/yii2-swiftmailer": "^2.1",
         "zendframework/zend-feed": "^2.12"
@@ -37,7 +37,6 @@
     },
     "autoload": {
         "classmap": [
-            "override/classes",
             "src/views/skins"
         ],
         "psr-4": {
