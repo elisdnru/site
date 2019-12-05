@@ -331,7 +331,7 @@ class CategoryTreeBehavior extends CategoryBehavior
             $uri[] = $category->{$this->parentRelation}->{$this->aliasAttribute};
             $category = $category->{$this->parentRelation};
         }
-        return implode(array_reverse($uri), $separator);
+        return implode($separator, array_reverse($uri));
     }
 
     /**
@@ -373,7 +373,7 @@ class CategoryTreeBehavior extends CategoryBehavior
             $titles[] = $item->{$this->parentRelation}->{$this->titleAttribute};
             $item = $item->{$this->parentRelation};
         }
-        return implode($inverse ? $titles : array_reverse($titles), $separator);
+        return implode($separator, $inverse ? $titles : array_reverse($titles));
     }
 
     /**
