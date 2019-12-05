@@ -1,6 +1,6 @@
 FROM php:7.4-cli-alpine
 
-RUN apk update && apk add wget unzip
+RUN apk update
 
 RUN apk add libmcrypt-dev autoconf g++ make \
     && pecl install -o -f mcrypt && rm -rf /tmp/pear \
@@ -14,6 +14,8 @@ RUN apk add mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev
     && docker-php-ext-install pdo_mysql gd
 
 COPY ./php/conf.d /usr/local/etc/php/conf.d
+
+RUN apk add wget unzip
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
