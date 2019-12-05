@@ -27,7 +27,7 @@ class ImageLinkColumn extends LinkColumn
         echo $value === null ? $this->grid->nullDisplay : Html::a($image, $url);
     }
 
-    protected function getImageOptions(): array
+    private function getImageOptions(): array
     {
         $options = [];
 

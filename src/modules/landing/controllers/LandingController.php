@@ -20,8 +20,9 @@ class LandingController extends Controller
         ]);
     }
 
-    protected function loadModel($path): Landing
+    private function loadModel($path): Landing
     {
+        /** @var Landing $landing */
         $landing = Landing::model()->cache(0, new Tags('landing'))->findByPath($path);
         if ($landing === null) {
             throw new NotFoundHttpException();

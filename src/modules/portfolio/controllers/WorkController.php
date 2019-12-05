@@ -23,7 +23,7 @@ class WorkController extends PortfolioBaseController
         ]);
     }
 
-    protected function loadModel($id): Work
+    private function loadModel($id): Work
     {
         $query = Work::find();
 

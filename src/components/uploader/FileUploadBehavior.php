@@ -95,7 +95,7 @@ class FileUploadBehavior extends Behavior
         $this->deleteFile();
     }
 
-    protected $cachedImageUrl;
+    private $cachedImageUrl;
 
     public function getImageUrl(): string
     {
@@ -106,7 +106,7 @@ class FileUploadBehavior extends Behavior
         return $this->cachedImageUrl;
     }
 
-    protected $cachedImageThumbUrl = [];
+    private $cachedImageThumbUrl = [];
 
     public function getImageThumbUrl(int $width = 0, int $height = 0): string
     {
@@ -127,7 +127,7 @@ class FileUploadBehavior extends Behavior
         return $this->cachedImageThumbUrl[$index];
     }
 
-    protected function processImageSizes(): void
+    private function processImageSizes(): void
     {
         if ($this->imageWidthAttribute && $this->imageHeightAttribute) {
             $model = $this->owner;
@@ -153,14 +153,14 @@ class FileUploadBehavior extends Behavior
         }
     }
 
-    protected function initAttributes(): void
+    private function initAttributes(): void
     {
         if (empty($this->storageAttribute)) {
             $this->storageAttribute = $this->fileAttribute;
         }
     }
 
-    protected function loadFile(): void
+    private function loadFile(): void
     {
         /** @var ActiveRecord $model */
         $model = $this->owner;
@@ -189,7 +189,7 @@ class FileUploadBehavior extends Behavior
         }
     }
 
-    protected function deleteFile(): void
+    private function deleteFile(): void
     {
         $model = $this->owner;
         if ($model->{$this->storageAttribute}) {

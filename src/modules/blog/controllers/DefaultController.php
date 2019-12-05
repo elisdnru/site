@@ -100,7 +100,7 @@ class DefaultController extends Controller
      * @return Category|CActiveRecord
      * @throws NotFoundHttpException
      */
-    protected function loadCategoryModel(string $path): Category
+    private function loadCategoryModel(string $path): Category
     {
         $category = Category::model()->findByPath($path);
         if (!$category) {
@@ -109,12 +109,12 @@ class DefaultController extends Controller
         return $category;
     }
 
-    protected function loadTagModel(string $title): ?Tag
+    private function loadTagModel(string $title): ?Tag
     {
         return Tag::model()->findByTitle($title);
     }
 
-    protected function getBlogCriteria(): CDbCriteria
+    private function getBlogCriteria(): CDbCriteria
     {
         $criteria = new CDbCriteria();
         $criteria->scopes = ['published'];
@@ -123,7 +123,7 @@ class DefaultController extends Controller
         return $criteria;
     }
 
-    protected function createProvider(CDbCriteria $criteria): CActiveDataProvider
+    private function createProvider(CDbCriteria $criteria): CActiveDataProvider
     {
         return new CActiveDataProvider(Post::model()->cache(0, new Tags('blog')), [
             'criteria' => $criteria,
@@ -135,7 +135,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    protected function loadBlogPage(): Page
+    private function loadBlogPage(): Page
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('blog')) {
             $page = new Page;

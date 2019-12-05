@@ -153,7 +153,7 @@ class WorkController extends AdminController
         return null;
     }
 
-    public function loadModel($id): Work
+    private function loadModel($id): Work
     {
         $model = Work::findOne($id);
         if ($model === null) {

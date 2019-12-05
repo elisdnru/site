@@ -48,7 +48,7 @@ class DateLimiter
         return $this->pad($this->year, 4) . ($this->month ? '-' . $this->pad($this->month, 2) : '') . ($this->day ? '-' . $this->pad($this->day, 2) : '');
     }
 
-    protected function pad(int $val, int $length): string
+    private function pad(int $val, int $length): string
     {
         return str_pad($val, $length, 0, STR_PAD_LEFT);
     }

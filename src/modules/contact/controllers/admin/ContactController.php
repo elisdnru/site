@@ -75,7 +75,7 @@ class ContactController extends AdminController
         ]);
     }
 
-    public function loadModel($id): Contact
+    private function loadModel($id): Contact
     {
         $model = Contact::findOne($id);
         if ($model === null) {

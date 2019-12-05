@@ -115,7 +115,7 @@ class FileController extends AdminController
         return null;
     }
 
-    protected function uploadPostFile($field, $curpath): bool
+    private function uploadPostFile($field, $curpath): bool
     {
         $success = false;
 
@@ -175,7 +175,7 @@ class FileController extends AdminController
         return null;
     }
 
-    protected function getFileDir(): string
+    private function getFileDir(): string
     {
         $user = $this->loadUser();
 

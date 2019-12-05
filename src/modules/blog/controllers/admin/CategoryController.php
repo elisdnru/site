@@ -102,7 +102,7 @@ class CategoryController extends AdminController
         return $this->redirect(['index']);
     }
 
-    public function loadModel($id): Category
+    private function loadModel($id): Category
     {
         $model = Category::model()->findByPk($id);
         if ($model === null) {

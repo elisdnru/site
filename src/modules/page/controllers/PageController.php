@@ -22,8 +22,9 @@ class PageController extends Controller
         ]);
     }
 
-    protected function loadModel($path): Page
+    private function loadModel($path): Page
     {
+        /** @var Page $page */
         $page = Page::model()->cache(0, new Tags('page'))->findByPath($path);
         if ($page === null) {
             throw new NotFoundHttpException();

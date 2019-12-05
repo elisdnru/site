@@ -55,7 +55,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function loadModel(): User
+    private function loadModel(): User
     {
         $model = User::findOne(Yii::$app->user->id);
         if ($model === null) {

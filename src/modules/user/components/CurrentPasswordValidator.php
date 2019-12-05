@@ -42,7 +42,7 @@ class CurrentPasswordValidator extends Validator
         }
     }
 
-    protected function checkDependsOnAttributes($object): void
+    private function checkDependsOnAttributes($object): void
     {
         foreach ($this->dependsOnAttributes as $attr) {
             if (!empty($object->$attr)) {
@@ -51,7 +51,7 @@ class CurrentPasswordValidator extends Validator
         }
     }
 
-    protected function loadModel($object): ActiveRecord
+    private function loadModel($object): ActiveRecord
     {
         if (empty($this->idAttribute)) {
             throw new Exception('Attribute idAttribute is not defined');

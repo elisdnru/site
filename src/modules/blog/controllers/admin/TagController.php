@@ -72,7 +72,7 @@ class TagController extends AdminController
         return $this->redirect(['index']);
     }
 
-    public function loadModel($id): Tag
+    private function loadModel($id): Tag
     {
         $model = Tag::model()->findByPk($id);
 

@@ -23,7 +23,7 @@ class PostController extends Controller
         ]);
     }
 
-    protected function loadModel($id): Post
+    private function loadModel($id): Post
     {
         if (Yii::$app->moduleManager->allowed('blog')) {
             $condition = '';

@@ -81,7 +81,7 @@ class GroupController extends AdminController
         return null;
     }
 
-    public function loadModel($id): Group
+    private function loadModel($id): Group
     {
         $model = Group::model()->findByPk((int)$id);
         if ($model === null) {

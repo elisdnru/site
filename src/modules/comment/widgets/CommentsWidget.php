@@ -98,7 +98,7 @@ class CommentsWidget extends Widget
         ]);
     }
 
-    protected function saveFormState($attributes): void
+    private function saveFormState($attributes): void
     {
         /** @var Cookie $cookie */
         $cookie = Yii::createObject([
@@ -111,7 +111,7 @@ class CommentsWidget extends Widget
         Yii::$app->response->cookies->add($cookie);
     }
 
-    protected function loadFormState(): array
+    private function loadFormState(): array
     {
         $cookie = Yii::$app->request->cookies['comment_form_data'];
         if (!empty($cookie)) {

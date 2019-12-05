@@ -92,7 +92,7 @@ class MenuController extends AdminController
         return $this->redirect(['index']);
     }
 
-    public function loadModel($id): Menu
+    private function loadModel($id): Menu
     {
         $model = Menu::model()->findByPk($id);
         if ($model === null) {

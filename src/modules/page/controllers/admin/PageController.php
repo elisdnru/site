@@ -76,7 +76,7 @@ class PageController extends AdminController
         return $this->redirect($model->getUrl());
     }
 
-    public function loadModel($id): Page
+    private function loadModel($id): Page
     {
         $model = Page::model()->findByPk($id);
         if ($model === null) {

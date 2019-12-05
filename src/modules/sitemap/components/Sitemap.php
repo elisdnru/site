@@ -83,7 +83,7 @@ class Sitemap
         return $dom->saveXML();
     }
 
-    protected function dateToW3C($date): string
+    private function dateToW3C($date): string
     {
         if (is_int($date)) {
             return date(DATE_W3C, $date);

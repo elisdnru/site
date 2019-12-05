@@ -98,7 +98,7 @@ class PostController extends AdminController
         return $this->redirect($model->getUrl());
     }
 
-    public function loadModel($id): Post
+    private function loadModel($id): Post
     {
         $model = Post::model()->findByPk($id);
         if ($model === null) {

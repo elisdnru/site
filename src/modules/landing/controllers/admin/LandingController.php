@@ -75,7 +75,7 @@ class LandingController extends AdminController
         return $this->redirect($model->getUrl());
     }
 
-    public function loadModel($id): Landing
+    private function loadModel($id): Landing
     {
         $model = Landing::model()->findByPk($id);
         if ($model === null) {

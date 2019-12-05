@@ -18,7 +18,7 @@ class IndentLinkColumn extends LinkColumn
         echo $value === null ? $this->grid->nullDisplay : $spacer . Html::a($text, $url);
     }
 
-    protected function getItemIndent($data, int $row): int
+    private function getItemIndent($data, int $row): int
     {
         if (!empty($this->indent)) {
             return $this->evaluateExpression($this->indent, ['data' => $data, 'row' => $row]);

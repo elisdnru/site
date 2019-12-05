@@ -66,7 +66,7 @@ class DefaultController extends PortfolioBaseController
         ]);
     }
 
-    protected function loadCategoryModel($path): Category
+    private function loadCategoryModel($path): Category
     {
         /** @var Category $category */
         $category = Category::model()->findByPath($path);
@@ -76,7 +76,7 @@ class DefaultController extends PortfolioBaseController
         return $category;
     }
 
-    protected function getStartQuery(): WorkQuery
+    private function getStartQuery(): WorkQuery
     {
         return Work::find()
             ->published()
@@ -84,7 +84,7 @@ class DefaultController extends PortfolioBaseController
             ->cache(0, new TagDependency(['tags' => 'portfolio']));
     }
 
-    protected function loadPortfolioPage(): Page
+    private function loadPortfolioPage(): Page
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('portfolio')) {
             $page = new Page;

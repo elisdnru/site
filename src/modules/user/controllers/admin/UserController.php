@@ -66,7 +66,7 @@ class UserController extends AdminController
         ]);
     }
 
-    public function loadModel($id): User
+    private function loadModel($id): User
     {
         $model = User::findOne($id);
         if ($model === null) {

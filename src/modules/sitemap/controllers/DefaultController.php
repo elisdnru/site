@@ -65,9 +65,6 @@ class DefaultController extends Controller
         return $xml;
     }
 
-    /**
-     * @return Page
-     */
     private function loadSitemapPage(): Page
     {
         if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('sitemap')) {

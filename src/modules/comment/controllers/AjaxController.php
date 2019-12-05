@@ -98,7 +98,7 @@ class AjaxController extends Controller
         return $model->likes;
     }
 
-    protected function loadModel($id): Comment
+    private function loadModel($id): Comment
     {
         $model = Comment::findOne($id);
         if ($model === null) {

@@ -129,7 +129,7 @@ class ToggleColumn extends CGridColumn
         return parent::getHeaderCellContent();
     }
 
-    protected function registerClientScript(): void
+    private function registerClientScript(): void
     {
         if (is_string($this->confirmation)) {
             $confirmation = 'if(!confirm(' . CJavaScript::encode($this->confirmation) . ')) return false;';
@@ -182,7 +182,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
         Yii::$app->view->registerCSS($style);
     }
 
-    protected function renderDataCellContent($row, $data): void
+    private function renderDataCellContent($row, $data): void
     {
         if (!empty($this->visible) && !is_bool($this->visible)) {
             $visible = $this->evaluateExpression($this->visible, ['data' => $data, 'row' => $row]);
