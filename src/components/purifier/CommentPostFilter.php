@@ -2,7 +2,7 @@
 
 namespace app\components\purifier;
 
-class CommentFilter
+class CommentPostFilter
 {
     public static function fixMarkup(?string $text)
     {

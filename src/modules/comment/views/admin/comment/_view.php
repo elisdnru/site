@@ -1,7 +1,7 @@
 <?php
 /** @var $data \app\modules\comment\models\Comment */
 
-use app\components\purifier\CommentFilter;
+use app\components\purifier\CommentPostFilter;
 use app\components\SocNetwork;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -53,7 +53,7 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
     </header>
 
     <div class="text">
-        <?= CommentFilter::fixMarkup($data->text_purified) ?>
+        <?= CommentPostFilter::fixMarkup($data->text_purified) ?>
         <p>
             <?php if ($data->material) : ?>
                 <a href="<?= $data->url ?>"><?= Html::encode($data->material->title) ?></a><?php

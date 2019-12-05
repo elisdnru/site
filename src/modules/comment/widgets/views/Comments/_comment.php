@@ -1,6 +1,6 @@
 <?php
 use app\components\DateFormatter;
-use app\components\purifier\CommentFilter;
+use app\components\purifier\CommentPostFilter;
 use app\components\SocNetwork;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -52,7 +52,7 @@ use yii\helpers\Url;
 
     <div class="text">
         <?php if ($comment->public) : ?>
-            <?= CommentFilter::fixMarkup($comment->text_purified) ?>
+            <?= CommentPostFilter::fixMarkup($comment->text_purified) ?>
         <?php else : ?>
             <em>Комментарий удалён</em>
         <?php endif; ?>
