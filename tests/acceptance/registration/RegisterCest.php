@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\acceptance\register;
+namespace tests\acceptance\registration;
 
 use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
