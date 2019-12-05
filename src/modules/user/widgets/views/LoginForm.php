@@ -38,7 +38,7 @@ use yii\helpers\Url;
 
         <div class="row"><?= Html::activeTextInput($model, 'username', ['style' => 'width:100%', 'placeholder' => 'Логин или Email', 'title' => 'Логин или Email']) ?></div>
         <div class="row"><?= Html::activePasswordInput($model, 'password', ['style' => 'width:100%', 'placeholder' => 'Пароль', 'title' => 'Пароль']) ?></div>
-        <div class="row" style="margin-bottom: 10px"><label><?= Html::activeCheckBox($model, 'rememberMe') ?> Запомнить меня</label></div>
+        <div class="row" style="margin-bottom: 10px"><?= Html::activeCheckBox($model, 'rememberMe') ?></div>
 
         <div class="row buttons">
             <span style="font-size:12px; float: right"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> | <a href="<?= Url::to(['/user/default/remind']) ?>">Забыли?</a></span>
