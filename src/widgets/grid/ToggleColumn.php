@@ -182,7 +182,7 @@ $(document).on('click','#{$this->grid->id} a.{$this->class}', function(){
         Yii::$app->view->registerCSS($style);
     }
 
-    private function renderDataCellContent($row, $data): void
+    protected function renderDataCellContent($row, $data): void
     {
         if (!empty($this->visible) && !is_bool($this->visible)) {
             $visible = $this->evaluateExpression($this->visible, ['data' => $data, 'row' => $row]);
