@@ -3,17 +3,17 @@
     "description": "",
     "type": "project",
     "require": {
-        "php": "^7.3",
-        "ext-PDO": "^7.3",
-        "ext-curl": "^7.3",
+        "php": "^7.4",
+        "ext-PDO": "^7.4",
+        "ext-curl": "^7.4",
         "ext-dom": "20031129",
-        "ext-fileinfo": "^7.3",
-        "ext-gd": "^7.3",
-        "ext-iconv": "^7.3",
-        "ext-json": "^1.7",
-        "ext-mbstring": "^7.3",
-        "ext-posix": "^7.3",
-        "ext-xml": "^7.3",
+        "ext-fileinfo": "^7.4",
+        "ext-gd": "^7.4",
+        "ext-iconv": "^7.4",
+        "ext-json": "^7.4",
+        "ext-mbstring": "^7.4",
+        "ext-posix": "^7.4",
+        "ext-xml": "^7.4",
         "fishvision/yii2-migrate": "^1.0",
         "sentry/sdk": "^2.0.3",
         "symfony/dotenv": "^4.1",
@@ -37,6 +37,7 @@
     },
     "autoload": {
         "classmap": [
+            "override/classes",
             "src/views/skins"
         ],
         "psr-4": {

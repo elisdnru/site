@@ -5,6 +5,7 @@ return array_replace_recursive(
     [
         'components' => [
             'request' => [
+                'class' => \app\components\CHttpRequest::class,
                 'baseUrl' => '',
                 'enableCsrfValidation' => true,
                 'enableCookieValidation' => true,

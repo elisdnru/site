@@ -1,14 +1,13 @@
-FROM php:7.3-cli-alpine
+FROM php:7.4-cli-alpine
 
 RUN apk update && apk add mariadb-client wget unzip \
     && docker-php-ext-install pdo_mysql
 
 RUN apk add libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev \
     && docker-php-ext-configure gd \
-        --with-jpeg-dir=/usr/lib \
-        --with-png-dir=/usr/lib \
-        --with-webp-dir=/usr/lib \
-        --with-freetype-dir=/usr/include/freetype2 \
+        --with-jpeg \
+        --with-webp \
+        --with-freetype \
     && docker-php-ext-install gd
 
 RUN apk add libmcrypt-dev autoconf g++ make \
