@@ -17,6 +17,7 @@ class LinkColumn extends CDataColumn
      * This method evaluates {@link value} or {@link name} and renders the result.
      * @param integer $row the row number (zero-based)
      * @param mixed $data the data associated with the row
+     * @throws \CException
      */
     protected function renderDataCellContent($row, $data): void
     {
