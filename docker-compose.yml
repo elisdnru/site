@@ -26,9 +26,6 @@ services:
             SENTRY_DSN: ~
         volumes:
             - ./:/app
-        depends_on:
-            - mysql
-            - mysql-test
     php-cli:
         build:
             context: ./docker
@@ -44,9 +41,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
         volumes:
             - .:/app
-        depends_on:
-            - mysql
-            - mysql-test
         working_dir: /app
     node-watch:
         image: node:12.7-alpine
