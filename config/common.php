@@ -1,5 +1,6 @@
 <?php
 
+use app\components\deworker\widgets\SeriesEpisodes;
 use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
@@ -44,6 +45,8 @@ return [
 
     'bootstrap' => [
         ModuleUrlRules::class,
+        app\components\psr\Provider::class,
+        app\components\deworker\Provider::class,
     ],
 
     'modules' => [
@@ -195,6 +198,7 @@ return [
                     'subscribe_webinars' => SubscribeWebinars::class,
                     'subscribe_news' => SubscribeNews::class,
                     'mailto' => MailTo::class,
+                    'deworker-series-episodes' => SeriesEpisodes::class,
                 ],
             ],
         ],

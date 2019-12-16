@@ -15,6 +15,8 @@
         "ext-posix": "^7.4",
         "ext-xml": "^7.4",
         "fishvision/yii2-migrate": "^1.0",
+        "php-http/curl-client": "^2.0",
+        "psr/simple-cache": "^1.0",
         "sentry/sdk": "^2.0.3",
         "symfony/dotenv": "^4.1",
         "yiisoft/yii": "dev-master",
