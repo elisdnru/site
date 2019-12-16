@@ -39,8 +39,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testArray(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             0 => '1',
             1 => '2',
@@ -50,8 +48,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testAssocList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => 'First',
             2 => 'Second',
@@ -61,8 +57,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testAliasList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             'first' => 'First',
             'second' => 'Second',
@@ -72,8 +66,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testUrlList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             '/first' => 'First',
             '/second' => 'Second',
@@ -83,8 +75,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testMenuList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => [
                 'id' => '1',
@@ -118,8 +108,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testFindByAliasSuccess(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->query->findByAlias('first');
 
         self::assertNotNull($category);
@@ -128,8 +116,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testFindByAliasNotFound(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->query->findByAlias('unknown');
 
         self::assertNull($category);
@@ -137,8 +123,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testLinkActiveYes(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first');
         Yii::$app->request->setQueryParams(['category' => 'first']);
 
@@ -147,8 +131,6 @@ class CategoryBehaviorV2Test extends Unit
 
     public function testLinkActiveNo(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first');
         Yii::$app->request->setQueryParams(['category' => 'second']);
 

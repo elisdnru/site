@@ -18,6 +18,9 @@ class CategoryQueryV2 extends ActiveQuery
         return [
             'CategoryQueryBehavior' => [
                 'class' => CategoryQueryBehaviorV2::class,
+                'titleAttribute' => 'title',
+                'aliasAttribute' => 'alias',
+                'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
             ],
         ];
     }

@@ -70,6 +70,7 @@ abstract class CategoryV2 extends ActiveRecord
         return [
             'CategoryBehavior' => [
                 'class' => CategoryBehaviorV2::class,
+                'requestPathAttribute' => 'category',
             ],
         ];
     }
