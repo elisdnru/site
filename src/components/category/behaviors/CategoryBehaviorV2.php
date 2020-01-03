@@ -22,7 +22,7 @@ class CategoryBehaviorV2 extends Behavior
         return '#';
     }
 
-    private function getModel(): ActiveRecord
+    protected function getModel(): ActiveRecord
     {
         /** @var ActiveRecord $owner */
         $owner = $this->owner;

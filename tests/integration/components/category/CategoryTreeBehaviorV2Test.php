@@ -40,8 +40,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testArray(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             0 => '1',
             1 => '11',
@@ -54,8 +52,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testAssocList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => 'First Root',
             11 => 'First Root - First Root First Middle',
@@ -68,8 +64,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testAssocListParent(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => 'First Root',
             11 => 'First Root - First Root First Middle',
@@ -80,8 +74,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testAliasList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             'first-root' => 'First Root',
             'second-root' => 'Second Root',
@@ -94,8 +86,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testAliasListParent(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             'first-root' => 'First Root',
             'first-root-first-middle' => 'First Root First Middle',
@@ -106,8 +96,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testTabList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => 'First Root',
             11 => '-- First Root First Middle',
@@ -120,8 +108,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testTabListParent(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             11 => 'First Root First Middle',
             111 => '-- First Root First Middle Child',
@@ -131,8 +117,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testUrlList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             '/first-root' => 'First Root',
             '/first-root/first-root-first-middle' => '-- First Root First Middle',
@@ -145,8 +129,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testUrlListParent(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             '/first-root/first-root-first-middle' => 'First Root First Middle',
             '/first-root/first-root-first-middle/first-middle-child' => '-- First Root First Middle Child',
@@ -156,8 +138,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testMenuList(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => [
                 'id' => '1',
@@ -191,8 +171,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testMenuListSub(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             1 => [
                 'id' => '1',
@@ -248,8 +226,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testMenuListSubParent(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             11 => [
                 'id' => '11',
@@ -286,8 +262,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testFindByAliasSuccess(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->find->findByAlias('first-middle-child');
 
         self::assertNotNull($category);
@@ -296,8 +270,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testFindByAliasNotFound(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->find->findByAlias('unknown');
 
         self::assertNull($category);
@@ -305,8 +277,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testFindByPathSuccess(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->find->findByPath('first-root/first-root-first-middle/first-middle-child');
 
         self::assertNotNull($category);
@@ -315,8 +285,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testFindByPathNotFound(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->find->findByPath('first-root/first-middle-child');
 
         self::assertNull($category);
@@ -324,8 +292,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testLinkActiveChild(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-root-first-middle');
         Yii::$app->request->setQueryParams(['category' => 'first-root/first-root-first-middle']);
 
@@ -334,8 +300,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testLinkActiveRoot(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-root');
         Yii::$app->request->setQueryParams(['category' => 'first-root/first-root-first-middle']);
 
@@ -344,8 +308,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testLinkActiveNo(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-root-second-middle');
         Yii::$app->request->setQueryParams(['category' => 'first-root/first-root-first-middle']);
 
@@ -354,8 +316,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testChildrenArray(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             0 => '1',
             1 => '11',
@@ -368,8 +328,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testChildrenArrayParent(): void
     {
-        $this->markTestIncomplete();
-
         self::assertEquals([
             0 => '11',
             1 => '111',
@@ -379,8 +337,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testChildOfYes(): void
     {
-        $this->markTestIncomplete();
-
         $parent = $this->getCategory('first-root');
         $child = $this->getCategory('first-middle-child');
 
@@ -389,8 +345,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testChildOfNo(): void
     {
-        $this->markTestIncomplete();
-
         $other = $this->getCategory('second-root');
         $child = $this->getCategory('first-middle-child');
 
@@ -399,8 +353,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testPath(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-middle-child');
 
         self::assertEquals('first-root/first-root-first-middle/first-middle-child', $category->getPath());
@@ -408,8 +360,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testBreadcrumbs(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-middle-child');
 
         self::assertEquals([
@@ -421,8 +371,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testBreadcrumbsLastLink(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-middle-child');
 
         self::assertEquals([
@@ -434,8 +382,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testFullTitle(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-middle-child');
 
         self::assertEquals('First Root - First Root First Middle - First Root First Middle Child', $category->getFullTitle());
@@ -443,8 +389,6 @@ class CategoryTreeBehaviorV2Test extends Unit
 
     public function testFullTitleInverse(): void
     {
-        $this->markTestIncomplete();
-
         $category = $this->getCategory('first-middle-child');
 
         self::assertEquals('First Root First Middle Child - First Root First Middle - First Root', $category->getFullTitle(true));

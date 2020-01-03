@@ -17,6 +17,9 @@ class TreeCategoryQueryV2 extends CategoryQueryV2
         return [
             'CategoryQueryBehavior' => [
                 'class' => CategoryTreeQueryBehaviorV2::class,
+                'titleAttribute' => 'title',
+                'aliasAttribute' => 'alias',
+                'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
             ],
         ];
     }
