@@ -25,7 +25,7 @@ class PageController extends AdminController
     public function actionCreate()
     {
         $model = new Page();
-        $model->date = time();
+        $model->date = date('Y-m-d');
         $model->parent_id = Yii::$app->request->get('parent', 0);
 
         if ($post = Yii::$app->request->post('Page')) {
