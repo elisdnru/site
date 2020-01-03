@@ -6,6 +6,10 @@ use CButtonColumn;
 
 class ButtonColumn extends CButtonColumn
 {
+    public $deleteButtonOptions = [
+        'class'=>'delete ajax_del',
+    ];
+
     public function init(): void
     {
         if ($this->updateButtonImageUrl === null) {
