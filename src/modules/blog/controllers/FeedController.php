@@ -9,7 +9,7 @@ use DateTimeImmutable;
 use Yii;
 use yii\helpers\Html;
 use yii\web\Response;
-use Zend\Feed\Writer\Feed;
+use Laminas\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {

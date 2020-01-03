@@ -13,9 +13,9 @@ use Psr\SimpleCache\CacheInterface;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\di\Container;
-use Zend\Diactoros\RequestFactory;
-use Zend\Diactoros\ResponseFactory;
-use Zend\Diactoros\StreamFactory;
+use Laminas\Diactoros\RequestFactory;
+use Laminas\Diactoros\ResponseFactory;
+use Laminas\Diactoros\StreamFactory;
 
 class Provider implements BootstrapInterface
 {

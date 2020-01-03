@@ -8,7 +8,7 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\CacheInterface;
-use Zend\Diactoros\Response\ArraySerializer;
+use Laminas\Diactoros\Response\ArraySerializer;
 
 class Cached implements ClientInterface
 {

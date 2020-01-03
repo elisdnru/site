@@ -9,8 +9,8 @@ use Psr\Http\Client\ClientInterface;
 use Psr\SimpleCache\CacheInterface;
 use Yii;
 use yii\base\BootstrapInterface;
-use Zend\Diactoros\ResponseFactory;
-use Zend\Diactoros\StreamFactory;
+use Laminas\Diactoros\ResponseFactory;
+use Laminas\Diactoros\StreamFactory;
 
 class Provider implements BootstrapInterface
 {
