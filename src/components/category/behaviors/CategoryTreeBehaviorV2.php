@@ -4,7 +4,7 @@ namespace app\components\category\behaviors;
 
 use yii\base\NotSupportedException;
 
-class CategoryTreeBehaviorV2 extends CategoryBehavior
+class CategoryTreeBehaviorV2 extends CategoryBehaviorV2
 {
     public function getPath(string $separator = '/'): string
     {
