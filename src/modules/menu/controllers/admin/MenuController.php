@@ -87,7 +87,7 @@ class MenuController extends AdminController
         return null;
     }
 
-    public function actionView(): string
+    public function actionView(): Response
     {
         return $this->redirect(['index']);
     }
