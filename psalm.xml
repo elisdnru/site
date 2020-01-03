@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<psalm
+    totallyTyped="true"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <file name="Yii.php" />
+        <directory name="src/assets" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <file name="Yii.php" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="info" />
+    </issueHandlers>
+</psalm>

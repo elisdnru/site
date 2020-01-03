@@ -30,7 +30,8 @@
         "guzzlehttp/guzzle": "^6.4",
         "overtrue/phplint": "^1.1",
         "roave/security-advisories": "dev-master",
-        "squizlabs/php_codesniffer": "^3.3"
+        "squizlabs/php_codesniffer": "^3.3",
+        "vimeo/psalm": "^3.8"
     },
     "replace": {
         "bower-asset/jquery":"*",
@@ -63,6 +64,7 @@
         "test": "phpunit --colors=always",
         "lint": "phplint",
         "cs-check": "phpcs",
-        "cs-fix": "phpcbf"
+        "cs-fix": "phpcbf",
+        "psalm": "psalm"
     }
 }

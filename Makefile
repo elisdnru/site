@@ -3,7 +3,7 @@ down: docker-down
 restart: docker-down docker-up
 init: docker-down-clear site-clear docker-pull docker-build docker-up site-init site-ready
 check: lint test
-lint: site-lint
+lint: site-lint site-analyze
 test: site-test
 
 docker-up:
@@ -55,6 +55,9 @@ site-ready:
 site-lint:
 	docker-compose run --rm php-cli composer lint
 	docker-compose run --rm php-cli composer cs-check
+
+site-analyze:
+	docker-compose run --rm php-cli composer psalm
 
 site-test:
 	docker-compose run --rm php-cli vendor/bin/codecept run unit,integration,acceptance
