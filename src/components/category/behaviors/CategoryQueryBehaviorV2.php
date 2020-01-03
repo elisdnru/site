@@ -84,7 +84,7 @@ class CategoryQueryBehaviorV2 extends Behavior
     protected function getQuery(): ActiveQuery
     {
         /** @var ActiveQuery $query */
-        $query = $this->owner;
+        $query = clone $this->owner;
         return $query->cache()->orderBy($this->defaultOrder);
     }
 }
