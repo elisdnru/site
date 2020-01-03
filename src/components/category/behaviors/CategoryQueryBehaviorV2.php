@@ -10,6 +10,7 @@ use yii\db\ActiveRecord;
 
 class CategoryQueryBehaviorV2 extends Behavior
 {
+    public string $primaryKeyAttribute = 'id';
     public string $titleAttribute = 'title';
     public string $aliasAttribute = 'alias';
     public string $urlAttribute = 'url';
@@ -20,23 +21,23 @@ class CategoryQueryBehaviorV2 extends Behavior
     public function getArray(): array
     {
         return $this->getQuery()
-            ->select(['id'])
+            ->select([$this->primaryKeyAttribute])
             ->column();
     }
 
     public function getAssocList(): array
     {
         return $this->getQuery()
-            ->select([$this->titleAttribute, 'id'])
-            ->indexBy('id')
+            ->select([$this->titleAttribute, $this->primaryKeyAttribute])
+            ->indexBy($this->primaryKeyAttribute)
             ->column();
     }
 
     public function getAliasList(): array
     {
         $rows = $this->getQuery()
-            ->select([$this->titleAttribute, $this->aliasAttribute, 'id'])
-            ->indexBy('id')
+            ->select([$this->titleAttribute, $this->aliasAttribute, $this->primaryKeyAttribute])
+            ->indexBy($this->primaryKeyAttribute)
             ->asArray()
             ->all();
 
@@ -63,7 +64,7 @@ class CategoryQueryBehaviorV2 extends Behavior
             $active = $item->{$this->linkActiveAttribute};
             $id = $item->getPrimaryKey();
             $result[$id] = [
-                'id' => $id,
+                $this->primaryKeyAttribute => $id,
                 'label' => $item->{$this->titleAttribute},
                 'url' => $item->{$this->urlAttribute},
                 'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
@@ -80,7 +81,7 @@ class CategoryQueryBehaviorV2 extends Behavior
         return $this->getQuery()->andWhere([$this->aliasAttribute => $alias])->limit(1)->one();
     }
 
-    private function getQuery(): ActiveQuery
+    protected function getQuery(): ActiveQuery
     {
         /** @var ActiveQuery $query */
         $query = $this->owner;
