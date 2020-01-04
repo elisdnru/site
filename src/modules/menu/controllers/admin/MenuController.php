@@ -3,6 +3,7 @@
 namespace app\modules\menu\controllers\admin;
 
 use app\components\AdminController;
+use app\modules\menu\forms\MenuSearch;
 use app\modules\menu\models\Menu;
 use Yii;
 use yii\web\BadRequestHttpException;
@@ -13,13 +14,12 @@ class MenuController extends AdminController
 {
     public function actionIndex(): string
     {
-        $model = new Menu('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Menu');
+        $model = new MenuSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -28,12 +28,8 @@ class MenuController extends AdminController
         $model = new Menu();
         $model->visible = 1;
 
-        if ($post = Yii::$app->request->post('Menu')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -45,12 +41,8 @@ class MenuController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Menu')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -94,7 +86,7 @@ class MenuController extends AdminController
 
     private function loadModel(int $id): Menu
     {
-        $model = Menu::model()->findByPk($id);
+        $model = Menu::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }
