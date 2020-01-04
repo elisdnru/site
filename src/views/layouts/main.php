@@ -1,6 +1,7 @@
 <?php
 
 use app\assets\MainAsset;
+use app\modules\block\widgets\BlockWidget;
 use app\widgets\AdminBar;
 use app\extensions\cachetagging\Tags;
 use app\modules\menu\models\Menu;
@@ -150,6 +151,8 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
 
 <?php $this->endBody() ?>
+
+<?= BlockWidget::widget(['id' => 'end']) ?>
 
 </body>
 </html>
