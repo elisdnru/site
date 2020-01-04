@@ -193,17 +193,18 @@ class CategoryTreeQueryBehaviorV2 extends CategoryQueryBehaviorV2
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
             foreach ($items[$parent] as $item) {
-                $active = $item->{$this->linkActiveAttribute};
                 $id = $item->getPrimaryKey();
                 $resultArray[$id] = [
                         'id' => $id,
                         'label' => $item->{$this->titleAttribute},
                         'url' => $item->{$this->urlAttribute},
                         'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
-                        'active' => $active,
-                        'itemOptions' => ['class' => 'item_' . $item->getPrimaryKey()],
-                        'linkOptions' => $active ? ['rel' => 'nofollow'] : [],
-                    ] + ($sub ? ['items' => $this->getMenuListRecursive($items, $item->getPrimaryKey(), $sub - 1)] : []);
+                        'active' => $item->{$this->linkActiveAttribute},
+                    ] + (
+                        $sub
+                        ? ['items' => $this->getMenuListRecursive($items, $item->getPrimaryKey(), $sub - 1)]
+                        : []
+                    );
             }
         }
         return $resultArray;

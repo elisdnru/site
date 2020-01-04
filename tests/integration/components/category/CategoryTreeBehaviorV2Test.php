@@ -154,8 +154,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/first-root',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_1'],
-                'linkOptions' => [],
             ],
             2 => [
                 'id' => '2',
@@ -163,8 +161,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/second-root',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_2'],
-                'linkOptions' => [],
             ],
             3 => [
                 'id' => '3',
@@ -172,8 +168,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/third-root',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_3'],
-                'linkOptions' => [],
             ],
         ], $this->find->getMenuList());
     }
@@ -187,8 +181,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/first-root',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_1'],
-                'linkOptions' => [],
                 'items' => [
                     11 => [
                         'id' => '11',
@@ -196,8 +188,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                         'url' => '/first-root/first-root-first-middle',
                         'icon' => '',
                         'active' => false,
-                        'itemOptions' => ['class' => 'item_11'],
-                        'linkOptions' => [],
                     ],
                     12 => [
                         'id' => '12',
@@ -205,8 +195,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                         'url' => '/first-root/first-root-second-middle',
                         'icon' => '',
                         'active' => false,
-                        'itemOptions' => ['class' => 'item_12'],
-                        'linkOptions' => [],
                     ],
                 ],
             ],
@@ -216,8 +204,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/second-root',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_2'],
-                'linkOptions' => [],
                 'items' => [],
             ],
             3 => [
@@ -226,8 +212,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/third-root',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_3'],
-                'linkOptions' => [],
                 'items' => [],
             ],
         ], $this->find->getMenuList(1));
@@ -242,8 +226,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/first-root/first-root-first-middle',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_11'],
-                'linkOptions' => [],
                 'items' => [
                     111 => [
                         'id' => '111',
@@ -251,8 +233,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                         'url' => '/first-root/first-root-first-middle/first-middle-child',
                         'icon' => '',
                         'active' => false,
-                        'itemOptions' => ['class' => 'item_111'],
-                        'linkOptions' => [],
                     ],
                 ],
             ],
@@ -262,8 +242,6 @@ class CategoryTreeBehaviorV2Test extends Unit
                 'url' => '/first-root/first-root-second-middle',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_12'],
-                'linkOptions' => [],
                 'items' => [],
             ],
         ], $this->find->getMenuList(1, 1));

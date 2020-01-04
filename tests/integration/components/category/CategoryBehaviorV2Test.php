@@ -82,8 +82,6 @@ class CategoryBehaviorV2Test extends Unit
                 'url' => '/first',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_1'],
-                'linkOptions' => [],
             ],
             2 => [
                 'id' => '2',
@@ -91,8 +89,6 @@ class CategoryBehaviorV2Test extends Unit
                 'url' => '/second',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_2'],
-                'linkOptions' => [],
             ],
             3 => [
                 'id' => '3',
@@ -100,8 +96,6 @@ class CategoryBehaviorV2Test extends Unit
                 'url' => '/third',
                 'icon' => '',
                 'active' => false,
-                'itemOptions' => ['class' => 'item_3'],
-                'linkOptions' => [],
             ],
         ], $this->query->getMenuList());
     }

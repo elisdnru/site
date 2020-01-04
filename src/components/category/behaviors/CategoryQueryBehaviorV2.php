@@ -61,16 +61,13 @@ class CategoryQueryBehaviorV2 extends Behavior
 
         $result = [];
         foreach ($items as $item) {
-            $active = $item->{$this->linkActiveAttribute};
             $id = $item->getPrimaryKey();
             $result[$id] = [
                 $this->primaryKeyAttribute => $id,
                 'label' => $item->{$this->titleAttribute},
                 'url' => $item->{$this->urlAttribute},
                 'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
-                'active' => $active,
-                'itemOptions' => ['class' => 'item_' . $id],
-                'linkOptions' => $active ? ['rel' => 'nofollow'] : [],
+                'active' => $item->{$this->linkActiveAttribute},
             ];
         }
         return $result;
