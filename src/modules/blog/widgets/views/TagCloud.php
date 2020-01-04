@@ -15,7 +15,7 @@ use yii\helpers\Html;
             $size = 16;
         }
         ?>
-        <a href="<?= Html::encode($tag->url) ?>" style="font-size: <?= $size ?>pt"><?= Html::encode($tag->title) ?></a>
+        <a href="<?= Html::encode($tag->getUrl()) ?>" style="font-size: <?= $size ?>pt"><?= Html::encode($tag->title) ?></a>
     <?php endforeach; ?>
 </div>
 

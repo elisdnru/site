@@ -38,7 +38,7 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
         [
             'class' => ButtonColumn::class,
             'template' => '{view}',
-            'viewButtonUrl' => '$data->url',
+            'viewButtonUrl' => '$data->getUrl()',
         ],
         [
             'class' => ButtonColumn::class,

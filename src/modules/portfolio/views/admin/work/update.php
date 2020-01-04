@@ -8,7 +8,7 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->url];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->getUrl()];
 $this->params['admin'][] = ['label' => 'Работы', 'url' => ['index']];
 $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
 

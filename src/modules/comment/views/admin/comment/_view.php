@@ -56,7 +56,7 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
         <?= CommentPostFilter::fixMarkup($data->text_purified) ?>
         <p>
             <?php if ($data->material) : ?>
-                <a href="<?= $data->url ?>"><?= Html::encode($data->material->title) ?></a><?php
+                <a href="<?= $data->getUrl() ?>"><?= Html::encode($data->material->title) ?></a><?php
             endif; ?>
             <!-- | <a href="<?= $groupurl ?>">Комментарии</a> -->
         </p>

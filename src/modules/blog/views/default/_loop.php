@@ -14,12 +14,12 @@ use yii\widgets\LinkPager;
             <?php
             $links = [];
             foreach ($post->cache(1000)->tags as $tag) {
-                $links[] = '<a href="' . Html::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
+                $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
             }
             ?>
             <div class="entry list">
                 <div class="header">
-                    <div class="title"><a href="<?= $post->url ?>"><?= Html::encode($post->title) ?></a></div>
+                    <div class="title"><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a></div>
                     <!--noindex-->
                     <div class="info">
                         <div class="date">
@@ -27,7 +27,7 @@ use yii\widgets\LinkPager;
                         </div>
                         <?php if ($post->category) : ?>
                             <div class="category">
-                                <span><a href="<?= $post->category->url ?>"><?= Html::encode($post->category->title) ?></a></span>
+                                <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
                             </div>
                         <?php endif; ?>
                         <div class="tags"><span><?= implode(', ', $links) ?></span></div>
@@ -47,7 +47,7 @@ use yii\widgets\LinkPager;
                         }
                         ?>
                         <div class="thumb">
-                            <a href="<?= $post->url ?>">
+                            <a href="<?= $post->getUrl() ?>">
                                 <picture>
                                     <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
                                     <source srcset="<?= $imageUrl ?>" type="image/jpeg">
@@ -60,7 +60,7 @@ use yii\widgets\LinkPager;
                 </div>
                 <div class="short"><?= trim($post->short_purified) ?></div>
                 <!--noindex-->
-                <div class="more"><a href="<?= $post->url ?>">Читать далее</a></div>
+                <div class="more"><a href="<?= $post->getUrl() ?>">Читать далее</a></div>
                 <!--/noindex-->
                 <div class="clear"></div>
             </div>

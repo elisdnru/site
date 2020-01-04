@@ -15,7 +15,7 @@ if (Yii::$app->moduleManager->allowed('blog')) {
     $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
 }
 if ($material) {
-    $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->url];
+    $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->getUrl()];
 }
 
 CommentsAsset::register($this);

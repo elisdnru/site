@@ -26,9 +26,6 @@ use yii\helpers\Url;
  * @property integer $image_show
  * @property integer $public
  *
- * @property string $url
- * @property string $imageUrl
- * @property string $imageThumdUrl
  * @property Category category
  *
  * @mixin FileUploadBehavior

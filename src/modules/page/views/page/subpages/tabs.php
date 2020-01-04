@@ -9,13 +9,13 @@ use yii\helpers\Html;
 <?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])) : ?>
     <?php if ($page->parent) : ?>
         <?php if (!$page->hidetitle) : ?>
-            <h1><?= Html::a($page->parent->title, $page->parent->url) ?></h1>
+            <h1><?= Html::a($page->parent->title, $page->parent->getUrl()) ?></h1>
         <?php endif; ?>
 
         <div class="subpages">
             <ul>
                 <?php foreach ($page->parent->child_pages as $child) : ?>
-                    <?php $url = $child->url; ?>
+                    <?php $url = $child->getUrl(); ?>
                     <?php if (Yii::$app->request->getPathInfo() === $url) : ?>
                         <li class="active"><a href="<?= $url ?>"><?= $child->title ?></a></li>
                     <?php else : ?>
@@ -34,7 +34,7 @@ use yii\helpers\Html;
         <div class="subpages">
             <ul>
                 <?php foreach ($page->child_pages as $child) : ?>
-                    <li><a href="<?= $child->url ?>"><?= $child->title ?></a></li>
+                    <li><a href="<?= $child->getUrl() ?>"><?= $child->title ?></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>

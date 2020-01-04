@@ -16,7 +16,6 @@ use yii\helpers\Url;
  * @property integer $parent_id
  * @property integer $system
  *
- * @property string $url
  * @property Landing[] child_landings
  *
  * @mixin CategoryTreeBehavior

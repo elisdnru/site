@@ -35,7 +35,7 @@ class FeedController extends Controller
         foreach ($posts as $model) {
             $item = $feed->createEntry();
 
-            $link = Yii::$app->request->hostInfo . $model->url;
+            $link = Yii::$app->request->hostInfo . $model->getUrl();
             $image = Yii::$app->request->hostInfo . $model->getImageThumbUrl();
 
             $item->setTitle($model->title);

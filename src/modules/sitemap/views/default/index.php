@@ -41,7 +41,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h2>Записи в блоге</h2>
     <ul>
         <?php foreach ($items['BlogPost'] as $model) : ?>
-            <li><a href="<?= $model->url ?>"><?= Html::encode($model->title) ?></a></li>
+            <li><a href="<?= $model->getUrl() ?>"><?= Html::encode($model->title) ?></a></li>
         <?php endforeach; ?>
     </ul>
 
@@ -49,7 +49,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h2>Портфолио</h2>
     <ul>
         <?php foreach ($items['PortfolioWork'] as $model) : ?>
-            <li><a href="<?= $model->url ?>"><?= Html::encode($model->title) ?></a></li>
+            <li><a href="<?= $model->getUrl() ?>"><?= Html::encode($model->title) ?></a></li>
         <?php endforeach; ?>
     </ul>
     <!--/noindex-->

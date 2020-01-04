@@ -59,7 +59,7 @@ use yii\helpers\Html;
 
             <?php if ($model->image) : ?>
                 <div class="image">
-                    <a target="_blank" class="clightbox" href="<?= $model->imageUrl ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
+                    <a target="_blank" class="clightbox" href="<?= $model->getImageUrl() ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
                 </div>
                 <div class="row">
                     <?= Html::activeCheckbox($model, 'del_image') ?>

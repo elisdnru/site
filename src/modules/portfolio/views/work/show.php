@@ -53,14 +53,14 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 ?>
 
                 <p class="thumb">
-                    <a class="lightbox" href="<?= $model->imageUrl ?>"><?= CHtml::image($model->getImageThumbUrl(), $model->title, $properties) ?></a>
+                    <a class="lightbox" href="<?= $model->getImageUrl() ?>"><?= CHtml::image($model->getImageThumbUrl(), $model->title, $properties) ?></a>
                 </p>
 
             <?php endif; ?>
 
             <div class="info">
                 <div class="category">
-                    <span><a href="<?= $model->category->url ?>"><?= Html::encode($model->category->title) ?></a></span>
+                    <span><a href="<?= $model->category->getUrl() ?>"><?= Html::encode($model->category->title) ?></a></span>
                 </div>
             </div>
 
@@ -85,5 +85,5 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?= Share::widget([
     'title' => $model->title,
     'description' => $model->description,
-    'image' => $model->imageUrl,
+    'image' => $model->getImageUrl(),
 ]) ?>

@@ -14,7 +14,7 @@ use yii\caching\TagDependency;
         <div class="subpages">
             <ul>
                 <?php foreach ($page->child_pages as $child) : ?>
-                    <li><a href="<?= $child->url ?>"><?= $child->title ?></a></li>
+                    <li><a href="<?= $child->getUrl() ?>"><?= $child->title ?></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>

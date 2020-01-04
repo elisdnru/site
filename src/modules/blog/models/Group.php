@@ -11,6 +11,8 @@ use CDbCriteria;
  * @property integer $id
  * @property string $title
  *
+ * @property Post[] $posts
+ *
  * @mixin CategoryBehavior
  */
 class Group extends CActiveRecord

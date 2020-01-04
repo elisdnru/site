@@ -40,7 +40,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <article class="entry list">
             <header>
                 <h2>
-                    <a href="<?= $model->material->url ?>"><?= SearchHighlighter::getFragment(strip_tags($model->title), $query) ?></a>
+                    <a href="<?= $model->material->getUrl() ?>"><?= SearchHighlighter::getFragment(strip_tags($model->title), $query) ?></a>
                 </h2>
                 <?php if ($model->material->hasAttribute('image')) : ?>
                     <?php
@@ -50,7 +50,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     ]);
                     ?>
                     <p class="thumb">
-                        <a href="<?= $model->material->url ?>"><?= CHtml::image($model->material->getImageThumbUrl(), '', $properties) ?></a>
+                        <a href="<?= $model->material->getUrl() ?>"><?= CHtml::image($model->material->getImageThumbUrl(), '', $properties) ?></a>
                     </p>
                 <?php endif; ?>
             </header>

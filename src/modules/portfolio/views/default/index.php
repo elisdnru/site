@@ -41,7 +41,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <div class="subpages">
         <ul>
             <?php foreach ($categories as $category) : ?>
-                <li><a rel="nofollow" href="<?= $category->url ?>"><?= $category->title ?></a></li>
+                <li><a rel="nofollow" href="<?= $category->getUrl() ?>"><?= $category->title ?></a></li>
             <?php endforeach; ?>
         </ul>
         <div class="clear"></div>

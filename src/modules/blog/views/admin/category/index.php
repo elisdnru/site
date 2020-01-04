@@ -42,7 +42,7 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
         [
             'class' => ButtonColumn::class,
             'template' => '{view}',
-            'viewButtonUrl' => '$data->url',
+            'viewButtonUrl' => '$data->getUrl()',
         ],
         [
             'class' => ButtonColumn::class,

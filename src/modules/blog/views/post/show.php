@@ -34,11 +34,11 @@ $host = Yii::$app->request->getHostInfo();
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
 $this->registerMetaTag(['property' => 'og:description', 'content' => $model->description]);
-$this->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->url]);
+$this->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->getUrl()]);
 
 if ($model->image) {
-    $this->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->imageUrl]);
-    $this->registerLinkTag(['rel' => 'image_src', 'href' => $host . $model->imageUrl]);
+    $this->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->getImageUrl()]);
+    $this->registerLinkTag(['rel' => 'image_src', 'href' => $host . $model->getImageUrl()]);
 }
 
 if ($model->styles) {
@@ -90,7 +90,7 @@ HighlightAsset::register($this);
                 'height' => $model->image_height,
             ]);
             ?>
-            <p class="thumb"><?= CHtml::image($model->imageUrl, $model->image_alt, $properties) ?></p>
+            <p class="thumb"><?= CHtml::image($model->getImageUrl(), $model->image_alt, $properties) ?></p>
         <?php endif; ?>
 
     </header>
@@ -131,7 +131,7 @@ HighlightAsset::register($this);
     <?php
     $links = [];
     foreach ($model->tags as $tag) {
-        $links[] = '<a href="' . Html::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
+        $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
     <p class="entry_date">
@@ -148,7 +148,7 @@ HighlightAsset::register($this);
     <?= Share::widget([
         'title' => $model->title,
         'description' => $model->description,
-        'image' => $model->imageUrl,
+        'image' => $model->getImageUrl(),
     ]) ?>
 
     <div class="clear"></div>
@@ -176,5 +176,5 @@ HighlightAsset::register($this);
     'material_id' => $model->id,
     'authorId' => $model->author_id,
     'type' => Comment::TYPE_OF_COMMENT,
-    'url' => $model->url,
+    'url' => $model->getUrl(),
 ]) ?>

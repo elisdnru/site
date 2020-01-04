@@ -38,9 +38,6 @@ use yii\helpers\Url;
  * @property integer $group_id
  * @property integer $public
  *
- * @property string $url
- * @property string $imageUrl
- * @property string $imageThumdUrl
  * @property integer $commentsCount
  * @property integer $commentsNewCount
  * @property User $author

@@ -8,13 +8,13 @@ use yii\helpers\Html;
     <?php
     $links = [];
     foreach ($data->cache(1000)->tags as $tag) {
-        $links[] = '<a href="' . Html::encode($tag->url) . '">' . Html::encode($tag->title) . '</a>';
+        $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
 
     <div class="entry list">
         <div class="header">
-            <div class="title"><a href="<?= $data->url ?>"><?= Html::encode($data->title) ?></a></div>
+            <div class="title"><a href="<?= $data->getUrl() ?>"><?= Html::encode($data->title) ?></a></div>
             <!--noindex-->
             <div class="info">
                 <div class="date">
@@ -22,7 +22,7 @@ use yii\helpers\Html;
                 </div>
                 <?php if ($data->category) : ?>
                     <div class="category">
-                        <span><a href="<?= $data->category->url ?>"><?= Html::encode($data->category->title) ?></a></span>
+                        <span><a href="<?= $data->category->getUrl() ?>"><?= Html::encode($data->category->title) ?></a></span>
                     </div>
                 <?php endif; ?>
                 <div class="tags"><span><?= implode(', ', $links) ?></span></div>
@@ -44,7 +44,7 @@ use yii\helpers\Html;
                 }
                 ?>
                 <div class="thumb">
-                    <a href="<?= $data->url ?>">
+                    <a href="<?= $data->getUrl() ?>">
                         <picture>
                             <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
                             <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
@@ -57,7 +57,7 @@ use yii\helpers\Html;
         </div>
         <div class="short"><?= trim($data->short_purified) ?></div>
         <!--noindex-->
-        <div class="more"><a href="<?= $data->url ?>">Читать далее</a></div>
+        <div class="more"><a href="<?= $data->getUrl() ?>">Читать далее</a></div>
         <!--/noindex-->
     </div>
 
