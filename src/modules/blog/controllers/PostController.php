@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 
 class PostController extends Controller
 {
-    public function actionShow($id, $alias = null)
+    public function actionShow(int $id, string $alias = null)
     {
         $model = $this->loadModel($id);
 
@@ -23,7 +23,7 @@ class PostController extends Controller
         ]);
     }
 
-    private function loadModel($id): Post
+    private function loadModel(int $id): Post
     {
         if (Yii::$app->moduleManager->allowed('blog')) {
             $condition = '';

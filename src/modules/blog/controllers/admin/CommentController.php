@@ -10,9 +10,9 @@ use yii\web\NotFoundHttpException;
 
 class CommentController extends Base
 {
-    protected function loadMaterialModel($id): CActiveRecord
+    protected function loadMaterialModel(int $id): CActiveRecord
     {
-        $model = Post::model()->findByPk((int)$id);
+        $model = Post::model()->findByPk($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

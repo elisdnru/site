@@ -32,7 +32,7 @@ class BlockController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -43,7 +43,7 @@ class BlockController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -54,7 +54,7 @@ class BlockController extends AdminController
         return null;
     }
 
-    public function actionView($id): string
+    public function actionView(int $id): string
     {
         $model = $this->loadModel($id);
         return $this->render('view', [
@@ -62,7 +62,7 @@ class BlockController extends AdminController
         ]);
     }
 
-    public function loadModel($id): Block
+    public function loadModel(int $id): Block
     {
         $model = Block::findOne($id);
         if ($model === null) {

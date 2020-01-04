@@ -26,7 +26,7 @@ class AjaxController extends Controller
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -55,7 +55,7 @@ class AjaxController extends Controller
         return null;
     }
 
-    public function actionHide($id): ?Response
+    public function actionHide(int $id): ?Response
     {
         if (!Yii::$app->user->id) {
             throw new ForbiddenHttpException();
@@ -79,7 +79,7 @@ class AjaxController extends Controller
         return null;
     }
 
-    public function actionLike($id): int
+    public function actionLike(int $id): int
     {
         $model = $this->loadModel($id);
 
@@ -98,7 +98,7 @@ class AjaxController extends Controller
         return $model->likes;
     }
 
-    private function loadModel($id): Comment
+    private function loadModel(int $id): Comment
     {
         $model = Comment::findOne($id);
         if ($model === null) {

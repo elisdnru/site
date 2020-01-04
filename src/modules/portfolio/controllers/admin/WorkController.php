@@ -71,7 +71,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,7 +82,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionToggle($id, $attribute): ?Response
+    public function actionToggle(int $id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -99,7 +99,7 @@ class WorkController extends AdminController
         return null;
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -110,7 +110,7 @@ class WorkController extends AdminController
         return null;
     }
 
-    public function actionView($id): Response
+    public function actionView(int $id): Response
     {
         $model = $this->loadModel($id);
 
@@ -153,7 +153,7 @@ class WorkController extends AdminController
         return null;
     }
 
-    private function loadModel($id): Work
+    private function loadModel(int $id): Work
     {
         $model = Work::findOne($id);
         if ($model === null) {

@@ -41,7 +41,7 @@ class PageController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
 
@@ -58,7 +58,7 @@ class PageController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -69,14 +69,14 @@ class PageController extends AdminController
         return null;
     }
 
-    public function actionView($id): Response
+    public function actionView(int $id): Response
     {
         $model = $this->loadModel($id);
 
         return $this->redirect($model->getUrl());
     }
 
-    private function loadModel($id): Page
+    private function loadModel(int $id): Page
     {
         $model = Page::model()->findByPk($id);
         if ($model === null) {

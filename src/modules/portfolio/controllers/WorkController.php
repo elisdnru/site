@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 
 class WorkController extends PortfolioBaseController
 {
-    public function actionShow($id, $alias = null)
+    public function actionShow(int $id, $alias = null)
     {
         $model = $this->loadModel($id);
 
@@ -23,7 +23,7 @@ class WorkController extends PortfolioBaseController
         ]);
     }
 
-    private function loadModel($id): Work
+    private function loadModel(int $id): Work
     {
         $query = Work::find();
 

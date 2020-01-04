@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 
 class CommentController extends Controller
 {
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
 
@@ -31,7 +31,7 @@ class CommentController extends Controller
         ]);
     }
 
-    private function loadModel($id): Comment
+    private function loadModel(int $id): Comment
     {
         $model = Comment::find()
             ->published()

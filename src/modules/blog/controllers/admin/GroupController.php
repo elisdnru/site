@@ -60,7 +60,7 @@ class GroupController extends AdminController
         return $this->render('index', ['itemForm' => $form, 'items' => $items]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -81,7 +81,7 @@ class GroupController extends AdminController
         return null;
     }
 
-    private function loadModel($id): Group
+    private function loadModel(int $id): Group
     {
         $model = Group::model()->findByPk((int)$id);
         if ($model === null) {

@@ -28,21 +28,21 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionCategory($category): string
+    public function actionCategory(string $category): string
     {
-        $category = $this->loadCategoryModel($category);
+        $model = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', array_merge([$category->id], $category->getChildrenArray()));
+        $criteria->addInCondition('t.category_id', array_merge([$model->id], $model->getChildrenArray()));
 
         return $this->render('category', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
-            'category' => $category,
+            'category' => $model,
         ]);
     }
 
-    public function actionDate($date): string
+    public function actionDate(string $date): string
     {
         $limiter = new DateLimiter($date);
 
@@ -60,19 +60,19 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionTag($tag)
+    public function actionTag(string $tag)
     {
-        if (!$tag = $this->loadTagModel($tag)) {
+        if (!$model = $this->loadTagModel($tag)) {
             return $this->redirect(['index']);
         }
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.id', $tag->getPostIds());
+        $criteria->addInCondition('t.id', $model->getPostIds());
 
         return $this->render('tag', [
             'dataProvider' => $this->createProvider($criteria),
             'page' => $this->loadBlogPage(),
-            'tag' => $tag,
+            'tag' => $model,
         ]);
     }
 

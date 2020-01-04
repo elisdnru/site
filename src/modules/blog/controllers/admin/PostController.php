@@ -45,7 +45,7 @@ class PostController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
 
@@ -62,7 +62,7 @@ class PostController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -73,7 +73,7 @@ class PostController extends AdminController
         return null;
     }
 
-    public function actionToggle($id, $attribute): ?Response
+    public function actionToggle(int $id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -91,14 +91,14 @@ class PostController extends AdminController
         return null;
     }
 
-    public function actionView($id): Response
+    public function actionView(int $id): Response
     {
         $model = $this->loadModel($id);
 
         return $this->redirect($model->getUrl());
     }
 
-    private function loadModel($id): Post
+    private function loadModel(int $id): Post
     {
         $model = Post::model()->findByPk($id);
         if ($model === null) {

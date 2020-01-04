@@ -41,7 +41,7 @@ class MenuController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
 
@@ -58,7 +58,7 @@ class MenuController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -69,7 +69,7 @@ class MenuController extends AdminController
         return null;
     }
 
-    public function actionToggle($id, $attribute): ?Response
+    public function actionToggle(int $id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -92,7 +92,7 @@ class MenuController extends AdminController
         return $this->redirect(['index']);
     }
 
-    private function loadModel($id): Menu
+    private function loadModel(int $id): Menu
     {
         $model = Menu::model()->findByPk($id);
         if ($model === null) {

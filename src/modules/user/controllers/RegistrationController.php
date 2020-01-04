@@ -53,7 +53,7 @@ class RegistrationController extends Controller
         return $this->render('request', ['model' => $model]);
     }
 
-    public function actionConfirm($code)
+    public function actionConfirm(string $code)
     {
         $user = User::findOne(['confirm' => $code]);
 

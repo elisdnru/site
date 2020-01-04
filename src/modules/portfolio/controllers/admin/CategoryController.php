@@ -59,7 +59,7 @@ class CategoryController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
 
@@ -76,7 +76,7 @@ class CategoryController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -98,7 +98,7 @@ class CategoryController extends AdminController
         return $this->redirect(['index']);
     }
 
-    private function loadModel($id): Category
+    private function loadModel(int $id): Category
     {
         $model = Category::model()->findByPk($id);
         if ($model === null) {

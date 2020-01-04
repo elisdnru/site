@@ -33,7 +33,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionIndex($path = '')
+    public function actionIndex(string $path = '')
     {
         $root = Yii::getPathOfAlias('webroot') . '/' . $this->getFileDir();
         $htmlroot = '/' . $this->getFileDir();
@@ -69,7 +69,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionDelete($name): ?Response
+    public function actionDelete(string $name): ?Response
     {
         $name = FileNameFilter::escape($name);
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
@@ -88,7 +88,7 @@ class FileController extends AdminController
         return null;
     }
 
-    public function actionRename($path): ?Response
+    public function actionRename(string $path): ?Response
     {
         $name = FileNameFilter::escape(Yii::$app->request->post('name'));
         $to = FileNameFilter::escape(Yii::$app->request->post('to'));
@@ -144,7 +144,7 @@ class FileController extends AdminController
         return $success;
     }
 
-    public function actionProcess($path): ?Response
+    public function actionProcess(string $path): ?Response
     {
         $action = Yii::$app->request->post('action');
 

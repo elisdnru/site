@@ -40,15 +40,15 @@ class DefaultController extends PortfolioBaseController
         ]);
     }
 
-    public function actionCategory($category): string
+    public function actionCategory(string $category): string
     {
-        $category = $this->loadCategoryModel($category);
+        $model = $this->loadCategoryModel($category);
 
         $query = $this->getStartQuery();
-        $query->andWhere(['category_id' => array_merge([$category->id], $category->getChildrenArray())]);
+        $query->andWhere(['category_id' => array_merge([$model->id], $model->getChildrenArray())]);
 
         /** @var Category $cached */
-        $cached = $category->cache(3600 * 24);
+        $cached = $model->cache(3600 * 24);
         $subcategories = $cached->child_items;
 
         $dataProvider = new ActiveDataProvider([
@@ -61,12 +61,12 @@ class DefaultController extends PortfolioBaseController
         return $this->render('category', [
             'dataProvider' => $dataProvider,
             'page' => $this->loadPortfolioPage(),
-            'category' => $category,
+            'category' => $model,
             'subcategories' => $subcategories,
         ]);
     }
 
-    private function loadCategoryModel($path): Category
+    private function loadCategoryModel(string $path): Category
     {
         /** @var Category $category */
         $category = Category::model()->findByPath($path);

@@ -32,7 +32,7 @@ class UserController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
         $model->scenario = User::SCENARIO_ADMIN_UPDATE;
@@ -47,7 +47,7 @@ class UserController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -58,7 +58,7 @@ class UserController extends AdminController
         return null;
     }
 
-    public function actionView($id): string
+    public function actionView(int $id): string
     {
         $model = $this->loadModel($id);
         return $this->render('view', [
@@ -66,7 +66,7 @@ class UserController extends AdminController
         ]);
     }
 
-    private function loadModel($id): User
+    private function loadModel(int $id): User
     {
         $model = User::findOne($id);
         if ($model === null) {

@@ -30,7 +30,7 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionIndex($id = 0): string
+    public function actionIndex(int $id = 0): string
     {
         $query = $this->getModelName()::find();
 
@@ -56,7 +56,7 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -67,7 +67,7 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionToggle($id, $attribute): ?Response
+    public function actionToggle(int $id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -84,7 +84,7 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
-    public function actionView($id): string
+    public function actionView(int $id): string
     {
         $model = $this->loadModel($id);
         return $this->render('view', [
@@ -92,7 +92,7 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -113,7 +113,7 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
-    public function actionModer($id): ?Response
+    public function actionModer(int $id): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -142,7 +142,7 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
-    public function loadModel($id): Comment
+    public function loadModel(int $id): Comment
     {
         /** @var Comment $model */
         $model = $this->getModelName()::findOne($id);
@@ -152,7 +152,7 @@ abstract class CommentAdminController extends AdminController
         return $model;
     }
 
-    protected function loadMaterialModel($id): CActiveRecord
+    protected function loadMaterialModel(int $id): CActiveRecord
     {
         throw new BadMethodCallException('Undefined material model ' . $id);
     }

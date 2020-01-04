@@ -9,7 +9,7 @@ use yii\web\NotFoundHttpException;
 
 class PageController extends Controller
 {
-    public function actionShow($path = 'index'): string
+    public function actionShow(string $path = 'index'): string
     {
         $page = $this->loadModel($path);
 
@@ -22,7 +22,7 @@ class PageController extends Controller
         ]);
     }
 
-    private function loadModel($path): Page
+    private function loadModel(string $path): Page
     {
         /** @var Page $page */
         $page = Page::model()->cache(0, new Tags('page'))->findByPath($path);

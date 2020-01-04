@@ -9,7 +9,7 @@ use yii\web\NotFoundHttpException;
 
 class LandingController extends Controller
 {
-    public function actionShow($path = 'index'): string
+    public function actionShow(string $path = 'index'): string
     {
         $landing = $this->loadModel($path);
 
@@ -20,7 +20,7 @@ class LandingController extends Controller
         ]);
     }
 
-    private function loadModel($path): Landing
+    private function loadModel(string $path): Landing
     {
         /** @var Landing $landing */
         $landing = Landing::model()->cache(0, new Tags('landing'))->findByPath($path);

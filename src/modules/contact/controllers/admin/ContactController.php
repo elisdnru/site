@@ -22,7 +22,7 @@ class ContactController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -33,7 +33,7 @@ class ContactController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -44,7 +44,7 @@ class ContactController extends AdminController
         return null;
     }
 
-    public function actionToggle($id, $attribute): ?Response
+    public function actionToggle(int $id, $attribute): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -61,7 +61,7 @@ class ContactController extends AdminController
         return null;
     }
 
-    public function actionView($id): string
+    public function actionView(int $id): string
     {
         $model = $this->loadModel($id);
 
@@ -75,7 +75,7 @@ class ContactController extends AdminController
         ]);
     }
 
-    private function loadModel($id): Contact
+    private function loadModel(int $id): Contact
     {
         $model = Contact::findOne($id);
         if ($model === null) {

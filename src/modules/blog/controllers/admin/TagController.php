@@ -39,7 +39,7 @@ class TagController extends AdminController
         ]);
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);
 
@@ -56,7 +56,7 @@ class TagController extends AdminController
         ]);
     }
 
-    public function actionDelete($id): ?Response
+    public function actionDelete(int $id): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
@@ -72,7 +72,7 @@ class TagController extends AdminController
         return $this->redirect(['index']);
     }
 
-    private function loadModel($id): Tag
+    private function loadModel(int $id): Tag
     {
         $model = Tag::model()->findByPk($id);
 
