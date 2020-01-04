@@ -17,7 +17,7 @@ class Acceptance extends \Codeception\Module
     {
         $client = $this->getMailerClient();
         $response = $client->get('/api/v2/search?' . http_build_query(['kind' => 'to', 'query' => $to]));
-        $data = json_decode($response->getBody()->getContents(), true, 512);
+        $data = json_decode((string)$response->getBody(), true, 512);
         $this->assertGreaterThan(0, $data['total']);
     }
 

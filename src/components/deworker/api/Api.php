@@ -24,7 +24,7 @@ class Api
     {
         $request = $this->factory->createRequest('GET', $this->url . $url);
         $response = $this->client->sendRequest($request);
-        $content = $response->getBody()->getContents();
+        $content = (string)$response->getBody();
         return $content ? json_decode($content, true, 512, JSON_THROW_ON_ERROR) : [];
     }
 }
