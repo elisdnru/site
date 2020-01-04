@@ -57,7 +57,11 @@ class TreeActiveDataProvider extends CActiveDataProvider
             $item->indent = $indent;
             $data[] = $item;
             if ($foolproof && $item->{$this->childRelation}) {
-                $data = array_merge($data, $this->buildRecursive($item->{$this->childRelation}, $indent + 1, $foolproof - 1));
+                /** @noinspection SlowArrayOperationsInLoopInspection */
+                $data = array_merge(
+                    $data,
+                    $this->buildRecursive($item->{$this->childRelation}, $indent + 1, $foolproof - 1)
+                );
             }
         }
         return $data;
