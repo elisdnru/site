@@ -25,15 +25,15 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
         <table class="items">
             <thead>
                 <tr>
-                    <th><?= $dataProvider->getSort()->link('alias', ['class' => 'sort-link', 'label' => 'Код для вставки']) ?></th>
                     <th><?= $dataProvider->getSort()->link('title', ['class' => 'sort-link', 'label' => 'Наименование']) ?></th>
+                    <th><?= $dataProvider->getSort()->link('alias', ['class' => 'sort-link', 'label' => 'Код для вставки']) ?></th>
                     <th></th>
                     <th></th>
                     <th></th>
                 </tr>
                 <tr class="filters">
-                    <td><?= Html::activeTextInput($model, 'alias') ?></td>
                     <td><?= Html::activeTextInput($model, 'title') ?></td>
+                    <td><?= Html::activeTextInput($model, 'alias') ?></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -42,10 +42,10 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $block) : ?>
                     <tr>
-                        <td>[{widget:block|id=<?= Html::encode($block->alias) ?>}]</td>
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]) ?>"><?= Html::encode($block->title) ?></a>
                         </td>
+                        <td>[{widget:block|id=<?= Html::encode($block->alias) ?>}]</td>
                         <td class="button-column"><a href="<?= Url::to(['view', 'id' => $block->id]) ?>"><span class="icon view"></span></a></td>
                         <td class="button-column"><a href="<?= Url::to(['update', 'id' => $block->id]) ?>"><span class="icon edit"></span></a></td>
                         <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $block->id]) ?>" class="ajax_del"><span class="icon delete"></span></a></td>

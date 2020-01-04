@@ -23,7 +23,7 @@ class BlockSearch extends Block
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-                'defaultOrder' => ['id' => SORT_DESC],
+                'defaultOrder' => ['title' => SORT_ASC],
             ],
             'pagination' => [
                 'pageSize' => $pageSize,
