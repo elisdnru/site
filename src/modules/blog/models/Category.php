@@ -30,9 +30,6 @@ class Category extends TreeCategory
             'child_items' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'child_items.sort ASC'
             ],
-            'items_count' => [self::STAT, Post::class, 'category_id',
-                'condition' => 'public = 1',
-            ],
         ]);
     }
 }
