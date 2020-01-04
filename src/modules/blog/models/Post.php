@@ -247,7 +247,6 @@ class Post extends CActiveRecord implements Material
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
-                'enablePurifier' => false,
                 'purifierOptions' => [
                     'Attr.AllowedRel' => ['nofollow'],
                     'HTML.SafeIframe' => true,
