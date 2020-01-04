@@ -6,7 +6,7 @@ use CActiveDataProvider;
 
 class TreeActiveDataProvider extends CActiveDataProvider
 {
-    public $childRelation = 'child_items';
+    public $childRelation = 'children';
 
     protected function fetchData():array
     {

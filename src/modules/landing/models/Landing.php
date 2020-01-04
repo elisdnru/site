@@ -16,7 +16,7 @@ use yii\helpers\Url;
  * @property integer $parent_id
  * @property integer $system
  *
- * @property Landing[] child_landings
+ * @property Landing[] $children
  *
  * @mixin CategoryTreeBehavior
  */
@@ -69,10 +69,10 @@ class Landing extends CActiveRecord
         // class name for the relations automatically generated below.
         return [
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'child_landings' => [self::HAS_MANY, self::class, 'parent_id',
-                'order' => 'child_landings.id ASC'
+            'children' => [self::HAS_MANY, self::class, 'parent_id',
+                'order' => 'children.id ASC'
             ],
-            'child_landings_count' => [self::STAT, self::class, 'parent_id'],
+            'children_count' => [self::STAT, self::class, 'parent_id'],
         ];
     }
 
@@ -109,7 +109,7 @@ class Landing extends CActiveRecord
 
         return new TreeActiveDataProvider($this, [
             'criteria' => $criteria,
-            'childRelation' => 'child_landings',
+            'childRelation' => 'children',
             'sort' => [
                 'defaultOrder' => 't.alias ASC',
             ],
@@ -169,7 +169,7 @@ class Landing extends CActiveRecord
 
     private function delChildLandings(): void
     {
-        foreach ($this->child_landings as $child) {
+        foreach ($this->children as $child) {
             $child->delete();
         }
     }

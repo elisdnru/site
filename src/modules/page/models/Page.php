@@ -27,7 +27,7 @@ use yii\helpers\Url;
  * @property string $parent_id
  * @property string $system
  *
- * @property Page[] $child_pages
+ * @property Page[] $children
  * @property Page $parent
  *
  * @mixin CategoryTreeBehavior
@@ -100,10 +100,10 @@ class Page extends CActiveRecord
         // class name for the relations automatically generated below.
         return [
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'child_pages' => [self::HAS_MANY, self::class, 'parent_id',
-                'order' => 'child_pages.id ASC'
+            'children' => [self::HAS_MANY, self::class, 'parent_id',
+                'order' => 'children.id ASC'
             ],
-            'child_pages_count' => [self::STAT, self::class, 'parent_id'],
+            'children_count' => [self::STAT, self::class, 'parent_id'],
         ];
     }
 
@@ -158,7 +158,7 @@ class Page extends CActiveRecord
 
         return new TreeActiveDataProvider($this, [
             'criteria' => $criteria,
-            'childRelation' => 'child_pages',
+            'childRelation' => 'children',
             'sort' => [
                 'defaultOrder' => 't.alias ASC',
             ],
@@ -249,7 +249,7 @@ class Page extends CActiveRecord
 
     private function delChildPages(): void
     {
-        foreach ($this->child_pages as $child) {
+        foreach ($this->children as $child) {
             $child->delete();
         }
     }

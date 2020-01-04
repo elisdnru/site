@@ -27,8 +27,8 @@ class Category extends TreeCategory
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
             'posts_count' => [self::STAT, Post::class, 'category_id'],
             'posts' => [self::HAS_MANY, Post::class, 'category_id'],
-            'child_items' => [self::HAS_MANY, self::class, 'parent_id',
-                'order' => 'child_items.sort ASC'
+            'children' => [self::HAS_MANY, self::class, 'parent_id',
+                'order' => 'children.sort ASC'
             ],
         ]);
     }

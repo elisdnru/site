@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
         <div class="subpages">
             <ul>
-                <?php foreach ($page->parent->child_pages as $child) : ?>
+                <?php foreach ($page->parent->children as $child) : ?>
                     <?php $url = $child->getUrl(); ?>
                     <?php if (Yii::$app->request->getPathInfo() === $url) : ?>
                         <li class="active"><a href="<?= $url ?>"><?= $child->title ?></a></li>
@@ -26,14 +26,14 @@ use yii\helpers\Html;
             <div class="clear"></div>
         </div>
 
-    <?php elseif ($page->child_pages) : ?>
+    <?php elseif ($page->children) : ?>
         <?php if (!$page->hidetitle) : ?>
             <h1><?= $page->title ?></h1>
         <?php endif; ?>
 
         <div class="subpages">
             <ul>
-                <?php foreach ($page->child_pages as $child) : ?>
+                <?php foreach ($page->children as $child) : ?>
                     <li><a href="<?= $child->getUrl() ?>"><?= $child->title ?></a></li>
                 <?php endforeach; ?>
             </ul>
