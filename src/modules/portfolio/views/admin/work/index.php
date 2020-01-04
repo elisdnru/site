@@ -1,7 +1,7 @@
 <?php
 
 /** @var $category Category */
-/** @var $works Work */
+/** @var $works Work[] */
 /** @var $pages Pagination */
 
 use app\assets\JqueryUiAsset;
