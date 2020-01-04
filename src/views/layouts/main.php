@@ -7,6 +7,7 @@ use app\extensions\cachetagging\Tags;
 use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -152,7 +153,10 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
 <?php $this->endBody() ?>
 
-<?= BlockWidget::widget(['id' => 'end']) ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+    <?= BlockWidget::widget(['id' => 'end']) ?>
+    <?php $this->endCache(); ?>
+<?php endif; ?>
 
 </body>
 </html>

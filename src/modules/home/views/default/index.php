@@ -39,7 +39,10 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     </p>
 </div>
 
-<?= BlockWidget::widget(['id' => 'banner_index_top']) ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+    <?= BlockWidget::widget(['id' => 'banner_index_top']) ?>
+    <?php $this->endCache(); ?>
+<?php endif; ?>
 
 <h2 class="index">Новое в <a href="<?= Url::to(['/blog/default/index']) ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>

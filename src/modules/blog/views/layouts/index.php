@@ -2,20 +2,28 @@
 use app\widgets\Breadcrumbs;
 use app\widgets\Messages;
 use app\modules\block\widgets\BlockWidget;
+use yii\caching\TagDependency;
+
 ?>
 
 <?php $this->beginContent('@app/views/layouts/main.php'); ?>
 
 <div class="main left_main">
 
-    <?= BlockWidget::widget(['id' => 'banner_blog_top']) ?>
+    <?php if ($this->beginCache('banner_blog_top', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+        <?= BlockWidget::widget(['id' => 'banner_blog_top']) ?>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
     <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
     <?= Messages::widget() ?>
 
     <?= $content ?>
 
-    <?= BlockWidget::widget(['id' => 'banner_blog_bottom']) ?>
+    <?php if ($this->beginCache('banner_blog_bottom', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+        <?= BlockWidget::widget(['id' => 'banner_blog_bottom']) ?>
+        <?php $this->endCache(); ?>
+    <?php endif; ?>
 
 </div>
 
