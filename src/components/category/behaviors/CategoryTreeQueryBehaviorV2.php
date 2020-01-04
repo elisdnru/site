@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\category\behaviors;
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 class CategoryTreeQueryBehaviorV2 extends CategoryQueryBehaviorV2
@@ -12,6 +13,14 @@ class CategoryTreeQueryBehaviorV2 extends CategoryQueryBehaviorV2
      * @var string model attribute
      */
     public $parentAttribute = 'parent_id';
+
+    /**
+     * @return ActiveQuery|self
+     */
+    public function roots(): ActiveQuery
+    {
+        return $this->getQuery()->andWhere(['or', ['parent_id' => null], ['parent_id' => 0]]);
+    }
 
     /**
      * Returns associated array ($id=>$fullTitle, $id=>$fullTitle, ...)
