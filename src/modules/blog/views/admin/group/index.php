@@ -1,7 +1,6 @@
 <?php
 /** @var $this View */
 
-use app\modules\blog\forms\CategoryForm;
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
 use yii\helpers\Html;
@@ -9,7 +8,6 @@ use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $items Group[] */
-/** @var $categoryForm CategoryForm */
 /** @var $form CActiveForm */
 /** @var $itemForm GroupForm */
 
