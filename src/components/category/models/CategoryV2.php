@@ -20,7 +20,7 @@ use yii\helpers\Url;
  */
 abstract class CategoryV2 extends ActiveRecord
 {
-    protected $urlRoute = '';
+    public $urlRoute = '';
 
     public static function find(): CategoryQueryV2
     {
@@ -35,15 +35,11 @@ abstract class CategoryV2 extends ActiveRecord
     public static function staticRules(): array
     {
         return [
-            ['alias, title', 'required'],
+            [['alias', 'title'], 'required'],
             ['alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            //array('alias', 'unique', 'caseSensitive' => false, 'message' => 'Элемент с таким URL уже существует'),
-            ['sort', 'numerical', 'integerOnly' => true],
-            ['alias, title, pagetitle', 'length', 'max' => 255],
-            ['text, description', 'safe'],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, sort, alias, title, text, pagetitle, description', 'safe', 'on' => 'search'],
+            ['sort', 'integer'],
+            [['alias', 'title', 'pagetitle'], 'string', 'max' => 255],
+            [['text', 'description'], 'string'],
         ];
     }
 

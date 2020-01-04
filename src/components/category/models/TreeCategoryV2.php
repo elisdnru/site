@@ -23,7 +23,7 @@ abstract class TreeCategoryV2 extends CategoryV2
     public function rules(): array
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', 'exist', 'attributeName' => 'id'],
+            ['parent_id', 'exist', 'targetClass' => static::class],
         ]);
     }
 
@@ -49,6 +49,16 @@ abstract class TreeCategoryV2 extends CategoryV2
     public function getParent(): CategoryQueryV2
     {
         return $this->hasOne(static::class, ['id' => 'parent_id']);
+    }
+
+    /**
+     * @return CategoryQueryV2|ActiveQuery
+     */
+    public function getChildren(): CategoryQueryV2
+    {
+        return $this->hasMany(static::class, ['parent_id' => 'id'])
+            ->alias('children')
+            ->orderBy(['children.sort' => SORT_ASC, 'children.title' => SORT_ASC]);
     }
 
     private $cachedUrl;
