@@ -2,20 +2,17 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\ExistOrEmptyValidatorV1;
-use app\components\category\models\TreeCategory;
+use app\components\category\models\TreeCategoryV2;
 
 /**
- * @property Category[] $child_items
+ * @property Category $parent
+ * @property Category[] $children
  */
-class Category extends TreeCategory
+class Category extends TreeCategoryV2
 {
     public $urlRoute = '/portfolio/default/category';
 
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'portfolio_categories';
     }
@@ -23,22 +20,7 @@ class Category extends TreeCategory
     public function rules(): array
     {
         return array_merge(parent::rules(), [
-            ['parent_id', ExistOrEmptyValidatorV1::class, 'className' => self::class, 'attributeName' => 'id'],
-        ]);
-    }
-
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
-    {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return array_merge(parent::relations(), [
-            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'child_items' => [self::HAS_MANY, self::class, 'parent_id',
-                'order' => 'child_items.sort ASC'
-            ],
+            ['text', 'string'],
         ]);
     }
 }

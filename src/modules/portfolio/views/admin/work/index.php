@@ -34,7 +34,7 @@ JqueryUiAsset::register($this);
 
 <form action="?" method="get">
 <p>
-    Раздел: <?= Html::dropDownList('category', $category, Category::model()->getTabList(), [
+    Раздел: <?= Html::dropDownList('category', $category, Category::find()->getTabList(), [
         'prompt' => 'Все разделы',
         'onchange' => 'this.form.submit()',
     ]) ?>

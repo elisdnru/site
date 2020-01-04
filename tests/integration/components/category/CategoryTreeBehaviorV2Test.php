@@ -50,6 +50,15 @@ class CategoryTreeBehaviorV2Test extends Unit
         ], $this->find->getArray());
     }
 
+    public function testRoots(): void
+    {
+        self::assertEquals([
+            0 => '1',
+            1 => '2',
+            2 => '3',
+        ], $this->find->roots()->getArray());
+    }
+
     public function testAssocList(): void
     {
         self::assertEquals([

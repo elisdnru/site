@@ -18,20 +18,15 @@ class DefaultController extends PortfolioBaseController
 
     public function actionIndex(): string
     {
-        $criteria = $this->getStartQuery();
-
         $dataProvider = new ActiveDataProvider([
-            'query' => $criteria,
+            'query' => $this->getStartQuery(),
             'pagination' => [
                 'defaultPageSize' => self::PER_PAGE,
                 'forcePageParam' => false,
             ],
         ]);
 
-        $categories = Category::model()->cache(0, new Tags('portfolio'))->findAll([
-            'condition' => 'parent_id = 0',
-            'order' => 'sort ASC',
-        ]);
+        $categories = Category::find()->cache(0, new Tags('portfolio'))->roots()->orderBy('sort')->all();
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -45,11 +40,9 @@ class DefaultController extends PortfolioBaseController
         $model = $this->loadCategoryModel($category);
 
         $query = $this->getStartQuery();
-        $query->andWhere(['category_id' => array_merge([$model->id], $model->getChildrenArray())]);
+        $query->andWhere(['category_id' => array_merge([$model->id], Category::find()->getChildrenArray($model->id))]);
 
-        /** @var Category $cached */
-        $cached = $model->cache(3600 * 24);
-        $subcategories = $cached->child_items;
+        $subcategories = $model->children;
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -69,7 +62,7 @@ class DefaultController extends PortfolioBaseController
     private function loadCategoryModel(string $path): Category
     {
         /** @var Category $category */
-        $category = Category::model()->findByPath($path);
+        $category = Category::find()->findByPath($path);
         if ($category === null) {
             throw new NotFoundHttpException();
         }
@@ -80,6 +73,7 @@ class DefaultController extends PortfolioBaseController
     {
         return Work::find()
             ->published()
+            ->with('category')
             ->orderBy(['sort' => SORT_DESC])
             ->cache(0, new TagDependency(['tags' => 'portfolio']));
     }

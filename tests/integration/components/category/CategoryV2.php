@@ -8,7 +8,7 @@ use app\components\category\models\CategoryV2 as Base;
 
 class CategoryV2 extends Base
 {
-    protected $urlRoute = '/category';
+    public $urlRoute = '/category';
 
     public static function tableName(): string
     {

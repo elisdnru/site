@@ -39,7 +39,7 @@ use yii\helpers\Html;
 
             <div class="row<?= $model->hasErrors('category_id') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'category_id') ?><br />
-                <?= Html::activeDropDownList($model, 'category_id', Category::model()->getTabList()) ?><br />
+                <?= Html::activeDropDownList($model, 'category_id', Category::find()->getTabList()) ?><br />
                 <?= Html::error($model, 'category_id', ['class' => 'errorMessage']) ?>
             </div>
 

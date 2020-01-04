@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\fixtures\portfolio;
 
+use app\modules\portfolio\models\Category;
 use yii\test\ActiveFixture;
 
 class CategoryFixture extends ActiveFixture

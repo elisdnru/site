@@ -3,6 +3,7 @@
 namespace app\modules\portfolio\controllers\admin;
 
 use app\components\AdminController;
+use app\modules\portfolio\forms\CategorySearch;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
@@ -32,13 +33,12 @@ class CategoryController extends AdminController
 
     public function actionIndex(): string
     {
-        $model = new Category('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Category');
+        $model = new CategorySearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -46,12 +46,8 @@ class CategoryController extends AdminController
     {
         $model = new Category();
 
-        if ($post = Yii::$app->request->post('Category')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -63,12 +59,8 @@ class CategoryController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Category')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -100,7 +92,7 @@ class CategoryController extends AdminController
 
     private function loadModel(int $id): Category
     {
-        $model = Category::model()->findByPk($id);
+        $model = Category::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

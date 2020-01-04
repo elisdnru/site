@@ -5,6 +5,7 @@ namespace app\modules\portfolio\models;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\portfolio\models\query\WorkQuery;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
@@ -64,9 +65,9 @@ class Work extends ActiveRecord
         ];
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): ActiveQuery
     {
-        return Category::model()->findByPk($this->category_id);
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
     public function attributeLabels(): array
