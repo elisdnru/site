@@ -1,7 +1,8 @@
 <?php
 /** @var $this \yii\web\View */
-/** @var $model \app\modules\blog\models\Tag */
+/** @var $model Tag */
 
+use app\modules\blog\models\Tag as Tag;
 use app\widgets\grid\ButtonColumn;
 use app\widgets\grid\LinkColumn;
 use yii\helpers\Url;
@@ -38,7 +39,9 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
         [
             'class' => ButtonColumn::class,
             'template' => '{view}',
-            'viewButtonUrl' => '$data->getUrl()',
+            'viewButtonUrl' => static function (Tag $data) {
+                return $data->getUrl();
+            },
         ],
         [
             'class' => ButtonColumn::class,

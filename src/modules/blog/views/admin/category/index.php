@@ -1,5 +1,6 @@
 <?php
 /** @var $this \yii\web\View */
+
 /** @var $model Category */
 
 use app\widgets\grid\ButtonColumn;
@@ -19,8 +20,8 @@ $this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/gr
 $this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
-<h1>Категории блога</h1>
+    <p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
+    <h1>Категории блога</h1>
 
 <?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
     'id' => 'posts-grid',
@@ -42,7 +43,9 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
         [
             'class' => ButtonColumn::class,
             'template' => '{view}',
-            'viewButtonUrl' => '$data->getUrl()',
+            'viewButtonUrl' => static function (Category $data) {
+                return $data->getUrl();
+            },
         ],
         [
             'class' => ButtonColumn::class,

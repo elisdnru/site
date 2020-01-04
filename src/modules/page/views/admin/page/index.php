@@ -40,7 +40,9 @@ if (Yii::$app->moduleManager->allowed('menu')) {
         [
             'class' => ButtonColumn::class,
             'template' => '{view}',
-            'viewButtonUrl' => '$data->getUrl()',
+            'viewButtonUrl' => static function (Page $data) {
+                return $data->getUrl();
+            },
         ],
         [
             'class' => ButtonColumn::class,

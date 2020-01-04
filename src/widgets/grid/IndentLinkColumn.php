@@ -6,7 +6,16 @@ use yii\helpers\Html;
 
 class IndentLinkColumn extends LinkColumn
 {
-    public $indent = '$data->indent';
+    public $indent = null;
+
+    public function __construct($grid)
+    {
+        $this->indent = static function ($data) {
+            return $data->indent;
+        };
+
+        parent::__construct($grid);
+    }
 
     protected function renderDataCellContent($row, $data): void
     {
