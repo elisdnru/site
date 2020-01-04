@@ -105,8 +105,6 @@ class Work extends ActiveRecord
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
                     'Attr.AllowedRel' => ['nofollow'],
-                    'HTML.SafeObject' => true,
-                    'Output.FlashCompat' => true,
                 ],
                 'processOnBeforeSave' => true,
             ],
