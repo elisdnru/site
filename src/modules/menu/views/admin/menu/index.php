@@ -2,10 +2,6 @@
 /** @var $this \yii\web\View */
 
 use app\components\category\TreeActiveDataProviderV2;
-use app\widgets\grid\ButtonColumn;
-use app\widgets\grid\IndentLinkColumn;
-use app\widgets\grid\LinkColumn;
-use app\widgets\grid\ToggleColumn;
 use app\modules\menu\models\Menu;
 use yii\helpers\Html;
 use yii\helpers\Url;

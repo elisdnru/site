@@ -3,7 +3,6 @@
 
 use app\modules\portfolio\models\Category;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $model Category */

@@ -4,7 +4,6 @@
 use app\modules\menu\models\Menu;
 use app\modules\page\models\Page;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $model Menu */
