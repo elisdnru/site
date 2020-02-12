@@ -103,7 +103,6 @@ class Page extends CActiveRecord
             'children' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'children.id ASC'
             ],
-            'children_count' => [self::STAT, self::class, 'parent_id'],
         ];
     }
 
@@ -129,7 +128,6 @@ class Page extends CActiveRecord
             'system' => 'Системная',
             'styles' => 'CSS стили',
             'text' => 'Текст',
-            'file' => 'Приложенные файлы',
             'parent_id' => 'Родительская страница',
         ];
     }
