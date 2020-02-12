@@ -10,7 +10,7 @@ defined('YII_ENABLE_EXCEPTION_HANDLER') or define('YII_ENABLE_EXCEPTION_HANDLER'
 defined('YII_ENABLE_ERROR_HANDLER') or define('YII_ENABLE_ERROR_HANDLER', false);
 
 if (file_exists(__DIR__ . '/../.env')) {
-    (new Dotenv())->load(__DIR__ . '/../.env');
+    (new Dotenv(true))->load(__DIR__ . '/../.env');
 }
 
 require_once __DIR__ . '/../config/env.php';
