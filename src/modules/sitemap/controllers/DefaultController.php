@@ -51,7 +51,7 @@ class DefaultController extends Controller
 
             $sitemap->addModels(Page::find()->andWhere([
                 'system' => 0,
-                'robots' => ['index', 'follow', 'index, nofollow'],
+                'robots' => [Page::INDEX_FOLLOW, page::INDEX_NOFOLLOW],
             ])->all(), Sitemap::WEEKLY);
 
             $sitemap->addModels(Landing::find()->andWhere(['system' => 0])->all(), Sitemap::WEEKLY);
