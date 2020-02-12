@@ -362,7 +362,7 @@ class Post extends CActiveRecord implements Material
 
     private function updateTags(): void
     {
-        $newtags = array_unique(preg_split('/\s*,\s*/', $this->getTagsString()));
+        $newtags = array_filter(array_unique(preg_split('/\s*,\s*/', $this->getTagsString())));
 
         foreach ($this->posttags as $posttag) {
             $posttag->delete();
