@@ -19,10 +19,10 @@ class DefaultController extends Controller
     {
         $models = [];
 
-        $models['Page'] = Page::model()->cache(0, new Tags('page'))->findAll([
-            'condition' => 'system = 0',
-            'order' => 'title ASC',
-        ]);
+        $models['Page'] = Page::find()->cache(0, new Tags('page'))
+            ->andWhere(['system' => 0])
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
 
         $models['Landing'] = Landing::find()->cache(0, new Tags('landing'))
             ->andWhere(['system' => 0])
@@ -49,7 +49,10 @@ class DefaultController extends Controller
         if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
 
-            $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), Sitemap::WEEKLY);
+            $sitemap->addModels(Page::find()->andWhere([
+                'system' => 0,
+                'robots' => ['index', 'follow', 'index, nofollow'],
+            ])->all(), Sitemap::WEEKLY);
 
             $sitemap->addModels(Landing::find()->andWhere(['system' => 0])->all(), Sitemap::WEEKLY);
 
@@ -67,7 +70,7 @@ class DefaultController extends Controller
 
     private function loadSitemapPage(): Page
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('sitemap')) {
+        if (!$page = Page::find()->cache(0, new Tags('page'))->findByPath('sitemap')) {
             $page = new Page;
             $page->title = 'Карта сайта';
             $page->pagetitle = $page->title;

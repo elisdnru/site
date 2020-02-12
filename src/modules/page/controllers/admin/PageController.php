@@ -3,6 +3,7 @@
 namespace app\modules\page\controllers\admin;
 
 use app\components\AdminController;
+use app\modules\page\forms\PageSearch;
 use app\modules\page\models\Page;
 use Yii;
 use yii\web\NotFoundHttpException;
@@ -12,13 +13,12 @@ class PageController extends AdminController
 {
     public function actionIndex(): string
     {
-        $model = new Page('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Page');
+        $model = new PageSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -28,12 +28,8 @@ class PageController extends AdminController
         $model->date = date('Y-m-d');
         $model->parent_id = Yii::$app->request->get('parent', 0);
 
-        if ($post = Yii::$app->request->post('Page')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -45,12 +41,8 @@ class PageController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Page')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -78,7 +70,7 @@ class PageController extends AdminController
 
     private function loadModel(int $id): Page
     {
-        $model = Page::model()->findByPk($id);
+        $model = Page::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

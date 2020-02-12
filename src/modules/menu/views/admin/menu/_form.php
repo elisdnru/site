@@ -58,7 +58,7 @@ use yii\web\View;
             <hr />
             <div class="row">
                 <label>Ссылка на страницу</label><br />
-                <?= Html::dropDownList('sss', '/' . $model->link, Page::model()->getUrlList(), ['prompt' => '', 'class' => 'm_selector']) ?>
+                <?= Html::dropDownList('sss', '/' . $model->link, Page::find()->getUrlList(), ['prompt' => '', 'class' => 'm_selector']) ?>
                 <br />
             </div>
         </fieldset>

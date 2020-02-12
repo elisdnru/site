@@ -80,7 +80,7 @@ class DefaultController extends PortfolioBaseController
 
     private function loadPortfolioPage(): Page
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('portfolio')) {
+        if (!$page = Page::find()->cache(0, new Tags('page'))->findByPath('portfolio')) {
             $page = new Page;
             $page->title = 'Портфолио';
             $page->pagetitle = $page->title;

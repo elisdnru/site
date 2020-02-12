@@ -37,7 +37,7 @@ class PageUrlRule implements UrlRuleInterface
             return false;
         }
 
-        if (!Page::model()->cache($this->cache)->findByPath($matches['path'])) {
+        if (!Page::find()->cache($this->cache)->findByPath($matches['path'])) {
             return false;
         }
 

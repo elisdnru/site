@@ -2,12 +2,13 @@
 
 namespace app\modules\page\models;
 
-use app\components\purifier\PurifyTextBehaviorV1;
+use app\components\category\behaviors\CategoryTreeBehaviorV2;
+use app\components\purifier\PurifyTextBehavior;
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\components\category\TreeActiveDataProvider;
 use app\components\Transliterator;
-use CActiveRecord;
-use CDbCriteria;
+use app\modules\page\models\query\PageQuery;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
@@ -32,7 +33,7 @@ use yii\helpers\Url;
  *
  * @mixin CategoryTreeBehavior
  */
-class Page extends CActiveRecord
+class Page extends ActiveRecord
 {
     public const INDEX_FOLLOW = 'index, follow';
     public const INDEX_NOFOLLOW = 'index, nofollow';
@@ -55,55 +56,37 @@ class Page extends CActiveRecord
 
     public $indent = 0;
 
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'pages';
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
+    public static function find(): PageQuery
+    {
+        return new PageQuery(static::class);
+    }
+
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return [
-            ['alias, title', 'required'],
+            [['alias', 'title'], 'required'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            ['alias, title, pagetitle, robots, layout, subpages_layout', 'length', 'max' => 255],
-            ['hidetitle, parent_id', 'numerical', 'integerOnly' => true],
-            ['date, styles, text, description, system', 'safe'],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, layout, subpages_layout, alias, date, title, pagetitle, description, text', 'safe', 'on' => 'search'],
+            [['alias', 'title', 'pagetitle', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
+            [['hidetitle', 'parent_id'], 'integer'],
+            [['date', 'styles', 'text', 'description', 'system'], 'safe'],
         ];
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public function getChildren(): ActiveQuery
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return [
-            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'children' => [self::HAS_MANY, self::class, 'parent_id',
-                'order' => 'children.id ASC'
-            ],
-        ];
+        return $this->hasMany(self::class, ['parent_id' => 'id'])
+            ->alias('children')
+            ->orderBy(['children.title' => SORT_ASC]);
+    }
+
+    public function getParent(): ActiveQuery
+    {
+        return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
 
     /**
@@ -132,57 +115,19 @@ class Page extends CActiveRecord
         ];
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @param int $pageSize
-     * @return TreeActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize = 10): TreeActiveDataProvider
-    {
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('t.id', $this->id);
-        $criteria->compare('t.layout', $this->layout);
-        $criteria->compare('t.subpages_layout', $this->subpages_layout);
-        $criteria->compare('t.alias', $this->alias, true);
-        $criteria->compare('t.date', $this->date, true);
-        $criteria->compare('t.title', $this->title, true);
-        $criteria->compare('t.hidetitle', $this->hidetitle, true);
-        $criteria->compare('t.pagetitle', $this->pagetitle, true);
-        $criteria->compare('t.description', $this->description, true);
-        $criteria->compare('t.text', $this->text, true);
-        $criteria->compare('t.parent_id', $this->parent_id);
-        $criteria->compare('t.robots', $this->robots);
-
-        return new TreeActiveDataProvider($this, [
-            'criteria' => $criteria,
-            'childRelation' => 'children',
-            'sort' => [
-                'defaultOrder' => 't.alias ASC',
-            ],
-            'pagination' => [
-                'pageSize' => $pageSize,
-                'pageVar' => 'page',
-            ],
-        ]);
-    }
-
     public function behaviors(): array
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryTreeBehavior::class,
+                'class' => CategoryTreeBehaviorV2::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
                 'linkActiveAttribute' => 'linkActive',
                 'parentRelation' => 'parent',
-                'defaultCriteria' => [
-                    'order' => 't.parent_id ASC, t.title ASC',
-                ],
             ],
             'PurifyText' => [
-                'class' => PurifyTextBehaviorV1::class,
+                'class' => PurifyTextBehavior::class,
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
@@ -195,7 +140,7 @@ class Page extends CActiveRecord
         ];
     }
 
-    public function getRobotsList(): array
+    public static function robotsList(): array
     {
         return [
             self::INDEX_FOLLOW => self::INDEX_FOLLOW,
@@ -215,9 +160,9 @@ class Page extends CActiveRecord
         return $this->cachedUrl;
     }
 
-    protected function beforeSave(): bool
+    public function beforeSave($insert): bool
     {
-        if (parent::beforeSave()) {
+        if (parent::beforeSave($insert)) {
             $this->fillDefaultValues();
             return true;
         }
@@ -234,7 +179,7 @@ class Page extends CActiveRecord
         }
     }
 
-    protected function beforeDelete(): bool
+    public function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {
             $this->delChildPages();

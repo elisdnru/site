@@ -137,7 +137,7 @@ class DefaultController extends Controller
 
     private function loadBlogPage(): Page
     {
-        if (!$page = Page::model()->cache(0, new Tags('page'))->findByPath('blog')) {
+        if (!$page = Page::find()->cache(0, new Tags('page'))->findByPath('blog')) {
             $page = new Page;
             $page->title = 'Блог';
             $page->pagetitle = $page->title;
