@@ -21,7 +21,7 @@
         "psr/simple-cache": "^1.0",
         "sentry/sdk": "^2.0.3",
         "symfony/dotenv": "^4.1",
-        "yiisoft/yii": "dev-master",
+        "yiisoft/yii": "^1.1",
         "yiisoft/yii2": "^2.0",
         "yiisoft/yii2-swiftmailer": "^2.1"
     },
