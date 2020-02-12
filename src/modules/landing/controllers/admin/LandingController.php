@@ -3,6 +3,7 @@
 namespace app\modules\landing\controllers\admin;
 
 use app\components\AdminController;
+use app\modules\landing\forms\LandingSearch;
 use app\modules\landing\models\Landing;
 use Yii;
 use yii\web\NotFoundHttpException;
@@ -12,13 +13,12 @@ class LandingController extends AdminController
 {
     public function actionIndex(): string
     {
-        $model = new Landing('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Landing');
+        $model = new LandingSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -27,12 +27,8 @@ class LandingController extends AdminController
         $model = new Landing();
         $model->parent_id = Yii::$app->request->get('parent');
 
-        if ($post = Yii::$app->request->post('Landing')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['update', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['update', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -44,12 +40,8 @@ class LandingController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Landing')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['update', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['update', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -77,7 +69,7 @@ class LandingController extends AdminController
 
     private function loadModel(int $id): Landing
     {
-        $model = Landing::model()->findByPk($id);
+        $model = Landing::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

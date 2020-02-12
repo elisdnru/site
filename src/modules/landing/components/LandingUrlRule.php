@@ -37,7 +37,7 @@ class LandingUrlRule implements UrlRuleInterface
             return false;
         }
 
-        if (!Landing::model()->cache($this->cache)->findByPath($matches['path'])) {
+        if (!Landing::find()->cache($this->cache)->findByPath($matches['path'])) {
             return false;
         }
 

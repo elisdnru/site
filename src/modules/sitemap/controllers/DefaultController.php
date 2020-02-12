@@ -24,10 +24,10 @@ class DefaultController extends Controller
             'order' => 'title ASC',
         ]);
 
-        $models['Landing'] = Landing::model()->cache(0, new Tags('landing'))->findAll([
-            'condition' => 'system = 0',
-            'order' => 'title ASC',
-        ]);
+        $models['Landing'] = Landing::find()->cache(0, new Tags('landing'))
+            ->andWhere(['system' => 0])
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
 
         $models['BlogPost'] = Post::model()->cache(0, new Tags('blog'))->published()->findAll([
             'order' => 'title ASC',
@@ -51,7 +51,7 @@ class DefaultController extends Controller
 
             $sitemap->addModels(Page::model()->findAll(['condition' => 'system = 0 AND robots IN (\'index, follow\', \'index, nofollow\')']), Sitemap::WEEKLY);
 
-            $sitemap->addModels(Landing::model()->findAll(['condition' => 'system = 0']), Sitemap::WEEKLY);
+            $sitemap->addModels(Landing::find()->andWhere(['system' => 0])->all(), Sitemap::WEEKLY);
 
             $sitemap->addModels(Post::model()->published()->findAll(), Sitemap::DAILY, 0.8);
 

@@ -23,7 +23,7 @@ class LandingController extends Controller
     private function loadModel(string $path): Landing
     {
         /** @var Landing $landing */
-        $landing = Landing::model()->cache(0, new Tags('landing'))->findByPath($path);
+        $landing = Landing::find()->cache(0, new Tags('landing'))->findByPath($path);
         if ($landing === null) {
             throw new NotFoundHttpException();
         }

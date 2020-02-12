@@ -12,68 +12,60 @@ use yii\web\View;
 
 <div class="form">
 
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => Url::current(),
-        'id' => 'landing-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-        'htmlOptions' => ['enctype' => 'multipart/form-data']
-    ]); ?>
+    <form action="?" method="post">
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
+        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <?= $form->errorSummary($model) ?>
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Сохранить') ?>
-    </div>
-
-    <fieldset>
-        <h4>Основное</h4>
-
-        <div class="row">
-            <?= $form->labelEx($model, 'title') ?><br />
-            <?= $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'title') ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
 
-        <div class="row">
-            <?= $form->labelEx($model, 'alias') ?><br />
-            <?= $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'alias') ?>
-        </div>
-        <hr />
-        <div class="row">
-            <?= $form->labelEx($model, 'parent_id') ?><br />
-            <?= $form->dropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Landing::model()->getTabList(), $model->getAssocList()) : Landing::model()->getTabList())) ?>
-            <br />
-            <?= $form->error($model, 'parent_id') ?>
-        </div>
-    </fieldset>
+        <fieldset>
+            <h4>Основное</h4>
 
-    <fieldset class="editor">
-        <div class="row">
-            <?= $form->labelEx($model, 'text') ?><br />
-            <?= $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]) ?>
-            <?= $form->error($model, 'text') ?>
+            <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'title') ?><br />
+                <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+            </div>
+
+            <div class="row<?= $model->hasErrors('alias') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'alias') ?><br />
+                <?= Html::activeTextInput($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'alias', ['class' => 'errorMessage']) ?>
+            </div>
+            <hr />
+            <div class="row<?= $model->hasErrors('parent_id') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'parent_id') ?><br />
+                <?= Html::activeDropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($model->id)) : Landing::find()->getTabList())) ?><br />
+                <?= Html::error($model, 'parent_id', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset class="editor">
+            <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'text') ?><br />
+                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]) ?><br />
+                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h4>Индексация</h4>
+            <div class="row<?= $model->hasErrors('system') ? ' error' : '' ?>">
+                <?= Html::activeCheckbox($model, 'system') ?><br />
+                <?= Html::error($model, 'system', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
-    </fieldset>
 
-    <fieldset>
-        <h4>Индексация</h4>
-        <div class="row">
-            <?= $form->checkBox($model, 'system') ?> <?= $form->labelEx($model, 'system') ?><br />
-        </div>
-    </fieldset>
-
-    <div class="row buttons">
-        <?= Html::submitButton('Сохранить') ?>
-    </div>
-
-    <?php Yii::app()->controller->endWidget(); ?>
+    </form>
 
 </div><!-- form -->

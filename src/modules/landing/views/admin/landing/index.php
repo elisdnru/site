@@ -1,11 +1,16 @@
 <?php
+
+use app\components\category\TreeActiveDataProviderV2;
 use app\widgets\grid\ButtonColumn;
 use app\widgets\grid\IndentLinkColumn;
 use app\widgets\grid\LinkColumn;
 use app\modules\landing\models\Landing;
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
 
 /** @var $model Landing */
+/** @var $dataProvider TreeActiveDataProviderV2 */
 
 $this->title = 'Лендинги';
 $this->params['breadcrumbs'] = [
@@ -24,34 +29,49 @@ if (Yii::$app->moduleManager->allowed('page')) {
 
 <h1>Лендинги</h1>
 
-<?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
-    'id' => 'posts-grid',
-    'dataProvider' => $model->search(30),
-    'filter' => $model,
-    'columns' => [
-        [
-            'class' => IndentLinkColumn::class,
-            'name' => 'alias',
-        ],
-        [
-            'class' => LinkColumn::class,
-            'name' => 'title',
-        ],
-        [
-            'class' => ButtonColumn::class,
-            'template' => '{view}',
-            'viewButtonUrl' => static function (Landing $data) {
-                return $data->getUrl();
-            },
-        ],
-        [
-            'class' => ButtonColumn::class,
-            'template' => '{update}',
-        ],
-        [
-            'class' => ButtonColumn::class,
-            'template' => '{delete}',
-        ],
-    ],
-]);
+<div class="grid-view">
+    <div class="summary"><?= $dataProvider->getCount() ?> из <?= $dataProvider->getTotalCount() ?></div>
+    <form action="?" method="get">
+        <table class="items">
+            <thead>
+                <tr>
+                    <th><?= $dataProvider->getSort()->link('title', ['class' => 'sort-link', 'label' => 'Заголовок']) ?></th>
+                    <th><?= $dataProvider->getSort()->link('alias', ['class' => 'sort-link', 'label' => 'Псевдоним']) ?></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="filters">
+                    <td><?= Html::activeTextInput($model, 'title') ?></td>
+                    <td><?= Html::activeTextInput($model, 'alias') ?></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                    <tr>
+                        <td>
+                            <?= str_repeat('&nbsp;', $item->indent * 4) ?>
+                            <a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><?= Html::encode($item->title) ?></a>
+                        </td>
+                        <td><?= Html::encode($item->alias) ?></td>
+                        <td class="button-column">
+                            <a href="<?= $item->getUrl() ?>"><span class="icon view"></span></a>
+                        </td>
+                        <td class="button-column">
+                            <a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><span class="icon edit"></span></a>
+                        </td>
+                        <td class="button-column">
+                            <a href="<?= Url::to(['delete', 'id' => $item->id]) ?>" class="ajax_del"><span class="icon delete"></span></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <button type="submit" style="visibility: hidden"></button>
+    </form>
+</div>
 
+<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]) ?>
