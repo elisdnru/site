@@ -16,7 +16,7 @@ class LandingSearch extends Landing
         ];
     }
 
-    public function search(array $params, $pageSize = 10): TreeActiveDataProviderV2
+    public function search(array $params, $pageSize = 100): TreeActiveDataProviderV2
     {
         $query = Landing::find()->alias('t');
 
