@@ -39,7 +39,7 @@ class FeedController extends Controller
 
             $description = '';
             if ($model->image) {
-                $description .= Html::a(CHtml::image($image, $model->title, ['style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
+                $description .= Html::a(Html::img($image, ['title' => $model->title, 'style' => 'display:block; float:left; margin:0 10px 10px 0']), $link);
             }
             $description .= $model->short_purified;
             $description .= Html::tag('p', Html::a('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
