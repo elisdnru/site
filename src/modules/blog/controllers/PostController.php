@@ -25,13 +25,13 @@ class PostController extends Controller
 
     private function loadModel(int $id): Post
     {
-        if (Yii::$app->moduleManager->allowed('blog')) {
-            $condition = '';
-        } else {
-            $condition = 'public = 1';
+        $query = Post::find();
+
+        if (!Yii::$app->moduleManager->allowed('blog')) {
+            $query = $query->published();
         }
 
-        $model = Post::model()->findByPk($id, $condition);
+        $model = $query->andWhere(['id' => $id])->one();
         if ($model === null) {
             throw new NotFoundHttpException();
         }

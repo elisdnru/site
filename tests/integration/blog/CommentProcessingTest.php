@@ -33,7 +33,7 @@ class CommentProcessingTest extends Unit
 
     public function testComment(): void
     {
-        $post = Post::model()->findByPk(1);
+        $post = Post::findOne(1);
 
         $comment = new Comment();
 

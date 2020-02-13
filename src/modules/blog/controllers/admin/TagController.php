@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers\admin;
 
+use app\modules\blog\forms\TagSearch;
 use app\modules\blog\models\Tag;
 use app\components\AdminController;
 use Yii;
@@ -12,13 +13,12 @@ class TagController extends AdminController
 {
     public function actionIndex(): string
     {
-        $model = new Tag('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Tag');
+        $model = new TagSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -26,12 +26,8 @@ class TagController extends AdminController
     {
         $model = new Tag();
 
-        if ($post = Yii::$app->request->post('Tag')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -43,12 +39,8 @@ class TagController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Tag')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -74,7 +66,7 @@ class TagController extends AdminController
 
     private function loadModel(int $id): Tag
     {
-        $model = Tag::model()->findByPk($id);
+        $model = Tag::findOne($id);
 
         if ($model === null) {
             throw new NotFoundHttpException();

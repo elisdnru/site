@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers\admin;
 
+use app\modules\blog\forms\PostSearch;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
 use Yii;
@@ -13,13 +14,12 @@ class PostController extends AdminController
 {
     public function actionIndex(): string
     {
-        $model = new Post('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Post');
+        $model = new PostSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -32,12 +32,8 @@ class PostController extends AdminController
         $model->category_id = Yii::$app->request->get('category');
         $model->date = date('Y-m-d H:i:s');
 
-        if ($post = Yii::$app->request->post('Post')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -49,12 +45,8 @@ class PostController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Post')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -73,24 +65,6 @@ class PostController extends AdminController
         return null;
     }
 
-    public function actionToggle(int $id, $attribute): ?Response
-    {
-        $model = $this->loadModel($id);
-
-        if ($attribute !== 'public') {
-            throw new BadRequestHttpException('Missing attribute '. $attribute);
-        }
-
-        $model->$attribute = $model->$attribute ? 0 : 1;
-
-        $model->save();
-
-        if (!Yii::$app->request->getIsAjax()) {
-            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
-        }
-        return null;
-    }
-
     public function actionView(int $id): Response
     {
         $model = $this->loadModel($id);
@@ -100,7 +74,7 @@ class PostController extends AdminController
 
     private function loadModel(int $id): Post
     {
-        $model = Post::model()->findByPk($id);
+        $model = Post::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

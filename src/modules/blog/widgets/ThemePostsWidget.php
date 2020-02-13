@@ -17,7 +17,7 @@ class ThemePostsWidget extends Widget
             return '';
         }
 
-        $posts = Post::model()->findAllByAttributes(['group_id' => $this->group]);
+        $posts = Post::findAll(['group_id' => $this->group]);
 
         return $this->render($this->tpl, [
             'posts' => $posts,

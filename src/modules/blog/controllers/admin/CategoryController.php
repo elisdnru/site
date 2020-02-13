@@ -72,7 +72,7 @@ class CategoryController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $count = Post::model()->countByAttributes(['category_id' => $model->id]);
+        $count = Post::find()->andWhere(['category_id' => $model->id])->count();
 
         if ($count) {
             throw new BadRequestHttpException('В данной группе есть записи. Удалите их или переместите в другие категории.');

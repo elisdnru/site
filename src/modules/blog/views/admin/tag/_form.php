@@ -12,33 +12,30 @@ use yii\web\View;
 
 <div class="form">
 
-    <?php $form = Yii::app()->controller->beginWidget(CActiveForm::class, [
-        'action' => Url::current(),
-        'id' => 'page-form',
-        'enableClientValidation' => true,
-        'clientOptions' => [
-            'validateOnSubmit' => true,
-        ],
-    ]); ?>
+    <form action="?" method="post">
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
+        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <?= $form->errorSummary($model) ?>
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
-    <fieldset>
-        <div class="row">
-            <?= $form->labelEx($model, 'title') ?><br />
-            <?= $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'title') ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
-    </fieldset>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Сохранить') ?>
-    </div>
+        <fieldset>
+            <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'title') ?><br />
+                <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
 
-    <?php Yii::app()->controller->endWidget(); ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
+        </div>
+
+    </form>
 
 </div><!-- form -->

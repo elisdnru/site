@@ -9,11 +9,10 @@ use yii\base\Widget;
 class TagCloudWidget extends Widget
 {
     public $tpl = 'TagCloud';
-    public $tags = '';
 
     public function run(): string
     {
-        $tags = Tag::model()->with('frequency')->cache(0, new Tags('blog'))->findAll(['order' => 'title ASC']);
+        $tags = Tag::find()->cache(0, new Tags('blog'))->orderBy(['title' => SORT_ASC])->all();
         return $this->render($this->tpl, ['tags' => $tags]);
     }
 }

@@ -3,62 +3,41 @@
 namespace app\modules\blog\models;
 
 use CActiveDataProvider;
-use CActiveRecord;
-use CDbCriteria;
 use Yii;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
  * @property integer $id
  * @property string $title
- * @property PostTag $posttags
+ * @property PostTag[] $postTags
  */
-class Tag extends CActiveRecord
+class Tag extends ActiveRecord
 {
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'blog_tags';
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
     public function rules(): array
     {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return [
             ['title', 'required'],
-            ['title', 'length', 'max' => 255],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, title', 'safe', 'on' => 'search'],
+            ['title', 'string', 'max' => 255],
         ];
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public function getFrequency(): int
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return [
-            'frequency' => [self::STAT, PostTag::class, 'tag_id'],
-            'posttags' => [self::HAS_MANY, PostTag::class, 'tag_id'],
-        ];
+        return PostTag::find()->andWhere(['tag_id' => $this->id])->count();
+    }
+
+    public function getPostTags(): ActiveQuery
+    {
+        return $this->hasMany(PostTag::class, ['tag_id' => 'id']);
     }
 
     /**
@@ -73,33 +52,11 @@ class Tag extends CActiveRecord
         ];
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @param int $pageSize
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search($pageSize = 10): CActiveDataProvider
-    {
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('id', $this->id);
-        $criteria->compare('title', $this->title, true);
-
-        return new CActiveDataProvider($this, [
-            'criteria' => $criteria,
-            'pagination' => [
-                'pageSize' => $pageSize,
-                'pageVar' => 'page',
-                'validateCurrentPage' => false,
-            ],
-        ]);
-    }
-
-    protected function beforeDelete(): bool
+    public function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {
-            foreach ($this->posttags as $posttag) {
-                $posttag->delete();
+            foreach ($this->postTags as $postTag) {
+                $postTag->delete();
             }
             return true;
         }
@@ -108,7 +65,7 @@ class Tag extends CActiveRecord
 
     public function getAssocList(): array
     {
-        $items = $this->findAll(['order' => 'title']);
+        $items = self::findAll(['order' => 'title']);
         $result = [];
         foreach ($items as $item) {
             $result[$item->id] = $item->title;
@@ -116,9 +73,9 @@ class Tag extends CActiveRecord
         return $result;
     }
 
-    public function findOrCreateByTitle($title): self
+    public static function findOrCreateByTitle($title): self
     {
-        $tag = $this->findByTitle($title);
+        $tag = self::findOne(['title' => $title]);
         if (!$tag) {
             $tag = new self();
             $tag->title = $title;
@@ -134,14 +91,6 @@ class Tag extends CActiveRecord
             ->queryColumn();
 
         return array_unique($postIds);
-    }
-
-    public function findByTitle($title): ?self
-    {
-        return $this->find([
-            'condition' => 'title = :title',
-            'params' => [':title' => $title],
-        ]);
     }
 
     private $cachedUrl;

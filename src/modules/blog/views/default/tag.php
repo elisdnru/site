@@ -2,20 +2,21 @@
 use app\modules\blog\models\Tag;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
 /** @var $this View */
 /** @var $tag Tag */
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
+$this->title = 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1)
+    'content' => 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
 ]);
 
 $this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);

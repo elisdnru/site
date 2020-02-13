@@ -3,21 +3,22 @@ use app\modules\blog\models\Category;
 use app\components\PaginationFormatter;
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
 /** @var $this View|\app\components\InlineWidgetsBehavior */
 /** @var $page Page */
 /** @var $category Category */
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
+$this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $category->description . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1)
+    'content' => $category->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [

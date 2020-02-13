@@ -16,10 +16,7 @@ class FeedController extends Controller
     public function actionIndex(): string
     {
         /** @var Post[] $posts */
-        $posts = Post::model()->published()->findAll([
-            'limit' => 100,
-            'order' => 'date DESC',
-        ]);
+        $posts = Post::find()->published()->orderBy(['date' => SORT_DESC])->limit(100)->all();
 
         $feed = new Feed();
 

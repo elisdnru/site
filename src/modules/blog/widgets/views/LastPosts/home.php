@@ -7,7 +7,7 @@ use yii\helpers\Html;
 <?php foreach ($posts as $data) : ?>
     <?php
     $links = [];
-    foreach ($data->cache(1000)->tags as $tag) {
+    foreach ($data->tags as $tag) {
         $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>

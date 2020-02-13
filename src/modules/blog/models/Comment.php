@@ -10,6 +10,6 @@ class Comment extends BaseComment
 
     public function getMaterial(): ?Post
     {
-        return Post::model()->findByPk($this->material_id);
+        return Post::findOne($this->material_id);
     }
 }

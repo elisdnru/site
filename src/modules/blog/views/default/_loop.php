@@ -1,19 +1,20 @@
 <?php
 use app\components\DateFormatter;
+use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
-/** @var $dataProvider CDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 ?>
 
 <div id="blogList">
     <div class="items">
-        <?php foreach ($dataProvider->getData() as $post) : ?>
+        <?php foreach ($dataProvider->getModels() as $post) : ?>
             <?php /** @var \app\modules\blog\models\Post $post */ ?>
             <?php
             $links = [];
-            foreach ($post->cache(1000)->tags as $tag) {
+            foreach ($post->tags as $tag) {
                 $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
             }
             ?>
@@ -68,11 +69,7 @@ use yii\widgets\LinkPager;
     </div>
     <div class="pager">
         <?= LinkPager::widget([
-            'pagination' => new Pagination([
-                'totalCount' => $dataProvider->getPagination()->getItemCount(),
-                'defaultPageSize' => $dataProvider->getPagination()->getPageSize(),
-                'forcePageParam' => false,
-            ]),
+            'pagination' => $dataProvider->getPagination(),
         ]) ?>
     </div>
 </div>

@@ -8,6 +8,7 @@ use CActiveRecord;
 use app\components\AdminController;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
@@ -152,7 +153,7 @@ abstract class CommentAdminController extends AdminController
         return $model;
     }
 
-    protected function loadMaterialModel(int $id): CActiveRecord
+    protected function loadMaterialModel(int $id): ActiveRecord
     {
         throw new BadMethodCallException('Undefined material model ' . $id);
     }

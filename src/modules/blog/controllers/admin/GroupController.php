@@ -60,10 +60,7 @@ class GroupController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $count = Post::model()->count([
-            'condition' => 't.group_id = :ID',
-            'params' => [':ID' => $model->id]
-        ]);
+        $count = Post::find()->andWhere(['group_id' => $model->id])->count();
 
         if ($count) {
             throw new BadRequestHttpException('В данной группе есть новости. Удалите их или переместите в другие группы.');

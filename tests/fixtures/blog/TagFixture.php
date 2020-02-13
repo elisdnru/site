@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\fixtures\blog;
 
+use app\modules\blog\models\Tag;
 use yii\test\ActiveFixture;
 
 class TagFixture extends ActiveFixture

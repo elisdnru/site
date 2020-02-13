@@ -31,7 +31,7 @@ class PostProcessingTest extends Unit
     public function testShort(): void
     {
         /** @var Post $post */
-        $post = Post::model()->findByPk(1);
+        $post = Post::findOne(1);
 
         $post->short = 'Lorem ipsum dolor sit amet.';
         $this->assertTrue($post->save(), 'Save model');
@@ -41,7 +41,7 @@ class PostProcessingTest extends Unit
     public function testText(): void
     {
         /** @var Post $post */
-        $post = Post::model()->findByPk(1);
+        $post = Post::findOne(1);
 
         $source = <<<END
 Lorem ipsum dolor sit amet.

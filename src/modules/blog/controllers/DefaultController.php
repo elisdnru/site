@@ -3,27 +3,27 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\Category;
-use app\modules\blog\models\Post;
 use app\modules\blog\forms\SearchForm;
+use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
-use CActiveDataProvider;
-use CActiveRecord;
 use CDbCriteria;
 use app\components\Controller;
 use app\components\DateLimiter;
 use app\modules\page\models\Page;
 use app\extensions\cachetagging\Tags;
 use Yii;
+use yii\data\ActiveDataProvider;
+use yii\db\ActiveQuery;
 use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
     public function actionIndex(): string
     {
-        $criteria = $this->getBlogCriteria();
+        $query = $this->getBlogQuery();
 
         return $this->render('index', [
-            'dataProvider' => $this->createProvider($criteria),
+            'dataProvider' => $this->createProvider($query),
             'page' => $this->loadBlogPage(),
         ]);
     }
@@ -32,14 +32,14 @@ class DefaultController extends Controller
     {
         $model = $this->loadCategoryModel($category);
 
-        $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', array_merge(
-            [$model->id],
-            Category::find()->getChildrenArray($model->id)
-        ));
+        $query = $this->getBlogQuery()
+            ->andWhere(['category_id' => array_merge(
+                [$model->id],
+                Category::find()->getChildrenArray($model->id)
+            )]);
 
         return $this->render('category', [
-            'dataProvider' => $this->createProvider($criteria),
+            'dataProvider' => $this->createProvider($query),
             'page' => $this->loadBlogPage(),
             'category' => $model,
         ]);
@@ -53,11 +53,11 @@ class DefaultController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $criteria = $this->getBlogCriteria();
-        $criteria->addSearchCondition('t.date', $limiter->getSearchString(), false);
+        $query = $this->getBlogQuery()
+            ->andWhere(['like', 't.date', $limiter->getSearchString()]);
 
         return $this->render('date', [
-            'dataProvider' => $this->createProvider($criteria),
+            'dataProvider' => $this->createProvider($query),
             'page' => $this->loadBlogPage(),
             'date' => $limiter->getDate(),
         ]);
@@ -69,11 +69,11 @@ class DefaultController extends Controller
             return $this->redirect(['index']);
         }
 
-        $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.id', $model->getPostIds());
+        $query = $this->getBlogQuery()
+            ->andWhere(['id' => $model->getPostIds()]);
 
         return $this->render('tag', [
-            'dataProvider' => $this->createProvider($criteria),
+            'dataProvider' => $this->createProvider($query),
             'page' => $this->loadBlogPage(),
             'tag' => $model,
         ]);
@@ -81,18 +81,21 @@ class DefaultController extends Controller
 
     public function actionSearch(): string
     {
-        $criteria = $this->getBlogCriteria();
+        $query = $this->getBlogQuery();
 
         $form = new SearchForm();
 
         if ($form->load(Yii::$app->request->queryParams)) {
-            $criteria->addSearchCondition('t.title', $form->word);
-            $criteria->addSearchCondition('t.text_purified', $form->word, true, 'OR');
-            $criteria->addSearchCondition('t.short_purified', $form->word, true, 'OR');
+            $query->andWhere([
+                'or',
+                ['like', 'title', $form->word],
+                ['like', 'text_purified', $form->word],
+                ['like', 'short_purified', $form->word],
+            ]);
         }
 
         return $this->render('search', [
-            'dataProvider' => $this->createProvider($criteria),
+            'dataProvider' => $this->createProvider($query),
             'page' => $this->loadBlogPage(),
             'searchForm' => $form,
         ]);
@@ -110,25 +113,25 @@ class DefaultController extends Controller
 
     private function loadTagModel(string $title): ?Tag
     {
-        return Tag::model()->findByTitle($title);
+        return Tag::findOne(['title' => $title]);
     }
 
-    private function getBlogCriteria(): CDbCriteria
+    private function getBlogQuery(): ActiveQuery
     {
-        $criteria = new CDbCriteria();
-        $criteria->scopes = ['published'];
-        $criteria->order = 't.date DESC';
-        return $criteria;
+        return Post::find()->published()
+            ->with(['category', 'tags'])
+            ->orderBy(['date' => SORT_DESC]);
     }
 
-    private function createProvider(CDbCriteria $criteria): CActiveDataProvider
+    private function createProvider(ActiveQuery $query): ActiveDataProvider
     {
-        return new CActiveDataProvider(Post::model()->cache(0, new Tags('blog')), [
-            'criteria' => $criteria,
+        return new ActiveDataProvider([
+            'query' => $query->cache(0, new Tags('blog')),
             'pagination' => [
-                'pageSize' => 10,
-                'pageVar' => 'page',
-                'validateCurrentPage' => false,
+                'defaultPageSize' => 10,
+                'pageParam' => 'page',
+                'validatePage' => false,
+                'forcePageParam' => false,
             ]
         ]);
     }

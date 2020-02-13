@@ -4,11 +4,11 @@ use app\modules\user\models\Access;
 
 /** @var $this \yii\web\View */
 /** @var $date string */
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = 'Записи за ' . $date . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
+$this->title = 'Записи за ' . $date . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->params['breadcrumbs'] = [
     'Блог' => ['/blog/default/index'],

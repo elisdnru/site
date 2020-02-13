@@ -4,7 +4,7 @@ namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
-use CDbCriteria;
+use CDbQuery;
 use yii\base\Widget;
 
 class OtherPostsWidget extends Widget
@@ -19,9 +19,7 @@ class OtherPostsWidget extends Widget
 
     public function run(): string
     {
-        $criteria = new CDbCriteria;
-        $criteria->scopes = ['published'];
-        $criteria->limit = $this->limit;
+        $query = Post::find()->published()->limit($this->limit);
 
         if ($this->category) {
             $category = Category::findOne(trim($this->category));
@@ -29,30 +27,26 @@ class OtherPostsWidget extends Widget
             if (!$category) {
                 return '';
             }
-
-            $criteria->addCondition('category_id=:cat');
-            $criteria->params[':cat'] = $category->id;
+            $query->andWhere(['category_id' => $category->id]);
         } else {
-            $category = new Category;
+            $category = new Category();
         }
 
         if ($this->skip) {
-            $criteria->params[':skip'] = $this->skip;
+            $prevQuery = (clone $query)
+                ->andWhere(['<', 'id', $this->skip])
+                ->orderBy(['id' => SORT_DESC]);
 
-            $prevCriteria = clone $criteria;
-            $prevCriteria->addCondition('id < :skip');
-            $prevCriteria->order = 'id DESC';
-
-            $nextCriteria = clone $criteria;
-            $nextCriteria->addCondition('id > :skip');
-            $nextCriteria->order = 'id ASC';
+            $nextQuery = (clone $query)
+                ->andWhere(['>', 'id', $this->skip])
+                ->orderBy(['id' => SORT_ASC]);
 
             $posts = array_merge(
-                array_reverse(Post::model()->findAll($nextCriteria)),
-                Post::model()->findAll($prevCriteria)
+                array_reverse($nextQuery->all()),
+                $prevQuery->all()
             );
         } else {
-            $posts = Post::model()->findAll($criteria);
+            $posts = $query->all();
         }
 
         return $this->render($this->tpl, [

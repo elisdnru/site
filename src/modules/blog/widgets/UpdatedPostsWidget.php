@@ -15,13 +15,12 @@ class UpdatedPostsWidget extends Widget
 
     public function run(): string
     {
-        $criteria = new CDbCriteria;
-        $criteria->scopes = ['published'];
-        $criteria->limit = $this->limit;
-        $criteria->order = 'update_date DESC';
-        $criteria->with = [];
-
-        $posts = Post::model()->cache(0, new Tags('blog'))->findAll($criteria);
+        $posts = Post::find()
+            ->published()
+            ->orderBy(['update_date' => SORT_DESC])
+            ->cache(0, new Tags('blog'))
+            ->limit($this->limit)
+            ->all();
 
         return $this->render('UpdatedPosts/' . $this->tpl, [
             'posts' => $posts,

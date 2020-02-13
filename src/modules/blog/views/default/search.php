@@ -3,14 +3,15 @@ use app\modules\blog\forms\SearchForm;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 
 /** @var $this \yii\web\View */
 /** @var $searchForm SearchForm */
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = 'Поиск по записям' . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
+$this->title = 'Поиск по записям' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->params['breadcrumbs'] = [
     'Блог' => ['/blog/default/index'],

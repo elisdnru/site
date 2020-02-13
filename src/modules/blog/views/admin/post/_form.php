@@ -15,202 +15,190 @@ use yii\web\View;
 
 <div class="form">
 
-    <?php $form = Yii::app()->controller->beginWidget(
-        CActiveForm::class,
-        [
-            'id' => 'blog-post-form',
-            'enableClientValidation' => true,
-            'clientOptions' => [
-                'validateOnSubmit' => true,
-            ],
-            'htmlOptions' => ['enctype' => 'multipart/form-data']
-        ]
-    ); ?>
+    <form action="?" method="post" enctype="multipart/form-data">
 
-    <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
-    <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
+        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-    <?= $form->errorSummary($model) ?>
+        <?= Html::errorSummary($model, ['class' => 'errorSummary']) ?>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Сохранить') ?>
-    </div>
-
-    <fieldset>
-        <h4>Основное</h4>
-
-        <div class="row">
-            <?= $form->labelEx($model, 'title') ?><br />
-            <?= $form->textField($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'title') ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
         </div>
 
-        <div class="row">
-            <?= $form->labelEx($model, 'alias') ?><br />
-            <?= $form->textField($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'alias') ?>
-        </div>
+        <fieldset>
+            <h4>Основное</h4>
 
-        <div class="row">
-            <?= $form->labelEx($model, 'category_id') ?><br />
-            <?= $form->dropDownList($model, 'category_id', ['' => ''] + Category::find()->getTabList()) ?>
-            <br />
-            <?= $form->error($model, 'category_id') ?>
-        </div>
+            <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'title') ?><br />
+                <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+            </div>
 
-        <div class="row">
-            <?= $form->labelEx($model, 'date') ?><br />
-            <?= $form->textField($model, 'date', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'date') ?>
-        </div>
+            <div class="row<?= $model->hasErrors('alias') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'alias') ?><br />
+                <?= Html::activeTextInput($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'alias', ['class' => 'errorMessage']) ?>
+            </div>
 
-        <div class="row">
-            <?= $form->checkBox($model, 'public') ?>
-            <?= $form->labelEx($model, 'public') ?><br />
-            <?= $form->error($model, 'public') ?>
-        </div>
-    </fieldset>
+            <div class="row<?= $model->hasErrors('category_id') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'category_id') ?><br />
+                <?= Html::activeDropDownList($model, 'category_id', Category::find()->getTabList()) ?><br />
+                <?= Html::error($model, 'category_id', ['class' => 'errorMessage']) ?>
+            </div>
 
-    <fieldset>
-        <h4>Изображение</h4>
+            <div class="row<?= $model->hasErrors('date') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'date') ?><br />
+                <?= Html::activeTextInput($model, 'date') ?><br />
+                <?= Html::error($model, 'date', ['class' => 'errorMessage']) ?>
+            </div>
 
-        <?php if ($model->image) : ?>
-            <div class="image">
-                <a target="_blank" class="clightbox" href="<?= $model->getImageUrl() ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
+            <div class="row">
+                <?= Html::activeCheckbox($model, 'public') ?>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h4>Изображение</h4>
+
+            <?php if ($model->image) : ?>
+                <div class="image">
+                    <a target="_blank" class="clightbox" href="<?= $model->getImageUrl() ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
+                </div>
+                <div class="row">
+                    <?= Html::activeCheckbox($model, 'del_image') ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="row<?= $model->hasErrors('image') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'image') ?><br />
+                <?= Html::activeFileInput($model, 'image') ?><br />
+                <?= Html::error($model, 'image', ['class' => 'errorMessage']) ?>
+            </div>
+
+            <div class="row<?= $model->hasErrors('image_alt') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'image_alt') ?><br />
+                <?= Html::activeTextInput($model, 'image_alt', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'image_alt', ['class' => 'errorMessage']) ?>
+            </div>
+
+            <div class="row">
+                <?= Html::activeCheckbox($model, 'image_show') ?>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h4>Цепочка новостей</h4>
+
+            <div class="row<?= $model->hasErrors('group_id') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'group_id') ?><br />
+                <?= Html::activeDropDownList($model, 'group_id', Group::find()->getAssocList(), ['prompt' => '']) ?><br />
+                <?= Html::error($model, 'group_id', ['class' => 'errorMessage']) ?>
+            </div>
+
+            <div class="row<?= $model->hasErrors('newgroup') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'newgroup') ?><br />
+                <?= Html::activeTextInput($model, 'newgroup', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'newgroup', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset class="editor">
+            <div class="row<?= $model->hasErrors('short') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'short') ?><br />
+                <?= Html::activeTextarea($model, 'short', ['rows' => 6, 'cols' => 80]) ?><br />
+                <?= Html::error($model, 'short', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset class="editor">
+            <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'text') ?><br />
+                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]) ?><br />
+                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset class="editor">
+            <div class="row<?= $model->hasErrors('styles') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'styles') ?><br />
+                <?= Html::activeTextarea($model, 'styles', ['rows' => 10, 'cols' => 80]) ?><br />
+                <?= Html::error($model, 'styles', ['class' => 'errorMessage']) ?>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <h4>Метки</h4>
+
+            <div class="row<?= $model->hasErrors('tagsString') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'tagsString') ?><br />
+                <?= Html::activeTextInput($model, 'tagsString', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'tagsString', ['class' => 'errorMessage']) ?>
             </div>
             <div class="row">
-                <?= $form->checkBox($model, 'del_image') ?><?= $form->labelEx($model, 'del_image') ?>
+                <ul class="tags_list" id="tagsVariants">
+                    <?php foreach (ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title') as $id => $tag) : ?>
+                        <li id="tag_<?= $id ?>">
+                            <a class="tag" href="#"><?= Html::encode($tag) ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
+        </fieldset>
 
-        <?php endif; ?>
+        <script>
+        <?php ob_start(); ?>
 
-        <div class="row">
-            <?= $form->labelEx($model, 'image') ?><br />
-            <?= $form->fileField($model, 'image') ?><br />
-            <?= $form->error($model, 'image') ?>
-        </div>
-        <div class="row">
-            <?= $form->labelEx($model, 'image_alt') ?><br />
-            <?= $form->textField($model, 'image_alt', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'image_alt') ?>
-        </div>
-        <div class="row">
-            <?= $form->checkbox($model, 'image_show') ?>
-            <?= $form->labelEx($model, 'image_show') ?>
-        </div>
-    </fieldset>
+        (function () {
+            var tagsInput = document.querySelector('#post-tagsstring');
+            var tagsVariants = document.querySelectorAll('#tagsVariants li');
 
-    <fieldset>
-        <h4>Цепочка новостей</h4>
-        <div class="row">
-            <?= $form->labelEx($model, 'group_id') ?><br />
-            <?= $form->dropDownList($model, 'group_id', [0 => ''] + Group::find()->getAssocList()) ?>
-            <br />
-            <?= $form->error($model, 'group_id') ?>
-        </div>
-        <div class="row">
-            <?= $form->labelEx($model, 'newgroup') ?><br />
-            <?= $form->textField($model, 'newgroup', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'newgroup') ?>
-        </div>
-    </fieldset>
-
-    <fieldset class="editor">
-        <div class="row">
-            <?= $form->labelEx($model, 'short') ?><br />
-            <?= $form->textArea($model, 'short', ['rows' => 6, 'cols' => 80]) ?>
-            <?= $form->error($model, 'short') ?>
-        </div>
-    </fieldset>
-
-    <fieldset class="editor">
-        <div class="row">
-            <?= $form->labelEx($model, 'text') ?><br />
-            <?= $form->textArea($model, 'text', ['rows' => 40, 'cols' => 80]) ?>
-            <?= $form->error($model, 'text') ?>
-        </div>
-    </fieldset>
-
-    <fieldset class="editor">
-        <div class="row">
-            <?= $form->labelEx($model, 'styles') ?><br />
-            <?= $form->textArea($model, 'styles', ['rows' => 10, 'cols' => 80]) ?>
-            <?= $form->error($model, 'styles') ?>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <h4>Метки</h4>
-        <div class="row">
-            <?= $form->labelEx($model, 'tagsString') ?><br />
-            <?= $form->textField($model, 'tagsString', ['size' => 60, 'maxlength' => 255]) ?><br />
-            <?= $form->error($model, 'tagsString') ?>
-        </div>
-        <div class="row">
-            <ul class="tags_list" id="Post_tagsVariants">
-                <?php foreach (ArrayHelper::map(Tag::model()->findAll(['order' => 'title ASC']), 'id', 'title') as $id => $tag) : ?>
-                    <li id="tag_<?= $id ?>">
-                        <a class="tag" href="#"><?= Html::encode($tag) ?></a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </fieldset>
-
-    <script>
-    <?php ob_start(); ?>
-
-    (function () {
-        var tagsInput = document.querySelector('#Post_tagsString');
-        var tagsVariants = document.querySelectorAll('#Post_tagsVariants li');
-
-        function highlightActive () {
-            var tags = tagsInput.value.split(', ');
-            tagsVariants.forEach(function (variant) {
-                var thisTag = variant.querySelector('.tag').innerHTML;
-                if (tags.indexOf(thisTag) !== -1) {
-                    variant.classList.add('active');
-                } else {
-                    variant.classList.remove('active');
-                }
-            })
-        }
-
-        highlightActive()
-
-        tagsVariants.forEach(function (variant) {
-          variant.querySelector('.tag').addEventListener('click', function (e) {
-            var tags = tagsInput.value.split(', ');
-            if (!tags[0]) {
-              tags.splice(0, 1);
+            function highlightActive () {
+                var tags = tagsInput.value.split(', ');
+                tagsVariants.forEach(function (variant) {
+                    var thisTag = variant.querySelector('.tag').innerHTML;
+                    if (tags.indexOf(thisTag) !== -1) {
+                        variant.classList.add('active');
+                    } else {
+                        variant.classList.remove('active');
+                    }
+                })
             }
-            var newTag = e.target.innerHTML;
-            var index = tags.indexOf(newTag);
-            if (index === -1) {
-              tags[tags.length] = newTag;
-            } else {
-              tags.splice(index, 1);
-            }
-            tagsInput.value = tags.join(', ');
+
             highlightActive()
-            e.preventDefault();
-          })
-        })
-    })();
 
-    <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
-    </script>
+            tagsVariants.forEach(function (variant) {
+                variant.querySelector('.tag').addEventListener('click', function (e) {
+                    var tags = tagsInput.value.split(', ');
+                    if (!tags[0]) {
+                        tags.splice(0, 1);
+                    }
+                    var newTag = e.target.innerHTML;
+                    var index = tags.indexOf(newTag);
+                    if (index === -1) {
+                        tags[tags.length] = newTag;
+                    } else {
+                        tags.splice(index, 1);
+                    }
+                    tagsInput.value = tags.join(', ');
+                    highlightActive()
+                    e.preventDefault();
+                })
+            })
+        })();
 
-    <?= $this->render('//common/forms/_meta', [
-        'form' => $form,
-        'model' => $model,
-    ]) ?>
+        <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
+        </script>
 
-    <div class="row buttons">
-        <?= Html::submitButton('Сохранить') ?>
-    </div>
+        <?= $this->render('//common/forms/v2/_meta', [
+            'model' => $model,
+        ]) ?>
 
-    <?php Yii::app()->controller->endWidget(); ?>
+        <div class="row buttons">
+            <?= Html::submitButton('Сохранить') ?>
+        </div>
+
+    </form>
 
 </div><!-- form -->

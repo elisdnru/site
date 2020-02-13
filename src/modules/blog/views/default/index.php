@@ -9,15 +9,15 @@ use yii\web\View;
 
 /** @var $this View|InlineWidgetsBehavior */
 /** @var $page Page */
-/** @var $dataProvider CActiveDataProvider */
+/** @var $dataProvider \yii\data\ActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = $page->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1);
+$this->title = $page->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $page->description . PaginationFormatter::appendix($dataProvider->getPagination()->getCurrentPage() + 1)
+    'content' => $page->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [

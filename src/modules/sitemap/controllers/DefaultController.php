@@ -29,9 +29,10 @@ class DefaultController extends Controller
             ->orderBy(['title' => SORT_ASC])
             ->all();
 
-        $models['BlogPost'] = Post::model()->cache(0, new Tags('blog'))->published()->findAll([
-            'order' => 'title ASC',
-        ]);
+        $models['BlogPost'] = Post::find()->published()
+            ->cache(0, new Tags('blog'))
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
 
         $models['PortfolioWork'] = Work::find()->published()
             ->cache(0, new TagDependency(['tags' => 'portfolio']))
@@ -56,7 +57,7 @@ class DefaultController extends Controller
 
             $sitemap->addModels(Landing::find()->andWhere(['system' => 0])->all(), Sitemap::WEEKLY);
 
-            $sitemap->addModels(Post::model()->published()->findAll(), Sitemap::DAILY, 0.8);
+            $sitemap->addModels(Post::find()->published()->all(), Sitemap::DAILY, 0.8);
 
             $xml = $sitemap->render();
 

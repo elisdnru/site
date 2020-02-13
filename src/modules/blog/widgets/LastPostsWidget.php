@@ -15,13 +15,13 @@ class LastPostsWidget extends Widget
 
     public function run(): string
     {
-        $criteria = new CDbCriteria;
-        $criteria->scopes = ['published'];
-        $criteria->limit = $this->limit;
-        $criteria->order = 'date DESC';
-        $criteria->with = ['tags'];
-
-        $posts = Post::model()->cache(0, new Tags('blog'))->findAll($criteria);
+        $posts = Post::find()
+            ->published()
+            ->limit($this->limit)
+            ->orderBy(['date' => SORT_DESC])
+            ->with(['category', 'tags'])
+            ->cache(0, new Tags('blog'))
+            ->all();
 
         return $this->render('LastPosts/' . $this->tpl, [
             'posts' => $posts,

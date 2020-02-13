@@ -27,7 +27,7 @@ class Group extends ActiveRecord
 
     public function getPostsCount(): int
     {
-        return Post::model()->countByAttributes(['group_id' => $this->id]);
+        return Post::find()->andWhere(['group_id' => $this->id])->count();
     }
 
     public function rules(): array

@@ -1,11 +1,14 @@
 <?php
 /** @var $this \yii\web\View */
-/** @var $model Tag */
+/** @var $dataProvider ActiveDataProvider */
 
 use app\modules\blog\models\Tag as Tag;
 use app\widgets\grid\ButtonColumn;
 use app\widgets\grid\LinkColumn;
+use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
 
 $this->title = 'Метки записей';
 $this->params['breadcrumbs'] = [
@@ -22,34 +25,40 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
 <p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Метки записей блога</h1>
 
-<?php Yii::app()->controller->widget('zii.widgets.grid.CGridView', [
-    'id' => 'posts-grid',
-    'dataProvider' => $model->search(30),
-    'filter' => $model,
-    'columns' => [
-        [
-            'class' => LinkColumn::class,
-            'name' => 'title',
-        ],
-        [
-            'class' => LinkColumn::class,
-            'name' => 'frequency',
-            'htmlOptions' => ['style' => 'width:130px;text-align:center'],
-        ],
-        [
-            'class' => ButtonColumn::class,
-            'template' => '{view}',
-            'viewButtonUrl' => static function (Tag $data) {
-                return $data->getUrl();
-            },
-        ],
-        [
-            'class' => ButtonColumn::class,
-            'template' => '{update}',
-        ],
-        [
-            'class' => ButtonColumn::class,
-            'template' => '{delete}',
-        ],
-    ],
-]);
+<div class="grid-view">
+    <div class="summary"><?= $dataProvider->getCount() ?> из <?= $dataProvider->getTotalCount() ?></div>
+    <form action="?" method="get">
+        <table class="items">
+            <thead>
+                <tr>
+                    <th><?= $dataProvider->getSort()->link('title', ['class' => 'sort-link', 'label' => 'Заголовок']) ?></th>
+                    <th>Частота</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                    <tr>
+                        <td>
+                            <a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><?= Html::encode($item->title) ?></a>
+                        </td>
+                        <td style="width:130px; text-align:center"><?= Html::encode($item->frequency) ?></td>
+                        <td class="button-column">
+                            <a href="<?= $item->getUrl() ?>"><span class="icon view"></span></a>
+                        </td>
+                        <td class="button-column">
+                            <a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><span class="icon edit"></span></a>
+                        </td>
+                        <td class="button-column">
+                            <a href="<?= Url::to(['delete', 'id' => $item->id]) ?>" class="ajax_del"><span class="icon delete"></span></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <button type="submit" style="visibility: hidden"></button>
+    </form>
+</div>
+
+<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]) ?>
