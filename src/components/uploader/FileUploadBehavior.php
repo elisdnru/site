@@ -76,13 +76,20 @@ class FileUploadBehavior extends Behavior
     public function beforeSave($event): void
     {
         $this->initAttributes();
+        /** @var ActiveRecord $model */
         $model = $this->owner;
 
         if (isset($model->{$this->deleteAttribute}) && $model->{$this->deleteAttribute}) {
             $this->deleteFile();
+            return;
         }
+
         $this->loadFile();
         $this->processImageSizes();
+
+        if (empty($model->{$this->storageAttribute}) && !empty($model->getOldAttribute($this->storageAttribute))) {
+            $model->{$this->storageAttribute} = $model->getOldAttribute($this->storageAttribute);
+        }
     }
 
     /**
