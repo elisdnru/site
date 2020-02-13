@@ -110,7 +110,7 @@ class CategoryTreeBehaviorV2 extends CategoryBehaviorV2
 
         $item = $this->getModel();
         $i = 50;
-        while ($i-- && $this->getModel()->{$this->parentRelation}) {
+        while ($i-- && $item->{$this->parentRelation}) {
             $titles[] = $item->{$this->parentRelation}->{$this->titleAttribute};
             $item = $item->{$this->parentRelation};
         }
