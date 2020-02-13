@@ -27,7 +27,6 @@ class CacheController extends AdminController
 
     public function actionClear(): Response
     {
-        Yii::app()->cache->flush();
         Yii::$app->cache->flush();
         Yii::$app->session->setFlash('success', 'Кэш очищен');
 
