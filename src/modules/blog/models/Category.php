@@ -2,32 +2,21 @@
 
 namespace app\modules\blog\models;
 
-use app\components\category\models\TreeCategory;
+use app\components\category\models\TreeCategoryV2;
 
-class Category extends TreeCategory
+class Category extends TreeCategoryV2
 {
     public $urlRoute = '/blog/default/category';
 
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'blog_categories';
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public function rules(): array
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return array_merge(parent::relations(), [
-            'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'children' => [self::HAS_MANY, self::class, 'parent_id',
-                'order' => 'children.sort ASC'
-            ],
+        return array_merge(parent::rules(), [
+            ['text', 'string'],
         ]);
     }
 }

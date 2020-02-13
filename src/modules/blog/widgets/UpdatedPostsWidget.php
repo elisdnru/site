@@ -19,7 +19,7 @@ class UpdatedPostsWidget extends Widget
         $criteria->scopes = ['published'];
         $criteria->limit = $this->limit;
         $criteria->order = 'update_date DESC';
-        $criteria->with = ['category'];
+        $criteria->with = [];
 
         $posts = Post::model()->cache(0, new Tags('blog'))->findAll($criteria);
 

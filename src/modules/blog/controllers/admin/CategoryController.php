@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers\admin;
 
+use app\modules\blog\forms\CategorySearch;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
@@ -32,13 +33,12 @@ class CategoryController extends AdminController
 
     public function actionIndex(): string
     {
-        $model = new Category('search');
-
-        $model->unsetAttributes();
-        $model->attributes = Yii::$app->request->get('Category');
+        $model = new CategorySearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -46,12 +46,8 @@ class CategoryController extends AdminController
     {
         $model = new Category();
 
-        if ($post = Yii::$app->request->post('Category')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -63,12 +59,8 @@ class CategoryController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($post = Yii::$app->request->post('Category')) {
-            $model->attributes = $post;
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -80,10 +72,7 @@ class CategoryController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $count = Post::model()->count([
-            'condition' => 't.category_id = :id',
-            'params' => [':id' => $model->id]
-        ]);
+        $count = Post::model()->countByAttributes(['category_id' => $model->id]);
 
         if ($count) {
             throw new BadRequestHttpException('В данной группе есть записи. Удалите их или переместите в другие категории.');
@@ -104,7 +93,7 @@ class CategoryController extends AdminController
 
     private function loadModel(int $id): Category
     {
-        $model = Category::model()->findByPk($id);
+        $model = Category::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

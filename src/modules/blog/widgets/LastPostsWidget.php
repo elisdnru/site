@@ -19,7 +19,7 @@ class LastPostsWidget extends Widget
         $criteria->scopes = ['published'];
         $criteria->limit = $this->limit;
         $criteria->order = 'date DESC';
-        $criteria->with = ['category', 'tags'];
+        $criteria->with = ['tags'];
 
         $posts = Post::model()->cache(0, new Tags('blog'))->findAll($criteria);
 

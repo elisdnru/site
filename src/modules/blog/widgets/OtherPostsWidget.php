@@ -24,7 +24,7 @@ class OtherPostsWidget extends Widget
         $criteria->limit = $this->limit;
 
         if ($this->category) {
-            $category = Category::model()->findByPk(trim($this->category));
+            $category = Category::findOne(trim($this->category));
 
             if (!$category) {
                 return '';

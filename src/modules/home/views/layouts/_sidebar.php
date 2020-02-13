@@ -27,7 +27,7 @@ use yii\widgets\Menu;
 <?php endif; ?>
 
 <?php Portlet::begin(['title' => 'Разделы блога']); ?>
-<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::model()->cache(0, new Tags('blog'))->getMenuList(1000)]) ?>
+<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::find()->cache(0, new Tags('blog'))->getMenuList(1000)]) ?>
 <?php Portlet::end(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>

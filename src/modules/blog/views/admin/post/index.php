@@ -42,7 +42,7 @@ $this->params['admin'] = [
         ],
         [
             'name' => 'category_id',
-            'filter' => Category::model()->getTabList(),
+            'filter' => Category::find()->getTabList(),
             'value' => static function ($data) {
                 return $data->category ? $data->category->fullTitle : '';
             }

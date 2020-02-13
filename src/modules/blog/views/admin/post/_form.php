@@ -54,7 +54,7 @@ use yii\web\View;
 
         <div class="row">
             <?= $form->labelEx($model, 'category_id') ?><br />
-            <?= $form->dropDownList($model, 'category_id', ['' => ''] + Category::model()->getTabList()) ?>
+            <?= $form->dropDownList($model, 'category_id', ['' => ''] + Category::find()->getTabList()) ?>
             <br />
             <?= $form->error($model, 'category_id') ?>
         </div>

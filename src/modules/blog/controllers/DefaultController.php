@@ -33,7 +33,10 @@ class DefaultController extends Controller
         $model = $this->loadCategoryModel($category);
 
         $criteria = $this->getBlogCriteria();
-        $criteria->addInCondition('t.category_id', array_merge([$model->id], $model->getChildrenArray()));
+        $criteria->addInCondition('t.category_id', array_merge(
+            [$model->id],
+            Category::find()->getChildrenArray($model->id)
+        ));
 
         return $this->render('category', [
             'dataProvider' => $this->createProvider($criteria),
@@ -95,17 +98,13 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @param string $path
-     * @return Category|CActiveRecord
-     * @throws NotFoundHttpException
-     */
     private function loadCategoryModel(string $path): Category
     {
-        $category = Category::model()->findByPath($path);
-        if (!$category) {
+        $category = Category::find()->findByPath($path);
+        if ($category === null) {
             throw new NotFoundHttpException();
         }
+        /** @var Category $category */
         return $category;
     }
 
@@ -119,7 +118,6 @@ class DefaultController extends Controller
         $criteria = new CDbCriteria();
         $criteria->scopes = ['published'];
         $criteria->order = 't.date DESC';
-        $criteria->with = ['category'];
         return $criteria;
     }
 

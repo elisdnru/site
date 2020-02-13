@@ -87,7 +87,7 @@ class Post extends CActiveRecord implements Material
         return [
             ['category_id, alias, title', 'required'],
             ['author_id', \app\components\ExistOrEmptyValidator::class, 'className' => User::class, 'attributeName' => 'id'],
-            ['category_id', 'exist', 'className' => Category::class, 'attributeName' => 'id'],
+            ['category_id', ExistOrEmptyValidator::class, 'className' => Category::class, 'attributeName' => 'id'],
             ['group_id', ExistOrEmptyValidator::class, 'className' => Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
@@ -111,7 +111,6 @@ class Post extends CActiveRecord implements Material
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'category' => [self::BELONGS_TO, Category::class, 'category_id'],
             'posttags' => [self::HAS_MANY, PostTag::class, 'post_id'],
             'tags' => [self::MANY_MANY, Tag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
         ];
@@ -120,6 +119,11 @@ class Post extends CActiveRecord implements Material
     public function getGroup(): ?Group
     {
         return Group::findOne($this->group_id);
+    }
+
+    public function getCategory(): ?Category
+    {
+        return Category::findOne($this->category_id);
     }
 
     public function getAuthor(): ?User
@@ -185,8 +189,6 @@ class Post extends CActiveRecord implements Material
         $criteria->compare('t.title', $this->title, true);
         $criteria->compare('t.public', $this->public);
         $criteria->compare('t.group_id', $this->group_id);
-
-        $criteria->with = ['category'];
 
         return new CActiveDataProvider($this, [
             'criteria' => $criteria,

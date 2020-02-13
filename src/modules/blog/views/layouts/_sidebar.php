@@ -30,7 +30,7 @@ use yii\widgets\Menu;
     <!--noindex-->
 <?php endif; ?>
 <?php Portlet::begin(['title' => 'Разделы блога']); ?>
-<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::model()->cache(0, new Tags('blog'))->getMenuList(1000)]) ?>
+<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::find()->cache(0, new Tags('blog'))->getMenuList(1000)]) ?>
 <?php Portlet::end(); ?>
 <?php if ($this->context->route === 'blog/post/show') : ?>
     <!--/noindex-->
