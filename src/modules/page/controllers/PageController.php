@@ -4,7 +4,7 @@ namespace app\modules\page\controllers;
 
 use app\components\Controller;
 use app\modules\page\models\Page;
-use app\extensions\cachetagging\Tags;
+use yii\caching\TagDependency;
 use yii\web\NotFoundHttpException;
 
 class PageController extends Controller
@@ -25,7 +25,7 @@ class PageController extends Controller
     private function loadModel(string $path): Page
     {
         /** @var Page $page */
-        $page = Page::find()->cache(0, new Tags('page'))->findByPath($path);
+        $page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath($path);
         if ($page === null) {
             throw new NotFoundHttpException();
         }

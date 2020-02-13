@@ -9,8 +9,8 @@ use app\modules\blog\models\Tag;
 use app\components\Controller;
 use app\components\DateLimiter;
 use app\modules\page\models\Page;
-use app\extensions\cachetagging\Tags;
 use Yii;
+use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\web\NotFoundHttpException;
@@ -125,7 +125,7 @@ class DefaultController extends Controller
     private function createProvider(ActiveQuery $query): ActiveDataProvider
     {
         return new ActiveDataProvider([
-            'query' => $query->cache(0, new Tags('blog')),
+            'query' => $query->cache(0, new TagDependency(['tags' => ['blog']])),
             'pagination' => [
                 'defaultPageSize' => 10,
                 'pageParam' => 'page',
@@ -137,7 +137,7 @@ class DefaultController extends Controller
 
     private function loadBlogPage(): Page
     {
-        if (!$page = Page::find()->cache(0, new Tags('page'))->findByPath('blog')) {
+        if (!$page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath('blog')) {
             $page = new Page;
             $page->title = 'Блог';
             $page->pagetitle = $page->title;

@@ -8,7 +8,6 @@ use app\modules\landing\models\Landing;
 use app\modules\sitemap\components\Sitemap;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Work;
-use app\extensions\cachetagging\Tags;
 use Yii;
 use yii\caching\TagDependency;
 use yii\web\Response;
@@ -19,18 +18,18 @@ class DefaultController extends Controller
     {
         $models = [];
 
-        $models['Page'] = Page::find()->cache(0, new Tags('page'))
+        $models['Page'] = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))
             ->andWhere(['system' => 0])
             ->orderBy(['title' => SORT_ASC])
             ->all();
 
-        $models['Landing'] = Landing::find()->cache(0, new Tags('landing'))
+        $models['Landing'] = Landing::find()->cache(0, new TagDependency(['tags' => ['landing']]))
             ->andWhere(['system' => 0])
             ->orderBy(['title' => SORT_ASC])
             ->all();
 
         $models['BlogPost'] = Post::find()->published()
-            ->cache(0, new Tags('blog'))
+            ->cache(0, new TagDependency(['tags' => ['blog']]))
             ->orderBy(['title' => SORT_ASC])
             ->all();
 
@@ -71,7 +70,7 @@ class DefaultController extends Controller
 
     private function loadSitemapPage(): Page
     {
-        if (!$page = Page::find()->cache(0, new Tags('page'))->findByPath('sitemap')) {
+        if (!$page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath('sitemap')) {
             $page = new Page;
             $page->title = 'Карта сайта';
             $page->pagetitle = $page->title;

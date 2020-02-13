@@ -2,7 +2,6 @@
 
 use app\widgets\Follow;
 use app\widgets\Portlet;
-use app\extensions\cachetagging\Tags;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
@@ -27,7 +26,7 @@ use yii\widgets\Menu;
 <?php endif; ?>
 
 <?php Portlet::begin(['title' => 'Разделы блога']); ?>
-<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::find()->cache(0, new Tags('blog'))->getMenuList(1000)]) ?>
+<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::find()->cache(0, new TagDependency(['tags' => ['blog']]))->getMenuList(1000)]) ?>
 <?php Portlet::end(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>

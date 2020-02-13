@@ -3,8 +3,8 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Tag;
-use app\extensions\cachetagging\Tags;
 use yii\base\Widget;
+use yii\caching\TagDependency;
 
 class TagCloudWidget extends Widget
 {
@@ -12,7 +12,7 @@ class TagCloudWidget extends Widget
 
     public function run(): string
     {
-        $tags = Tag::find()->cache(0, new Tags('blog'))->orderBy(['title' => SORT_ASC])->all();
+        $tags = Tag::find()->cache(0, new TagDependency(['tags' => ['blog']]))->orderBy(['title' => SORT_ASC])->all();
         return $this->render($this->tpl, ['tags' => $tags]);
     }
 }

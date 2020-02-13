@@ -4,7 +4,7 @@ namespace app\modules\landing\controllers;
 
 use app\components\Controller;
 use app\modules\landing\models\Landing;
-use app\extensions\cachetagging\Tags;
+use yii\caching\TagDependency;
 use yii\web\NotFoundHttpException;
 
 class LandingController extends Controller
@@ -23,7 +23,7 @@ class LandingController extends Controller
     private function loadModel(string $path): Landing
     {
         /** @var Landing $landing */
-        $landing = Landing::find()->cache(0, new Tags('landing'))->findByPath($path);
+        $landing = Landing::find()->cache(0, new TagDependency(['tags' => ['landing']]))->findByPath($path);
         if ($landing === null) {
             throw new NotFoundHttpException();
         }

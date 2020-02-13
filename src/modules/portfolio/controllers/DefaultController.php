@@ -7,7 +7,6 @@ use app\modules\page\models\Page;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
-use app\extensions\cachetagging\Tags;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
@@ -26,7 +25,8 @@ class DefaultController extends PortfolioBaseController
             ],
         ]);
 
-        $categories = Category::find()->cache(0, new Tags('portfolio'))->roots()->orderBy('sort')->all();
+        $categories = Category::find()->roots()->cache(0, new TagDependency(['tags' => ['portfolio']]))
+            ->orderBy('sort')->all();
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -81,7 +81,7 @@ class DefaultController extends PortfolioBaseController
 
     private function loadPortfolioPage(): Page
     {
-        if (!$page = Page::find()->cache(0, new Tags('page'))->findByPath('portfolio')) {
+        if (!$page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath('portfolio')) {
             $page = new Page;
             $page->title = 'Портфолио';
             $page->pagetitle = $page->title;

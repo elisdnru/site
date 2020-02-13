@@ -3,8 +3,8 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
-use app\extensions\cachetagging\Tags;
 use yii\base\Widget;
+use yii\caching\TagDependency;
 
 class UpdatedPostsWidget extends Widget
 {
@@ -17,7 +17,7 @@ class UpdatedPostsWidget extends Widget
         $posts = Post::find()
             ->published()
             ->orderBy(['update_date' => SORT_DESC])
-            ->cache(0, new Tags('blog'))
+            ->cache(0, new TagDependency(['tags' => ['blog']]))
             ->limit($this->limit)
             ->all();
 

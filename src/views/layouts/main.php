@@ -3,7 +3,6 @@
 use app\assets\MainAsset;
 use app\modules\block\widgets\BlockWidget;
 use app\widgets\AdminBar;
-use app\extensions\cachetagging\Tags;
 use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
@@ -71,7 +70,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <nav id="main_nav">
             <?= \yii\widgets\Menu::widget([
                 'id' => 'main_nav_list',
-                'items' => Menu::find()->visible()->cache(0, new Tags('menu'))->getMenuListByAlias('main-menu')
+                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias('main-menu')
             ]) ?>
         </nav>
     </header>
@@ -105,7 +104,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <div class="nav">
             <?= \yii\widgets\Menu::widget([
                 'id' => 'footer_nav_list',
-                'items' => Menu::find()->visible()->cache(0, new Tags('menu'))->getMenuListByAlias('main-menu')
+                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias('main-menu')
             ]) ?>
         </div>
         <!--/noindex-->
