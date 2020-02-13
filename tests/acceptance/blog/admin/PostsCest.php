@@ -8,7 +8,7 @@ use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
 
-class PostsTest
+class PostsCest
 {
     // phpcs:disable
     // PSR2.Method Declarations.Underscore

@@ -1,20 +1,22 @@
 <?php
 
+use app\components\PaginationFormatter;
 use app\modules\page\models\Page;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 
-/** @var $dataProvider CDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 /** @var $page Page */
 /** @var $categories Category[] */
 $this->context->layout = 'index';
 
-$this->title = $page->pagetitle;
+$this->title = $page->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $page->description,
+    'content' => $page->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [

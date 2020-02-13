@@ -3,9 +3,25 @@
 namespace tests\acceptance\blog;
 
 use tests\AcceptanceTester;
+use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\GroupFixture;
+use tests\fixtures\blog\PostFixture;
+use tests\fixtures\user\UserFixture;
 
-class HomeTest
+class HomeCest
 {
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    public function _before(AcceptanceTester $I): void
+    {
+        $I->haveFixtures([
+            'user' => UserFixture::class,
+            'category' => CategoryFixture::class,
+            'group' => GroupFixture::class,
+            'post' => PostFixture::class,
+        ]);
+    }
+
     public function home(AcceptanceTester $I): void
     {
         $I->amOnPage('blog');

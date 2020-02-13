@@ -4,8 +4,9 @@ namespace tests\acceptance\portfolio;
 
 use tests\AcceptanceTester;
 use tests\fixtures\portfolio\CategoryFixture;
+use tests\fixtures\portfolio\WorkFixture;
 
-class HomeTest
+class HomeCest
 {
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
@@ -13,6 +14,7 @@ class HomeTest
     {
         $I->haveFixtures([
             'category' => CategoryFixture::class,
+            'work' => WorkFixture::class,
         ]);
     }
 

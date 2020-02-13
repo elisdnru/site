@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\acceptance\portfolio\admin;
+namespace tests\acceptance\blog\admin;
 
 use tests\AcceptanceTester;
-use tests\fixtures\portfolio\CategoryFixture;
+use tests\fixtures\blog\TagFixture;
 use tests\fixtures\user\UserFixture;
 
-class CategoriesTest
+class TagsCest
 {
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
@@ -14,22 +14,22 @@ class CategoriesTest
     {
         $I->haveFixtures([
             'user' => UserFixture::class,
-            'category' => CategoryFixture::class,
+            'tag' => TagFixture::class,
         ]);
     }
 
     public function access(AcceptanceTester $I): void
     {
         $I->amLoggedInByUser();
-        $I->amOnPage('portfolio/admin/category');
+        $I->amOnPage('blog/admin/tag');
         $I->seeResponseCodeIs(403);
     }
 
     public function index(AcceptanceTester $I): void
     {
         $I->amLoggedInByAdmin();
-        $I->amOnPage('portfolio/admin/category');
+        $I->amOnPage('blog/admin/tag');
         $I->seeResponseCodeIs(200);
-        $I->see('Категории работ', 'h1');
+        $I->see('Метки записей блога', 'h1');
     }
 }

@@ -6,7 +6,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\user\UserFixture;
 
-class GroupsTest
+class GroupsCest
 {
     // phpcs:disable
     // PSR2.Method Declarations.Underscore

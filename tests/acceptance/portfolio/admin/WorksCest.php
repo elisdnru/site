@@ -7,7 +7,7 @@ use tests\fixtures\portfolio\CategoryFixture;
 use tests\fixtures\portfolio\WorkFixture;
 use tests\fixtures\user\UserFixture;
 
-class WorksTest
+class WorksCest
 {
     // phpcs:disable
     // PSR2.Method Declarations.Underscore

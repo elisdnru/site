@@ -6,7 +6,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
 use tests\fixtures\user\UserFixture;
 
-class CategoriesTest
+class CategoriesCest
 {
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
