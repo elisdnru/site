@@ -18,3 +18,5 @@ Yii::$classMap = include($yii2path . '/classes.php');
 Yii::registerAutoloader([BaseYii::class, 'autoload']);
 
 Yii::$container = new yii\di\Container();
+
+HTMLPurifier_Bootstrap::registerAutoload();

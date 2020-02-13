@@ -2,12 +2,12 @@
 
 namespace app\components\purifier;
 
-use CHtmlPurifier;
 use CMarkdownParser;
 use yii\base\Behavior;
 use yii\base\Component;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 
 class PurifyTextBehavior extends Behavior
 {
@@ -130,15 +130,12 @@ class PurifyTextBehavior extends Behavior
 
     public function purifyText(?string $text): string
     {
-        $p = new CHtmlPurifier;
-        $p->setOptions($this->purifierOptions);
-
         if ($this->encodePreContent) {
             $text = preg_replace_callback('|<pre([^>]*)>(.*)</pre>|ismU', [$this, 'storePreContent'], $text);
             $text = preg_replace_callback('|<code([^>]*)>(.*)</code>|ismU', [$this, 'storeCodeContent'], $text);
         }
 
-        $text = $p->purify(trim($text));
+        $text = HtmlPurifier::process(trim($text), $this->purifierOptions);
 
         if ($this->encodePreContent) {
             $text = preg_replace_callback('|<pre([^>]*)>(.*)</pre>|ismU', [$this, 'resumePreContent'], $text);
