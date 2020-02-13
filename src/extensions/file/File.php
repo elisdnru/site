@@ -147,12 +147,11 @@ class File
      * Logs a message.
      *
      * @param string $message Message to be logged
-     * @param string $level Level of the message (e.g. 'trace', 'warning',
      * 'error', 'info', see CLogger constants definitions)
      */
-    private function addLog($message, $level = 'info'): void
+    private function addLog($message): void
     {
-        Yii::log($message . ' (obj: ' . $this->getRealPath() . ')', $level, 'ext.file');
+        Yii::info($message . ' (obj: ' . $this->getRealPath() . ')', 'ext.file');
     }
 
     /**
