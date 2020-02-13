@@ -12,7 +12,7 @@ use yii\helpers\Html;
             <div class="entry last">
                 <?php if ($post->image) : ?>
                     <p class="thumb">
-                        <a href="<?= $post->getUrl() ?>"><?= CHtml::image($post->getImageThumbUrl(100, 100)) ?></a>
+                        <a href="<?= $post->getUrl() ?>"><?= Html::img($post->getImageThumbUrl(100, 100)) ?></a>
                     </p><!--/noindex-->
                 <?php endif; ?>
                 <div class="title"><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a>

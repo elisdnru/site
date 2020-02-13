@@ -4,6 +4,7 @@ use app\modules\search\components\SearchHighlighter;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 /** @var $this \yii\web\View|\app\components\InlineWidgetsBehavior */
@@ -50,7 +51,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     ]);
                     ?>
                     <p class="thumb">
-                        <a href="<?= $model->material->getUrl() ?>"><?= CHtml::image($model->material->getImageThumbUrl(), '', $properties) ?></a>
+                        <a href="<?= $model->material->getUrl() ?>"><?= Html::img($model->material->getImageThumbUrl(), $properties) ?></a>
                     </p>
                 <?php endif; ?>
             </header>

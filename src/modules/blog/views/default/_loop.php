@@ -38,7 +38,9 @@ use yii\widgets\LinkPager;
                     <?php if ($post->image) : ?>
                         <?php $imageUrl = $post->getImageThumbUrl(250); ?>
                         <?php
-                        $properties = [];
+                        $properties = [
+                            'alt' => $post->image_alt,
+                        ];
                         if ($post->image_width) {
                             $properties['width'] = $post->image_width;
                         }
@@ -51,7 +53,7 @@ use yii\widgets\LinkPager;
                                 <picture>
                                     <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
                                     <source srcset="<?= $imageUrl ?>" type="image/jpeg">
-                                    <?= CHtml::image($imageUrl, $post->image_alt, $properties) ?>
+                                    <?= Html::img($imageUrl, $properties) ?>
                                 </picture>
                             </a>
                         </div>

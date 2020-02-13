@@ -86,11 +86,12 @@ HighlightAsset::register($this);
         <?php if ($model->image && $model->image_show) : ?>
             <?php
             $properties = array_filter([
+                'alt' => $model->image_alt,
                 'width' => $model->image_width,
                 'height' => $model->image_height,
             ]);
             ?>
-            <p class="thumb"><?= CHtml::image($model->getImageUrl(), $model->image_alt, $properties) ?></p>
+            <p class="thumb"><?= Html::img($model->getImageUrl(), $properties) ?></p>
         <?php endif; ?>
 
     </header>

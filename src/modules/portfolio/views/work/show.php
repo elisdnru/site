@@ -43,7 +43,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
             <?php if ($model->image && $model->image_show) : ?>
                 <?php
-                $properties = [];
+                $properties = [
+                    'alt' => $model->title,
+                ];
                 if ($model->image_width) {
                     $properties['width'] = $model->image_width;
                 }
@@ -53,7 +55,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 ?>
 
                 <p class="thumb">
-                    <a class="lightbox" href="<?= $model->getImageUrl() ?>"><?= CHtml::image($model->getImageThumbUrl(), $model->title, $properties) ?></a>
+                    <a class="lightbox" href="<?= $model->getImageUrl() ?>"><?= Html::img($model->getImageThumbUrl(), $properties) ?></a>
                 </p>
 
             <?php endif; ?>

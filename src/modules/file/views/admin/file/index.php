@@ -47,7 +47,7 @@ $nav = '';
 
 <?php
 $dir = Yii::$app->file->set($root . '/' . $path);
-$renameIcon = CHtml::image('/images/admin/code.png', 'Переименовать', ['title' => 'Переименовать']);
+$renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переименовать']);
 ?>
 
 <?= Html::beginForm(Url::to(['process', 'path' => $path])) ?>
