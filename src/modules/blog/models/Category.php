@@ -25,8 +25,6 @@ class Category extends TreeCategory
         // class name for the relations automatically generated below.
         return array_merge(parent::relations(), [
             'parent' => [self::BELONGS_TO, self::class, 'parent_id'],
-            'posts_count' => [self::STAT, Post::class, 'category_id'],
-            'posts' => [self::HAS_MANY, Post::class, 'category_id'],
             'children' => [self::HAS_MANY, self::class, 'parent_id',
                 'order' => 'children.sort ASC'
             ],
