@@ -5,7 +5,6 @@ use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
 use app\components\module\routes\ModuleUrlRules;
-use app\components\SentryErrorHandler;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
 use app\widgets\inline\CountDown;
@@ -117,12 +116,6 @@ return [
                     'js' => ['jquery.js'],
                 ],
             ],
-        ],
-
-        'errorHandler' => [
-            'class' => SentryErrorHandler::class,
-            'errorAction' => 'home/error/index',
-            'sentryActive' => !(bool)getenv('APP_DEBUG'),
         ],
 
         'authManager' => [

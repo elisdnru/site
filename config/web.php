@@ -1,5 +1,6 @@
 <?php
 
+use app\components\SentryErrorHandler;
 use app\components\UserIdentity;
 use yii\helpers\ArrayHelper;
 use yii\web\Cookie;
@@ -34,6 +35,12 @@ return ArrayHelper::merge(
                     'httpOnly' => true,
                     'secure' => $useSecureCookie,
                 ],
+            ],
+
+            'errorHandler' => [
+                'class' => SentryErrorHandler::class,
+                'errorAction' => 'home/error/index',
+                'sentryActive' => !(bool)getenv('APP_DEBUG'),
             ],
         ],
 
