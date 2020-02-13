@@ -8,7 +8,7 @@ use yii\widgets\LinkPager;
 
 /** @var $this \yii\web\View|\app\components\InlineWidgetsBehavior */
 /** @var $dataProvider ActiveDataProvider */
-/** @var $query CActiveRecord */
+/** @var $query string */
 
 $this->title = 'Поиск по сайту' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 

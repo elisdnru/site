@@ -3,11 +3,13 @@
 /** @var $dataProvider CDataProvider */
 
 use app\assets\CommentsAsset;
+use yii\data\ActiveDataProvider;
+use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $material CActiveRecord */
-/** @var $dataPrvider CActiveDataProvider */
+/** @var $material ActiveRecord */
+/** @var $dataPrvider ActiveDataProvider */
 
 $this->title = 'Комментарии';
 

@@ -2,9 +2,9 @@
 
 namespace app\modules\sitemap\components;
 
-use CActiveRecord;
 use DOMDocument;
 use Yii;
+use yii\db\ActiveRecord;
 
 class Sitemap
 {
@@ -40,11 +40,11 @@ class Sitemap
     }
 
     /**
-     * @param CActiveRecord[] $models
+     * @param ActiveRecord[] $models
      * @param string $changeFreq
      * @param float $priority
      */
-    public function addModels($models, $changeFreq = self::DAILY, $priority = 0.5): void
+    public function addModels(array $models, $changeFreq = self::DAILY, $priority = 0.5): void
     {
         $host = Yii::$app->request->hostInfo;
         foreach ($models as $model) {
