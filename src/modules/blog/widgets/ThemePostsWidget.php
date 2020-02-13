@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\widgets;
 
-use app\modules\blog\models\Group;
+use app\modules\blog\models\Post;
 use yii\base\Widget;
 
 class ThemePostsWidget extends Widget
@@ -17,10 +17,10 @@ class ThemePostsWidget extends Widget
             return '';
         }
 
-        $group = Group::model()->findByPk($this->group);
+        $posts = Post::model()->findAllByAttributes(['group_id' => $this->group]);
 
         return $this->render($this->tpl, [
-            'group' => $group,
+            'posts' => $posts,
             'current' => $this->current,
         ]);
     }

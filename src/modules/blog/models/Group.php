@@ -11,8 +11,6 @@ use CDbCriteria;
  * @property integer $id
  * @property string $title
  *
- * @property Post[] $posts
- *
  * @mixin CategoryBehavior
  */
 class Group extends CActiveRecord
@@ -42,10 +40,6 @@ class Group extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'posts' => [self::HAS_MANY, Post::class, 'group_id',
-                'condition' => 'posts.public=1',
-                'order' => 'posts.date DESC, posts.id DESC'
-            ],
             'posts_count' => [self::STAT, Post::class, 'group_id'],
         ];
     }
