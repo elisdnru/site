@@ -47,7 +47,8 @@ class DefaultController extends PortfolioBaseController
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => self::PER_PAGE,
+                'defaultPageSize' => self::PER_PAGE,
+                'forcePageParam' => false,
             ],
         ]);
 
