@@ -58,7 +58,7 @@ site-analyze:
 	docker-compose run --rm php-cli composer psalm
 
 site-test:
-	docker-compose run --rm php-cli vendor/bin/codecept run unit,integration,acceptance
+	docker-compose run --rm php-cli composer test run unit,integration,acceptance
 
 assets-build:
 	docker-compose run --rm node-cli npm run build

@@ -60,7 +60,7 @@
     "scripts": {
         "app": "php bin/app.php",
         "app-test": "php bin/app-test.php",
-        "test": "phpunit --colors=always",
+        "test": "codecept",
         "lint": "phplint",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
