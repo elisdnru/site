@@ -70,10 +70,6 @@ return [
             'schemaCachingDuration' => 3600,
         ],
 
-        'widgetFactory' => [
-            'enableSkin' => true,
-        ],
-
         'log' => [
             'class' => CLogRouter::class,
             'routes' => [

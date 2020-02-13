@@ -42,9 +42,6 @@
         "bower-asset/yii2-pjax":"*"
     },
     "autoload": {
-        "classmap": [
-            "src/views/skins"
-        ],
         "psr-4": {
             "app\\": "src/"
         }
