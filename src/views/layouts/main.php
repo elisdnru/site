@@ -148,7 +148,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     </div>
 </footer>
 
-<!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getExecutionTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
+<!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getElapsedTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
 
 <?php $this->endBody() ?>
 

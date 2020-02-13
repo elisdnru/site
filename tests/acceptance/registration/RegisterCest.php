@@ -45,13 +45,13 @@ class RegisterCest
 
         $I->click('Зарегистрироваться', '#register-form');
 
-        $I->see('Необходимо заполнить поле «Логин».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Email».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Новый пароль».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Имя».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Фамилия».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Код 1».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Код 2».', '.errorMessage');
+        $I->see('Необходимо заполнить «Логин».', '.errorMessage');
+        $I->see('Необходимо заполнить «Email».', '.errorMessage');
+        $I->see('Необходимо заполнить «Новый пароль».', '.errorMessage');
+        $I->see('Необходимо заполнить «Имя».', '.errorMessage');
+        $I->see('Необходимо заполнить «Фамилия».', '.errorMessage');
+        $I->see('Необходимо заполнить «Код 1».', '.errorMessage');
+        $I->see('Необходимо заполнить «Код 2».', '.errorMessage');
     }
 
     public function notValid(AcceptanceTester $I): void
@@ -70,10 +70,10 @@ class RegisterCest
         $I->click('Зарегистрироваться', '#register-form');
 
         $I->see('Логин содержит запрещённые символы.', '.errorMessage');
-        $I->see('Email не является правильным E-Mail адресом.', '.errorMessage');
+        $I->see('Значение «Email» не является правильным email адресом.', '.errorMessage');
         $I->see('Пароль должен быть не короче 6 символов.', '.errorMessage');
         $I->see('Пароли не совпадают.', '.errorMessage');
-        $I->see('Неправильный код проверки.', '.errorMessage');
+        $I->see('Неправильный проверочный код.', '.errorMessage');
     }
 
     public function captcha1(AcceptanceTester $I): void

@@ -14,12 +14,6 @@ class Yii extends BaseYii
      */
     public static $autoloaderFilters = array();
     /**
-     * @var array class map used by the Yii autoloading mechanism.
-     * The array keys are the class names and the array values are the corresponding class file paths.
-     * @since 1.1.5
-     */
-    public static $classMap = array();
-    /**
      * @var boolean whether to rely on PHP include path to autoload class files. Defaults to true.
      * You may set this to be false if your hosting environment doesn't allow changing the PHP
      * include path, or if you want to append additional autoloaders to the default Yii autoloader.
@@ -32,15 +26,6 @@ class Yii extends BaseYii
     private static $_includePaths;                        // list of include paths
     private static $_app;
     private static $_logger;
-
-
-    /**
-     * @return string the version of Yii framework
-     */
-    public static function getVersion()
-    {
-        return '1.1.21';
-    }
 
     /**
      * Creates a Web application instance.
@@ -328,86 +313,6 @@ class Yii extends BaseYii
     }
 
     /**
-     * Class autoload loader.
-     * This method is provided to be invoked within an __autoload() magic method.
-     * @param string $className class name
-     * @param bool $classMapOnly whether to load classes via classmap only
-     * @return boolean whether the class has been loaded successfully
-     * @throws CException When class name does not match class file in debug mode.
-     */
-    public static function autoload($className, $classMapOnly = false)
-    {
-        foreach (self::$autoloaderFilters as $filter) {
-            if (is_array($filter)
-                && isset($filter[0]) && isset($filter[1])
-                && is_string($filter[0]) && is_string($filter[1])
-                && true === call_user_func(array($filter[0], $filter[1]), $className)
-            ) {
-                return true;
-            } elseif (is_string($filter)
-                && true === call_user_func($filter, $className)
-            ) {
-                return true;
-            } elseif (is_callable($filter)
-                && true === $filter($className)
-            ) {
-                return true;
-            }
-        }
-
-        // use include so that the error PHP file may appear
-        if (isset(self::$classMap[$className]))
-            include(self::$classMap[$className]);
-        elseif (isset(self::$_coreClasses[$className]))
-            include(YII_PATH . self::$_coreClasses[$className]);
-        elseif ($classMapOnly)
-            return false;
-        else {
-            // include class file relying on include_path
-            if (strpos($className, '\\') === false)  // class without namespace
-            {
-                if (self::$enableIncludePath === false) {
-                    foreach (self::$_includePaths as $path) {
-                        $classFile = $path . DIRECTORY_SEPARATOR . $className . '.php';
-                        if (is_file($classFile)) {
-                            include($classFile);
-                            if (YII_DEBUG && basename(realpath($classFile)) !== $className . '.php')
-                                throw new CException(Yii::t('yii', 'Class name "{class}" does not match class file "{file}".', array(
-                                    '{class}' => $className,
-                                    '{file}' => $classFile,
-                                )));
-                            break;
-                        }
-                    }
-                } else
-                    include($className . '.php');
-            } else  // class name with namespace in PHP 5.3
-            {
-                $namespace = str_replace('\\', '.', ltrim($className, '\\'));
-                if (($path = self::getPathOfAlias($namespace)) !== false && is_file($path . '.php'))
-                    include($path . '.php');
-                else
-                    return false;
-            }
-            return class_exists($className, false) || interface_exists($className, false);
-        }
-        return true;
-    }
-
-    /**
-     * Writes a trace message.
-     * This method will only log a message when the application is in debug mode.
-     * @param string $msg message to be logged
-     * @param string $category category of the message
-     * @see log
-     */
-    public static function trace($msg, $category = 'application')
-    {
-        if (YII_DEBUG)
-            self::log($msg, CLogger::LEVEL_TRACE, $category);
-    }
-
-    /**
      * Logs a message.
      * Messages logged by this method may be retrieved via {@link CLogger::getLogs}
      * and may be recorded in different media, such as file, email, database, using
@@ -432,132 +337,6 @@ class Yii extends BaseYii
             }
         }
         self::$_logger->log($msg, $level, $category);
-    }
-
-    /**
-     * Marks the beginning of a code block for profiling.
-     * This has to be matched with a call to {@link endProfile()} with the same token.
-     * The begin- and end- calls must also be properly nested, e.g.,
-     * <pre>
-     * Yii::beginProfile('block1');
-     * Yii::beginProfile('block2');
-     * Yii::endProfile('block2');
-     * Yii::endProfile('block1');
-     * </pre>
-     * The following sequence is not valid:
-     * <pre>
-     * Yii::beginProfile('block1');
-     * Yii::beginProfile('block2');
-     * Yii::endProfile('block1');
-     * Yii::endProfile('block2');
-     * </pre>
-     * @param string $token token for the code block
-     * @param string $category the category of this log message
-     * @see endProfile
-     */
-    public static function beginProfile($token, $category = 'application')
-    {
-        self::log('begin:' . $token, CLogger::LEVEL_PROFILE, $category);
-    }
-
-    /**
-     * Marks the end of a code block for profiling.
-     * This has to be matched with a previous call to {@link beginProfile()} with the same token.
-     * @param string $token token for the code block
-     * @param string $category the category of this log message
-     * @see beginProfile
-     */
-    public static function endProfile($token, $category = 'application')
-    {
-        self::log('end:' . $token, CLogger::LEVEL_PROFILE, $category);
-    }
-
-    /**
-     * @return CLogger message logger
-     */
-    public static function getLogger()
-    {
-        if (self::$_logger !== null)
-            return self::$_logger;
-        else
-            return self::$_logger = new CLogger;
-    }
-
-    /**
-     * Sets the logger object.
-     * @param CLogger $logger the logger object.
-     * @since 1.1.8
-     */
-    public static function setLogger($logger)
-    {
-        self::$_logger = $logger;
-    }
-
-    /**
-     * Returns a string that can be displayed on your Web page showing Powered-by-Yii information
-     * @return string a string that can be displayed on your Web page showing Powered-by-Yii information
-     */
-    public static function powered()
-    {
-        return Yii::t('yii', 'Powered by {yii}.', array('{yii}' => '<a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>'));
-    }
-
-    /**
-     * Translates a message to the specified language.
-     * This method supports choice format (see {@link CChoiceFormat}),
-     * i.e., the message returned will be chosen from a few candidates according to the given
-     * number value. This feature is mainly used to solve plural format issue in case
-     * a message has different plural forms in some languages.
-     * @param string $category message category. Please use only word letters. Note, category 'yii' is
-     * reserved for Yii framework core code use. See {@link CPhpMessageSource} for
-     * more interpretation about message category.
-     * @param string $message the original message
-     * @param array $params parameters to be applied to the message using <code>strtr</code>.
-     * The first parameter can be a number without key.
-     * And in this case, the method will call {@link CChoiceFormat::format} to choose
-     * an appropriate message translation.
-     * Starting from version 1.1.6 you can pass parameter for {@link CChoiceFormat::format}
-     * or plural forms format without wrapping it with array.
-     * This parameter is then available as <code>{n}</code> in the message translation string.
-     * @param string $source which message source application component to use.
-     * Defaults to null, meaning using 'coreMessages' for messages belonging to
-     * the 'yii' category and using 'messages' for the rest messages.
-     * @param string $language the target language. If null (default), the {@link CApplication::getLanguage application language} will be used.
-     * @return string the translated message
-     * @see CMessageSource
-     */
-    public static function t($category, $message, $params = array(), $source = null, $language = null)
-    {
-        if (self::$_app !== null) {
-            if ($source === null)
-                $source = ($category === 'yii' || $category === 'zii') ? 'coreMessages' : 'messages';
-            if (($source = self::$_app->getComponent($source)) !== null)
-                $message = $source->translate($category, $message, $language);
-        }
-        if ($params === array())
-            return $message;
-        if (!is_array($params))
-            $params = array($params);
-        if (isset($params[0])) // number choice
-        {
-            if (strpos($message, '|') !== false) {
-                if (strpos($message, '#') === false) {
-                    $chunks = explode('|', $message);
-                    $expressions = self::$_app->getLocale($language)->getPluralRules();
-                    if ($n = min(count($chunks), count($expressions))) {
-                        for ($i = 0; $i < $n; $i++)
-                            $chunks[$i] = $expressions[$i] . '#' . $chunks[$i];
-
-                        $message = implode('|', $chunks);
-                    }
-                }
-                $message = CChoiceFormat::format($message, $params[0]);
-            }
-            if (!isset($params['{n}']))
-                $params['{n}'] = $params[0];
-            unset($params[0]);
-        }
-        return $params !== array() ? strtr($message, $params) : $message;
     }
 
     /**

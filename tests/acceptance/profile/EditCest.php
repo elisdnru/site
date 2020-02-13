@@ -58,9 +58,9 @@ class EditCest
 
         $I->click('Сохранить', '#profile-form');
 
-        $I->see('Необходимо заполнить поле «Фамилия».', '.errorMessage');
-        $I->see('Необходимо заполнить поле «Имя».', '.errorMessage');
-        $I->see('Сайт не является правильным URL.', '.errorMessage');
+        $I->see('Необходимо заполнить «Фамилия».', '.errorMessage');
+        $I->see('Необходимо заполнить «Имя».', '.errorMessage');
+        $I->see('Значение «Сайт» не является правильным URL.', '.errorMessage');
     }
 
     public function password(AcceptanceTester $I): void
