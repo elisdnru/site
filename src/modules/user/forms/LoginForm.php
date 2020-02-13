@@ -2,7 +2,7 @@
 
 namespace app\modules\user\forms;
 
-use app\components\UserIdentity;
+use app\components\AuthIdentity;
 use app\modules\user\models\User;
 use Yii;
 use yii\base\Model;
@@ -75,7 +75,7 @@ class LoginForm extends Model
         return false;
     }
 
-    private function loadIdentity($username, $password): ?UserIdentity
+    private function loadIdentity($username, $password): ?AuthIdentity
     {
         /** @var User $user */
         $user = User::findBySql('SELECT * FROM users WHERE LOWER(username) = :name OR LOWER(email) = :name', [
@@ -94,6 +94,6 @@ class LoginForm extends Model
             return null;
         }
 
-        return new UserIdentity($user->id);
+        return new AuthIdentity($user->id);
     }
 }

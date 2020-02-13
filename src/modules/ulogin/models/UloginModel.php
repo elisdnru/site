@@ -2,7 +2,7 @@
 
 namespace app\modules\ulogin\models;
 
-use app\components\UserIdentity;
+use app\components\AuthIdentity;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use Yii;
@@ -78,10 +78,10 @@ class UloginModel extends Model
         ];
     }
 
-    private function authenticate(): ?UserIdentity
+    private function authenticate(): ?AuthIdentity
     {
         if ($user = User::findOne(['identity' => $this->identity, 'network' => $this->network])) {
-            return new UserIdentity($user->id);
+            return new AuthIdentity($user->id);
         }
 
         if ($user = User::findOne(['email' => $this->email])) {
@@ -106,6 +106,6 @@ class UloginModel extends Model
             return null;
         }
 
-        return new UserIdentity($user->id);
+        return new AuthIdentity($user->id);
     }
 }

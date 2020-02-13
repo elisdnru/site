@@ -1,7 +1,7 @@
 <?php
 
 use app\components\SentryErrorHandler;
-use app\components\UserIdentity;
+use app\components\AuthIdentity;
 use yii\helpers\ArrayHelper;
 use yii\web\Cookie;
 
@@ -20,7 +20,7 @@ return ArrayHelper::merge(
             ],
 
             'user' => [
-                'identityClass' => UserIdentity::class,
+                'identityClass' => AuthIdentity::class,
                 'enableAutoLogin' => true,
                 'identityCookie' => [
                     'name' => '_identity',
