@@ -38,7 +38,6 @@ abstract class AdminController extends Controller
         if (parent::beforeAction($action)) {
             $tag = $this->module->id;
             TagDependency::invalidate(Yii::$app->cache, $tag);
-            Yii::app()->cache->clear($tag);
             return true;
         }
         return false;

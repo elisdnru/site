@@ -6,8 +6,6 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 
-use app\extensions\cachetagging\TaggingBehavior;
-
 CHtml::setModelNameConverter(static function ($model) {
     return is_object($model) ? (new ReflectionObject($model))->getShortName() : (string)$model;
 });
@@ -99,11 +97,6 @@ return [
 
         'cache' => [
             'class' => !getenv('APP_DEBUG') ? 'system.caching.CFileCache' : 'system.caching.CDummyCache',
-            'behaviors' => [
-                'tagging' => [
-                    'class' => TaggingBehavior::class,
-                ],
-            ],
         ],
     ],
 ];
