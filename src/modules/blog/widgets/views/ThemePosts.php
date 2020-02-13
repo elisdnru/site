@@ -1,5 +1,4 @@
 <?php
-use app\modules\blog\models\Group;
 
 /** @var $posts Post */
 /** @var $current int */

@@ -2,7 +2,6 @@
 
 namespace app\modules\blog\forms;
 
-use app\components\category\TreeActiveDataProviderV2;
 use app\modules\blog\models\Tag;
 use yii\data\ActiveDataProvider;
 

@@ -6,7 +6,6 @@ use app\modules\blog\models\Category;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
-use CDbCriteria;
 use app\components\Controller;
 use app\components\DateLimiter;
 use app\modules\page\models\Page;

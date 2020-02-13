@@ -2,9 +2,6 @@
 /** @var $this \yii\web\View */
 /** @var $dataProvider ActiveDataProvider */
 
-use app\modules\blog\models\Tag as Tag;
-use app\widgets\grid\ButtonColumn;
-use app\widgets\grid\LinkColumn;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;

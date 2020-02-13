@@ -3,7 +3,6 @@
 
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $model Landing */

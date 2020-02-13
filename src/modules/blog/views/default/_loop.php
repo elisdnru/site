@@ -1,7 +1,6 @@
 <?php
 use app\components\DateFormatter;
 use yii\data\ActiveDataProvider;
-use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 

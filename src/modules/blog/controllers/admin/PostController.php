@@ -6,7 +6,6 @@ use app\modules\blog\forms\PostSearch;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
 use Yii;
-use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 

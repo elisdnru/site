@@ -4,7 +4,6 @@ namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
-use CDbQuery;
 use yii\base\Widget;
 
 class OtherPostsWidget extends Widget

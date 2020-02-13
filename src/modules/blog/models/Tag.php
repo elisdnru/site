@@ -2,7 +2,6 @@
 
 namespace app\modules\blog\models;
 
-use CActiveDataProvider;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;

@@ -4,7 +4,6 @@ namespace app\modules\comment\components;
 
 use app\modules\comment\models\Comment;
 use BadMethodCallException;
-use CActiveRecord;
 use app\components\AdminController;
 use Yii;
 use yii\data\ActiveDataProvider;

@@ -2,9 +2,6 @@
 /** @var $this \yii\web\View */
 /** @var $dataProvider ActiveDataProvider */
 
-use app\widgets\grid\ButtonColumn;
-use app\widgets\grid\LinkColumn;
-use app\widgets\grid\ToggleColumn;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;

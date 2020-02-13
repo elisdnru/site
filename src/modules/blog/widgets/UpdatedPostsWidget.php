@@ -3,7 +3,6 @@
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
-use CDbCriteria;
 use app\extensions\cachetagging\Tags;
 use yii\base\Widget;
 

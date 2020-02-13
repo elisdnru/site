@@ -1,9 +1,6 @@
 <?php
 
 use app\components\category\TreeActiveDataProviderV2;
-use app\widgets\grid\ButtonColumn;
-use app\widgets\grid\IndentLinkColumn;
-use app\widgets\grid\LinkColumn;
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
 use yii\helpers\Url;
