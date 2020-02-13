@@ -18,31 +18,6 @@ class Uploader
     public $allowedThumbnailResolutions = [];
     public $directoryRights = 755;
 
-    /**
-     * @deprecated
-     * @param CUploadedFile $file
-     * @param string $path
-     * @return File|null
-     */
-    public function v1Upload(CUploadedFile $file, string $path): ?File
-    {
-        if (!is_dir($path)) {
-            Yii::$app->file->set($path)->createDir($this->directoryRights);
-        }
-
-        $extension = strtolower($file->extensionName);
-        $fileName = FileNameGenerator::generate($path, $extension);
-        $baseName = $fileName . '.' . $extension;
-
-        $main = $path . '/' . $baseName;
-
-        if ($file->saveAs($main)) {
-            return Yii::$app->file->set($main);
-        }
-
-        return null;
-    }
-
     public function upload(UploadedFile $file, string $path): ?File
     {
         if (!is_dir($path)) {

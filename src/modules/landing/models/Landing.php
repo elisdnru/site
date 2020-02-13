@@ -2,7 +2,6 @@
 
 namespace app\modules\landing\models;
 
-use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\category\behaviors\CategoryTreeBehaviorV2;
 use app\modules\landing\models\query\LandingQuery;
 use yii\db\ActiveQuery;
@@ -19,7 +18,7 @@ use yii\helpers\Url;
  *
  * @property Landing[] $children
  *
- * @mixin CategoryTreeBehavior
+ * @mixin CategoryTreeBehaviorV2
  */
 class Landing extends ActiveRecord
 {

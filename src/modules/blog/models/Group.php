@@ -2,7 +2,6 @@
 
 namespace app\modules\blog\models;
 
-use app\components\category\behaviors\CategoryBehavior;
 use app\components\category\behaviors\CategoryBehaviorV2;
 use app\modules\blog\models\query\GroupQuery;
 use yii\db\ActiveRecord;
@@ -11,7 +10,7 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property string $title
  *
- * @mixin CategoryBehavior
+ * @mixin CategoryBehaviorV2
  */
 class Group extends ActiveRecord
 {

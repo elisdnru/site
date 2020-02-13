@@ -280,7 +280,7 @@ class CategoryTreeBehaviorV2Test extends Unit
     public function testLinkActiveChild(): void
     {
         $category = $this->getCategory('first-root-first-middle');
-        Yii::$app->request->setQueryParams(['category' => 'first-root/first-root-first-middle']);
+        Yii::$app->request->setQueryParams(['path' => 'first-root/first-root-first-middle']);
 
         self::assertTrue($category->getLinkActive());
     }
@@ -288,7 +288,7 @@ class CategoryTreeBehaviorV2Test extends Unit
     public function testLinkActiveRoot(): void
     {
         $category = $this->getCategory('first-root');
-        Yii::$app->request->setQueryParams(['category' => 'first-root/first-root-first-middle']);
+        Yii::$app->request->setQueryParams(['path' => 'first-root/first-root-first-middle']);
 
         self::assertTrue($category->getLinkActive());
     }
@@ -296,7 +296,7 @@ class CategoryTreeBehaviorV2Test extends Unit
     public function testLinkActiveNo(): void
     {
         $category = $this->getCategory('first-root-second-middle');
-        Yii::$app->request->setQueryParams(['category' => 'first-root/first-root-first-middle']);
+        Yii::$app->request->setQueryParams(['path' => 'first-root/first-root-first-middle']);
 
         self::assertFalse($category->getLinkActive());
     }
@@ -381,10 +381,10 @@ class CategoryTreeBehaviorV2Test extends Unit
         self::assertEquals('First Root First Middle Child - First Root First Middle - First Root', $category->getFullTitle(true));
     }
 
-    private function getCategory(string $alias): TreeCategory
+    private function getCategory(string $alias): TreeCategoryV2
     {
-        /** @var TreeCategory $category */
-        $category = TreeCategory::model()->find('alias = :alias', ['alias' => $alias]);
+        /** @var TreeCategoryV2 $category */
+        $category = TreeCategoryV2::findOne(['alias' => $alias]);
         return $category;
     }
 }
