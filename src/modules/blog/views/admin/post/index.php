@@ -50,7 +50,7 @@ $this->params['admin'] = [
         [
             'name' => 'group_id',
             'header' => 'Группа',
-            'filter' => Group::model()->getAssocList(),
+            'filter' => Group::find()->getAssocList(),
             'value' => static function ($data) {
                 return $data->group ? $data->group->title : '';
             }

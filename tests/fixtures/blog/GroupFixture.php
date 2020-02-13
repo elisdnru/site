@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\fixtures\blog;
 
+use app\modules\blog\models\Group;
 use yii\test\ActiveFixture;
 
 class GroupFixture extends ActiveFixture

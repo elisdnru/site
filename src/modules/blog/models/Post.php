@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\models;
 
+use app\components\ExistOrEmptyValidator;
 use app\components\purifier\PurifyTextBehaviorV1;
 use app\components\uploader\FileUploadBehaviorV1;
 use app\components\ExistOrEmptyValidatorV1;
@@ -87,7 +88,7 @@ class Post extends CActiveRecord implements Material
             ['category_id, alias, title', 'required'],
             ['author_id', \app\components\ExistOrEmptyValidator::class, 'className' => User::class, 'attributeName' => 'id'],
             ['category_id', 'exist', 'className' => Category::class, 'attributeName' => 'id'],
-            ['group_id', ExistOrEmptyValidatorV1::class, 'className' => Group::class, 'attributeName' => 'id'],
+            ['group_id', ExistOrEmptyValidator::class, 'className' => Group::class, 'attributeName' => 'id'],
             ['public, image_show', 'numerical', 'integerOnly' => true],
             ['date', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'],
             ['styles, short, text, description, del_image', 'safe'],
@@ -111,10 +112,14 @@ class Post extends CActiveRecord implements Material
         // class name for the relations automatically generated below.
         return [
             'category' => [self::BELONGS_TO, Category::class, 'category_id'],
-            'group' => [self::BELONGS_TO, Group::class, 'group_id'],
             'posttags' => [self::HAS_MANY, PostTag::class, 'post_id'],
             'tags' => [self::MANY_MANY, Tag::class, 'blog_post_tags(post_id, tag_id)', 'order' => 'tags.title'],
         ];
+    }
+
+    public function getGroup(): ?Group
+    {
+        return Group::findOne($this->group_id);
     }
 
     public function getAuthor(): ?User
@@ -181,7 +186,7 @@ class Post extends CActiveRecord implements Material
         $criteria->compare('t.public', $this->public);
         $criteria->compare('t.group_id', $this->group_id);
 
-        $criteria->with = ['category', 'group'];
+        $criteria->with = ['category'];
 
         return new CActiveDataProvider($this, [
             'criteria' => $criteria,

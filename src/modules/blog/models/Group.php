@@ -3,9 +3,9 @@
 namespace app\modules\blog\models;
 
 use app\components\category\behaviors\CategoryBehavior;
-use CActiveDataProvider;
-use CActiveRecord;
-use CDbCriteria;
+use app\components\category\behaviors\CategoryBehaviorV2;
+use app\modules\blog\models\query\GroupQuery;
+use yii\db\ActiveRecord;
 
 /**
  * @property integer $id
@@ -13,56 +13,31 @@ use CDbCriteria;
  *
  * @mixin CategoryBehavior
  */
-class Group extends CActiveRecord
+class Group extends ActiveRecord
 {
-    /**
-     * @param string|null $className
-     * @return CActiveRecord|static
-     */
-    public static function model($className = null): self
-    {
-        return parent::model($className ?: static::class);
-    }
-
-    /**
-     * @return string the associated database table name
-     */
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'blog_post_groups';
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations(): array
+    public static function find(): GroupQuery
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return [
-            'posts_count' => [self::STAT, Post::class, 'group_id'],
-        ];
+        return new GroupQuery(static::class);
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
+    public function getPostsCount(): int
+    {
+        return Post::model()->countByAttributes(['group_id' => $this->id]);
+    }
+
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return [
             ['title', 'required'],
-            ['title', 'length', 'max' => 255],
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            ['id, title', 'safe', 'on' => 'search'],
+            ['title', 'string', 'max' => 255],
         ];
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [
@@ -71,34 +46,11 @@ class Group extends CActiveRecord
         ];
     }
 
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search(): CActiveDataProvider
-    {
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
-
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('id', $this->id);
-        $criteria->compare('title', $this->title, true);
-
-        return new CActiveDataProvider($this, [
-            'criteria' => $criteria,
-        ]);
-    }
-
     public function behaviors(): array
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryBehavior::class,
-                'titleAttribute' => 'title',
-                'defaultCriteria' => [
-                    'order' => 't.title ASC'
-                ],
+                'class' => CategoryBehaviorV2::class,
             ],
         ];
     }

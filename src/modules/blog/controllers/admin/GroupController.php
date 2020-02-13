@@ -18,9 +18,7 @@ class GroupController extends AdminController
 {
     public function actionIndex(): string
     {
-        $items = Group::model()->findAll([
-            'order' => 'title ASC',
-        ]);
+        $items = Group::find()->orderBy(['title' => SORT_ASC])->all();
 
         if ($post = Yii::$app->request->post('Group')) {
             $valid = true;
@@ -40,9 +38,7 @@ class GroupController extends AdminController
                     }
                 }
 
-                $items = Group::model()->findAll([
-                    'order' => 'title ASC',
-                ]);
+                $items = Group::find()->orderBy(['title' => SORT_ASC])->all();
             }
         }
 
@@ -83,7 +79,7 @@ class GroupController extends AdminController
 
     private function loadModel(int $id): Group
     {
-        $model = Group::model()->findByPk((int)$id);
+        $model = Group::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }

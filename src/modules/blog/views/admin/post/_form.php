@@ -105,7 +105,7 @@ use yii\web\View;
         <h4>Цепочка новостей</h4>
         <div class="row">
             <?= $form->labelEx($model, 'group_id') ?><br />
-            <?= $form->dropDownList($model, 'group_id', [0 => ''] + Group::model()->getAssocList()) ?>
+            <?= $form->dropDownList($model, 'group_id', [0 => ''] + Group::find()->getAssocList()) ?>
             <br />
             <?= $form->error($model, 'group_id') ?>
         </div>
