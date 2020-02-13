@@ -27,7 +27,7 @@ site-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/*'
 
 site-permissions:
-	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload
+	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 wait-for-it.sh var public/assets public/upload
 
 site-composer-install:
 	docker-compose run --rm php-cli composer install
@@ -36,15 +36,13 @@ site-assets-install:
 	docker-compose run --rm node-cli yarn install
 
 site-wait-db:
-	until docker-compose exec -T mysql mysqladmin ping --silent; do sleep 1 ; done
-	sleep 3
+	docker-compose run --rm php-cli ./wait-for-it.sh mysql:3306 -t 30
 
 site-migrations:
 	docker-compose run --rm php-cli composer app migrate -- --interactive=0
 
 site-wait-db-test:
-	until docker-compose exec -T mysql-test mysqladmin ping --silent; do sleep 1 ; done
-	sleep 3
+	docker-compose run --rm php-cli ./wait-for-it.sh mysql-test:3306 -t 30
 
 site-migrations-test:
 	docker-compose run --rm php-cli composer app-test migrate -- --interactive=0
