@@ -3,7 +3,6 @@
 namespace app\extensions\file;
 
 use app\extensions\AntiMagic;
-use CHttpException;
 use CUploadedFile;
 use RuntimeException;
 use Yii;
@@ -777,7 +776,6 @@ class File
      * Could be a string, or an array of strings (perl regexp supported).
      * See {@link filterPassed} method for further information on filters.
      * @return array Array of descendants filepaths
-     * @throws CHttpException
      */
     private function dirContents($directory = null, $recursive = false, $filter = []): array
     {
@@ -1150,7 +1148,6 @@ class File
      *
      * @param null $path
      * @return mixed Current CFile object on success, 'false' on fail.
-     * @throws CHttpException
      */
     public function purge($path = null): ?self
     {
