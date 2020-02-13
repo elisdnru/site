@@ -8,7 +8,7 @@ use yii\base\Behavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
-class CategoryQueryBehaviorV2 extends Behavior
+class CategoryQueryBehavior extends Behavior
 {
     public string $primaryKeyAttribute = 'id';
     public string $titleAttribute = 'title';

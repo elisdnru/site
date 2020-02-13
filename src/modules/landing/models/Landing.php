@@ -2,7 +2,7 @@
 
 namespace app\modules\landing\models;
 
-use app\components\category\behaviors\CategoryTreeBehaviorV2;
+use app\components\category\behaviors\CategoryTreeBehavior;
 use app\modules\landing\models\query\LandingQuery;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -18,7 +18,7 @@ use yii\helpers\Url;
  *
  * @property Landing[] $children
  *
- * @mixin CategoryTreeBehaviorV2
+ * @mixin CategoryTreeBehavior
  */
 class Landing extends ActiveRecord
 {
@@ -73,7 +73,7 @@ class Landing extends ActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryTreeBehaviorV2::class,
+                'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

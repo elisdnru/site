@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\menu\models\query;
 
-use app\components\category\behaviors\CategoryTreeQueryBehaviorV2;
+use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use app\modules\menu\models\Menu;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -12,7 +12,7 @@ use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
 /**
- * @mixin CategoryTreeQueryBehaviorV2
+ * @mixin CategoryTreeQueryBehavior
  */
 class MenuQuery extends ActiveQuery
 {
@@ -36,7 +36,7 @@ class MenuQuery extends ActiveQuery
     {
         return [
             'CategoryQueryBehavior' => [
-                'class' => CategoryTreeQueryBehaviorV2::class,
+                'class' => CategoryTreeQueryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],

@@ -6,7 +6,7 @@ use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
-class CategoryTreeBehaviorV2 extends CategoryBehaviorV2
+class CategoryTreeBehavior extends CategoryBehavior
 {
     /**
      * @var string model attribute

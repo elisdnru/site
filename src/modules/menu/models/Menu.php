@@ -2,7 +2,7 @@
 
 namespace app\modules\menu\models;
 
-use app\components\category\behaviors\CategoryTreeBehaviorV2;
+use app\components\category\behaviors\CategoryTreeBehavior;
 use app\modules\menu\models\query\MenuQuery;
 use Yii;
 use yii\db\ActiveQuery;
@@ -17,7 +17,7 @@ use yii\db\ActiveRecord;
  * @property integer $parent_id
  * @property integer $visible
  *
- * @mixin CategoryTreeBehaviorV2
+ * @mixin CategoryTreeBehavior
  */
 class Menu extends ActiveRecord
 {
@@ -71,7 +71,7 @@ class Menu extends ActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryTreeBehaviorV2::class,
+                'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

@@ -2,7 +2,7 @@
 
 namespace app\modules\menu\forms;
 
-use app\components\category\TreeActiveDataProviderV2;
+use app\components\category\TreeActiveDataProvider;
 use app\modules\menu\models\Menu;
 
 class MenuSearch extends Menu
@@ -14,11 +14,11 @@ class MenuSearch extends Menu
         ];
     }
 
-    public function search(array $params, $pageSize = 10): TreeActiveDataProviderV2
+    public function search(array $params, $pageSize = 10): TreeActiveDataProvider
     {
         $query = Menu::find()->alias('t');
 
-        $dataProvider = new TreeActiveDataProviderV2([
+        $dataProvider = new TreeActiveDataProvider([
             'childrenRelation' => 'children',
             'query' => $query,
             'sort' => [

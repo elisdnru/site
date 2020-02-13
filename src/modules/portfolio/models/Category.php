@@ -2,13 +2,13 @@
 
 namespace app\modules\portfolio\models;
 
-use app\components\category\models\TreeCategoryV2;
+use app\components\category\models\TreeCategory;
 
 /**
  * @property Category $parent
  * @property Category[] $children
  */
-class Category extends TreeCategoryV2
+class Category extends TreeCategory
 {
     public $urlRoute = '/portfolio/default/category';
 

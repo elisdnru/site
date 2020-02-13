@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace tests\integration\components\category;
 
-use app\components\category\models\TreeCategoryQueryV2;
+use app\components\category\models\TreeCategoryQuery;
 use Codeception\Test\Unit;
 use tests\IntegrationTester;
 use Yii;
 
-class CategoryTreeBehaviorV2Test extends Unit
+class CategoryTreeBehaviorTest extends Unit
 {
     protected IntegrationTester $tester;
 
-    private TreeCategoryQueryV2 $find;
+    private TreeCategoryQuery $find;
 
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
     protected function _before()
     {
-        if (!Yii::$app->db->getTableSchema(TreeCategoryV2::tableName())) {
-            Yii::$app->db->createCommand()->createTable(TreeCategoryV2::tableName(), [
+        if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {
+            Yii::$app->db->createCommand()->createTable(TreeCategory::tableName(), [
                 'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
                 'sort' => 'smallint(3) NOT NULL',
                 'alias' => 'varchar(255) NOT NULL',
@@ -35,7 +35,7 @@ class CategoryTreeBehaviorV2Test extends Unit
             'category' => TreeCategoryFixture::class,
         ]);
 
-        $this->find = TreeCategoryV2::find();
+        $this->find = TreeCategory::find();
     }
 
     public function testArray(): void
@@ -381,10 +381,10 @@ class CategoryTreeBehaviorV2Test extends Unit
         self::assertEquals('First Root First Middle Child - First Root First Middle - First Root', $category->getFullTitle(true));
     }
 
-    private function getCategory(string $alias): TreeCategoryV2
+    private function getCategory(string $alias): TreeCategory
     {
-        /** @var TreeCategoryV2 $category */
-        $category = TreeCategoryV2::findOne(['alias' => $alias]);
+        /** @var TreeCategory $category */
+        $category = TreeCategory::findOne(['alias' => $alias]);
         return $category;
     }
 }

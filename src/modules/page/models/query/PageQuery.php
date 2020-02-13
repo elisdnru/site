@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\models\query;
 
-use app\components\category\behaviors\CategoryTreeQueryBehaviorV2;
+use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use app\modules\page\models\Page;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -12,7 +12,7 @@ use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
 /**
- * @mixin CategoryTreeQueryBehaviorV2
+ * @mixin CategoryTreeQueryBehavior
  */
 class PageQuery extends ActiveQuery
 {
@@ -20,7 +20,7 @@ class PageQuery extends ActiveQuery
     {
         return [
             'CategoryQueryBehavior' => [
-                'class' => CategoryTreeQueryBehaviorV2::class,
+                'class' => CategoryTreeQueryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'defaultOrder' => ['title' => SORT_ASC],

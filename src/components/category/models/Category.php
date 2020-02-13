@@ -2,7 +2,7 @@
 
 namespace app\components\category\models;
 
-use app\components\category\behaviors\CategoryBehaviorV2;
+use app\components\category\behaviors\CategoryBehavior;
 use app\components\Transliterator;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -16,15 +16,15 @@ use yii\helpers\Url;
  * @property string $pagetitle
  * @property string $description
  *
- * @mixin CategoryBehaviorV2
+ * @mixin CategoryBehavior
  */
-abstract class CategoryV2 extends ActiveRecord
+abstract class Category extends ActiveRecord
 {
     public $urlRoute = '';
 
-    public static function find(): CategoryQueryV2
+    public static function find(): CategoryQuery
     {
-        return new CategoryQueryV2(static::class);
+        return new CategoryQuery(static::class);
     }
 
     public function rules(): array
@@ -65,7 +65,7 @@ abstract class CategoryV2 extends ActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryBehaviorV2::class,
+                'class' => CategoryBehavior::class,
                 'requestPathAttribute' => 'category',
             ],
         ];

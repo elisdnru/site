@@ -2,7 +2,7 @@
 
 namespace app\modules\blog\models;
 
-use app\components\category\behaviors\CategoryBehaviorV2;
+use app\components\category\behaviors\CategoryBehavior;
 use app\modules\blog\models\query\GroupQuery;
 use yii\db\ActiveRecord;
 
@@ -10,7 +10,7 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property string $title
  *
- * @mixin CategoryBehaviorV2
+ * @mixin CategoryBehavior
  */
 class Group extends ActiveRecord
 {
@@ -49,7 +49,7 @@ class Group extends ActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryBehaviorV2::class,
+                'class' => CategoryBehavior::class,
             ],
         ];
     }

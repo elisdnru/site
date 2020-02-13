@@ -1,8 +1,8 @@
 <?php
 /** @var $model Category */
-/** @var $dataProvider TreeActiveDataProviderV2 */
+/** @var $dataProvider TreeActiveDataProvider */
 
-use app\components\category\TreeActiveDataProviderV2;
+use app\components\category\TreeActiveDataProvider;
 use app\modules\portfolio\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;

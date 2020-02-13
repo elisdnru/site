@@ -2,22 +2,21 @@
 
 namespace app\components\category\models;
 
-use app\components\category\behaviors\CategoryQueryBehaviorV2;
-use yii\db\ActiveQuery;
+use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
 /**
- * @mixin CategoryQueryBehaviorV2
+ * @mixin CategoryTreeQueryBehavior
  */
-class CategoryQueryV2 extends ActiveQuery
+class TreeCategoryQuery extends CategoryQuery
 {
     public function behaviors(): array
     {
         return [
             'CategoryQueryBehavior' => [
-                'class' => CategoryQueryBehaviorV2::class,
+                'class' => CategoryTreeQueryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
@@ -27,7 +26,7 @@ class CategoryQueryV2 extends ActiveQuery
 
     /**
      * @param Connection $db
-     * @return CategoryV2[]
+     * @return TreeCategory[]
      */
     public function all($db = null): array
     {
@@ -37,7 +36,7 @@ class CategoryQueryV2 extends ActiveQuery
     /**
      * @param int $batchSize
      * @param Connection $db
-     * @return CategoryV2[]|BatchQueryResult
+     * @return TreeCategory[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
     {
@@ -46,9 +45,9 @@ class CategoryQueryV2 extends ActiveQuery
 
     /**
      * @param Connection $db
-     * @return CategoryV2|ActiveRecord|null
+     * @return TreeCategory|ActiveRecord|null
      */
-    public function one($db = null): ?CategoryV2
+    public function one($db = null): ?TreeCategory
     {
         return parent::one($db);
     }

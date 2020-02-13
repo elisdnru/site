@@ -8,6 +8,6 @@ use yii\test\ActiveFixture;
 
 class TreeCategoryFixture extends ActiveFixture
 {
-    public $modelClass = TreeCategoryV2::class;
+    public $modelClass = TreeCategory::class;
     public $dataFile = __DIR__ . '/_data/test_tree_categories.php';
 }

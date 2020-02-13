@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models\query;
 
-use app\components\category\behaviors\CategoryQueryBehaviorV2;
+use app\components\category\behaviors\CategoryQueryBehavior;
 use app\modules\blog\models\Group;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -12,7 +12,7 @@ use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
 /**
- * @mixin CategoryQueryBehaviorV2
+ * @mixin CategoryQueryBehavior
  */
 class GroupQuery extends ActiveQuery
 {
@@ -20,7 +20,7 @@ class GroupQuery extends ActiveQuery
     {
         return [
             'CategoryQueryBehavior' => [
-                'class' => CategoryQueryBehaviorV2::class,
+                'class' => CategoryQueryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'defaultOrder' => ['title' => SORT_ASC],

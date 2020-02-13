@@ -2,22 +2,22 @@
 
 namespace app\components\category\models;
 
-use app\components\category\behaviors\CategoryTreeBehaviorV2;
+use app\components\category\behaviors\CategoryTreeBehavior;
 use yii\db\ActiveQuery;
 use yii\helpers\Url;
 
 /**
  * @property string $parent_id
  *
- * @mixin CategoryTreeBehaviorV2
+ * @mixin CategoryTreeBehavior
  */
-abstract class TreeCategoryV2 extends CategoryV2
+abstract class TreeCategory extends Category
 {
     public $indent = 0;
 
-    public static function find(): TreeCategoryQueryV2
+    public static function find(): TreeCategoryQuery
     {
-        return new TreeCategoryQueryV2(static::class);
+        return new TreeCategoryQuery(static::class);
     }
 
     public function rules(): array
@@ -38,23 +38,23 @@ abstract class TreeCategoryV2 extends CategoryV2
     {
         return array_replace(parent::behaviors(), [
             'CategoryBehavior' => [
-                'class' => CategoryTreeBehaviorV2::class,
+                'class' => CategoryTreeBehavior::class,
             ],
         ]);
     }
 
     /**
-     * @return CategoryQueryV2|ActiveQuery
+     * @return CategoryQuery|ActiveQuery
      */
-    public function getParent(): CategoryQueryV2
+    public function getParent(): CategoryQuery
     {
         return $this->hasOne(static::class, ['id' => 'parent_id']);
     }
 
     /**
-     * @return CategoryQueryV2|ActiveQuery
+     * @return CategoryQuery|ActiveQuery
      */
-    public function getChildren(): CategoryQueryV2
+    public function getChildren(): CategoryQuery
     {
         return $this->hasMany(static::class, ['parent_id' => 'id'])
             ->alias('children')

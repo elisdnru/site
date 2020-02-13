@@ -1,7 +1,7 @@
 <?php
 /** @var $this \yii\web\View */
 
-use app\components\category\TreeActiveDataProviderV2;
+use app\components\category\TreeActiveDataProvider;
 use app\modules\menu\models\Menu;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -9,7 +9,7 @@ use yii\widgets\LinkPager;
 
 /** @var $items Menu[] */
 /** @var $model Menu */
-/** @var $dataProvider TreeActiveDataProviderV2 */
+/** @var $dataProvider TreeActiveDataProvider */
 
 $this->title = 'Меню';
 $this->params['breadcrumbs'] = [

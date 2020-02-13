@@ -1,13 +1,13 @@
 <?php
 
-use app\components\category\TreeActiveDataProviderV2;
+use app\components\category\TreeActiveDataProvider;
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 /** @var $model Landing */
-/** @var $dataProvider TreeActiveDataProviderV2 */
+/** @var $dataProvider TreeActiveDataProvider */
 
 $this->title = 'Лендинги';
 $this->params['breadcrumbs'] = [

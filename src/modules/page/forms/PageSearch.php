@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\forms;
 
-use app\components\category\TreeActiveDataProviderV2;
+use app\components\category\TreeActiveDataProvider;
 use app\modules\page\models\Page;
 
 class PageSearch extends Page
@@ -16,11 +16,11 @@ class PageSearch extends Page
         ];
     }
 
-    public function search(array $params, $pageSize = 100): TreeActiveDataProviderV2
+    public function search(array $params, $pageSize = 100): TreeActiveDataProvider
     {
         $query = Page::find()->alias('t');
 
-        $dataProvider = new TreeActiveDataProviderV2([
+        $dataProvider = new TreeActiveDataProvider([
             'childrenRelation' => 'children',
             'query' => $query,
             'sort' => [

@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 
-class CategoryBehaviorV2 extends Behavior
+class CategoryBehavior extends Behavior
 {
     public string $aliasAttribute = 'alias';
     public string $linkActiveAttribute = 'linkActive';

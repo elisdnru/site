@@ -2,9 +2,9 @@
 
 namespace app\modules\blog\models;
 
-use app\components\category\models\TreeCategoryV2;
+use app\components\category\models\TreeCategory;
 
-class Category extends TreeCategoryV2
+class Category extends TreeCategory
 {
     public $urlRoute = '/blog/default/category';
 

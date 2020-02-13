@@ -6,7 +6,7 @@ use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
 use yii\db\QueryInterface;
 
-class TreeActiveDataProviderV2 extends ActiveDataProvider
+class TreeActiveDataProvider extends ActiveDataProvider
 {
     public string $childrenRelation = 'children';
 

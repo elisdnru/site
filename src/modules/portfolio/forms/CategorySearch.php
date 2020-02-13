@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\forms;
 
-use app\components\category\TreeActiveDataProviderV2;
+use app\components\category\TreeActiveDataProvider;
 use app\modules\portfolio\models\Category;
 
 class CategorySearch extends Category
@@ -14,11 +14,11 @@ class CategorySearch extends Category
         ];
     }
 
-    public function search(array $params, $pageSize = 10): TreeActiveDataProviderV2
+    public function search(array $params, $pageSize = 10): TreeActiveDataProvider
     {
         $query = Category::find()->alias('t');
 
-        $dataProvider = new TreeActiveDataProviderV2([
+        $dataProvider = new TreeActiveDataProvider([
             'childrenRelation' => 'children',
             'query' => $query,
             'sort' => [

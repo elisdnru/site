@@ -7,7 +7,7 @@ namespace app\components\category\behaviors;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
-class CategoryTreeQueryBehaviorV2 extends CategoryQueryBehaviorV2
+class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 {
     /**
      * @var string model attribute
@@ -224,7 +224,7 @@ class CategoryTreeQueryBehaviorV2 extends CategoryQueryBehaviorV2
             $model = $query->limit(1)->one();
         } else {
             $query->andWhere([$this->aliasAttribute => $chunks[0]]);
-            /** @var ActiveRecord|CategoryTreeBehaviorV2 $parent */
+            /** @var ActiveRecord|CategoryTreeBehavior $parent */
             $parent = $query->limit(1)->one();
 
             if ($parent !== null) {

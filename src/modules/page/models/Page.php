@@ -2,7 +2,7 @@
 
 namespace app\modules\page\models;
 
-use app\components\category\behaviors\CategoryTreeBehaviorV2;
+use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Transliterator;
 use app\modules\page\models\query\PageQuery;
@@ -30,7 +30,7 @@ use yii\helpers\Url;
  * @property Page[] $children
  * @property Page $parent
  *
- * @mixin CategoryTreeBehaviorV2
+ * @mixin CategoryTreeBehavior
  */
 class Page extends ActiveRecord
 {
@@ -118,7 +118,7 @@ class Page extends ActiveRecord
     {
         return [
             'CategoryBehavior' => [
-                'class' => CategoryTreeBehaviorV2::class,
+                'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',

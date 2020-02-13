@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace tests\integration\components\category;
 
-use app\components\category\models\CategoryQueryV2;
+use app\components\category\models\CategoryQuery;
 use Codeception\Test\Unit;
 use tests\IntegrationTester;
 use Yii;
 
-class CategoryBehaviorV2Test extends Unit
+class CategoryBehaviorTest extends Unit
 {
     protected IntegrationTester $tester;
 
-    private CategoryQueryV2 $query;
+    private CategoryQuery $query;
 
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
     protected function _before()
     {
-        if (!Yii::$app->db->getTableSchema(CategoryV2::tableName())) {
-            Yii::$app->db->createCommand()->createTable(CategoryV2::tableName(), [
+        if (!Yii::$app->db->getTableSchema(Category::tableName())) {
+            Yii::$app->db->createCommand()->createTable(Category::tableName(), [
                 'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
                 'sort' => 'smallint(3) NOT NULL',
                 'alias' => 'varchar(255) NOT NULL',
@@ -31,10 +31,10 @@ class CategoryBehaviorV2Test extends Unit
         Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
 
         $this->tester->haveFixtures([
-            'category' => CategoryV2Fixture::class
+            'category' => CategoryFixture::class
         ]);
 
-        $this->query = CategoryV2::find();
+        $this->query = Category::find();
     }
 
     public function testArray(): void
@@ -131,10 +131,10 @@ class CategoryBehaviorV2Test extends Unit
         self::assertFalse($category->getLinkActive());
     }
 
-    private function getCategory(string $alias): CategoryV2
+    private function getCategory(string $alias): Category
     {
-        /** @var CategoryV2 $category */
-        $category = CategoryV2::findOne(['alias' => $alias]);
+        /** @var Category $category */
+        $category = Category::findOne(['alias' => $alias]);
         return $category;
     }
 }
