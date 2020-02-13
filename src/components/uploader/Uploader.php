@@ -5,7 +5,6 @@ namespace app\components\uploader;
 use app\components\FileNameGenerator;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
-use CUploadedFile;
 use RuntimeException;
 use StdClass;
 use Yii;
