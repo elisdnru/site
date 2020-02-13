@@ -76,7 +76,7 @@ JqueryUiAsset::register($this);
                     <a href="<?= $editurl ?>"><?= $item->category->title ?></a>
                 </td>
                 <td width="20px" style="text-align: center; padding: 0" title="Опубликовано">
-                    <a class="field" href="<?= $toggle_public ?>">
+                    <a class="ajax_post" href="<?= $toggle_public ?>">
                         <?php if ($item->public) : ?>
                             <img src="/images/admin/yes.png" alt="">
                         <?php else : ?>
