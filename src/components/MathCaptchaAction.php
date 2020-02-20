@@ -8,7 +8,7 @@ class MathCaptchaAction extends CaptchaAction
 {
     protected function generateVerifyCode()
     {
-        return random_int(3, 20);
+        return (string)random_int(3, 20);
     }
 
     protected function renderImage($code): string

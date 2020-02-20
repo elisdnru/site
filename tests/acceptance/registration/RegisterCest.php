@@ -89,4 +89,11 @@ class RegisterCest
         $I->seeResponseCodeIs(200);
         $I->seeInSource('PNG');
     }
+
+    public function captchaRefresh(AcceptanceTester $I): void
+    {
+        $I->amOnPage('registration/captcha1?refresh=1&_=1582205362403');
+        $I->seeResponseCodeIs(200);
+        $I->seeInSource('"url":');
+    }
 }
