@@ -24,7 +24,7 @@ class PostSearch extends Post
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-                'defaultOrder' => ['t.title' => SORT_ASC],
+                'defaultOrder' => ['t.date' => SORT_DESC],
                 'attributes' => [
                     't.date',
                     't.update_date',
