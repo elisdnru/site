@@ -38,11 +38,6 @@ class DateLimiter
         return false;
     }
 
-    public function getSearchString(): string
-    {
-        return $this->getDate() . '%';
-    }
-
     public function getDate(): string
     {
         return $this->pad($this->year, 4) . ($this->month ? '-' . $this->pad($this->month, 2) : '') . ($this->day ? '-' . $this->pad($this->day, 2) : '');

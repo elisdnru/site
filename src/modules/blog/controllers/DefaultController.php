@@ -53,7 +53,7 @@ class DefaultController extends Controller
         }
 
         $query = $this->getBlogQuery()
-            ->andWhere(['like', 'date', $limiter->getSearchString()]);
+            ->andWhere(['like', 'date', $limiter->getDate()]);
 
         return $this->render('date', [
             'dataProvider' => $this->createProvider($query),
