@@ -13,7 +13,11 @@ class Acceptance extends \Codeception\Module
         $this->getMailerClient()->delete('/api/v1/messages');
     }
 
-    public function seeEmailSentTo(string $to): void
+    /**
+     * @param string $to
+     * @return mixed
+     */
+    public function seeEmailSentTo(string $to)
     {
         $client = $this->getMailerClient();
         $response = $client->get('/api/v2/search?' . http_build_query(['kind' => 'to', 'query' => $to]));
