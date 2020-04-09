@@ -41,6 +41,9 @@
         "bower-asset/yii2-pjax":"*"
     },
     "autoload": {
+        "files": [
+            "src/extensions/markdown/markdown/markdown.php"
+        ],
         "psr-4": {
             "app\\": "src/"
         }

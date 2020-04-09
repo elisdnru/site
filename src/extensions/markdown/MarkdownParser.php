@@ -7,6 +7,9 @@ use Text_Highlighter;
 use Text_Highlighter_Renderer_Html;
 use yii\helpers\Html;
 
+// phpcs:disable PSR1.Methods.CamelCapsMethodName
+// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+
 /**
  * MarkdownParser class file.
  *
@@ -15,8 +18,6 @@ use yii\helpers\Html;
  * @copyright 2008-2013 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
-
-require_once(__DIR__ . '/markdown/markdown.php');
 
 /**
  * MarkdownParser is a wrapper of {@link http://michelf.com/projects/php-markdown/extra/ MarkdownExtra_Parser}.
@@ -66,10 +67,10 @@ class MarkdownParser extends MarkdownExtra_Parser
     public function _doCodeBlocks_callback($matches)
     {
         $codeblock = $this->outdent($matches[1]);
-        if (($codeblock = $this->highlightCodeBlock($codeblock)) !== null)
+        if (($codeblock = $this->highlightCodeBlock($codeblock)) !== null) {
             return "\n\n" . $this->hashBlock($codeblock) . "\n\n";
-        else
-            return parent::_doCodeBlocks_callback($matches);
+        }
+        return parent::_doCodeBlocks_callback($matches);
     }
 
     /**
@@ -95,8 +96,8 @@ class MarkdownParser extends MarkdownExtra_Parser
             $codeblock = ltrim(substr($codeblock, $tagLen));
             $output = preg_replace('/<span\s+[^>]*>(\s*)<\/span>/', '\1', $highlighter->highlight($codeblock));
             return "<div class=\"{$this->highlightCssClass}\">" . $output . "</div>";
-        } else
-            return "<pre>" . Html::encode($codeblock) . "</pre>";
+        }
+        return "<pre>" . Html::encode($codeblock) . "</pre>";
     }
 
     /**
@@ -126,8 +127,9 @@ class MarkdownParser extends MarkdownExtra_Parser
         }
         $lang = current(preg_split('/\s+/', substr(substr($options, 1), 0, -1), 2));
         $highlighter = Text_Highlighter::factory($lang);
-        if ($highlighter)
+        if ($highlighter) {
             $highlighter->setRenderer(new Text_Highlighter_Renderer_Html($this->getHighlightConfig($options)));
+        }
         return $highlighter;
     }
 
@@ -138,9 +140,10 @@ class MarkdownParser extends MarkdownExtra_Parser
      */
     private function getHighlightConfig($options)
     {
-        $config = array('use_language' => true);
-        if ($this->getInlineOption('showLineNumbers', $options, false))
+        $config = ['use_language' => true];
+        if ($this->getInlineOption('showLineNumbers', $options, false)) {
             $config['numbers'] = HL_NUMBERS_LI;
+        }
         $config['tabsize'] = $this->getInlineOption('tabSize', $options, 4);
         return $config;
     }
@@ -154,9 +157,9 @@ class MarkdownParser extends MarkdownExtra_Parser
      */
     private function getInlineOption($name, $str, $defaultValue)
     {
-        if (preg_match('/' . $name . '(\s*=\s*(\d+))?/i', $str, $v) && count($v) > 2)
+        if (preg_match('/' . $name . '(\s*=\s*(\d+))?/i', $str, $v) && count($v) > 2) {
             return $v[2];
-        else
-            return $defaultValue;
+        }
+        return $defaultValue;
     }
 }

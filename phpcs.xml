@@ -55,5 +55,6 @@
     <file>src</file>
     <file>tests</file>
 
-    <exclude-pattern>src/extensions/markdown/*</exclude-pattern>
+    <exclude-pattern>src/extensions/markdown/markdown/*</exclude-pattern>
+    <exclude-pattern>src/extensions/markdown/TextHighlighter/*</exclude-pattern>
 </ruleset>
