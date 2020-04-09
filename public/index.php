@@ -13,8 +13,7 @@ if (getenv('SENTRY_DSN')) {
 }
 
 require_once __DIR__ . '/../config/env.php';
-
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
 $file = getenv('APP_ENV') === 'test' ? 'web-test' : 'web';
 

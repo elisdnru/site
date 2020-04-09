@@ -10,8 +10,7 @@ if (file_exists(__DIR__ . '/../.env')) {
 }
 
 require_once __DIR__ . '/../config/env.php';
-
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
 $config = require __DIR__ . '/../config/console.php';
 $app = new yii\console\Application($config);

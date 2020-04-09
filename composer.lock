@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdbaddfa18b52848098a10317194d1d6",
+    "content-hash": "c0fa21fbc5790ff0de3d962482f838d1",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -2324,107 +2324,6 @@
                 "uuid"
             ],
             "time": "2020-03-23T13:44:10+00:00"
-        },
-        {
-            "name": "yiisoft/yii",
-            "version": "1.1.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/yii.git",
-                "reference": "bf1d26e5a2c2b89d7c39e8566b3abb13c39deab3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii/zipball/bf1d26e5a2c2b89d7c39e8566b3abb13c39deab3",
-                "reference": "bf1d26e5a2c2b89d7c39e8566b3abb13c39deab3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.1.0"
-            },
-            "require-dev": {
-                "pear/archive_tar": "~1.4.6",
-                "phing/phing": "2.*",
-                "phpseclib/mcrypt_compat": "^1.0",
-                "phpunit/phpunit": "~4.8.34",
-                "phpunit/phpunit-selenium": "~1.4.0"
-            },
-            "suggest": {
-                "ext-mcrypt": "Required by encrypt and decrypt methods of CSecurityManager",
-                "phpseclib/mcrypt_compat": "To provide mcrypt polyfill when extension is unavailable"
-            },
-            "bin": [
-                "framework/yiic"
-            ],
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "framework/YiiBase.php",
-                    "framework/yii.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/",
-                    "role": "Founder and project lead"
-                },
-                {
-                    "name": "Alexander Makarov",
-                    "email": "sam@rmcreative.ru",
-                    "homepage": "http://rmcreative.ru/",
-                    "role": "Core framework development"
-                },
-                {
-                    "name": "Maurizio Domba",
-                    "homepage": "http://mdomba.info/",
-                    "role": "Core framework development"
-                },
-                {
-                    "name": "Carsten Brandt",
-                    "email": "mail@cebe.cc",
-                    "homepage": "http://cebe.cc/",
-                    "role": "Core framework development"
-                },
-                {
-                    "name": "Timur Ruziev",
-                    "email": "resurtm@gmail.com",
-                    "homepage": "http://resurtm.com/",
-                    "role": "Core framework development"
-                },
-                {
-                    "name": "Paul Klimov",
-                    "email": "klimov.paul@gmail.com",
-                    "role": "Core framework development"
-                },
-                {
-                    "name": "Wei Zhuo",
-                    "email": "weizhuo@gmail.com",
-                    "role": "Project site maintenance and development"
-                },
-                {
-                    "name": "Sebastián Thierer",
-                    "email": "sebas@artfos.com",
-                    "role": "Component development"
-                },
-                {
-                    "name": "Jeffrey Winesett",
-                    "email": "jefftulsa@gmail.com",
-                    "role": "Documentation and marketing"
-                }
-            ],
-            "description": "Yii Web Programming Framework",
-            "homepage": "http://www.yiiframework.com/",
-            "keywords": [
-                "framework",
-                "yii"
-            ],
-            "time": "2020-01-16T22:29:49+00:00"
         },
         {
             "name": "yiisoft/yii2",
