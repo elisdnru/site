@@ -9,10 +9,10 @@ use yii\web\JqueryAsset;
 
 class JqueryUiAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/yiisoft/yii/framework/web/js/source/jui';
+    public $sourcePath = '@app/../assets/jui';
 
     public $css = [
-        'css/base/jquery-ui.css',
+        'css/jquery-ui.css',
     ];
 
     public $js = [
