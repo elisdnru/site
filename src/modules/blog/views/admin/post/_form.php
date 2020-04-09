@@ -13,7 +13,7 @@ use yii\web\View;
 /** @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div id="post-form" class="form">
 
     <form action="?" method="post" enctype="multipart/form-data">
 

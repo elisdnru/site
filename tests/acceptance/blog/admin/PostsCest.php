@@ -48,8 +48,15 @@ class PostsCest
     public function update(AcceptanceTester $I): void
     {
         $I->amLoggedInByAdmin();
-        $I->amOnPage('blog/admin/post/2/update');
+        $I->amOnPage('blog/admin/post/7/update');
         $I->seeResponseCodeIs(200);
         $I->see('Редактирование записи', 'h1');
+
+        $I->seeElement('#post-form');
+
+        $I->fillField('Post[text]', 'New Text');
+        $I->click('Сохранить', '#post-form');
+
+        $I->seeInSource('<p>New Text</p>');
     }
 }
