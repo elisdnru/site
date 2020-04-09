@@ -24,8 +24,8 @@
  * @ignore
  */
 
-require_once dirname(__FILE__).'/../Renderer.php';
-require_once dirname(__FILE__).'/../Renderer/Array.php';
+require_once dirname(__FILE__) . '/../Renderer.php';
+require_once dirname(__FILE__) . '/../Renderer/Array.php';
 
 /**
  * JSON renderer, based on Andrey Demenev's HTML renderer.
@@ -38,7 +38,6 @@ require_once dirname(__FILE__).'/../Renderer/Array.php';
  * @version    Release: 0.5.0
  * @link       http://pear.php.net/package/Text_Highlighter
  */
-
 class Text_Highlighter_Renderer_JSON extends Text_Highlighter_Renderer_Array
 {
 
@@ -67,7 +66,7 @@ class Text_Highlighter_Renderer_JSON extends Text_Highlighter_Renderer_Array
 
         }
 
-        $this->_output  = '['. implode(',', $json_array) .']';
+        $this->_output = '[' . implode(',', $json_array) . ']';
         $this->_output = str_replace("\n", '\n', $this->_output);
 
     }

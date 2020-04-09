@@ -32,7 +32,6 @@
  * @link       http://pear.php.net/package/Text_Highlighter
  * @abstract
  */
-
 class Text_Highlighter_Renderer
 {
     /**
@@ -56,7 +55,7 @@ class Text_Highlighter_Renderer
      *
      * @access public
      *
-     * @param  array $options  Rendering options. Renderer-specific.
+     * @param array $options Rendering options. Renderer-specific.
      */
     function __construct($options = array())
     {
@@ -68,7 +67,7 @@ class Text_Highlighter_Renderer
      *
      * @access public
      *
-     * @param  array $options  Rendering options. Renderer-specific.
+     * @param array $options Rendering options. Renderer-specific.
      */
     function reset()
     {
@@ -80,7 +79,7 @@ class Text_Highlighter_Renderer
      *
      * @access public
      *
-     * @param  string $str Code to preprocess
+     * @param string $str Code to preprocess
      * @return string Preprocessed code
      */
     function preprocess($str)
@@ -94,8 +93,8 @@ class Text_Highlighter_Renderer
      * @abstract
      * @access public
      *
-     * @param  string $class   Token class
-     * @param  string $content Token content
+     * @param string $class Token class
+     * @param string $content Token content
      */
     function acceptToken($class, $content)
     {

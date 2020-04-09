@@ -26,8 +26,8 @@
  * @ignore
  */
 
-require_once dirname(__FILE__).'/../Renderer.php';
-require_once dirname(__FILE__).'/../Renderer/Array.php';
+require_once dirname(__FILE__) . '/../Renderer.php';
+require_once dirname(__FILE__) . '/../Renderer/Array.php';
 
 /**
  * HTML basic tags renderer, based on Andrey Demenev's HTML renderer.
@@ -64,7 +64,6 @@ require_once dirname(__FILE__).'/../Renderer/Array.php';
  * @version    Release: 0.5.0
  * @link       http://pear.php.net/package/Text_Highlighter
  */
-
 class Text_Highlighter_Renderer_HtmlTags extends Text_Highlighter_Renderer_Array
 {
 
@@ -85,21 +84,21 @@ class Text_Highlighter_Renderer_HtmlTags extends Text_Highlighter_Renderer_Array
      * @var array
      */
     var $_hilite_tags = array(
-        'default'    => '',
-        'code'       => '',
-        'brackets'   => 'b',
-        'comment'    => 'i',
-        'mlcomment'  => 'i',
-        'quotes'     => '',
-        'string'     => 'i',
+        'default' => '',
+        'code' => '',
+        'brackets' => 'b',
+        'comment' => 'i',
+        'mlcomment' => 'i',
+        'quotes' => '',
+        'string' => 'i',
         'identifier' => 'b',
-        'builtin'    => 'b',
-        'reserved'   => 'u',
-        'inlinedoc'  => 'i',
-        'var'        => 'b',
-        'url'        => 'i',
-        'special'    => '',
-        'number'     => '',
+        'builtin' => 'b',
+        'reserved' => 'u',
+        'inlinedoc' => 'i',
+        'var' => 'b',
+        'url' => 'i',
+        'special' => '',
+        'number' => '',
         'inlinetags' => '',
     );
 
@@ -156,7 +155,7 @@ class Text_Highlighter_Renderer_HtmlTags extends Text_Highlighter_Renderer_Array
 
             $iswhitespace = ctype_space($content);
             if (!$iswhitespace && !empty($this->_hilite_tags[$class])) {
-                $html_output .= '<'. $this->_hilite_tags[$class] . '>' . $content . '</'. $this->_hilite_tags[$class] . '>';
+                $html_output .= '<' . $this->_hilite_tags[$class] . '>' . $content . '</' . $this->_hilite_tags[$class] . '>';
             } else {
                 $html_output .= $content;
             }

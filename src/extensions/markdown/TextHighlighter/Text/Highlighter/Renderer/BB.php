@@ -25,7 +25,7 @@
  * @ignore
  */
 
-require_once dirname(__FILE__).'/../Renderer.php';
+require_once dirname(__FILE__) . '/../Renderer.php';
 
 /**
  * BB code renderer, based on Andrey Demenev's HTML renderer.
@@ -70,7 +70,6 @@ require_once dirname(__FILE__).'/../Renderer.php';
  * @version    Release: 0.5.0
  * @link       http://pear.php.net/package/Text_Highlighter
  */
-
 class Text_Highlighter_Renderer_BB extends Text_Highlighter_Renderer_Array
 {
 
@@ -90,11 +89,11 @@ class Text_Highlighter_Renderer_BB extends Text_Highlighter_Renderer_Array
      *
      * @var array
      */
-    var $_bb_tags = array (
-        'color'     => 'color',
-        'list'      => 'list',
+    var $_bb_tags = array(
+        'color' => 'color',
+        'list' => 'list',
         'list_item' => '*',
-        'code'      => 'code',
+        'code' => 'code',
     );
 
     /**
@@ -102,7 +101,7 @@ class Text_Highlighter_Renderer_BB extends Text_Highlighter_Renderer_Array
      *
      * @var array
      */
-    var $_tag_brackets = array ('start' => '[', 'end' => ']');
+    var $_tag_brackets = array('start' => '[', 'end' => ']');
 
     /**
      * Colors map
@@ -110,21 +109,21 @@ class Text_Highlighter_Renderer_BB extends Text_Highlighter_Renderer_Array
      * @var boolean
      */
     var $_colors = array(
-        'default'    => 'Black',
-        'code'       => 'Gray',
-        'brackets'   => 'Olive',
-        'comment'    => 'Orange',
-        'mlcomment'  => 'Orange',
-        'quotes'     => 'Darkred',
-        'string'     => 'Red',
+        'default' => 'Black',
+        'code' => 'Gray',
+        'brackets' => 'Olive',
+        'comment' => 'Orange',
+        'mlcomment' => 'Orange',
+        'quotes' => 'Darkred',
+        'string' => 'Red',
         'identifier' => 'Blue',
-        'builtin'    => 'Teal',
-        'reserved'   => 'Green',
-        'inlinedoc'  => 'Blue',
-        'var'        => 'Darkblue',
-        'url'        => 'Blue',
-        'special'    => 'Navy',
-        'number'     => 'Maroon',
+        'builtin' => 'Teal',
+        'reserved' => 'Green',
+        'inlinedoc' => 'Blue',
+        'var' => 'Darkblue',
+        'url' => 'Blue',
+        'special' => 'Navy',
+        'number' => 'Maroon',
         'inlinetags' => 'Blue',
     );
 
@@ -173,8 +172,8 @@ class Text_Highlighter_Renderer_BB extends Text_Highlighter_Renderer_Array
 
         $bb_output = '';
 
-        $color_start = $this->_tag_brackets['start'] . $this->_bb_tags['color'] . '=%s'  . $this->_tag_brackets['end'];
-        $color_end   = $this->_tag_brackets['start'] . '/' . $this->_bb_tags['color'] . $this->_tag_brackets['end'];
+        $color_start = $this->_tag_brackets['start'] . $this->_bb_tags['color'] . '=%s' . $this->_tag_brackets['end'];
+        $color_end = $this->_tag_brackets['start'] . '/' . $this->_bb_tags['color'] . $this->_tag_brackets['end'];
 
         // loop through each class=>content pair
         foreach ($output AS $token) {
@@ -201,27 +200,26 @@ class Text_Highlighter_Renderer_BB extends Text_Highlighter_Renderer_Array
         if ($this->_numbers) {
 
             $item_tag = $this->_tag_brackets['start'] .
-                        $this->_bb_tags['list_item'] .
-                        $this->_tag_brackets['end'];
-            $this->_output = $item_tag . str_replace("\n", "\n". $item_tag .' ', $bb_output);
+                $this->_bb_tags['list_item'] .
+                $this->_tag_brackets['end'];
+            $this->_output = $item_tag . str_replace("\n", "\n" . $item_tag . ' ', $bb_output);
             $this->_output = $this->_tag_brackets['start'] .
-                             $this->_bb_tags['list'] .
-                             $this->_tag_brackets['end'] .
-                             $this->_output .
-                             $this->_tag_brackets['start'] .
-                             '/'.
-                             $this->_bb_tags['list'] .
-                             $this->_tag_brackets['end']
-                             ;
+                $this->_bb_tags['list'] .
+                $this->_tag_brackets['end'] .
+                $this->_output .
+                $this->_tag_brackets['start'] .
+                '/' .
+                $this->_bb_tags['list'] .
+                $this->_tag_brackets['end'];
         } else {
             $this->_output = $this->_tag_brackets['start'] .
-                             $this->_bb_tags['code'] .
-                             $this->_tag_brackets['end'] .
-                             $bb_output .
-                             $this->_tag_brackets['start'] .
-                             '/' .
-                             $this->_bb_tags['code'] .
-                             $this->_tag_brackets['end'];
+                $this->_bb_tags['code'] .
+                $this->_tag_brackets['end'] .
+                $bb_output .
+                $this->_tag_brackets['start'] .
+                '/' .
+                $this->_bb_tags['code'] .
+                $this->_tag_brackets['end'];
         }
     }
 

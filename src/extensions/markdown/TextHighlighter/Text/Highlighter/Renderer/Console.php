@@ -24,9 +24,9 @@
  * @ignore
  */
 
-require_once dirname(__FILE__).'/../Renderer.php';
+require_once dirname(__FILE__) . '/../Renderer.php';
 
-define ('HL_CONSOLE_DEFCOLOR', "\033[0m");
+define('HL_CONSOLE_DEFCOLOR', "\033[0m");
 
 /**
  * Console renderer
@@ -48,7 +48,6 @@ define ('HL_CONSOLE_DEFCOLOR', "\033[0m");
  * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
-
 class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
 {
 
@@ -106,8 +105,8 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
     function preprocess($str)
     {
         // normalize whitespace and tabs
-        $str = str_replace("\r\n","\n", $str);
-        $str = str_replace("\t",str_repeat(' ', $this->_tabsize), $str);
+        $str = str_replace("\r\n", "\n", $str);
+        $str = str_replace("\t", str_repeat(' ', $this->_tabsize), $str);
         return rtrim($str);
     }
 
@@ -143,14 +142,13 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
     }
 
 
-
     /**
      * Accepts next token
      *
      * @access public
      *
-     * @param  string $class   Token class
-     * @param  string $content Token content
+     * @param string $class Token class
+     * @param string $content Token content
      */
     function acceptToken($class, $content)
     {

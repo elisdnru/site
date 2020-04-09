@@ -27,7 +27,7 @@
  * @ignore
  */
 
-require_once dirname(__FILE__).'/../Renderer.php';
+require_once dirname(__FILE__) . '/../Renderer.php';
 
 /**
  * Array renderer, based on Andrey Demenev's HTML renderer.
@@ -49,7 +49,6 @@ require_once dirname(__FILE__).'/../Renderer.php';
  * @version    Release: 0.5.0
  * @link       http://pear.php.net/package/Text_Highlighter
  */
-
 class Text_Highlighter_Renderer_Array extends Text_Highlighter_Renderer
 {
 
@@ -92,17 +91,17 @@ class Text_Highlighter_Renderer_Array extends Text_Highlighter_Renderer
      *
      * @access public
      *
-     * @param  string $str Code to preprocess
+     * @param string $str Code to preprocess
      * @return string Preprocessed code
      */
     function preprocess($str)
     {
         // normalize whitespace and tabs
-        $str = str_replace("\r\n","\n", $str);
-        $str = str_replace("\r","\n", $str);
+        $str = str_replace("\r\n", "\n", $str);
+        $str = str_replace("\r", "\n", $str);
         // some browsers refuse to display empty lines
-        $str = preg_replace('~^$~m'," ", $str);
-        $str = str_replace("\t",str_repeat(' ', $this->_tabsize), $str);
+        $str = preg_replace('~^$~m', " ", $str);
+        $str = str_replace("\t", str_repeat(' ', $this->_tabsize), $str);
         return rtrim($str);
     }
 
@@ -131,14 +130,13 @@ class Text_Highlighter_Renderer_Array extends Text_Highlighter_Renderer
     }
 
 
-
     /**
      * Accepts next token
      *
      * @abstract
      * @access public
-     * @param  string $class   Token class
-     * @param  string $content Token content
+     * @param string $class Token class
+     * @param string $content Token content
      */
     function acceptToken($class, $content)
     {
@@ -166,7 +164,7 @@ class Text_Highlighter_Renderer_Array extends Text_Highlighter_Renderer
      *
      * @access private
      *
-     * @param  string $class   Token class
+     * @param string $class Token class
      */
     function _getFullClassName($class)
     {
