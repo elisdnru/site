@@ -35,7 +35,7 @@ class FileController extends AdminController
 
     public function actionIndex(string $path = '')
     {
-        $root = Yii::getPathOfAlias('webroot') . '/' . $this->getFileDir();
+        $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
         $htmlroot = '/' . $this->getFileDir();
 
         $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
