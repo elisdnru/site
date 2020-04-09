@@ -15,9 +15,12 @@ if (getenv('SENTRY_DSN')) {
 require_once __DIR__ . '/../config/env.php';
 require_once __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
-$file = getenv('APP_ENV') === 'test' ? 'web-test' : 'web';
+if (getenv('APP_ENV') === 'test') {
+    $config = require __DIR__ . '/../config/web-test.php';
+} else {
+    $config = require __DIR__ . '/../config/web.php';
+}
 
-$config = require __DIR__ . '/../config/' . $file . '.php';
 $app = new yii\web\Application($config);
 
 ob_start();
