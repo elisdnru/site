@@ -87,7 +87,7 @@ class MarkdownParser extends MarkdownExtra_Parser
      * @param string $codeblock the code block
      * @return string the highlighted code block. Null if the code block does not need to highlighted
      */
-    protected function highlightCodeBlock($codeblock)
+    private function highlightCodeBlock($codeblock)
     {
         if (($tag = $this->getHighlightTag($codeblock)) !== null && ($highlighter = $this->createHighLighter($tag))) {
             $codeblock = preg_replace('/\A\n+|\n+\z/', '', $codeblock);
@@ -104,7 +104,7 @@ class MarkdownParser extends MarkdownExtra_Parser
      * @param string $codeblock code block with highlighting options.
      * @return string the user-entered highlighting options. Null if no option is entered.
      */
-    protected function getHighlightTag($codeblock)
+    private function getHighlightTag($codeblock)
     {
         $str = trim(current(preg_split("/\r|\n/", $codeblock, 2)));
         if (strlen($str) > 2 && $str[0] === '[' && $str[strlen($str) - 1] === ']') {
@@ -118,7 +118,7 @@ class MarkdownParser extends MarkdownExtra_Parser
      * @param string $options the user-entered options
      * @return Text_Highlighter the highlighter instance
      */
-    protected function createHighLighter($options)
+    private function createHighLighter($options)
     {
         if (!class_exists('Text_Highlighter', false)) {
             require_once(__DIR__ . '/TextHighlighter/Text/Highlighter.php');
@@ -136,7 +136,7 @@ class MarkdownParser extends MarkdownExtra_Parser
      * @param string $options user-entered options
      * @return array the highlighter config
      */
-    public function getHighlightConfig($options)
+    private function getHighlightConfig($options)
     {
         $config = array('use_language' => true);
         if ($this->getInlineOption('showLineNumbers', $options, false))
@@ -152,7 +152,7 @@ class MarkdownParser extends MarkdownExtra_Parser
      * @param mixed $defaultValue default value if the configuration is not present
      * @return mixed the configuration value
      */
-    protected function getInlineOption($name, $str, $defaultValue)
+    private function getInlineOption($name, $str, $defaultValue)
     {
         if (preg_match('/' . $name . '(\s*=\s*(\d+))?/i', $str, $v) && count($v) > 2)
             return $v[2];
