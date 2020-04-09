@@ -2,11 +2,9 @@
 
 namespace app\extensions\markdown;
 
-use HTMLPurifier;
 use MarkdownExtra_Parser;
 use Text_Highlighter;
 use Text_Highlighter_Renderer_Html;
-use Yii;
 use yii\helpers\Html;
 
 /**
@@ -59,32 +57,6 @@ class MarkdownParser extends MarkdownExtra_Parser
      * the code block that is highlighted. Defaults to 'hl-code'.
      */
     public $highlightCssClass = 'hl-code';
-    /**
-     * @var mixed the options to be passed to {@link http://htmlpurifier.org HTML Purifier}.
-     * This can be a HTMLPurifier_Config object,  an array of directives (Namespace.Directive => Value)
-     * or the filename of an ini file.
-     * This property is used only when {@link safeTransform} is invoked.
-     * @see http://htmlpurifier.org/live/configdoc/plain.html
-     * @since 1.1.4
-     */
-    public $purifierOptions = null;
-
-    /**
-     * Transforms the content and purifies the result.
-     * This method calls the transform() method to convert
-     * markdown content into HTML content. It then
-     * uses {@link HtmlPurifier} to purify the HTML content
-     * to avoid XSS attacks.
-     * @param string $content the markdown content
-     * @return string the purified HTML content
-     */
-    public function safeTransform($content)
-    {
-        $content = $this->transform($content);
-        $purifier = new HTMLPurifier($this->purifierOptions);
-        $purifier->config->set('Cache.SerializerPath', Yii::$app->getRuntimePath());
-        return $purifier->purify($content);
-    }
 
     /**
      * Callback function when a code block is matched.
@@ -171,20 +143,6 @@ class MarkdownParser extends MarkdownExtra_Parser
             $config['numbers'] = HL_NUMBERS_LI;
         $config['tabsize'] = $this->getInlineOption('tabSize', $options, 4);
         return $config;
-    }
-
-    /**
-     * Generates the config for the highlighter.
-     *
-     * NOTE: This method is deprecated due to a mistake in the method name.
-     * Use {@link getHighlightConfig} instead of this.
-     *
-     * @param string $options user-entered options
-     * @return array the highlighter config
-     */
-    public function getHiglightConfig($options)
-    {
-        return $this->getHighlightConfig($options);
     }
 
     /**
