@@ -8,6 +8,35 @@ class Yii extends BaseYii
 {
     private static $_aliases = array('system' => YII_PATH, 'zii' => YII_ZII_PATH);
 
+    private static $_app;
+
+    public static function app(): CApplication
+    {
+        if (self::$_app === null) {
+            self::$_app = new CWebApplication([
+                'basePath' => __DIR__,
+            ]);
+        }
+        return self::$_app;
+    }
+
+    public static function setApplication($app)
+    {
+        if (self::$_app === null || $app === null) {
+            self::$_app = $app;
+        } else {
+            throw new CException('Yii application can only be created once.');
+        }
+    }
+
+    public static function setPathOfAlias($alias,$path)
+    {
+        if(empty($path))
+            unset(self::$_aliases[$alias]);
+        else
+            self::$_aliases[$alias]=rtrim($path,'\\/');
+    }
+
     public static function getPathOfAlias($alias)
     {
         if (isset(self::$_aliases[$alias]))
@@ -22,6 +51,16 @@ class Yii extends BaseYii
             }
         }
         return false;
+    }
+
+    public static function log($message, $level, $category)
+    {
+        Yii::getLogger()->log($message, $level, $category);
+    }
+
+    public static function createComponent($config)
+    {
+        return Yii::createObject($config);
     }
 
     /**
