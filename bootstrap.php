@@ -11,5 +11,3 @@ spl_autoload_register([BaseYii::class, 'autoload']);
 
 Yii::$classMap = include(__DIR__ . '/vendor/yiisoft/yii2/classes.php');
 Yii::$container = new yii\di\Container();
-
-HTMLPurifier_Bootstrap::registerAutoload();
