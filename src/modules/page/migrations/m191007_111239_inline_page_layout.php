@@ -1,6 +1,4 @@
 <?php
-// phpcs:disable
-// PSR1.Classes.ClassDeclaration.MissingNamespace
 
 use yii\db\Migration;
 

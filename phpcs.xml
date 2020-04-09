@@ -22,6 +22,34 @@
         </properties>
     </rule>
 
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>src/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/block/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/blog/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/comment/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/contact/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/file/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/landing/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/menu/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/page/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/portfolio/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/user/migrations</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>src/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/block/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/blog/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/comment/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/contact/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/file/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/landing/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/menu/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/page/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/portfolio/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/user/migrations</exclude-pattern>
+    </rule>
+
     <!-- Paths to check -->
     <file>config</file>
     <file>src</file>
