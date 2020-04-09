@@ -3,11 +3,10 @@
 namespace app\extensions\file;
 
 use app\extensions\AntiMagic;
-use CUploadedFile;
 use RuntimeException;
 use Yii;
 use yii\helpers\FileHelper;
-use YiiBase;
+use yii\web\UploadedFile;
 
 /**
  * CFile class file.
@@ -125,7 +124,7 @@ class File
      */
     private $handle;
     /**
-     * @var CUploadedFile object instance
+     * @var UploadedFile object instance
      */
     private $uploadedInstance;
 
@@ -177,11 +176,11 @@ class File
             $uploaded = null;
 
             if (strpos($filePath, '\\') === false && strpos($filePath, '/') === false) {
-                $uploaded = CUploadedFile::getInstanceByName($filePath);
+                $uploaded = UploadedFile::getInstanceByName($filePath);
                 if ($uploaded) {
-                    $filePath = $uploaded->getTempName();
+                    $filePath = $uploaded->tempName;
                     Yii::trace('File "' . $filePath . '" is identified as uploaded', 'ext.file');
-                } elseif ($pathOfAlias = YiiBase::getPathOfAlias($filePath)) {
+                } elseif ($pathOfAlias = Yii::getAlias($filePath)) {
                     Yii::trace('The string supplied to ' . __METHOD__ . ' method - "' . $filePath . '" is identified as the alias to "' . $pathOfAlias . '"', 'ext.file');
                     $filePath = $pathOfAlias;
                 }
@@ -235,7 +234,7 @@ class File
             $this->isUploaded = true;
         }
 
-        $pathinfo = pathinfo($this->isUploaded ? $this->uploadedInstance->getName() : $this->realpath);
+        $pathinfo = pathinfo($this->isUploaded ? $this->uploadedInstance->name : $this->realpath);
 
         $this->dirname = $pathinfo['dirname'];
         $this->basename = $pathinfo['basename'];
@@ -1295,7 +1294,7 @@ class File
         if ($this->getIsFile()) {
             if ($this->getReadable()) {
                 if ($this->isUploaded) {
-                    return $this->mimeType = $this->uploadedInstance->getType();
+                    return $this->mimeType = $this->uploadedInstance->type;
                 }
 
                 if (function_exists('finfo_open')) {
