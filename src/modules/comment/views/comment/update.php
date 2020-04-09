@@ -2,6 +2,7 @@
 use app\modules\user\models\Access;
 
 /** @var $model \app\modules\comment\models\Comment */
+/** @var $form \app\modules\comment\forms\CommentForm */
 /** @var $user \app\modules\user\models\User */
 
 $this->title = 'Редактор комментариев';
