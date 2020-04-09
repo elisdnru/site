@@ -1,6 +1,7 @@
 <?php
 
 use app\components\deworker\widgets\SeriesEpisodes;
+use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
@@ -192,6 +193,12 @@ return [
                     'subscribe_news' => SubscribeNews::class,
                     'mailto' => MailTo::class,
                     'deworker-series-episodes' => SeriesEpisodes::class,
+                ],
+            ],
+            'as Replace' => [
+                'class' => ContentReplaceBehavior::class,
+                'replaces' => [
+                    'http://www.elisdn.ru' => 'https://elisdn.ru',
                 ],
             ],
         ],

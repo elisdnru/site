@@ -39,4 +39,13 @@ class PageCest
         $I->amOnPage('about');
         $I->seeResponseCodeIs(404);
     }
+
+    public function domainReplace(AcceptanceTester $I): void
+    {
+        $I->amOnPage('domain');
+        $I->seeResponseCodeIs(200);
+        $I->see('Domain', 'h1');
+        $I->see('Domain Title', 'title');
+        $I->seeInSource('<p>https://elisdn.ru/domain</p>');
+    }
 }

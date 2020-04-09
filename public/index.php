@@ -22,9 +22,4 @@ if (getenv('APP_ENV') === 'test') {
 }
 
 $app = new yii\web\Application($config);
-
-ob_start();
 $app->run();
-$html = ob_get_clean();
-
-echo str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
