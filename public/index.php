@@ -28,4 +28,3 @@ $app->run();
 $html = ob_get_clean();
 
 echo str_replace('http://www.elisdn.ru', 'https://elisdn.ru', $html);
-

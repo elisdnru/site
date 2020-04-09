@@ -51,7 +51,9 @@
     </rule>
 
     <!-- Paths to check -->
+    <file>bin</file>
     <file>config</file>
+    <file>public/index.php</file>
     <file>src</file>
     <file>tests</file>
 
