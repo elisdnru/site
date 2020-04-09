@@ -6,6 +6,7 @@ use app\extensions\AntiMagic;
 use CUploadedFile;
 use RuntimeException;
 use Yii;
+use yii\helpers\FileHelper;
 use YiiBase;
 
 /**
@@ -1332,7 +1333,7 @@ class File
             Yii::trace('Trying to get MIME type for "' . $this->realpath . '" from extension "' . $this->extension . '"', 'ext.file');
             static $extensions;
             if ($extensions === null) {
-                $extensions = require(Yii::getPathOfAlias('system.utils.mimeTypes') . '.php');
+                $extensions = require Yii::getAlias(FileHelper::$mimeMagicFile);
             }
 
             $ext = strtolower($this->extension);
