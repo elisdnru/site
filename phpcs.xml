@@ -26,4 +26,6 @@
     <file>config</file>
     <file>src</file>
     <file>tests</file>
+
+    <exclude-pattern>src/extensions/markdown/*</exclude-pattern>
 </ruleset>

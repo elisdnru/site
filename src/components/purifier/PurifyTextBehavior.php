@@ -2,7 +2,7 @@
 
 namespace app\components\purifier;
 
-use CMarkdownParser;
+use app\extensions\markdown\MarkdownParser;
 use yii\base\Behavior;
 use yii\base\Component;
 use yii\db\ActiveRecord;
@@ -122,7 +122,7 @@ class PurifyTextBehavior extends Behavior
     {
         $pre = preg_replace('#(~~~[\r\n]+\[php\][\r\n]+)#', '$1<?php' . PHP_EOL, $text);
 
-        $md = new CMarkdownParser;
+        $md = new MarkdownParser();
         $transform = $md->transform($pre);
 
         return str_replace('<pre><span class="php-hl-inlinetags">&lt;?php</span>' . PHP_EOL, '<pre>', $transform);
