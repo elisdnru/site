@@ -16,7 +16,7 @@ docker-down-clear:
 	docker-compose down -v --remove-orphans
 
 docker-pull:
-	docker-compose pull
+	docker-compose pull --include-deps
 
 docker-build:
 	docker-compose build
