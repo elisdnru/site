@@ -1,6 +1,6 @@
 <div class="subscribe-after-post">
 <div class="subscribe-form" style="padding-top: 4px">
-    <form method="post" action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=webinars" target="_blank">
+    <form method="post" action="#" data-action="//elisdn.justclick.ru/subscribe/process/?rid%5B0%5D=webinars" target="_blank">
         <div class="row">
             <input type="text" name="lead_name" placeholder="Ваше имя" required />
         </div>

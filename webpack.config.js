@@ -43,6 +43,7 @@ module.exports = {
         "main.js": [
           'node_modules/axios/dist/axios.min.js',
           'assets/js/site.js',
+          'assets/js/form-action.js',
           'assets/js/share.js',
           'assets/js/ulogin.js'
         ],
