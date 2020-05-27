@@ -1,12 +1,10 @@
 FROM php:7.4-fpm-alpine
 
-RUN apk update
-
-RUN apk add libmcrypt-dev autoconf g++ make \
+RUN apk add --no-cache libmcrypt-dev autoconf g++ make \
     && pecl install -o -f mcrypt && rm -rf /tmp/pear \
     && docker-php-ext-enable mcrypt
 
-RUN apk add mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev \
+RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev \
     && docker-php-ext-configure gd \
         --with-jpeg \
         --with-webp \
