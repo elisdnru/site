@@ -19,6 +19,10 @@ jobs:
                     name: Init
                     command: make init
 
+            -   run:
+                    name: Validate
+                    command: make site-composer-validate
+
             -   save_cache:
                     key: vendor-{{ checksum "composer.lock" }}
                     paths:

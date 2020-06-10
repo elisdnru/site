@@ -2,7 +2,8 @@ up: docker-up
 down: docker-down
 restart: docker-down docker-up
 init: docker-down-clear site-clear docker-pull docker-build docker-up site-init site-ready
-check: lint test
+check: validate lint test
+validate: site-composer-validate
 lint: site-lint site-analyze
 test: site-test
 
@@ -31,6 +32,9 @@ site-permissions:
 
 site-composer-install:
 	docker-compose run --rm php-cli composer install
+
+site-composer-validate:
+	docker-compose run --rm php-cli composer validate
 
 site-assets-install:
 	docker-compose run --rm node-cli yarn install
