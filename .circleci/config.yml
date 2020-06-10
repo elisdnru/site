@@ -35,11 +35,15 @@ jobs:
 
             -   run:
                     name: Lint
-                    command: make lint
+                    command: make site-lint
+
+            -   run:
+                    name: Analyze
+                    command: make site-analyze
 
             -   run:
                     name: Test
-                    command: make test
+                    command: make site-test
 
             -   store_artifacts:
                     path: ./tests/_output
