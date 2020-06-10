@@ -35,3 +35,17 @@ jobs:
 
             -   name: Test
                 run: make site-test
+
+            -   name: Install SSH key
+                uses: shimataro/ssh-key-action@v2
+                with:
+                    key: ${{ secrets.SSH_KEY }}
+                    known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+            -   name: Deploy
+                run: REVISION=$GITHUB_SHA make deploy
+                env:
+                    HOST: ${{ secrets.DEPLOY_HOST }}
+                    PORT: ${{ secrets.DEPLOY_PORT }}
+                    DIR: ${{ secrets.DEPLOY_PATH }}
+
