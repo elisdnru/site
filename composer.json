@@ -2,6 +2,7 @@
     "name": "elisdn/site",
     "description": "",
     "type": "project",
+    "license": "MIT",
     "require": {
         "php": "^7.4",
         "ext-PDO": "^7.4",
