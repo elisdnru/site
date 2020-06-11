@@ -56,14 +56,14 @@ jobs:
             -   name: Cache phplint
                 uses: actions/cache@v2
                 with:
-                    path: var/phplint.json
-                    key: phplint-${{ hashFiles('var/phplint.json') }}
+                    path: var/.phplint.json
+                    key: phplint-${{ hashFiles('var/.phplint.json') }}
 
             -   name: Cache phpcs
                 uses: actions/cache@v2
                 with:
-                    path: var/phpcs.json
-                    key: phpcs-${{ hashFiles('var/phpcs.json') }}
+                    path: var/.phpcs.json
+                    key: phpcs-${{ hashFiles('var/.phpcs.json') }}
 
             -   name: Lint
                 run: make site-lint
