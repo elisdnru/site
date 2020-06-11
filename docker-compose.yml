@@ -1,12 +1,12 @@
 version: '3.7'
 services:
     nginx:
+        image: ${REGISTRY:-localhost}/dev-nginx:${CACHE_TAG:-dev}
         build:
             context: ./docker
             dockerfile: nginx.docker
             cache_from:
-                - ${CACHE_REGISTRY:-localhost}/elisdnru-dev-nginx:latest
-        image: ${CACHE_REGISTRY:-localhost}/elisdnru-dev-nginx:latest
+                - ${REGISTRY:-localhost}/dev-nginx:${CACHE_TAG:-dev}
         volumes:
             - ./:/app
         ports:
@@ -14,12 +14,12 @@ services:
         depends_on:
             - php-fpm
     php-fpm:
+        image: ${REGISTRY:-localhost}/dev-php-fpm:${CACHE_TAG:-dev}
         build:
             context: ./docker
             dockerfile: php-fpm.docker
             cache_from:
-                - ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-fpm:latest
-        image: ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-fpm:latest
+                - ${REGISTRY:-localhost}/dev-php-fpm:${CACHE_TAG:-dev}
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
@@ -33,12 +33,12 @@ services:
         volumes:
             - ./:/app
     php-cli:
+        image: ${REGISTRY:-localhost}/dev-php-cli:${CACHE_TAG:-dev}
         build:
             context: ./docker
             dockerfile: php-cli.docker
             cache_from:
-                - ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-cli:latest
-        image: ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-cli:latest
+                - ${REGISTRY:-localhost}/dev-php-cli:${CACHE_TAG:-dev}
         environment:
             APP_DEBUG: 1
             APP_ENV: dev

@@ -6,7 +6,8 @@ on:
             - master
 
 env:
-    CACHE_REGISTRY: ${{ secrets.REGISTRY }}
+    REGISTRY: docker.pkg.github.com/elisdn/elisdn.ru
+    REGISTRY_HOST: docker.pkg.github.com
     DOCKER_BUILDKIT: 1
     COMPOSE_DOCKER_CLI_BUILD: 1
 
@@ -32,27 +33,42 @@ jobs:
             -   name: Docker login
                 uses: azure/docker-login@v1
                 with:
-                    login-server: ${{ secrets.REGISTRY }}
-                    username: ${{ secrets.REGISTRY_USER }}
-                    password: ${{ secrets.REGISTRY_PASSWORD }}
+                    login-server: ${{ env.REGISTRY_HOST }}
+                    username: ElisDN
+                    password: ${{ github.token }}
+
+            -   name: Inject slug variables
+                uses: rlespinasse/github-slug-action@v2.x
 
             -   name: Init
                 run: make init
+                env:
+                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Push dev cache
                 run: make push-dev-cache
+                env:
+                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Valid
                 run: make site-composer-validate
+                env:
+                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Lint
                 run: make site-lint
+                env:
+                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Analyze
                 run: make site-analyze
+                env:
+                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Test
                 run: make site-test
+                env:
+                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Archive test output
                 uses: actions/upload-artifact@v1
