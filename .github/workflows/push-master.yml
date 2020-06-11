@@ -68,8 +68,9 @@ jobs:
                     known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
             -   name: Deploy
-                run: REVISION=$GITHUB_SHA make deploy
+                run: make deploy
                 env:
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
                     DIR: ${{ secrets.DEPLOY_PATH }}
+                    REVISION: ${{ github.sha }}
