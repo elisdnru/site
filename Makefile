@@ -68,9 +68,9 @@ assets-build:
 	docker-compose run --rm node-cli npm run build
 
 push-dev-cache:
-	docker push ${CACHE_REGISTRY}/elisdn-dev-nginx:latest
-	docker push ${CACHE_REGISTRY}/elisdn-dev-php-fpm:latest
-	docker push ${CACHE_REGISTRY}/elisdn-dev-php-cli:latest
+	docker push ${CACHE_REGISTRY}/elisdnru-dev-nginx:latest
+	docker push ${CACHE_REGISTRY}/elisdnru-dev-php-fpm:latest
+	docker push ${CACHE_REGISTRY}/elisdnru-dev-php-cli:latest
 
 deploy:
 	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && git fetch --force origin "master:remotes/origin/master"'

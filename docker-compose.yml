@@ -5,8 +5,8 @@ services:
             context: ./docker
             dockerfile: nginx.docker
             cache_from:
-                - ${CACHE_REGISTRY:-localhost}/elisdn-dev-nginx:latest
-        image: ${CACHE_REGISTRY:-localhost}/elisdn-dev-nginx:latest
+                - ${CACHE_REGISTRY:-localhost}/elisdnru-dev-nginx:latest
+        image: ${CACHE_REGISTRY:-localhost}/elisdnru-dev-nginx:latest
         volumes:
             - ./:/app
         ports:
@@ -18,8 +18,8 @@ services:
             context: ./docker
             dockerfile: php-fpm.docker
             cache_from:
-                - ${CACHE_REGISTRY:-localhost}/elisdn-dev-php-fpm:latest
-        image: ${CACHE_REGISTRY:-localhost}/elisdn-dev-php-fpm:latest
+                - ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-fpm:latest
+        image: ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-fpm:latest
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
@@ -37,8 +37,8 @@ services:
             context: ./docker
             dockerfile: php-cli.docker
             cache_from:
-                - ${CACHE_REGISTRY:-localhost}/elisdn-dev-php-cli:latest
-        image: ${CACHE_REGISTRY:-localhost}/elisdn-dev-php-cli:latest
+                - ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-cli:latest
+        image: ${CACHE_REGISTRY:-localhost}/elisdnru-dev-php-cli:latest
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
