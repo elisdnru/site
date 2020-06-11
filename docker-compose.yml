@@ -77,7 +77,7 @@ services:
     mysql-test:
         image: mysql:5.7
         volumes:
-            - ./var/docker/mysql-test:/var/lib/mysql
+            - mysql-test:/var/lib/mysql
         environment:
             - "MYSQL_ROOT_PASSWORD=secret"
             - "MYSQL_USER=test"
@@ -89,3 +89,6 @@ services:
         image: mailhog/mailhog
         ports:
             - "8081:8025"
+
+volumes:
+    mysql-test:
