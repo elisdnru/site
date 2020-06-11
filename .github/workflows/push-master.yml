@@ -20,13 +20,13 @@ jobs:
                 uses: actions/cache@v2
                 with:
                     path: vendor
-                    key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+                    key: composer-${{ hashFiles('composer.lock') }}
 
             -   name: Cache node modules
                 uses: actions/cache@v2
                 with:
                     path: node_modules
-                    key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+                    key: yarn-${{ hashFiles('yarn.lock') }}
 
             -   name: Docker login
                 uses: azure/docker-login@v1
@@ -57,13 +57,13 @@ jobs:
                 uses: actions/cache@v2
                 with:
                     path: var/phplint.json
-                    key: ${{ runner.os }}-phplint-${{ hashFiles('var/phplint.json') }}
+                    key: phplint-${{ hashFiles('var/phplint.json') }}
 
             -   name: Cache phpcs
                 uses: actions/cache@v2
                 with:
                     path: var/phpcs.json
-                    key: ${{ runner.os }}-phpcs-${{ hashFiles('var/phpcs.json') }}
+                    key: phpcs-${{ hashFiles('var/phpcs.json') }}
 
             -   name: Lint
                 run: make site-lint
