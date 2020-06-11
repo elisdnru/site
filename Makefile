@@ -20,7 +20,7 @@ docker-pull:
 	docker-compose pull --include-deps
 
 docker-build:
-	docker-compose build
+	docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1
 
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
@@ -66,6 +66,11 @@ site-test:
 
 assets-build:
 	docker-compose run --rm node-cli npm run build
+
+push-dev-cache:
+	docker push ${CACHE_REGISTRY}/elisdn-dev-nginx:latest
+	docker push ${CACHE_REGISTRY}/elisdn-dev-php-fpm:latest
+	docker push ${CACHE_REGISTRY}/elisdn-dev-php-cli:latest
 
 deploy:
 	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && git fetch --force origin "master:remotes/origin/master"'

@@ -6,7 +6,9 @@ on:
             - master
 
 env:
-    REGISTRY: ${{ secrets.REGISTRY }}
+    CACHE_REGISTRY: ${{ secrets.REGISTRY }}
+    DOCKER_BUILDKIT: 1
+    COMPOSE_DOCKER_CLI_BUILD: 1
 
 jobs:
     build:
@@ -37,6 +39,9 @@ jobs:
             -   name: Init
                 run: make init
 
+            -   name: Push dev cache
+                run: make push-dev-cache
+
             -   name: Valid
                 run: make site-composer-validate
 
@@ -61,4 +66,3 @@ jobs:
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
                     DIR: ${{ secrets.DEPLOY_PATH }}
-
