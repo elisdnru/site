@@ -29,7 +29,7 @@ services:
             DB_PASSWORD: secret
             MAILER_URI: smtp://mailer:1025?encryption=tcp
             MAILER_FROM_EMAIL: mail@app.test
-            SENTRY_DSN: ~
+            SENTRY_DSN: ""
         volumes:
             - ./:/app
     php-cli:
@@ -48,6 +48,7 @@ services:
             DB_PASSWORD: secret
             MAILER_URI: smtp://mailer:1025?encryption=tcp
             MAILER_FROM_EMAIL: mail@app.test
+            SENTRY_DSN: ""
         volumes:
             - .:/app
         working_dir: /app
