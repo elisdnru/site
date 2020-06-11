@@ -54,6 +54,13 @@ jobs:
             -   name: Test
                 run: make site-test
 
+            -   name: Archive test output
+                uses: actions/upload-artifact@v1
+                with:
+                    name: test-output
+                    path: tests/_output
+                if: ${{ failure() }}
+
             -   name: Install SSH key
                 uses: shimataro/ssh-key-action@v2
                 with:
