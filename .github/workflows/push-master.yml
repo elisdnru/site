@@ -35,38 +35,23 @@ jobs:
                     username: ElisDN
                     password: ${{ github.token }}
 
-            -   name: Inject slug variables
-                uses: rlespinasse/github-slug-action@v2.x
-
             -   name: Init
                 run: make init
-                env:
-                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Push dev cache
                 run: make push-dev-cache
-                env:
-                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Valid
                 run: make site-composer-validate
-                env:
-                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Lint
                 run: make site-lint
-                env:
-                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Analyze
                 run: make site-analyze
-                env:
-                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Test
                 run: make site-test
-                env:
-                    CACHE_TAG: ${{ env.GITHUB_REF_SLUG }}
 
             -   name: Archive test output
                 uses: actions/upload-artifact@v1
