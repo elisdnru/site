@@ -58,6 +58,7 @@ return [
         'file' => ['class' => app\modules\file\Module::class],
         'home' => ['class' => app\modules\home\Module::class],
         'menu' => ['class' => app\modules\menu\Module::class],
+        'edu' => ['class' => app\modules\edu\Module::class],
         'page' => ['class' => app\modules\page\Module::class],
         'landing' => ['class' => app\modules\landing\Module::class],
         'portfolio' => ['class' => app\modules\portfolio\Module::class],
