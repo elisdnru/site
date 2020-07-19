@@ -41,7 +41,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <p>Серии скринкастов:</p>
 
         <ul>
-            <?php foreach ($series as $row): ?>
+            <?php foreach ($series as $row) : ?>
                 <li>
                     <a
                         href="https://deworker.pro/edu/series/<?= Html::encode($row['slug']) ?>"
