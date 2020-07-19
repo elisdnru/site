@@ -1,0 +1,14 @@
+.edu-series {
+
+}
+
+.edu-series .edu-series-item {
+  margin-bottom: 20px;
+}
+
+.edu-series .edu-series-item .edu-series-item-title {
+  font-family: tahoma,arial,sans-serif;
+  font-size: 19px;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}

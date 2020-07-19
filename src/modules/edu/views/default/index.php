@@ -6,6 +6,7 @@ use yii\web\View;
 
 /** @var $this View */
 /** @var $series array */
+/** @var $episodes array */
 
 $this->context->layout = 'index';
 
@@ -39,19 +40,19 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <a href="https://deworker.pro" target="_blank">Базу Знаний</a>
         </p>
 
-        <p>Серии скринкастов:</p>
-
-        <ul>
+        <div class="edu-series">
             <?php foreach ($series as $row) : ?>
-                <li>
-                    <a
-                        href="https://deworker.pro/edu/series/<?= Html::encode($row['slug']) ?>"
-                        target="_blank"
-                    >
-                        <?= Html::encode($row['title']) ?>
-                    </a>
-                </li>
+                <div class="edu-series-item">
+                    <div class="edu-series-item-title">
+                        <a
+                            href="https://deworker.pro/edu/series/<?= Html::encode($row['slug']) ?>"
+                            target="_blank"
+                        >
+                            <?= Html::encode($row['title']) ?>
+                        </a>
+                    </div>
+                </div>
             <?php endforeach; ?>
-        </ul>
+        </div>
     </div>
 </section>
