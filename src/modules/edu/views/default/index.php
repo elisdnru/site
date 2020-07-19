@@ -40,6 +40,8 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <a href="https://deworker.pro/edu" target="_blank">Базу Знаний</a>
         </p>
 
+        <p>Серии скринкастов:</p>
+
         <div class="edu-series">
             <?php foreach ($series as $row) : ?>
                 <div class="edu-series-item">
