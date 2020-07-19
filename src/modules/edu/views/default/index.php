@@ -37,7 +37,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <div class="text">
         <p>
             Для более удобного выкладывания видео открыл
-            <a href="https://deworker.pro" target="_blank">Базу Знаний</a>
+            <a href="https://deworker.pro/edu" target="_blank">Базу Знаний</a>
         </p>
 
         <div class="edu-series">
