@@ -34,9 +34,10 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h1>База знаний</h1>
 
     <div class="text">
-        <p>Для более удобного выкладывания видео открыл новый ресурс:</p>
-
-        <p><a href="https://deworker.pro" target="_blank">Перейти в Базу Знаний</a></p>
+        <p>
+            Для более удобного выкладывания видео открыл
+            <a href="https://deworker.pro" target="_blank">Базу Знаний</a>
+        </p>
 
         <p>Серии скринкастов:</p>
 
