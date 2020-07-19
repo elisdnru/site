@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace app\components\deworker\widgets;
+namespace app\modules\edu\widgets;
 
-use app\components\deworker\api\Api;
+use app\modules\edu\components\api\Api;
 use yii\base\Widget;
 
 class SeriesEpisodes extends Widget

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\components\deworker\api\client;
+namespace app\modules\edu\components\api\client;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace app\components\deworker;
+namespace app\modules\edu\components;
 
-use app\components\deworker\api\Api;
-use app\components\deworker\api\client\Cached;
-use app\components\deworker\api\client\Muted;
+use app\modules\edu\components\api\Api;
+use app\modules\edu\components\api\client\Cached;
+use app\modules\edu\components\api\client\Muted;
 use Http\Client\Curl\Client;
 use Psr\Http\Client\ClientInterface;
 use Psr\SimpleCache\CacheInterface;

@@ -3,7 +3,7 @@
 namespace app\modules\edu\controllers;
 
 use app\components\Controller;
-use app\components\deworker\api\Api;
+use app\modules\edu\components\api\Api;
 
 class DefaultController extends Controller
 {

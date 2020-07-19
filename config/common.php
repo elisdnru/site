@@ -1,6 +1,6 @@
 <?php
 
-use app\components\deworker\widgets\SeriesEpisodes;
+use app\modules\edu\widgets\SeriesEpisodes;
 use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
@@ -46,7 +46,7 @@ return [
     'bootstrap' => [
         ModuleUrlRules::class,
         app\components\psr\Provider::class,
-        app\components\deworker\Provider::class,
+        app\modules\edu\components\Provider::class,
     ],
 
     'modules' => [
