@@ -54,3 +54,18 @@ _gaq.push(['_trackPageview']);
 <script>
 (window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=plhUXCWxYkaF/qlmUwYpFxoJuvC1rSUkMgO6hNlGX8VQOZPN8V6hnDR6ftdUkCPIXDsrr//qA*P0Fm0/Ww8meYxOx0uJgUaej2Xbg2c4tATTNuOdBnEIAqTmL*W7cPGPU0eEdbNdeg8EFUQWzMpr88hANhoO1lFTXC*7kXIezjM-'
 </script>
+
+<script>
+(function () {
+    var t = document.createElement("script");
+    t.type = 'text/javascript';
+    t.async = true;
+    t.src = 'https://vk.com/js/api/openapi.js?168';
+    t.onload = function () {
+        VK.Retargeting.Init('VK-RTRG-515571-5cyiW');
+        VK.Retargeting.Hit()
+    };
+    document.head.appendChild(t)
+})();
+</script>
+<noscript><img src="https://vk.com/rtrg?p=VK-RTRG-515571-5cyiW" style="position:fixed; left:-999px;" alt=""/></noscript>
