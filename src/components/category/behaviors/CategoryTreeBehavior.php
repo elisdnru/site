@@ -8,22 +8,10 @@ use yii\db\ActiveRecord;
 
 class CategoryTreeBehavior extends CategoryBehavior
 {
-    /**
-     * @var string model attribute
-     */
-    public $titleAttribute = 'title';
-    /**
-     * @var string model attribute
-     */
-    public $parentAttribute = 'parent_id';
-    /**
-     * @var string model parent BELONGS_TO relation
-     */
-    public $parentRelation = 'parent';
-    /**
-     * @var string model attribute
-     */
-    public $urlAttribute = 'url';
+    public string $titleAttribute = 'title';
+    public string $parentAttribute = 'parent_id';
+    public string $parentRelation = 'parent';
+    public string $urlAttribute = 'url';
 
     public function getPath(string $separator = '/'): string
     {
