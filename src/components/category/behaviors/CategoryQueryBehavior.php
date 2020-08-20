@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\category\behaviors;
 
+use app\components\category\models\Category;
 use yii\base\Behavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -15,7 +16,6 @@ class CategoryQueryBehavior extends Behavior
     public string $aliasAttribute = 'alias';
     public string $urlAttribute = 'url';
     public ?string $iconAttribute = null;
-    public string $linkActiveAttribute = 'linkActive';
     public array $defaultOrder = [];
 
     public function getArray(): array
@@ -55,19 +55,20 @@ class CategoryQueryBehavior extends Behavior
         return $result;
     }
 
-    public function getMenuList(): array
+    public function getMenuList(string $path): array
     {
         $items = $this->getQuery()->indexBy($this->aliasAttribute)->all();
 
         $result = [];
         foreach ($items as $item) {
+            /** @var ActiveRecord|Category $item */
             $id = $item->getPrimaryKey();
             $result[$id] = [
                 $this->primaryKeyAttribute => $id,
                 'label' => $item->{$this->titleAttribute},
                 'url' => $item->{$this->urlAttribute},
                 'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
-                'active' => $item->{$this->linkActiveAttribute},
+                'active' => $item->isLinkActive($path),
             ];
         }
         return $result;

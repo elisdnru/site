@@ -160,7 +160,7 @@ class CategoryTreeBehaviorTest extends Unit
                 'label' => 'Second Root',
                 'url' => '/second-root',
                 'icon' => '',
-                'active' => false,
+                'active' => true,
             ],
             3 => [
                 'id' => '3',
@@ -169,7 +169,7 @@ class CategoryTreeBehaviorTest extends Unit
                 'icon' => '',
                 'active' => false,
             ],
-        ], $this->find->getMenuList());
+        ], $this->find->getMenuList('second-root'));
     }
 
     public function testMenuListSub(): void
@@ -203,7 +203,7 @@ class CategoryTreeBehaviorTest extends Unit
                 'label' => 'Second Root',
                 'url' => '/second-root',
                 'icon' => '',
-                'active' => false,
+                'active' => true,
                 'items' => [],
             ],
             3 => [
@@ -214,7 +214,7 @@ class CategoryTreeBehaviorTest extends Unit
                 'active' => false,
                 'items' => [],
             ],
-        ], $this->find->getMenuList(1));
+        ], $this->find->getMenuList('second-root', 1));
     }
 
     public function testMenuListSubParent(): void
@@ -225,7 +225,7 @@ class CategoryTreeBehaviorTest extends Unit
                 'label' => 'First Root First Middle',
                 'url' => '/first-root/first-root-first-middle',
                 'icon' => '',
-                'active' => false,
+                'active' => true,
                 'items' => [
                     111 => [
                         'id' => '111',
@@ -244,7 +244,7 @@ class CategoryTreeBehaviorTest extends Unit
                 'active' => false,
                 'items' => [],
             ],
-        ], $this->find->getMenuList(1, 1));
+        ], $this->find->getMenuList('first-root/first-root-first-middle', 1, 1));
     }
 
     public function testFindByAliasSuccess(): void
@@ -280,25 +280,22 @@ class CategoryTreeBehaviorTest extends Unit
     public function testLinkActiveChild(): void
     {
         $category = $this->getCategory('first-root-first-middle');
-        Yii::$app->request->setQueryParams(['path' => 'first-root/first-root-first-middle']);
 
-        self::assertTrue($category->getLinkActive());
+        self::assertTrue($category->isLinkActive('first-root/first-root-first-middle'));
     }
 
     public function testLinkActiveRoot(): void
     {
         $category = $this->getCategory('first-root');
-        Yii::$app->request->setQueryParams(['path' => 'first-root/first-root-first-middle']);
 
-        self::assertTrue($category->getLinkActive());
+        self::assertTrue($category->isLinkActive('first-root/first-root-first-middle'));
     }
 
     public function testLinkActiveNo(): void
     {
         $category = $this->getCategory('first-root-second-middle');
-        Yii::$app->request->setQueryParams(['path' => 'first-root/first-root-first-middle']);
 
-        self::assertFalse($category->getLinkActive());
+        self::assertFalse($category->isLinkActive('first-root/first-root-first-middle'));
     }
 
     public function testChildrenArray(): void

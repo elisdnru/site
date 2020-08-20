@@ -12,5 +12,5 @@ if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['
 <?php endif; ?>
 
 <?php Portlet::begin(['title' => 'Разделы портфолио']); ?>
-<?= Menu::widget(['id' => 'portfolio_categories', 'items' => Category::find()->cache(0, new TagDependency(['tags' => ['portfolio']]))->getMenuList(1000)]) ?>
+<?= Menu::widget(['id' => 'portfolio_categories', 'items' => Category::find()->cache(0, new TagDependency(['tags' => ['portfolio']]))->getMenuList(Yii::$app->request->getPathInfo(), 1000)]) ?>
 <?php Portlet::end();

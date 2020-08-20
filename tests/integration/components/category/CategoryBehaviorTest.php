@@ -88,7 +88,7 @@ class CategoryBehaviorTest extends Unit
                 'label' => 'Second',
                 'url' => '/second',
                 'icon' => '',
-                'active' => false,
+                'active' => true,
             ],
             3 => [
                 'id' => '3',
@@ -97,7 +97,7 @@ class CategoryBehaviorTest extends Unit
                 'icon' => '',
                 'active' => false,
             ],
-        ], $this->query->getMenuList());
+        ], $this->query->getMenuList('second'));
     }
 
     public function testFindByAliasSuccess(): void
@@ -118,17 +118,15 @@ class CategoryBehaviorTest extends Unit
     public function testLinkActiveYes(): void
     {
         $category = $this->getCategory('first');
-        Yii::$app->request->setQueryParams(['category' => 'first']);
 
-        self::assertTrue($category->getLinkActive());
+        self::assertTrue($category->isLinkActive('first'));
     }
 
     public function testLinkActiveNo(): void
     {
         $category = $this->getCategory('first');
-        Yii::$app->request->setQueryParams(['category' => 'second']);
 
-        self::assertFalse($category->getLinkActive());
+        self::assertFalse($category->isLinkActive('second'));
     }
 
     private function getCategory(string $alias): Category

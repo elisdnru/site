@@ -2,7 +2,6 @@
 
 namespace app\components\category\behaviors;
 
-use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -106,15 +105,15 @@ class CategoryTreeBehavior extends CategoryBehavior
     }
 
     /**
-     * Optional redeclare this method in your model for use (@link getMenuList())
-     * or define in requestPathAttribute your $_GET attribute for url matching
+     * Optional redeclare this method in your model for use getMenuList()
+     * @param string $path
      * @return bool true if current request url matches with category path
      */
-    public function getLinkActive(): bool
+    public function isLinkActive(string $path): bool
     {
         /** @var self $model */
         $model = $this->getModel();
-        return mb_strpos(Yii::$app->request->get($this->requestPathAttribute), $model->getPath(), null, 'UTF-8') === 0;
+        return mb_strpos($path, $model->getPath(), null, 'UTF-8') === 0;
     }
 
     protected function arrayFromArgs($items): array

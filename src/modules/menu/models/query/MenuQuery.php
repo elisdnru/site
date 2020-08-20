@@ -21,7 +21,7 @@ class MenuQuery extends ActiveQuery
         return $this->andWhere(['visible' => true]);
     }
 
-    public function getMenuListByAlias(string $alias, int $sub = 0): array
+    public function getMenuListByAlias(string $path, string $alias, int $sub = 0): array
     {
         $parent = (clone $this)->andWhere(['alias' => $alias])->one();
 
@@ -29,7 +29,7 @@ class MenuQuery extends ActiveQuery
             return [];
         }
 
-        return $this->getMenuList($sub, $parent->id);
+        return $this->getMenuList($path, $sub, $parent->id);
     }
 
     public function behaviors(): array

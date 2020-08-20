@@ -162,11 +162,12 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
     /**
      * Returns items for Menu widget
+     * @param string $path
      * @param int $sub levels
      * @param mixed $parent number, object or array of numbers
      * @return array
      */
-    public function getMenuList(int $sub = 0, $parent = null): array
+    public function getMenuList(string $path, int $sub = 0, $parent = null): array
     {
         $query = $this->getQuery();
 
@@ -181,10 +182,10 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $categories[(int)$item->{$this->parentAttribute}][] = $item;
         }
 
-        return $this->getMenuListRecursive($categories, $parent, $sub);
+        return $this->getMenuListRecursive($path, $categories, $parent, $sub);
     }
 
-    protected function getMenuListRecursive(array $items, $parent, $sub): array
+    protected function getMenuListRecursive(string $path, array $items, $parent, $sub): array
     {
         $parent = (int)$parent;
         $resultArray = [];
@@ -196,10 +197,10 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
                         'label' => $item->{$this->titleAttribute},
                         'url' => $item->{$this->urlAttribute},
                         'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
-                        'active' => $item->{$this->linkActiveAttribute},
+                        'active' => $item->isLinkActive($path),
                     ] + (
                         $sub
-                        ? ['items' => $this->getMenuListRecursive($items, $item->getPrimaryKey(), $sub - 1)]
+                        ? ['items' => $this->getMenuListRecursive($path, $items, $item->getPrimaryKey(), $sub - 1)]
                         : []
                     );
             }

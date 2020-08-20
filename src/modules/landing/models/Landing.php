@@ -77,7 +77,6 @@ class Landing extends ActiveRecord
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
-                'linkActiveAttribute' => 'linkActive',
                 'parentRelation' => 'parent',
             ],
         ];

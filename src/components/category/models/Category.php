@@ -66,7 +66,6 @@ abstract class Category extends ActiveRecord
         return [
             'CategoryBehavior' => [
                 'class' => CategoryBehavior::class,
-                'requestPathAttribute' => 'category',
             ],
         ];
     }

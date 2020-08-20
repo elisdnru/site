@@ -70,7 +70,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <nav id="main_nav">
             <?= \yii\widgets\Menu::widget([
                 'id' => 'main_nav_list',
-                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias('main-menu')
+                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias(Yii::$app->request->getPathInfo(), 'main-menu')
             ]) ?>
         </nav>
     </header>
@@ -104,7 +104,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <div class="nav">
             <?= \yii\widgets\Menu::widget([
                 'id' => 'footer_nav_list',
-                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias('main-menu')
+                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias(Yii::$app->request->getPathInfo(), 'main-menu')
             ]) ?>
         </div>
         <!--/noindex-->

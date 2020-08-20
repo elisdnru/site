@@ -75,15 +75,14 @@ class Menu extends ActiveRecord
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'parentAttribute' => 'parent_id',
-                'linkActiveAttribute' => 'linkActive',
                 'parentRelation' => 'parent',
             ],
         ];
     }
 
-    public function getLinkActive(): bool
+    public function isLinkActive(string $path): bool
     {
-        $currentUri = '/' . Yii::$app->request->getPathInfo();
+        $currentUri = '/' . $path;
         $itemUri = $this->getUrl();
         return strpos('/' . $currentUri . '/', '/' . $itemUri . '/') === 0 || strpos('/' . $currentUri . '?', '/' . $itemUri . '?') === 0;
     }
