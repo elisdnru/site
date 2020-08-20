@@ -42,7 +42,6 @@ use yii\helpers\Url;
  */
 class User extends ActiveRecord
 {
-    public const SCENARIO_REGISTER = 'register';
     public const SCENARIO_SETTINGS = 'settings';
     public const SCENARIO_ADMIN_CREATE = 'admin_create';
     public const SCENARIO_ADMIN_UPDATE = 'admin_update';
