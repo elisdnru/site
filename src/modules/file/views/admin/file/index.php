@@ -2,13 +2,12 @@
 /** @var $this View */
 
 use app\assets\ColorboxAsset;
-use app\modules\contact\models\Contact;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\JqueryAsset;
 use yii\web\View;
 
-/** @var $model Contact */
+/** @var $model File */
 /** @var $htmlroot string */
 /** @var $root string */
 /** @var $upload_count integer */

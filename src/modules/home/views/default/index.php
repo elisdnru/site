@@ -17,8 +17,7 @@ $this->registerMetaTag([
 ]);
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleManager->allowed('contact')) {
-        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications('contact'));
+    if (Yii::$app->moduleManager->allowed('comment')) {
         $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications('comment'));
     }
 }

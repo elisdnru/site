@@ -28,7 +28,6 @@
         <exclude-pattern>src/modules/block/migrations</exclude-pattern>
         <exclude-pattern>src/modules/blog/migrations</exclude-pattern>
         <exclude-pattern>src/modules/comment/migrations</exclude-pattern>
-        <exclude-pattern>src/modules/contact/migrations</exclude-pattern>
         <exclude-pattern>src/modules/file/migrations</exclude-pattern>
         <exclude-pattern>src/modules/landing/migrations</exclude-pattern>
         <exclude-pattern>src/modules/menu/migrations</exclude-pattern>
@@ -42,7 +41,6 @@
         <exclude-pattern>src/modules/block/migrations</exclude-pattern>
         <exclude-pattern>src/modules/blog/migrations</exclude-pattern>
         <exclude-pattern>src/modules/comment/migrations</exclude-pattern>
-        <exclude-pattern>src/modules/contact/migrations</exclude-pattern>
         <exclude-pattern>src/modules/file/migrations</exclude-pattern>
         <exclude-pattern>src/modules/landing/migrations</exclude-pattern>
         <exclude-pattern>src/modules/menu/migrations</exclude-pattern>

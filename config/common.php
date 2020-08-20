@@ -15,7 +15,6 @@ use app\widgets\inline\SubscribeWebinars;
 use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
-use app\modules\contact\widgets\ContactWidget;
 use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
@@ -54,7 +53,6 @@ return [
         'block' => ['class' => app\modules\block\Module::class],
         'blog' => ['class' => app\modules\blog\Module::class],
         'comment' => ['class' => app\modules\comment\Module::class],
-        'contact' => ['class' => app\modules\contact\Module::class],
         'file' => ['class' => app\modules\file\Module::class],
         'home' => ['class' => app\modules\home\Module::class],
         'menu' => ['class' => app\modules\menu\Module::class],
@@ -187,7 +185,6 @@ return [
                 'widgets' => [
                     'lastPosts' => LastPostsWidget::class,
                     'block' => BlockWidget::class,
-                    'contact' => ContactWidget::class,
                     'portfolio' => PortfolioWidget::class,
                     'countdown' => CountDown::class,
                     'subscribe_webinars' => SubscribeWebinars::class,

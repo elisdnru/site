@@ -50,16 +50,6 @@ return [
         'data' => null
     ],
 
-    'module_contact' => [
-        'type' => Item::TYPE_PERMISSION,
-        'description' => 'Управление сообщениями',
-        'ruleName' => null,
-        'children' => [
-            'permission_control',
-        ],
-        'data' => null
-    ],
-
     'module_comment' => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление комментариями',
@@ -165,7 +155,6 @@ return [
             'permission_full',
             'module_admin',
             'module_block',
-            'module_contact',
             'module_comment',
             'module_file',
             'module_menu',

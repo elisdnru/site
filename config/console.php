@@ -15,7 +15,6 @@ return ArrayHelper::merge(
                     '@app/modules/block',
                     '@app/modules/blog',
                     '@app/modules/comment',
-                    '@app/modules/contact',
                     '@app/modules/file',
                     '@app/modules/landing',
                     '@app/modules/menu',
