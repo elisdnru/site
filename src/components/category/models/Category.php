@@ -20,7 +20,7 @@ use yii\helpers\Url;
  */
 abstract class Category extends ActiveRecord
 {
-    public $urlRoute = '';
+    public string $urlRoute = '';
 
     public static function find(): CategoryQuery
     {
@@ -92,7 +92,7 @@ abstract class Category extends ActiveRecord
         }
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

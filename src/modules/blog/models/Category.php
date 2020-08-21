@@ -6,7 +6,7 @@ use app\components\category\models\TreeCategory;
 
 class Category extends TreeCategory
 {
-    public $urlRoute = '/blog/default/category';
+    public string $urlRoute = '/blog/default/category';
 
     public static function tableName(): string
     {

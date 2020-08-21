@@ -13,7 +13,7 @@ use yii\helpers\Url;
  */
 abstract class TreeCategory extends Category
 {
-    public $indent = 0;
+    public int $indent = 0;
 
     public static function find(): TreeCategoryQuery
     {
@@ -61,7 +61,7 @@ abstract class TreeCategory extends Category
             ->orderBy(['children.sort' => SORT_ASC, 'children.title' => SORT_ASC]);
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

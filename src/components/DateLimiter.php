@@ -4,9 +4,9 @@ namespace app\components;
 
 class DateLimiter
 {
-    private $year = 0;
-    private $month = 0;
-    private $day = 0;
+    private int $year = 0;
+    private int $month = 0;
+    private int $day = 0;
 
     public function __construct(string $date)
     {

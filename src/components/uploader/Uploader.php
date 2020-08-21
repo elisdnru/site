@@ -12,10 +12,10 @@ use yii\web\UploadedFile;
 
 class Uploader
 {
-    public $rootPath = 'upload';
-    public $emptyImage = '';
-    public $allowedThumbnailResolutions = [];
-    public $directoryRights = 755;
+    public string $rootPath = 'upload';
+    public string $emptyImage = '';
+    public array $allowedThumbnailResolutions = [];
+    public int $directoryRights = 755;
 
     public function upload(UploadedFile $file, string $path): ?File
     {

@@ -8,7 +8,7 @@ use app\components\category\models\TreeCategory as Base;
 
 class TreeCategory extends Base
 {
-    public $urlRoute = '/category';
+    public string $urlRoute = '/category';
 
     public static function tableName(): string
     {

@@ -8,20 +8,11 @@ use yii\base\Widget;
 
 class InlineWidgetsBehavior extends Behavior
 {
-    /**
-     * @var string marker of block begin
-     */
-    public $startBlock = '[{widget:';
-    /**
-     * @var string marker of block end
-     */
-    public $endBlock = '}]';
-    /**
-     * @var array of allowed widgets
-     */
-    public $widgets = [];
+    public string $startBlock = '[{widget:';
+    public string $endBlock = '}]';
+    public array $widgets = [];
 
-    private $widgetToken;
+    private ?string $widgetToken = null;
 
     public function init(): void
     {

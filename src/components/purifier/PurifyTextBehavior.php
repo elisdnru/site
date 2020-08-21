@@ -11,52 +11,17 @@ use yii\helpers\HtmlPurifier;
 
 class PurifyTextBehavior extends Behavior
 {
-    /**
-     * @var string source attribute name
-     */
-    public $sourceAttribute = 'text';
+    public string $sourceAttribute = 'text';
+    public string $destinationAttribute = 'purified_text';
+    public bool $enableMarkdown = false;
+    public bool $encodePreContent = false;
+    public bool $enablePurifier = true;
+    public array $purifierOptions = [];
+    public bool $processOnBeforeSave = true;
+    public bool $processOnAfterFind = true;
+    public bool $updateOnAfterFind = true;
 
-    /**
-     * @var string destination attribute name for result
-     */
-    public $destinationAttribute = 'purified_text';
-
-    /**
-     * @var bool use or not use the Markdown parser
-     */
-    public $enableMarkdown = false;
-
-    /**
-     * @var bool use yii\helpers\Html::encode instead of HTML Purifier for <pre> and <code> contents
-     */
-    public $encodePreContent = false;
-
-    /**
-     * @var bool use or not use HTML Purifier
-     */
-    public $enablePurifier = true;
-
-    /**
-     * @var array options for the HTML Purifier
-     */
-    public $purifierOptions = [];
-
-    /**
-     * @var bool
-     */
-    public $processOnBeforeSave = true;
-
-    /**
-     * @var bool allow process if destination attribute is empty
-     */
-    public $processOnAfterFind = true;
-
-    /**
-     * @var bool save or don't save result to DB
-     */
-    public $updateOnAfterFind = true;
-
-    private $contentHash = '';
+    private string $contentHash = '';
 
     public function events(): array
     {

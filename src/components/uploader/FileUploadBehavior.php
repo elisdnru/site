@@ -36,16 +36,16 @@ use yii\web\UploadedFile;
  */
 class FileUploadBehavior extends Behavior
 {
-    public $fileAttribute = 'file';
-    public $fileTypes = ['jpg', 'jpeg', 'gif', 'png'];
-    public $enableWatermark = false;
-    public $storageAttribute; // set if it different from fileAttribute
-    public $deleteAttribute; // field for "Delete image" checkbox
-    public $filePath = '';
-    public $defaultThumbWidth = 200;
-    public $defaultThumbHeight = 0;
-    public $imageWidthAttribute = '';
-    public $imageHeightAttribute = '';
+    public string $fileAttribute = 'file';
+    public array $fileTypes = ['jpg', 'jpeg', 'gif', 'png'];
+    public bool $enableWatermark = false;
+    public ?string $storageAttribute = null; // set if it different from fileAttribute
+    public ?string $deleteAttribute = null; // field for "Delete image" checkbox
+    public string $filePath = '';
+    public int $defaultThumbWidth = 200;
+    public int $defaultThumbHeight = 0;
+    public string $imageWidthAttribute = '';
+    public string $imageHeightAttribute = '';
 
     /**
      * @param ActiveRecord $owner

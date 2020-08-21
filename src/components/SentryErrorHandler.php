@@ -10,7 +10,7 @@ use function Sentry\captureException;
 
 class SentryErrorHandler extends ErrorHandler
 {
-    public $sentryActive = false;
+    public bool $sentryActive = false;
 
     public function logException($exception): void
     {

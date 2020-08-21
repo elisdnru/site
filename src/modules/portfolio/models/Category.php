@@ -10,7 +10,7 @@ use app\components\category\models\TreeCategory;
  */
 class Category extends TreeCategory
 {
-    public $urlRoute = '/portfolio/default/category';
+    public string $urlRoute = '/portfolio/default/category';
 
     public static function tableName(): string
     {
