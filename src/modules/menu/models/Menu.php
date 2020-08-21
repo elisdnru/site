@@ -4,7 +4,6 @@ namespace app\modules\menu\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\modules\menu\models\query\MenuQuery;
-use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
