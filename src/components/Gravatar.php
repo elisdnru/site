@@ -15,7 +15,7 @@ class Gravatar
 
     public static function url(?string $email, int $width = 0, string $default = self::DEFAULT_GRAVATAR): string
     {
-        $id = md5(strtolower(trim($email)));
+        $id = md5(strtolower(trim($email ?: '')));
         $default = '?d=' . urlencode($default);
         return '//www.gravatar.com/avatar/' . $id . $default . ($width ? '&s=' . $width : '');
     }

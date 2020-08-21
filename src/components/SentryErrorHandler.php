@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace app\components;
 
+use Throwable;
 use yii\web\ErrorHandler;
 use yii\web\HttpException;
 use function Sentry\captureException;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class SentryErrorHandler extends ErrorHandler
 {
     public bool $sentryActive = false;
@@ -21,7 +25,7 @@ class SentryErrorHandler extends ErrorHandler
         }
     }
 
-    private function reportException($exception): void
+    private function reportException(Throwable $exception): void
     {
         if ($exception instanceof HttpException && in_array($exception->statusCode, [404, 403], true)) {
             return;

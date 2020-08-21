@@ -8,13 +8,13 @@ class Pluraliser
      * Множественное число
      * https://github.com/mbakirov/UHelpers/
      * @param int $amount
-     * @param array $input array('товар', 'товара', 'товаров')
+     * @param string[] $input array('товар', 'товара', 'товаров')
      * @return string
      */
     public static function plural(int $amount, array $input): string
     {
-        $l2 = substr($amount, -2);
-        $l1 = substr($amount, -1);
+        $l2 = substr((string)$amount, -2);
+        $l1 = substr((string)$amount, -1);
 
         if ($l2 > 10 && $l2 < 20) {
             return $input[2];

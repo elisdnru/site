@@ -45,6 +45,6 @@ class DateLimiter
 
     private function pad(int $val, int $length): string
     {
-        return str_pad($val, $length, 0, STR_PAD_LEFT);
+        return str_pad((string)$val, $length, '0', STR_PAD_LEFT);
     }
 }

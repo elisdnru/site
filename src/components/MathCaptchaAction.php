@@ -4,9 +4,12 @@ namespace app\components;
 
 use yii\captcha\CaptchaAction;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class MathCaptchaAction extends CaptchaAction
 {
-    protected function generateVerifyCode()
+    protected function generateVerifyCode(): string
     {
         return (string)random_int(3, 20);
     }
@@ -16,13 +19,13 @@ class MathCaptchaAction extends CaptchaAction
         return parent::renderImage($this->getText($code));
     }
 
-    protected function getText($code): string
+    protected function getText(string $code): string
     {
-        $code = (int)$code;
-        $rand = random_int(min(1, $code - 1), max(1, $code - 1));
+        $value = (int)$code;
+        $rand = random_int(min(1, $value - 1), max(1, $value - 1));
         if (random_int(0, 1) === 1) {
-            return $code - $rand . '+' . $rand;
+            return $value - $rand . '+' . $rand;
         }
-        return $code + $rand . '-' . $rand;
+        return $value + $rand . '-' . $rand;
     }
 }

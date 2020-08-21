@@ -8,6 +8,6 @@ class CSSMinimizer
 {
     public static function minimize(?string $css): string
     {
-        return preg_replace('#\s+#', ' ', $css);
+        return preg_replace('#\s+#', ' ', $css ?: '');
     }
 }

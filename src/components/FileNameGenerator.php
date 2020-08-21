@@ -4,7 +4,7 @@ namespace app\components;
 
 class FileNameGenerator
 {
-    public static function generate($path, $extension = ''): string
+    public static function generate(string $path, string $extension = ''): string
     {
         $extension = $extension ? '.' . $extension : '';
         $path = $path ? $path . '/' : '';

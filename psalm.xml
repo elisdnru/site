@@ -8,6 +8,19 @@
 >
     <projectFiles>
         <directory name="src/assets" />
+        <file name="src/components/ContentReplaceBehavior.php" />
+        <file name="src/components/Controller.php" />
+        <file name="src/components/CSSMinimizer.php" />
+        <file name="src/components/DateLimiter.php" />
+        <file name="src/components/FileNameFilter.php" />
+        <file name="src/components/FileNameGenerator.php" />
+        <file name="src/components/Gravatar.php" />
+        <file name="src/components/MathCaptchaAction.php" />
+        <file name="src/components/PaginationFormatter.php" />
+        <file name="src/components/Pluraliser.php" />
+        <file name="src/components/SentryErrorHandler.php" />
+        <file name="src/components/SocNetwork.php" />
+        <file name="src/components/Transliterator.php" />
         <ignoreFiles>
             <directory name="vendor" />
         </ignoreFiles>
