@@ -102,7 +102,7 @@ class FileUploadBehavior extends Behavior
         $this->deleteFile();
     }
 
-    private $cachedImageUrl;
+    private ?string $cachedImageUrl = null;
 
     public function getImageUrl(): string
     {
@@ -113,7 +113,7 @@ class FileUploadBehavior extends Behavior
         return $this->cachedImageUrl;
     }
 
-    private $cachedImageThumbUrl = [];
+    private array $cachedImageThumbUrl = [];
 
     public function getImageThumbUrl(int $width = 0, int $height = 0): string
     {
