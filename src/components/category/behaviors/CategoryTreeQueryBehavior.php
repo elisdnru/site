@@ -19,11 +19,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getQuery()->andWhere(['or', ['parent_id' => null], ['parent_id' => 0]]);
     }
 
-    /**
-     * Returns associated array ($id=>$fullTitle, $id=>$fullTitle, ...)
-     * @param mixed $parent number, object or array of numbers
-     * @return array
-     */
     public function getAssocList($parent = null): array
     {
         $items = $this->getFullAssocData([
@@ -55,11 +50,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
-    /**
-     * Returns associated array ($alias=>$fullTitle, $alias=>$fullTitle, ...)
-     * @param mixed $parent number, object or array of numbers
-     * @return array
-     */
     public function getAliasList($parent = null): array
     {
         $items = $this->getFullAssocData([
@@ -91,11 +81,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
-    /**
-     * Returns tabulated array ($id=>$title, $id=>$title, ...)
-     * @param mixed $parent number, object or array of numbers
-     * @return array
-     */
     public function getTabList($parent = null): array
     {
         $parents = $this->processParents($parent);
@@ -124,12 +109,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         }
     }
 
-
-    /**
-     * Returns tabulated array ($url=>$title, $url=>$title, ...)
-     * @param mixed $parent number, object or array of numbers
-     * @return array
-     */
     public function getUrlList($parent = null): array
     {
         $query = $this->getQuery();
@@ -160,13 +139,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $resultArray;
     }
 
-    /**
-     * Returns items for Menu widget
-     * @param string $path
-     * @param int $sub levels
-     * @param mixed $parent number, object or array of numbers
-     * @return array
-     */
     public function getMenuList(string $path, int $sub = 0, $parent = null): array
     {
         $query = $this->getQuery();
@@ -239,11 +211,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $model;
     }
 
-    /**
-     * Returns array of primary keys of children items
-     * @param mixed $parent number, object or array of numbers
-     * @return array
-     */
     public function getChildrenArray($parent = null): array
     {
         $parents = $this->processParents($parent);

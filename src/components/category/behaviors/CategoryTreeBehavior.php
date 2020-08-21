@@ -62,11 +62,6 @@ class CategoryTreeBehavior extends CategoryBehavior
         return false;
     }
 
-    /**
-     * Constructs breadcrumbs for zii.widgets.CBreadcrumbs widget
-     * @param bool $lastLink if you can have link in last element
-     * @return array
-     */
     public function getBreadcrumbs(bool $lastLink = false): array
     {
         if ($lastLink) {
@@ -85,12 +80,6 @@ class CategoryTreeBehavior extends CategoryBehavior
         return array_reverse($breadcrumbs);
     }
 
-    /**
-     * Constructs full title for current model
-     * @param bool $inverse
-     * @param string $separator
-     * @return string
-     */
     public function getFullTitle(bool $inverse = false, string $separator = ' - '): string
     {
         $titles = [$this->getModel()->{$this->titleAttribute}];
@@ -104,11 +93,6 @@ class CategoryTreeBehavior extends CategoryBehavior
         return implode($separator, $inverse ? $titles : array_reverse($titles));
     }
 
-    /**
-     * Optional redeclare this method in your model for use getMenuList()
-     * @param string $path
-     * @return bool true if current request url matches with category path
-     */
     public function isLinkActive(string $path): bool
     {
         /** @var self $model */

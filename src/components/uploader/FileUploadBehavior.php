@@ -11,25 +11,25 @@ use yii\validators\Validator;
 use yii\web\UploadedFile;
 
 /**
- * DFileUploadBehavior will automatically load image to model.
+ * FileUploadBehavior will automatically load image to model.
  *
  * Purify source when the active record
- * is created and/or upadated.
+ * is created and/or updated.
  * You may specify an active record model to use this behavior like so:
  * <pre>
  * public $del_image; // field for "Delete image" checkbox
  *
  * public function behaviors(): array
  * {
- *     return array(
- *         'ImageUpload'=>array(
- *             'class'=>'DFileUploadBehavior',
- *             'fileAttribute'=>'image',
- *             'fileTypes'=>'jpg,jpeg,gif,png',
- *             'deleteAttribute'=>'del_image',
- *             'filePath'=>'upload/images',
- *         )
- *     );
+ *     return [
+ *         'ImageUpload' => [
+ *             'class'=> FileUploadBehavior::class,
+ *             'fileAttribute' => 'image',
+ *             'fileTypes' => ['jpg', 'jpeg', 'gif', 'png'],
+ *             'deleteAttribute' => 'del_image',
+ *             'filePath' => 'upload/images',
+ *         ]
+ *     ];
  * }
  * </pre>
  *
@@ -69,11 +69,7 @@ class FileUploadBehavior extends Behavior
         ];
     }
 
-    /**
-     * Responds to {@link CModel::onBeforeSave} event.
-     * @param ModelEvent $event event parameter
-     */
-    public function beforeSave($event): void
+    public function beforeSave(): void
     {
         $this->initAttributes();
         /** @var ActiveRecord $model */
@@ -92,11 +88,7 @@ class FileUploadBehavior extends Behavior
         }
     }
 
-    /**
-     * Responds to {@link CModel::onBeforeDelete} event.
-     * @param ModelEvent $event event parameter
-     */
-    public function beforeDelete($event): void
+    public function beforeDelete(): void
     {
         $this->initAttributes();
         $this->deleteFile();
