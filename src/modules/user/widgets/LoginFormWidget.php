@@ -9,8 +9,6 @@ use yii\base\Widget;
 
 class LoginFormWidget extends Widget
 {
-    public $tpl = 'LoginForm';
-
     public function run(): string
     {
         $model = new LoginForm();
@@ -22,7 +20,7 @@ class LoginFormWidget extends Widget
             $user = null;
         }
 
-        return $this->render($this->tpl, [
+        return $this->render('LoginForm', [
             'model' => $model,
             'user' => $user,
         ]);

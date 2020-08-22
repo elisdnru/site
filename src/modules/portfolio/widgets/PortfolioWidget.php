@@ -8,8 +8,6 @@ use yii\base\Widget;
 
 class PortfolioWidget extends Widget
 {
-    public $tpl = 'Portfolio';
-    public $class = '';
     public $limit = 4;
 
     public function run(): string
@@ -22,7 +20,7 @@ class PortfolioWidget extends Widget
             ->limit($this->limit)
             ->all();
 
-        return $this->render($this->tpl, [
+        return $this->render('Portfolio', [
             'items' => $items,
         ]);
     }

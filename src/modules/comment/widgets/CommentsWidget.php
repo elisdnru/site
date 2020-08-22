@@ -20,7 +20,6 @@ class CommentsWidget extends Widget
     public $type;
     public $url;
     public $user;
-    public $tpl = 'comments';
 
     public function run(): string
     {
@@ -88,7 +87,7 @@ class CommentsWidget extends Widget
 
         CommentsAsset::register($this->view);
 
-        return $this->render('Comments/' . $this->tpl, [
+        return $this->render('Comments/comments', [
             'comments' => $comments,
             'form' => $form,
             'user' => $this->user,

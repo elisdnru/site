@@ -8,15 +8,13 @@ use yii\base\Widget;
 
 class SearchFormWidget extends Widget
 {
-    public $tpl = 'SearchForm';
-
     public function run(): string
     {
         $form = new SearchForm();
 
         $form->load(Yii::$app->request->queryParams);
 
-        return $this->render($this->tpl, [
+        return $this->render('SearchForm', [
             'form' => $form,
         ]);
     }
