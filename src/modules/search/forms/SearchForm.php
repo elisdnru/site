@@ -6,7 +6,7 @@ use yii\base\Model;
 
 class SearchForm extends Model
 {
-    public $q;
+    public ?string $q = null;
 
     public function rules(): array
     {

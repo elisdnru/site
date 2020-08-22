@@ -9,7 +9,7 @@ use yii\web\UrlRuleInterface;
 
 class PageUrlRule implements UrlRuleInterface
 {
-    public $cache = 0;
+    public int $cache = 0;
 
     public function createUrl($manager, $route, $params)
     {

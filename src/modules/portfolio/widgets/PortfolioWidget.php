@@ -8,7 +8,7 @@ use yii\base\Widget;
 
 class PortfolioWidget extends Widget
 {
-    public $limit = 4;
+    public int $limit = 4;
 
     public function run(): string
     {

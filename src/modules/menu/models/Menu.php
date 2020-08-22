@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
  */
 class Menu extends ActiveRecord
 {
-    public $indent = 0;
+    public int $indent = 0;
 
     public static function tableName(): string
     {

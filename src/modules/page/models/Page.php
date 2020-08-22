@@ -53,7 +53,7 @@ class Page extends ActiveRecord
         'tabschild' => 'Дочерние вкладки',
     ];
 
-    public $indent = 0;
+    public int $indent = 0;
 
     public static function tableName(): string
     {

@@ -9,8 +9,8 @@ use yii\base\Widget;
 
 class AdminBar extends Widget
 {
-    public $title = '';
-    public $links = [];
+    public string $title = '';
+    public array $links = [];
 
     public function run(): string
     {
