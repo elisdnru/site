@@ -1,0 +1,4779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+  <file src="src/components/AdminController.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/AuthIdentity.php">
+    <MissingParamType occurrences="1">
+      <code>$id</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$id</code>
+    </MissingPropertyType>
+    <MixedInferredReturnType occurrences="1">
+      <code>getId</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;id</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/components/AuthManager.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;assignments[$userId]</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/components/DateFormatter.php">
+    <InvalidScalarArgument occurrences="8">
+      <code>$time</code>
+      <code>$time</code>
+      <code>$time</code>
+      <code>$time</code>
+      <code>$time</code>
+      <code>$time</code>
+      <code>$time</code>
+      <code>$time</code>
+    </InvalidScalarArgument>
+    <MissingParamType occurrences="1">
+      <code>$date</code>
+    </MissingParamType>
+    <MixedArgument occurrences="1">
+      <code>$date</code>
+    </MixedArgument>
+  </file>
+  <file src="src/components/InlineWidgetsBehavior.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <MixedArgument occurrences="1">
+      <code>$class</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$class</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <NullableReturnStatement occurrences="2">
+      <code>$text</code>
+      <code>$text</code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument occurrences="7">
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$output</code>
+      <code>$attributesString</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="8">
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+      <code>$this-&gt;widgetToken</code>
+    </PossiblyNullOperand>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/category/TreeActiveDataProvider.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;query instanceof QueryInterface</code>
+    </DocblockTypeContradiction>
+    <MissingParamType occurrences="3">
+      <code>$items</code>
+      <code>$indent</code>
+      <code>$foolproof</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>buildRecursive</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;buildRecursive($item-&gt;{$this-&gt;childrenRelation}, $indent + 1, $foolproof - 1)</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$items</code>
+      <code>$item</code>
+      <code>$data[]</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="2">
+      <code>$indent</code>
+      <code>$foolproof</code>
+    </MixedOperand>
+    <MixedPropertyAssignment occurrences="1">
+      <code>$item</code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch occurrences="2">
+      <code>$item-&gt;{$this-&gt;childrenRelation}</code>
+      <code>$item-&gt;{$this-&gt;childrenRelation}</code>
+    </MixedPropertyFetch>
+    <MixedReturnStatement occurrences="1">
+      <code>$items</code>
+    </MixedReturnStatement>
+    <NoInterfaceProperties occurrences="1">
+      <code>$rootQuery-&gt;where</code>
+    </NoInterfaceProperties>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;db</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidMethodCall occurrences="1">
+      <code>getOrders</code>
+    </PossiblyInvalidMethodCall>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>TreeActiveDataProvider</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/components/category/behaviors/CategoryBehavior.php">
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;getModel()-&gt;{$this-&gt;aliasAttribute}</code>
+    </MixedArgument>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+  </file>
+  <file src="src/components/category/behaviors/CategoryQueryBehavior.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$this-&gt;getQuery()-&gt;andWhere([$this-&gt;aliasAttribute =&gt; $alias])-&gt;limit(1)-&gt;one()</code>
+    </LessSpecificReturnStatement>
+    <MixedArrayOffset occurrences="1">
+      <code>$result[$id]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="2">
+      <code>$result[$item-&gt;{$this-&gt;urlAttribute}]</code>
+      <code>$id</code>
+    </MixedAssignment>
+    <MoreSpecificReturnType occurrences="1">
+      <code>?ActiveRecord</code>
+    </MoreSpecificReturnType>
+    <PossiblyInvalidClone occurrences="1">
+      <code>clone $this-&gt;owner</code>
+    </PossiblyInvalidClone>
+    <UndefinedMagicMethod occurrences="1">
+      <code>isLinkActive</code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/components/category/behaviors/CategoryTreeBehavior.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$query-&gt;limit(1)-&gt;one()</code>
+    </LessSpecificReturnStatement>
+    <MissingParamType occurrences="2">
+      <code>$parent</code>
+      <code>$items</code>
+    </MissingParamType>
+    <MixedArrayOffset occurrences="1">
+      <code>$breadcrumbs[$page-&gt;{$this-&gt;parentRelation}-&gt;{$this-&gt;titleAttribute}]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="10">
+      <code>$uri[]</code>
+      <code>$category</code>
+      <code>$model</code>
+      <code>$breadcrumbs[$page-&gt;{$this-&gt;parentRelation}-&gt;{$this-&gt;titleAttribute}]</code>
+      <code>$page</code>
+      <code>$titles[]</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$array[]</code>
+      <code>$array[]</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>getPrimaryKey</code>
+      <code>getPrimaryKey</code>
+    </MixedMethodCall>
+    <MixedPropertyFetch occurrences="11">
+      <code>$category-&gt;{$this-&gt;parentRelation}</code>
+      <code>$category-&gt;{$this-&gt;parentRelation}</code>
+      <code>$category-&gt;{$this-&gt;parentRelation}</code>
+      <code>$model-&gt;{$this-&gt;parentRelation}</code>
+      <code>$page-&gt;{$this-&gt;parentRelation}</code>
+      <code>$page-&gt;{$this-&gt;parentRelation}</code>
+      <code>$page-&gt;{$this-&gt;parentRelation}</code>
+      <code>$page-&gt;{$this-&gt;parentRelation}</code>
+      <code>$item-&gt;{$this-&gt;parentRelation}</code>
+      <code>$item-&gt;{$this-&gt;parentRelation}</code>
+      <code>$item-&gt;{$this-&gt;parentRelation}</code>
+    </MixedPropertyFetch>
+    <MoreSpecificReturnType occurrences="1">
+      <code>?ActiveRecord</code>
+    </MoreSpecificReturnType>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+  </file>
+  <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$model</code>
+    </LessSpecificReturnStatement>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>ActiveQuery|self</code>
+    </MismatchingDocblockReturnType>
+    <MissingParamType occurrences="14">
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent_id</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$sub</code>
+      <code>$parent</code>
+      <code>$parent_id</code>
+      <code>$parent</code>
+      <code>$items</code>
+      <code>$parent</code>
+    </MissingParamType>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$attributes</code>
+      <code>array_combine($attributes, $attributes)</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="19">
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;aliasAttribute]</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$item[$this-&gt;aliasAttribute]</code>
+      <code>$item[$this-&gt;parentAttribute]</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;parentAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="7">
+      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$associated[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$result[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$resultArray[$id]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="23">
+      <code>$item</code>
+      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$item</code>
+      <code>$temp</code>
+      <code>$titles[]</code>
+      <code>$temp</code>
+      <code>$item</code>
+      <code>$associated[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$item</code>
+      <code>$temp</code>
+      <code>$titles[]</code>
+      <code>$temp</code>
+      <code>$parent_id</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$id</code>
+      <code>$parent_id</code>
+      <code>$item</code>
+      <code>$result[]</code>
+      <code>$item</code>
+      <code>$array[]</code>
+      <code>$array[]</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>ActiveQuery|self</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="5">
+      <code>getPrimaryKey</code>
+      <code>getPrimaryKey</code>
+      <code>isLinkActive</code>
+      <code>getPrimaryKey</code>
+      <code>getPrimaryKey</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="3">
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
+      <code>$sub</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="5">
+      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
+      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
+      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
+      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
+      <code>$item-&gt;{$this-&gt;iconAttribute}</code>
+    </MixedPropertyFetch>
+    <MoreSpecificReturnType occurrences="1">
+      <code>?ActiveRecord</code>
+    </MoreSpecificReturnType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$parent !== null</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedMagicMethod occurrences="1">
+      <code>getChildByAlias</code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/components/category/models/CategoryQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Category|ActiveRecord|null</code>
+      <code>Category[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>CategoryQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Category|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Category|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CategoryQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/components/category/models/TreeCategory.php">
+    <MismatchingDocblockReturnType occurrences="2">
+      <code>CategoryQuery|ActiveQuery</code>
+      <code>CategoryQuery|ActiveQuery</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="2">
+      <code>CategoryQuery|ActiveQuery</code>
+      <code>CategoryQuery|ActiveQuery</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="src/components/category/models/TreeCategoryQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>TreeCategory|ActiveRecord|null</code>
+      <code>TreeCategory[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>parent::each($batchSize, $db)</code>
+    </LessSpecificReturnStatement>
+    <MethodSignatureMismatch occurrences="1">
+      <code>TreeCategoryQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>TreeCategory|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>TreeCategory|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <MoreSpecificReturnType occurrences="1">
+      <code>TreeCategory[]|BatchQueryResult</code>
+    </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>TreeCategoryQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/components/module/ModuleManager.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>bool</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/module/routes/ModuleUrlRules.php">
+    <MixedArgument occurrences="3">
+      <code>$definition</code>
+      <code>$set['routes']</code>
+      <code>$class</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$name</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$definition</code>
+      <code>$class</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/components/psr/Provider.php">
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/psr/SimpleCache.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>(array)$keys</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$result</code>
+      <code>$key</code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$ttl</code>
+      <code>$ttl</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="src/components/purifier/CommentPostFilter.php">
+    <MissingClosureParamType occurrences="1">
+      <code>$matches</code>
+    </MissingClosureParamType>
+    <MissingReturnType occurrences="1">
+      <code>fixMarkup</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$matches[0]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$matches[0]</code>
+    </MixedArrayAccess>
+    <PossiblyNullArgument occurrences="1">
+      <code>$text</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="src/components/purifier/PurifyTextBehavior.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <InvalidScalarArgument occurrences="1">
+      <code>random_int(0, 100000)</code>
+    </InvalidScalarArgument>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>ActiveRecord|Component</code>
+    </MismatchingDocblockReturnType>
+    <MixedArgument occurrences="10">
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$transform</code>
+      <code>$matches[2]</code>
+      <code>$matches[2]</code>
+      <code>$matches[2]</code>
+      <code>$matches[2]</code>
+      <code>$this-&gt;preContents[$id]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$transform</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>ActiveRecord|Component</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="4">
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+    </MixedOperand>
+    <NullableReturnStatement occurrences="1">
+      <code>$text</code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument occurrences="4">
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$content</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="src/components/uploader/FileUploadBehavior.php">
+    <MixedArgument occurrences="3">
+      <code>$model-&gt;{$this-&gt;fileAttribute}</code>
+      <code>$fileUrl</code>
+      <code>$uploadedFile</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$fileUrl</code>
+      <code>$uploadedFile</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="4">
+      <code>string</code>
+      <code>string</code>
+      <code>?File</code>
+      <code>?File</code>
+    </MixedInferredReturnType>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$owner</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidMethodCall occurrences="1">
+      <code>append</code>
+    </PossiblyInvalidMethodCall>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;storageAttribute</code>
+      <code>$this-&gt;storageAttribute</code>
+    </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch occurrences="2">
+      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
+    </PossiblyNullPropertyFetch>
+    <UndefinedClass occurrences="6">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/uploader/Uploader.php">
+    <FalsableReturnStatement occurrences="1">
+      <code>$result</code>
+    </FalsableReturnStatement>
+    <InvalidFalsableReturnType occurrences="1">
+      <code>stdClass</code>
+    </InvalidFalsableReturnType>
+    <MissingDocblockType occurrences="1"/>
+    <MixedArgument occurrences="6">
+      <code>$requested-&gt;path</code>
+      <code>$requested-&gt;width</code>
+      <code>$requested-&gt;height</code>
+      <code>$requested-&gt;baseName</code>
+      <code>$rule[0]</code>
+      <code>$rule[1]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$rule[0]</code>
+      <code>$rule[1]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$rule</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="4">
+      <code>?File</code>
+      <code>?File</code>
+      <code>bool</code>
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/extensions/AntiMagic.php">
+    <MissingParamType occurrences="7">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$value</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$params</code>
+    </MissingParamType>
+    <MixedOperand occurrences="3">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+    </MixedOperand>
+  </file>
+  <file src="src/extensions/file/File.php">
+    <DocblockTypeContradiction occurrences="7">
+      <code>isset($this-&gt;realpath)</code>
+      <code>isset($this-&gt;exists)</code>
+      <code>isset($this-&gt;isEmpty)</code>
+      <code>isset($this-&gt;readable)</code>
+      <code>isset($this-&gt;writeable)</code>
+      <code>isset($this-&gt;permissions)</code>
+      <code>isset($this-&gt;size)</code>
+    </DocblockTypeContradiction>
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <InvalidOperand occurrences="1">
+      <code>sprintf('%u', filesize($item))</code>
+    </InvalidOperand>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;handle</code>
+    </InvalidPropertyAssignmentValue>
+    <InvalidScalarArgument occurrences="1">
+      <code>$this-&gt;size</code>
+    </InvalidScalarArgument>
+    <MismatchingDocblockReturnType occurrences="15">
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+      <code>mixed</code>
+    </MismatchingDocblockReturnType>
+    <MissingConstructor occurrences="1">
+      <code>$filepath</code>
+    </MissingConstructor>
+    <MixedArgument occurrences="6">
+      <code>$format</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$rule</code>
+      <code>$rule</code>
+      <code>$contents</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$rule[0]</code>
+      <code>$rule[0]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="5">
+      <code>$item</code>
+      <code>$rule</code>
+      <code>$rule</code>
+      <code>$content_type</code>
+      <code>$contents</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="6">
+      <code>File</code>
+      <code>File</code>
+      <code>string</code>
+      <code>boolean</code>
+      <code>string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="3">
+      <code>$rule</code>
+      <code>$content_type</code>
+      <code>$this-&gt;getSize(false)</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="1">
+      <code>self::$instances[$filePath]</code>
+    </MixedReturnStatement>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;permissions</code>
+    </NullableReturnStatement>
+    <PossiblyFalseArgument occurrences="1">
+      <code>strrpos($pathinfo['basename'], '.')</code>
+    </PossiblyFalseArgument>
+    <PossiblyNullArgument occurrences="3">
+      <code>$filter</code>
+      <code>$filter</code>
+      <code>$filter</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="2">
+      <code>$this-&gt;getDirname()</code>
+      <code>$filename</code>
+    </PossiblyNullOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="6">
+      <code>null</code>
+      <code>null</code>
+      <code>$this-&gt;getExists() ? substr(sprintf('%o', fileperms($this-&gt;realpath)), -4) : null</code>
+      <code>$this-&gt;getExists() ? sprintf('%u', filesize($this-&gt;realpath)) : null</code>
+      <code>$this-&gt;getExists() ? sprintf('%u', $this-&gt;dirSize()) : null</code>
+      <code>$this-&gt;getExists() ? filemtime($this-&gt;realpath) : null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>$this-&gt;uploadedInstance</code>
+      <code>$this-&gt;handle !== null</code>
+      <code>$filter !== null</code>
+      <code>$filter !== null</code>
+    </RedundantConditionGivenDocblockType>
+    <TooManyArguments occurrences="1">
+      <code>addLog</code>
+    </TooManyArguments>
+    <UndefinedClass occurrences="6">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/extensions/image/ImageHandler.php">
+    <InvalidScalarArgument occurrences="7">
+      <code>$newWidth</code>
+      <code>$newWidth</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posX</code>
+      <code>$posY</code>
+    </InvalidScalarArgument>
+    <MissingParamType occurrences="40">
+      <code>$file</code>
+      <code>$image</code>
+      <code>$file</code>
+      <code>$newImage</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+      <code>$proportional</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+      <code>$proportional</code>
+      <code>$watermarkFile</code>
+      <code>$offsetX</code>
+      <code>$offsetY</code>
+      <code>$corner</code>
+      <code>$zoom</code>
+      <code>$mode</code>
+      <code>$degrees</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$startX</code>
+      <code>$startY</code>
+      <code>$text</code>
+      <code>$fontFile</code>
+      <code>$size</code>
+      <code>$color</code>
+      <code>$corner</code>
+      <code>$offsetX</code>
+      <code>$offsetY</code>
+      <code>$angle</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+      <code>$backgroundColor</code>
+      <code>$inFormat</code>
+      <code>$jpegQuality</code>
+      <code>$file</code>
+      <code>$toFormat</code>
+      <code>$jpegQuality</code>
+      <code>$touch</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="8">
+      <code>$originalImage</code>
+      <code>$image</code>
+      <code>$format</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$mimeType</code>
+      <code>$fileName</code>
+      <code>$transparencyColor</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="2">
+      <code>getImage</code>
+      <code>watermark</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="129">
+      <code>$this-&gt;originalImage['image']</code>
+      <code>$file</code>
+      <code>$file</code>
+      <code>$file</code>
+      <code>$file</code>
+      <code>$file</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$image['image']</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$newImage</code>
+      <code>$this-&gt;transparencyColor[0]</code>
+      <code>$this-&gt;transparencyColor[1]</code>
+      <code>$this-&gt;transparencyColor[2]</code>
+      <code>$newImage</code>
+      <code>$newImage</code>
+      <code>$newImage</code>
+      <code>$newImage</code>
+      <code>$this-&gt;transparencyColor[0]</code>
+      <code>$this-&gt;transparencyColor[1]</code>
+      <code>$this-&gt;transparencyColor[2]</code>
+      <code>$newImage</code>
+      <code>$newImage</code>
+      <code>$newHeight / $this-&gt;height * $this-&gt;width</code>
+      <code>$newWidth / $this-&gt;width * $this-&gt;height</code>
+      <code>$newWidth</code>
+      <code>$newHeight</code>
+      <code>$this-&gt;image</code>
+      <code>$newWidth</code>
+      <code>$newHeight</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;image</code>
+      <code>max($this-&gt;width, $this-&gt;height) * $zoom</code>
+      <code>$watermarkHeight / $wImg['height'] * $wImg['width']</code>
+      <code>$watermarkWidth / $wImg['width'] * $wImg['height']</code>
+      <code>($this-&gt;width - $watermarkWidth) / 2</code>
+      <code>($this-&gt;height - $watermarkHeight) / 2</code>
+      <code>$this-&gt;image</code>
+      <code>$wImg['image']</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$watermarkWidth</code>
+      <code>$watermarkHeight</code>
+      <code>$wImg['width']</code>
+      <code>$wImg['height']</code>
+      <code>$wImg['image']</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;image</code>
+      <code>$srcX</code>
+      <code>$srcY</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$srcWidth</code>
+      <code>$srcHeight</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>($this-&gt;width - $width) / 2</code>
+      <code>($this-&gt;height - $height) / 2</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$this-&gt;image</code>
+      <code>$startX</code>
+      <code>$startY</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$this-&gt;image</code>
+      <code>$size</code>
+      <code>$angle</code>
+      <code>$fontFile</code>
+      <code>$text</code>
+      <code>$this-&gt;image</code>
+      <code>$color[0]</code>
+      <code>$color[1]</code>
+      <code>$color[2]</code>
+      <code>($this-&gt;width - $textWidth) / 2</code>
+      <code>($this-&gt;height - $textHeight) / 2</code>
+      <code>$this-&gt;image</code>
+      <code>$size</code>
+      <code>$angle</code>
+      <code>$posX</code>
+      <code>$posY + $textHeight</code>
+      <code>$fontFile</code>
+      <code>$text</code>
+      <code>$newWidth / $this-&gt;width * $this-&gt;height</code>
+      <code>$newHeight / $this-&gt;height * $this-&gt;width</code>
+      <code>$widthProportion * $this-&gt;height</code>
+      <code>$heightProportion * $this-&gt;width</code>
+      <code>($toWidth - $newWidth) / 2</code>
+      <code>($toHeight - $newHeight) / 2</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+      <code>$backgroundColor[0]</code>
+      <code>$backgroundColor[1]</code>
+      <code>$backgroundColor[2]</code>
+      <code>$this-&gt;image</code>
+      <code>$newWidth</code>
+      <code>$newHeight</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$jpegQuality</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$file</code>
+      <code>$this-&gt;image</code>
+      <code>$file</code>
+      <code>$jpegQuality</code>
+      <code>$this-&gt;image</code>
+      <code>$file</code>
+      <code>$this-&gt;image</code>
+      <code>$file</code>
+      <code>$this-&gt;fileName</code>
+      <code>$file</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="19">
+      <code>$this-&gt;originalImage['image']</code>
+      <code>$this-&gt;originalImage['image']</code>
+      <code>$image['width']</code>
+      <code>$image['height']</code>
+      <code>$image['mimeType']</code>
+      <code>$image['format']</code>
+      <code>$image['image']</code>
+      <code>$this-&gt;transparencyColor[0]</code>
+      <code>$this-&gt;transparencyColor[1]</code>
+      <code>$this-&gt;transparencyColor[2]</code>
+      <code>$this-&gt;transparencyColor[0]</code>
+      <code>$this-&gt;transparencyColor[1]</code>
+      <code>$this-&gt;transparencyColor[2]</code>
+      <code>$color[0]</code>
+      <code>$color[1]</code>
+      <code>$color[2]</code>
+      <code>$backgroundColor[0]</code>
+      <code>$backgroundColor[1]</code>
+      <code>$backgroundColor[2]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="56">
+      <code>$result['width']</code>
+      <code>$result['height']</code>
+      <code>$result['mimeType']</code>
+      <code>$result['format']</code>
+      <code>$image</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+      <code>$newHeight</code>
+      <code>$newWidth</code>
+      <code>$newWidth</code>
+      <code>$newHeight</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+      <code>$watermarkWidth</code>
+      <code>$watermarkHeight</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$srcWidth</code>
+      <code>$srcHeight</code>
+      <code>$srcX</code>
+      <code>$srcWidth</code>
+      <code>$srcY</code>
+      <code>$srcHeight</code>
+      <code>$srcX</code>
+      <code>$srcY</code>
+      <code>$srcWidth</code>
+      <code>$srcHeight</code>
+      <code>$startX</code>
+      <code>$startY</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$textHeight</code>
+      <code>$textWidth</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$posX</code>
+      <code>$posY</code>
+      <code>$widthProportion</code>
+      <code>$heightProportion</code>
+      <code>$newWidth</code>
+      <code>$newHeight</code>
+      <code>$widthProportion</code>
+      <code>$heightProportion</code>
+      <code>$inFormat</code>
+      <code>$file</code>
+      <code>$toFormat</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="4">
+      <code>int</code>
+      <code>int</code>
+      <code>int</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="42">
+      <code>$newHeight</code>
+      <code>$newWidth</code>
+      <code>max($this-&gt;width, $this-&gt;height)</code>
+      <code>$wImg['height']</code>
+      <code>$watermarkHeight / $wImg['height']</code>
+      <code>$wImg['width']</code>
+      <code>$watermarkWidth / $wImg['width']</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$bBox[1]</code>
+      <code>$bBox[2]</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$textHeight</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;width</code>
+      <code>$newWidth / $this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$newHeight / $this-&gt;height</code>
+      <code>$newWidth</code>
+      <code>$newHeight</code>
+      <code>$widthProportion</code>
+      <code>$heightProportion</code>
+      <code>$toWidth</code>
+      <code>$toHeight</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="4">
+      <code>$this-&gt;format</code>
+      <code>$this-&gt;width</code>
+      <code>$this-&gt;height</code>
+      <code>$this-&gt;mimeType</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/extensions/markdown/MarkdownParser.php">
+    <MixedArgument occurrences="2">
+      <code>$codeblock</code>
+      <code>$matches[2]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$codeblock</code>
+      <code>$highlighter</code>
+      <code>$config['tabsize']</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>Text_Highlighter</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="1">
+      <code>setRenderer</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="2">
+      <code>$this-&gt;hashBlock($codeblock)</code>
+      <code>$this-&gt;hashBlock($this-&gt;highlightCodeBlock($matches[2]))</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="2">
+      <code>parent::_doCodeBlocks_callback($matches)</code>
+      <code>$highlighter</code>
+    </MixedReturnStatement>
+    <PossiblyFalseOperand occurrences="1">
+      <code>strpos($codeblock, $tag)</code>
+    </PossiblyFalseOperand>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>($codeblock = $this-&gt;highlightCodeBlock($codeblock)) !== null</code>
+      <code>($tag = $this-&gt;getHighlightTag($codeblock)) !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter.php">
+    <InvalidPropertyAssignmentValue occurrences="2">
+      <code>$renderer</code>
+      <code>new Text_Highlighter_Renderer_Html($this-&gt;_options)</code>
+    </InvalidPropertyAssignmentValue>
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;_renderer-&gt;getOutput()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string</code>
+    </InvalidReturnType>
+    <MissingConstructor occurrences="1">
+      <code>$_syntax</code>
+    </MissingConstructor>
+    <MissingFile occurrences="1">
+      <code>include_once(dirname(__FILE__) . '/Renderer/Html.php')</code>
+    </MissingFile>
+    <MissingParamType occurrences="1">
+      <code>$str</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="4">
+      <code>_checkDefines</code>
+      <code>setRenderer</code>
+      <code>_matchingBrackets</code>
+      <code>_getToken</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="31">
+      <code>$defines</code>
+      <code>$str</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_str</code>
+      <code>$this-&gt;_pos</code>
+      <code>$this-&gt;_regs[$this-&gt;_state]</code>
+      <code>$this-&gt;_str</code>
+      <code>$this-&gt;_pos</code>
+      <code>$this-&gt;_str</code>
+      <code>$partpos</code>
+      <code>$m[$j + $n][1] - $partpos</code>
+      <code>$m[$j + $n][0]</code>
+      <code>$m[$n][0]</code>
+      <code>$m[$n][0]</code>
+      <code>$this-&gt;_str</code>
+      <code>$partpos</code>
+      <code>$m[$n][1] - $partpos + strlen($m[$n][0])</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$re</code>
+      <code>$m[$n][0]</code>
+      <code>$this-&gt;_str</code>
+      <code>$this-&gt;_pos</code>
+      <code>$m[$n][1] - $this-&gt;_pos</code>
+      <code>$m[$n][0]</code>
+      <code>$m[$n + $k][0]</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_matchingBrackets($quoted)</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="43">
+      <code>$action[1]</code>
+      <code>$action[0]</code>
+      <code>$action[0]</code>
+      <code>$m[0][1]</code>
+      <code>$m[0][0]</code>
+      <code>$this-&gt;_regs[$this-&gt;_state]</code>
+      <code>$this-&gt;_counts[$this-&gt;_state]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$this-&gt;_states[$this-&gt;_state]</code>
+      <code>$this-&gt;_delim[$this-&gt;_state]</code>
+      <code>$m[$n][0]</code>
+      <code>$this-&gt;_inner[$this-&gt;_state]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$j + $n][1]</code>
+      <code>$m[$j + $n][1]</code>
+      <code>$m[$j + $n][1]</code>
+      <code>$this-&gt;_parts[$this-&gt;_state][$i][$j]</code>
+      <code>$m[$j + $n][0]</code>
+      <code>$m[$j + $n][1]</code>
+      <code>$m[$j + $n][0]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][0]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][0]</code>
+      <code>$this-&gt;_keywords[$this-&gt;_state]</code>
+      <code>$m[$n][0]</code>
+      <code>$this-&gt;_kwmap[$g]</code>
+      <code>$m[$n][0]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][0]</code>
+      <code>$this-&gt;_states[$this-&gt;_state]</code>
+      <code>$this-&gt;_inner[$this-&gt;_state]</code>
+      <code>$this-&gt;_delim[$this-&gt;_state]</code>
+      <code>$this-&gt;_states[$this-&gt;_state]</code>
+      <code>$this-&gt;_end[$this-&gt;_state]</code>
+      <code>$this-&gt;_subst[$l]</code>
+      <code>$this-&gt;_counts[$l]</code>
+      <code>$m[$n + $k][0]</code>
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="4">
+      <code>$this-&gt;_tokenStack[]</code>
+      <code>$this-&gt;_tokenStack[]</code>
+      <code>$this-&gt;_tokenStack[]</code>
+      <code>$this-&gt;_stack[]</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="33">
+      <code>$this-&gt;_disabled[$action[0]]</code>
+      <code>$this-&gt;_disabled[$action[0]]</code>
+      <code>$this-&gt;_regs[$this-&gt;_state]</code>
+      <code>$this-&gt;_counts[$this-&gt;_state]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$this-&gt;_states[$this-&gt;_state]</code>
+      <code>$this-&gt;_delim[$this-&gt;_state]</code>
+      <code>$m[$n]</code>
+      <code>$this-&gt;_inner[$this-&gt;_state]</code>
+      <code>$this-&gt;_parts[$this-&gt;_state][$i]</code>
+      <code>$m[$n]</code>
+      <code>$m[$j + $n]</code>
+      <code>$m[$j + $n]</code>
+      <code>$m[$j + $n]</code>
+      <code>$m[$j + $n]</code>
+      <code>$m[$j + $n]</code>
+      <code>$m[$j + $n]</code>
+      <code>$this-&gt;_keywords[$this-&gt;_state]</code>
+      <code>$this-&gt;_disabled[$g]</code>
+      <code>$m[$n]</code>
+      <code>$this-&gt;_kwmap[$g]</code>
+      <code>$m[$n]</code>
+      <code>$this-&gt;_states[$this-&gt;_state]</code>
+      <code>$this-&gt;_inner[$this-&gt;_state]</code>
+      <code>$this-&gt;_delim[$this-&gt;_state]</code>
+      <code>$this-&gt;_states[$this-&gt;_state]</code>
+      <code>$this-&gt;_end[$this-&gt;_state]</code>
+      <code>$this-&gt;_subst[$l]</code>
+      <code>$this-&gt;_counts[$l]</code>
+      <code>$m[$i + $k]</code>
+      <code>$m[$n + $k]</code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="7">
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+      <code>$m[$n]</code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment occurrences="13">
+      <code>$defines</code>
+      <code>$actions</code>
+      <code>$action</code>
+      <code>$endpos</code>
+      <code>$endmatch</code>
+      <code>$count</code>
+      <code>$inner</code>
+      <code>$partpos</code>
+      <code>$partpos</code>
+      <code>$re</code>
+      <code>$inner</code>
+      <code>$l</code>
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>new $classname($options)</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="15">
+      <code>$n</code>
+      <code>$n</code>
+      <code>$n</code>
+      <code>$m[$j + $n][1]</code>
+      <code>$n</code>
+      <code>$n</code>
+      <code>$n</code>
+      <code>$m[$j + $n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$m[$n][1]</code>
+      <code>$i</code>
+      <code>$n</code>
+      <code>$count</code>
+    </MixedOperand>
+    <PossiblyInvalidMethodCall occurrences="6">
+      <code>reset</code>
+      <code>setCurrentLanguage</code>
+      <code>preprocess</code>
+      <code>acceptToken</code>
+      <code>finalize</code>
+      <code>getOutput</code>
+    </PossiblyInvalidMethodCall>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$endmatch</code>
+    </PossiblyUndefinedVariable>
+    <UndefinedThisPropertyAssignment occurrences="21">
+      <code>$this-&gt;_tokenStack</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$this-&gt;_pos</code>
+      <code>$this-&gt;_stack</code>
+      <code>$this-&gt;_lastinner</code>
+      <code>$this-&gt;_lastdelim</code>
+      <code>$this-&gt;_state</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_state</code>
+      <code>$this-&gt;_pos</code>
+      <code>$this-&gt;_stack</code>
+      <code>$this-&gt;_tokenStack</code>
+      <code>$this-&gt;_lastinner</code>
+      <code>$this-&gt;_lastdelim</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_str</code>
+      <code>$this-&gt;_len</code>
+    </UndefinedThisPropertyAssignment>
+    <UndefinedThisPropertyFetch occurrences="24">
+      <code>$this-&gt;_pos</code>
+      <code>$this-&gt;_len</code>
+      <code>$this-&gt;_state</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_str</code>
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_str</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_lastinner</code>
+      <code>$this-&gt;_lastdelim</code>
+      <code>$this-&gt;_lastinner</code>
+      <code>$this-&gt;_endpattern</code>
+      <code>$this-&gt;_stack</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_lastdelim</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyFetch>
+    <UnresolvableInclude occurrences="1">
+      <code>include_once $langFile</code>
+    </UnresolvableInclude>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/ABAP.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_ABAP</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/AVRC.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_AVRC</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/CPP.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_CPP</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/CSS.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_CSS</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/DIFF.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_DIFF</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/DTD.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_DTD</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Generator.php">
+    <UndefinedClass occurrences="1">
+      <code>XML_Parser</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/HTML.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_HTML</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/JAVA.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_JAVA</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/JAVASCRIPT.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_JAVASCRIPT</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/MYSQL.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_MYSQL</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/PERL.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_PERL</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/PHP.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_PHP</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/PYTHON.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_PYTHON</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/RUBY.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_RUBY</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer.php">
+    <MissingParamType occurrences="1">
+      <code>$lang</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="3">
+      <code>reset</code>
+      <code>acceptToken</code>
+      <code>finalize</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$this-&gt;_language</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/Array.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>is_array($this-&gt;_output)</code>
+    </DocblockTypeContradiction>
+    <MissingReturnType occurrences="3">
+      <code>reset</code>
+      <code>acceptToken</code>
+      <code>_getFullClassName</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="4">
+      <code>$this-&gt;_tabsize</code>
+      <code>$this-&gt;_htmlspecialchars</code>
+      <code>$this-&gt;_enumerated</code>
+      <code>$theClass</code>
+    </MixedAssignment>
+    <PossiblyFalsePropertyAssignmentValue occurrences="1">
+      <code>false</code>
+    </PossiblyFalsePropertyAssignmentValue>
+    <UndefinedThisPropertyAssignment occurrences="2">
+      <code>$this-&gt;_lastClass</code>
+      <code>$this-&gt;_lastClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/BB.php">
+    <InvalidArgument occurrences="1">
+      <code>$this-&gt;_colors</code>
+    </InvalidArgument>
+    <InvalidArrayAccess occurrences="1">
+      <code>$this-&gt;_colors[$class]</code>
+    </InvalidArrayAccess>
+    <InvalidPropertyAssignmentValue occurrences="5">
+      <code>array_merge($this-&gt;_colors, $this-&gt;_options['colors'])</code>
+      <code>$item_tag . str_replace("\n", "\n" . $item_tag . ' ', $bb_output)</code>
+    </InvalidPropertyAssignmentValue>
+    <MissingReturnType occurrences="2">
+      <code>reset</code>
+      <code>finalize</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="6">
+      <code>$this-&gt;_options['bb_tags']</code>
+      <code>$this-&gt;_options['tag_brackets']</code>
+      <code>$this-&gt;_options['colors']</code>
+      <code>$token</code>
+      <code>$content</code>
+      <code>$this-&gt;_colors[$class]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+      <code>$token[$key]</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="1">
+      <code>$this-&gt;_colors[$class]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="5">
+      <code>$this-&gt;_numbers</code>
+      <code>$token</code>
+      <code>$class</code>
+      <code>$content</code>
+      <code>$content</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="19">
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_bb_tags['color']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+      <code>$content</code>
+      <code>$content</code>
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_bb_tags['list']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+      <code>$this-&gt;_tag_brackets['start']</code>
+      <code>$this-&gt;_bb_tags['code']</code>
+      <code>$this-&gt;_tag_brackets['end']</code>
+    </MixedOperand>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/Console.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$nlines</code>
+      <code>$i++</code>
+    </InvalidScalarArgument>
+    <MissingPropertyType occurrences="2">
+      <code>$_colors</code>
+      <code>$_defColors</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="4">
+      <code>reset</code>
+      <code>acceptToken</code>
+      <code>finalize</code>
+      <code>replaceCallback</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="2">
+      <code>$this-&gt;_defColors</code>
+      <code>$this-&gt;_options['colors']</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>array($this, 'replaceCallback')</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="4">
+      <code>$this-&gt;_colors[$class]</code>
+      <code>$this-&gt;_colors['default']</code>
+      <code>$this-&gt;_colors['default']</code>
+      <code>$this-&gt;_colors['default']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="3">
+      <code>$this-&gt;_tabsize</code>
+      <code>$color</code>
+      <code>$color</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="4">
+      <code>$color</code>
+      <code>$this-&gt;_colors['default']</code>
+      <code>$color</code>
+      <code>$this-&gt;_colors['default']</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$_lastClass</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/Html.php">
+    <MissingParamType occurrences="2">
+      <code>$key</code>
+      <code>$span_tag</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="3">
+      <code>reset</code>
+      <code>_getFullClassName</code>
+      <code>finalize</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="7">
+      <code>$this-&gt;_options['class_map']</code>
+      <code>$token</code>
+      <code>$the_class</code>
+      <code>$content</code>
+      <code>$this-&gt;_doclinks['elements']</code>
+      <code>$this-&gt;_doclinks['url']</code>
+      <code>$this-&gt;_class_map[$class]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+      <code>$token[$key]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="6">
+      <code>$this-&gt;_tabsize</code>
+      <code>$this-&gt;_style_map</code>
+      <code>$token</code>
+      <code>$the_class</code>
+      <code>$content</code>
+      <code>$content</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>$this-&gt;_doclinks['target']</code>
+      <code>$this-&gt;_style_map[$class]</code>
+      <code>$this-&gt;_getFullClassName($this-&gt;_class_map[$class])</code>
+    </MixedOperand>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/HtmlTags.php">
+    <InvalidPropertyAssignmentValue occurrences="2">
+      <code>'&lt;ol&gt;' . str_replace(' ', '&amp;nbsp;', $html_output) . '&lt;/ol&gt;'</code>
+      <code>'&lt;pre&gt;' . $html_output . '&lt;/pre&gt;'</code>
+    </InvalidPropertyAssignmentValue>
+    <MissingReturnType occurrences="2">
+      <code>reset</code>
+      <code>finalize</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="4">
+      <code>$this-&gt;_tags</code>
+      <code>$this-&gt;_options['tags']</code>
+      <code>$token</code>
+      <code>$content</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+      <code>$token[$key]</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="1">
+      <code>$this-&gt;_hilite_tags[$class]</code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="1">
+      <code>$this-&gt;_hilite_tags[$class]</code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment occurrences="5">
+      <code>$this-&gt;_numbers</code>
+      <code>$token</code>
+      <code>$class</code>
+      <code>$content</code>
+      <code>$content</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="4">
+      <code>$this-&gt;_hilite_tags[$class]</code>
+      <code>$content</code>
+      <code>$this-&gt;_hilite_tags[$class]</code>
+      <code>$content</code>
+    </MixedOperand>
+    <UndefinedThisPropertyFetch occurrences="1">
+      <code>$this-&gt;_tags</code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/JSON.php">
+    <InvalidPropertyAssignmentValue occurrences="2">
+      <code>'[' . implode(',', $json_array) . ']'</code>
+      <code>str_replace("\n", '\n', $this-&gt;_output)</code>
+    </InvalidPropertyAssignmentValue>
+    <MissingReturnType occurrences="1">
+      <code>finalize</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$token</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+      <code>$token[$key]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+      <code>$token[$key]</code>
+    </MixedOperand>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/Renderer/XML.php">
+    <MissingReturnType occurrences="2">
+      <code>reset</code>
+      <code>finalize</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="4">
+      <code>$this-&gt;_serializer_options</code>
+      <code>$serializer</code>
+      <code>$result</code>
+      <code>$this-&gt;_output</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>serialize</code>
+      <code>getSerializedData</code>
+    </MixedMethodCall>
+    <UndefinedClass occurrences="1">
+      <code>XML_Serializer</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/SH.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_SH</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/SQL.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_SQL</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/VBSCRIPT.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_VBSCRIPT</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/XML.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Text_Highlighter_XML</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedThisPropertyAssignment occurrences="11">
+      <code>$this-&gt;_regs</code>
+      <code>$this-&gt;_counts</code>
+      <code>$this-&gt;_delim</code>
+      <code>$this-&gt;_inner</code>
+      <code>$this-&gt;_end</code>
+      <code>$this-&gt;_states</code>
+      <code>$this-&gt;_keywords</code>
+      <code>$this-&gt;_parts</code>
+      <code>$this-&gt;_subst</code>
+      <code>$this-&gt;_kwmap</code>
+      <code>$this-&gt;_defClass</code>
+    </UndefinedThisPropertyAssignment>
+  </file>
+  <file src="src/extensions/markdown/markdown/markdown.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>++$num</code>
+    </InvalidScalarArgument>
+    <MissingParamType occurrences="85">
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$boundary</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$list_str</code>
+      <code>$marker_any_re</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$code</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$addr</code>
+      <code>$str</code>
+      <code>$token</code>
+      <code>$str</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$string</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$indent</code>
+      <code>$enclosing_tag_re</code>
+      <code>$span</code>
+      <code>$text</code>
+      <code>$hash_method</code>
+      <code>$md_attr</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$attr</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$list_str</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+      <code>$text</code>
+      <code>$matches</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="43">
+      <code>$nested_brackets_depth</code>
+      <code>$nested_brackets_re</code>
+      <code>$nested_url_parenthesis_depth</code>
+      <code>$nested_url_parenthesis_re</code>
+      <code>$escape_chars</code>
+      <code>$escape_chars_re</code>
+      <code>$empty_element_suffix</code>
+      <code>$tab_width</code>
+      <code>$no_markup</code>
+      <code>$no_entities</code>
+      <code>$predef_urls</code>
+      <code>$predef_titles</code>
+      <code>$urls</code>
+      <code>$titles</code>
+      <code>$html_hashes</code>
+      <code>$in_anchor</code>
+      <code>$document_gamut</code>
+      <code>$block_gamut</code>
+      <code>$span_gamut</code>
+      <code>$list_level</code>
+      <code>$em_relist</code>
+      <code>$strong_relist</code>
+      <code>$em_strong_relist</code>
+      <code>$em_strong_prepared_relist</code>
+      <code>$fn_id_prefix</code>
+      <code>$fn_link_title</code>
+      <code>$fn_backlink_title</code>
+      <code>$fn_link_class</code>
+      <code>$fn_backlink_class</code>
+      <code>$predef_abbr</code>
+      <code>$footnotes</code>
+      <code>$footnotes_ordered</code>
+      <code>$abbr_desciptions</code>
+      <code>$abbr_word_re</code>
+      <code>$footnote_counter</code>
+      <code>$block_tags_re</code>
+      <code>$context_block_tags_re</code>
+      <code>$contain_span_tags_re</code>
+      <code>$clean_tags_re</code>
+      <code>$auto_close_tags_re</code>
+      <code>$em_relist</code>
+      <code>$strong_relist</code>
+      <code>$em_strong_relist</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="82">
+      <code>setup</code>
+      <code>teardown</code>
+      <code>transform</code>
+      <code>stripLinkDefinitions</code>
+      <code>_stripLinkDefinitions_callback</code>
+      <code>hashHTMLBlocks</code>
+      <code>_hashHTMLBlocks_callback</code>
+      <code>hashPart</code>
+      <code>hashBlock</code>
+      <code>runBlockGamut</code>
+      <code>runBasicBlockGamut</code>
+      <code>doHorizontalRules</code>
+      <code>runSpanGamut</code>
+      <code>doHardBreaks</code>
+      <code>_doHardBreaks_callback</code>
+      <code>doAnchors</code>
+      <code>_doAnchors_reference_callback</code>
+      <code>_doAnchors_inline_callback</code>
+      <code>doImages</code>
+      <code>_doImages_reference_callback</code>
+      <code>_doImages_inline_callback</code>
+      <code>doHeaders</code>
+      <code>_doHeaders_callback_setext</code>
+      <code>_doHeaders_callback_atx</code>
+      <code>doLists</code>
+      <code>_doLists_callback</code>
+      <code>processListItems</code>
+      <code>_processListItems_callback</code>
+      <code>doCodeBlocks</code>
+      <code>_doCodeBlocks_callback</code>
+      <code>makeCodeSpan</code>
+      <code>prepareItalicsAndBold</code>
+      <code>doItalicsAndBold</code>
+      <code>doBlockQuotes</code>
+      <code>_doBlockQuotes_callback</code>
+      <code>_doBlockQuotes_callback2</code>
+      <code>formParagraphs</code>
+      <code>encodeAttribute</code>
+      <code>encodeAmpsAndAngles</code>
+      <code>doAutoLinks</code>
+      <code>_doAutoLinks_url_callback</code>
+      <code>_doAutoLinks_email_callback</code>
+      <code>encodeEmailAddress</code>
+      <code>parseSpan</code>
+      <code>handleSpanToken</code>
+      <code>outdent</code>
+      <code>detab</code>
+      <code>_detab_callback</code>
+      <code>utf8_strlen</code>
+      <code>unhash</code>
+      <code>_unhash_callback</code>
+      <code>setup</code>
+      <code>teardown</code>
+      <code>hashHTMLBlocks</code>
+      <code>_hashHTMLBlocks_inMarkdown</code>
+      <code>_hashHTMLBlocks_inHTML</code>
+      <code>hashClean</code>
+      <code>doHeaders</code>
+      <code>_doHeaders_attr</code>
+      <code>_doHeaders_callback_setext</code>
+      <code>_doHeaders_callback_atx</code>
+      <code>doTables</code>
+      <code>_doTable_leadingPipe_callback</code>
+      <code>_doTable_callback</code>
+      <code>doDefLists</code>
+      <code>_doDefLists_callback</code>
+      <code>processDefListItems</code>
+      <code>_processDefListItems_callback_dt</code>
+      <code>_processDefListItems_callback_dd</code>
+      <code>doFencedCodeBlocks</code>
+      <code>_doFencedCodeBlocks_callback</code>
+      <code>_doFencedCodeBlocks_newlines</code>
+      <code>formParagraphs</code>
+      <code>stripFootnotes</code>
+      <code>_stripFootnotes_callback</code>
+      <code>doFootnotes</code>
+      <code>appendFootnotes</code>
+      <code>_appendFootnotes_callback</code>
+      <code>stripAbbreviations</code>
+      <code>_stripAbbreviations_callback</code>
+      <code>doAbbreviations</code>
+      <code>_doAbbreviations_callback</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="99">
+      <code>$this-&gt;nested_brackets_depth</code>
+      <code>$this-&gt;nested_brackets_depth</code>
+      <code>$this-&gt;nested_url_parenthesis_depth</code>
+      <code>$this-&gt;nested_url_parenthesis_depth</code>
+      <code>$this-&gt;document_gamut</code>
+      <code>$this-&gt;block_gamut</code>
+      <code>$this-&gt;span_gamut</code>
+      <code>$this-&gt;escape_chars</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches[1]</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$link_id</code>
+      <code>$text</code>
+      <code>$matches[3]</code>
+      <code>$alt_text</code>
+      <code>$text</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$matches[4]</code>
+      <code>$list_str</code>
+      <code>$item</code>
+      <code>$marker_space</code>
+      <code>$item</code>
+      <code>$text</code>
+      <code>$codeblock</code>
+      <code>$code</code>
+      <code>$token_re</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$bq</code>
+      <code>$bq</code>
+      <code>$pre</code>
+      <code>$text</code>
+      <code>$value</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$str</code>
+      <code>$token[1]</code>
+      <code>$token</code>
+      <code>$str</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$line</code>
+      <code>$amount</code>
+      <code>$string</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$abbr_word</code>
+      <code>$abbr_desc</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$original_text</code>
+      <code>'{^&lt;/?' . $base_tag_name_re . '\b}'</code>
+      <code>$tag</code>
+      <code>$block_text</code>
+      <code>$text</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$text</code>
+      <code>$content</code>
+      <code>$head</code>
+      <code>$underline</code>
+      <code>$content</code>
+      <code>$head</code>
+      <code>$row</code>
+      <code>$cell</code>
+      <code>$text</code>
+      <code>$this-&gt;processDefListItems($list)</code>
+      <code>$list_str</code>
+      <code>$matches[1]</code>
+      <code>$def</code>
+      <code>$marker_space</code>
+      <code>$def</code>
+      <code>$text</code>
+      <code>$codeblock</code>
+      <code>$matches[0]</code>
+      <code>$text</code>
+      <code>$this-&gt;runSpanGamut($value)</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$this-&gt;footnotes_ordered</code>
+      <code>$this-&gt;footnotes_ordered</code>
+      <code>$footnote</code>
+      <code>$num</code>
+      <code>$text</code>
+      <code>$abbr_word</code>
+      <code>$abbr_desc</code>
+      <code>$text</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="23">
+      <code>array(&amp;$this, '_stripLinkDefinitions_callback')</code>
+      <code>array(&amp;$this, '_hashHTMLBlocks_callback')</code>
+      <code>array(&amp;$this, '_doHardBreaks_callback')</code>
+      <code>array(&amp;$this, '_doAnchors_reference_callback')</code>
+      <code>array(&amp;$this, '_doImages_reference_callback')</code>
+      <code>array(&amp;$this, '_doHeaders_callback_setext')</code>
+      <code>array(&amp;$this, '_processListItems_callback')</code>
+      <code>array(&amp;$this, '_doCodeBlocks_callback')</code>
+      <code>array(&amp;$this, '_doBlockQuotes_callback')</code>
+      <code>array(&amp;$this, '_doBlockQuotes_callback2')</code>
+      <code>array(&amp;$this, '_doAutoLinks_url_callback')</code>
+      <code>array(&amp;$this, '_detab_callback')</code>
+      <code>array(&amp;$this, '_unhash_callback')</code>
+      <code>array(&amp;$this, '_doHeaders_callback_setext')</code>
+      <code>array(&amp;$this, '_doTable_leadingPipe_callback')</code>
+      <code>array(&amp;$this, '_doDefLists_callback')</code>
+      <code>array(&amp;$this, '_processDefListItems_callback_dt')</code>
+      <code>array(&amp;$this, '_doFencedCodeBlocks_callback')</code>
+      <code>array(&amp;$this, '_doFencedCodeBlocks_newlines')</code>
+      <code>array(&amp;$this, '_stripFootnotes_callback')</code>
+      <code>array(&amp;$this, '_appendFootnotes_callback')</code>
+      <code>array(&amp;$this, '_stripAbbreviations_callback')</code>
+      <code>array(&amp;$this, '_doAbbreviations_callback')</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="98">
+      <code>$this-&gt;em_strong_relist["$em$strong"]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[2]</code>
+      <code>$matches[4]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$this-&gt;urls[$link_id]</code>
+      <code>$this-&gt;titles[$link_id]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[4]</code>
+      <code>$matches[3]</code>
+      <code>$matches[7]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$this-&gt;urls[$link_id]</code>
+      <code>$this-&gt;titles[$link_id]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[4]</code>
+      <code>$matches[3]</code>
+      <code>$matches[7]</code>
+      <code>$matches[2]</code>
+      <code>$matches[1]</code>
+      <code>$matches[0]</code>
+      <code>$matches[2]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[1]</code>
+      <code>$matches[4]</code>
+      <code>$matches[4]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[5]</code>
+      <code>$matches[1]</code>
+      <code>$this-&gt;em_strong_prepared_relist["$em$strong"]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$this-&gt;html_hashes[$graf]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$token[0]</code>
+      <code>$token[1]</code>
+      <code>$matches[0]</code>
+      <code>$matches[0]</code>
+      <code>$this-&gt;html_hashes[$matches[0]]</code>
+      <code>$text</code>
+      <code>$block_text</code>
+      <code>$text</code>
+      <code>$block_text</code>
+      <code>$text</code>
+      <code>$original_text[0]</code>
+      <code>$block_text</code>
+      <code>$text</code>
+      <code>$matches[3]</code>
+      <code>$matches[1]</code>
+      <code>$matches[0]</code>
+      <code>$matches[3]</code>
+      <code>$matches[2]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[3]</code>
+      <code>$matches[2]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[0]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[3]</code>
+      <code>$matches[2]</code>
+      <code>$matches[0]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$this-&gt;footnotes_ordered[$note_id]</code>
+      <code>$matches[1]</code>
+      <code>$this-&gt;footnotes[$node_id]</code>
+      <code>$this-&gt;footnotes[$node_id]</code>
+      <code>$matches[1]</code>
+      <code>$matches[1]</code>
+      <code>$matches[2]</code>
+      <code>$matches[0]</code>
+      <code>$this-&gt;abbr_desciptions[$abbr]</code>
+      <code>$matches[0]</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="7">
+      <code>$this-&gt;em_strong_prepared_relist["$em$strong"]</code>
+      <code>$this-&gt;urls[$link_id]</code>
+      <code>$this-&gt;titles[$link_id]</code>
+      <code>$this-&gt;html_hashes[$key]</code>
+      <code>$this-&gt;footnotes[$note_id]</code>
+      <code>$this-&gt;footnotes_ordered[$node_id]</code>
+      <code>$this-&gt;abbr_desciptions[$abbr_word]</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="5">
+      <code>$this-&gt;html_hashes[$matches[0]]</code>
+      <code>$this-&gt;abbr_desciptions[$abbr_word]</code>
+      <code>$this-&gt;abbr_desciptions[$abbr_word]</code>
+      <code>$this-&gt;abbr_desciptions[$abbr]</code>
+      <code>$this-&gt;abbr_desciptions[$abbr]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="148">
+      <code>$em_re</code>
+      <code>$strong_re</code>
+      <code>$token_relist[]</code>
+      <code>$token_relist[]</code>
+      <code>$token_relist[]</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$priority</code>
+      <code>$text</code>
+      <code>$less_than_tab</code>
+      <code>$url</code>
+      <code>$less_than_tab</code>
+      <code>$text</code>
+      <code>$key</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$priority</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$priority</code>
+      <code>$text</code>
+      <code>$whole_match</code>
+      <code>$link_text</code>
+      <code>$link_id</code>
+      <code>$link_id</code>
+      <code>$url</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$title</code>
+      <code>$link_text</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$whole_match</code>
+      <code>$link_text</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$link_text</code>
+      <code>$whole_match</code>
+      <code>$alt_text</code>
+      <code>$alt_text</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$title</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$whole_match</code>
+      <code>$alt_text</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$alt_text</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$less_than_tab</code>
+      <code>$list</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$item</code>
+      <code>$leading_line</code>
+      <code>$leading_space</code>
+      <code>$marker_space</code>
+      <code>$tailing_blank_line</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$codeblock</code>
+      <code>$codeblock</code>
+      <code>$token_re</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$text_stack[0]</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$span</code>
+      <code>$bq</code>
+      <code>$bq</code>
+      <code>$pre</code>
+      <code>$value</code>
+      <code>$grafs[$key]</code>
+      <code>$block</code>
+      <code>$graf</code>
+      <code>$grafs[$key]</code>
+      <code>$text</code>
+      <code>$url</code>
+      <code>$address</code>
+      <code>$link</code>
+      <code>$codespan</code>
+      <code>$line</code>
+      <code>$amount</code>
+      <code>$abbr_desc</code>
+      <code>list($text,)</code>
+      <code>$void</code>
+      <code>list($block_text, $text)</code>
+      <code>list($block_text, $text)</code>
+      <code>$original_text</code>
+      <code>$indent</code>
+      <code>list ($block_text, $text)</code>
+      <code>$id</code>
+      <code>$attr</code>
+      <code>$id</code>
+      <code>$attr</code>
+      <code>$less_than_tab</code>
+      <code>$head</code>
+      <code>$underline</code>
+      <code>$content</code>
+      <code>$head</code>
+      <code>$underline</code>
+      <code>$content</code>
+      <code>$head</code>
+      <code>$row</code>
+      <code>$cell</code>
+      <code>$less_than_tab</code>
+      <code>$list</code>
+      <code>$less_than_tab</code>
+      <code>$term</code>
+      <code>$leading_line</code>
+      <code>$marker_space</code>
+      <code>$def</code>
+      <code>$def</code>
+      <code>$def</code>
+      <code>$less_than_tab</code>
+      <code>$codeblock</code>
+      <code>$text</code>
+      <code>$less_than_tab</code>
+      <code>$class</code>
+      <code>$class</code>
+      <code>$title</code>
+      <code>$title</code>
+      <code>$footnote</code>
+      <code>$footnote</code>
+      <code>$note_id</code>
+      <code>$num</code>
+      <code>$class</code>
+      <code>$class</code>
+      <code>$title</code>
+      <code>$title</code>
+      <code>$node_id</code>
+      <code>$less_than_tab</code>
+      <code>$abbr_word</code>
+      <code>$abbr_desc</code>
+      <code>$abbr</code>
+      <code>$desc</code>
+      <code>$desc</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="6">
+      <code>hashBlock</code>
+      <code>hashBlock</code>
+      <code>encodeAttribute</code>
+      <code>encodeAttribute</code>
+      <code>runBlockGamut</code>
+      <code>encodeAttribute</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="122">
+      <code>$this-&gt;escape_chars</code>
+      <code>$this-&gt;document_gamut</code>
+      <code>$this-&gt;block_gamut</code>
+      <code>$this-&gt;span_gamut</code>
+      <code>$text</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$i</code>
+      <code>++$i</code>
+      <code>$boundary</code>
+      <code>$this-&gt;hashBlock("&lt;hr$this-&gt;empty_element_suffix")</code>
+      <code>$this-&gt;nested_brackets_re</code>
+      <code>$this-&gt;nested_brackets_re</code>
+      <code>$this-&gt;nested_url_parenthesis_re</code>
+      <code>$this-&gt;nested_brackets_re</code>
+      <code>$this-&gt;nested_brackets_re</code>
+      <code>$this-&gt;nested_url_parenthesis_re</code>
+      <code>$this-&gt;empty_element_suffix</code>
+      <code>$this-&gt;empty_element_suffix</code>
+      <code>$this-&gt;runSpanGamut($matches[1])</code>
+      <code>$this-&gt;hashBlock($block)</code>
+      <code>$this-&gt;runSpanGamut($matches[2])</code>
+      <code>$this-&gt;hashBlock($block)</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$list</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$this-&gt;list_level</code>
+      <code>$marker_any_re</code>
+      <code>$marker_any_re</code>
+      <code>$this-&gt;list_level</code>
+      <code>$leading_space</code>
+      <code>$item</code>
+      <code>$this-&gt;outdent($item)</code>
+      <code>$item</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$this-&gt;hashBlock($codeblock)</code>
+      <code>$text_stack[0]</code>
+      <code>$text_stack[1]</code>
+      <code>array_shift($text_stack)</code>
+      <code>$text_stack[0]</code>
+      <code>$text_stack[0]</code>
+      <code>$text_stack[1]</code>
+      <code>array_shift($text_stack)</code>
+      <code>$text_stack[0]</code>
+      <code>$text_stack[0]</code>
+      <code>$this-&gt;hashBlock("&lt;blockquote&gt;\n$bq\n&lt;/blockquote&gt;")</code>
+      <code>$addr</code>
+      <code>$this-&gt;escape_chars_re</code>
+      <code>$this-&gt;handleSpanToken($parts[1], $parts[2])</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$this-&gt;utf8_strlen($line)</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$this-&gt;block_tags_re</code>
+      <code>$this-&gt;context_block_tags_re</code>
+      <code>$this-&gt;clean_tags_re</code>
+      <code>$enclosing_tag_re</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$void</code>
+      <code>$void</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$this-&gt;block_tags_re</code>
+      <code>$this-&gt;context_block_tags_re</code>
+      <code>$this-&gt;clean_tags_re</code>
+      <code>$block_text</code>
+      <code>$enclosing_tag_re</code>
+      <code>$this-&gt;auto_close_tags_re</code>
+      <code>$this-&gt;contain_span_tags_re</code>
+      <code>$this-&gt;$hash_method($block_text)</code>
+      <code>$this-&gt;$hash_method($block_text)</code>
+      <code>$this-&gt;runSpanGamut($matches[1])</code>
+      <code>$this-&gt;hashBlock($block)</code>
+      <code>$this-&gt;runSpanGamut($matches[2])</code>
+      <code>$this-&gt;hashBlock($block)</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$this-&gt;runSpanGamut(trim($header))</code>
+      <code>$this-&gt;runSpanGamut(trim($cell))</code>
+      <code>$this-&gt;hashBlock($text)</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$this-&gt;hashBlock($result)</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$less_than_tab</code>
+      <code>$term</code>
+      <code>$def</code>
+      <code>$def</code>
+      <code>$def</code>
+      <code>$this-&gt;hashBlock($codeblock)</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$this-&gt;fn_id_prefix</code>
+      <code>$this-&gt;empty_element_suffix</code>
+      <code>$footnote</code>
+      <code>$this-&gt;fn_id_prefix</code>
+      <code>$this-&gt;footnote_counter</code>
+      <code>$matches[1]</code>
+      <code>$this-&gt;tab_width</code>
+      <code>$less_than_tab</code>
+      <code>$this-&gt;abbr_word_re</code>
+      <code>$this-&gt;abbr_word_re</code>
+      <code>$this-&gt;abbr_word_re</code>
+    </MixedOperand>
+    <MixedPropertyAssignment occurrences="1">
+      <code>$this</code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch occurrences="10">
+      <code>$this-&gt;nested_brackets_re</code>
+      <code>$this-&gt;nested_url_parenthesis_re</code>
+      <code>$this-&gt;nested_brackets_re</code>
+      <code>$this-&gt;nested_url_parenthesis_re</code>
+      <code>$this-&gt;list_level</code>
+      <code>$this-&gt;footnotes_ordered</code>
+      <code>$this-&gt;empty_element_suffix</code>
+      <code>$this-&gt;fn_backlink_class</code>
+      <code>$this-&gt;fn_backlink_title</code>
+      <code>$this-&gt;footnotes_ordered</code>
+    </MixedPropertyFetch>
+    <PossiblyUndefinedVariable occurrences="7">
+      <code>$base_tag_name_re</code>
+      <code>$attr</code>
+      <code>$attr</code>
+      <code>$attr</code>
+      <code>$attr</code>
+      <code>$attr</code>
+      <code>$attr</code>
+    </PossiblyUndefinedVariable>
+    <UndefinedThisPropertyAssignment occurrences="1">
+      <code>$this-&gt;mode</code>
+    </UndefinedThisPropertyAssignment>
+    <UndefinedVariable occurrences="1">
+      <code>$text</code>
+    </UndefinedVariable>
+  </file>
+  <file src="src/migrations/m130329_081136_create_session.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130329_081136_create_session</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m180806_104328_remove_unused_modules.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m180806_104328_remove_unused_modules</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m180806_105831_remove_language_tables.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m180806_105831_remove_language_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m180806_112238_remove_unused_configs.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m180806_112238_remove_unused_configs</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m181022_111111_remove_config.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m181022_111111_remove_config</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m181022_112914_remove_modules_table.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m181022_112914_remove_modules_table</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m181022_141725_remove_attribute.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m181022_141725_remove_attribute</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m181022_141825_remove_unused_blocks.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m181022_141825_remove_unused_blocks</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m190806_190155_remove_gallery_tables.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m190806_190155_remove_gallery_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m190806_200155_remove_new_tables.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m190806_200155_remove_new_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m191007_104255_remove_new_gallery_table.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_104255_remove_new_gallery_table</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m191007_121851_rename_migrations_table.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_121851_rename_migrations_table</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m191007_181351_remove_migrations_view.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_181351_remove_migrations_view</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/migrations/m200820_225703_remove_contacts_table.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m200820_225703_remove_contacts_table</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/admin/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/admin/controllers/CacheController.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CacheController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/admin/controllers/DefaultController.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>?User</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/block/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/block/controllers/admin/BlockController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>BlockController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/block/forms/BlockSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/block/migrations/m130328_093402_create_block.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_093402_create_block</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/block/migrations/m191007_115551_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115551_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/block/widgets/BlockWidget.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$block</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="src/modules/blog/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/controllers/DefaultController.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$page</code>
+    </LessSpecificReturnStatement>
+    <MissingReturnType occurrences="1">
+      <code>actionTag</code>
+    </MissingReturnType>
+    <MoreSpecificReturnType occurrences="1">
+      <code>Page</code>
+    </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/controllers/FeedController.php">
+    <MixedOperand occurrences="1">
+      <code>$_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>FeedController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/controllers/PostController.php">
+    <MissingReturnType occurrences="1">
+      <code>actionShow</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Post</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PostController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/controllers/admin/CategoryController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CategoryController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/controllers/admin/CommentController.php">
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>string</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CommentController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/controllers/admin/GroupController.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>GroupController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/controllers/admin/PostController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PostController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/controllers/admin/TagController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>TagController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/forms/CategorySearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/blog/forms/PostSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/blog/forms/TagSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_084945_create_blog_post</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m130328_090350_create_blog_category.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_090350_create_blog_category</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m130328_092321_create_blog_post_group.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_092321_create_blog_post_group</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m130328_092655_create_blog_tag.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_092655_create_blog_tag</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m191007_115552_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115552_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m191010_181651_add_styles.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191010_181651_add_styles</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m191020_153212_remove_keywords.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191020_153212_remove_keywords</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m191023_111425_remove_comments_count.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191023_111425_remove_comments_count</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/models/Group.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>Post::find()-&gt;andWhere(['group_id' =&gt; $this-&gt;id])-&gt;count()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+  </file>
+  <file src="src/modules/blog/models/Post.php">
+    <InvalidReturnStatement occurrences="2">
+      <code>Comment::find()-&gt;material($this-&gt;id)-&gt;published()-&gt;count()</code>
+      <code>Comment::find()-&gt;material($this-&gt;id)-&gt;published()-&gt;unread()-&gt;count()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>int</code>
+      <code>int</code>
+    </InvalidReturnType>
+    <MissingPropertyType occurrences="1">
+      <code>$del_image</code>
+    </MissingPropertyType>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/models/Tag.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>PostTag::find()-&gt;andWhere(['tag_id' =&gt; $this-&gt;id])-&gt;count()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+    <MissingParamType occurrences="1">
+      <code>$title</code>
+    </MissingParamType>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/models/query/GroupQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Group|ActiveRecord|null</code>
+      <code>Group[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>GroupQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Group|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Group|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>GroupQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/models/query/PostQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Post|ActiveRecord|null</code>
+      <code>Post[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>PostQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Post|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Post|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PostQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/widgets/LastPostsWidget.php">
+    <MissingPropertyType occurrences="1">
+      <code>$limit</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;limit</code>
+    </MixedArgument>
+  </file>
+  <file src="src/modules/blog/widgets/SearchFormWidget.php">
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/blog/widgets/ThemePostsWidget.php">
+    <MissingPropertyType occurrences="2">
+      <code>$current</code>
+      <code>$group</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/modules/blog/widgets/UpdatedPostsWidget.php">
+    <MissingPropertyType occurrences="2">
+      <code>$class</code>
+      <code>$limit</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;limit</code>
+    </MixedArgument>
+  </file>
+  <file src="src/modules/comment/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/components/CommentAdminController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$model === null</code>
+    </DocblockTypeContradiction>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>!$model-&gt;moder</code>
+    </InvalidPropertyAssignmentValue>
+    <InvalidStringClass occurrences="3">
+      <code>$this-&gt;getModelName()::find()</code>
+      <code>$this-&gt;getModelName()::find()</code>
+      <code>$this-&gt;getModelName()::findOne($id)</code>
+    </InvalidStringClass>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>string|Comment</code>
+    </MismatchingDocblockReturnType>
+    <MissingParamType occurrences="1">
+      <code>$attribute</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="5">
+      <code>?Response</code>
+      <code>?Response</code>
+      <code>?Response</code>
+      <code>?Response</code>
+      <code>string|Comment</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$attribute</code>
+    </MixedOperand>
+    <PossiblyFalsePropertyAssignmentValue occurrences="1">
+      <code>false</code>
+    </PossiblyFalsePropertyAssignmentValue>
+    <UndefinedClass occurrences="5">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>$model-&gt;children</code>
+    </UndefinedMagicPropertyFetch>
+  </file>
+  <file src="src/modules/comment/controllers/AjaxController.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>?Response</code>
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>AjaxController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/comment/controllers/CommentController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$model === null</code>
+    </DocblockTypeContradiction>
+    <MissingPropertyType occurrences="1">
+      <code>$form-&gt;text</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="1">
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Comment</code>
+    </MixedInferredReturnType>
+    <NoInterfaceProperties occurrences="1">
+      <code>$model-&gt;user_id</code>
+    </NoInterfaceProperties>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CommentController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="3">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/comment/controllers/admin/CommentController.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CommentController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/forms/CommentEditForm.php">
+    <MissingParamType occurrences="1">
+      <code>$config</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$text</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="1">
+      <code>$config</code>
+    </MixedArgument>
+  </file>
+  <file src="src/modules/comment/forms/CommentForm.php">
+    <MissingPropertyType occurrences="7">
+      <code>$name</code>
+      <code>$email</code>
+      <code>$site</code>
+      <code>$text</code>
+      <code>$parent_id</code>
+      <code>$yqe1</code>
+      <code>$yqe2</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_094620_create_comment</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/migrations/m190914_202714_change_types.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m190914_202714_change_types</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/migrations/m191007_115553_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115553_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/migrations/m191007_131514_change_types.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_131514_change_types</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/migrations/m191025_193912_add_nullable.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191025_193912_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/migrations/m191109_153821_add_nullable.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191109_153821_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/models/Comment.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>'#'</code>
+    </DocblockTypeContradiction>
+    <InvalidStringClass occurrences="1">
+      <code>new $class(null)</code>
+    </InvalidStringClass>
+    <LessSpecificImplementedReturnType occurrences="1">
+      <code>self</code>
+    </LessSpecificImplementedReturnType>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>new $class(null)</code>
+    </LessSpecificReturnStatement>
+    <MissingClosureReturnType occurrences="1">
+      <code>static function (self $model) {</code>
+    </MissingClosureReturnType>
+    <MissingParamType occurrences="3">
+      <code>$current</code>
+      <code>$width</code>
+      <code>$height</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>getAvatarUrl</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="4">
+      <code>$this-&gt;$attribute</code>
+      <code>$this-&gt;$attribute</code>
+      <code>$row['type']</code>
+      <code>$width</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="2">
+      <code>sendNotify</code>
+      <code>getAvatarUrl</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="4">
+      <code>$this-&gt;user-&gt;name</code>
+      <code>$this-&gt;user-&gt;lastname</code>
+      <code>$width</code>
+      <code>$height</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="6">
+      <code>$this-&gt;user-&gt;email</code>
+      <code>$this-&gt;user-&gt;name</code>
+      <code>$this-&gt;user-&gt;lastname</code>
+      <code>$this-&gt;user-&gt;site</code>
+      <code>$this-&gt;parent-&gt;email</code>
+      <code>$current-&gt;email</code>
+    </MixedPropertyFetch>
+    <MoreSpecificReturnType occurrences="1">
+      <code>self</code>
+    </MoreSpecificReturnType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$this-&gt;material</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedClass occurrences="3">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+    <UndefinedThisPropertyFetch occurrences="3">
+      <code>$this-&gt;user</code>
+      <code>$this-&gt;parent</code>
+      <code>$this-&gt;user</code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/modules/comment/models/query/CommentQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Comment|ActiveRecord|null</code>
+      <code>Comment[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>CommentQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Comment|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MissingParamType occurrences="3">
+      <code>$id</code>
+      <code>$type</code>
+      <code>$id</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>init</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Comment|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CommentQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/comment/widgets/CommentsWidget.php">
+    <MissingParamType occurrences="1">
+      <code>$attributes</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="5">
+      <code>$material_id</code>
+      <code>$authorId</code>
+      <code>$type</code>
+      <code>$url</code>
+      <code>$user</code>
+    </MissingPropertyType>
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="3">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/edu/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/edu/components/Provider.php">
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/edu/components/api/Api.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$content ? json_decode($content, true, 512, JSON_THROW_ON_ERROR) : []</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/modules/edu/components/api/client/Cached.php">
+    <MixedArgument occurrences="1">
+      <code>$cached</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$cached</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/modules/edu/components/api/client/Muted.php">
+    <InvalidArgument occurrences="1">
+      <code>$exception</code>
+    </InvalidArgument>
+  </file>
+  <file src="src/modules/edu/controllers/DefaultController.php">
+    <MissingParamType occurrences="3">
+      <code>$id</code>
+      <code>$module</code>
+      <code>$config</code>
+    </MissingParamType>
+    <MixedArgument occurrences="3">
+      <code>$id</code>
+      <code>$module</code>
+      <code>$config</code>
+    </MixedArgument>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <TypeDoesNotContainType occurrences="2">
+      <code>$this-&gt;api-&gt;get('/edge/edu/series')</code>
+      <code>$this-&gt;api-&gt;get('/edge/edu/last?limit=12')</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/modules/edu/widgets/SeriesEpisodes.php">
+    <MissingParamType occurrences="1">
+      <code>$config</code>
+    </MissingParamType>
+    <MixedArgument occurrences="1">
+      <code>$config</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$episodes</code>
+    </MixedAssignment>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$slug</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/file/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/file/controllers/admin/FileController.php">
+    <MissingParamType occurrences="2">
+      <code>$field</code>
+      <code>$curpath</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>actionIndex</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="5">
+      <code>?Response</code>
+      <code>?Response</code>
+      <code>bool</code>
+      <code>?Response</code>
+      <code>?User</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>FileController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="6">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/file/migrations/m130328_115251_create_file.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_115251_create_file</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/file/migrations/m191004_125256_remove_file.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191004_125256_remove_file</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/home/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/home/controllers/DefaultController.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/home/controllers/ErrorController.php">
+    <MissingReturnType occurrences="1">
+      <code>actions</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>ErrorController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/image/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/image/controllers/DownloadController.php">
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;getPathInfo()</code>
+      <code>'/'</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DownloadController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/landing/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/landing/components/LandingUrlRule.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>createUrl</code>
+      <code>parseRequest</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$params['path']</code>
+    </MixedReturnStatement>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/landing/controllers/LandingController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$landing === null</code>
+    </DocblockTypeContradiction>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>LandingController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/landing/controllers/admin/LandingController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>LandingController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/landing/forms/LandingSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/landing/migrations/m191025_144021_create_landing.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191025_144021_create_landing</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/landing/models/Landing.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="src/modules/landing/models/query/LandingQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Landing|ActiveRecord|null</code>
+      <code>Landing[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>LandingQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Landing|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Landing|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>LandingQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/menu/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/menu/controllers/admin/MenuController.php">
+    <MissingParamType occurrences="1">
+      <code>$attribute</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>?Response</code>
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$attribute</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>MenuController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="5">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/menu/forms/MenuSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/menu/migrations/m130328_112156_create_menu.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_112156_create_menu</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/menu/migrations/m191007_115555_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115555_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/menu/models/query/MenuQuery.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$parent === null</code>
+    </DocblockTypeContradiction>
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Menu|ActiveRecord|null</code>
+      <code>Menu[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>MenuQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Menu|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Menu|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <NoInterfaceProperties occurrences="1">
+      <code>$parent-&gt;id</code>
+    </NoInterfaceProperties>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>MenuQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/components/PageUrlRule.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>createUrl</code>
+      <code>parseRequest</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$params['path']</code>
+    </MixedReturnStatement>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/page/controllers/PageController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$page === null</code>
+    </DocblockTypeContradiction>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PageController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/controllers/admin/PageController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PageController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/page/forms/PageSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/page/migrations/m130328_120429_create_page.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_120429_create_page</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m130328_122139_create_page_layout.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_122139_create_page_layout</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m131126_163952_added_robots_field.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m131126_163952_added_robots_field</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m191007_111239_inline_page_layout.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_111239_inline_page_layout</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m191007_115556_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115556_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m191010_181652_add_styles.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191010_181652_add_styles</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m191020_153213_remove_keywords.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191020_153213_remove_keywords</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/migrations/m191025_175116_remove_image.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191025_175116_remove_image</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/page/models/query/PageQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>Page|ActiveRecord|null</code>
+      <code>Page[]|BatchQueryResult</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>PageQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Page|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Page|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PageQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/components/PortfolioBaseController.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/portfolio/controllers/DefaultController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$category === null</code>
+    </DocblockTypeContradiction>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$page</code>
+    </LessSpecificReturnStatement>
+    <MixedAssignment occurrences="1">
+      <code>$categories</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>orderBy</code>
+      <code>all</code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType occurrences="1">
+      <code>Page</code>
+    </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/controllers/WorkController.php">
+    <MissingParamType occurrences="1">
+      <code>$alias</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="1">
+      <code>actionShow</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Work</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>WorkController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/portfolio/controllers/admin/CategoryController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CategoryController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/portfolio/controllers/admin/WorkController.php">
+    <MissingParamType occurrences="1">
+      <code>$attribute</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="4">
+      <code>string</code>
+      <code>?Response</code>
+      <code>?Response</code>
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$attribute</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>WorkController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="6">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/portfolio/forms/CategorySearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+  </file>
+  <file src="src/modules/portfolio/migrations/m130328_122419_create_portfolio_work.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_122419_create_portfolio_work</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/migrations/m130328_123107_create_portfolio_category.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_123107_create_portfolio_category</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/migrations/m191007_115557_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115557_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/migrations/m191020_153214_remove_keywords.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191020_153214_remove_keywords</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/models/Work.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;id</code>
+    </InvalidPropertyAssignmentValue>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>self::find()-&gt;andWhere(['alias' =&gt; $alias])-&gt;one()</code>
+    </LessSpecificReturnStatement>
+    <MissingParamType occurrences="2">
+      <code>$only_public</code>
+      <code>$alias</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$del_image</code>
+    </MissingPropertyType>
+    <MixedMethodCall occurrences="1">
+      <code>getPath</code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType occurrences="1">
+      <code>?self</code>
+    </MoreSpecificReturnType>
+    <UndefinedThisPropertyFetch occurrences="1">
+      <code>$this-&gt;category</code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/modules/portfolio/models/query/WorkQuery.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>Work|ActiveRecord|null</code>
+    </ImplementedReturnTypeMismatch>
+    <MethodSignatureMismatch occurrences="1">
+      <code>WorkQuery</code>
+    </MethodSignatureMismatch>
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>Work|ActiveRecord|null</code>
+    </MismatchingDocblockReturnType>
+    <MissingParamType occurrences="1">
+      <code>$id</code>
+    </MissingParamType>
+    <MixedInferredReturnType occurrences="1">
+      <code>Work|ActiveRecord|null</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>WorkQuery</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/search/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/search/components/SearchHighlighter.php">
+    <MissingParamType occurrences="2">
+      <code>$text</code>
+      <code>$word</code>
+    </MissingParamType>
+    <MixedArgument occurrences="5">
+      <code>$text</code>
+      <code>$word</code>
+      <code>$text</code>
+      <code>$word</code>
+      <code>$text</code>
+    </MixedArgument>
+    <MixedOperand occurrences="1">
+      <code>$word</code>
+    </MixedOperand>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <PossiblyFalseOperand occurrences="1">
+      <code>mb_stripos($text, $word, null, 'UTF-8')</code>
+    </PossiblyFalseOperand>
+  </file>
+  <file src="src/modules/search/controllers/DefaultController.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/search/models/Search.php">
+    <MissingReturnType occurrences="1">
+      <code>getMaterial</code>
+    </MissingReturnType>
+  </file>
+  <file src="src/modules/search/widgets/SearchFormWidget.php">
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/sitemap/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/sitemap/components/Sitemap.php">
+    <MissingParamType occurrences="2">
+      <code>$url</code>
+      <code>$date</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$items</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="3">
+      <code>$key</code>
+      <code>$value</code>
+      <code>$date</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$item</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/sitemap/controllers/DefaultController.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$page</code>
+    </LessSpecificReturnStatement>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MoreSpecificReturnType occurrences="1">
+      <code>Page</code>
+    </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/ulogin/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/ulogin/controllers/DefaultController.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>Response</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/ulogin/models/UloginModel.php">
+    <MissingPropertyType occurrences="9">
+      <code>$identity</code>
+      <code>$network</code>
+      <code>$email</code>
+      <code>$lastname</code>
+      <code>$name</code>
+      <code>$photo</code>
+      <code>$token</code>
+      <code>$error_type</code>
+      <code>$error_message</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="3">
+      <code>$authData</code>
+      <code>$this-&gt;identity</code>
+      <code>$this-&gt;photo</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$authData['first_name']</code>
+      <code>$authData['last_name']</code>
+      <code>$authData['photo']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$authData</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="3">
+      <code>$this-&gt;token</code>
+      <code>$_SERVER['HTTP_HOST']</code>
+      <code>$this-&gt;network</code>
+    </MixedOperand>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/ulogin/widgets/UloginWidget.php">
+    <MissingParamType occurrences="1">
+      <code>$params</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$once</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="1">
+      <code>$params</code>
+    </MixedArgument>
+  </file>
+  <file src="src/modules/user/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/components/CurrentPasswordValidator.php">
+    <MissingParamType occurrences="2">
+      <code>$object</code>
+      <code>$object</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="8">
+      <code>$this-&gt;allowEmpty</code>
+      <code>$className</code>
+      <code>$validateMethod</code>
+      <code>$idAttribute</code>
+      <code>$allowEmpty</code>
+      <code>$dependsOnAttributes</code>
+      <code>$emptyMessage</code>
+      <code>$notValidMessage</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="6">
+      <code>$this-&gt;emptyMessage</code>
+      <code>$value</code>
+      <code>$this-&gt;notValidMessage</code>
+      <code>$object</code>
+      <code>$model</code>
+      <code>$this-&gt;validateMethod</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$value</code>
+      <code>$attr</code>
+      <code>$model</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>ActiveRecord</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="3">
+      <code>$this-&gt;idAttribute</code>
+      <code>$this-&gt;className</code>
+      <code>$this-&gt;validateMethod</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="3">
+      <code>$object-&gt;$attr</code>
+      <code>$object-&gt;{$this-&gt;idAttribute}</code>
+      <code>$object-&gt;{$this-&gt;idAttribute}</code>
+    </MixedPropertyFetch>
+    <MixedReturnStatement occurrences="1">
+      <code>$model</code>
+    </MixedReturnStatement>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>CurrentPasswordValidator</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/controllers/DefaultController.php">
+    <MissingPropertyType occurrences="1">
+      <code>$model-&gt;email</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="2">
+      <code>actionLogin</code>
+      <code>actionRemind</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="3">
+      <code>Response</code>
+      <code>Response</code>
+      <code>?User</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="7">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/user/controllers/ProfileController.php">
+    <MissingReturnType occurrences="1">
+      <code>actionEdit</code>
+    </MissingReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>User</code>
+    </MixedInferredReturnType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>ProfileController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="3">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/user/controllers/RegistrationController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionRequest</code>
+      <code>actionConfirm</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>RegistrationController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+    <UndefinedConstant occurrences="2">
+      <code>YII_ENV_TEST</code>
+      <code>YII_ENV_TEST</code>
+    </UndefinedConstant>
+  </file>
+  <file src="src/modules/user/controllers/admin/UserController.php">
+    <MissingReturnType occurrences="2">
+      <code>actionCreate</code>
+      <code>actionUpdate</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$dataProvider</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Response</code>
+    </MixedInferredReturnType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>UserController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/user/forms/LoginForm.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$user === null</code>
+    </DocblockTypeContradiction>
+    <MissingParamType occurrences="2">
+      <code>$username</code>
+      <code>$password</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="3">
+      <code>$username</code>
+      <code>$password</code>
+      <code>$rememberMe</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="1">
+      <code>$username</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/user/forms/RegistrationForm.php">
+    <MissingPropertyType occurrences="8">
+      <code>$username</code>
+      <code>$email</code>
+      <code>$password</code>
+      <code>$confirm</code>
+      <code>$lastname</code>
+      <code>$name</code>
+      <code>$test1</code>
+      <code>$test2</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/modules/user/forms/RemindForm.php">
+    <MissingPropertyType occurrences="1">
+      <code>$email</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/modules/user/forms/UserSearch.php">
+    <MissingParamType occurrences="1">
+      <code>$pageSize</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$fio</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/modules/user/migrations/m130328_130712_create_user.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_130712_create_user</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m130328_141310_create_user_page.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130328_141310_create_user_page</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m130717_065918_add_author_link.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m130717_065918_add_author_link</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m181022_130712_remove_address.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m181022_130712_remove_address</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m190918_143321_added_nullable.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m190918_143321_added_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m190918_193620_added_nullable.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m190918_193620_added_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m191007_110105_remove_page.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_110105_remove_page</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m191007_115558_rename_tables.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_115558_rename_tables</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m191007_135558_rehash_passwords.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="1">
+      <code>$row['password']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$row['id']</code>
+      <code>$row['password']</code>
+      <code>$row['id']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$row</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$row['id']</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191007_135558_rehash_passwords</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m191017_160126_change_salt.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeUp</code>
+      <code>safeDown</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191017_160126_change_salt</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m191023_111426_remove_comments_count.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m191023_111426_remove_comments_count</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/models/Access.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/user/models/User.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <InvalidReturnStatement occurrences="1">
+      <code>Comment::find()-&gt;user($this-&gt;id)-&gt;published()-&gt;count()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+    <MissingParamType occurrences="7">
+      <code>$password</code>
+      <code>$password</code>
+      <code>$password</code>
+      <code>$value</code>
+      <code>$width</code>
+      <code>$height</code>
+      <code>$width</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="5">
+      <code>$new_password</code>
+      <code>$new_confirm</code>
+      <code>$old_password</code>
+      <code>$del_avatar</code>
+      <code>$test</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="2">
+      <code>$password</code>
+      <code>$password</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$this-&gt;cachedFio</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$password</code>
+    </MixedOperand>
+    <NullableReturnStatement occurrences="1">
+      <code>password_hash($password, PASSWORD_DEFAULT)</code>
+    </NullableReturnStatement>
+    <UndefinedClass occurrences="4">
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/modules/user/widgets/LoginFormWidget.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/widgets/AdminBar.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/widgets/Breadcrumbs.php">
+    <MissingPropertyType occurrences="6">
+      <code>$tagName</code>
+      <code>$htmlOptions</code>
+      <code>$links</code>
+      <code>$activeLinkTemplate</code>
+      <code>$inactiveLinkTemplate</code>
+      <code>$separator</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="2">
+      <code>$this-&gt;tagName</code>
+      <code>$this-&gt;htmlOptions</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/widgets/IconMenu.php">
+    <MissingPropertyType occurrences="1">
+      <code>$iconsPath</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="5">
+      <code>$label</code>
+      <code>$item['url']</code>
+      <code>$options</code>
+      <code>$item['label']</code>
+      <code>$options</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$options</code>
+      <code>$label</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$this-&gt;iconsPath</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>IconMenu</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/widgets/Portlet.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>false</code>
+    </PossiblyFalseArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>$result</code>
+    </PossiblyNullOperand>
+  </file>
+  <file src="src/widgets/Share.php">
+    <MissingPropertyType occurrences="4">
+      <code>$url</code>
+      <code>$title</code>
+      <code>$description</code>
+      <code>$image</code>
+    </MissingPropertyType>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/widgets/inline/CountDown.php">
+    <MissingPropertyType occurrences="2">
+      <code>$title</code>
+      <code>$date</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/widgets/inline/MailTo.php">
+    <MissingPropertyType occurrences="2">
+      <code>$email</code>
+      <code>$date</code>
+    </MissingPropertyType>
+  </file>
+  <file src="src/widgets/inline/views/CountDown.php">
+    <InvalidScope occurrences="1">
+      <code>$this</code>
+    </InvalidScope>
+  </file>
+  <file src="src/widgets/inline/views/MailTo.php">
+    <MissingDocblockType occurrences="1"/>
+    <MixedArgument occurrences="1">
+      <code>$email</code>
+    </MixedArgument>
+    <UndefinedGlobalVariable occurrences="1">
+      <code>$email</code>
+    </UndefinedGlobalVariable>
+  </file>
+  <file src="src/widgets/views/AdminBar.php">
+    <UndefinedGlobalVariable occurrences="1">
+      <code>$links</code>
+    </UndefinedGlobalVariable>
+  </file>
+  <file src="src/widgets/views/Messages.php">
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/widgets/views/Share.php">
+    <MissingDocblockType occurrences="1"/>
+    <UndefinedGlobalVariable occurrences="8">
+      <code>$url</code>
+      <code>$title</code>
+      <code>$description</code>
+      <code>$image</code>
+      <code>$url</code>
+      <code>$title</code>
+      <code>$url</code>
+      <code>$title</code>
+    </UndefinedGlobalVariable>
+  </file>
+</files>

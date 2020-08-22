@@ -5,23 +5,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="src/assets" />
-        <file name="src/components/ContentReplaceBehavior.php" />
-        <file name="src/components/Controller.php" />
-        <file name="src/components/CSSMinimizer.php" />
-        <file name="src/components/DateLimiter.php" />
-        <file name="src/components/FileNameFilter.php" />
-        <file name="src/components/FileNameGenerator.php" />
-        <file name="src/components/Gravatar.php" />
-        <file name="src/components/MathCaptchaAction.php" />
-        <file name="src/components/PaginationFormatter.php" />
-        <file name="src/components/Pluraliser.php" />
-        <file name="src/components/SentryErrorHandler.php" />
-        <file name="src/components/SocNetwork.php" />
-        <file name="src/components/Transliterator.php" />
+        <directory name="src" />
         <ignoreFiles>
+            <directory name="src/extensions" />
+            <directory name="src/views" />
+            <directory name="src/modules/*/views" />
+            <directory name="src/modules/*/widgets/views" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
