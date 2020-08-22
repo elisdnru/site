@@ -18,40 +18,40 @@ class CurrentPasswordValidator extends Validator
     public $emptyMessage = 'Current password required';
     public $notValidMessage = 'Current password is not correct';
 
-    public function validateAttribute($object, $attribute): void
+    public function validateAttribute($model, $attribute): void
     {
-        $this->checkDependsOnAttributes($object);
+        $this->checkDependsOnAttributes($model);
 
-        $value = $object->$attribute;
+        $value = $model->$attribute;
         if ($this->allowEmpty && $this->isEmpty($value)) {
             return;
         }
 
-        $model = $this->loadModel($object);
+        $record = $this->loadModel($model);
 
         if (!$value) {
-            $this->addError($object, $attribute, $this->emptyMessage);
-        } elseif (!$model->{$this->validateMethod}($value)) {
-            $this->addError($object, $attribute, $this->notValidMessage, ['{value}' => Html::encode($value)]);
+            $this->addError($model, $attribute, $this->emptyMessage);
+        } elseif (!$record->{$this->validateMethod}($value)) {
+            $this->addError($model, $attribute, $this->notValidMessage, ['{value}' => Html::encode($value)]);
         }
     }
 
-    private function checkDependsOnAttributes($object): void
+    private function checkDependsOnAttributes($model): void
     {
         foreach ($this->dependsOnAttributes as $attr) {
-            if (!empty($object->$attr)) {
+            if (!empty($model->$attr)) {
                 $this->allowEmpty = false;
             }
         }
     }
 
-    private function loadModel($object): ActiveRecord
+    private function loadModel($model): ActiveRecord
     {
         if (empty($this->idAttribute)) {
             throw new Exception('Attribute idAttribute is not defined');
         }
 
-        if (empty($object->{$this->idAttribute})) {
+        if (empty($model->{$this->idAttribute})) {
             throw new Exception('Attribute ' . $this->idAttribute . ' not found');
         }
 
@@ -60,19 +60,19 @@ class CurrentPasswordValidator extends Validator
         }
 
         if (empty($this->className)) {
-            $this->className = get_class($object);
+            $this->className = get_class($model);
         }
 
-        $model = ([$this->className, 'findOne'])($object->{$this->idAttribute});
+        $record = ([$this->className, 'findOne'])($model->{$this->idAttribute});
 
-        if ($model === null) {
+        if ($record === null) {
             throw new Exception('Model not found');
         }
 
-        if (!method_exists($model, $this->validateMethod)) {
+        if (!method_exists($record, $this->validateMethod)) {
             throw new Exception('Method ' . $this->className . '::' . $this->validateMethod . '() not found');
         }
 
-        return $model;
+        return $record;
     }
 }
