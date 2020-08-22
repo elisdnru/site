@@ -123,7 +123,7 @@ class FileController extends AdminController
 
         if ($uploaded) {
             if ($uploaded->getBasename() === '.htaccess') {
-                return 'Отказано в доступе к загрузке файла .htaccess';
+                throw new BadRequestHttpException('Отказано в доступе к загрузке файла .htaccess');
             }
 
             $file = $curpath . '/' . Transliterator::slug($uploaded->getFilename()) . '.' . $uploaded->getExtension();
