@@ -3,6 +3,7 @@
 namespace app\modules\user\components;
 
 use yii\base\Exception;
+use yii\base\Model;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\validators\Validator;
@@ -36,7 +37,7 @@ class CurrentPasswordValidator extends Validator
         }
     }
 
-    private function checkDependsOnAttributes($model): void
+    private function checkDependsOnAttributes(Model $model): void
     {
         foreach ($this->dependsOnAttributes as $attr) {
             if (!empty($model->$attr)) {
@@ -45,7 +46,7 @@ class CurrentPasswordValidator extends Validator
         }
     }
 
-    private function loadModel($model): ActiveRecord
+    private function loadModel(Model $model): ActiveRecord
     {
         if (empty($this->idAttribute)) {
             throw new Exception('Attribute idAttribute is not defined');
@@ -63,6 +64,7 @@ class CurrentPasswordValidator extends Validator
             $this->className = get_class($model);
         }
 
+        /** @var ?ActiveRecord $record */
         $record = ([$this->className, 'findOne'])($model->{$this->idAttribute});
 
         if ($record === null) {
