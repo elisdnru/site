@@ -92,7 +92,7 @@ class Tag extends ActiveRecord
         return array_unique($postIds);
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

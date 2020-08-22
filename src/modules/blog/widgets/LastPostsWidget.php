@@ -8,8 +8,8 @@ use yii\caching\TagDependency;
 
 class LastPostsWidget extends Widget
 {
-    public $tpl = 'default';
-    public $class = '';
+    public string $tpl = 'default';
+    public string $class = '';
     public $limit = 10;
 
     public function run(): string

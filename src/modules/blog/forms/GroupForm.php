@@ -10,7 +10,7 @@ use yii\base\Model;
  */
 class GroupForm extends Model
 {
-    public $title;
+    public ?string $title = null;
 
     /**
      * @return array validation rules for model attributes.

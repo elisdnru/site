@@ -8,7 +8,7 @@ use yii\base\Widget;
 
 class SearchFormWidget extends Widget
 {
-    public $tpl = 'SearchForm';
+    public string $tpl = 'SearchForm';
 
     public function run(): string
     {

@@ -8,9 +8,9 @@ use yii\caching\TagDependency;
 
 class BlockWidget extends Widget
 {
-    public $title = 'default';
-    public $tpl = 'default';
-    public $id = '';
+    public string $title = 'default';
+    public string $tpl = 'default';
+    public string $id = '';
 
     public function run(): string
     {

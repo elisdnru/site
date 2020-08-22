@@ -8,7 +8,7 @@ use yii\caching\TagDependency;
 
 class UpdatedPostsWidget extends Widget
 {
-    public $tpl = 'default';
+    public string $tpl = 'default';
     public $class = '';
     public $limit = 10;
 

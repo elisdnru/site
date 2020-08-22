@@ -8,13 +8,13 @@ use yii\base\Widget;
 
 class OtherPostsWidget extends Widget
 {
-    public $tpl = 'OtherPosts';
-    public $title = '';
-    public $class = '';
-    public $label = '';
-    public $category = '';
-    public $skip = 0;
-    public $limit = 5;
+    public string $tpl = 'OtherPosts';
+    public string $title = '';
+    public string $class = '';
+    public string $label = '';
+    public string $category = '';
+    public int $skip = 0;
+    public int $limit = 5;
 
     public function run(): string
     {

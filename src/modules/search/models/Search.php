@@ -17,7 +17,7 @@ class Search extends ActiveRecord
         return 'search';
     }
 
-    private $cachedMaterial;
+    private ?ActiveRecord $cachedMaterial = null;
 
     public function getMaterial()
     {

@@ -9,7 +9,7 @@ use yii\base\Model;
  */
 class SearchForm extends Model
 {
-    public $word;
+    public ?string $word = null;
 
     /**
      * @return array validation rules for model attributes.

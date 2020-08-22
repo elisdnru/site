@@ -317,7 +317,7 @@ class User extends ActiveRecord
         return md5('%#w_wrb13&p' . $this->salt . $password);
     }
 
-    private $cachedFio;
+    private ?string $cachedFio = null;
 
     public function getFio(): ?string
     {
@@ -335,7 +335,7 @@ class User extends ActiveRecord
         $this->cachedFio = $value;
     }
 
-    private $cachedAvatarUrl;
+    private ?string $cachedAvatarUrl = null;
 
     public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT): string
     {

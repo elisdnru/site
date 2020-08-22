@@ -118,7 +118,7 @@ class PurifyTextBehavior extends Behavior
         ]);
     }
 
-    private $preContents = [];
+    private array $preContents = [];
 
     /**
      * @return ActiveRecord|Component

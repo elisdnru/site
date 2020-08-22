@@ -8,7 +8,7 @@ use yii\caching\TagDependency;
 
 class TagCloudWidget extends Widget
 {
-    public $tpl = 'TagCloud';
+    public string $tpl = 'TagCloud';
 
     public function run(): string
     {

@@ -8,7 +8,7 @@ class UloginWidget extends Widget
 {
     private static $once = false;
 
-    private $params = [
+    private array $params = [
         'display' => 'panel',
         'fields' => 'first_name,last_name,email,photo',
         'providers' => 'vkontakte,twitter,facebook,google,yandex',

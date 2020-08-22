@@ -205,7 +205,7 @@ class Comment extends ActiveRecord
         }
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {
@@ -216,7 +216,7 @@ class Comment extends ActiveRecord
         return $this->cachedUrl;
     }
 
-    private $cachedAvatarUrl = [];
+    private array $cachedAvatarUrl = [];
 
     public function getAvatarUrl($width = User::IMAGE_WIDTH, $height = User::IMAGE_HEIGHT)
     {

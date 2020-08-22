@@ -148,7 +148,7 @@ class Page extends ActiveRecord
         ];
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

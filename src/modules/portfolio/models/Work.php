@@ -167,7 +167,7 @@ class Work extends ActiveRecord
         return self::find()->andWhere(['alias' => $alias])->one();
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

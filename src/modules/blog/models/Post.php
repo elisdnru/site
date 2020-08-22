@@ -55,9 +55,9 @@ class Post extends ActiveRecord implements Material
 
     public $del_image = false;
 
-    public $newgroup = '';
+    public string $newgroup = '';
 
-    protected $tags_string;
+    protected ?string $tags_string = null;
 
     public static function tableName(): string
     {
@@ -281,7 +281,7 @@ class Post extends ActiveRecord implements Material
         }
     }
 
-    private $cachedUrl;
+    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

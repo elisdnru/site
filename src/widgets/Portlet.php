@@ -7,17 +7,17 @@ use yii\helpers\Html;
 
 class Portlet extends Widget
 {
-    public $url = '';
+    public string $url = '';
 
-    public $tagName = 'div';
-    public $htmlOptions = ['class' => 'portlet'];
-    public $title;
-    public $decorationCssClass = 'portlet-decoration';
-    public $titleCssClass = 'portlet-title';
-    public $contentCssClass = 'portlet-content';
-    public $hideOnEmpty = true;
+    public string $tagName = 'div';
+    public array $htmlOptions = ['class' => 'portlet'];
+    public ?string $title = null;
+    public string $decorationCssClass = 'portlet-decoration';
+    public string $titleCssClass = 'portlet-title';
+    public string $contentCssClass = 'portlet-content';
+    public bool $hideOnEmpty = true;
 
-    private $openTag;
+    private ?string $openTag = null;
 
     public function init(): void
     {

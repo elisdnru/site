@@ -7,7 +7,7 @@ use yii\base\Widget;
 
 class ThemePostsWidget extends Widget
 {
-    public $tpl = 'ThemePosts';
+    public string $tpl = 'ThemePosts';
     public $current = 0;
     public $group = 0;
 

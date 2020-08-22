@@ -18,7 +18,7 @@ class FileController extends AdminController
     public const THUMB_IMAGE_WIDTH = 84;
     public const FILES_UPLOAD_COUNT = 7;
 
-    protected $uploadRootPath = 'upload/media';
+    protected string $uploadRootPath = 'upload/media';
 
     public function behaviors(): array
     {
