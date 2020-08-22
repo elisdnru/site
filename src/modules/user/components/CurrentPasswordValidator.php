@@ -7,12 +7,6 @@ use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\validators\Validator;
 
-/**
- * DCurrentPassword validates that the old password is correct.
- *
- * /blog/10
- * @version 1.0
- */
 class CurrentPasswordValidator extends Validator
 {
     public $className;
