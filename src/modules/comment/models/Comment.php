@@ -37,17 +37,11 @@ class Comment extends ActiveRecord
 {
     public const TYPE_OF_COMMENT = null;
 
-    /**
-     * @return string the associated database table name
-     */
     public static function tableName(): string
     {
         return 'comments';
     }
 
-    /**
-     * @return array validation rules for model attributes.
-     */
     public function rules(): array
     {
         $anon = static function (self $model) {
@@ -93,9 +87,6 @@ class Comment extends ActiveRecord
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [

@@ -18,13 +18,8 @@ class CommentForm extends Model
     public $yqe1;
     public $yqe2;
 
-    /**
-     * @return array validation rules for model attributes.
-     */
     public function rules(): array
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return [
             ['text', 'required', 'message' => 'Напишите текст комментария.'],
             ['parent_id', 'integer'],
@@ -44,9 +39,6 @@ class CommentForm extends Model
         ];
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [

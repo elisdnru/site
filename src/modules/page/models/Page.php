@@ -88,9 +88,6 @@ class Page extends ActiveRecord
         return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [

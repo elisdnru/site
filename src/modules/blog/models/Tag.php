@@ -39,9 +39,6 @@ class Tag extends ActiveRecord
         return $this->hasMany(PostTag::class, ['tag_id' => 'id']);
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
     public function attributeLabels(): array
     {
         return [
