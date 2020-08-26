@@ -42,33 +42,31 @@ class CommentsWidget extends Widget
             $form->attributes = $this->loadFormState();
         }
 
-        if ($form->load(Yii::$app->request->post())) {
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             $this->saveFormState([
                 'name' => $form->name,
                 'email' => $form->email,
                 'site' => $form->site,
             ]);
 
-            if ($form->validate()) {
-                $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
+            $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
 
-                /** @var Comment $comment */
-                $comment = new $className;
-                $comment->attributes = $form->attributes;
-                $comment->material_id = $this->material_id;
-                $comment->public = 1;
-                $comment->moder = 0;
+            /** @var Comment $comment */
+            $comment = new $className;
+            $comment->attributes = $form->attributes;
+            $comment->material_id = $this->material_id;
+            $comment->public = 1;
+            $comment->moder = 0;
 
-                if ($this->user) {
-                    $comment->user_id = $this->user->id;
-                }
+            if ($this->user) {
+                $comment->user_id = $this->user->id;
+            }
 
-                if ($comment->save()) {
-                    Yii::$app->session->setFlash('success', 'Ваш коментарий добавлен');
-                    Yii::$app->controller->redirect($comment->getUrl());
-                    Yii::$app->end();
-                    return '';
-                }
+            if ($comment->save()) {
+                Yii::$app->session->setFlash('success', 'Ваш коментарий добавлен');
+                Yii::$app->controller->redirect($comment->getUrl());
+                Yii::$app->end();
+                return '';
             }
         }
 
@@ -99,11 +97,17 @@ class CommentsWidget extends Widget
 
     private function saveFormState($attributes): void
     {
+        try {
+            $data = Json::encode($attributes);
+        } catch (InvalidArgumentException $e) {
+            $data = null;
+        }
+
         /** @var Cookie $cookie */
         $cookie = Yii::createObject([
             'class' => Cookie::class,
             'name' => 'comment_form_data',
-            'value' => Json::encode($attributes),
+            'value' => $data,
             'expire' => time() + 3600 * 24 * 180,
         ]);
 
