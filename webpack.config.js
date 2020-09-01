@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
-const { minify } = require("uglify-js")
+const { minify } = require('uglify-js')
 
 module.exports = {
   mode: 'production',
@@ -44,27 +44,27 @@ module.exports = {
     }),
     new MergeIntoSingleFilePlugin({
       files: {
-        "main.js": [
+        'main.js': [
           'node_modules/axios/dist/axios.min.js',
           'assets/js/site.js',
           'assets/js/form-action.js',
           'assets/js/share.js',
           'assets/js/ulogin.js'
         ],
-        "comments.js": [
+        'comments.js': [
           'assets/js/comments.js'
         ],
-        "jquery.js": [
+        'jquery.js': [
           'assets/js/jquery.min.js'
         ],
-        "jcarousellite.js": [
+        'jcarousellite.js': [
           'assets/js/jcarousellite.min.js'
         ],
-        "colorbox.js": [
+        'colorbox.js': [
           'assets/js/jquery.colorbox-min.js',
           'assets/js/colorbox.js'
         ],
-        "countdown.js": [
+        'countdown.js': [
           'assets/js/countdown.js'
         ],
       },
