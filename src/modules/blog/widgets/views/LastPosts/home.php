@@ -46,8 +46,8 @@ use yii\helpers\Html;
                 <div class="thumb">
                     <a href="<?= $data->getUrl() ?>">
                         <picture>
-                            <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
-                            <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
+                            <source srcset="../images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
+                            <source srcset="../images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
                             <?= Html::img($imageUrl, $properties) ?>
                         </picture>
                     </a>

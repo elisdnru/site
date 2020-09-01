@@ -67,9 +67,9 @@ $this->params['admin'] = [
                         <td><?= $item->group ? Html::encode($item->group->title) : '' ?></td>
                         <td style="width:30px; text-align:center">
                             <?php if ($item->public) : ?>
-                                <img src="/images/admin/yes.png" alt="">
+                                <img src="../images/admin/yes.png" alt="">
                             <?php else : ?>
-                                <img src="/images/admin/no.png" alt="">
+                                <img src="../images/admin/no.png" alt="">
                             <?php endif; ?>
                         </td>
                         <td class="button-column"><a href="<?= Url::to(['view', 'id' => $item->id]) ?>"><span class="icon view"></span></a></td>

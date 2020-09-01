@@ -30,7 +30,7 @@ JqueryUiAsset::register($this);
 </p>
 <h1>Портфолио</h1>
 
-<p id="saving" style="display:none;float:right"><img src="/images/loading.gif" alt=""></p>
+<p id="saving" style="display:none;float:right"><img src="../images/loading.gif" alt=""></p>
 
 <form action="?" method="get">
 <p>
@@ -78,17 +78,17 @@ JqueryUiAsset::register($this);
                 <td width="20px" style="text-align: center; padding: 0" title="Опубликовано">
                     <a class="ajax_post" href="<?= $toggle_public ?>">
                         <?php if ($item->public) : ?>
-                            <img src="/images/admin/yes.png" alt="">
+                            <img src="../images/admin/yes.png" alt="">
                         <?php else : ?>
-                            <img src="/images/admin/no.png" alt="">
+                            <img src="../images/admin/no.png" alt="">
                         <?php endif; ?>
                     </a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a href="<?= $editurl ?>"><img src="/images/admin/edit.png" alt="" title="Править"></a>
+                    <a href="<?= $editurl ?>"><img src="../images/admin/edit.png" alt="" title="Править"></a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                    <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delurl ?>"><img src="../images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                 </td>
             </tr>
         </table>

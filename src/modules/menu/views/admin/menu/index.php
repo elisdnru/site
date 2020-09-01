@@ -67,9 +67,9 @@ $this->params['admin'][] = ['label' => 'Добавить пункт', 'url' => [
                         <td style="width:30px;text-align:center">
                             <a class="ajax_post" href="<?= Url::to(['toggle', 'id' => $item->id, 'attribute' => 'visible']) ?>">
                                 <?php if ($item->visible) : ?>
-                                    <img title="Прочитано" style="width:16px; height:16px;" class="icon-on" src="/images/admin/yes.png" alt="Видимо">
+                                    <img title="Прочитано" style="width:16px; height:16px;" class="icon-on" src="../images/admin/yes.png" alt="Видимо">
                                 <?php else : ?>
-                                    <img title="Новое" style="width:16px; height:16px;" class="icon-off" src="/images/admin/no.png" alt="Скрыто">
+                                    <img title="Новое" style="width:16px; height:16px;" class="icon-off" src="../images/admin/no.png" alt="Скрыто">
                                 <?php endif; ?>
                             </a>
                         </td>

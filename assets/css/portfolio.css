@@ -30,12 +30,12 @@
 
 .portfolio .carousel_link.carouselPrevLink {
   left: 10px;
-  background-image: url('/images/portfolio/left.png');
+  background-image: url('../images/portfolio/left.png');
 }
 
 .portfolio .carousel_link.carouselNextLink {
   right: 10px;
-  background-image: url('/images/portfolio/right.png');
+  background-image: url('../images/portfolio/right.png');
 }
 
 .portfolioSlider {
@@ -70,7 +70,7 @@
 
   width: 190px;
   height: 180px;
-  background: #fff url('/images/loading.gif') center center no-repeat;
+  background: #fff url('../images/loading.gif') center center no-repeat;
 }
 
 .portfolio ul li a .thumb {
@@ -98,7 +98,7 @@
 }
 
 .portfolio ul li.more a .thumb {
-  background-image: url('/images/portfolio/more.png');
+  background-image: url('../images/portfolio/more.png');
 }
 
 .portfolio ul li a:hover {
