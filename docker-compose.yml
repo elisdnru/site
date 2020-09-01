@@ -53,13 +53,13 @@ services:
             - .:/app
         working_dir: /app
     node-watch:
-        image: node:12.7-alpine
+        image: node:14.9-alpine
         volumes:
             - ./:/app
         working_dir: /app
         command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run watch"
     node-cli:
-        image: node:12.7-alpine
+        image: node:14.9-alpine
         volumes:
             - ./:/app
         working_dir: /app
