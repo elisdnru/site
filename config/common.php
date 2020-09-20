@@ -30,9 +30,6 @@ if (!is_dir($runtime)) {
     FileHelper::createDirectory($runtime, 0777);
 }
 
-$mailerUri = parse_url(getenv('MAILER_URI'));
-parse_str($mailerUri['query'], $mailerQuery);
-
 return [
     'id' => 'app',
     'basePath' => dirname(__DIR__) . '/src',
@@ -95,11 +92,11 @@ return [
             'viewPath' => '@app/views/email',
             'transport' => [
                 'class' => Swift_SmtpTransport::class,
-                'host' => $mailerUri['host'],
-                'port' => $mailerUri['port'],
-                'username' => $mailerUri['user'] ?? '',
-                'password' => $mailerUri['pass'] ?? '',
-                'encryption' => $mailerQuery['encryption'],
+                'host' => getenv('MAILER_HOST'),
+                'port' => getenv('MAILER_PORT'),
+                'username' => getenv('MAILER_USER'),
+                'password' => getenv('MAILER_PASSWORD'),
+                'encryption' => getenv('MAILER_ENCRYPTION'),
             ],
             'messageConfig' => [
                 'from' => getenv('MAILER_FROM_EMAIL'),
