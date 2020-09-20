@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\components\uploader;
+namespace tests\unit\components\uploader;
 
 use app\components\uploader\Uploader;
 use Codeception\Test\Unit;
