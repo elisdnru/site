@@ -78,10 +78,10 @@ services:
         volumes:
             - ./volumes/mysql:/var/lib/mysql
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
-            - "MYSQL_USER=app"
-            - "MYSQL_PASSWORD=secret"
-            - "MYSQL_DATABASE=app"
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: app
+            MYSQL_PASSWORD: secret
+            MYSQL_DATABASE: app
         ports:
             - "33061:3306"
     mysql-test:
@@ -89,10 +89,10 @@ services:
         volumes:
             - mysql-test:/var/lib/mysql
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
-            - "MYSQL_USER=test"
-            - "MYSQL_PASSWORD=secret"
-            - "MYSQL_DATABASE=test"
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: test
+            MYSQL_PASSWORD: secret
+            MYSQL_DATABASE: test
         ports:
             - "33062:3306"
     mailer:
