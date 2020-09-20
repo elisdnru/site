@@ -79,7 +79,7 @@ return [
 
         'db' => [
             'class' => Connection::class,
-            'dsn' => getenv('DB_DSN'),
+            'dsn' => 'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME'),
             'username' => getenv('DB_USERNAME'),
             'password' => getenv('DB_PASSWORD'),
             'tablePrefix' => '',
