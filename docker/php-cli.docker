@@ -20,7 +20,7 @@ RUN chmod 555 /usr/local/bin/wait-for-it
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet \
-    && composer global require hirak/prestissimo --no-plugins --no-scripts
+RUN curl -sS https://getcomposer.org/installer | php -- \
+    --install-dir=/bin --filename=composer --version=2.0.0-RC1 --quiet
 
 WORKDIR /app
