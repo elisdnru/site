@@ -20,5 +20,16 @@
 
     <issueHandlers>
         <LessSpecificReturnType errorLevel="info" />
+
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <file name="src/components/category/models/CategoryQuery.php"/>
+                <file name="src/components/category/models/TreeCategoryQuery.php"/>
+                <file name="src/components/category/TreeActiveDataProvider.php"/>
+                <directory name="src/modules/*/models/query"/>
+                <file name="src/modules/user/components/CurrentPasswordValidator.php"/>
+                <file name="src/widgets/IconMenu.php"/>
+            </errorLevel>
+        </PropertyNotSetInConstructor>
     </issueHandlers>
 </psalm>
