@@ -14,6 +14,7 @@ use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class DefaultController extends Controller
 {
@@ -62,6 +63,10 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @param string $tag
+     * @return Response|string
+     */
     public function actionTag(string $tag)
     {
         if (!$model = $this->loadTagModel($tag)) {

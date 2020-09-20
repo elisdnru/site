@@ -29,7 +29,7 @@ class GroupQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Group[]
      */
     public function all($db = null): array
@@ -39,7 +39,7 @@ class GroupQuery extends ActiveQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Group[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -48,7 +48,7 @@ class GroupQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Group|ActiveRecord|null
      */
     public function one($db = null): ?Group

@@ -25,7 +25,7 @@ class TreeCategoryQuery extends CategoryQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return TreeCategory[]
      */
     public function all($db = null): array
@@ -35,7 +35,7 @@ class TreeCategoryQuery extends CategoryQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return TreeCategory[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -44,7 +44,7 @@ class TreeCategoryQuery extends CategoryQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return TreeCategory|ActiveRecord|null
      */
     public function one($db = null): ?TreeCategory

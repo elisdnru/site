@@ -22,7 +22,7 @@ class WorkQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Work[]
      */
     public function all($db = null): array
@@ -31,7 +31,7 @@ class WorkQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Work|ActiveRecord|null
      */
     public function one($db = null): ?Work

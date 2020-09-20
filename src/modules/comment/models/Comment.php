@@ -44,7 +44,7 @@ class Comment extends ActiveRecord
 
     public function rules(): array
     {
-        $anon = static function (self $model) {
+        $anon = static function (self $model): bool {
             return !$model->user_id;
         };
 

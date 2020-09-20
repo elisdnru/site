@@ -71,6 +71,9 @@ class WorkController extends AdminController
         ]);
     }
 
+    /**
+     * @return Response|string
+     */
     public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);

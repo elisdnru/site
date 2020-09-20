@@ -21,6 +21,9 @@ class BlockController extends AdminController
         ]);
     }
 
+    /**
+     * @return Response|string
+     */
     public function actionCreate()
     {
         $model = new Block();
@@ -32,6 +35,11 @@ class BlockController extends AdminController
         ]);
     }
 
+    /**
+     * @param int $id
+     * @return Response|string
+     * @throws NotFoundHttpException
+     */
     public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);

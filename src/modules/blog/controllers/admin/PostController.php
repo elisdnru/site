@@ -40,6 +40,11 @@ class PostController extends AdminController
         ]);
     }
 
+    /**
+     * @param int $id
+     * @return Response|string
+     * @throws NotFoundHttpException
+     */
     public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);

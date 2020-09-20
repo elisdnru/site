@@ -22,6 +22,9 @@ class TagController extends AdminController
         ]);
     }
 
+    /**
+     * @return Response|string
+     */
     public function actionCreate()
     {
         $model = new Tag();
@@ -35,6 +38,11 @@ class TagController extends AdminController
         ]);
     }
 
+    /**
+     * @param int $id
+     * @return Response|string
+     * @throws NotFoundHttpException
+     */
     public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);

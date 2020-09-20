@@ -70,7 +70,7 @@ class PurifyTextBehavior extends Behavior
         }
     }
 
-    private function processContent(?string $text): string
+    private function processContent(?string $text): ?string
     {
         if ($this->enableMarkdown) {
             $text = $this->markdownText($text);

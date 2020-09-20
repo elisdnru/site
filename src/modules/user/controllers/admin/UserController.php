@@ -21,6 +21,9 @@ class UserController extends AdminController
         ]);
     }
 
+    /**
+     * @return Response|string
+     */
     public function actionCreate()
     {
         $model = new User(['scenario' => User::SCENARIO_ADMIN_CREATE]);
@@ -32,6 +35,11 @@ class UserController extends AdminController
         ]);
     }
 
+    /**
+     * @param int $id
+     * @return Response|string
+     * @throws NotFoundHttpException
+     */
     public function actionUpdate(int $id)
     {
         $model = $this->loadModel($id);

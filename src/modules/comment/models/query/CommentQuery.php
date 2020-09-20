@@ -12,7 +12,7 @@ use yii\db\Connection;
 
 class CommentQuery extends ActiveQuery
 {
-    public function init()
+    public function init(): void
     {
         /** @var Comment $class */
         $class = $this->modelClass;
@@ -29,7 +29,7 @@ class CommentQuery extends ActiveQuery
         return $this->andWhere(['public' => 1]);
     }
 
-    public function material($id): self
+    public function material(int $id): self
     {
         if ($id) {
             return $this->andWhere(['material_id' => $id]);
@@ -45,7 +45,7 @@ class CommentQuery extends ActiveQuery
         return $this;
     }
 
-    public function user($id): self
+    public function user(int $id): self
     {
         if ($id) {
             return $this->andWhere(['user_id' => $id]);
@@ -59,7 +59,7 @@ class CommentQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Comment[]
      */
     public function all($db = null): array
@@ -69,7 +69,7 @@ class CommentQuery extends ActiveQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Comment[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -78,7 +78,7 @@ class CommentQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Comment|ActiveRecord|null
      */
     public function one($db = null): ?Comment

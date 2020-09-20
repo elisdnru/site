@@ -35,7 +35,7 @@ class InlineWidgetsBehavior extends Behavior
         return $text;
     }
 
-    private function processWidgets(?string $text): string
+    private function processWidgets(?string $text): ?string
     {
         if (preg_match('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {

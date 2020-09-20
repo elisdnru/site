@@ -45,7 +45,7 @@ class MenuQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Menu[]
      */
     public function all($db = null): array
@@ -55,7 +55,7 @@ class MenuQuery extends ActiveQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Menu[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -64,7 +64,7 @@ class MenuQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Menu|ActiveRecord|null
      */
     public function one($db = null): ?Menu

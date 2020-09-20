@@ -115,12 +115,12 @@ class Post extends ActiveRecord implements Material
 
     public function getCommentsCount(): int
     {
-        return Comment::find()->material($this->id)->published()->count();
+        return (int)Comment::find()->material($this->id)->published()->count();
     }
 
     public function getCommentsNewCount(): int
     {
-        return Comment::find()->material($this->id)->published()->unread()->count();
+        return (int)Comment::find()->material($this->id)->published()->unread()->count();
     }
 
     public function attributeLabels(): array

@@ -29,7 +29,7 @@ class LandingQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Landing[]
      */
     public function all($db = null): array
@@ -39,7 +39,7 @@ class LandingQuery extends ActiveQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Landing[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -48,7 +48,7 @@ class LandingQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Landing|ActiveRecord|null
      */
     public function one($db = null): ?Landing

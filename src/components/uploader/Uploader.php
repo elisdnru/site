@@ -186,9 +186,9 @@ class Uploader
         return $baseName;
     }
 
-    private function parseFilename(string $fileName): stdClass
+    private function parseFilename(string $fileName): ?stdClass
     {
-        $result = false;
+        $result = null;
         if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)(\.webp)?$|', $fileName, $matches)) {
             $result = new StdClass;
             $result->path = $matches['path'];

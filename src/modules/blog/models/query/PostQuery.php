@@ -18,7 +18,7 @@ class PostQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Post[]
      */
     public function all($db = null): array
@@ -28,7 +28,7 @@ class PostQuery extends ActiveQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Post[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -37,7 +37,7 @@ class PostQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Post|ActiveRecord|null
      */
     public function one($db = null): ?Post

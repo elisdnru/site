@@ -31,7 +31,7 @@ class Tag extends ActiveRecord
 
     public function getFrequency(): int
     {
-        return PostTag::find()->andWhere(['tag_id' => $this->id])->count();
+        return (int)PostTag::find()->andWhere(['tag_id' => $this->id])->count();
     }
 
     public function getPostTags(): ActiveQuery
@@ -69,7 +69,7 @@ class Tag extends ActiveRecord
         return $result;
     }
 
-    public static function findOrCreateByTitle($title): self
+    public static function findOrCreateByTitle(string $title): self
     {
         $tag = self::findOne(['title' => $title]);
         if (!$tag) {

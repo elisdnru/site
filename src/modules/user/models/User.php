@@ -232,7 +232,7 @@ class User extends ActiveRecord
 
     public function getCommentsCount(): int
     {
-        return Comment::find()->user($this->id)->published()->count();
+        return (int)Comment::find()->user($this->id)->published()->count();
     }
 
     public function attributeLabels(): array
@@ -307,9 +307,9 @@ class User extends ActiveRecord
             password_verify($this->oldHashPassword($password), $this->password);
     }
 
-    public function hashPassword($password): string
+    public function hashPassword(string $password): string
     {
-        return password_hash($password, PASSWORD_DEFAULT);
+        return (string)password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function oldHashPassword($password): string

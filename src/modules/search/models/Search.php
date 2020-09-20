@@ -19,7 +19,7 @@ class Search extends ActiveRecord
 
     private ?ActiveRecord $cachedMaterial = null;
 
-    public function getMaterial()
+    public function getMaterial(): ?ActiveRecord
     {
         if ($this->cachedMaterial === null) {
             /** @var ActiveRecord $class */

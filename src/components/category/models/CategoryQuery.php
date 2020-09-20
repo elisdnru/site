@@ -26,7 +26,7 @@ class CategoryQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Category[]
      */
     public function all($db = null): array
@@ -36,7 +36,7 @@ class CategoryQuery extends ActiveQuery
 
     /**
      * @param int $batchSize
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Category[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): iterable
@@ -45,7 +45,7 @@ class CategoryQuery extends ActiveQuery
     }
 
     /**
-     * @param Connection $db
+     * @param Connection|null $db
      * @return Category|ActiveRecord|null
      */
     public function one($db = null): ?Category

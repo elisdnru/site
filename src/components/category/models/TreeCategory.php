@@ -45,17 +45,21 @@ abstract class TreeCategory extends Category
 
     /**
      * @return CategoryQuery|ActiveQuery
+     * @psalm-return CategoryQuery
      */
     public function getParent(): CategoryQuery
     {
+        /** @var CategoryQuery */
         return $this->hasOne(static::class, ['id' => 'parent_id']);
     }
 
     /**
      * @return CategoryQuery|ActiveQuery
+     * @psalm-return CategoryQuery
      */
     public function getChildren(): CategoryQuery
     {
+        /** @var CategoryQuery */
         return $this->hasMany(static::class, ['parent_id' => 'id'])
             ->alias('children')
             ->orderBy(['children.sort' => SORT_ASC, 'children.title' => SORT_ASC]);
