@@ -18,6 +18,8 @@ class RemindCest
 
     public function success(AcceptanceTester $I): void
     {
+        $I->dontHaveEmails();
+
         $I->amOnPage('remind');
         $I->see('Восстановление пароля', '.portlet-title');
         $I->seeElement('#remind-form');

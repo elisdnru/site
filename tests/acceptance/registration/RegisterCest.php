@@ -18,6 +18,8 @@ class RegisterCest
 
     public function success(AcceptanceTester $I): void
     {
+        $I->dontHaveEmails();
+
         $I->amOnPage('registration');
         $I->see('Регистрация', '.portlet-title');
         $I->seeElement('#register-form');

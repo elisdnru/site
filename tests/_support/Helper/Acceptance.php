@@ -6,9 +6,7 @@ use GuzzleHttp\Client;
 
 class Acceptance extends \Codeception\Module
 {
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
-    public function _beforeSuite($settings = []): void
+    public function dontHaveEmails(): void
     {
         $this->getMailerClient()->delete('/api/v1/messages');
     }
