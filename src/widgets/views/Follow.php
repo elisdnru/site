@@ -25,6 +25,9 @@ $providers = [
         <div class="row">
             <input type="email" name="lead_email" placeholder="Ваш Email" required />
         </div>
+        <div class="row">
+            <label><input type="checkbox" required /> согласен с <a target="_blank" href="/privacy">политикой</a></label>
+        </div>
         <div class="row button">
             <button type="submit">Подписаться на статьи</button>
         </div>

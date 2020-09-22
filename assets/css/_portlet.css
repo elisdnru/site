@@ -166,9 +166,22 @@
   margin-bottom: 10px;
 }
 
-.portlet-content .subscribe-form .row input {
+.portlet-content .subscribe-form .row input[type=text],
+.portlet-content .subscribe-form .row input[type=email] {
   width: 230px;
   padding: 8px;
+}
+
+.portlet-content .subscribe-form .row input[type=checkbox] {
+  vertical-align: middle;
+}
+
+.portlet-content .subscribe-form .row label {
+  color: #666;
+}
+
+.portlet-content .subscribe-form .row label a {
+  color: #666;
 }
 
 .portlet-content .subscribe-form .button {
