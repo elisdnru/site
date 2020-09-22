@@ -5,13 +5,13 @@
 }
 
 .entry.list {
-  padding: 20px 0 15px 0;
+  padding: 15px 0 10px 0;
   border-top: #ddd 1px dashed;
 }
 
 .entry.list:last-child {
   margin-bottom: 5px;
-  border-bottom: #ccc 1px dashed;
+  border-bottom: #ddd 1px dashed;
 }
 
 .entry header h1 {
