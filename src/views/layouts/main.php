@@ -48,7 +48,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         endif; ?>
         <div class="logo">
         <a href="/">
-            <img src="../images/logo.png" alt="ElisDN">
+            <img src="/images/logo.png" alt="ElisDN">
         </a>
         </div>
         <div class="title">

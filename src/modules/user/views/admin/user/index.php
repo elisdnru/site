@@ -70,9 +70,9 @@ $this->params['admin'][] = ['label' => 'Добавить пользовател�
                         </td>
                         <td>
                             <?php if (!$user->confirm) : ?>
-                                <img title="Активен" style="width:16px; height:16px;" src="../images/admin/yes.png" alt="">
+                                <img title="Активен" style="width:16px; height:16px;" src="/images/admin/yes.png" alt="">
                             <?php else : ?>
-                                <img title="Ожидает" style="width:16px; height:16px;" src="../images/admin/message.png" alt="">
+                                <img title="Ожидает" style="width:16px; height:16px;" src="/images/admin/message.png" alt="">
                             <?php endif; ?>
                         </td>
                         <td>

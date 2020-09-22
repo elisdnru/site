@@ -23,10 +23,10 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
     <header>
 
         <span class="link">
-            <a class="ajax_del" data-del="item_<?= $data->id ?>" title="Прочитать/Вернуть комментарий" href="<?= $moderurl ?>"><img src="../images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Прочесть' : 'Новый' ?>" title="<?= $data->public ? 'Прочесть' : 'Новый' ?>"></a>
-            <a class="ajax_del" data-del="item_<?= $data->id ?>" title="Скрыть/отобразить комментарий" href="<?= $publicurl ?>"><img src="../images/admin/no.png" width="16" height="16" alt="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>" title="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>"></a>
-            <a href="<?= $editurl ?>"><img src="../images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать"></a>
-            <a class="ajax_del" data-del="comment_<?= $data->id ?>" title="Удалить комментарий" href="<?= $delurl ?>"><img src="../images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+            <a class="ajax_del" data-del="item_<?= $data->id ?>" title="Прочитать/Вернуть комментарий" href="<?= $moderurl ?>"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Прочесть' : 'Новый' ?>" title="<?= $data->public ? 'Прочесть' : 'Новый' ?>"></a>
+            <a class="ajax_del" data-del="item_<?= $data->id ?>" title="Скрыть/отобразить комментарий" href="<?= $publicurl ?>"><img src="/images/admin/no.png" width="16" height="16" alt="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>" title="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>"></a>
+            <a href="<?= $editurl ?>"><img src="/images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать"></a>
+            <a class="ajax_del" data-del="comment_<?= $data->id ?>" title="Удалить комментарий" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
         </span>
 
         <span class="like">

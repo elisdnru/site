@@ -81,7 +81,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>'); return false;"><?= $renameIcon ?></a>
-                        <img src="../images/admin/foldericon.jpg" alt="">
+                        <img src="/images/admin/foldericon.jpg" alt="">
                         <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . $file->getBasename()]) ?>"><?= $file->getBasename() ?></a>
                     </td>
                     <td></td>
@@ -89,7 +89,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                         <?= date('Y-m-d h:i:s', $file->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить директорию &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delurl ?>"><img src="../images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить директорию &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
@@ -102,7 +102,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                     </td>
                     <td>
                         <a class="renameLink floatright" href="#" onclick="renameBox('<?= $file->getBasename() ?>')"><?= $renameIcon ?></a>
-                        <img src="../images/admin/fileicon.jpg">
+                        <img src="/images/admin/fileicon.jpg">
                         <a href="<?= $htmlroot . '/' . ($path ? $path . '/' : '') . $file->getBasename() ?>"><?= $file->getBasename() ?></a>
                     </td>
                     <td style="text-align: center">
@@ -112,7 +112,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                         <?= date('Y-m-d h:i:s', $file->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить файл &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delurl ?>"><img src="../images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить файл &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
