@@ -61,9 +61,6 @@ use yii\widgets\LinkPager;
                     <!--/noindex-->
                 </div>
                 <div class="short"><?= trim($post->short_purified) ?></div>
-                <!--noindex-->
-                <div class="more"><a href="<?= $post->getUrl() ?>">Читать далее</a></div>
-                <!--/noindex-->
                 <div class="clear"></div>
             </div>
         <?php endforeach; ?>

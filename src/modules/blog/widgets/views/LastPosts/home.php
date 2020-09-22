@@ -56,9 +56,6 @@ use yii\helpers\Html;
             <!--/noindex-->
         </div>
         <div class="short"><?= trim($data->short_purified) ?></div>
-        <!--noindex-->
-        <div class="more"><a href="<?= $data->getUrl() ?>">Читать далее</a></div>
-        <!--/noindex-->
     </div>
 
 <?php endforeach; ?>
