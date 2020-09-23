@@ -34,6 +34,8 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
     <h2>Страницы</h2>
     <?= $this->render('_recursive', ['models' => $items['Page'], 'parent' => 0]) ?>
+
+    <h2>Продукты</h2>
     <?= $this->render('_recursive', ['models' => $items['Landing'], 'parent' => 0]) ?>
 
     <h2>Записи в блоге</h2>
