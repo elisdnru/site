@@ -8,8 +8,12 @@ use yii\web\IdentityInterface;
 
 class AuthIdentity implements IdentityInterface
 {
-    private $id;
+    private int $id;
 
+    /**
+     * @param int|string $id
+     * @return self|null
+     */
     public static function findIdentity($id): ?self
     {
         $user = User::findOne($id);
@@ -19,17 +23,23 @@ class AuthIdentity implements IdentityInterface
         return null;
     }
 
+    /**
+     * @param mixed $token
+     * @param mixed|null $type
+     * @return self|null
+     * @throws NotSupportedException
+     */
     public static function findIdentityByAccessToken($token, $type = null): ?self
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
 
-    public function __construct($id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -39,6 +49,10 @@ class AuthIdentity implements IdentityInterface
         return '';
     }
 
+    /**
+     * @param string $authKey
+     * @return bool
+     */
     public function validateAuthKey($authKey): bool
     {
         return true;

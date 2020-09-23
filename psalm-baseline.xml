@@ -8,20 +8,6 @@
       <code>Yii</code>
     </UndefinedClass>
   </file>
-  <file src="src/components/AuthIdentity.php">
-    <MissingParamType occurrences="1">
-      <code>$id</code>
-    </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$id</code>
-    </MissingPropertyType>
-    <MixedInferredReturnType occurrences="1">
-      <code>getId</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$this-&gt;id</code>
-    </MixedReturnStatement>
-  </file>
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
