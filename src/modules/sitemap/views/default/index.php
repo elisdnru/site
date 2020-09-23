@@ -32,11 +32,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div class="sitemap">
 
-    <!--noindex-->
     <h2>Страницы</h2>
     <?= $this->render('_recursive', ['models' => $items['Page'], 'parent' => 0]) ?>
     <?= $this->render('_recursive', ['models' => $items['Landing'], 'parent' => 0]) ?>
-    <!--/noindex-->
 
     <h2>Записи в блоге</h2>
     <ul>
