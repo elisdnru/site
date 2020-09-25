@@ -122,10 +122,11 @@
 }
 
 .entry.list .short {
-  font-size: 13px;
+  font-size: 14px;
   color: #333;
   margin-bottom: 12px;
   font-family: verdana, arial, sans-serif;
+  line-height: 1.3;
 }
 
 .entry.list .short p {
