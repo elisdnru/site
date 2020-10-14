@@ -49,7 +49,6 @@
     </MixedInferredReturnType>
     <NullableReturnStatement occurrences="1">
       <code>$text</code>
-      <code>$text</code>
     </NullableReturnStatement>
     <PossiblyNullArgument occurrences="7">
       <code>$attributesString</code>
@@ -2287,7 +2286,6 @@
       <code>$height</code>
       <code>$password</code>
       <code>$password</code>
-      <code>$password</code>
       <code>$value</code>
       <code>$width</code>
       <code>$width</code>
@@ -2300,7 +2298,6 @@
       <code>$test</code>
     </MissingPropertyType>
     <MixedArgument occurrences="1">
-      <code>$password</code>
       <code>$password</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
