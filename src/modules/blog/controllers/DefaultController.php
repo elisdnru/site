@@ -8,7 +8,6 @@ use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
 use app\components\Controller;
 use app\components\DateLimiter;
-use app\modules\page\models\Page;
 use Yii;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
@@ -24,7 +23,6 @@ class DefaultController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $this->createProvider($query),
-            'page' => $this->loadBlogPage(),
         ]);
     }
 
@@ -40,7 +38,6 @@ class DefaultController extends Controller
 
         return $this->render('category', [
             'dataProvider' => $this->createProvider($query),
-            'page' => $this->loadBlogPage(),
             'category' => $model,
         ]);
     }
@@ -58,7 +55,6 @@ class DefaultController extends Controller
 
         return $this->render('date', [
             'dataProvider' => $this->createProvider($query),
-            'page' => $this->loadBlogPage(),
             'date' => $limiter->getDate(),
         ]);
     }
@@ -78,7 +74,6 @@ class DefaultController extends Controller
 
         return $this->render('tag', [
             'dataProvider' => $this->createProvider($query),
-            'page' => $this->loadBlogPage(),
             'tag' => $model,
         ]);
     }
@@ -100,7 +95,6 @@ class DefaultController extends Controller
 
         return $this->render('search', [
             'dataProvider' => $this->createProvider($query),
-            'page' => $this->loadBlogPage(),
             'searchForm' => $form,
         ]);
     }
@@ -138,15 +132,5 @@ class DefaultController extends Controller
                 'forcePageParam' => false,
             ]
         ]);
-    }
-
-    private function loadBlogPage(): Page
-    {
-        if (!$page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath('blog')) {
-            $page = new Page;
-            $page->title = 'Блог';
-            $page->pagetitle = $page->title;
-        }
-        return $page;
     }
 }

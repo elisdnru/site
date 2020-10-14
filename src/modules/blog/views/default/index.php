@@ -8,16 +8,15 @@ use yii\helpers\Html;
 use yii\web\View;
 
 /** @var $this View|InlineWidgetsBehavior */
-/** @var $page Page */
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 
 $this->context->layout = 'index';
 
-$this->title = $page->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
+$this->title = 'Блог' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $page->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
+    'content' => 'Официальный блог web-разработчика Дмитрия Елисеева. Статьи по разработке сайтов на фреймворках, программированию на PHP, рефакторингу web-приложений и повышению личной продуктивности. ' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [
@@ -29,9 +28,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post']];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create']];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category']];
-        if ($page->id) {
-            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => ['/page/admin/page/update', 'id' => $page->id]];
-        }
     }
     if (Yii::$app->moduleManager->allowed('blog') && Yii::$app->moduleManager->allowed('comment')) {
         $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications(Yii::$app->controller->module->id));
@@ -39,14 +35,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1><?= Html::encode($page->title) ?></h1>
-
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
-    <!--noindex-->
-<?php endif; ?>
-<?= $this->decodeWidgets(trim($page->text_purified)) ?>
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
-    <!--/noindex-->
-<?php endif; ?>
+<h1>Официальный блог</h1>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>
