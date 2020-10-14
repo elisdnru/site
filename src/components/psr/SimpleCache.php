@@ -51,7 +51,7 @@ class SimpleCache implements CacheInterface
     {
         $res = true;
         foreach ($keys as $key) {
-            $res |= $this->cache->delete($key);
+            $res = $res || $this->cache->delete($key);
         }
         return $res;
     }
