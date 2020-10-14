@@ -26,8 +26,8 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <div class="home-hello">
     <p>
         <picture>
-            <source srcset="../images/photo-150-150.webp" type="image/webp">
-            <source srcset="../images/photo-150-150.jpg" type="image/jpeg">
+            <source srcset="/images/photo-150-150.webp" type="image/webp">
+            <source srcset="/images/photo-150-150.jpg" type="image/jpeg">
             <img src="/images/photo-150-150.jpg" alt="Дмитрий Елисеев" width="150" height="150">
         </picture>
         Приветствую посетителей моего официального сайта. Мне есть о чём вам рассказать, а вам предоставляется
