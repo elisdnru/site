@@ -47,7 +47,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?php if (Yii::$app->request->get('page', 1) == 1) : ?>
     <p class="portfolio-description">
         <span>В 2013-14 году все услуги<br />предоставлялись совместно со студией</span>
-        <img src="/upload/media/images/webdoka-logo.jpg" alt="" />
+        <img src="/images/webdoka.jpg" alt="" />
         <a rel="noreferrer noopener" target="_blank" href="https://webdoka.ru/portfolio/">Портфолио студии</a>
     </p>
     <h2>Работы 2008-2012 года:</h2>
