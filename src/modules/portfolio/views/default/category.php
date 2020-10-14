@@ -11,7 +11,6 @@ use yii\helpers\Url;
 /** @var $dataProvider ActiveDataProvider */
 /** @var $category Category */
 /** @var $subcategories Category[] */
-/** @var $page Page */
 $this->context->layout = 'index';
 
 $this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
@@ -22,7 +21,7 @@ $this->registerMetaTag([
 ]);
 
 $this->params['breadcrumbs'] = [
-    $page->title => ['index'],
+    'Портфолио' => ['index'],
 ];
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->breadcrumbs);
 
@@ -45,18 +44,17 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <?= Html::encode($category->title) ?>
 </h1>
 
-<div class="subpages">
-    <ul>
-        <li class="return">
-            <a rel="nofollow" href="<?= $category->parent ? $category->parent->getUrl() : Url::to(['/portfolio/default/index']) ?>">&larr;
-                Выше</a></li>
-        <?php foreach ($subcategories as $subcategory) : ?>
-            <li><a rel="nofollow" href="<?= $subcategory->getUrl() ?>"><?= $subcategory->title ?></a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <div class="clear"></div>
-</div>
+<?php if ($subcategories) : ?>
+    <div class="subpages">
+        <ul>
+            <?php foreach ($subcategories as $subcategory) : ?>
+                <li><a rel="nofollow" href="<?= $subcategory->getUrl() ?>"><?= $subcategory->title ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <div class="clear"></div>
+    </div>
+<?php endif; ?>
 
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->

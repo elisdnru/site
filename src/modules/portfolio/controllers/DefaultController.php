@@ -3,7 +3,6 @@
 namespace app\modules\portfolio\controllers;
 
 use app\modules\portfolio\models\query\WorkQuery;
-use app\modules\page\models\Page;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
@@ -30,7 +29,6 @@ class DefaultController extends PortfolioBaseController
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'page' => $this->loadPortfolioPage(),
             'categories' => $categories,
         ]);
     }
@@ -54,7 +52,6 @@ class DefaultController extends PortfolioBaseController
 
         return $this->render('category', [
             'dataProvider' => $dataProvider,
-            'page' => $this->loadPortfolioPage(),
             'category' => $model,
             'subcategories' => $subcategories,
         ]);
@@ -77,15 +74,5 @@ class DefaultController extends PortfolioBaseController
             ->with('category')
             ->orderBy(['sort' => SORT_DESC])
             ->cache(0, new TagDependency(['tags' => 'portfolio']));
-    }
-
-    private function loadPortfolioPage(): Page
-    {
-        if (!$page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath('portfolio')) {
-            $page = new Page;
-            $page->title = 'Портфолио';
-            $page->pagetitle = $page->title;
-        }
-        return $page;
     }
 }

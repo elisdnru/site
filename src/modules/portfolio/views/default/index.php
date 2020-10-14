@@ -8,19 +8,18 @@ use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 
 /** @var $dataProvider ActiveDataProvider */
-/** @var $page Page */
 /** @var $categories Category[] */
 $this->context->layout = 'index';
 
-$this->title = $page->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
+$this->title = 'Портфолио' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $page->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
+    'content' => 'Портфолио фрилансера Дмитрия Елисеева. Примеры работ по дизайну, вёрстке и программированию сайтов.'
 ]);
 
 $this->params['breadcrumbs'] = [
-    $page->title,
+    'Портфолио',
 ];
 
 if (Yii::$app->user->can(Access::CONTROL)) {
@@ -29,33 +28,29 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create']];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
     }
-    if (Yii::$app->moduleManager->allowed('page')) {
-        if ($page->id) {
-            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => ['/page/admin/page/update', 'id' => $page->id]];
-        }
-    }
 }
 ?>
 
-<h1><?= Html::encode($page->title) ?></h1>
+<h1>Портфолио</h1>
 
 <?php if ($categories) : ?>
     <div class="subpages">
         <ul>
             <?php foreach ($categories as $category) : ?>
-                <li><a rel="nofollow" href="<?= $category->getUrl() ?>"><?= $category->title ?></a></li>
+                <li><a href="<?= $category->getUrl() ?>"><?= $category->title ?></a></li>
             <?php endforeach; ?>
         </ul>
         <div class="clear"></div>
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
-    <!--noindex-->
-<?php endif; ?>
-<?= $this->decodeWidgets(trim($page->text_purified)) ?>
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
-    <!--/noindex-->
+<?php if (Yii::$app->request->get('page', 1) == 1) : ?>
+    <p class="portfolio-description">
+        <span>В 2013-14 году все услуги<br />предоставлялись совместно со студией</span>
+        <img src="/upload/media/images/webdoka-logo.jpg" alt="" />
+        <a rel="noreferrer noopener" target="_blank" href="https://webdoka.ru/portfolio/">Портфолио студии</a>
+    </p>
+    <h2>Работы 2008-2012 года:</h2>
 <?php endif; ?>
 
 <?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>
