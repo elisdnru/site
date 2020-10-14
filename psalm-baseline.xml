@@ -1936,6 +1936,16 @@
       <code>Yii</code>
     </UndefinedClass>
   </file>
+  <file src="src/modules/subscribe/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/subscribe/controllers/DefaultController.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/ulogin/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>Module</code>

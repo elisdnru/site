@@ -59,6 +59,7 @@ return [
         'portfolio' => ['class' => app\modules\portfolio\Module::class],
         'search' => ['class' => app\modules\search\Module::class],
         'sitemap' => ['class' => app\modules\sitemap\Module::class],
+        'subscribe' => ['class' => app\modules\subscribe\Module::class],
         'ulogin' => ['class' => app\modules\ulogin\Module::class],
         'image' => ['class' => app\modules\image\Module::class],
         'user' => ['class' => app\modules\user\Module::class],
