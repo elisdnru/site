@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.15@de6e7f324f44dde540ebe7ebd4eb481b97c86f30">
+<files psalm-version="3.16@d03e5ef057d6adc656c0ff7e166c50b73b4f48f3">
   <file src="src/components/AdminController.php">
     <MixedInferredReturnType occurrences="1">
       <code>bool</code>
@@ -52,13 +52,13 @@
       <code>$text</code>
     </NullableReturnStatement>
     <PossiblyNullArgument occurrences="7">
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$output</code>
       <code>$attributesString</code>
+      <code>$output</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="8">
       <code>$this-&gt;widgetToken</code>
@@ -79,17 +79,17 @@
       <code>$this-&gt;query instanceof QueryInterface</code>
     </DocblockTypeContradiction>
     <MissingParamType occurrences="3">
-      <code>$items</code>
-      <code>$indent</code>
       <code>$foolproof</code>
+      <code>$indent</code>
+      <code>$items</code>
     </MissingParamType>
     <MixedAssignment occurrences="2">
-      <code>$item</code>
       <code>$data[]</code>
+      <code>$item</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
-      <code>$indent</code>
       <code>$foolproof</code>
+      <code>$indent</code>
     </MixedOperand>
     <MixedPropertyAssignment occurrences="1">
       <code>$item</code>
@@ -107,9 +107,6 @@
     <PossiblyInvalidMethodCall occurrences="1">
       <code>getOrders</code>
     </PossiblyInvalidMethodCall>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>TreeActiveDataProvider</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/category/behaviors/CategoryBehavior.php">
     <MixedArgument occurrences="1">
@@ -127,8 +124,8 @@
       <code>$result[$id]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="2">
-      <code>$result[$item-&gt;{$this-&gt;urlAttribute}]</code>
       <code>$id</code>
+      <code>$result[$item-&gt;{$this-&gt;urlAttribute}]</code>
     </MixedAssignment>
     <MoreSpecificReturnType occurrences="1">
       <code>?ActiveRecord</code>
@@ -145,23 +142,23 @@
       <code>$query-&gt;limit(1)-&gt;one()</code>
     </LessSpecificReturnStatement>
     <MissingParamType occurrences="2">
-      <code>$parent</code>
       <code>$items</code>
+      <code>$parent</code>
     </MissingParamType>
     <MixedArrayOffset occurrences="1">
       <code>$breadcrumbs[$page-&gt;{$this-&gt;parentRelation}-&gt;{$this-&gt;titleAttribute}]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="10">
-      <code>$uri[]</code>
-      <code>$category</code>
-      <code>$model</code>
+      <code>$array[]</code>
+      <code>$array[]</code>
       <code>$breadcrumbs[$page-&gt;{$this-&gt;parentRelation}-&gt;{$this-&gt;titleAttribute}]</code>
+      <code>$category</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$model</code>
       <code>$page</code>
       <code>$titles[]</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$array[]</code>
-      <code>$array[]</code>
+      <code>$uri[]</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="2">
       <code>getPrimaryKey</code>
@@ -171,14 +168,14 @@
       <code>$category-&gt;{$this-&gt;parentRelation}</code>
       <code>$category-&gt;{$this-&gt;parentRelation}</code>
       <code>$category-&gt;{$this-&gt;parentRelation}</code>
+      <code>$item-&gt;{$this-&gt;parentRelation}</code>
+      <code>$item-&gt;{$this-&gt;parentRelation}</code>
+      <code>$item-&gt;{$this-&gt;parentRelation}</code>
       <code>$model-&gt;{$this-&gt;parentRelation}</code>
       <code>$page-&gt;{$this-&gt;parentRelation}</code>
       <code>$page-&gt;{$this-&gt;parentRelation}</code>
       <code>$page-&gt;{$this-&gt;parentRelation}</code>
       <code>$page-&gt;{$this-&gt;parentRelation}</code>
-      <code>$item-&gt;{$this-&gt;parentRelation}</code>
-      <code>$item-&gt;{$this-&gt;parentRelation}</code>
-      <code>$item-&gt;{$this-&gt;parentRelation}</code>
     </MixedPropertyFetch>
     <MoreSpecificReturnType occurrences="1">
       <code>?ActiveRecord</code>
@@ -195,79 +192,79 @@
       <code>ActiveQuery|self</code>
     </MismatchingDocblockReturnType>
     <MissingParamType occurrences="14">
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent_id</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$sub</code>
-      <code>$parent</code>
-      <code>$parent_id</code>
-      <code>$parent</code>
       <code>$items</code>
       <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code>$parent_id</code>
+      <code>$parent_id</code>
+      <code>$sub</code>
     </MissingParamType>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$attributes</code>
       <code>array_combine($attributes, $attributes)</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="19">
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
       <code>$item[$this-&gt;aliasAttribute]</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
       <code>$item[$this-&gt;aliasAttribute]</code>
       <code>$item[$this-&gt;parentAttribute]</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
       <code>$item[$this-&gt;parentAttribute]</code>
       <code>$item[$this-&gt;primaryKeyAttribute]</code>
       <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
+      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
+      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
+      <code>$temp[$this-&gt;parentAttribute]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="7">
-      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
       <code>$associated[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$resultArray[$id]</code>
       <code>$result[$item[$this-&gt;aliasAttribute]]</code>
       <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
       <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$resultArray[$id]</code>
+      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="23">
-      <code>$item</code>
-      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$item</code>
-      <code>$temp</code>
-      <code>$titles[]</code>
-      <code>$temp</code>
-      <code>$item</code>
+      <code>$array[]</code>
+      <code>$array[]</code>
       <code>$associated[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
+      <code>$id</code>
       <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$parent_id</code>
+      <code>$parent_id</code>
+      <code>$result[]</code>
+      <code>$temp</code>
+      <code>$temp</code>
+      <code>$temp</code>
       <code>$temp</code>
       <code>$titles[]</code>
-      <code>$temp</code>
-      <code>$parent_id</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$id</code>
-      <code>$parent_id</code>
-      <code>$item</code>
-      <code>$result[]</code>
-      <code>$item</code>
-      <code>$array[]</code>
-      <code>$array[]</code>
+      <code>$titles[]</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>ActiveQuery|self</code>
@@ -275,21 +272,21 @@
     <MixedMethodCall occurrences="5">
       <code>getPrimaryKey</code>
       <code>getPrimaryKey</code>
+      <code>getPrimaryKey</code>
+      <code>getPrimaryKey</code>
       <code>isLinkActive</code>
-      <code>getPrimaryKey</code>
-      <code>getPrimaryKey</code>
     </MixedMethodCall>
     <MixedOperand occurrences="3">
-      <code>$item[$this-&gt;titleAttribute]</code>
       <code>$item-&gt;{$this-&gt;titleAttribute}</code>
+      <code>$item[$this-&gt;titleAttribute]</code>
       <code>$sub</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="5">
-      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
-      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
-      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
-      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
       <code>$item-&gt;{$this-&gt;iconAttribute}</code>
+      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
+      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
+      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
+      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
     </MixedPropertyFetch>
     <MoreSpecificReturnType occurrences="1">
       <code>?ActiveRecord</code>
@@ -303,8 +300,8 @@
   </file>
   <file src="src/components/category/models/CategoryQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Category|ActiveRecord|null</code>
       <code>Category[]|BatchQueryResult</code>
+      <code>Category|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>CategoryQuery</code>
@@ -315,14 +312,11 @@
     <MixedInferredReturnType occurrences="1">
       <code>Category|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>CategoryQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/category/models/TreeCategoryQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>TreeCategory|ActiveRecord|null</code>
       <code>TreeCategory[]|BatchQueryResult</code>
+      <code>TreeCategory|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <LessSpecificReturnStatement occurrences="1">
       <code>parent::each($batchSize, $db)</code>
@@ -339,9 +333,6 @@
     <MoreSpecificReturnType occurrences="1">
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>TreeCategoryQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/module/ModuleManager.php">
     <MixedInferredReturnType occurrences="2">
@@ -355,16 +346,16 @@
   </file>
   <file src="src/components/module/routes/ModuleUrlRules.php">
     <MixedArgument occurrences="3">
+      <code>$class</code>
       <code>$definition</code>
       <code>$set['routes']</code>
-      <code>$class</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$name</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
-      <code>$definition</code>
       <code>$class</code>
+      <code>$definition</code>
     </MixedAssignment>
   </file>
   <file src="src/components/psr/Provider.php">
@@ -377,8 +368,8 @@
       <code>(array)$keys</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
-      <code>$result</code>
       <code>$key</code>
+      <code>$result</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="2">
       <code>$ttl</code>
@@ -407,16 +398,16 @@
       <code>ActiveRecord|Component</code>
     </MismatchingDocblockReturnType>
     <MixedArgument occurrences="10">
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$transform</code>
       <code>$matches[2]</code>
       <code>$matches[2]</code>
       <code>$matches[2]</code>
       <code>$matches[2]</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
+      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
       <code>$this-&gt;preContents[$id]</code>
+      <code>$transform</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$transform</code>
@@ -431,16 +422,16 @@
       <code>$matches[1]</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="4">
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
       <code>$content</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
     </PossiblyNullArgument>
   </file>
   <file src="src/components/uploader/FileUploadBehavior.php">
     <MixedArgument occurrences="3">
-      <code>$model-&gt;{$this-&gt;fileAttribute}</code>
       <code>$fileUrl</code>
+      <code>$model-&gt;{$this-&gt;fileAttribute}</code>
       <code>$uploadedFile</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
@@ -448,10 +439,10 @@
       <code>$uploadedFile</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="4">
-      <code>string</code>
-      <code>string</code>
       <code>?File</code>
       <code>?File</code>
+      <code>string</code>
+      <code>string</code>
     </MixedInferredReturnType>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$owner</code>
@@ -479,10 +470,10 @@
   <file src="src/components/uploader/Uploader.php">
     <MissingDocblockType occurrences="1"/>
     <MixedArgument occurrences="6">
+      <code>$requested-&gt;baseName</code>
+      <code>$requested-&gt;height</code>
       <code>$requested-&gt;path</code>
       <code>$requested-&gt;width</code>
-      <code>$requested-&gt;height</code>
-      <code>$requested-&gt;baseName</code>
       <code>$rule[0]</code>
       <code>$rule[1]</code>
     </MixedArgument>
@@ -511,8 +502,8 @@
   </file>
   <file src="src/migrations/m130329_081136_create_session.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130329_081136_create_session</code>
@@ -600,8 +591,8 @@
   </file>
   <file src="src/migrations/m191007_121851_rename_migrations_table.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_121851_rename_migrations_table</code>
@@ -609,8 +600,8 @@
   </file>
   <file src="src/migrations/m191007_181351_remove_migrations_view.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_181351_remove_migrations_view</code>
@@ -642,8 +633,8 @@
   </file>
   <file src="src/modules/admin/controllers/DefaultController.php">
     <MixedInferredReturnType occurrences="2">
-      <code>string</code>
       <code>?User</code>
+      <code>string</code>
     </MixedInferredReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
@@ -682,8 +673,8 @@
   </file>
   <file src="src/modules/block/migrations/m130328_093402_create_block.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_093402_create_block</code>
@@ -691,8 +682,8 @@
   </file>
   <file src="src/modules/block/migrations/m191007_115551_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115551_rename_tables</code>
@@ -709,12 +700,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/controllers/DefaultController.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$page</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Page</code>
-    </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
@@ -781,8 +766,8 @@
   </file>
   <file src="src/modules/blog/controllers/admin/GroupController.php">
     <MixedInferredReturnType occurrences="2">
-      <code>string</code>
       <code>?Response</code>
+      <code>string</code>
     </MixedInferredReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>GroupController</code>
@@ -846,8 +831,8 @@
   </file>
   <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_084945_create_blog_post</code>
@@ -855,8 +840,8 @@
   </file>
   <file src="src/modules/blog/migrations/m130328_090350_create_blog_category.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_090350_create_blog_category</code>
@@ -864,8 +849,8 @@
   </file>
   <file src="src/modules/blog/migrations/m130328_092321_create_blog_post_group.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_092321_create_blog_post_group</code>
@@ -873,8 +858,8 @@
   </file>
   <file src="src/modules/blog/migrations/m130328_092655_create_blog_tag.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_092655_create_blog_tag</code>
@@ -882,8 +867,8 @@
   </file>
   <file src="src/modules/blog/migrations/m191007_115552_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115552_rename_tables</code>
@@ -891,8 +876,8 @@
   </file>
   <file src="src/modules/blog/migrations/m191010_181651_add_styles.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191010_181651_add_styles</code>
@@ -900,8 +885,8 @@
   </file>
   <file src="src/modules/blog/migrations/m191020_153212_remove_keywords.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153212_remove_keywords</code>
@@ -936,8 +921,8 @@
   </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Group|ActiveRecord|null</code>
       <code>Group[]|BatchQueryResult</code>
+      <code>Group|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>GroupQuery</code>
@@ -948,14 +933,11 @@
     <MixedInferredReturnType occurrences="1">
       <code>Group|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>GroupQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/models/query/PostQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Post|ActiveRecord|null</code>
       <code>Post[]|BatchQueryResult</code>
+      <code>Post|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>PostQuery</code>
@@ -966,9 +948,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>PostQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/widgets/LastPostsWidget.php">
     <MissingPropertyType occurrences="1">
@@ -1101,19 +1080,19 @@
   </file>
   <file src="src/modules/comment/forms/CommentForm.php">
     <MissingPropertyType occurrences="7">
-      <code>$name</code>
       <code>$email</code>
+      <code>$name</code>
+      <code>$parent_id</code>
       <code>$site</code>
       <code>$text</code>
-      <code>$parent_id</code>
       <code>$yqe1</code>
       <code>$yqe2</code>
     </MissingPropertyType>
   </file>
   <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_094620_create_comment</code>
@@ -1121,8 +1100,8 @@
   </file>
   <file src="src/modules/comment/migrations/m190914_202714_change_types.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190914_202714_change_types</code>
@@ -1130,8 +1109,8 @@
   </file>
   <file src="src/modules/comment/migrations/m191007_115553_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115553_rename_tables</code>
@@ -1139,8 +1118,8 @@
   </file>
   <file src="src/modules/comment/migrations/m191007_131514_change_types.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_131514_change_types</code>
@@ -1177,38 +1156,38 @@
     </LessSpecificReturnStatement>
     <MissingParamType occurrences="3">
       <code>$current</code>
-      <code>$width</code>
       <code>$height</code>
+      <code>$width</code>
     </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>getAvatarUrl</code>
     </MissingReturnType>
     <MixedArgument occurrences="4">
-      <code>$this-&gt;$attribute</code>
-      <code>$this-&gt;$attribute</code>
       <code>$row['type']</code>
+      <code>$this-&gt;$attribute</code>
+      <code>$this-&gt;$attribute</code>
       <code>$width</code>
     </MixedArgument>
     <MixedInferredReturnType occurrences="1">
       <code>bool</code>
     </MixedInferredReturnType>
     <MixedMethodCall occurrences="2">
-      <code>sendNotify</code>
       <code>getAvatarUrl</code>
+      <code>sendNotify</code>
     </MixedMethodCall>
     <MixedOperand occurrences="4">
-      <code>$this-&gt;user-&gt;name</code>
-      <code>$this-&gt;user-&gt;lastname</code>
-      <code>$width</code>
       <code>$height</code>
+      <code>$this-&gt;user-&gt;lastname</code>
+      <code>$this-&gt;user-&gt;name</code>
+      <code>$width</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="6">
-      <code>$this-&gt;user-&gt;email</code>
-      <code>$this-&gt;user-&gt;name</code>
-      <code>$this-&gt;user-&gt;lastname</code>
-      <code>$this-&gt;user-&gt;site</code>
-      <code>$this-&gt;parent-&gt;email</code>
       <code>$current-&gt;email</code>
+      <code>$this-&gt;parent-&gt;email</code>
+      <code>$this-&gt;user-&gt;email</code>
+      <code>$this-&gt;user-&gt;lastname</code>
+      <code>$this-&gt;user-&gt;name</code>
+      <code>$this-&gt;user-&gt;site</code>
     </MixedPropertyFetch>
     <MoreSpecificReturnType occurrences="1">
       <code>self</code>
@@ -1222,15 +1201,15 @@
       <code>Yii</code>
     </UndefinedClass>
     <UndefinedThisPropertyFetch occurrences="3">
-      <code>$this-&gt;user</code>
       <code>$this-&gt;parent</code>
+      <code>$this-&gt;user</code>
       <code>$this-&gt;user</code>
     </UndefinedThisPropertyFetch>
   </file>
   <file src="src/modules/comment/models/query/CommentQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Comment|ActiveRecord|null</code>
       <code>Comment[]|BatchQueryResult</code>
+      <code>Comment|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>CommentQuery</code>
@@ -1244,24 +1223,21 @@
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>CommentQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/widgets/CommentsWidget.php">
     <MissingParamType occurrences="1">
       <code>$attributes</code>
     </MissingParamType>
     <MissingPropertyType occurrences="5">
-      <code>$material_id</code>
       <code>$authorId</code>
+      <code>$material_id</code>
       <code>$type</code>
       <code>$url</code>
       <code>$user</code>
     </MissingPropertyType>
     <MixedInferredReturnType occurrences="2">
-      <code>string</code>
       <code>array</code>
+      <code>string</code>
     </MixedInferredReturnType>
     <UndefinedClass occurrences="3">
       <code>Yii</code>
@@ -1302,21 +1278,21 @@
   </file>
   <file src="src/modules/edu/controllers/DefaultController.php">
     <MissingParamType occurrences="3">
+      <code>$config</code>
       <code>$id</code>
       <code>$module</code>
-      <code>$config</code>
     </MissingParamType>
     <MixedArgument occurrences="3">
+      <code>$config</code>
       <code>$id</code>
       <code>$module</code>
-      <code>$config</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
     <TypeDoesNotContainType occurrences="2">
-      <code>$this-&gt;api-&gt;get('/edge/edu/series')</code>
       <code>$this-&gt;api-&gt;get('/edge/edu/last?limit=12')</code>
+      <code>$this-&gt;api-&gt;get('/edge/edu/series')</code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/modules/edu/widgets/SeriesEpisodes.php">
@@ -1340,8 +1316,8 @@
   </file>
   <file src="src/modules/file/controllers/admin/FileController.php">
     <MissingParamType occurrences="2">
-      <code>$field</code>
       <code>$curpath</code>
+      <code>$field</code>
     </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>actionIndex</code>
@@ -1349,9 +1325,9 @@
     <MixedInferredReturnType occurrences="5">
       <code>?Response</code>
       <code>?Response</code>
-      <code>bool</code>
       <code>?Response</code>
       <code>?User</code>
+      <code>bool</code>
     </MixedInferredReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>FileController</code>
@@ -1367,8 +1343,8 @@
   </file>
   <file src="src/modules/file/migrations/m130328_115251_create_file.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_115251_create_file</code>
@@ -1376,8 +1352,8 @@
   </file>
   <file src="src/modules/file/migrations/m191004_125256_remove_file.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191004_125256_remove_file</code>
@@ -1405,8 +1381,8 @@
   </file>
   <file src="src/modules/image/controllers/DownloadController.php">
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;getPathInfo()</code>
       <code>'/'</code>
+      <code>Yii::$app-&gt;request-&gt;getPathInfo()</code>
     </MixedArgument>
     <MixedInferredReturnType occurrences="1">
       <code>Response</code>
@@ -1471,8 +1447,8 @@
   </file>
   <file src="src/modules/landing/migrations/m191025_144021_create_landing.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191025_144021_create_landing</code>
@@ -1485,8 +1461,8 @@
   </file>
   <file src="src/modules/landing/models/query/LandingQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Landing|ActiveRecord|null</code>
       <code>Landing[]|BatchQueryResult</code>
+      <code>Landing|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>LandingQuery</code>
@@ -1497,9 +1473,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>LandingQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/menu/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1538,8 +1511,8 @@
   </file>
   <file src="src/modules/menu/migrations/m130328_112156_create_menu.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_112156_create_menu</code>
@@ -1547,8 +1520,8 @@
   </file>
   <file src="src/modules/menu/migrations/m191007_115555_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115555_rename_tables</code>
@@ -1559,8 +1532,8 @@
       <code>$parent === null</code>
     </DocblockTypeContradiction>
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Menu|ActiveRecord|null</code>
       <code>Menu[]|BatchQueryResult</code>
+      <code>Menu|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>MenuQuery</code>
@@ -1574,9 +1547,6 @@
     <NoInterfaceProperties occurrences="1">
       <code>$parent-&gt;id</code>
     </NoInterfaceProperties>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>MenuQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1630,8 +1600,8 @@
   </file>
   <file src="src/modules/page/migrations/m130328_120429_create_page.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_120429_create_page</code>
@@ -1639,8 +1609,8 @@
   </file>
   <file src="src/modules/page/migrations/m130328_122139_create_page_layout.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_122139_create_page_layout</code>
@@ -1648,8 +1618,8 @@
   </file>
   <file src="src/modules/page/migrations/m131126_163952_added_robots_field.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m131126_163952_added_robots_field</code>
@@ -1665,8 +1635,8 @@
   </file>
   <file src="src/modules/page/migrations/m191007_115556_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115556_rename_tables</code>
@@ -1674,8 +1644,8 @@
   </file>
   <file src="src/modules/page/migrations/m191010_181652_add_styles.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191010_181652_add_styles</code>
@@ -1683,8 +1653,8 @@
   </file>
   <file src="src/modules/page/migrations/m191020_153213_remove_keywords.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153213_remove_keywords</code>
@@ -1700,8 +1670,8 @@
   </file>
   <file src="src/modules/page/models/query/PageQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Page|ActiveRecord|null</code>
       <code>Page[]|BatchQueryResult</code>
+      <code>Page|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
     <MethodSignatureMismatch occurrences="1">
       <code>PageQuery</code>
@@ -1712,9 +1682,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>PageQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1733,19 +1700,13 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$category === null</code>
     </DocblockTypeContradiction>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$page</code>
-    </LessSpecificReturnStatement>
     <MixedAssignment occurrences="1">
       <code>$categories</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="2">
-      <code>orderBy</code>
       <code>all</code>
+      <code>orderBy</code>
     </MixedMethodCall>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Page</code>
-    </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
@@ -1793,10 +1754,10 @@
       <code>actionCreate</code>
     </MissingReturnType>
     <MixedInferredReturnType occurrences="4">
+      <code>?Response</code>
+      <code>?Response</code>
+      <code>?Response</code>
       <code>string</code>
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>?Response</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="1">
       <code>$attribute</code>
@@ -1820,8 +1781,8 @@
   </file>
   <file src="src/modules/portfolio/migrations/m130328_122419_create_portfolio_work.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_122419_create_portfolio_work</code>
@@ -1829,8 +1790,8 @@
   </file>
   <file src="src/modules/portfolio/migrations/m130328_123107_create_portfolio_category.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_123107_create_portfolio_category</code>
@@ -1838,8 +1799,8 @@
   </file>
   <file src="src/modules/portfolio/migrations/m191007_115557_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115557_rename_tables</code>
@@ -1847,8 +1808,8 @@
   </file>
   <file src="src/modules/portfolio/migrations/m191020_153214_remove_keywords.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153214_remove_keywords</code>
@@ -1862,8 +1823,8 @@
       <code>self::find()-&gt;andWhere(['alias' =&gt; $alias])-&gt;one()</code>
     </LessSpecificReturnStatement>
     <MissingParamType occurrences="2">
-      <code>$only_public</code>
       <code>$alias</code>
+      <code>$only_public</code>
     </MissingParamType>
     <MissingPropertyType occurrences="1">
       <code>$del_image</code>
@@ -1894,9 +1855,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>WorkQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/search/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1910,10 +1868,10 @@
     </MissingParamType>
     <MixedArgument occurrences="5">
       <code>$text</code>
-      <code>$word</code>
+      <code>$text</code>
       <code>$text</code>
       <code>$word</code>
-      <code>$text</code>
+      <code>$word</code>
     </MixedArgument>
     <MixedOperand occurrences="1">
       <code>$word</code>
@@ -1946,16 +1904,16 @@
   </file>
   <file src="src/modules/sitemap/components/Sitemap.php">
     <MissingParamType occurrences="2">
-      <code>$url</code>
       <code>$date</code>
+      <code>$url</code>
     </MissingParamType>
     <MissingPropertyType occurrences="1">
       <code>$items</code>
     </MissingPropertyType>
     <MixedArgument occurrences="3">
+      <code>$date</code>
       <code>$key</code>
       <code>$value</code>
-      <code>$date</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$item</code>
@@ -2001,15 +1959,15 @@
   </file>
   <file src="src/modules/ulogin/models/UloginModel.php">
     <MissingPropertyType occurrences="9">
-      <code>$identity</code>
-      <code>$network</code>
       <code>$email</code>
+      <code>$error_message</code>
+      <code>$error_type</code>
+      <code>$identity</code>
       <code>$lastname</code>
       <code>$name</code>
+      <code>$network</code>
       <code>$photo</code>
       <code>$token</code>
-      <code>$error_type</code>
-      <code>$error_message</code>
     </MissingPropertyType>
     <MixedArgument occurrences="3">
       <code>$authData</code>
@@ -2028,9 +1986,9 @@
       <code>bool</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="3">
-      <code>$this-&gt;token</code>
       <code>$_SERVER['HTTP_HOST']</code>
       <code>$this-&gt;network</code>
+      <code>$this-&gt;token</code>
     </MixedOperand>
     <UndefinedClass occurrences="1">
       <code>Yii</code>
@@ -2054,33 +2012,30 @@
   </file>
   <file src="src/modules/user/components/CurrentPasswordValidator.php">
     <MissingPropertyType occurrences="8">
-      <code>$this-&gt;allowEmpty</code>
-      <code>$className</code>
-      <code>$validateMethod</code>
-      <code>$idAttribute</code>
       <code>$allowEmpty</code>
+      <code>$className</code>
       <code>$dependsOnAttributes</code>
       <code>$emptyMessage</code>
+      <code>$idAttribute</code>
       <code>$notValidMessage</code>
+      <code>$this-&gt;allowEmpty</code>
+      <code>$validateMethod</code>
     </MissingPropertyType>
     <MixedArgument occurrences="4">
       <code>$this-&gt;emptyMessage</code>
-      <code>$value</code>
       <code>$this-&gt;notValidMessage</code>
       <code>$this-&gt;validateMethod</code>
+      <code>$value</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
-      <code>$value</code>
       <code>$attr</code>
+      <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="3">
-      <code>$this-&gt;idAttribute</code>
       <code>$this-&gt;className</code>
+      <code>$this-&gt;idAttribute</code>
       <code>$this-&gt;validateMethod</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>CurrentPasswordValidator</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/controllers/DefaultController.php">
     <MissingPropertyType occurrences="1">
@@ -2091,9 +2046,9 @@
       <code>actionRemind</code>
     </MissingReturnType>
     <MixedInferredReturnType occurrences="3">
-      <code>Response</code>
-      <code>Response</code>
       <code>?User</code>
+      <code>Response</code>
+      <code>Response</code>
     </MixedInferredReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
@@ -2129,8 +2084,8 @@
   </file>
   <file src="src/modules/user/controllers/RegistrationController.php">
     <MissingReturnType occurrences="2">
-      <code>actionRequest</code>
       <code>actionConfirm</code>
+      <code>actionRequest</code>
     </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>RegistrationController</code>
@@ -2169,13 +2124,13 @@
       <code>$user === null</code>
     </DocblockTypeContradiction>
     <MissingParamType occurrences="2">
-      <code>$username</code>
       <code>$password</code>
+      <code>$username</code>
     </MissingParamType>
     <MissingPropertyType occurrences="3">
-      <code>$username</code>
       <code>$password</code>
       <code>$rememberMe</code>
+      <code>$username</code>
     </MissingPropertyType>
     <MixedArgument occurrences="1">
       <code>$username</code>
@@ -2189,14 +2144,14 @@
   </file>
   <file src="src/modules/user/forms/RegistrationForm.php">
     <MissingPropertyType occurrences="8">
-      <code>$username</code>
-      <code>$email</code>
-      <code>$password</code>
       <code>$confirm</code>
+      <code>$email</code>
       <code>$lastname</code>
       <code>$name</code>
+      <code>$password</code>
       <code>$test1</code>
       <code>$test2</code>
+      <code>$username</code>
     </MissingPropertyType>
   </file>
   <file src="src/modules/user/forms/RemindForm.php">
@@ -2214,8 +2169,8 @@
   </file>
   <file src="src/modules/user/migrations/m130328_130712_create_user.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_130712_create_user</code>
@@ -2223,8 +2178,8 @@
   </file>
   <file src="src/modules/user/migrations/m130328_141310_create_user_page.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_141310_create_user_page</code>
@@ -2232,8 +2187,8 @@
   </file>
   <file src="src/modules/user/migrations/m130717_065918_add_author_link.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130717_065918_add_author_link</code>
@@ -2241,8 +2196,8 @@
   </file>
   <file src="src/modules/user/migrations/m181022_130712_remove_address.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m181022_130712_remove_address</code>
@@ -2250,8 +2205,8 @@
   </file>
   <file src="src/modules/user/migrations/m190918_143321_added_nullable.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190918_143321_added_nullable</code>
@@ -2259,8 +2214,8 @@
   </file>
   <file src="src/modules/user/migrations/m190918_193620_added_nullable.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190918_193620_added_nullable</code>
@@ -2268,8 +2223,8 @@
   </file>
   <file src="src/modules/user/migrations/m191007_110105_remove_page.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_110105_remove_page</code>
@@ -2277,8 +2232,8 @@
   </file>
   <file src="src/modules/user/migrations/m191007_115558_rename_tables.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115558_rename_tables</code>
@@ -2293,8 +2248,8 @@
     </MixedArgument>
     <MixedArrayAccess occurrences="3">
       <code>$row['id']</code>
-      <code>$row['password']</code>
       <code>$row['id']</code>
+      <code>$row['password']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$row</code>
@@ -2308,8 +2263,8 @@
   </file>
   <file src="src/modules/user/migrations/m191017_160126_change_salt.php">
     <InvalidReturnType occurrences="2">
-      <code>safeUp</code>
       <code>safeDown</code>
+      <code>safeUp</code>
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191017_160126_change_salt</code>
@@ -2333,19 +2288,19 @@
   </file>
   <file src="src/modules/user/models/User.php">
     <MissingParamType occurrences="6">
+      <code>$height</code>
       <code>$password</code>
       <code>$password</code>
       <code>$password</code>
       <code>$value</code>
       <code>$width</code>
-      <code>$height</code>
       <code>$width</code>
     </MissingParamType>
     <MissingPropertyType occurrences="5">
-      <code>$new_password</code>
-      <code>$new_confirm</code>
-      <code>$old_password</code>
       <code>$del_avatar</code>
+      <code>$new_confirm</code>
+      <code>$new_password</code>
+      <code>$old_password</code>
       <code>$test</code>
     </MissingPropertyType>
     <MixedArgument occurrences="1">
@@ -2387,16 +2342,16 @@
   </file>
   <file src="src/widgets/Breadcrumbs.php">
     <MissingPropertyType occurrences="6">
-      <code>$tagName</code>
-      <code>$htmlOptions</code>
-      <code>$links</code>
       <code>$activeLinkTemplate</code>
+      <code>$htmlOptions</code>
       <code>$inactiveLinkTemplate</code>
+      <code>$links</code>
       <code>$separator</code>
+      <code>$tagName</code>
     </MissingPropertyType>
     <MixedArgument occurrences="2">
-      <code>$this-&gt;tagName</code>
       <code>$this-&gt;htmlOptions</code>
+      <code>$this-&gt;tagName</code>
     </MixedArgument>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
@@ -2410,22 +2365,19 @@
       <code>$iconsPath</code>
     </MissingPropertyType>
     <MixedArgument occurrences="5">
-      <code>$label</code>
-      <code>$item['url']</code>
-      <code>$options</code>
       <code>$item['label']</code>
+      <code>$item['url']</code>
+      <code>$label</code>
+      <code>$options</code>
       <code>$options</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
-      <code>$options</code>
       <code>$label</code>
+      <code>$options</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$this-&gt;iconsPath</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>IconMenu</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument occurrences="1">
@@ -2437,10 +2389,10 @@
   </file>
   <file src="src/widgets/Share.php">
     <MissingPropertyType occurrences="4">
-      <code>$url</code>
-      <code>$title</code>
       <code>$description</code>
       <code>$image</code>
+      <code>$title</code>
+      <code>$url</code>
     </MissingPropertyType>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
@@ -2451,14 +2403,14 @@
   </file>
   <file src="src/widgets/inline/CountDown.php">
     <MissingPropertyType occurrences="2">
-      <code>$title</code>
       <code>$date</code>
+      <code>$title</code>
     </MissingPropertyType>
   </file>
   <file src="src/widgets/inline/MailTo.php">
     <MissingPropertyType occurrences="2">
-      <code>$email</code>
       <code>$date</code>
+      <code>$email</code>
     </MissingPropertyType>
   </file>
   <file src="src/widgets/inline/views/CountDown.php">
@@ -2488,14 +2440,14 @@
   <file src="src/widgets/views/Share.php">
     <MissingDocblockType occurrences="1"/>
     <UndefinedGlobalVariable occurrences="8">
-      <code>$url</code>
-      <code>$title</code>
       <code>$description</code>
       <code>$image</code>
-      <code>$url</code>
+      <code>$title</code>
+      <code>$title</code>
       <code>$title</code>
       <code>$url</code>
-      <code>$title</code>
+      <code>$url</code>
+      <code>$url</code>
     </UndefinedGlobalVariable>
   </file>
 </files>
