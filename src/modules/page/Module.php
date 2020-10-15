@@ -91,6 +91,6 @@ class Module extends Base implements UrlProvider, SitemapProvider
 
     public static function sitemapPriority(): int
     {
-        return 99;
+        return 0;
     }
 }
