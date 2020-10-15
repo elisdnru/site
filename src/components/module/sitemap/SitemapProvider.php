@@ -10,4 +10,5 @@ interface SitemapProvider
      * @return Group[]
      */
     public static function sitemap(): array;
+    public static function sitemapPriority(): int;
 }

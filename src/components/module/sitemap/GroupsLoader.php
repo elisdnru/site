@@ -21,15 +21,27 @@ class GroupsLoader
      */
     public function getGroups(): array
     {
-        $groups = [];
+        /** @var Set[] $sets */
+        $sets = [];
 
         /**
          * @var string $name
          * @var array $definition
-         * @psalm-var array{class: ?string} $definition
          */
         foreach ($this->app->getModules() as $name => $definition) {
-            foreach ($this->getGroupsSet($name, $definition) as $group) {
+            if (($set = $this->getGroupsSet($name, $definition)) !== null) {
+                $sets[] = $set;
+            }
+        }
+
+        usort($sets, static function (Set $a, Set $b) {
+            return $b->priority <=> $a->priority;
+        });
+
+        $groups = [];
+
+        foreach ($sets as $set) {
+            foreach ($set->groups as $group) {
                 foreach ($group->items as $item) {
                     $groups[$group->name][] = $item;
                 }
@@ -48,9 +60,9 @@ class GroupsLoader
     /**
      * @param string $name
      * @param array|object $module
-     * @return Group[]
+     * @return Set|null
      */
-    private function getGroupsSet(string $name, $module): array
+    private function getGroupsSet(string $name, $module): ?Set
     {
         if (is_object($module)) {
             $class = get_class($module);
@@ -67,9 +79,12 @@ class GroupsLoader
         }
 
         if (!is_subclass_of($class, SitemapProvider::class)) {
-            return [];
+            return null;
         }
 
-        return $class::sitemap();
+        return new Set(
+            $class::sitemap(),
+            $class::sitemapPriority()
+        );
     }
 }
