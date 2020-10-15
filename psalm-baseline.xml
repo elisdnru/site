@@ -111,9 +111,6 @@
     <MixedArgument occurrences="1">
       <code>$this-&gt;getModel()-&gt;{$this-&gt;aliasAttribute}</code>
     </MixedArgument>
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
   </file>
   <file src="src/components/category/behaviors/CategoryQueryBehavior.php">
     <LessSpecificReturnStatement occurrences="1">
@@ -179,9 +176,6 @@
     <MoreSpecificReturnType occurrences="1">
       <code>?ActiveRecord</code>
     </MoreSpecificReturnType>
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
   </file>
   <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
     <LessSpecificReturnStatement occurrences="1">
@@ -493,9 +487,6 @@
       <code>bool</code>
       <code>bool</code>
     </MixedInferredReturnType>
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
     <UndefinedClass occurrences="4">
       <code>Yii</code>
       <code>Yii</code>

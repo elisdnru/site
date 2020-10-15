@@ -206,7 +206,7 @@ class Uploader
         $resolution = $width . 'x' . $height;
 
         foreach ($this->allowedThumbnailResolutions as $rule) {
-            if (mb_strpos($path, $rule[0], null, 'UTF-8') === 0) {
+            if (mb_strpos($path, $rule[0], 0, 'UTF-8') === 0) {
                 if (in_array($resolution, $rule[1], true)) {
                     return true;
                 }

@@ -97,7 +97,7 @@ class CategoryTreeBehavior extends CategoryBehavior
     {
         /** @var self $model */
         $model = $this->getModel();
-        return mb_strpos($path, $model->getPath(), null, 'UTF-8') === 0;
+        return mb_strpos($path, $model->getPath(), 0, 'UTF-8') === 0;
     }
 
     protected function arrayFromArgs($items): array
