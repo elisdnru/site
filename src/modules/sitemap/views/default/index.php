@@ -1,7 +1,9 @@
 <?php
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\base\Model;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $this View */
@@ -33,6 +35,13 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <div class="sitemap">
 
     <h2>Страницы</h2>
+
+    <ul>
+        <li>
+            <a href="<?= Url::to(['/products/default/index']) ?>">Авторские продукты</a>
+        </li>
+    </ul>
+
     <?= $this->render('_recursive', ['models' => $items['Page'], 'parent' => 0]) ?>
 
     <h2>Продукты</h2>

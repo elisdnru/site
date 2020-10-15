@@ -10,6 +10,7 @@ use app\modules\page\models\Page;
 use app\modules\portfolio\models\Work;
 use Yii;
 use yii\caching\TagDependency;
+use yii\helpers\Url;
 use yii\web\Response;
 
 class DefaultController extends Controller
@@ -48,6 +49,8 @@ class DefaultController extends Controller
     {
         if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
+
+            $sitemap->addUrl(Url::to(['/products/default/index']), Sitemap::WEEKLY);
 
             $sitemap->addModels(Page::find()->andWhere([
                 'system' => 0,

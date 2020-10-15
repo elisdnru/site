@@ -11,5 +11,7 @@ class XmlCest
         $I->amOnPage('sitemap.xml');
         $I->seeResponseCodeIs(200);
         $I->seeElement('urlset');
+
+        $I->see('http://nginx:81/products', 'loc');
     }
 }

@@ -57,6 +57,7 @@ return [
         'page' => ['class' => app\modules\page\Module::class],
         'landing' => ['class' => app\modules\landing\Module::class],
         'portfolio' => ['class' => app\modules\portfolio\Module::class],
+        'products' => ['class' => app\modules\products\Module::class],
         'search' => ['class' => app\modules\search\Module::class],
         'sitemap' => ['class' => app\modules\sitemap\Module::class],
         'subscribe' => ['class' => app\modules\subscribe\Module::class],
