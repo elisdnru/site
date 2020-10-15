@@ -1257,6 +1257,16 @@
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/donate/Module.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/donate/controllers/DefaultController.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/edu/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>Module</code>

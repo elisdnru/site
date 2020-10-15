@@ -52,6 +52,7 @@ return [
         'blog' => ['class' => app\modules\blog\Module::class],
         'comment' => ['class' => app\modules\comment\Module::class],
         'contacts' => ['class' => app\modules\contacts\Module::class],
+        'donate' => ['class' => app\modules\donate\Module::class],
         'file' => ['class' => app\modules\file\Module::class],
         'home' => ['class' => app\modules\home\Module::class],
         'edu' => ['class' => app\modules\edu\Module::class],

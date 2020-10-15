@@ -1,0 +1,48 @@
+<?php
+
+use app\modules\user\models\Access;
+use app\widgets\inline\MailTo;
+use app\widgets\inline\SubscribeNews;
+use yii\caching\TagDependency;
+use yii\helpers\Html;
+use yii\web\View;
+
+/** @var $this View */
+/** @var $series array */
+/** @var $items array */
+
+$this->context->layout = 'index';
+
+$this->title = 'Поддержать проект';
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => '',
+]);
+
+$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, nofollow']);
+
+$this->params['breadcrumbs'] = [
+    'Поддержать проект',
+];
+
+if (Yii::$app->user->can(Access::CONTROL)) {
+    if (Yii::$app->moduleManager->allowed('page')) {
+        $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
+    }
+    if (Yii::$app->moduleManager->allowed('blog')) {
+        $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
+    }
+}
+?>
+
+<section>
+    <h1>Поддержать проект</h1>
+
+    <div class="text">
+        <p>
+            Если хотите меня за что-нибудь поблагодарить, то приобретите любой <a href="/products">мастер-класс</a>,
+            вступите в клуб <a href="https://deworker.pro" target="_blank">Deworker.PRO</a>
+            или <a href="/subscribe">подпишитесь</a> на рассылку.</p>
+    </div>
+</section>
