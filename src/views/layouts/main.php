@@ -3,9 +3,9 @@
 use app\assets\MainAsset;
 use app\modules\block\widgets\BlockWidget;
 use app\widgets\AdminBar;
-use app\modules\menu\models\Menu;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use app\widgets\MainMenu;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -68,10 +68,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         </div>
 
         <nav id="main_nav">
-            <?= \yii\widgets\Menu::widget([
-                'id' => 'main_nav_list',
-                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias(Yii::$app->request->getPathInfo(), 'main-menu')
-            ]) ?>
+            <?= MainMenu::widget(['id' => 'main_nav_list']) ?>
         </nav>
     </header>
 
@@ -102,10 +99,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
         <!--noindex-->
         <div class="nav">
-            <?= \yii\widgets\Menu::widget([
-                'id' => 'footer_nav_list',
-                'items' => Menu::find()->visible()->cache(0, new TagDependency(['tags' => ['menu']]))->getMenuListByAlias(Yii::$app->request->getPathInfo(), 'main-menu')
-            ]) ?>
+            <?= MainMenu::widget(['id' => 'footer_nav_list']) ?>
         </div>
         <!--/noindex-->
 

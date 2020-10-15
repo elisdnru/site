@@ -142,6 +142,19 @@ body {
   opacity: 0.2;
 }
 
+#main_nav > ul > li.important:before {
+  content: '';
+  display: block;
+  background: #d00;
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 24px;
+  top: 14px;
+  border-radius: 20px;
+  box-shadow: 0 0 3px 3px #f90;
+}
+
 #content {
   padding: 10px 20px 20px 20px;
   position: relative;

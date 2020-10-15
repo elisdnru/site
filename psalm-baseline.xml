@@ -2380,6 +2380,20 @@
       <code>$this-&gt;iconsPath</code>
     </MixedOperand>
   </file>
+  <file src="src/widgets/MainMenu.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>MainMenu</code>
+      <code>MainMenu</code>
+      <code>MainMenu</code>
+      <code>MainMenu</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument occurrences="1">
       <code>false</code>
