@@ -42,6 +42,8 @@ class Module extends Base implements UrlProvider, SitemapProvider
     public static function rules(): array
     {
         return [
+            'copyright' => 'page/default/copyright',
+            'privacy' => 'page/default/privacy',
             ['class' => components\PageUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
@@ -60,7 +62,21 @@ class Module extends Base implements UrlProvider, SitemapProvider
             ->all();
 
         return [
-            new Group('Страницы', self::itemRecursive($pages, 0))
+            new Group('Страницы', self::itemRecursive($pages, 0)),
+            new Group('Страницы', [
+                new Item(
+                    '/copyright',
+                    'Использование материалов',
+                    null,
+                    []
+                ),
+                new Item(
+                    '/privacy',
+                    'Политика конфиденциальности',
+                    null,
+                    []
+                ),
+            ]),
         ];
     }
 
