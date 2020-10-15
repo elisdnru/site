@@ -12,5 +12,8 @@ class HtmlCest
         $I->seeResponseCodeIs(200);
         $I->see('Карта сайта', 'h1');
         $I->see('Карта сайта', 'title');
+
+        $I->seeLink('Авторские продукты', '/products');
+        $I->seeLink('Официальный блог', '/blog');
     }
 }

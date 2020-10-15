@@ -12,6 +12,8 @@ class XmlCest
         $I->seeResponseCodeIs(200);
         $I->seeElement('urlset');
 
+        $I->see('http://nginx:81/blog', 'loc');
         $I->see('http://nginx:81/products', 'loc');
+        $I->see('http://nginx:81/portfolio', 'loc');
     }
 }
