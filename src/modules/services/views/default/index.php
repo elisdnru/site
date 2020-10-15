@@ -17,7 +17,7 @@ $this->title = 'Услуги по интернет-разработке';
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Мастер-классы и интенсивы Дмитрия Елисеева по программированию',
+    'content' => 'Услуги по интернет-разработке',
 ]);
 
 $this->params['breadcrumbs'] = [
