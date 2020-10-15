@@ -11,5 +11,6 @@ class HtmlCest
         $I->amOnPage('sitemap');
         $I->seeResponseCodeIs(200);
         $I->see('Карта сайта', 'h1');
+        $I->see('Карта сайта', 'title');
     }
 }

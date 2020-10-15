@@ -41,7 +41,6 @@ class DefaultController extends Controller
 
         return $this->render('index', [
             'items' => $models,
-            'page' => $this->loadSitemapPage(),
         ]);
     }
 
@@ -69,15 +68,5 @@ class DefaultController extends Controller
         Yii::$app->response->format = Response::FORMAT_RAW;
         Yii::$app->response->headers['Content-Type'] = 'application/xml;charset=UTF-8';
         return $xml;
-    }
-
-    private function loadSitemapPage(): Page
-    {
-        if (!$page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath('sitemap')) {
-            $page = new Page;
-            $page->title = 'Карта сайта';
-            $page->pagetitle = $page->title;
-        }
-        return $page;
     }
 }

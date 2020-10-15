@@ -7,12 +7,11 @@ use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $this View */
-/** @var $page Page */
 /** @var $items Model[] */
 
-$this->title = $page->pagetitle;
+$this->title = 'Карта сайта';
 
-$this->registerMetaTag(['name' => 'description', 'content' => $page->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => 'Карта сайта']);
 
 $this->params['breadcrumbs'] = [
     'Карта сайта',
@@ -22,15 +21,10 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     if (Yii::$app->moduleManager->allowed('page')) {
         $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page']];
     }
-    if ($page->id) {
-        if (Yii::$app->moduleManager->allowed('page')) {
-            $this->params['admin'][] = ['label' => 'Редактировать страницу', 'url' => ['/page/admin/page/edit', 'id' => $page->id]];
-        }
-    }
 }
 ?>
 
-<h1><?= Html::encode($page->title) ?></h1>
+<h1>Карта сайта</h1>
 
 <div class="sitemap">
 
