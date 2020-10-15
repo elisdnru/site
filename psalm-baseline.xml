@@ -1930,15 +1930,9 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/sitemap/controllers/DefaultController.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$page</code>
-    </LessSpecificReturnStatement>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Page</code>
-    </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
