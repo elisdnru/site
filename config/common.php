@@ -42,6 +42,7 @@ return [
     'bootstrap' => [
         ModuleUrlRules::class,
         app\components\psr\Provider::class,
+        app\components\module\sitemap\Provider::class,
         app\modules\edu\components\Provider::class,
     ],
 

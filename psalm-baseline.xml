@@ -356,6 +356,11 @@
       <code>$definition</code>
     </MixedAssignment>
   </file>
+  <file src="src/components/module/sitemap/Provider.php">
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
   <file src="src/components/psr/Provider.php">
     <UndefinedClass occurrences="1">
       <code>Yii</code>
