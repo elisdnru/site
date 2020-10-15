@@ -7,7 +7,7 @@ namespace app\components\module\sitemap;
 use RuntimeException;
 use yii\base\Application;
 
-class GroupsLoader
+class GroupsFetcher
 {
     private Application $app;
 

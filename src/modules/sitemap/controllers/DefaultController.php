@@ -2,7 +2,7 @@
 
 namespace app\modules\sitemap\controllers;
 
-use app\components\module\sitemap\GroupsLoader;
+use app\components\module\sitemap\GroupsFetcher;
 use app\components\Controller;
 use app\modules\sitemap\components\Sitemap;
 use Yii;
@@ -12,23 +12,23 @@ use yii\web\Response;
 
 class DefaultController extends Controller
 {
-    private GroupsLoader $loader;
+    private GroupsFetcher $fetcher;
 
     /**
      * @param string $id
      * @param Module $module
-     * @param GroupsLoader $loader
+     * @param GroupsFetcher $fetcher
      * @param array $config
      */
-    public function __construct($id, $module, GroupsLoader $loader, $config = [])
+    public function __construct($id, $module, GroupsFetcher $fetcher, $config = [])
     {
         parent::__construct($id, $module, $config);
-        $this->loader = $loader;
+        $this->fetcher = $fetcher;
     }
 
     public function actionIndex(): string
     {
-        $groups = $this->loader->getGroups();
+        $groups = $this->fetcher->getGroups();
 
         return $this->render('index', [
             'groups' => $groups,
@@ -40,7 +40,7 @@ class DefaultController extends Controller
         if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
 
-            foreach ($this->loader->getGroups() as $group) {
+            foreach ($this->fetcher->getGroups() as $group) {
                 foreach ($group->items as $item) {
                     if ($xml = $item->xml) {
                         $sitemap->addLoc(

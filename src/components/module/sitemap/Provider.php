@@ -13,8 +13,8 @@ class Provider implements BootstrapInterface
     {
         $container = Yii::$container;
 
-        $container->setSingleton(GroupsLoader::class, static function () use ($app) {
-            return new GroupsLoader($app);
+        $container->setSingleton(GroupsFetcher::class, static function () use ($app) {
+            return new GroupsFetcher($app);
         });
     }
 }
