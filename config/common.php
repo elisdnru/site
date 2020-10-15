@@ -5,7 +5,7 @@ use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
 use app\components\module\ModuleManager;
-use app\components\module\routes\ModuleUrlRules;
+use app\components\module\routes\RoutesLoader;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
 use app\widgets\inline\CountDown;
@@ -40,7 +40,7 @@ return [
     'language' => 'ru',
 
     'bootstrap' => [
-        ModuleUrlRules::class,
+        RoutesLoader::class,
         app\components\psr\Provider::class,
         app\components\module\sitemap\Provider::class,
         app\modules\edu\components\Provider::class,
