@@ -1,5 +1,6 @@
 <?php
-use app\modules\page\models\Page;
+
+use app\components\module\sitemap\Group;
 use app\modules\user\models\Access;
 use yii\base\Model;
 use yii\helpers\Html;
@@ -8,6 +9,7 @@ use yii\web\View;
 
 /** @var $this View */
 /** @var $items Model[] */
+/** @var $groups Group[] */
 
 $this->title = 'Карта сайта';
 
@@ -28,33 +30,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div class="sitemap">
 
-    <h2>Страницы</h2>
-
-    <ul>
-        <li>
-            <a href="<?= Url::to(['/products/default/index']) ?>">Авторские продукты</a>
-        </li>
-    </ul>
-
-    <?= $this->render('_recursive', ['models' => $items['Page'], 'parent' => 0]) ?>
-
-    <h2>Продукты</h2>
-    <?= $this->render('_recursive', ['models' => $items['Landing'], 'parent' => 0]) ?>
-
-    <h2>Записи в блоге</h2>
-    <ul>
-        <?php foreach ($items['BlogPost'] as $model) : ?>
-            <li><a href="<?= $model->getUrl() ?>"><?= Html::encode($model->title) ?></a></li>
-        <?php endforeach; ?>
-    </ul>
-
-    <!--noindex-->
-    <h2>Портфолио</h2>
-    <ul>
-        <?php foreach ($items['PortfolioWork'] as $model) : ?>
-            <li><a href="<?= $model->getUrl() ?>"><?= Html::encode($model->title) ?></a></li>
-        <?php endforeach; ?>
-    </ul>
-    <!--/noindex-->
+    <?php foreach ($groups as $group) : ?>
+        <h2><?= Html::encode($group->name) ?></h2>
+        <?= $this->render('_recursive', ['items' => $group->items, 'models' => [], 'parent' => 0]) ?>
+    <?php endforeach; ?>
 
 </div>

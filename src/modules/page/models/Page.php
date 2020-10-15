@@ -24,7 +24,7 @@ use yii\helpers\Url;
  * @property string $text_purified
  * @property string $layout
  * @property string $subpages_layout
- * @property string $parent_id
+ * @property int $parent_id
  * @property string $system
  *
  * @property Page[] $children
@@ -153,6 +153,11 @@ class Page extends ActiveRecord
             $this->cachedUrl = Url::to(['/page/page/show', 'path' => $this->getPath()]);
         }
         return $this->cachedUrl;
+    }
+
+    public function isIndexed(): bool
+    {
+        return in_array($this->robots, [self::INDEX_FOLLOW, self::INDEX_NOFOLLOW], true);
     }
 
     public function beforeSave($insert): bool

@@ -4,9 +4,16 @@ namespace app\modules\portfolio;
 
 use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
+use app\components\module\sitemap\Group;
+use app\components\module\sitemap\Item;
+use app\components\module\sitemap\SitemapProvider;
+use app\components\module\sitemap\Xml;
+use app\modules\portfolio\models\Work;
+use yii\caching\TagDependency;
+use yii\helpers\Url;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements UrlProvider
+class Module extends Base implements UrlProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -56,5 +63,38 @@ class Module extends Base implements UrlProvider
     public static function rulesPriority(): int
     {
         return 0;
+    }
+
+    public static function sitemap(): array
+    {
+        /** @psalm-var Work[] $works */
+        $works = Work::find()->published()
+            ->cache(0, new TagDependency(['tags' => 'portfolio']))
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
+
+        return [
+            new Group('Страницы', [
+                new Item(
+                    Url::to(['/portfolio/default/index']),
+                    'Портфолио',
+                    new Xml(Xml::MONTHLY, 0.5, null),
+                    []
+                )
+            ]),
+            new Group('Портфолио', array_map(function (Work $work): Item {
+                return new Item(
+                    $work->getUrl(),
+                    $work->title,
+                    null,
+                    []
+                );
+            }, $works))
+        ];
+    }
+
+    public static function sitemapPriority(): int
+    {
+        return 1;
     }
 }

@@ -4,10 +4,17 @@ namespace app\modules\blog;
 
 use app\components\module\Module as Base;
 use app\components\module\routes\UrlProvider;
+use app\components\module\sitemap\Group;
+use app\components\module\sitemap\Item;
+use app\components\module\sitemap\SitemapProvider;
+use app\components\module\sitemap\Xml;
 use app\modules\blog\models\Comment;
+use app\modules\blog\models\Post;
+use yii\caching\TagDependency;
+use yii\helpers\Url;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements UrlProvider
+class Module extends Base implements UrlProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -68,5 +75,39 @@ class Module extends Base implements UrlProvider
     public static function rulesPriority(): int
     {
         return 98;
+    }
+
+    public static function sitemap(): array
+    {
+        /** @psalm-var Post[] $posts */
+        $posts = Post::find()->published()
+            ->cache(0, new TagDependency(['tags' => ['blog']]))
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
+
+        return [
+            new Group('Страницы', [
+                new Item(
+                    Url::to(['/blog/default/index']),
+                    'Официальный блог',
+                    new Xml(Xml::WEEKLY, 0.5, null),
+                    []
+                )
+            ]),
+
+            new Group('Записи в блоге', array_map(static function (Post $post): Item {
+                return new Item(
+                    $post->getUrl(),
+                    $post->title,
+                    new Xml(Xml::WEEKLY, 0.5, null),
+                    []
+                );
+            }, $posts))
+        ];
+    }
+
+    public static function sitemapPriority(): int
+    {
+        return 1;
     }
 }
