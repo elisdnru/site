@@ -1913,15 +1913,7 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/sitemap/components/Sitemap.php">
-    <MissingParamType occurrences="2">
-      <code>$date</code>
-      <code>$url</code>
-    </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$items</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="3">
-      <code>$date</code>
+    <MixedArgument occurrences="2">
       <code>$key</code>
       <code>$value</code>
     </MixedArgument>
@@ -1929,10 +1921,6 @@
       <code>$item</code>
       <code>$value</code>
     </MixedAssignment>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/sitemap/controllers/DefaultController.php">
     <MixedInferredReturnType occurrences="1">
