@@ -15,5 +15,6 @@ class HtmlCest
 
         $I->seeLink('Авторские продукты', '/products');
         $I->seeLink('Официальный блог', '/blog');
+        $I->seeLink('Контактные данные', '/contacts');
     }
 }

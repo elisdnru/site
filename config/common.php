@@ -51,6 +51,7 @@ return [
         'block' => ['class' => app\modules\block\Module::class],
         'blog' => ['class' => app\modules\blog\Module::class],
         'comment' => ['class' => app\modules\comment\Module::class],
+        'contacts' => ['class' => app\modules\contacts\Module::class],
         'file' => ['class' => app\modules\file\Module::class],
         'home' => ['class' => app\modules\home\Module::class],
         'menu' => ['class' => app\modules\menu\Module::class],

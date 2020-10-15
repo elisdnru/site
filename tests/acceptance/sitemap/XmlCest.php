@@ -15,5 +15,6 @@ class XmlCest
         $I->see('http://nginx:81/blog', 'loc');
         $I->see('http://nginx:81/products', 'loc');
         $I->see('http://nginx:81/portfolio', 'loc');
+        $I->see('http://nginx:81/contacts', 'loc');
     }
 }
