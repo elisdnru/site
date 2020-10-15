@@ -19,7 +19,7 @@ $this->registerMetaTag([
     'content' => '',
 ]);
 
-$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, nofollow']);
+$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
 
 $this->params['breadcrumbs'] = [
     'Подписка на обновления',

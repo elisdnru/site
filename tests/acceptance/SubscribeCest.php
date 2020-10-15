@@ -12,7 +12,7 @@ class SubscribeCest
         $I->seeResponseCodeIs(200);
         $I->see('Подписка на обновления', 'h1');
         $I->see('Подписка на обновления', 'title');
-        $I->seeInSource('<meta name="robots" content="noindex, nofollow">');
+        $I->seeInSource('<meta name="robots" content="noindex, follow">');
         $I->seeElement('.subscribe-form');
     }
 
@@ -23,7 +23,7 @@ class SubscribeCest
         $I->see('Ещё чуть-чуть...', 'h1');
         $I->see('Ещё чуть-чуть...', 'title');
         $I->see('Подписка на обновления', '.breadcrumbs');
-        $I->seeInSource('<meta name="robots" content="noindex, nofollow">');
+        $I->seeInSource('<meta name="robots" content="noindex, follow">');
     }
 
     public function success(AcceptanceTester $I): void
@@ -33,6 +33,6 @@ class SubscribeCest
         $I->see('Всё получилось!', 'h1');
         $I->see('Всё получилось!', 'title');
         $I->see('Подписка на обновления', '.breadcrumbs');
-        $I->seeInSource('<meta name="robots" content="noindex, nofollow">');
+        $I->seeInSource('<meta name="robots" content="noindex, follow">');
     }
 }
