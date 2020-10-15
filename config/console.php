@@ -17,7 +17,6 @@ return ArrayHelper::merge(
                     '@app/modules/comment',
                     '@app/modules/file',
                     '@app/modules/landing',
-                    '@app/modules/menu',
                     '@app/modules/page',
                     '@app/modules/portfolio',
                     '@app/modules/user',

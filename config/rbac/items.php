@@ -70,16 +70,6 @@ return [
         'data' => null
     ],
 
-    'module_menu' => [
-        'type' => Item::TYPE_PERMISSION,
-        'description' => 'Управление меню',
-        'ruleName' => null,
-        'children' => [
-            'permission_control',
-        ],
-        'data' => null
-    ],
-
     'module_page' => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление страницами',
@@ -139,7 +129,6 @@ return [
             'module_admin',
             'module_comment',
             'module_file',
-            'module_menu',
             'module_new',
             'module_page',
             'role_user',
@@ -157,7 +146,6 @@ return [
             'module_block',
             'module_comment',
             'module_file',
-            'module_menu',
             'module_page',
             'module_landing',
             'module_user',

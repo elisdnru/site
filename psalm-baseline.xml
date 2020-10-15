@@ -609,6 +609,14 @@
       <code>m200820_225703_remove_contacts_table</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/migrations/m201015_174612_remove_menu_table.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201015_174612_remove_menu_table</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/admin/Module.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>Module</code>
@@ -1474,80 +1482,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/menu/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/menu/controllers/admin/MenuController.php">
-    <MissingParamType occurrences="1">
-      <code>$attribute</code>
-    </MissingParamType>
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>?Response</code>
-      <code>?Response</code>
-    </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$attribute</code>
-    </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>MenuController</code>
-    </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="5">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/modules/menu/forms/MenuSearch.php">
-    <MissingParamType occurrences="1">
-      <code>$pageSize</code>
-    </MissingParamType>
-  </file>
-  <file src="src/modules/menu/migrations/m130328_112156_create_menu.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_112156_create_menu</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/menu/migrations/m191007_115555_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115555_rename_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/menu/models/query/MenuQuery.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$parent === null</code>
-    </DocblockTypeContradiction>
-    <ImplementedReturnTypeMismatch occurrences="2">
-      <code>Menu[]|BatchQueryResult</code>
-      <code>Menu|ActiveRecord|null</code>
-    </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>MenuQuery</code>
-    </MethodSignatureMismatch>
-    <MismatchingDocblockReturnType occurrences="1">
-      <code>Menu|ActiveRecord|null</code>
-    </MismatchingDocblockReturnType>
-    <MixedInferredReturnType occurrences="1">
-      <code>Menu|ActiveRecord|null</code>
-    </MixedInferredReturnType>
-    <NoInterfaceProperties occurrences="1">
-      <code>$parent-&gt;id</code>
-    </NoInterfaceProperties>
   </file>
   <file src="src/modules/page/Module.php">
     <PropertyNotSetInConstructor occurrences="1">

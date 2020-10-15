@@ -16,9 +16,6 @@ $this->params['breadcrumbs'] = [
 if (Yii::$app->moduleManager->allowed('page')) {
     $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => ['create']];
 }
-if (Yii::$app->moduleManager->allowed('menu')) {
-    $this->params['admin'][] = ['label' => 'Пункты меню', 'url' => ['/menu/admin/menu/index']];
-}
 ?>
 
 <p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
