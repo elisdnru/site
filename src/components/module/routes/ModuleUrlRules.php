@@ -39,13 +39,13 @@ class ModuleUrlRules implements BootstrapInterface
             throw new RuntimeException('Undefined class for module ' . $name);
         }
 
-        if (!is_subclass_of($class, UrlProvider::class)) {
+        if (!is_subclass_of($class, RoutesProvider::class)) {
             return [];
         }
 
         return [
-            'priority' => $class::rulesPriority(),
-            'routes' => $class::rules(),
+            'priority' => $class::routesPriority(),
+            'routes' => $class::routes(),
         ];
     }
 }

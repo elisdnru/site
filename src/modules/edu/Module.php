@@ -2,11 +2,11 @@
 
 namespace app\modules\edu;
 
-use app\components\module\routes\UrlProvider;
+use app\components\module\routes\RoutesProvider;
 use app\components\module\Module as Base;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements UrlProvider
+class Module extends Base implements RoutesProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -25,7 +25,7 @@ class Module extends Base implements UrlProvider
         return [];
     }
 
-    public static function rules(): array
+    public static function routes(): array
     {
         return [
             [
@@ -38,7 +38,7 @@ class Module extends Base implements UrlProvider
         ];
     }
 
-    public static function rulesPriority(): int
+    public static function routesPriority(): int
     {
         return 0;
     }

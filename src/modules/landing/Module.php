@@ -3,7 +3,7 @@
 namespace app\modules\landing;
 
 use app\components\module\Module as Base;
-use app\components\module\routes\UrlProvider;
+use app\components\module\routes\RoutesProvider;
 use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
@@ -11,7 +11,7 @@ use app\components\module\sitemap\Xml;
 use app\modules\landing\models\Landing;
 use yii\caching\TagDependency;
 
-class Module extends Base implements UrlProvider, SitemapProvider
+class Module extends Base implements RoutesProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -38,14 +38,14 @@ class Module extends Base implements UrlProvider, SitemapProvider
         return [];
     }
 
-    public static function rules(): array
+    public static function routes(): array
     {
         return [
             ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
 
-    public static function rulesPriority(): int
+    public static function routesPriority(): int
     {
         return -1;
     }

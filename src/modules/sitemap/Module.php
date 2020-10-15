@@ -2,14 +2,14 @@
 
 namespace app\modules\sitemap;
 
-use app\components\module\routes\UrlProvider;
+use app\components\module\routes\RoutesProvider;
 use yii\base\Module as Base;
 
-class Module extends Base implements UrlProvider
+class Module extends Base implements RoutesProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public static function rules(): array
+    public static function routes(): array
     {
         return [
             'sitemap' => 'sitemap/default/index',
@@ -21,7 +21,7 @@ class Module extends Base implements UrlProvider
         ];
     }
 
-    public static function rulesPriority(): int
+    public static function routesPriority(): int
     {
         return 0;
     }

@@ -2,14 +2,14 @@
 
 namespace app\modules\donate;
 
-use app\components\module\routes\UrlProvider;
+use app\components\module\routes\RoutesProvider;
 use app\components\module\Module as Base;
 use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
 use yii\helpers\Url;
 
-class Module extends Base implements UrlProvider, SitemapProvider
+class Module extends Base implements RoutesProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -28,14 +28,14 @@ class Module extends Base implements UrlProvider, SitemapProvider
         return [];
     }
 
-    public static function rules(): array
+    public static function routes(): array
     {
         return [
             'donate' => 'donate/default/index',
         ];
     }
 
-    public static function rulesPriority(): int
+    public static function routesPriority(): int
     {
         return 0;
     }
