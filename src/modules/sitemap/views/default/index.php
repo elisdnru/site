@@ -6,7 +6,7 @@ use yii\web\View;
 
 /** @var $this View */
 /** @var $page Page */
-/** @var $items CModel[] */
+/** @var $items Model[] */
 
 $this->title = $page->pagetitle;
 
