@@ -10,7 +10,6 @@ use app\components\module\sitemap\SitemapProvider;
 use app\components\module\sitemap\Xml;
 use app\modules\landing\models\Landing;
 use yii\caching\TagDependency;
-use yii\helpers\Url;
 
 class Module extends Base implements UrlProvider, SitemapProvider
 {

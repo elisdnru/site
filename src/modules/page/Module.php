@@ -8,7 +8,6 @@ use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
 use app\components\module\sitemap\Xml;
-use app\modules\landing\models\Landing;
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
 

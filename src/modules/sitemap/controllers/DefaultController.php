@@ -3,15 +3,10 @@
 namespace app\modules\sitemap\controllers;
 
 use app\components\module\sitemap\GroupsLoader;
-use app\modules\blog\models\Post;
 use app\components\Controller;
-use app\modules\landing\models\Landing;
 use app\modules\sitemap\components\Sitemap;
-use app\modules\page\models\Page;
-use app\modules\portfolio\models\Work;
 use Yii;
 use yii\base\Module;
-use yii\caching\TagDependency;
 use yii\helpers\Url;
 use yii\web\Response;
 

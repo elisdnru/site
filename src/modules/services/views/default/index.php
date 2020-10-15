@@ -2,9 +2,6 @@
 
 use app\modules\portfolio\widgets\PortfolioWidget;
 use app\modules\user\models\Access;
-use app\widgets\inline\SubscribeNews;
-use yii\caching\TagDependency;
-use yii\helpers\Html;
 use yii\web\View;
 
 /** @var $this View */

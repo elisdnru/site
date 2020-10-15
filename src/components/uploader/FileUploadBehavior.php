@@ -5,7 +5,6 @@ namespace app\components\uploader;
 use app\extensions\file\File;
 use Yii;
 use yii\base\Behavior;
-use yii\base\ModelEvent;
 use yii\db\ActiveRecord;
 use yii\validators\Validator;
 use yii\web\UploadedFile;

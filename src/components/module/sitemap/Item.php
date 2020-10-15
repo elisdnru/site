@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\components\module\sitemap;
 
-use DateTimeImmutable;
 use Webmozart\Assert\Assert;
 
 /**

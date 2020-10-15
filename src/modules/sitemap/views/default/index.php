@@ -4,7 +4,6 @@ use app\components\module\sitemap\Group;
 use app\modules\user\models\Access;
 use yii\base\Model;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\web\View;
 
 /** @var $this View */

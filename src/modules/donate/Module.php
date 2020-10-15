@@ -7,7 +7,6 @@ use app\components\module\Module as Base;
 use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
-use app\components\module\sitemap\Xml;
 use yii\helpers\Url;
 
 class Module extends Base implements UrlProvider, SitemapProvider

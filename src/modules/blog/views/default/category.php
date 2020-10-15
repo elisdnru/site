@@ -1,7 +1,6 @@
 <?php
 use app\modules\blog\models\Category;
 use app\components\PaginationFormatter;
-use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
