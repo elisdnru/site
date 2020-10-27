@@ -6,7 +6,6 @@ use yii\web\View;
 
 /** @var $this View */
 /** @var $series array */
-/** @var $items array */
 
 $this->context->layout = 'index';
 
@@ -35,59 +34,30 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h1>База знаний</h1>
 
     <div class="text">
-        <p>Серии скринкастов:</p>
-
-        <div class="edu-series">
-            <ul>
-                <?php foreach ($series as $row) : ?>
-                    <li>
-                        <a
-                            href="https://deworker.pro/edu/series/<?= Html::encode($row['slug']) ?>"
-                            target="_blank"
-                        >
-                            <?= Html::encode($row['title']) ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-
-        <p>Свежие эпизоды:</p>
+        <p>
+            Каждую неделю записываю интересные видео по программироваю на моём втором проекте скринкастов
+            <a href="https://deworker.pro/edu" target="_blank" rel="noopener">deworker.pro</a> в сериях:
+        </p>
 
         <div class="edu-items">
             <div class="edu-items-wrapper">
-                <?php foreach ($items as $item) : ?>
+                <?php foreach ($series as $item) : ?>
                     <div class="edu-items-item">
                         <div class="edu-items-item-wrapper">
                             <div class="thumb-wrapper">
-                                <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']) ?>/<?= Html::encode($item['episode']['slug']) ?>"
+                                <a href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']) ?>"
                                    class="thumb" target="_blank" rel="noopener">
-                                    <img
-                                        src="<?= Html::encode($item['episode']['thumbnail']) ?>"
-                                        alt=""/>
+                                    <img src="<?= Html::encode($item['thumbnail']) ?>" alt="" />
                                 </a>
-                                <span class="badges">
-                                    <?php if ($item['episode']['free']) : ?>
-                                        <span class="badge free">Free</span>
-                                    <?php endif; ?>
-                                </span>
                             </div>
                             <div class="body">
-                                <div class="series">
-                                    <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']) ?>"
-                                       target="_blank" rel="noopener">
-                                        <?= Html::encode($item['series']['title']) ?>
-                                    </a>
-                                </div>
                                 <div class="title">
-                                    <span class="index"><?= Html::encode($item['episode']['index']) ?></span>
-                                    <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']) ?>/<?= Html::encode($item['episode']['slug']) ?>"
-                                       target="_blank" rel="noopener">
-                                        <?= Html::encode($item['episode']['title']) ?>
+                                    <a
+                                        href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']) ?>"
+                                        target="_blank" rel="noopener"
+                                    >
+                                        <?= Html::encode($item['title']) ?>
                                     </a>
-                                </div>
-                                <div class="description">
-                                    <?= Html::encode($item['episode']['short']) ?>
                                 </div>
                             </div>
                         </div>

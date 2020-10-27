@@ -18,11 +18,9 @@ class DefaultController extends Controller
     public function actionIndex(): string
     {
         $series = $this->api->get('/edge/edu/series') ?? [];
-        $items = array_reverse($this->api->get('/edge/edu/last?limit=12') ?? []);
 
         return $this->render('index', [
             'series' => $series,
-            'items' => $items,
         ]);
     }
 }
