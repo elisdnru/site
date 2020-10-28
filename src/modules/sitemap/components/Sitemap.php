@@ -7,6 +7,9 @@ use DOMDocument;
 
 class Sitemap
 {
+    /**
+     * @var array[]
+     */
     protected array $items = [];
 
     public function addLoc(string $loc, string $changeFreq, float $priority, ?DateTimeImmutable $lastMod): void
@@ -32,6 +35,10 @@ class Sitemap
         foreach ($this->items as $item) {
             $url = $dom->createElement('url');
 
+            /**
+             * @var string $key
+             * @var string $value
+             */
             foreach ($item as $key => $value) {
                 $elem = $dom->createElement($key);
                 $elem->appendChild($dom->createTextNode($value));
