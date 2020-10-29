@@ -38,6 +38,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <p>Действует на основании свидетельства о регистрации ИП сер. 57 № 001202119 от 28 декабря 2009 года.</p>
         <p>ОГРНИП: 309574636200019 &nbsp; ИНН: 570600870325</p>
         <ul>
+            <li><a href="https://www.fl.ru/users/elisdn/">Профиль на FL.ru</a></li>
+        </ul>
+        <ul>
             <li><a href="https://vk.com/elisdn">Я в VK</a></li>
             <li><a href="https://www.facebook.com/eliseev.dn">Я в FB</a></li>
             <li><a href="https://twitter.com/elisdnru">Я в Twitter</a></li>
