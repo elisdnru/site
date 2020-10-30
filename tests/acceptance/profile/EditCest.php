@@ -22,7 +22,7 @@ class EditCest
         $I->see('Вход в аккаунт', 'h1');
     }
 
-    public function info(AcceptanceTester $I): void
+    public function success(AcceptanceTester $I): void
     {
         $I->amLoggedInBy(5);
         $I->amOnPage('profile/edit');
@@ -44,7 +44,7 @@ class EditCest
         $I->seeInSource('<img src="/upload/images/users/avatars/');
     }
 
-    public function infoValidation(AcceptanceTester $I): void
+    public function validation(AcceptanceTester $I): void
     {
         $I->amLoggedInBy(5);
         $I->amOnPage('profile/edit');
@@ -60,70 +60,5 @@ class EditCest
         $I->see('Необходимо заполнить «Фамилия».', '.errorMessage');
         $I->see('Необходимо заполнить «Имя».', '.errorMessage');
         $I->see('Значение «Сайт» не является правильным URL.', '.errorMessage');
-    }
-
-    public function password(AcceptanceTester $I): void
-    {
-        $I->amLoggedInBy(5);
-        $I->amOnPage('profile/edit');
-        $I->see('Редактировать профиль', '.portlet-title');
-
-        $I->seeElement('#profile-form');
-
-        $I->fillField('User[old_password]', 'password');
-        $I->fillField('User[new_password]', 'new-password');
-        $I->fillField('User[new_confirm]', 'new-password');
-
-        $I->click('Сохранить', '#profile-form');
-
-        $I->see('Профиль сохранён.', '.flash-success');
-    }
-
-    public function passwordConfirmValidation(AcceptanceTester $I): void
-    {
-        $I->amLoggedInBy(5);
-        $I->amOnPage('profile/edit');
-
-        $I->seeElement('#profile-form');
-
-        $I->fillField('User[old_password]', '');
-        $I->fillField('User[new_password]', 'new-password');
-        $I->fillField('User[new_confirm]', 'wrong');
-
-        $I->click('Сохранить', '#profile-form');
-
-        $I->see('Пароли не совпадают.', '.errorMessage');
-    }
-
-    public function passwordEmptyValidation(AcceptanceTester $I): void
-    {
-        $I->amLoggedInBy(5);
-        $I->amOnPage('profile/edit');
-
-        $I->seeElement('#profile-form');
-
-        $I->fillField('User[old_password]', '');
-        $I->fillField('User[new_password]', 'new-password');
-        $I->fillField('User[new_confirm]', 'new-password');
-
-        $I->click('Сохранить', '#profile-form');
-
-        $I->see('Введите текущий пароль.', '.errorMessage');
-    }
-
-    public function passwordWrongValidation(AcceptanceTester $I): void
-    {
-        $I->amLoggedInBy(5);
-        $I->amOnPage('profile/edit');
-
-        $I->seeElement('#profile-form');
-
-        $I->fillField('User[old_password]', 'wrong');
-        $I->fillField('User[new_password]', 'new-password');
-        $I->fillField('User[new_confirm]', 'new-password');
-
-        $I->click('Сохранить', '#profile-form');
-
-        $I->see('Неверный текущий пароль.', '.errorMessage');
     }
 }

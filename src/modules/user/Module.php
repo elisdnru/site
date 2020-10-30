@@ -40,6 +40,7 @@ class Module extends Base implements RoutesProvider
             'registration/captcha<id:\d+>' => 'user/registration/captcha<id>',
             'profile' => 'user/profile/view',
             'profile/edit' => 'user/profile/edit',
+            'profile/password' => 'user/profile/password',
         ];
     }
 

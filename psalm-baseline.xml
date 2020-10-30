@@ -1937,31 +1937,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/components/CurrentPasswordValidator.php">
-    <MissingPropertyType occurrences="8">
-      <code>$allowEmpty</code>
-      <code>$className</code>
-      <code>$dependsOnAttributes</code>
-      <code>$emptyMessage</code>
-      <code>$idAttribute</code>
-      <code>$notValidMessage</code>
-      <code>$this-&gt;allowEmpty</code>
-      <code>$validateMethod</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="4">
-      <code>$this-&gt;emptyMessage</code>
-      <code>$this-&gt;notValidMessage</code>
-      <code>$this-&gt;validateMethod</code>
+    <MixedArgument occurrences="1">
       <code>$value</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$attr</code>
+    <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>$this-&gt;className</code>
-      <code>$this-&gt;idAttribute</code>
-      <code>$this-&gt;validateMethod</code>
-    </MixedOperand>
   </file>
   <file src="src/modules/user/controllers/DefaultController.php">
     <MissingPropertyType occurrences="1">
@@ -1990,8 +1971,9 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/user/controllers/ProfileController.php">
-    <MissingReturnType occurrences="1">
+    <MissingReturnType occurrences="2">
       <code>actionEdit</code>
+      <code>actionPassword</code>
     </MissingReturnType>
     <MixedInferredReturnType occurrences="1">
       <code>User</code>
@@ -1999,7 +1981,9 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>ProfileController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="3">
+    <UndefinedClass occurrences="5">
+      <code>Yii</code>
+      <code>Yii</code>
       <code>Yii</code>
       <code>Yii</code>
       <code>Yii</code>

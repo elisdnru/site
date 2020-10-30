@@ -10,39 +10,21 @@ use yii\validators\Validator;
 
 class CurrentPasswordValidator extends Validator
 {
-    public $className;
-    public $validateMethod = 'validatePassword';
-    public $idAttribute = 'id';
-    public $allowEmpty = true;
-    public $skipOnEmpty = false;
-    public $dependsOnAttributes = [];
-    public $emptyMessage = 'Current password required';
-    public $notValidMessage = 'Current password is not correct';
+    public string $className = '';
+    public string $validateMethod = 'validatePassword';
+    public string $idAttribute = 'id';
+    public string $emptyMessage = 'Current password required';
+    public string $notValidMessage = 'Current password is not correct';
 
     public function validateAttribute($model, $attribute): void
     {
-        $this->checkDependsOnAttributes($model);
-
         $value = $model->$attribute;
-        if ($this->allowEmpty && $this->isEmpty($value)) {
-            return;
-        }
-
         $record = $this->loadModel($model);
 
         if (!$value) {
             $this->addError($model, $attribute, $this->emptyMessage);
         } elseif (!$record->{$this->validateMethod}($value)) {
             $this->addError($model, $attribute, $this->notValidMessage, ['{value}' => Html::encode($value)]);
-        }
-    }
-
-    private function checkDependsOnAttributes(Model $model): void
-    {
-        foreach ($this->dependsOnAttributes as $attr) {
-            if (!empty($model->$attr)) {
-                $this->allowEmpty = false;
-            }
         }
     }
 

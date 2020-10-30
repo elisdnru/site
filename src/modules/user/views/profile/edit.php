@@ -30,10 +30,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
         <div>
-            <h4>Пользователь</h4>
-
-            <hr />
-
             <div class="row required <?= $model->hasErrors('lastname') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'lastname') ?><br />
                 <?= Html::activeTextInput($model, 'lastname', ['size' => 40, 'maxlength' => 255]) ?><br />
@@ -54,8 +50,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
             <hr />
 
-            <h4>Аватар</h4>
-
             <div class="row">
                 <p style="float:right"><img src="<?= $model->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
                 <?= Html::activeLabel($model, 'avatar') ?><br />
@@ -66,29 +60,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <div class="row">
                 <?= Html::activeCheckbox($model, 'del_avatar') ?>
             </div>
-
-        <hr />
-
-        <h4>Смена пароля</h4>
-
-        <div class="row<?= $model->hasErrors('old_password') ? ' error' : '' ?>">
-            <?= Html::activeLabel($model, 'old_password') ?> &nbsp;
-            (<a target="_blank" href="<?= Url::to(['/user/default/remind']) ?>">получить</a>)<br />
-            <?= Html::activePasswordInput($model, 'old_password', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'old_password', ['class' => 'errorMessage']) ?>
-        </div>
-
-        <div class="row<?= $model->hasErrors('new_password') ? ' error' : '' ?>">
-            <?= Html::activeLabel($model, 'new_password') ?><br />
-            <?= Html::activePasswordInput($model, 'new_password', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'new_password', ['class' => 'errorMessage']) ?>
-        </div>
-
-        <div class="row<?= $model->hasErrors('new_confirm') ? ' error' : '' ?>">
-            <?= Html::activeLabel($model, 'new_confirm') ?><br />
-            <?= Html::activePasswordInput($model, 'new_confirm', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'new_confirm', ['class' => 'errorMessage']) ?>
-        </div>
 
         <hr />
 

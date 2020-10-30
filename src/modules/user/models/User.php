@@ -41,7 +41,6 @@ use yii\helpers\Url;
  */
 class User extends ActiveRecord
 {
-    public const SCENARIO_SETTINGS = 'settings';
     public const SCENARIO_ADMIN_UPDATE = 'admin_update';
 
     public const IMAGE_PATH = 'upload/images/users/avatars';
@@ -129,37 +128,6 @@ class User extends ActiveRecord
                 'on' => [
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
-            ],
-
-            // Password
-            [
-                'new_password',
-                'string',
-                'min' => 6,
-                'max' => 255,
-            ],
-            [
-                'new_password',
-                'filter',
-                'filter' => 'trim'
-            ],
-
-            [
-                'new_confirm',
-                'compare',
-                'compareAttribute' => 'new_password',
-                'message' => 'Пароли не совпадают.'
-            ],
-
-            [
-                'old_password',
-                CurrentPasswordValidator::class,
-                'className' => self::class,
-                'emptyMessage' => 'Введите текущий пароль.',
-                'notValidMessage' => 'Неверный текущий пароль.',
-                'validateMethod' => 'validatePassword',
-                'dependsOnAttributes' => ['new_password'],
-                'on' => ['settings']
             ],
 
             // Login
