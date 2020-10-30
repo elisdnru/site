@@ -297,22 +297,9 @@ class User extends ActiveRecord
         return md5('%#w_wrb13&p' . $this->salt . $password);
     }
 
-    private ?string $cachedFio = null;
-
     public function getFio(): ?string
     {
-        if ($this->cachedFio === null) {
-            $this->cachedFio = trim($this->lastname . ' ' . $this->firstname);
-            if (!$this->cachedFio) {
-                $this->cachedFio = $this->username;
-            }
-        }
-        return $this->cachedFio;
-    }
-
-    public function setFio($value): void
-    {
-        $this->cachedFio = $value;
+        return trim($this->lastname . ' ' . $this->firstname);
     }
 
     private ?string $cachedAvatarUrl = null;
