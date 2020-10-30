@@ -280,6 +280,17 @@ class User extends ActiveRecord
         return false;
     }
 
+    public function afterFind(): void
+    {
+        if ($this->create_datetime === '0000-00-00 00:00:00') {
+            $this->create_datetime = '1900-01-01 00:00:00';
+        }
+        if ($this->last_visit_datetime === '0000-00-00 00:00:00') {
+            $this->last_visit_datetime = null;
+        }
+        parent::afterFind();
+    }
+
     public function validatePassword($password): bool
     {
         return

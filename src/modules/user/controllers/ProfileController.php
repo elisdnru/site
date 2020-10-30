@@ -30,13 +30,6 @@ class ProfileController extends Controller
         $model = $this->loadModel();
         $model->scenario = 'settings';
 
-        if ($model->create_datetime === '0000-00-00 00:00:00') {
-            $model->create_datetime = '1900-01-01 00:00:00';
-        }
-        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
-            $model->last_visit_datetime = null;
-        }
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Профиль сохранён.');
             return $this->redirect(['view', 'id' => $model->id]);

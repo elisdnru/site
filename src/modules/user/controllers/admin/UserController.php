@@ -30,9 +30,7 @@ class UserController extends AdminController
     {
         $model = $this->loadModel($id);
         $model->scenario = User::SCENARIO_ADMIN_UPDATE;
-        if ($model->last_visit_datetime === '0000-00-00 00:00:00') {
-            $model->last_visit_datetime = null;
-        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

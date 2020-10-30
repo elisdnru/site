@@ -79,9 +79,6 @@ class PageController extends AdminController
         if ($model === null) {
             throw new NotFoundHttpException();
         }
-        if ($model->date === '0000-00-00') {
-            $model->date = date('Y-m-d');
-        }
         return $model;
     }
 }

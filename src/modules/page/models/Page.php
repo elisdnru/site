@@ -135,6 +135,14 @@ class Page extends ActiveRecord
         ];
     }
 
+    public function afterFind(): void
+    {
+        if ($this->date === '0000-00-00') {
+            $this->date = date('Y-m-d');
+        }
+        parent::afterFind();
+    }
+
     public static function robotsList(): array
     {
         return [
