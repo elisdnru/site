@@ -28,6 +28,7 @@ class ProfileForm extends Model
             [['lastname', 'firstname'], 'required'],
             [['lastname', 'firstname'], 'string', 'max' => 255],
             ['site', 'url'],
+            ['avatar', 'image'],
             ['del_avatar', 'safe'],
         ];
     }
@@ -38,6 +39,7 @@ class ProfileForm extends Model
             'firstname' => 'Имя',
             'lastname' => 'Фамилия',
             'site' => 'Сайт',
+            'avatar' => 'Аватар',
         ];
     }
 }
