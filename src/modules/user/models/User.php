@@ -16,7 +16,7 @@ use yii\helpers\Url;
 /**
  * @property integer $id
  * @property string $username
- * @property string $password
+ * @property string $password_hash
  * @property string $salt
  * @property string $new_password
  * @property string $new_confirm
@@ -239,7 +239,7 @@ class User extends ActiveRecord
         return [
             'id' => 'ID',
             'username' => 'Логин',
-            'password' => 'Пароль',
+            'password_hash' => 'Пароль',
             'new_password' => 'Новый пароль',
             'new_confirm' => 'Подтверждение пароля',
             'old_password' => 'Текущий пароль',
@@ -286,7 +286,7 @@ class User extends ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if ($this->new_password) {
-                $this->password = $this->hashPassword($this->new_password);
+                $this->password_hash = $this->hashPassword($this->new_password);
             }
 
             if (!$this->role) {
@@ -301,8 +301,8 @@ class User extends ActiveRecord
     public function validatePassword($password): bool
     {
         return
-            password_verify($password, $this->password) ||
-            password_verify($this->oldHashPassword($password), $this->password);
+            password_verify($password, $this->password_hash) ||
+            password_verify($this->oldHashPassword($password), $this->password_hash);
     }
 
     public function hashPassword(string $password): string
