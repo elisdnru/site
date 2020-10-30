@@ -26,18 +26,6 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('new_password') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'new_password') ?><br />
-                <?= Html::activeTextInput($model, 'new_password') ?><br />
-                <?= Html::error($model, 'new_password', ['class' => 'errorMessage']) ?>
-            </div>
-
-            <div class="row<?= $model->hasErrors('new_confirm') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'new_confirm') ?><br />
-                <?= Html::activeTextInput($model, 'new_confirm') ?><br />
-                <?= Html::error($model, 'new_confirm', ['class' => 'errorMessage']) ?>
-            </div>
-
             <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'email') ?><br />
                 <?= Html::activeTextInput($model, 'email') ?><br />
