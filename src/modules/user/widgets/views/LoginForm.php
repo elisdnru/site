@@ -10,7 +10,7 @@ use yii\helpers\Url;
 <?php if ($user) : ?>
     <div style="float:left;">
         <a href="<?= Url::to(['/user/profile/view']) ?>">
-            <img src="<?= $user->avatarUrl ?>" alt="" width="50">
+            <img src="<?= $user->getAvatarUrl() ?>" alt="" width="50">
         </a>
     </div>
     <div style="margin-left:60px;">

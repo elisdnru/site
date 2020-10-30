@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
         <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 
         <?php if ($user && $user->id) : ?>
-            <a href="<?= Url::to(['/user/profile/view']) ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->avatarUrl ?>" alt=""></a>
+            <a href="<?= Url::to(['/user/profile/view']) ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->getAvatarUrl() ?>" alt=""></a>
 
             <p class='exit' style="float: right">
                 <a href="<?php Url::to(['/user/profile/view']); ?>">профиль</a> |

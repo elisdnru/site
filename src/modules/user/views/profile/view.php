@@ -21,7 +21,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?php Portlet::begin(['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
-    <img src="<?= $user->avatarUrl ?>" alt="" width="50">
+    <img src="<?= $user->getAvatarUrl() ?>" alt="" width="50">
 </div>
 
 <div style="margin-left:60px;">

@@ -21,7 +21,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 <?php Portlet::begin(['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
-    <img src="<?= $model->avatarUrl ?>" alt="" width="50">
+    <img src="<?= $model->getAvatarUrl() ?>" alt="" width="50">
 </div>
 
 <div style="margin-left:60px;">
