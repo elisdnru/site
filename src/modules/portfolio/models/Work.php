@@ -26,7 +26,7 @@ use yii\helpers\Url;
  * @property integer $image_show
  * @property integer $public
  *
- * @property Category category
+ * @property Category $category
  *
  * @mixin FileUploadBehavior
  * @method Work published()

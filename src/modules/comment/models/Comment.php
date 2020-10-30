@@ -27,10 +27,10 @@ use yii\db\Expression;
  * @property integer $public
  * @property integer $moder
  * @property integer $parent_id
- * @property Comment[] children
+ * @property Comment[] $children
  * @property integer $likes
- * @property User user
- * @property Comment parent
+ * @property User|null $user
+ * @property Comment $parent
  * @property Material $material
  */
 class Comment extends ActiveRecord
