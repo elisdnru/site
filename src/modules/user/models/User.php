@@ -39,138 +39,17 @@ use yii\web\UploadedFile;
  */
 class User extends ActiveRecord
 {
-    public const SCENARIO_ADMIN_UPDATE = 'admin_update';
-
     public const IMAGE_PATH = 'upload/images/users/avatars';
     public const IMAGE_WIDTH = 100;
     public const IMAGE_HEIGHT = 100;
 
-    public $del_avatar = false;
+    public bool $del_avatar = false;
 
     public $test;
 
     public static function tableName(): string
     {
         return 'users';
-    }
-
-    public function rules(): array
-    {
-        return [
-
-            // Login
-            [
-                'username',
-                'required',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-            [
-                'username',
-                'string',
-                'max' => 255,
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-            [
-                'username',
-                'match',
-                'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
-                'message' => 'Логин содержит запрещённые символы',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-            [
-                'username',
-                'unique',
-                'message' => 'Такой {attribute} уже используется',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-
-            // Email
-            [
-                'email',
-                'required',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-            [
-                'email',
-                'email',
-                'message' => 'Неверный формат E-mail адреса',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-            [
-                'email',
-                'string',
-                'max' => 255,
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-            [
-                'email',
-                'unique',
-                'message' => 'Такой {attribute} уже используется',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-
-            [
-                'role',
-                'required',
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-
-            // Active
-            [
-                'active',
-                'integer',
-                'integerOnly' => true,
-                'on' => [
-                    self::SCENARIO_ADMIN_UPDATE,
-                ]
-            ],
-
-            // Avatar
-            [
-                'del_avatar',
-                'safe'
-            ],
-
-            // Name
-            [
-                ['lastname', 'firstname'],
-                'required'
-            ],
-            [
-                ['lastname', 'firstname'],
-                'string',
-                'max' => 255
-            ],
-
-            // Site
-            [
-                'site',
-                'url'
-            ],
-            [
-                'site',
-                'string',
-                'max' => 255
-            ],
-        ];
     }
 
     public function getCommentsCount(): int
@@ -192,7 +71,6 @@ class User extends ActiveRecord
             'last_visit_datetime' => 'Последнее посещение',
             'active' => 'Активен',
             'avatar' => 'Аватар',
-            'del_avatar' => 'Сбросить аватар',
             'test' => 'Проверочный код',
 
             'firstname' => 'Имя',

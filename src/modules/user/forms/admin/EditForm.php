@@ -1,0 +1,85 @@
+<?php
+
+namespace app\modules\user\forms\admin;
+
+use app\modules\user\models\Access;
+use app\modules\user\models\User;
+use yii\base\Model;
+
+class EditForm extends Model
+{
+    public string $id = '';
+    public string $username = '';
+    public string $email = '';
+    public string $lastname = '';
+    public string $firstname = '';
+    public string $site = '';
+    public string $avatar = '';
+    public string $del_avatar = '';
+    public string $role = '';
+
+    public static function fromUser(User $user): self
+    {
+        $form = new self();
+        $form->id = $user->id;
+        $form->username = $user->username;
+        $form->email = $user->email;
+        $form->firstname = $user->firstname;
+        $form->lastname = $user->lastname;
+        $form->site = $user->site;
+        $form->role = $user->role;
+        return $form;
+    }
+
+    public function rules(): array
+    {
+        return [
+            [['username', 'email', 'lastname', 'firstname', 'role'], 'required'],
+            [['username', 'email', 'lastname', 'firstname'], 'string', 'max' => 255],
+            [
+                'username',
+                'match',
+                'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
+                'message' => 'Логин содержит запрещённые символы',
+            ],
+            [
+                'username',
+                'unique',
+                'message' => 'Такой {attribute} уже используется',
+                'targetClass' => User::class,
+                'filter' => ['!=', 'id', $this->id],
+            ],
+            ['email', 'email', 'message' => 'Неверный формат E-mail адреса'],
+            [
+                'email',
+                'unique',
+                'message' => 'Такой {attribute} уже используется',
+                'targetClass' => User::class,
+                'filter' => ['!=', 'id', $this->id],
+            ],
+            ['site', 'url'],
+            ['avatar', 'image'],
+            ['del_avatar', 'safe'],
+            ['role', 'in', 'range' => array_keys(Access::getRoles())],
+        ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [
+            'username' => 'Имя пользователя',
+            'email' => 'Email',
+            'firstname' => 'Имя',
+            'lastname' => 'Фамилия',
+            'site' => 'Сайт',
+            'avatar' => 'Аватар',
+            'del_avatar' => 'Сбросить аватар',
+            'role' => 'Роль',
+        ];
+    }
+
+    public function getRoles(): array
+    {
+        return Access::getRoles();
+    }
+}
