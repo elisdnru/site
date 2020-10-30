@@ -79,7 +79,7 @@ class ProfileController extends Controller
     {
         $user = $this->loadModel();
         return $this->render('view', [
-            'model' => $user,
+            'user' => $user,
         ]);
     }
 
