@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 /**
  * @property integer $id
@@ -27,7 +28,7 @@ use yii\helpers\Url;
  * @property string $last_modify_datetime
  * @property string|null $last_visit_datetime
  * @property integer $active
- * @property string $avatar
+ * @property string|UploadedFile $avatar
  *
  * @property string $lastname
  * @property string $firstname
@@ -272,6 +273,9 @@ class User extends ActiveRecord
     public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT): string
     {
         if ($this->cachedAvatarUrl === null) {
+            if (!is_string($this->avatar)) {
+                return '';
+            }
             if (preg_match('|^https?:\/\/|', $this->avatar)) {
                 $this->cachedAvatarUrl = $this->avatar;
             } elseif ($this->avatar) {

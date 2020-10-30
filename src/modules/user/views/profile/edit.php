@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\User;
 use app\widgets\Portlet;
 use app\modules\user\models\Access;
@@ -8,7 +9,8 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /** @var $form ActiveForm */
-/** @var $model User */
+/** @var $user User */
+/** @var $model ProfileForm */
 
 $this->context->layout = 'user';
 $this->title = 'Мой профиль';
@@ -51,7 +53,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <hr />
 
             <div class="row">
-                <p style="float:right"><img src="<?= $model->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
+                <p style="float:right"><img src="<?= $user->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
                 <?= Html::activeLabel($model, 'avatar') ?><br />
                 <?= Html::activeTextInput($model, 'avatar', ['type' => 'file', 'size' => 30]) ?>
                 <?= Html::error($model, 'avatar') ?>

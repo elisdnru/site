@@ -4,11 +4,12 @@ namespace app\modules\user\controllers;
 
 use app\components\Controller;
 use app\modules\user\forms\PasswordForm;
+use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\ForbiddenHttpException;
-use yii\web\Response;
+use yii\web\UploadedFile;
 
 class ProfileController extends Controller
 {
@@ -29,15 +30,29 @@ class ProfileController extends Controller
 
     public function actionEdit()
     {
-        $model = $this->loadModel();
+        $user = $this->loadModel();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Профиль сохранён.');
-            return $this->redirect(['view', 'id' => $model->id]);
+        $form = ProfileForm::fromUser($user);
+
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            $user->firstname = $form->firstname;
+            $user->lastname = $form->lastname;
+            $user->site = $form->site;
+            if ($avatar = UploadedFile::getInstance($form, 'avatar')) {
+                $user->avatar = $avatar;
+            }
+            $user->del_avatar = (bool)$form->del_avatar;
+            if ($user->save()) {
+                Yii::$app->session->setFlash('success', 'Профиль сохранён.');
+                return $this->redirect(['view', 'id' => $user->id]);
+            }
+            $form->addErrors($user->getErrors());
+            $user->refresh();
         }
 
         return $this->render('edit', [
-            'model' => $model,
+            'user' => $user,
+            'model' => $form,
         ]);
     }
 
