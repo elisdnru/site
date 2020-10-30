@@ -1,5 +1,5 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 /** @var $model Category */
 /** @var $dataProvider TreeActiveDataProvider */
@@ -8,6 +8,7 @@ use app\components\category\TreeActiveDataProvider;
 use app\modules\blog\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
 $this->title = 'Категории записей';

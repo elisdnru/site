@@ -1,10 +1,12 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\user\models\User;
+use yii\web\View;
+use yii\widgets\ActiveForm;
 
 /** @var $model User */
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'] = [

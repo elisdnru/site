@@ -1,7 +1,8 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\blog\models\Post;
+use yii\web\View;
 
 /** @var $model Post */
 

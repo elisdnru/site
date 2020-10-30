@@ -4,9 +4,10 @@
 use app\modules\page\models\Page;
 use yii\helpers\Html;
 use yii\web\View;
+use yii\widgets\ActiveForm;
 
 /** @var $model Page */
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 ?>
 
 <div class="form">

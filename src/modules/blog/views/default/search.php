@@ -4,8 +4,9 @@ use app\modules\blog\widgets\SearchFormWidget;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $searchForm SearchForm */
 /** @var $dataProvider ActiveDataProvider */
 

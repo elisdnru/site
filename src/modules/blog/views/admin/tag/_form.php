@@ -4,9 +4,10 @@
 use app\modules\blog\models\Tag;
 use yii\helpers\Html;
 use yii\web\View;
+use yii\widgets\ActiveForm;
 
 /** @var $model Tag */
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 ?>
 
 <div class="form">

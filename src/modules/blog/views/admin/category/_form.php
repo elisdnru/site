@@ -4,9 +4,10 @@
 use app\modules\blog\models\Category;
 use yii\helpers\Html;
 use yii\web\View;
+use yii\widgets\ActiveForm;
 
 /** @var $model Category */
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 ?>
 
 

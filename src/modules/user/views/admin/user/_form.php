@@ -1,9 +1,11 @@
 <?php
 use app\modules\user\models\Access;
+use app\modules\user\models\User;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
-/** @var $form CActiveForm */
-/** @var $model \app\modules\user\models\User */
+/** @var $form ActiveForm */
+/** @var $model User */
 ?>
 <div class="form">
 

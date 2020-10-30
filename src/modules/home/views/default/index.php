@@ -4,8 +4,9 @@ use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
 use yii\helpers\Url;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 $this->context->layout = 'index';
 

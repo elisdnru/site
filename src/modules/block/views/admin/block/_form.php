@@ -1,8 +1,9 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\block\models\Block;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /** @var $model Block */

@@ -1,9 +1,10 @@
 <?php
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 
 use app\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /** @var $model RemindForm */
 $this->context->layout = 'user';

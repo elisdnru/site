@@ -1,16 +1,18 @@
 <?php
-/** @var $form CActiveForm */
-/** @var $model \app\modules\user\forms\LoginForm */
+/** @var $form ActiveForm */
+/** @var $model LoginForm */
 $this->context->layout = 'user';
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'] = [
     'Вход на сайт'
 ];
 
+use app\modules\user\forms\LoginForm;
 use app\widgets\Portlet;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
-use yii\helpers\Url; ?>
+use yii\helpers\Url;
+use yii\widgets\ActiveForm; ?>
 
 <h1>Вход в аккаунт</h1>
 

@@ -1,5 +1,5 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $dataProvider ActiveDataProvider */
 
 use app\modules\blog\models\Category;
@@ -8,6 +8,7 @@ use app\modules\blog\models\Post;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
 /** @var $model Post */

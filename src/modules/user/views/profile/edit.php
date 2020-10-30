@@ -1,12 +1,14 @@
 <?php
 
+use app\modules\user\models\User;
 use app\widgets\Portlet;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
-/** @var $form CActiveForm */
-/** @var $model \app\modules\user\models\User */
+/** @var $form ActiveForm */
+/** @var $model User */
 
 $this->context->layout = 'user';
 $this->title = 'Мой профиль';

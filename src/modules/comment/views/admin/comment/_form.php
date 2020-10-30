@@ -1,9 +1,10 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\comment\models\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
 /** @var $model Comment */
 ?>

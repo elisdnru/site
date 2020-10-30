@@ -1,8 +1,9 @@
 <?php
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $date string */
 /** @var $dataProvider \yii\data\ActiveDataProvider */
 

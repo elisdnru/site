@@ -6,9 +6,10 @@ use app\modules\blog\models\Group;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
+use yii\widgets\ActiveForm;
 
 /** @var $items Group[] */
-/** @var $form CActiveForm */
+/** @var $form ActiveForm */
 /** @var $itemForm GroupForm */
 
 $this->title = 'Тематические группы записей';

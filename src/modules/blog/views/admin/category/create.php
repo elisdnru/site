@@ -1,7 +1,8 @@
 <?php
-/** @var $this \yii\web\View */
+/** @var $this View */
 
 use app\modules\blog\models\Category;
+use yii\web\View;
 
 /** @var $model Category */
 

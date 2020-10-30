@@ -2,8 +2,9 @@
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
+use yii\web\View;
 
-/** @var $this \yii\web\View */
+/** @var $this View */
 /** @var $dataProvider ActiveDataProvider */
 
 $this->title = 'Поиск по сайту';

@@ -5,8 +5,9 @@ use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
-/** @var $f CActiveForm */
+/** @var $f ActiveForm */
 /** @var $form CommentForm */
 ?>
 <!--noindex-->
