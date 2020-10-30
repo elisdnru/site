@@ -13,10 +13,9 @@ $this->params['breadcrumbs'] = [
     'Пользователи',
 ];
 
-$this->params['admin'][] = ['label' => 'Добавить пользователя', 'url' => ['create']];
+$this->params['admin'][] = ['label' => 'Панель управления', 'url' => ['/']];
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Пользователи</h1>
 
 <div id="posts-grid" class="grid-view">

@@ -23,7 +23,6 @@ class Module extends Base implements RoutesProvider
     {
         return [
             ['label' => 'Пользователи', 'url' => ['/user/admin/user/index'], 'icon' => 'users.png'],
-            ['label' => 'Добавить пользователя', 'url' => ['/user/admin/user/create'], 'icon' => 'add_user.png'],
         ];
     }
 

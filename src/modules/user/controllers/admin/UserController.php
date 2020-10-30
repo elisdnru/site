@@ -22,20 +22,6 @@ class UserController extends AdminController
     }
 
     /**
-     * @return Response|string
-     */
-    public function actionCreate()
-    {
-        $model = new User(['scenario' => User::SCENARIO_ADMIN_CREATE]);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
      * @param int $id
      * @return Response|string
      * @throws NotFoundHttpException

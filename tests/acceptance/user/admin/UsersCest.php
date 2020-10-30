@@ -33,11 +33,19 @@ class UsersCest
         $I->see('Пользователи', 'h1');
     }
 
-    public function create(AcceptanceTester $I): void
+    public function view(AcceptanceTester $I): void
     {
         $I->amLoggedInByAdmin();
-        $I->amOnPage('user/admin/user/create');
+        $I->amOnPage('user/admin/user/1/view');
         $I->seeResponseCodeIs(200);
-        $I->see('Добавление пользователя', 'h1');
+        $I->see('Last Admin', 'h3');
+    }
+
+    public function update(AcceptanceTester $I): void
+    {
+        $I->amLoggedInByAdmin();
+        $I->amOnPage('user/admin/user/1/update');
+        $I->seeResponseCodeIs(200);
+        $I->see('Редактирование пользователя', 'h1');
     }
 }

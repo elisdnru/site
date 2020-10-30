@@ -42,7 +42,6 @@ use yii\helpers\Url;
 class User extends ActiveRecord
 {
     public const SCENARIO_SETTINGS = 'settings';
-    public const SCENARIO_ADMIN_CREATE = 'admin_create';
     public const SCENARIO_ADMIN_UPDATE = 'admin_update';
 
     public const IMAGE_PATH = 'upload/images/users/avatars';
@@ -70,7 +69,6 @@ class User extends ActiveRecord
                 'username',
                 'required',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -79,7 +77,6 @@ class User extends ActiveRecord
                 'string',
                 'max' => 255,
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -89,7 +86,6 @@ class User extends ActiveRecord
                 'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
                 'message' => 'Логин содержит запрещённые символы',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -98,7 +94,6 @@ class User extends ActiveRecord
                 'unique',
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -108,7 +103,6 @@ class User extends ActiveRecord
                 'email',
                 'required',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -117,7 +111,6 @@ class User extends ActiveRecord
                 'email',
                 'message' => 'Неверный формат E-mail адреса',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -126,7 +119,6 @@ class User extends ActiveRecord
                 'string',
                 'max' => 255,
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -135,19 +127,11 @@ class User extends ActiveRecord
                 'unique',
                 'message' => 'Такой {attribute} уже используется',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
 
             // Password
-            [
-                'new_password',
-                'required',
-                'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
-                ]
-            ],
             [
                 'new_password',
                 'string',
@@ -183,7 +167,6 @@ class User extends ActiveRecord
                 'role',
                 'required',
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
@@ -194,7 +177,6 @@ class User extends ActiveRecord
                 'integer',
                 'integerOnly' => true,
                 'on' => [
-                    self::SCENARIO_ADMIN_CREATE,
                     self::SCENARIO_ADMIN_UPDATE,
                 ]
             ],
