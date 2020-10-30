@@ -40,6 +40,7 @@ class ProfileForm extends Model
             'lastname' => 'Фамилия',
             'site' => 'Сайт',
             'avatar' => 'Аватар',
+            'del_avatar' => 'Сбросить аватар',
         ];
     }
 }
