@@ -32,13 +32,13 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
             <hr />
 
-            <div class="row<?= $model->hasErrors('lastname') ? ' error' : '' ?>">
+            <div class="row required <?= $model->hasErrors('lastname') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'lastname') ?><br />
                 <?= Html::activeTextInput($model, 'lastname', ['size' => 40, 'maxlength' => 255]) ?><br />
                 <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
+            <div class="row required <?= $model->hasErrors('name') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'name') ?><br />
                 <?= Html::activeTextInput($model, 'name', ['size' => 40, 'maxlength' => 255]) ?><br />
                 <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
