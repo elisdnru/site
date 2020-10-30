@@ -95,8 +95,7 @@ class UloginModel extends Model
         $user->identity = $this->identity;
         $user->network = $this->network;
         $user->email = $this->email;
-        $user->new_password = microtime();
-        $user->new_confirm = $user->new_password;
+        $user->password_hash = $user->hashPassword(microtime());
         $user->role = Access::ROLE_USER;
         $user->lastname = $this->lastname;
         $user->firstname = $this->firstname;

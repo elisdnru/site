@@ -36,7 +36,7 @@ class RegistrationController extends Controller
                 $user = new User();
                 $user->username = $model->username;
                 $user->email = $model->email;
-                $user->new_password = $model->password;
+                $user->password_hash = $user->hashPassword($model->password);
                 $user->lastname = $model->lastname;
                 $user->firstname = $model->firstname;
                 $user->role = Access::ROLE_USER;

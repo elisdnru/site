@@ -48,11 +48,11 @@ class DefaultController extends Controller
             $user = User::findOne(['email' => $model->email]);
 
             if ($user) {
-                $user->new_password = mb_substr(md5(microtime()), 0, 10, 'UTF-8');
-                $user->new_confirm = $user->new_password;
+                $password = mb_substr(md5(microtime()), 0, 10, 'UTF-8');
+                $user->password_hash = $user->hashPassword($password);
 
                 if ($user->save()) {
-                    $user->sendRemind();
+                    $user->sendRemind($password);
                     Yii::$app->session->setFlash('success', 'Новые параметры отправлены на Email');
                     return $this->redirect(['login']);
                 }
@@ -61,7 +61,10 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('remind', ['model' => $model]);
+        return $this->render('remind', [
+            'model' => $model,
+
+        ]);
     }
 
     private function loadUser(): ?User

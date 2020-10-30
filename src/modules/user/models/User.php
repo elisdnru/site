@@ -18,9 +18,6 @@ use yii\helpers\Url;
  * @property string $username
  * @property string $password_hash
  * @property string $salt
- * @property string $new_password
- * @property string $new_confirm
- * @property string $old_password
  * @property string $email
  * @property string $identity
  * @property string $network
@@ -47,9 +44,6 @@ class User extends ActiveRecord
     public const IMAGE_WIDTH = 100;
     public const IMAGE_HEIGHT = 100;
 
-    public $new_password;
-    public $new_confirm;
-    public $old_password;
     public $del_avatar = false;
 
     public $test;
@@ -130,7 +124,6 @@ class User extends ActiveRecord
                 ]
             ],
 
-            // Login
             [
                 'role',
                 'required',
@@ -190,9 +183,6 @@ class User extends ActiveRecord
             'id' => 'ID',
             'username' => 'Логин',
             'password_hash' => 'Пароль',
-            'new_password' => 'Новый пароль',
-            'new_confirm' => 'Подтверждение пароля',
-            'old_password' => 'Текущий пароль',
             'email' => 'Email',
             'confirm' => 'Ключ подтверждения',
             'role' => 'Роль',
@@ -235,10 +225,6 @@ class User extends ActiveRecord
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {
-            if ($this->new_password) {
-                $this->password_hash = $this->hashPassword($this->new_password);
-            }
-
             if (!$this->role) {
                 $this->role = Access::ROLE_USER;
             }
@@ -325,11 +311,11 @@ class User extends ActiveRecord
         }
     }
 
-    public function sendRemind(): void
+    public function sendRemind(string $password): void
     {
         $mail = Yii::$app->mailer
             ->compose(['html' => 'remind'], [
-                'user' => $this,
+                'password' => $password,
             ])
             ->setSubject('Восстановление пароля на сайте elisdn.ru')
             ->setTo($this->email);

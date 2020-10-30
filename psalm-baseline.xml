@@ -2197,11 +2197,8 @@
       <code>$width</code>
       <code>$width</code>
     </MissingParamType>
-    <MissingPropertyType occurrences="5">
+    <MissingPropertyType occurrences="2">
       <code>$del_avatar</code>
-      <code>$new_confirm</code>
-      <code>$new_password</code>
-      <code>$old_password</code>
       <code>$test</code>
     </MissingPropertyType>
     <MixedArgument occurrences="1">
