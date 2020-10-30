@@ -63,12 +63,6 @@ use yii\helpers\Html;
                 <?= Html::activeTextInput($model, 'name') ?><br />
                 <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
             </div>
-
-            <div class="row<?= $model->hasErrors('middlename') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'middlename') ?><br />
-                <?= Html::activeTextInput($model, 'middlename') ?><br />
-                <?= Html::error($model, 'middlename', ['class' => 'errorMessage']) ?>
-            </div>
         </fieldset>
 
         <fieldset>

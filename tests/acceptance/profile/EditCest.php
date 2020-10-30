@@ -32,7 +32,6 @@ class EditCest
 
         $I->fillField('User[lastname]', 'Bond');
         $I->fillField('User[name]', 'James');
-        $I->fillField('User[middlename]', 'Ms');
         $I->fillField('User[site]', 'http://app.test');
         $I->attachFile('User[avatar]', 'files/avatar.png');
 
@@ -40,7 +39,7 @@ class EditCest
 
         $I->see('Профиль сохранён.', '.flash-success');
 
-        $I->see('Bond James Ms', 'h3');
+        $I->see('Bond James', 'h3');
         $I->seeLink('http://app.test', 'http://app.test');
         $I->seeInSource('<img src="/upload/images/users/avatars/');
     }

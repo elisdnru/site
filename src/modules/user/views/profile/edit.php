@@ -44,12 +44,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('middlename') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'middlename') ?><br />
-                <?= Html::activeTextInput($model, 'middlename', ['size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'middlename', ['class' => 'errorMessage']) ?>
-            </div>
-
             <div class="row<?= $model->hasErrors('site') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'site') ?><br />
                 <?= Html::activeTextInput($model, 'site', ['type' => 'url', 'size' => 40, 'maxlength' => 255]) ?><br />

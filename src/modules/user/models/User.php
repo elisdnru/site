@@ -34,7 +34,6 @@ use yii\helpers\Url;
  *
  * @property string $lastname
  * @property string $name
- * @property string $middlename
  * @property string $site
  *
  * @property int $commentsCount
@@ -212,7 +211,7 @@ class User extends ActiveRecord
                 'required'
             ],
             [
-                ['lastname', 'name', 'middlename'],
+                ['lastname', 'name'],
                 'string',
                 'max' => 255
             ],
@@ -257,7 +256,6 @@ class User extends ActiveRecord
 
             'name' => 'Имя',
             'lastname' => 'Фамилия',
-            'middlename' => 'Отчество',
             'fio' => 'ФИО',
             'site' => 'Сайт',
         ];
@@ -322,7 +320,7 @@ class User extends ActiveRecord
     public function getFio(): ?string
     {
         if ($this->cachedFio === null) {
-            $this->cachedFio = trim($this->lastname . ' ' . $this->name . ' ' . $this->middlename);
+            $this->cachedFio = trim($this->lastname . ' ' . $this->name);
             if (!$this->cachedFio) {
                 $this->cachedFio = $this->username;
             }

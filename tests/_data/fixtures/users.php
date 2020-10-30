@@ -19,7 +19,6 @@ return [
         'active' => 1,
         'lastname' => 'Last',
         'name' => 'Admin',
-        'middlename' => '',
         'site' => '',
     ],
     [
@@ -40,7 +39,6 @@ return [
         'active' => 1,
         'lastname' => 'Last',
         'name' => 'User',
-        'middlename' => '',
         'site' => '',
     ],
     [
@@ -61,7 +59,6 @@ return [
         'active' => 1,
         'lastname' => 'Last',
         'name' => 'First',
-        'middlename' => '',
         'site' => '',
     ],
     [
@@ -82,7 +79,6 @@ return [
         'active' => 1,
         'lastname' => 'Last',
         'name' => 'First',
-        'middlename' => '',
         'site' => '',
     ],
     [
@@ -103,7 +99,6 @@ return [
         'active' => 1,
         'lastname' => 'Edit',
         'name' => 'User',
-        'middlename' => '',
         'site' => '',
     ],
 ];
