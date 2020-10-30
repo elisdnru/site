@@ -31,7 +31,7 @@ class EditCest
         $I->seeElement('#profile-form');
 
         $I->fillField('User[lastname]', 'Bond');
-        $I->fillField('User[name]', 'James');
+        $I->fillField('User[firstname]', 'James');
         $I->fillField('User[site]', 'http://app.test');
         $I->attachFile('User[avatar]', 'files/avatar.png');
 
@@ -52,7 +52,7 @@ class EditCest
         $I->seeElement('#profile-form');
 
         $I->fillField('User[lastname]', '');
-        $I->fillField('User[name]', '');
+        $I->fillField('User[firstname]', '');
         $I->fillField('User[site]', 'asd');
 
         $I->click('Сохранить', '#profile-form');

@@ -38,7 +38,7 @@ class RegistrationController extends Controller
                 $user->email = $model->email;
                 $user->new_password = $model->password;
                 $user->lastname = $model->lastname;
-                $user->name = $model->name;
+                $user->firstname = $model->firstname;
                 $user->role = Access::ROLE_USER;
 
                 if ($user->save(false)) {

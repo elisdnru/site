@@ -15,7 +15,7 @@ class UserSearch extends User
     public function rules(): array
     {
         return [
-            [['id', 'username', 'email', 'create_datetime', 'last_modify_datetime', 'last_visit_datetime', 'active', 'identity', 'network', 'lastname', 'name', 'role'], 'safe'],
+            [['id', 'username', 'email', 'create_datetime', 'last_modify_datetime', 'last_visit_datetime', 'active', 'identity', 'network', 'lastname', 'firstname', 'role'], 'safe'],
         ];
     }
 
@@ -32,8 +32,8 @@ class UserSearch extends User
                     'username',
                     'email',
                     'fio' => [
-                        'asc' => ['lastname' => SORT_ASC, 'name' => SORT_ASC,],
-                        'desc' => ['lastname' => SORT_DESC, 'name' => SORT_DESC],
+                        'asc' => ['lastname' => SORT_ASC, 'firstname' => SORT_ASC,],
+                        'desc' => ['lastname' => SORT_DESC, 'firstname' => SORT_DESC],
                     ],
                     'role',
                     'create_datetime' => [
@@ -65,7 +65,7 @@ class UserSearch extends User
             ->andFilterWhere(['like', 'create_datetime', $this->create_datetime]);
 
         if (!empty($this->fio)) {
-            $query->andWhere(['like', new Expression('CONCAT(lastname, \' \', name)'), $this->fio]);
+            $query->andWhere(['like', new Expression('CONCAT(lastname, \' \', firstname)'), $this->fio]);
         }
 
         return $dataProvider;

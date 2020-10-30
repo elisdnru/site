@@ -12,7 +12,7 @@ class RegistrationForm extends Model
     public $password;
     public $confirm;
     public $lastname;
-    public $name;
+    public $firstname;
     public $test1;
     public $test2;
 
@@ -42,8 +42,8 @@ class RegistrationForm extends Model
 
             ['confirm', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.'],
 
-            [['lastname', 'name'], 'required'],
-            [['lastname', 'name'], 'string', 'max' => 255],
+            [['lastname', 'firstname'], 'required'],
+            [['lastname', 'firstname'], 'string', 'max' => 255],
 
             ['test1', 'required'],
             ['test1', 'captcha', 'captchaAction' => '/user/registration/captcha1'],
@@ -60,7 +60,7 @@ class RegistrationForm extends Model
             'email' => 'Email',
             'password' => 'Новый пароль',
             'confirm' => 'Подтверждение пароля',
-            'name' => 'Имя',
+            'firstname' => 'Имя',
             'lastname' => 'Фамилия',
             'test' => 'Решите примеры',
             'test1' => 'Код 1',

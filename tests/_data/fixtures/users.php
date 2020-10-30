@@ -18,7 +18,7 @@ return [
         'role' => 'role_admin',
         'active' => 1,
         'lastname' => 'Last',
-        'name' => 'Admin',
+        'firstname' => 'Admin',
         'site' => '',
     ],
     [
@@ -38,7 +38,7 @@ return [
         'role' => 'role_user',
         'active' => 1,
         'lastname' => 'Last',
-        'name' => 'User',
+        'firstname' => 'User',
         'site' => '',
     ],
     [
@@ -58,7 +58,7 @@ return [
         'role' => 'role_user',
         'active' => 1,
         'lastname' => 'Last',
-        'name' => 'First',
+        'firstname' => 'First',
         'site' => '',
     ],
     [
@@ -78,7 +78,7 @@ return [
         'role' => 'role_user',
         'active' => 1,
         'lastname' => 'Last',
-        'name' => 'First',
+        'firstname' => 'First',
         'site' => '',
     ],
     [
@@ -98,7 +98,7 @@ return [
         'role' => 'role_user',
         'active' => 1,
         'lastname' => 'Edit',
-        'name' => 'User',
+        'firstname' => 'User',
         'site' => '',
     ],
 ];

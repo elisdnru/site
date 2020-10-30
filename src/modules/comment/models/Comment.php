@@ -160,7 +160,7 @@ class Comment extends ActiveRecord
     {
         if ($this->user) {
             $this->email = $this->user->email;
-            $this->name = trim($this->user->name . ' ' . $this->user->lastname);
+            $this->name = trim($this->user->firstname . ' ' . $this->user->lastname);
             $this->site = $this->user->site;
         }
     }

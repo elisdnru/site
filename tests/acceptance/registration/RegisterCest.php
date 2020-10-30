@@ -29,7 +29,7 @@ class RegisterCest
         $I->fillField('RegistrationForm[password]', 'password');
         $I->fillField('RegistrationForm[confirm]', 'password');
         $I->fillField('RegistrationForm[lastname]', 'Last');
-        $I->fillField('RegistrationForm[name]', 'First');
+        $I->fillField('RegistrationForm[firstname]', 'First');
         $I->fillField('RegistrationForm[test1]', '42');
         $I->fillField('RegistrationForm[test2]', '42');
         $I->click('Зарегистрироваться', '#register-form');

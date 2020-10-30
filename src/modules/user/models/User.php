@@ -33,7 +33,7 @@ use yii\helpers\Url;
  * @property string $avatar
  *
  * @property string $lastname
- * @property string $name
+ * @property string $firstname
  * @property string $site
  *
  * @property int $commentsCount
@@ -189,11 +189,11 @@ class User extends ActiveRecord
 
             // Name
             [
-                ['lastname', 'name'],
+                ['lastname', 'firstname'],
                 'required'
             ],
             [
-                ['lastname', 'name'],
+                ['lastname', 'firstname'],
                 'string',
                 'max' => 255
             ],
@@ -236,7 +236,7 @@ class User extends ActiveRecord
             'del_avatar' => 'Сбросить аватар',
             'test' => 'Проверочный код',
 
-            'name' => 'Имя',
+            'firstname' => 'Имя',
             'lastname' => 'Фамилия',
             'fio' => 'ФИО',
             'site' => 'Сайт',
@@ -302,7 +302,7 @@ class User extends ActiveRecord
     public function getFio(): ?string
     {
         if ($this->cachedFio === null) {
-            $this->cachedFio = trim($this->lastname . ' ' . $this->name);
+            $this->cachedFio = trim($this->lastname . ' ' . $this->firstname);
             if (!$this->cachedFio) {
                 $this->cachedFio = $this->username;
             }

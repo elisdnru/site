@@ -60,10 +60,10 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'name') ?><br />
-                <?= Html::activeTextInput($model, 'name') ?><br />
-                <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
+            <div class="row<?= $model->hasErrors('firstname') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'firstname') ?><br />
+                <?= Html::activeTextInput($model, 'firstname') ?><br />
+                <?= Html::error($model, 'firstname', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>
 

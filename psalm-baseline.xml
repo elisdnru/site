@@ -1180,7 +1180,7 @@
     <MixedOperand occurrences="4">
       <code>$height</code>
       <code>$this-&gt;user-&gt;lastname</code>
-      <code>$this-&gt;user-&gt;name</code>
+      <code>$this-&gt;user-&gt;firstname</code>
       <code>$width</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="6">
@@ -1188,7 +1188,7 @@
       <code>$this-&gt;parent-&gt;email</code>
       <code>$this-&gt;user-&gt;email</code>
       <code>$this-&gt;user-&gt;lastname</code>
-      <code>$this-&gt;user-&gt;name</code>
+      <code>$this-&gt;user-&gt;firstname</code>
       <code>$this-&gt;user-&gt;site</code>
     </MixedPropertyFetch>
     <MoreSpecificReturnType occurrences="1">
@@ -1926,7 +1926,7 @@
       <code>$error_type</code>
       <code>$identity</code>
       <code>$lastname</code>
-      <code>$name</code>
+      <code>$firstname</code>
       <code>$network</code>
       <code>$photo</code>
       <code>$token</code>
@@ -2109,7 +2109,7 @@
       <code>$confirm</code>
       <code>$email</code>
       <code>$lastname</code>
-      <code>$name</code>
+      <code>$firstname</code>
       <code>$password</code>
       <code>$test1</code>
       <code>$test2</code>

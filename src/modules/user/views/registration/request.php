@@ -58,10 +58,10 @@ $this->params['breadcrumbs'] = [
             <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
         </div>
 
-        <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?> required">
-            <?= Html::activeLabel($model, 'name') ?><br />
-            <?= Html::activeTextInput($model, 'name', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
+        <div class="row<?= $model->hasErrors('firstname') ? ' error' : '' ?> required">
+            <?= Html::activeLabel($model, 'firstname') ?><br />
+            <?= Html::activeTextInput($model, 'firstname', ['size' => 40, 'maxlength' => 255]) ?><br />
+            <?= Html::error($model, 'firstname', ['class' => 'errorMessage']) ?>
         </div>
 
         <hr />

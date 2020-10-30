@@ -14,7 +14,7 @@ class UloginModel extends Model
     public $network;
     public $email;
     public $lastname;
-    public $name;
+    public $firstname;
     public $photo;
     public $token;
     public $error_type;
@@ -26,7 +26,7 @@ class UloginModel extends Model
             [['identity', 'network', 'token'], 'required'],
             ['email', 'email'],
             [['identity', 'network', 'email'], 'string', 'max' => 255],
-            [['lastname', 'name', 'photo'], 'string', 'max' => 255],
+            [['lastname', 'firstname', 'photo'], 'string', 'max' => 255],
         ];
     }
 
@@ -37,7 +37,7 @@ class UloginModel extends Model
             'identity' => 'Идентификатор сервиса',
             'email' => 'eMail',
             'lastname' => 'Фамилия',
-            'name' => 'Имя',
+            'firstname' => 'Имя',
             'photo' => 'Фото',
         ];
     }
@@ -46,7 +46,7 @@ class UloginModel extends Model
     {
         if ($authData = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=' . $_SERVER['HTTP_HOST']), true)) {
             $this->setAttributes($authData);
-            $this->name = $authData['first_name'];
+            $this->firstname = $authData['first_name'];
             $this->lastname = $authData['last_name'];
             $this->photo = $authData['photo'];
         }
@@ -70,7 +70,7 @@ class UloginModel extends Model
             'network',
             'email',
             'lastname',
-            'name',
+            'firstname',
             'photo',
             'token',
             'error_type',
@@ -99,7 +99,7 @@ class UloginModel extends Model
         $user->new_confirm = $user->new_password;
         $user->role = Access::ROLE_USER;
         $user->lastname = $this->lastname;
-        $user->name = $this->name;
+        $user->firstname = $this->firstname;
         $user->avatar = !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $this->photo) ? $this->photo : '';
 
         if (!$user->save()) {
