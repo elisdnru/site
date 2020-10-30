@@ -264,7 +264,7 @@ class User extends ActiveRecord
     public function behaviors(): array
     {
         return [
-            'CTimestamp' => [
+            'Timestamp' => [
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'create_datetime',
                 'updatedAtAttribute' => 'last_modify_datetime',

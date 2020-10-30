@@ -110,7 +110,7 @@ class Comment extends ActiveRecord
     public function behaviors(): array
     {
         return [
-            'CTimestamp' => [
+            'Timestamp' => [
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => null,
