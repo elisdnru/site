@@ -8,7 +8,7 @@ use yii\base\Model;
 
 class EditForm extends Model
 {
-    public string $id = '';
+    public int $id = 0;
     public string $username = '';
     public string $email = '';
     public string $lastname = '';
