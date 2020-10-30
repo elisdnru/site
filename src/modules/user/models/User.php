@@ -28,7 +28,7 @@ use yii\helpers\Url;
  * @property string $role
  * @property string $create_datetime
  * @property string $last_modify_datetime
- * @property string $last_visit_datetime
+ * @property string|null $last_visit_datetime
  * @property integer $active
  * @property string $avatar
  *
