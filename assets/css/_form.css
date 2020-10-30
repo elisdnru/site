@@ -38,7 +38,7 @@ div.form .row.buttons {
   margin: 5px 0;
 }
 
-div.form .row.buttons input {
+div.form .row.buttons button {
   margin: 0;
   padding: 3px 10px;
   background: #ddd;
