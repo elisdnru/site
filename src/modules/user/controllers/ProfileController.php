@@ -58,15 +58,15 @@ class ProfileController extends Controller
 
     public function actionPassword()
     {
-        $model = $this->loadModel();
+        $user = $this->loadModel();
 
-        $form = PasswordForm::fromUser($model);
+        $form = PasswordForm::fromUser($user);
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $model->password_hash = $model->hashPassword($form->password);
-            if ($model->save(false)) {
+            $user->password_hash = $user->hashPassword($form->password);
+            if ($user->save(false)) {
                 Yii::$app->session->setFlash('success', 'Пароль сохранён.');
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $user->id]);
             }
         }
 
@@ -77,18 +77,18 @@ class ProfileController extends Controller
 
     public function actionView(): string
     {
-        $model = $this->loadModel();
+        $user = $this->loadModel();
         return $this->render('view', [
-            'model' => $model,
+            'model' => $user,
         ]);
     }
 
     private function loadModel(): User
     {
-        $model = User::findOne(Yii::$app->user->id);
-        if ($model === null) {
+        $user = User::findOne(Yii::$app->user->id);
+        if ($user === null) {
             throw new ForbiddenHttpException('Войдите или зарегистрируйтесь');
         }
-        return $model;
+        return $user;
     }
 }
