@@ -2,6 +2,7 @@
 
 namespace app\modules\user\forms\admin;
 
+use app\modules\user\components\UsernameValidator;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use yii\base\Model;
@@ -36,12 +37,7 @@ class EditForm extends Model
         return [
             [['username', 'email', 'lastname', 'firstname', 'role'], 'required'],
             [['username', 'email', 'lastname', 'firstname'], 'string', 'max' => 255],
-            [
-                'username',
-                'match',
-                'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
-                'message' => 'Логин содержит запрещённые символы',
-            ],
+            ['username', UsernameValidator::class],
             [
                 'username',
                 'unique',

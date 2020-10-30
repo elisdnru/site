@@ -2,6 +2,7 @@
 
 namespace app\modules\user\forms;
 
+use app\modules\user\components\UsernameValidator;
 use app\modules\user\models\User;
 use yii\base\Model;
 
@@ -22,12 +23,7 @@ class RegistrationForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'string', 'max' => 255],
-            [
-                'username',
-                'match',
-                'pattern' => '#^[a-zA-Z0-9_\.-]+$#',
-                'message' => 'Логин содержит запрещённые символы.',
-            ],
+            ['username', UsernameValidator::class],
             ['username', 'unique', 'targetClass' => User::class],
 
             ['email', 'filter', 'filter' => 'trim'],

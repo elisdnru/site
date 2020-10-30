@@ -1944,6 +1944,13 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
+  <file src="src/modules/user/components/UsernameValidator.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>UsernameValidator</code>
+      <code>UsernameValidator</code>
+      <code>UsernameValidator</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/user/controllers/DefaultController.php">
     <MissingPropertyType occurrences="1">
       <code>$model-&gt;email</code>
@@ -2197,8 +2204,7 @@
       <code>$width</code>
       <code>$width</code>
     </MissingParamType>
-    <MissingPropertyType occurrences="2">
-      <code>$del_avatar</code>
+    <MissingPropertyType occurrences="1">
       <code>$test</code>
     </MissingPropertyType>
     <MixedArgument occurrences="1">
