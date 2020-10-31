@@ -15,7 +15,6 @@ use app\widgets\inline\SubscribeWebinars;
 use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
-use app\modules\portfolio\widgets\PortfolioWidget;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\data\Pagination;
@@ -187,7 +186,6 @@ return [
                 'widgets' => [
                     'lastPosts' => LastPostsWidget::class,
                     'block' => BlockWidget::class,
-                    'portfolio' => PortfolioWidget::class,
                     'countdown' => CountDown::class,
                     'subscribe_webinars' => SubscribeWebinars::class,
                     'subscribe_news' => SubscribeNews::class,
