@@ -4,7 +4,6 @@ namespace tests\acceptance\blog\widgets;
 
 use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
-use tests\fixtures\blog\CommentFixture;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;

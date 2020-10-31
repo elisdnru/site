@@ -5,7 +5,6 @@ namespace app\modules\user\models;
 use app\components\Gravatar;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
-use app\modules\user\components\CurrentPasswordValidator;
 use RuntimeException;
 use Yii;
 use yii\behaviors\TimestampBehavior;
