@@ -7,7 +7,6 @@ use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
 use app\components\Controller;
-use app\components\DateLimiter;
 use Yii;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
@@ -42,21 +41,9 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionDate(string $date): string
+    public function actionDate(): Response
     {
-        $limiter = new DateLimiter($date);
-
-        if (!$limiter->isValid()) {
-            throw new NotFoundHttpException();
-        }
-
-        $query = $this->getBlogQuery()
-            ->andWhere(['like', 'date', $limiter->getDate()]);
-
-        return $this->render('date', [
-            'dataProvider' => $this->createProvider($query),
-            'date' => $limiter->getDate(),
-        ]);
+        return $this->redirect(['index'], 301);
     }
 
     /**
