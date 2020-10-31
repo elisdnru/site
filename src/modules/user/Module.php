@@ -34,10 +34,11 @@ class Module extends Base implements RoutesProvider
     public static function routes(): array
     {
         return [
-            '<action:login|logout|relogin|remind>' => 'user/default/<action>',
+            '<action:login|logout|relogin>' => 'user/default/<action>',
             'registration' => 'user/registration/request',
             'registration/confirm' => 'user/registration/confirm',
             'registration/captcha<id:\d+>' => 'user/registration/captcha<id>',
+            'remind' => 'user/remind/remind',
             'profile' => 'user/profile/view',
             'profile/edit' => 'user/profile/edit',
             'profile/password' => 'user/profile/password',

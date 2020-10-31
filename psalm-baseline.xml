@@ -1978,12 +1978,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/controllers/DefaultController.php">
-    <MissingPropertyType occurrences="1">
-      <code>$model-&gt;email</code>
-    </MissingPropertyType>
-    <MissingReturnType occurrences="2">
+    <MissingReturnType occurrences="1">
       <code>actionLogin</code>
-      <code>actionRemind</code>
     </MissingReturnType>
     <MixedInferredReturnType occurrences="3">
       <code>?User</code>
@@ -1993,9 +1989,7 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="7">
-      <code>Yii</code>
-      <code>Yii</code>
+    <UndefinedClass occurrences="5">
       <code>Yii</code>
       <code>Yii</code>
       <code>Yii</code>
@@ -2038,6 +2032,21 @@
       <code>YII_ENV_TEST</code>
       <code>YII_ENV_TEST</code>
     </UndefinedConstant>
+  </file>
+  <file src="src/modules/user/controllers/RemindController.php">
+    <MissingPropertyType occurrences="1">
+      <code>$model-&gt;email</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="1">
+      <code>actionRemind</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>RemindController</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedClass occurrences="2">
+      <code>Yii</code>
+      <code>Yii</code>
+    </UndefinedClass>
   </file>
   <file src="src/modules/user/controllers/admin/UserController.php">
     <MixedAssignment occurrences="1">
@@ -2230,9 +2239,6 @@
       <code>$width</code>
       <code>$width</code>
     </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$test</code>
-    </MissingPropertyType>
     <MixedArgument occurrences="1">
       <code>$password</code>
     </MixedArgument>

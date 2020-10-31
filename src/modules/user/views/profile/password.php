@@ -31,7 +31,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <div class="row required<?= $model->hasErrors('current') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'current') ?> &nbsp;
-            (<a target="_blank" href="<?= Url::to(['/user/default/remind']) ?>">получить</a>)<br />
+            (<a target="_blank" href="<?= Url::to(['/user/remind/remind']) ?>">получить</a>)<br />
             <?= Html::activePasswordInput($model, 'current', ['size' => 40, 'maxlength' => 255]) ?><br />
             <?= Html::error($model, 'current', ['class' => 'errorMessage']) ?>
         </div>

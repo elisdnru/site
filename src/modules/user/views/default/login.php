@@ -51,7 +51,7 @@ use yii\widgets\ActiveForm; ?>
 
 <?php Portlet::begin(['title' => 'Регистрация и восстановление']); ?>
 <p style="margin:0;"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> |
-    <a href="<?= Url::to(['/user/default/remind']) ?>">Забыли пароль?</a></p>
+    <a href="<?= Url::to(['/user/remind/remind']) ?>">Забыли пароль?</a></p>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>

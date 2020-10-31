@@ -41,7 +41,7 @@ use yii\helpers\Url;
         <div class="row" style="margin-bottom: 10px"><?= Html::activeCheckBox($model, 'rememberMe') ?></div>
 
         <div class="row buttons">
-            <span style="font-size:12px; float: right"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> | <a href="<?= Url::to(['/user/default/remind']) ?>">Забыли?</a></span>
+            <span style="font-size:12px; float: right"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> | <a href="<?= Url::to(['/user/remind/remind']) ?>">Забыли?</a></span>
             <?= Html::submitButton('Войти') ?>
             <div class="clear"></div>
         </div>
