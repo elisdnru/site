@@ -17,8 +17,8 @@ class EditCest
         ]);
 
         $dir = __DIR__ . '/../../../public/upload/images/users/avatars';
+        FileHelper::createDirectory($dir, 0777);
         $target = $dir . '/160b82352f2c6025f74398703828a2ff.png';
-        FileHelper::createDirectory($dir, 777);
         copy(__DIR__ . '/../../_data/files/avatar.png', $target);
         chmod($target, 0666);
     }
