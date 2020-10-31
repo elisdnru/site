@@ -2,15 +2,17 @@
 
 namespace app\modules\user\forms;
 
+use app\components\ImageValidator;
 use app\modules\user\models\User;
 use yii\base\Model;
+use yii\web\UploadedFile;
 
 class ProfileForm extends Model
 {
     public string $lastname = '';
     public string $firstname = '';
     public string $site = '';
-    public string $avatar = '';
+    public ?UploadedFile $avatar = null;
     public string $del_avatar = '';
 
     public static function fromUser(User $user): self
@@ -28,7 +30,7 @@ class ProfileForm extends Model
             [['lastname', 'firstname'], 'required'],
             [['lastname', 'firstname'], 'string', 'max' => 255],
             ['site', 'url'],
-            ['avatar', 'image'],
+            ['avatar', ImageValidator::class],
             ['del_avatar', 'safe'],
         ];
     }

@@ -2,10 +2,12 @@
 
 namespace app\modules\user\forms\admin;
 
+use app\components\ImageValidator;
 use app\modules\user\components\UsernameValidator;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use yii\base\Model;
+use yii\web\UploadedFile;
 
 class EditForm extends Model
 {
@@ -15,7 +17,7 @@ class EditForm extends Model
     public string $lastname = '';
     public string $firstname = '';
     public string $site = '';
-    public string $avatar = '';
+    public ?UploadedFile $avatar = null;
     public string $del_avatar = '';
     public string $role = '';
 
@@ -54,7 +56,7 @@ class EditForm extends Model
                 'filter' => ['!=', 'id', $this->id],
             ],
             ['site', 'url'],
-            ['avatar', 'image'],
+            ['avatar', ImageValidator::class],
             ['del_avatar', 'safe'],
             ['role', 'in', 'range' => array_keys(Access::getRoles())],
         ];

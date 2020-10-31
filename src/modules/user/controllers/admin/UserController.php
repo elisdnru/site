@@ -34,21 +34,24 @@ class UserController extends AdminController
 
         $form = EditForm::fromUser($user);
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $user->username = $form->username;
-            $user->email = $form->email;
-            $user->firstname = $form->firstname;
-            $user->lastname = $form->lastname;
-            $user->site = $form->site;
-            $user->role = $form->role;
-            if ($avatar = UploadedFile::getInstance($form, 'avatar')) {
-                $user->avatar = $avatar;
+        if ($form->load(Yii::$app->request->post())) {
+            $form->avatar = UploadedFile::getInstance($form, 'avatar');
+            if ($form->validate()) {
+                $user->username = $form->username;
+                $user->email = $form->email;
+                $user->firstname = $form->firstname;
+                $user->lastname = $form->lastname;
+                $user->site = $form->site;
+                $user->role = $form->role;
+                if ($form->avatar) {
+                    $user->avatar = $form->avatar;
+                }
+                $user->del_avatar = (bool)$form->del_avatar;
+                if ($user->save()) {
+                    return $this->redirect(['view', 'id' => $user->id]);
+                }
+                $form->addErrors($user->getErrors());
             }
-            $user->del_avatar = (bool)$form->del_avatar;
-            if ($user->save()) {
-                return $this->redirect(['view', 'id' => $user->id]);
-            }
-            $form->addErrors($user->getErrors());
         }
         return $this->render('update', [
             'user' => $user,

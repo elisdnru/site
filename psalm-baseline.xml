@@ -34,6 +34,32 @@
       <code>$date</code>
     </MixedArgument>
   </file>
+  <file src="src/components/ImageValidator.php">
+    <PropertyNotSetInConstructor occurrences="22">
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+      <code>ImageValidator</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/components/InlineWidgetsBehavior.php">
     <InvalidNullableReturnType occurrences="1">
       <code>string</code>

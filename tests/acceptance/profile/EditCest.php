@@ -78,11 +78,13 @@ class EditCest
         $I->fillField('ProfileForm[lastname]', '');
         $I->fillField('ProfileForm[firstname]', '');
         $I->fillField('ProfileForm[site]', 'asd');
+        $I->attachFile('ProfileForm[avatar]', 'files/no-avatar.txt');
 
         $I->click('Сохранить', '#profile-form');
 
         $I->see('Необходимо заполнить «Фамилия».', '.errorMessage');
         $I->see('Необходимо заполнить «Имя».', '.errorMessage');
         $I->see('Значение «Сайт» не является правильным URL.', '.errorMessage');
+        $I->see('Файл «no-avatar.txt» не является изображением.', '.errorMessage');
     }
 }

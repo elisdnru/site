@@ -34,20 +34,23 @@ class ProfileController extends Controller
 
         $form = ProfileForm::fromUser($user);
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $user->firstname = $form->firstname;
-            $user->lastname = $form->lastname;
-            $user->site = $form->site;
-            if ($avatar = UploadedFile::getInstance($form, 'avatar')) {
-                $user->avatar = $avatar;
+        if ($form->load(Yii::$app->request->post())) {
+            $form->avatar = UploadedFile::getInstance($form, 'avatar');
+            if ($form->validate()) {
+                $user->firstname = $form->firstname;
+                $user->lastname = $form->lastname;
+                $user->site = $form->site;
+                if ($form->avatar) {
+                    $user->avatar = $form->avatar;
+                }
+                $user->del_avatar = (bool)$form->del_avatar;
+                if ($user->save()) {
+                    Yii::$app->session->setFlash('success', 'Профиль сохранён.');
+                    return $this->redirect(['view', 'id' => $user->id]);
+                }
+                $form->addErrors($user->getErrors());
+                $user->refresh();
             }
-            $user->del_avatar = (bool)$form->del_avatar;
-            if ($user->save()) {
-                Yii::$app->session->setFlash('success', 'Профиль сохранён.');
-                return $this->redirect(['view', 'id' => $user->id]);
-            }
-            $form->addErrors($user->getErrors());
-            $user->refresh();
         }
 
         return $this->render('edit', [
