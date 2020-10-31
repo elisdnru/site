@@ -2,6 +2,9 @@
 
 /** @var $posts Post */
 /** @var $current int */
+
+use app\modules\blog\models\Post;
+
 ?>
 <br />
 <h4>Материалы по теме:</h4>
