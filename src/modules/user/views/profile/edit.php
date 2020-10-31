@@ -56,7 +56,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <p style="float:right"><img src="<?= $user->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
                 <?= Html::activeLabel($model, 'avatar') ?><br />
                 <?= Html::activeTextInput($model, 'avatar', ['type' => 'file', 'size' => 30]) ?>
-                <?= Html::error($model, 'avatar') ?>
+                <?= Html::error($model, 'avatar', ['class' => 'errorMessage']) ?>
             </div>
 
             <div class="row">
