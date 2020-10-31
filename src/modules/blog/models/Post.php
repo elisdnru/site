@@ -39,8 +39,6 @@ use yii\helpers\Url;
  * @property integer $group_id
  * @property integer $public
  *
- * @property integer $commentsCount
- * @property integer $commentsNewCount
  * @property User $author
  * @property PostTag[] $postTags
  * @property Category $category

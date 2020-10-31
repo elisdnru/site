@@ -32,7 +32,7 @@ use yii\widgets\LinkPager;
                         <?php endif; ?>
                         <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                         <div class="comments">
-                            <span><?= $post->commentsCount ?></span>
+                            <span><?= $post->getCommentsCount() ?></span>
                         </div>
                     </div>
                     <?php if ($post->image) : ?>

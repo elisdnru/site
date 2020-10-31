@@ -27,7 +27,7 @@ use yii\helpers\Html;
                 <?php endif; ?>
                 <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                 <div class="comments">
-                    <span><?= $data->commentsCount ?></span>
+                    <span><?= $data->getCommentsCount() ?></span>
                 </div>
             </div>
             <?php if ($data->image) : ?>

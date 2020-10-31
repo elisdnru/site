@@ -33,9 +33,6 @@ use yii\web\UploadedFile;
  * @property string $lastname
  * @property string $firstname
  * @property string $site
- *
- * @property int $commentsCount
- * @property string $fio
  */
 class User extends ActiveRecord
 {

@@ -20,10 +20,10 @@ use yii\helpers\Url;
                         <?= SocNetwork::icon($user->network) ?>
                     </a>
                 <?php endif; ?>
-                <?= Html::encode($user->fio) ?>
+                <?= Html::encode($user->getFio()) ?>
             </strong>
         </p>
-        <p class="nomargin">Комментариев: <?= Html::encode($user->commentsCount) ?></p>
+        <p class="nomargin">Комментариев: <?= Html::encode($user->getCommentsCount()) ?></p>
         <p class="nomargin" style="font-size:12px">
             <a href="<?= Url::to(['/user/profile/view']) ?>">Профиль</a> |
             <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>

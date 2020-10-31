@@ -26,9 +26,9 @@ use yii\widgets\ActiveForm;
             </p>
             <p class="nomargin">
                 <?php if ($user->site) : ?>
-                    <a rel="nofollow" href="<?= $user->site ?>"><?= $user->fio ?></a>
+                    <a rel="nofollow" href="<?= $user->site ?>"><?= $user->getFio() ?></a>
                 <?php else : ?>
-                    <?= $user->fio ?>
+                    <?= $user->getFio() ?>
                 <?php endif; ?>
             </p>
             <div class="clear"></div>

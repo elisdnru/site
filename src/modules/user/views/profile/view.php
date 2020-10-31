@@ -38,7 +38,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <?php if ($user->network) : ?>
             <a rel="nofollow" href="<?= $user->identity ?>"><?= SocNetwork::icon($user->network) ?></a>
         <?php endif; ?>
-        <?= Html::encode($user->fio) ?>
+        <?= Html::encode($user->getFio()) ?>
     </h3>
 </div>
 

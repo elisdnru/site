@@ -38,7 +38,7 @@ use yii\web\View;
 
             <?php if ($model->user) : ?>
                 <p class="nomargin">
-                    <a href="<?= Url::to(['/user/admin/user/update', 'id' => $model->user_id]) ?>"><?= $model->user->fio ?></a>
+                    <a href="<?= Url::to(['/user/admin/user/update', 'id' => $model->user_id]) ?>"><?= $model->user->getFio() ?></a>
                 </p>
             <?php else : ?>
                 <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
