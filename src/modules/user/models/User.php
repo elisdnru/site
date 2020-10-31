@@ -45,8 +45,6 @@ class User extends ActiveRecord
 
     public bool $del_avatar = false;
 
-    public $test;
-
     public static function tableName(): string
     {
         return 'users';
@@ -71,7 +69,6 @@ class User extends ActiveRecord
             'last_visit_datetime' => 'Последнее посещение',
             'active' => 'Активен',
             'avatar' => 'Аватар',
-            'test' => 'Проверочный код',
 
             'firstname' => 'Имя',
             'lastname' => 'Фамилия',
