@@ -7,10 +7,11 @@ use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use Yii;
 use yii\web\Request;
+use yii\web\Session;
 
 class RemindController extends Controller
 {
-    public function actionRemind(Request $request)
+    public function actionRemind(Request $request, Session $session)
     {
         $model = new RemindForm();
 
@@ -23,11 +24,11 @@ class RemindController extends Controller
 
                 if ($user->save()) {
                     $user->sendRemind($password);
-                    Yii::$app->session->setFlash('success', 'Новые параметры отправлены на Email');
+                    $session->setFlash('success', 'Новые параметры отправлены на Email');
                     return $this->redirect(['default/login']);
                 }
             } else {
-                Yii::$app->session->setFlash('error', 'Пользователь не найден');
+                $session->setFlash('error', 'Пользователь не найден');
             }
         }
 

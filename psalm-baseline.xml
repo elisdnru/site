@@ -648,9 +648,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>CacheController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/admin/controllers/DefaultController.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1034,8 +1031,7 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>CommentController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>Yii::$app-&gt;session</code>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
@@ -1389,8 +1385,7 @@
       <code>$file</code>
       <code>$file</code>
     </TypeDoesNotContainType>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>Yii::$app-&gt;session</code>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
@@ -1897,11 +1892,9 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="4">
+    <UndefinedMagicPropertyFetch occurrences="2">
       <code>Yii::$app-&gt;homeUrl</code>
       <code>Yii::$app-&gt;homeUrl</code>
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/ulogin/models/UloginModel.php">
@@ -2000,9 +1993,7 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>ProfileController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="3">
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
@@ -2027,13 +2018,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>RegistrationController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="5">
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">
@@ -2048,10 +2032,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>RemindController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/admin/UserController.php">
     <MixedArgument occurrences="1">

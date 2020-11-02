@@ -10,6 +10,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\ForbiddenHttpException;
 use yii\web\Request;
+use yii\web\Session;
 use yii\web\UploadedFile;
 
 class ProfileController extends Controller
@@ -29,7 +30,7 @@ class ProfileController extends Controller
         ];
     }
 
-    public function actionEdit(Request $request)
+    public function actionEdit(Request $request, Session $session)
     {
         $user = $this->loadModel();
 
@@ -46,7 +47,7 @@ class ProfileController extends Controller
                 }
                 $user->del_avatar = (bool)$form->del_avatar;
                 if ($user->save()) {
-                    Yii::$app->session->setFlash('success', 'Профиль сохранён.');
+                    $session->setFlash('success', 'Профиль сохранён.');
                     return $this->redirect(['view', 'id' => $user->id]);
                 }
                 $form->addErrors($user->getErrors());
@@ -60,7 +61,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function actionPassword(Request $request)
+    public function actionPassword(Request $request, Session $session)
     {
         $user = $this->loadModel();
 
@@ -69,7 +70,7 @@ class ProfileController extends Controller
         if ($form->load($request->post()) && $form->validate()) {
             $user->password_hash = $user->hashPassword($form->password);
             if ($user->save(false)) {
-                Yii::$app->session->setFlash('success', 'Пароль сохранён.');
+                $session->setFlash('success', 'Пароль сохранён.');
                 return $this->redirect(['view', 'id' => $user->id]);
             }
         }

@@ -13,6 +13,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\Session;
 
 class FileController extends AdminController
 {
@@ -145,7 +146,7 @@ class FileController extends AdminController
         return $success;
     }
 
-    public function actionProcess(string $path, Request $request): ?Response
+    public function actionProcess(string $path, Request $request, Session $session): ?Response
     {
         $action = $request->post('action');
 
@@ -161,7 +162,7 @@ class FileController extends AdminController
                         case 'del':
                             if ($request->post('del_' . md5($file->getBasename()))) {
                                 if ($file->Delete()) {
-                                    Yii::$app->session->setFlash('success', 'Удалено');
+                                    $session->setFlash('success', 'Удалено');
                                 }
                             }
                             break;

@@ -7,6 +7,7 @@ use app\components\AdminController;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Response;
+use yii\web\Session;
 
 class CacheController extends AdminController
 {
@@ -25,10 +26,10 @@ class CacheController extends AdminController
         ];
     }
 
-    public function actionClear(): Response
+    public function actionClear(Session $session): Response
     {
         Yii::$app->cache->flush();
-        Yii::$app->session->setFlash('success', 'Кэш очищен');
+        $session->setFlash('success', 'Кэш очищен');
 
         return $this->redirect(['default/index']);
     }

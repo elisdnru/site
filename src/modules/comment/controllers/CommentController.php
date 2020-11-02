@@ -9,10 +9,11 @@ use Yii;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
+use yii\web\Session;
 
 class CommentController extends Controller
 {
-    public function actionUpdate(int $id, Request $request)
+    public function actionUpdate(int $id, Request $request, Session $session)
     {
         $model = $this->loadModel($id);
 
@@ -21,7 +22,7 @@ class CommentController extends Controller
         if ($form->load($request->post()) && $form->validate()) {
             $model->text = $form->text;
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Ваш коментарий сохранён');
+                $session->setFlash('success', 'Ваш коментарий сохранён');
                 return $this->redirect($model->getUrl());
             }
         }

@@ -9,6 +9,7 @@ use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
 use yii\web\Request;
+use yii\web\Session;
 
 class RegistrationController extends Controller
 {
@@ -26,7 +27,7 @@ class RegistrationController extends Controller
         ];
     }
 
-    public function actionRequest(Request $request)
+    public function actionRequest(Request $request, Session $session)
     {
         $model = new RegistrationForm();
 
@@ -44,29 +45,29 @@ class RegistrationController extends Controller
 
                 if ($user->save(false)) {
                     $user->sendCommit();
-                    Yii::$app->session->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
+                    $session->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
                     return $this->refresh();
                 }
 
-                Yii::$app->session->setFlash('error', 'Пользователь не добавлен');
+                $session->setFlash('error', 'Пользователь не добавлен');
             }
         }
         return $this->render('request', ['model' => $model]);
     }
 
-    public function actionConfirm(string $code)
+    public function actionConfirm(string $code, Session $session)
     {
         $user = User::findOne(['confirm' => $code]);
 
         if ($user) {
             $user->confirm = '';
             if ($user->save()) {
-                Yii::$app->session->setFlash('success', 'Регистрация подтверждена');
+                $session->setFlash('success', 'Регистрация подтверждена');
                 return $this->redirect(['default/login']);
             }
-            Yii::$app->session->setFlash('error', 'Ошибка');
+            $session->setFlash('error', 'Ошибка');
         } else {
-            Yii::$app->session->setFlash('error', 'Запись о подтверждении не найдена');
+            $session->setFlash('error', 'Запись о подтверждении не найдена');
         }
 
         return $this->render('confirm');
