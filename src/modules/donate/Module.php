@@ -11,8 +11,6 @@ use yii\helpers\Url;
 
 class Module extends Base implements RoutesProvider, SitemapProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public static function routes(): array
     {
         return [

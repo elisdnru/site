@@ -677,7 +677,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/admin/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -706,7 +707,8 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/block/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -756,7 +758,8 @@
     </DocblockTypeContradiction>
   </file>
   <file src="src/modules/blog/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1039,7 +1042,8 @@
     </MixedArgument>
   </file>
   <file src="src/modules/comment/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1288,7 +1292,8 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/contacts/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1298,7 +1303,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/donate/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1308,7 +1314,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/edu/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1368,7 +1375,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/file/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1418,7 +1426,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/home/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1433,7 +1442,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/image/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1454,7 +1464,8 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/landing/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1533,7 +1544,8 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/page/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1673,7 +1685,8 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/portfolio/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1840,7 +1853,8 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/products/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1850,7 +1864,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/search/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1891,7 +1906,8 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/services/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1901,7 +1917,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/sitemap/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1917,7 +1934,8 @@
     </UndefinedClass>
   </file>
   <file src="src/modules/subscribe/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1927,7 +1945,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/ulogin/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -1991,7 +2010,8 @@
     </MixedArgument>
   </file>
   <file src="src/modules/user/Module.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>

@@ -7,8 +7,6 @@ use yii\base\Module as Base;
 
 class Module extends Base implements RoutesProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public static function routes(): array
     {
         return [

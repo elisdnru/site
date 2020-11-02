@@ -9,8 +9,6 @@ use yii\base\Module as Base;
 
 class Module extends Base implements AdminDashboardItem, RoutesProvider, AdminMenuProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public function adminGroup(): string
     {
         return 'Пользователи';

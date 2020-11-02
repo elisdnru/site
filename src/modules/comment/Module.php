@@ -10,8 +10,6 @@ use yii\web\GroupUrlRule;
 
 class Module extends Base implements RoutesProvider, AdminNotificationsProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public static function adminNotifications(): array
     {
         $comments = Comment::find()->unread()->count();

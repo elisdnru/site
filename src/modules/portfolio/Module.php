@@ -17,8 +17,6 @@ use yii\web\GroupUrlRule;
 
 class Module extends Base implements AdminDashboardItem, RoutesProvider, AdminMenuProvider, SitemapProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public function adminGroup(): string
     {
         return 'Контент';

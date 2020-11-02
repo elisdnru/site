@@ -24,8 +24,6 @@ class Module extends Base implements
     AdminNotificationsProvider,
     SitemapProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public function adminGroup(): string
     {
         return 'Блог';

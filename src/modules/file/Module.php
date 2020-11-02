@@ -8,8 +8,6 @@ use yii\base\Module as Base;
 
 class Module extends Base implements AdminDashboardItem, AdminMenuProvider
 {
-    public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
     public function adminGroup(): string
     {
         return 'Загрузки';
