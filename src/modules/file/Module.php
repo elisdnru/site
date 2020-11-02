@@ -2,9 +2,10 @@
 
 namespace app\modules\file;
 
+use app\components\module\admin\AdminMenuProvider;
 use app\components\module\Module as Base;
 
-class Module extends Base
+class Module extends Base implements AdminMenuProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -23,10 +24,5 @@ class Module extends Base
         return [
             ['label' => 'Файлы', 'url' => ['/file/admin/file/index'], 'icon' => 'fileicon.jpg'],
         ];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
     }
 }

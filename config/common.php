@@ -1,11 +1,12 @@
 <?php
 
+use app\components\module\admin\AdminMenu;
 use app\components\module\ModuleAccess;
 use app\modules\edu\widgets\SeriesEpisodes;
 use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
-use app\components\module\ModuleAdmin;
+use app\components\module\admin\AdminNotifications;
 use app\components\module\routes\RoutesLoader;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
@@ -131,8 +132,12 @@ return [
             'class' => ModuleAccess::class,
         ],
 
-        'moduleAdmin' => [
-            'class' => ModuleAdmin::class,
+        'moduleAdminMenu' => [
+            'class' => AdminMenu::class,
+        ],
+
+        'moduleAdminNotifications' => [
+            'class' => AdminNotifications::class,
         ],
 
         'image' => [

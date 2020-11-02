@@ -2,6 +2,8 @@
 
 namespace app\modules\blog;
 
+use app\components\module\admin\AdminMenuProvider;
+use app\components\module\admin\AdminNotificationsProvider;
 use app\components\module\Module as Base;
 use app\components\module\routes\RoutesProvider;
 use app\components\module\sitemap\Group;
@@ -14,7 +16,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Url;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements RoutesProvider, SitemapProvider
+class Module extends Base implements RoutesProvider, AdminMenuProvider, AdminNotificationsProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -39,7 +41,7 @@ class Module extends Base implements RoutesProvider, SitemapProvider
         ];
     }
 
-    public static function notifications(): array
+    public static function adminNotifications(): array
     {
         $comments = Comment::find()->unread()->count();
 

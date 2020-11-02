@@ -361,13 +361,32 @@
       <code>Yii</code>
     </UndefinedClass>
   </file>
-  <file src="src/components/module/ModuleAdmin.php">
+  <file src="src/components/module/admin/AdminMenu.php">
     <MixedInferredReturnType occurrences="1">
-      <code>string</code>
+      <code>array</code>
     </MixedInferredReturnType>
     <UndefinedClass occurrences="1">
       <code>Yii</code>
     </UndefinedClass>
+  </file>
+  <file src="src/components/module/admin/AdminNotifications.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/module/admin/ModuleClass.php">
+    <MixedAssignment occurrences="1">
+      <code>$module</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$module['class']</code>
+    </MixedReturnStatement>
   </file>
   <file src="src/components/module/routes/RoutesLoader.php">
     <MixedArgument occurrences="3">

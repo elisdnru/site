@@ -15,16 +15,6 @@ class Module extends Base implements RoutesProvider
         return 'Подписка';
     }
 
-    public static function adminMenu(): array
-    {
-        return [];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
-    }
-
     public static function routes(): array
     {
         return [

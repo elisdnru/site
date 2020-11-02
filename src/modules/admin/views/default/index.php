@@ -20,8 +20,8 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
     $notifications = [];
     foreach ($modules as $group) {
         foreach ($group as $module) {
-            if (Yii::$app->moduleAdmin->notifications($module->id)) {
-                $notifications = array_merge($notifications, Yii::$app->moduleAdmin->notifications($module->id));
+            if (Yii::$app->moduleAdminNotifications->notifications($module->id)) {
+                $notifications = array_merge($notifications, Yii::$app->moduleAdminNotifications->notifications($module->id));
             }
         }
     }
@@ -42,7 +42,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
         <?php
         $has = false;
         foreach ($groupModules as $module) {
-            if (Yii::$app->moduleAdmin->menu($module->id)) {
+            if (Yii::$app->moduleAdminMenu->menu($module->id)) {
                 $has = true;
                 break;
             }
@@ -54,14 +54,14 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
                 <h2><?= $group ?></h2>
                 <ul class="adminlist">
                     <?php foreach ($groupModules as $module) : ?>
-                        <?php if (Yii::$app->moduleAdmin->menu($module->id)) : ?>
+                        <?php if (Yii::$app->moduleAdminMenu->menu($module->id)) : ?>
                             <li>
                                 <?php if ($module->name !== $group) : ?>
                                     <h3><?= $module->name ?></h3><?php
                                 endif; ?>
                                 <ul>
                                     <?= IconMenu::widget([
-                                        'items' => array_merge(Yii::$app->moduleAdmin->menu($module->id), Yii::$app->moduleAdmin->notifications($module->id)),
+                                        'items' => array_merge(Yii::$app->moduleAdminMenu->menu($module->id), Yii::$app->moduleAdminNotifications->notifications($module->id)),
                                         'iconsPath' => '/images/admin/'
                                     ]) ?>
                                 </ul>

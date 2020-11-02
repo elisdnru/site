@@ -2,12 +2,13 @@
 
 namespace app\modules\comment;
 
+use app\components\module\admin\AdminNotificationsProvider;
 use app\components\module\routes\RoutesProvider;
 use app\modules\comment\models\Comment;
 use app\components\module\Module as Base;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements RoutesProvider
+class Module extends Base implements RoutesProvider, AdminNotificationsProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -16,12 +17,7 @@ class Module extends Base implements RoutesProvider
         return 'Комментарии';
     }
 
-    public static function adminMenu(): array
-    {
-        return [];
-    }
-
-    public static function notifications(): array
+    public static function adminNotifications(): array
     {
         $comments = Comment::find()->unread()->count();
 

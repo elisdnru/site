@@ -12,8 +12,4 @@ abstract class Module extends Base
     }
 
     abstract public function getName(): string;
-
-    abstract public static function adminMenu(): array;
-
-    abstract public static function notifications(): array;
 }

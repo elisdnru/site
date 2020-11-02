@@ -2,6 +2,7 @@
 
 namespace app\modules\landing;
 
+use app\components\module\admin\AdminMenuProvider;
 use app\components\module\Module as Base;
 use app\components\module\routes\RoutesProvider;
 use app\components\module\sitemap\Group;
@@ -11,7 +12,7 @@ use app\components\module\sitemap\Xml;
 use app\modules\landing\models\Landing;
 use yii\caching\TagDependency;
 
-class Module extends Base implements RoutesProvider, SitemapProvider
+class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -31,11 +32,6 @@ class Module extends Base implements RoutesProvider, SitemapProvider
             ['label' => 'Лендинги', 'url' => ['/landing/admin/landing/index'], 'icon' => 'fileicon.jpg'],
             ['label' => 'Добавить лендинг', 'url' => ['/landing/admin/landing/create'], 'icon' => 'add.png'],
         ];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
     }
 
     public static function routes(): array

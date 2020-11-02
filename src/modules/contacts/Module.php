@@ -19,16 +19,6 @@ class Module extends Base implements RoutesProvider, SitemapProvider
         return 'Контакты';
     }
 
-    public static function adminMenu(): array
-    {
-        return [];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
-    }
-
     public static function routes(): array
     {
         return [

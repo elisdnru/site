@@ -2,9 +2,10 @@
 
 namespace app\modules\block;
 
+use app\components\module\admin\AdminMenuProvider;
 use app\components\module\Module as Base;
 
-class Module extends Base
+class Module extends Base implements AdminMenuProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -24,10 +25,5 @@ class Module extends Base
             ['label' => 'Блоки', 'url' => ['/block/admin/block/index'], 'icon' => 'code.png'],
             ['label' => 'Добавить блок', 'url' => ['/block/admin/block/create'], 'icon' => 'add.png'],
         ];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
     }
 }

@@ -2,10 +2,11 @@
 
 namespace app\modules\user;
 
+use app\components\module\admin\AdminMenuProvider;
 use app\components\module\Module as Base;
 use app\components\module\routes\RoutesProvider;
 
-class Module extends Base implements RoutesProvider
+class Module extends Base implements RoutesProvider, AdminMenuProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
@@ -24,11 +25,6 @@ class Module extends Base implements RoutesProvider
         return [
             ['label' => 'Пользователи', 'url' => ['/user/admin/user/index'], 'icon' => 'users.png'],
         ];
-    }
-
-    public static function notifications(): array
-    {
-        return [];
     }
 
     public static function routes(): array
