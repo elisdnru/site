@@ -7,14 +7,15 @@ use app\modules\landing\forms\LandingSearch;
 use app\modules\landing\models\Landing;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class LandingController extends AdminController
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $model = new LandingSearch();
-        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $dataProvider = $model->search($request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
@@ -22,12 +23,12 @@ class LandingController extends AdminController
         ]);
     }
 
-    public function actionCreate()
+    public function actionCreate(Request $request)
     {
         $model = new Landing();
-        $model->parent_id = Yii::$app->request->get('parent');
+        $model->parent_id = $request->get('parent');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
@@ -38,14 +39,15 @@ class LandingController extends AdminController
 
     /**
      * @param int $id
+     * @param Request $request
      * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
@@ -54,12 +56,12 @@ class LandingController extends AdminController
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;

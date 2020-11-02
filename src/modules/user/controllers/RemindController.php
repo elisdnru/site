@@ -6,14 +6,15 @@ use app\components\Controller;
 use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use Yii;
+use yii\web\Request;
 
 class RemindController extends Controller
 {
-    public function actionRemind()
+    public function actionRemind(Request $request)
     {
         $model = new RemindForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load($request->post()) && $model->validate()) {
             $user = User::findOne(['email' => $model->email]);
 
             if ($user) {

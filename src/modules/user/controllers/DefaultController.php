@@ -7,11 +7,12 @@ use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use Yii;
 use yii\helpers\Url;
+use yii\web\Request;
 use yii\web\Response;
 
 class DefaultController extends Controller
 {
-    public function actionLogin()
+    public function actionLogin(Request $request)
     {
         $user = $this->loadUser();
         if ($user) {
@@ -20,7 +21,7 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->login()) {
+        if ($model->load($request->post()) && $model->validate() && $model->login()) {
             return $this->redirect(Yii::$app->user->returnUrl);
         }
 
@@ -33,10 +34,10 @@ class DefaultController extends Controller
         return $this->redirect(['login']);
     }
 
-    public function actionLogout(): Response
+    public function actionLogout(Request $request): Response
     {
         Yii::$app->user->logout();
-        return $this->redirect(Yii::$app->request->getReferrer() ?: Yii::$app->homeUrl);
+        return $this->redirect($request->getReferrer() ?: Yii::$app->homeUrl);
     }
 
     private function loadUser(): ?User

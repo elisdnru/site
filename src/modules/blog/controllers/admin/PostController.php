@@ -7,14 +7,15 @@ use app\modules\blog\models\Post;
 use app\components\AdminController;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class PostController extends AdminController
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $model = new PostSearch();
-        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $dataProvider = $model->search($request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
@@ -22,16 +23,16 @@ class PostController extends AdminController
         ]);
     }
 
-    public function actionCreate()
+    public function actionCreate(Request $request)
     {
         $model = new Post();
         $model->public = 1;
         $model->image_show = 1;
         $model->image = '';
-        $model->category_id = Yii::$app->request->get('category');
+        $model->category_id = $request->get('category');
         $model->date = date('Y-m-d H:i:s');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -42,14 +43,15 @@ class PostController extends AdminController
 
     /**
      * @param int $id
+     * @param Request $request
      * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -58,12 +60,12 @@ class PostController extends AdminController
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;

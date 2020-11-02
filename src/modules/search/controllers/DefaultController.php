@@ -14,14 +14,15 @@ use app\components\Controller;
 use app\modules\search\forms\SearchForm;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\web\Request;
 
 class DefaultController extends Controller
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $model = new SearchForm();
 
-        if ($model->load(Yii::$app->request->queryParams) && $model->validate()) {
+        if ($model->load($request->queryParams) && $model->validate()) {
             $this->createViewTable();
 
             $query = Search::find()

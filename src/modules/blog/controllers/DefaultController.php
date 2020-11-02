@@ -12,6 +12,7 @@ use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class DefaultController extends Controller
@@ -65,13 +66,13 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionSearch(): string
+    public function actionSearch(Request $request): string
     {
         $query = $this->getBlogQuery();
 
         $form = new SearchForm();
 
-        if ($form->load(Yii::$app->request->queryParams)) {
+        if ($form->load($request->queryParams)) {
             $query->andWhere([
                 'or',
                 ['like', 'title', $form->word],

@@ -9,6 +9,7 @@ use app\components\AdminController;
 use Yii;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 /**
@@ -16,11 +17,11 @@ use yii\web\Response;
  */
 class GroupController extends AdminController
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $items = Group::find()->orderBy(['title' => SORT_ASC])->all();
 
-        if ($post = Yii::$app->request->post('Group')) {
+        if ($post = $request->post('Group')) {
             $valid = true;
 
             foreach ($items as $item) {
@@ -44,7 +45,7 @@ class GroupController extends AdminController
 
         $form = new GroupForm();
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        if ($form->load($request->post()) && $form->validate()) {
             $model = new Group();
             $model->attributes = $form->attributes;
 
@@ -56,7 +57,7 @@ class GroupController extends AdminController
         return $this->render('index', ['itemForm' => $form, 'items' => $items]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -68,7 +69,7 @@ class GroupController extends AdminController
 
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;

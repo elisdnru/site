@@ -12,6 +12,7 @@ use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class CategoryController extends AdminController
@@ -31,10 +32,10 @@ class CategoryController extends AdminController
         ]);
     }
 
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $model = new CategorySearch();
-        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $dataProvider = $model->search($request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
@@ -45,11 +46,11 @@ class CategoryController extends AdminController
     /**
      * @return Response|string
      */
-    public function actionCreate()
+    public function actionCreate(Request $request)
     {
         $model = new Category();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -60,14 +61,15 @@ class CategoryController extends AdminController
 
     /**
      * @param int $id
+     * @param Request $request
      * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -76,7 +78,7 @@ class CategoryController extends AdminController
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -87,7 +89,7 @@ class CategoryController extends AdminController
 
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;

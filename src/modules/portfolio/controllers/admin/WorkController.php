@@ -9,6 +9,7 @@ use yii\data\Pagination;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class WorkController extends AdminController
@@ -27,9 +28,9 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
-        $category = (int)Yii::$app->request->get('category');
+        $category = (int)$request->get('category');
 
         $query = Work::find();
 
@@ -55,15 +56,15 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionCreate()
+    public function actionCreate(Request $request)
     {
         $model = new Work();
         $model->public = 1;
         $model->image_show = 1;
-        $model->category_id = Yii::$app->request->get('category');
+        $model->category_id = $request->get('category');
         $model->date = date('Y-m-d H:i:s');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
@@ -72,12 +73,15 @@ class WorkController extends AdminController
     }
 
     /**
+     * @param int $id
+     * @param Request $request
      * @return Response|string
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
@@ -85,7 +89,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionToggle(int $id, $attribute): ?Response
+    public function actionToggle(int $id, $attribute, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -96,18 +100,18 @@ class WorkController extends AdminController
         $model->$attribute = $model->$attribute ? '0' : '1';
         $model->save();
 
-        if (!Yii::$app->request->getIsAjax()) {
-            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+        if (!$request->getIsAjax()) {
+            return $this->redirect($request->getReferrer() ?: ['index']);
         }
         return null;
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
@@ -120,11 +124,11 @@ class WorkController extends AdminController
         return $this->redirect($model->getUrl());
     }
 
-    public function actionSort(): ?Response
+    public function actionSort(Request $request): ?Response
     {
         $success = true;
 
-        $items = Yii::$app->request->post('item');
+        $items = $request->post('item');
 
         if ($items) {
             $sort = 0;
@@ -150,7 +154,7 @@ class WorkController extends AdminController
             }
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;

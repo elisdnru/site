@@ -8,6 +8,7 @@ use app\modules\user\models\Access;
 use app\components\Controller;
 use app\modules\user\models\User;
 use Yii;
+use yii\web\Request;
 
 class RegistrationController extends Controller
 {
@@ -25,11 +26,11 @@ class RegistrationController extends Controller
         ];
     }
 
-    public function actionRequest()
+    public function actionRequest(Request $request)
     {
         $model = new RegistrationForm();
 
-        if ($post = Yii::$app->request->post('RegistrationForm')) {
+        if ($post = $request->post('RegistrationForm')) {
             $model->attributes = $post;
 
             if ($model->validate()) {

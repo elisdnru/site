@@ -9,6 +9,7 @@ use app\modules\user\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\ForbiddenHttpException;
+use yii\web\Request;
 use yii\web\UploadedFile;
 
 class ProfileController extends Controller
@@ -28,13 +29,13 @@ class ProfileController extends Controller
         ];
     }
 
-    public function actionEdit()
+    public function actionEdit(Request $request)
     {
         $user = $this->loadModel();
 
         $form = ProfileForm::fromUser($user);
 
-        if ($form->load(Yii::$app->request->post())) {
+        if ($form->load($request->post())) {
             $form->avatar = UploadedFile::getInstance($form, 'avatar');
             if ($form->validate()) {
                 $user->firstname = $form->firstname;
@@ -59,13 +60,13 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function actionPassword()
+    public function actionPassword(Request $request)
     {
         $user = $this->loadModel();
 
         $form = PasswordForm::fromUser($user);
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        if ($form->load($request->post()) && $form->validate()) {
             $user->password_hash = $user->hashPassword($form->password);
             if ($user->save(false)) {
                 Yii::$app->session->setFlash('success', 'Пароль сохранён.');

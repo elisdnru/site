@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class AjaxController extends Controller
@@ -26,7 +27,7 @@ class AjaxController extends Controller
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -49,13 +50,13 @@ class AjaxController extends Controller
             throw new BadRequestHttpException('Ошибка удаления');
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
-            return $this->redirect(Yii::$app->request->getReferrer() ?: '/');
+        if (!$request->getIsAjax()) {
+            return $this->redirect($request->getReferrer() ?: '/');
         }
         return null;
     }
 
-    public function actionHide(int $id): ?Response
+    public function actionHide(int $id, Request $request): ?Response
     {
         if (!Yii::$app->user->id) {
             throw new ForbiddenHttpException();
@@ -73,8 +74,8 @@ class AjaxController extends Controller
             throw new BadRequestHttpException('Ошибка');
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
-            return $this->redirect(Yii::$app->request->getReferrer() ?: '/');
+        if (!$request->getIsAjax()) {
+            return $this->redirect($request->getReferrer() ?: '/');
         }
         return null;
     }

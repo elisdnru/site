@@ -8,15 +8,16 @@ use app\components\AdminController;
 use app\modules\user\models\User;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
 class UserController extends AdminController
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $model = new UserSearch();
-        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $dataProvider = $model->search($request->queryParams);
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'model' => $model,
@@ -25,16 +26,17 @@ class UserController extends AdminController
 
     /**
      * @param int $id
+     * @param Request $request
      * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $user = $this->loadModel($id);
 
         $form = EditForm::fromUser($user);
 
-        if ($form->load(Yii::$app->request->post())) {
+        if ($form->load($request->post())) {
             $form->avatar = UploadedFile::getInstance($form, 'avatar');
             if ($form->validate()) {
                 $user->username = $form->username;
@@ -59,12 +61,12 @@ class UserController extends AdminController
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;

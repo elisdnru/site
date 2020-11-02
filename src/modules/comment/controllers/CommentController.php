@@ -8,16 +8,17 @@ use app\components\Controller;
 use Yii;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 
 class CommentController extends Controller
 {
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
 
         $form = new CommentEditForm($model);
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        if ($form->load($request->post()) && $form->validate()) {
             $model->text = $form->text;
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Ваш коментарий сохранён');

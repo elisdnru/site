@@ -11,6 +11,7 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class FileController extends AdminController
@@ -69,7 +70,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionDelete(string $name): ?Response
+    public function actionDelete(string $name, Request $request): ?Response
     {
         $name = FileNameFilter::escape($name);
         $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
@@ -82,16 +83,16 @@ class FileController extends AdminController
             throw new BadRequestHttpException('Ошибка удаления');
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
     }
 
-    public function actionRename(string $path): ?Response
+    public function actionRename(string $path, Request $request): ?Response
     {
-        $name = FileNameFilter::escape(Yii::$app->request->post('name'));
-        $to = FileNameFilter::escape(Yii::$app->request->post('to'));
+        $name = FileNameFilter::escape($request->post('name'));
+        $to = FileNameFilter::escape($request->post('to'));
 
         if (!$name || !$to) {
             throw new BadRequestHttpException('Некорректный запрос');
@@ -109,7 +110,7 @@ class FileController extends AdminController
             throw new BadRequestHttpException('Ошибка переименования');
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index', 'path' => $path]);
         }
         return null;
@@ -144,9 +145,9 @@ class FileController extends AdminController
         return $success;
     }
 
-    public function actionProcess(string $path): ?Response
+    public function actionProcess(string $path, Request $request): ?Response
     {
-        $action = Yii::$app->request->post('action');
+        $action = $request->post('action');
 
         if ($action) {
             $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
@@ -158,7 +159,7 @@ class FileController extends AdminController
                 if ($file->getBasename() !== '.htaccess') {
                     switch ($action) {
                         case 'del':
-                            if (Yii::$app->request->post('del_' . md5($file->getBasename()))) {
+                            if ($request->post('del_' . md5($file->getBasename()))) {
                                 if ($file->Delete()) {
                                     Yii::$app->session->setFlash('success', 'Удалено');
                                 }
@@ -169,7 +170,7 @@ class FileController extends AdminController
             }
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index', 'path' => $path]);
         }
         return null;

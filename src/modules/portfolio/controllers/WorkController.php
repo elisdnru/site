@@ -7,14 +7,15 @@ use app\modules\portfolio\models\Work;
 use Yii;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 
 class WorkController extends PortfolioBaseController
 {
-    public function actionShow(int $id, $alias = null)
+    public function actionShow(int $id, ?string $alias = null, Request $request)
     {
         $model = $this->loadModel($id);
 
-        if ('/' . Yii::$app->request->getPathInfo() !== $model->getUrl()) {
+        if ('/' . $request->getPathInfo() !== $model->getUrl()) {
             return $this->redirect(Url::current(['alias' => $model->alias, 'category' => $model->category->getPath()]), 301);
         }
 

@@ -668,8 +668,8 @@
   </file>
   <file src="src/modules/block/controllers/admin/BlockController.php">
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>BlockController</code>
@@ -718,13 +718,6 @@
     <MixedOperand occurrences="1">
       <code>$_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
-      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
-    </PossiblyNullOperand>
     <PropertyNotSetInConstructor occurrences="1">
       <code>FeedController</code>
     </PropertyNotSetInConstructor>
@@ -751,8 +744,8 @@
   </file>
   <file src="src/modules/blog/controllers/admin/CategoryController.php">
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CategoryController</code>
@@ -771,7 +764,7 @@
   </file>
   <file src="src/modules/blog/controllers/admin/GroupController.php">
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$post[$item-&gt;id]</code>
@@ -804,8 +797,8 @@
       <code>actionCreate</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>PostController</code>
@@ -813,8 +806,8 @@
   </file>
   <file src="src/modules/blog/controllers/admin/TagController.php">
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>TagController</code>
@@ -1030,7 +1023,7 @@
       <code>actionUpdate</code>
     </MissingReturnType>
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <MoreSpecificReturnType occurrences="1">
       <code>Comment</code>
@@ -1360,8 +1353,8 @@
       <code>$field</code>
       <code>$foldername</code>
       <code>$item</code>
-      <code>Yii::$app-&gt;request-&gt;post('name')</code>
-      <code>Yii::$app-&gt;request-&gt;post('to')</code>
+      <code>$request-&gt;post('name')</code>
+      <code>$request-&gt;post('to')</code>
     </MixedArgument>
     <MixedAssignment occurrences="3">
       <code>$action</code>
@@ -1374,8 +1367,8 @@
       <code>$foldername</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post('name')</code>
-      <code>Yii::$app-&gt;request-&gt;post('to')</code>
+      <code>$request-&gt;post('name')</code>
+      <code>$request-&gt;post('to')</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="3">
       <code>$file-&gt;getBasename()</code>
@@ -1473,8 +1466,8 @@
       <code>actionCreate</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>LandingController</code>
@@ -1546,8 +1539,8 @@
       <code>actionCreate</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>PageController</code>
@@ -1676,9 +1669,6 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$model</code>
     </LessSpecificReturnStatement>
-    <MissingParamType occurrences="1">
-      <code>$alias</code>
-    </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>actionShow</code>
     </MissingReturnType>
@@ -1691,8 +1681,8 @@
   </file>
   <file src="src/modules/portfolio/controllers/admin/CategoryController.php">
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CategoryController</code>
@@ -1708,8 +1698,8 @@
     <MixedArgument occurrences="4">
       <code>$id</code>
       <code>$id</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <MixedAssignment occurrences="3">
       <code>$id</code>
@@ -1899,7 +1889,7 @@
   </file>
   <file src="src/modules/ulogin/controllers/DefaultController.php">
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;get('return', Yii::$app-&gt;homeUrl)</code>
+      <code>$request-&gt;get('return', Yii::$app-&gt;homeUrl)</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$token</code>
@@ -1985,7 +1975,7 @@
       <code>actionLogin</code>
     </MissingReturnType>
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
@@ -2004,8 +1994,8 @@
       <code>actionPassword</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>ProfileController</code>
@@ -2037,10 +2027,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>RegistrationController</code>
     </PropertyNotSetInConstructor>
-    <TypeDoesNotContainType occurrences="2">
-      <code>YII_ENV_TEST</code>
-      <code>YII_ENV_TEST</code>
-    </TypeDoesNotContainType>
     <UndefinedMagicPropertyFetch occurrences="5">
       <code>Yii::$app-&gt;session</code>
       <code>Yii::$app-&gt;session</code>
@@ -2057,7 +2043,7 @@
       <code>actionRemind</code>
     </MissingReturnType>
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>RemindController</code>
@@ -2069,7 +2055,7 @@
   </file>
   <file src="src/modules/user/controllers/admin/UserController.php">
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>UserController</code>

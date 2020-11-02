@@ -7,12 +7,13 @@ use app\components\Controller;
 use DateTimeImmutable;
 use Yii;
 use yii\helpers\Html;
+use yii\web\Request;
 use yii\web\Response;
 use Laminas\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         /** @var Post[] $posts */
         $posts = Post::find()->published()->orderBy(['date' => SORT_DESC])->limit(100)->all();
@@ -22,17 +23,19 @@ class FeedController extends Controller
         $feed->setTitle('Дмитрий Елисеев');
         $feed->setDescription('ElisDN');
 
+        $host = (string)$request->hostInfo;
+
         $feed->setLanguage('ru');
         $feed->setDateModified(new DateTimeImmutable());
-        $feed->setLink(Yii::$app->request->hostInfo);
+        $feed->setLink($host);
         $feed->setCopyright('Copyright ' . date('Y') . ' ' . ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']));
         $feed->setGenerator('ElisDN');
 
         foreach ($posts as $model) {
             $item = $feed->createEntry();
 
-            $link = Yii::$app->request->hostInfo . $model->getUrl();
-            $image = Yii::$app->request->hostInfo . $model->getImageThumbUrl();
+            $link = $host . $model->getUrl();
+            $image = $host . $model->getImageThumbUrl();
 
             $item->setTitle($model->title);
 

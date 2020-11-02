@@ -7,14 +7,15 @@ use app\modules\page\forms\PageSearch;
 use app\modules\page\models\Page;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 class PageController extends AdminController
 {
-    public function actionIndex(): string
+    public function actionIndex(Request $request): string
     {
         $model = new PageSearch();
-        $dataProvider = $model->search(Yii::$app->request->queryParams);
+        $dataProvider = $model->search($request->queryParams);
 
         return $this->render('index', [
             'model' => $model,
@@ -22,13 +23,13 @@ class PageController extends AdminController
         ]);
     }
 
-    public function actionCreate()
+    public function actionCreate(Request $request)
     {
         $model = new Page();
         $model->date = date('Y-m-d');
-        $model->parent_id = Yii::$app->request->get('parent', 0);
+        $model->parent_id = $request->get('parent', 0);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -39,14 +40,15 @@ class PageController extends AdminController
 
     /**
      * @param int $id
+     * @param Request $request
      * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -55,12 +57,12 @@ class PageController extends AdminController
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
         $model->delete();
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
