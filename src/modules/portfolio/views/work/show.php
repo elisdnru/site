@@ -20,7 +20,7 @@ $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model-
 $this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAccess->isGranted('portfolio')) {
+    if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/portfolio/admin/work/update', 'id' => $model->id]];
         $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['/portfolio/admin/category/update', 'id' => $model->category_id]];
         $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];

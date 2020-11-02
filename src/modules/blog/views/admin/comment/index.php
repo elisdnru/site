@@ -11,7 +11,7 @@ use yii\web\View;
 
 $this->title = 'Комментарии к записям';
 
-if (Yii::$app->moduleAccess->isGranted('blog')) {
+if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
     $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
 }
 if ($material) {

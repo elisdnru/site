@@ -2,7 +2,7 @@
 
 use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
-use app\components\module\ModuleAccess;
+use app\components\module\admin\AdminAccess;
 use app\modules\edu\widgets\SeriesEpisodes;
 use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
@@ -129,8 +129,8 @@ return [
             'assignmentFile' => __DIR__ . '/rbac/assignments.php',
         ],
 
-        'moduleAccess' => [
-            'class' => ModuleAccess::class,
+        'moduleAdminAccess' => [
+            'class' => AdminAccess::class,
         ],
 
         'moduleAdminDashboard' => [

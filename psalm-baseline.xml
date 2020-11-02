@@ -353,7 +353,7 @@
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/module/ModuleAccess.php">
+  <file src="src/components/module/admin/AdminAccess.php">
     <MixedInferredReturnType occurrences="1">
       <code>bool</code>
     </MixedInferredReturnType>

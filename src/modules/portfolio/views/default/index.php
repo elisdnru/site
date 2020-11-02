@@ -21,7 +21,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAccess->isGranted('portfolio')) {
+    if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
         $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create']];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];

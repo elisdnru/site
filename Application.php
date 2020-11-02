@@ -7,7 +7,7 @@ namespace yii\base;
 use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
-use app\components\module\ModuleAccess;
+use app\components\module\admin\AdminAccess;
 use app\components\uploader\Uploader;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
@@ -15,7 +15,7 @@ use app\extensions\image\ImageHandler;
 /**
  * Autocomplete helper
  *
- * @property ModuleAccess $moduleAccess
+ * @property \app\components\module\admin\AdminAccess $moduleAdminAccess
  * @property AdminDashboard $moduleAdminDashboard
  * @property AdminMenu $moduleAdminMenu
  * @property AdminNotifications $moduleAdminNotifications

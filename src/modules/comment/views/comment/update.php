@@ -10,7 +10,7 @@ $this->params['breadcrumbs'] = [
     'Редактор комментария',
 ];
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAccess->isGranted('comment')) {
+    if (Yii::$app->moduleAdminAccess->isGranted('comment')) {
         $this->params['admin'][] = ['label' => 'Комментарии', 'url' => ['index']];
         $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->getUrl()];
     }

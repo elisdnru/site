@@ -1,10 +1,10 @@
 <?php
 
-namespace app\components\module;
+namespace app\components\module\admin;
 
 use Yii;
 
-class ModuleAccess
+class AdminAccess
 {
     public function isGranted(string $module): bool
     {

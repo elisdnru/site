@@ -18,7 +18,7 @@ $this->registerMetaTag([
 ]);
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAccess->isGranted('comment')) {
+    if (Yii::$app->moduleAdminAccess->isGranted('comment')) {
         $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleAdminNotifications->notifications('comment'));
     }
 }
