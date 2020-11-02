@@ -359,12 +359,6 @@
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>isGranted</code>
-    </MixedMethodCall>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;moduleAdminAccess</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/components/module/admin/ModuleClass.php">
     <MixedAssignment occurrences="1">
@@ -456,56 +450,32 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/components/uploader/FileUploadBehavior.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="8">
       <code>$fileUrl</code>
       <code>$model-&gt;{$this-&gt;fileAttribute}</code>
+      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
       <code>$uploadedFile</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
-      <code>$file</code>
-      <code>$file</code>
-      <code>$fileName</code>
+    <MixedAssignment occurrences="2">
       <code>$fileUrl</code>
-      <code>$image</code>
-      <code>$thumbName</code>
       <code>$uploadedFile</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>?File</code>
-      <code>?File</code>
+    <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="13">
-      <code>checkThumbExists</code>
-      <code>createThumb</code>
-      <code>createThumbFileName</code>
-      <code>delete</code>
-      <code>getHeight</code>
-      <code>getRealPath</code>
-      <code>getThumbUrl</code>
-      <code>getUrl</code>
-      <code>getWidth</code>
-      <code>load</code>
-      <code>set</code>
-      <code>upload</code>
-      <code>uploadByUrl</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="4">
-      <code>$fileName</code>
-      <code>$thumbName</code>
-      <code>$thumbName</code>
-      <code>Yii::$app-&gt;uploader-&gt;getUrl($this-&gt;filePath, $this-&gt;owner-&gt;{$this-&gt;storageAttribute})</code>
-    </MixedOperand>
-    <MixedReturnStatement occurrences="3">
+    <MixedReturnStatement occurrences="1">
       <code>$this-&gt;cachedImageThumbUrl[$index]</code>
-      <code>Yii::$app-&gt;uploader-&gt;upload($uploadedFile, $this-&gt;filePath)</code>
-      <code>Yii::$app-&gt;uploader-&gt;uploadByUrl($fileUrl, $this-&gt;filePath, 'jpg')</code>
     </MixedReturnStatement>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$owner</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidMethodCall occurrences="1">
+    <PossiblyInvalidMethodCall occurrences="2">
       <code>append</code>
+      <code>getRealPath</code>
     </PossiblyInvalidMethodCall>
     <PossiblyNullArgument occurrences="2">
       <code>$this-&gt;storageAttribute</code>
@@ -520,16 +490,6 @@
       <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
       <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
     </PossiblyNullPropertyFetch>
-    <UndefinedMagicPropertyFetch occurrences="8">
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;image</code>
-      <code>Yii::$app-&gt;uploader</code>
-      <code>Yii::$app-&gt;uploader</code>
-      <code>Yii::$app-&gt;uploader</code>
-      <code>Yii::$app-&gt;uploader</code>
-      <code>Yii::$app-&gt;uploader</code>
-      <code>Yii::$app-&gt;uploader</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/components/uploader/Uploader.php">
     <MissingDocblockType occurrences="1"/>
@@ -547,53 +507,13 @@
       <code>$rule[0]</code>
       <code>$rule[1]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="2">
       <code>$currentFile</code>
-      <code>$dir</code>
-      <code>$file</code>
-      <code>$fileName</code>
-      <code>$orig</code>
       <code>$rule</code>
-      <code>$thumb</code>
-      <code>$thumb</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>?File</code>
-      <code>?File</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="16">
-      <code>adaptiveThumb</code>
-      <code>createDir</code>
-      <code>getContents</code>
-      <code>getContents</code>
-      <code>getExtension</code>
-      <code>getExtension</code>
-      <code>getFilename</code>
-      <code>load</code>
-      <code>save</code>
-      <code>save</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>thumb</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="2">
+    <PossiblyNullOperand occurrences="1">
       <code>$file-&gt;getExtension()</code>
-      <code>$fileName</code>
-    </MixedOperand>
-    <MixedReturnStatement occurrences="2">
-      <code>Yii::$app-&gt;file-&gt;set($main)</code>
-      <code>Yii::$app-&gt;file-&gt;set($orig)</code>
-    </MixedReturnStatement>
-    <UndefinedMagicPropertyFetch occurrences="5">
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;image</code>
-    </UndefinedMagicPropertyFetch>
+    </PossiblyNullOperand>
   </file>
   <file src="src/migrations/m130329_081136_create_session.php">
     <InvalidReturnType occurrences="2">
@@ -733,17 +653,10 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/admin/controllers/DefaultController.php">
-    <MixedAssignment occurrences="1">
-      <code>$modules</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>groupedModules</code>
-    </MixedMethodCall>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>Yii::$app-&gt;moduleAdminDashboard</code>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
@@ -829,18 +742,12 @@
     <MissingReturnType occurrences="1">
       <code>actionShow</code>
     </MissingReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>isGranted</code>
-    </MixedMethodCall>
     <MoreSpecificReturnType occurrences="1">
       <code>Post</code>
     </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>PostController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;moduleAdminAccess</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/controllers/admin/CategoryController.php">
     <MixedArgument occurrences="2">
@@ -1098,19 +1005,13 @@
     </PossiblyFalsePropertyAssignmentValue>
   </file>
   <file src="src/modules/comment/controllers/AjaxController.php">
-    <MixedMethodCall occurrences="2">
-      <code>isGranted</code>
-      <code>isGranted</code>
-    </MixedMethodCall>
     <PossiblyFalsePropertyAssignmentValue occurrences="1">
       <code>false</code>
     </PossiblyFalsePropertyAssignmentValue>
     <PropertyNotSetInConstructor occurrences="1">
       <code>AjaxController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="4">
-      <code>Yii::$app-&gt;moduleAdminAccess</code>
-      <code>Yii::$app-&gt;moduleAdminAccess</code>
+    <UndefinedMagicPropertyFetch occurrences="2">
       <code>Yii::$app-&gt;user</code>
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1131,9 +1032,6 @@
     <MixedArgument occurrences="1">
       <code>Yii::$app-&gt;request-&gt;post()</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>isGranted</code>
-    </MixedMethodCall>
     <MoreSpecificReturnType occurrences="1">
       <code>Comment</code>
     </MoreSpecificReturnType>
@@ -1143,8 +1041,7 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>CommentController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="3">
-      <code>Yii::$app-&gt;moduleAdminAccess</code>
+    <UndefinedMagicPropertyFetch occurrences="2">
       <code>Yii::$app-&gt;session</code>
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1459,73 +1356,47 @@
     <MissingReturnType occurrences="1">
       <code>actionIndex</code>
     </MissingReturnType>
-    <MixedArgument occurrences="6">
-      <code>$file-&gt;getBasename()</code>
+    <MixedArgument occurrences="5">
+      <code>$field</code>
       <code>$foldername</code>
-      <code>$uploaded-&gt;getFilename()</code>
-      <code>$uploaded-&gt;getFilename()</code>
+      <code>$item</code>
       <code>Yii::$app-&gt;request-&gt;post('name')</code>
       <code>Yii::$app-&gt;request-&gt;post('to')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="3">
       <code>$action</code>
-      <code>$dir</code>
-      <code>$file</code>
-      <code>$file</code>
-      <code>$file</code>
       <code>$foldername</code>
       <code>$item</code>
-      <code>$orig</code>
-      <code>$uploaded</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="24">
-      <code>CreateDir</code>
-      <code>Delete</code>
-      <code>Move</code>
-      <code>createDir</code>
-      <code>delete</code>
-      <code>getBasename</code>
-      <code>getBasename</code>
-      <code>getBasename</code>
-      <code>getContents</code>
-      <code>getExtension</code>
-      <code>getExtension</code>
-      <code>getExtension</code>
-      <code>getFilename</code>
-      <code>getFilename</code>
-      <code>getWidth</code>
-      <code>load</code>
-      <code>rename</code>
-      <code>save</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>set</code>
-      <code>thumb</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="5">
+    <MixedOperand occurrences="3">
       <code>$curpath</code>
       <code>$curpath</code>
       <code>$foldername</code>
-      <code>$uploaded-&gt;getExtension()</code>
-      <code>$uploaded-&gt;getExtension()</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="2">
       <code>Yii::$app-&gt;request-&gt;post('name')</code>
       <code>Yii::$app-&gt;request-&gt;post('to')</code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="3">
+      <code>$file-&gt;getBasename()</code>
+      <code>$uploaded-&gt;getFilename()</code>
+      <code>$uploaded-&gt;getFilename()</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="2">
+      <code>$uploaded-&gt;getExtension()</code>
+      <code>$uploaded-&gt;getExtension()</code>
+    </PossiblyNullOperand>
     <PropertyNotSetInConstructor occurrences="1">
       <code>FileController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="9">
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;file</code>
-      <code>Yii::$app-&gt;image</code>
+    <RedundantCondition occurrences="1">
+      <code>$uploaded</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType occurrences="2">
+      <code>$file</code>
+      <code>$file</code>
+    </TypeDoesNotContainType>
+    <UndefinedMagicPropertyFetch occurrences="2">
       <code>Yii::$app-&gt;session</code>
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1571,15 +1442,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/image/controllers/DownloadController.php">
-    <MixedMethodCall occurrences="1">
-      <code>checkThumbExists</code>
-    </MixedMethodCall>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DownloadController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;uploader</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/landing/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1817,18 +1682,12 @@
     <MissingReturnType occurrences="1">
       <code>actionShow</code>
     </MissingReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>isGranted</code>
-    </MixedMethodCall>
     <MoreSpecificReturnType occurrences="1">
       <code>Work</code>
     </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>WorkController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;moduleAdminAccess</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/controllers/admin/CategoryController.php">
     <MixedArgument occurrences="2">
@@ -2178,6 +2037,10 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>RegistrationController</code>
     </PropertyNotSetInConstructor>
+    <TypeDoesNotContainType occurrences="2">
+      <code>YII_ENV_TEST</code>
+      <code>YII_ENV_TEST</code>
+    </TypeDoesNotContainType>
     <UndefinedMagicPropertyFetch occurrences="5">
       <code>Yii::$app-&gt;session</code>
       <code>Yii::$app-&gt;session</code>
@@ -2376,23 +2239,18 @@
       <code>$width</code>
       <code>$width</code>
     </MissingParamType>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="4">
+      <code>$height</code>
       <code>$password</code>
       <code>$width</code>
+      <code>$width</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>getThumbUrl</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>$password</code>
-      <code>Yii::$app-&gt;uploader-&gt;getThumbUrl(self::IMAGE_PATH, $this-&gt;avatar, $width, $height)</code>
     </MixedOperand>
     <PossiblyNullOperand occurrences="1">
       <code>Yii::$app-&gt;request-&gt;hostInfo</code>
     </PossiblyNullOperand>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;uploader</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/widgets/LoginFormWidget.php">
     <UndefinedMagicPropertyFetch occurrences="1">

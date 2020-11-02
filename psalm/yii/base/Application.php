@@ -13,8 +13,6 @@ use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 
 /**
- * Autocomplete helper
- *
  * @property AdminAccess $moduleAdminAccess
  * @property AdminDashboard $moduleAdminDashboard
  * @property AdminMenu $moduleAdminMenu
@@ -23,7 +21,7 @@ use app\extensions\image\ImageHandler;
  * @property File $file
  * @property Uploader $uploader
  */
-abstract class Application
+class Application extends Module
 {
 
 }
