@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.1.1@16bfbd9224698bd738c665f33039fade2a1a3977">
-  <file src="src/components/AdminController.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -67,12 +59,17 @@
     <MixedArgument occurrences="1">
       <code>$class</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="3">
+      <code>$cachedHtml</code>
       <code>$class</code>
+      <code>$html</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$html</code>
+    </MixedReturnStatement>
     <NullableReturnStatement occurrences="1">
       <code>$text</code>
     </NullableReturnStatement>
@@ -95,9 +92,6 @@
       <code>$this-&gt;widgetToken</code>
       <code>$this-&gt;widgetToken</code>
     </PossiblyNullOperand>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/components/category/TreeActiveDataProvider.php">
     <DocblockTypeContradiction occurrences="1">
@@ -354,36 +348,23 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/components/module/admin/AdminAccess.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/components/module/admin/AdminDashboard.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/components/module/admin/AdminMenu.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/components/module/admin/AdminNotifications.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>isGranted</code>
+    </MixedMethodCall>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;moduleAdminAccess</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/components/module/admin/ModuleClass.php">
     <MixedAssignment occurrences="1">
@@ -408,16 +389,6 @@
     <MixedAssignment occurrences="1">
       <code>$definition</code>
     </MixedAssignment>
-  </file>
-  <file src="src/components/module/sitemap/Provider.php">
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/components/psr/Provider.php">
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/components/psr/SimpleCache.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -490,16 +461,46 @@
       <code>$model-&gt;{$this-&gt;fileAttribute}</code>
       <code>$uploadedFile</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="7">
+      <code>$file</code>
+      <code>$file</code>
+      <code>$fileName</code>
       <code>$fileUrl</code>
+      <code>$image</code>
+      <code>$thumbName</code>
       <code>$uploadedFile</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="4">
+    <MixedInferredReturnType occurrences="3">
       <code>?File</code>
       <code>?File</code>
-      <code>string</code>
       <code>string</code>
     </MixedInferredReturnType>
+    <MixedMethodCall occurrences="13">
+      <code>checkThumbExists</code>
+      <code>createThumb</code>
+      <code>createThumbFileName</code>
+      <code>delete</code>
+      <code>getHeight</code>
+      <code>getRealPath</code>
+      <code>getThumbUrl</code>
+      <code>getUrl</code>
+      <code>getWidth</code>
+      <code>load</code>
+      <code>set</code>
+      <code>upload</code>
+      <code>uploadByUrl</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="4">
+      <code>$fileName</code>
+      <code>$thumbName</code>
+      <code>$thumbName</code>
+      <code>Yii::$app-&gt;uploader-&gt;getUrl($this-&gt;filePath, $this-&gt;owner-&gt;{$this-&gt;storageAttribute})</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="3">
+      <code>$this-&gt;cachedImageThumbUrl[$index]</code>
+      <code>Yii::$app-&gt;uploader-&gt;upload($uploadedFile, $this-&gt;filePath)</code>
+      <code>Yii::$app-&gt;uploader-&gt;uploadByUrl($fileUrl, $this-&gt;filePath, 'jpg')</code>
+    </MixedReturnStatement>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$owner</code>
     </MoreSpecificImplementedParamType>
@@ -510,22 +511,31 @@
       <code>$this-&gt;storageAttribute</code>
       <code>$this-&gt;storageAttribute</code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="2">
+    <PossiblyNullPropertyFetch occurrences="7">
       <code>$model-&gt;{$this-&gt;storageAttribute}</code>
       <code>$model-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
     </PossiblyNullPropertyFetch>
-    <UndefinedClass occurrences="6">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="8">
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;image</code>
+      <code>Yii::$app-&gt;uploader</code>
+      <code>Yii::$app-&gt;uploader</code>
+      <code>Yii::$app-&gt;uploader</code>
+      <code>Yii::$app-&gt;uploader</code>
+      <code>Yii::$app-&gt;uploader</code>
+      <code>Yii::$app-&gt;uploader</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/components/uploader/Uploader.php">
     <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="8">
+      <code>$currentFile</code>
+      <code>$currentFile</code>
       <code>$requested-&gt;baseName</code>
       <code>$requested-&gt;height</code>
       <code>$requested-&gt;path</code>
@@ -537,21 +547,53 @@
       <code>$rule[0]</code>
       <code>$rule[1]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="8">
+      <code>$currentFile</code>
+      <code>$dir</code>
+      <code>$file</code>
+      <code>$fileName</code>
+      <code>$orig</code>
       <code>$rule</code>
+      <code>$thumb</code>
+      <code>$thumb</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="4">
+    <MixedInferredReturnType occurrences="2">
       <code>?File</code>
       <code>?File</code>
-      <code>bool</code>
-      <code>bool</code>
     </MixedInferredReturnType>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <MixedMethodCall occurrences="16">
+      <code>adaptiveThumb</code>
+      <code>createDir</code>
+      <code>getContents</code>
+      <code>getContents</code>
+      <code>getExtension</code>
+      <code>getExtension</code>
+      <code>getFilename</code>
+      <code>load</code>
+      <code>save</code>
+      <code>save</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>thumb</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="2">
+      <code>$file-&gt;getExtension()</code>
+      <code>$fileName</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="2">
+      <code>Yii::$app-&gt;file-&gt;set($main)</code>
+      <code>Yii::$app-&gt;file-&gt;set($orig)</code>
+    </MixedReturnStatement>
+    <UndefinedMagicPropertyFetch occurrences="5">
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;image</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/migrations/m130329_081136_create_session.php">
     <InvalidReturnType occurrences="2">
@@ -683,28 +725,27 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/admin/controllers/CacheController.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>Response</code>
-    </MixedInferredReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CacheController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/admin/controllers/DefaultController.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>?User</code>
-      <code>string</code>
-    </MixedInferredReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$modules</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>groupedModules</code>
+    </MixedMethodCall>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="2">
+      <code>Yii::$app-&gt;moduleAdminDashboard</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/block/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -713,21 +754,13 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/block/controllers/admin/BlockController.php">
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>BlockController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/block/forms/BlockSearch.php">
     <MissingParamType occurrences="1">
@@ -767,55 +800,56 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/blog/controllers/FeedController.php">
     <MixedOperand occurrences="1">
       <code>$_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']</code>
     </MixedOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
+      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
+    </PossiblyNullOperand>
     <PropertyNotSetInConstructor occurrences="1">
       <code>FeedController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$model-&gt;category</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/blog/controllers/PostController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$model === null</code>
+    </DocblockTypeContradiction>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$model</code>
+    </LessSpecificReturnStatement>
     <MissingReturnType occurrences="1">
       <code>actionShow</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="1">
+    <MixedMethodCall occurrences="1">
+      <code>isGranted</code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType occurrences="1">
       <code>Post</code>
-    </MixedInferredReturnType>
+    </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>PostController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;moduleAdminAccess</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/controllers/admin/CategoryController.php">
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CategoryController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/blog/controllers/admin/CommentController.php">
     <MismatchingDocblockReturnType occurrences="1">
@@ -829,54 +863,55 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/controllers/admin/GroupController.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>?Response</code>
-      <code>string</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$post[$item-&gt;id]</code>
+      <code>$post[$item-&gt;id]</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="4">
+      <code>$post[$item-&gt;id]</code>
+      <code>$post[$item-&gt;id]</code>
+      <code>$post[$item-&gt;id]</code>
+      <code>$post[$item-&gt;id]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="1">
+      <code>$post</code>
+    </MixedAssignment>
+    <NoInterfaceProperties occurrences="4">
+      <code>$item-&gt;attributes</code>
+      <code>$item-&gt;attributes</code>
+      <code>$item-&gt;id</code>
+      <code>$item-&gt;id</code>
+    </NoInterfaceProperties>
     <PropertyNotSetInConstructor occurrences="1">
       <code>GroupController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedInterfaceMethod occurrences="1">
+      <code>validate</code>
+    </UndefinedInterfaceMethod>
   </file>
   <file src="src/modules/blog/controllers/admin/PostController.php">
     <MissingReturnType occurrences="1">
       <code>actionCreate</code>
     </MissingReturnType>
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>PostController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/blog/controllers/admin/TagController.php">
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>TagController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/blog/forms/CategorySearch.php">
     <MissingParamType occurrences="1">
@@ -968,20 +1003,9 @@
     <MissingPropertyType occurrences="1">
       <code>$del_image</code>
     </MissingPropertyType>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/modules/blog/models/Tag.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -1020,11 +1044,6 @@
     <MixedArgument occurrences="1">
       <code>$this-&gt;limit</code>
     </MixedArgument>
-  </file>
-  <file src="src/modules/blog/widgets/SearchFormWidget.php">
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/blog/widgets/ThemePostsWidget.php">
     <MissingPropertyType occurrences="2">
@@ -1065,11 +1084,10 @@
     <MissingParamType occurrences="1">
       <code>$attribute</code>
     </MissingParamType>
-    <MixedInferredReturnType occurrences="5">
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>?Response</code>
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
       <code>string|Comment</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="1">
@@ -1078,51 +1096,58 @@
     <PossiblyFalsePropertyAssignmentValue occurrences="1">
       <code>false</code>
     </PossiblyFalsePropertyAssignmentValue>
-    <UndefinedClass occurrences="5">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/comment/controllers/AjaxController.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>?Response</code>
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="2">
+      <code>isGranted</code>
+      <code>isGranted</code>
+    </MixedMethodCall>
+    <PossiblyFalsePropertyAssignmentValue occurrences="1">
+      <code>false</code>
+    </PossiblyFalsePropertyAssignmentValue>
     <PropertyNotSetInConstructor occurrences="1">
       <code>AjaxController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="4">
+      <code>Yii::$app-&gt;moduleAdminAccess</code>
+      <code>Yii::$app-&gt;moduleAdminAccess</code>
+      <code>Yii::$app-&gt;user</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/controllers/CommentController.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$model === null</code>
     </DocblockTypeContradiction>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$model</code>
+    </LessSpecificReturnStatement>
     <MissingPropertyType occurrences="1">
       <code>$form-&gt;text</code>
     </MissingPropertyType>
     <MissingReturnType occurrences="1">
       <code>actionUpdate</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="1">
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="1">
+      <code>isGranted</code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType occurrences="1">
       <code>Comment</code>
-    </MixedInferredReturnType>
+    </MoreSpecificReturnType>
     <NoInterfaceProperties occurrences="1">
       <code>$model-&gt;user_id</code>
     </NoInterfaceProperties>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CommentController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="3">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="3">
+      <code>Yii::$app-&gt;moduleAdminAccess</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/controllers/admin/CommentController.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1207,6 +1232,11 @@
     <DocblockTypeContradiction occurrences="1">
       <code>'#'</code>
     </DocblockTypeContradiction>
+    <InvalidScalarArgument occurrences="3">
+      <code>'comment'</code>
+      <code>'comment'</code>
+      <code>'comment'</code>
+    </InvalidScalarArgument>
     <InvalidStringClass occurrences="1">
       <code>new $class(null)</code>
     </InvalidStringClass>
@@ -1224,15 +1254,24 @@
     <MissingReturnType occurrences="1">
       <code>getAvatarUrl</code>
     </MissingReturnType>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="5">
       <code>$row['type']</code>
       <code>$this-&gt;$attribute</code>
       <code>$this-&gt;$attribute</code>
       <code>$width</code>
+      <code>Yii::$app-&gt;params['GENERAL.ADMIN_EMAIL']</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
+    <MixedArrayAccess occurrences="2">
+      <code>$a['liked']</code>
+      <code>$a['liked']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="1">
+      <code>$a['liked']</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="2">
+      <code>$a</code>
+      <code>$a</code>
+    </MixedAssignment>
     <MixedOperand occurrences="2">
       <code>$height</code>
       <code>$width</code>
@@ -1246,11 +1285,13 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;material</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedClass occurrences="3">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyAssignment occurrences="1">
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyAssignment>
+    <UndefinedMagicPropertyFetch occurrences="2">
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/models/query/CommentQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -1271,25 +1312,55 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/comment/widgets/CommentsWidget.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;user-&gt;id</code>
+    </InvalidPropertyAssignmentValue>
+    <InvalidStringClass occurrences="1">
+      <code>new $className</code>
+    </InvalidStringClass>
     <MissingParamType occurrences="1">
       <code>$attributes</code>
     </MissingParamType>
-    <MissingPropertyType occurrences="5">
+    <MissingPropertyType occurrences="8">
       <code>$authorId</code>
+      <code>$form-&gt;email</code>
+      <code>$form-&gt;name</code>
+      <code>$form-&gt;site</code>
       <code>$material_id</code>
       <code>$type</code>
       <code>$url</code>
       <code>$user</code>
     </MissingPropertyType>
-    <MixedInferredReturnType occurrences="2">
+    <MixedArgument occurrences="3">
+      <code>$this-&gt;material_id</code>
+      <code>$this-&gt;type</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
+    <MixedArrayOffset occurrences="1">
+      <code>$comments[$item-&gt;parent_id ?? 0]</code>
+    </MixedArrayOffset>
+    <MixedInferredReturnType occurrences="1">
       <code>array</code>
-      <code>string</code>
     </MixedInferredReturnType>
-    <UndefinedClass occurrences="3">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <MixedPropertyFetch occurrences="1">
+      <code>$this-&gt;user-&gt;id</code>
+    </MixedPropertyFetch>
+    <MixedReturnStatement occurrences="1">
+      <code>Json::decode($cookie-&gt;value)</code>
+    </MixedReturnStatement>
+    <NoInterfaceProperties occurrences="1">
+      <code>$item-&gt;parent_id</code>
+    </NoInterfaceProperties>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>empty($cookie)</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedMagicPropertyFetch occurrences="2">
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/contacts/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1320,9 +1391,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/edu/components/Provider.php">
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$app-&gt;getErrorHandler()</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="src/modules/edu/components/api/Api.php">
     <MixedInferredReturnType occurrences="1">
@@ -1388,24 +1459,76 @@
     <MissingReturnType occurrences="1">
       <code>actionIndex</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="5">
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>?User</code>
-      <code>bool</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="6">
+      <code>$file-&gt;getBasename()</code>
+      <code>$foldername</code>
+      <code>$uploaded-&gt;getFilename()</code>
+      <code>$uploaded-&gt;getFilename()</code>
+      <code>Yii::$app-&gt;request-&gt;post('name')</code>
+      <code>Yii::$app-&gt;request-&gt;post('to')</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="9">
+      <code>$action</code>
+      <code>$dir</code>
+      <code>$file</code>
+      <code>$file</code>
+      <code>$file</code>
+      <code>$foldername</code>
+      <code>$item</code>
+      <code>$orig</code>
+      <code>$uploaded</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="24">
+      <code>CreateDir</code>
+      <code>Delete</code>
+      <code>Move</code>
+      <code>createDir</code>
+      <code>delete</code>
+      <code>getBasename</code>
+      <code>getBasename</code>
+      <code>getBasename</code>
+      <code>getContents</code>
+      <code>getExtension</code>
+      <code>getExtension</code>
+      <code>getExtension</code>
+      <code>getFilename</code>
+      <code>getFilename</code>
+      <code>getWidth</code>
+      <code>load</code>
+      <code>rename</code>
+      <code>save</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>set</code>
+      <code>thumb</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="5">
+      <code>$curpath</code>
+      <code>$curpath</code>
+      <code>$foldername</code>
+      <code>$uploaded-&gt;getExtension()</code>
+      <code>$uploaded-&gt;getExtension()</code>
+    </MixedOperand>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post('name')</code>
+      <code>Yii::$app-&gt;request-&gt;post('to')</code>
+    </PossiblyInvalidArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>FileController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="6">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="9">
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;file</code>
+      <code>Yii::$app-&gt;image</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/file/migrations/m130328_115251_create_file.php">
     <InvalidReturnType occurrences="2">
@@ -1448,20 +1571,15 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/image/controllers/DownloadController.php">
-    <MixedArgument occurrences="2">
-      <code>'/'</code>
-      <code>Yii::$app-&gt;request-&gt;getPathInfo()</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>Response</code>
-    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="1">
+      <code>checkThumbExists</code>
+    </MixedMethodCall>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DownloadController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;uploader</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/landing/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1470,16 +1588,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/landing/components/LandingUrlRule.php">
-    <MixedInferredReturnType occurrences="2">
+    <MixedInferredReturnType occurrences="1">
       <code>createUrl</code>
-      <code>parseRequest</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="1">
       <code>$params['path']</code>
     </MixedReturnStatement>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/landing/controllers/LandingController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -1493,21 +1607,13 @@
     <MissingReturnType occurrences="1">
       <code>actionCreate</code>
     </MissingReturnType>
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>LandingController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/landing/forms/LandingSearch.php">
     <MissingParamType occurrences="1">
@@ -1550,16 +1656,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/components/PageUrlRule.php">
-    <MixedInferredReturnType occurrences="2">
+    <MixedInferredReturnType occurrences="1">
       <code>createUrl</code>
-      <code>parseRequest</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="1">
       <code>$params['path']</code>
     </MixedReturnStatement>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/page/controllers/DefaultController.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1578,21 +1680,13 @@
     <MissingReturnType occurrences="1">
       <code>actionCreate</code>
     </MissingReturnType>
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>PageController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/page/forms/PageSearch.php">
     <MissingParamType occurrences="1">
@@ -1691,12 +1785,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/components/PortfolioBaseController.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <ArgumentTypeCoercion occurrences="1">
+      <code>Yii::$app-&gt;view</code>
+    </ArgumentTypeCoercion>
   </file>
   <file src="src/modules/portfolio/controllers/DefaultController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -1714,39 +1805,39 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/controllers/WorkController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$model === null</code>
+    </DocblockTypeContradiction>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$model</code>
+    </LessSpecificReturnStatement>
     <MissingParamType occurrences="1">
       <code>$alias</code>
     </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>actionShow</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="1">
+    <MixedMethodCall occurrences="1">
+      <code>isGranted</code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType occurrences="1">
       <code>Work</code>
-    </MixedInferredReturnType>
+    </MoreSpecificReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>WorkController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;moduleAdminAccess</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/controllers/admin/CategoryController.php">
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CategoryController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/portfolio/controllers/admin/WorkController.php">
     <MissingParamType occurrences="1">
@@ -1755,26 +1846,29 @@
     <MissingReturnType occurrences="1">
       <code>actionCreate</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="4">
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>?Response</code>
-      <code>string</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="4">
+      <code>$id</code>
+      <code>$id</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$id</code>
+      <code>$id</code>
+      <code>$items</code>
+    </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$attribute</code>
     </MixedOperand>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$sort</code>
+    </PossiblyInvalidOperand>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>$sort</code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <PropertyNotSetInConstructor occurrences="1">
       <code>WorkController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="6">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/portfolio/forms/CategorySearch.php">
     <MissingParamType occurrences="1">
@@ -1895,15 +1989,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/modules/search/widgets/SearchFormWidget.php">
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/services/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1923,15 +2008,18 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/sitemap/controllers/DefaultController.php">
+    <MixedAssignment occurrences="1">
+      <code>$xml</code>
+    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$xml</code>
+    </MixedReturnStatement>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/subscribe/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1951,15 +2039,21 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/ulogin/controllers/DefaultController.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;get('return', Yii::$app-&gt;homeUrl)</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$token</code>
+    </MixedAssignment>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="4">
+      <code>Yii::$app-&gt;homeUrl</code>
+      <code>Yii::$app-&gt;homeUrl</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/ulogin/models/UloginModel.php">
     <MissingPropertyType occurrences="9">
@@ -1986,17 +2080,14 @@
     <MixedAssignment occurrences="1">
       <code>$authData</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="3">
       <code>$_SERVER['HTTP_HOST']</code>
       <code>$this-&gt;network</code>
       <code>$this-&gt;token</code>
     </MixedOperand>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/ulogin/widgets/UloginWidget.php">
     <MissingParamType occurrences="1">
@@ -2034,57 +2125,66 @@
     <MissingReturnType occurrences="1">
       <code>actionLogin</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="3">
-      <code>?User</code>
-      <code>Response</code>
-      <code>Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="5">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="5">
+      <code>Yii::$app-&gt;homeUrl</code>
+      <code>Yii::$app-&gt;user</code>
+      <code>Yii::$app-&gt;user</code>
+      <code>Yii::$app-&gt;user</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/ProfileController.php">
     <MissingReturnType occurrences="2">
       <code>actionEdit</code>
       <code>actionPassword</code>
     </MissingReturnType>
-    <MixedInferredReturnType occurrences="1">
-      <code>User</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="2">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>ProfileController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="5">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="3">
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/RegistrationController.php">
+    <MissingPropertyType occurrences="5">
+      <code>$model-&gt;email</code>
+      <code>$model-&gt;firstname</code>
+      <code>$model-&gt;lastname</code>
+      <code>$model-&gt;password</code>
+      <code>$model-&gt;username</code>
+    </MissingPropertyType>
     <MissingReturnType occurrences="2">
       <code>actionConfirm</code>
       <code>actionRequest</code>
     </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$model-&gt;password</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$post</code>
+    </MixedAssignment>
     <PropertyNotSetInConstructor occurrences="1">
       <code>RegistrationController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
-    <UndefinedConstant occurrences="2">
-      <code>YII_ENV_TEST</code>
-      <code>YII_ENV_TEST</code>
-    </UndefinedConstant>
+    <UndefinedMagicPropertyFetch occurrences="5">
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">
@@ -2093,29 +2193,24 @@
     <MissingReturnType occurrences="1">
       <code>actionRemind</code>
     </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>RemindController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="2">
+      <code>Yii::$app-&gt;session</code>
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/admin/UserController.php">
-    <MixedAssignment occurrences="1">
-      <code>$dataProvider</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Response</code>
-    </MixedInferredReturnType>
+    <MixedArgument occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;post()</code>
+    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="1">
       <code>UserController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="3">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/modules/user/forms/LoginForm.php">
     <DocblockTypeContradiction occurrences="1">
@@ -2133,12 +2228,9 @@
     <MixedArgument occurrences="1">
       <code>$username</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/forms/RegistrationForm.php">
     <MissingPropertyType occurrences="8">
@@ -2276,14 +2368,6 @@
       <code>m191023_111426_remove_comments_count</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/user/models/Access.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
-  </file>
   <file src="src/modules/user/models/User.php">
     <MissingParamType occurrences="5">
       <code>$height</code>
@@ -2292,38 +2376,33 @@
       <code>$width</code>
       <code>$width</code>
     </MissingParamType>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$password</code>
+      <code>$width</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
+    <MixedMethodCall occurrences="1">
+      <code>getThumbUrl</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="2">
       <code>$password</code>
+      <code>Yii::$app-&gt;uploader-&gt;getThumbUrl(self::IMAGE_PATH, $this-&gt;avatar, $width, $height)</code>
     </MixedOperand>
-    <UndefinedClass occurrences="4">
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-      <code>Yii</code>
-    </UndefinedClass>
+    <PossiblyNullOperand occurrences="1">
+      <code>Yii::$app-&gt;request-&gt;hostInfo</code>
+    </PossiblyNullOperand>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;uploader</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/widgets/LoginFormWidget.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/widgets/AdminBar.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;user</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/widgets/Breadcrumbs.php">
     <MissingPropertyType occurrences="6">
@@ -2334,16 +2413,28 @@
       <code>$separator</code>
       <code>$tagName</code>
     </MissingPropertyType>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="9">
+      <code>$label</code>
+      <code>$this-&gt;activeLinkTemplate</code>
       <code>$this-&gt;htmlOptions</code>
+      <code>$this-&gt;inactiveLinkTemplate</code>
+      <code>$this-&gt;separator</code>
       <code>$this-&gt;tagName</code>
+      <code>$this-&gt;tagName</code>
+      <code>$url</code>
+      <code>$url</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <MixedAssignment occurrences="3">
+      <code>$definedLinks</code>
+      <code>$label</code>
+      <code>$url</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$this-&gt;links</code>
+    </MixedOperand>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;homeUrl</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/widgets/IconMenu.php">
     <MissingPropertyType occurrences="1">
@@ -2365,18 +2456,12 @@
     </MixedOperand>
   </file>
   <file src="src/widgets/MainMenu.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
     <PropertyNotSetInConstructor occurrences="4">
       <code>MainMenu</code>
       <code>MainMenu</code>
       <code>MainMenu</code>
       <code>MainMenu</code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
   </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument occurrences="1">
@@ -2393,12 +2478,15 @@
       <code>$title</code>
       <code>$url</code>
     </MissingPropertyType>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;description</code>
+    </MixedArgument>
+    <MixedOperand occurrences="1">
+      <code>$this-&gt;image</code>
+    </MixedOperand>
+    <PossiblyNullOperand occurrences="1">
+      <code>$host</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/widgets/inline/CountDown.php">
     <MissingPropertyType occurrences="2">
@@ -2432,9 +2520,14 @@
     </UndefinedGlobalVariable>
   </file>
   <file src="src/widgets/views/Messages.php">
-    <UndefinedClass occurrences="1">
-      <code>Yii</code>
-    </UndefinedClass>
+    <MixedArgument occurrences="3">
+      <code>Yii::$app-&gt;session-&gt;getFlash('error')</code>
+      <code>Yii::$app-&gt;session-&gt;getFlash('notice')</code>
+      <code>Yii::$app-&gt;session-&gt;getFlash('success')</code>
+    </MixedArgument>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>Yii::$app-&gt;session</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/widgets/views/Share.php">
     <MissingDocblockType occurrences="1"/>
