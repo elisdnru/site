@@ -1,10 +1,11 @@
 <?php
 
+use app\components\module\ModuleAccess;
 use app\modules\edu\widgets\SeriesEpisodes;
 use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
 use app\components\InlineWidgetsBehavior;
-use app\components\module\ModuleManager;
+use app\components\module\ModuleAdmin;
 use app\components\module\routes\RoutesLoader;
 use app\components\uploader\Uploader;
 use app\components\AuthManager;
@@ -126,8 +127,12 @@ return [
             'assignmentFile' => __DIR__ . '/rbac/assignments.php',
         ],
 
-        'moduleManager' => [
-            'class' => ModuleManager::class,
+        'moduleAccess' => [
+            'class' => ModuleAccess::class,
+        ],
+
+        'moduleAdmin' => [
+            'class' => ModuleAdmin::class,
         ],
 
         'image' => [

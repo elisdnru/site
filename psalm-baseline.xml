@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.1.0@8929bde5354595dc61947b7e27cfe59db45e3bb0">
+<files psalm-version="4.1.1@16bfbd9224698bd738c665f33039fade2a1a3977">
   <file src="src/components/AdminController.php">
     <MixedInferredReturnType occurrences="1">
       <code>bool</code>
@@ -353,13 +353,19 @@
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/module/ModuleManager.php">
-    <MixedInferredReturnType occurrences="2">
+  <file src="src/components/module/ModuleAccess.php">
+    <MixedInferredReturnType occurrences="1">
       <code>bool</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/components/module/ModuleAdmin.php">
+    <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <UndefinedClass occurrences="2">
-      <code>Yii</code>
+    <UndefinedClass occurrences="1">
       <code>Yii</code>
     </UndefinedClass>
   </file>

@@ -27,7 +27,7 @@ class WorkController extends PortfolioBaseController
     {
         $query = Work::find();
 
-        if (!Yii::$app->moduleManager->allowed('portfolio')) {
+        if (!Yii::$app->moduleAccess->isGranted('portfolio')) {
             $query->published();
         }
 

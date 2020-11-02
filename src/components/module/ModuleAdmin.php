@@ -5,13 +5,8 @@ namespace app\components\module;
 use InvalidArgumentException;
 use Yii;
 
-class ModuleManager
+class ModuleAdmin
 {
-    public function allowed(string $module): bool
-    {
-        return Yii::$app->user->can('module_' . $module);
-    }
-
     public function notifications(string $module): array
     {
         if ($class = $this->getModuleClass($module)) {
@@ -24,7 +19,7 @@ class ModuleManager
         return [];
     }
 
-    public function adminMenu(string $module): array
+    public function menu(string $module): array
     {
         if ($class = $this->getModuleClass($module)) {
             if (!is_subclass_of($class, Module::class)) {

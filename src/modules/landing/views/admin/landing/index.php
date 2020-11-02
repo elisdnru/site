@@ -14,10 +14,10 @@ $this->params['breadcrumbs'] = [
     'Лендинги',
 ];
 
-if (Yii::$app->moduleManager->allowed('landing')) {
+if (Yii::$app->moduleAccess->isGranted('landing')) {
     $this->params['admin'][] = ['label' => 'Добавить лендинг', 'url' => ['create']];
 }
-if (Yii::$app->moduleManager->allowed('page')) {
+if (Yii::$app->moduleAccess->isGranted('page')) {
     $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
 ?>

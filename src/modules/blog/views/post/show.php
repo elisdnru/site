@@ -53,14 +53,14 @@ if ($model->category) {
 $this->params['breadcrumbs'][] = $model->title;
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleManager->allowed('blog')) {
+    if (Yii::$app->moduleAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/blog/admin/post/update', 'id' => $model->id]];
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
         if ($model->category) {
             $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['admin/category/update', 'id' => $model->category_id]];
         }
     }
-    if (Yii::$app->moduleManager->allowed('comment')) {
+    if (Yii::$app->moduleAccess->isGranted('comment')) {
         $count = $model->getCommentsNewCount();
         $this->params['admin'][] = ['label' => 'Комментарии (' . $count . ' ' . Pluraliser::plural($count, ['новый', 'новых', 'новых']) . ')', 'url' => ['/blog/admin/comment/index', 'id' => $model->id]];
     }

@@ -13,7 +13,7 @@ $this->params['breadcrumbs'] = [
     'Страницы',
 ];
 
-if (Yii::$app->moduleManager->allowed('page')) {
+if (Yii::$app->moduleAccess->isGranted('page')) {
     $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => ['create']];
 }
 ?>

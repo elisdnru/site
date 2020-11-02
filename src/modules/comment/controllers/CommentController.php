@@ -42,7 +42,7 @@ class CommentController extends Controller
             throw new NotFoundHttpException();
         }
 
-        if (!($model->user_id === Yii::$app->user->id || Yii::$app->moduleManager->allowed('comment'))) {
+        if (!($model->user_id === Yii::$app->user->id || Yii::$app->moduleAccess->isGranted('comment'))) {
             throw new ForbiddenHttpException();
         }
 

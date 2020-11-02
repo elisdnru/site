@@ -22,13 +22,13 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleManager->allowed('blog')) {
+    if (Yii::$app->moduleAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post']];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create']];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category']];
     }
-    if (Yii::$app->moduleManager->allowed('blog') && Yii::$app->moduleManager->allowed('comment')) {
-        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleManager->notifications(Yii::$app->controller->module->id));
+    if (Yii::$app->moduleAccess->isGranted('blog') && Yii::$app->moduleAccess->isGranted('comment')) {
+        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleAdmin->notifications(Yii::$app->controller->module->id));
     }
 }
 ?>

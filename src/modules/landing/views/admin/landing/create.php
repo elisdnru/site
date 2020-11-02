@@ -10,7 +10,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 $this->params['admin'][] = ['label' => 'Лендинги', 'url' => ['index']];
-if (Yii::$app->moduleManager->allowed('page')) {
+if (Yii::$app->moduleAccess->isGranted('page')) {
     $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }
 ?>

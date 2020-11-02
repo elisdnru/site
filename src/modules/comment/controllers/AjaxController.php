@@ -34,7 +34,7 @@ class AjaxController extends Controller
             throw new ForbiddenHttpException();
         }
 
-        if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::$app->user->id)) {
+        if (!(Yii::$app->moduleAccess->isGranted('comment') || $model->user_id == Yii::$app->user->id)) {
             throw new ForbiddenHttpException();
         }
 
@@ -63,7 +63,7 @@ class AjaxController extends Controller
 
         $model = $this->loadModel($id);
 
-        if (!(Yii::$app->moduleManager->allowed('comment') || $model->user_id == Yii::$app->user->id)) {
+        if (!(Yii::$app->moduleAccess->isGranted('comment') || $model->user_id == Yii::$app->user->id)) {
             throw new ForbiddenHttpException();
         }
 

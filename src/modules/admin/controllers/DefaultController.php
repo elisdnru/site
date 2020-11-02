@@ -32,7 +32,7 @@ class DefaultController extends AdminController
 
         foreach (Yii::$app->modules as $key => $value) {
             $module = Yii::$app->getModule($key);
-            if ($module && $module instanceof Module && Yii::$app->moduleManager->allowed($module->id)) {
+            if ($module && $module instanceof Module && Yii::$app->moduleAccess->isGranted($module->id)) {
                 $modules[$module->getGroup()][$module->getName()] = $module;
             }
         }

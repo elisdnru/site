@@ -27,7 +27,7 @@ class PostController extends Controller
     {
         $query = Post::find();
 
-        if (!Yii::$app->moduleManager->allowed('blog')) {
+        if (!Yii::$app->moduleAccess->isGranted('blog')) {
             $query = $query->published();
         }
 

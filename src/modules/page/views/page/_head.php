@@ -13,7 +13,7 @@ $this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [
 $this->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleManager->allowed('page')) {
+    if (Yii::$app->moduleAccess->isGranted('page')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/page/admin/page/update', 'id' => $page->id]];
         $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
         $this->params['admin'][] = ['label' => 'Подстраницы', 'url' => ['/page/admin/page/index', 'Page[parent_id]' => $page->id]];

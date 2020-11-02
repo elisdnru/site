@@ -24,10 +24,10 @@ $this->params['breadcrumbs'] = [
 ];
 
 if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleManager->allowed('page')) {
+    if (Yii::$app->moduleAccess->isGranted('page')) {
         $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
     }
-    if (Yii::$app->moduleManager->allowed('blog')) {
+    if (Yii::$app->moduleAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
     }
 }
