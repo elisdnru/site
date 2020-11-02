@@ -1,5 +1,6 @@
 <?php
 
+use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\ModuleAccess;
 use app\modules\edu\widgets\SeriesEpisodes;
@@ -130,6 +131,10 @@ return [
 
         'moduleAccess' => [
             'class' => ModuleAccess::class,
+        ],
+
+        'moduleAdminDashboard' => [
+            'class' => AdminDashboard::class,
         ],
 
         'moduleAdminMenu' => [

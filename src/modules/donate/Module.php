@@ -3,20 +3,15 @@
 namespace app\modules\donate;
 
 use app\components\module\routes\RoutesProvider;
-use app\components\module\Module as Base;
 use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
+use yii\base\Module as Base;
 use yii\helpers\Url;
 
 class Module extends Base implements RoutesProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getName(): string
-    {
-        return 'Поддержать проект';
-    }
 
     public static function routes(): array
     {

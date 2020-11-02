@@ -3,25 +3,26 @@
 namespace app\modules\landing;
 
 use app\components\module\admin\AdminMenuProvider;
-use app\components\module\Module as Base;
+use app\components\module\admin\AdminDashboardItem;
 use app\components\module\routes\RoutesProvider;
 use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
 use app\components\module\sitemap\Xml;
 use app\modules\landing\models\Landing;
+use yii\base\Module as Base;
 use yii\caching\TagDependency;
 
-class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
+class Module extends Base implements AdminDashboardItem, RoutesProvider, AdminMenuProvider, SitemapProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup(): string
+    public function adminGroup(): string
     {
         return 'Контент';
     }
 
-    public function getName(): string
+    public function adminName(): string
     {
         return 'Лендинги';
     }

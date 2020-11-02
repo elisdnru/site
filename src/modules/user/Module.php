@@ -3,19 +3,20 @@
 namespace app\modules\user;
 
 use app\components\module\admin\AdminMenuProvider;
-use app\components\module\Module as Base;
+use app\components\module\admin\AdminDashboardItem;
 use app\components\module\routes\RoutesProvider;
+use yii\base\Module as Base;
 
-class Module extends Base implements RoutesProvider, AdminMenuProvider
+class Module extends Base implements AdminDashboardItem, RoutesProvider, AdminMenuProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup(): string
+    public function adminGroup(): string
     {
         return 'Пользователи';
     }
 
-    public function getName(): string
+    public function adminName(): string
     {
         return 'Пользователи';
     }

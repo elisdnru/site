@@ -5,17 +5,12 @@ namespace app\modules\comment;
 use app\components\module\admin\AdminNotificationsProvider;
 use app\components\module\routes\RoutesProvider;
 use app\modules\comment\models\Comment;
-use app\components\module\Module as Base;
+use yii\base\Module as Base;
 use yii\web\GroupUrlRule;
 
 class Module extends Base implements RoutesProvider, AdminNotificationsProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
-
-    public function getName(): string
-    {
-        return 'Комментарии';
-    }
 
     public static function adminNotifications(): array
     {

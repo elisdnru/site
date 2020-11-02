@@ -3,18 +3,19 @@
 namespace app\modules\file;
 
 use app\components\module\admin\AdminMenuProvider;
-use app\components\module\Module as Base;
+use app\components\module\admin\AdminDashboardItem;
+use yii\base\Module as Base;
 
-class Module extends Base implements AdminMenuProvider
+class Module extends Base implements AdminDashboardItem, AdminMenuProvider
 {
     public $controllerNamespace = __NAMESPACE__ . '\controllers';
 
-    public function getGroup(): string
+    public function adminGroup(): string
     {
         return 'Загрузки';
     }
 
-    public function getName(): string
+    public function adminName(): string
     {
         return 'Файлы';
     }

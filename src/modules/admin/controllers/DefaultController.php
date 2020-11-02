@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
-use app\components\module\Module;
+use app\components\module\admin\AdminDashboardItem;
 use app\modules\user\models\Access;
 use app\components\AdminController;
 use app\modules\user\models\User;
@@ -28,16 +28,7 @@ class DefaultController extends AdminController
 
     public function actionIndex(): string
     {
-        $modules = [];
-
-        foreach (Yii::$app->modules as $key => $value) {
-            $module = Yii::$app->getModule($key);
-            if ($module && $module instanceof Module && Yii::$app->moduleAccess->isGranted($module->id)) {
-                $modules[$module->getGroup()][$module->getName()] = $module;
-            }
-        }
-
-        ksort($modules);
+        $modules = Yii::$app->moduleAdminDashboard->groupedModules();
 
         return $this->render('index', [
             'modules' => $modules,

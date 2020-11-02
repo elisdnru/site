@@ -361,6 +361,14 @@
       <code>Yii</code>
     </UndefinedClass>
   </file>
+  <file src="src/components/module/admin/AdminDashboard.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>Yii</code>
+    </UndefinedClass>
+  </file>
   <file src="src/components/module/admin/AdminMenu.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>

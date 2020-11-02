@@ -1,8 +1,8 @@
 <?php
-use app\components\module\Module;
+use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
 
-/** @var $modules Module[] */
+/** @var $modules \app\components\module\admin\AdminDashboardItem[] */
 
 $this->title = 'Панель управления';
 $this->params['breadcrumbs'] = [
@@ -56,8 +56,8 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
                     <?php foreach ($groupModules as $module) : ?>
                         <?php if (Yii::$app->moduleAdminMenu->menu($module->id)) : ?>
                             <li>
-                                <?php if ($module->name !== $group) : ?>
-                                    <h3><?= $module->name ?></h3><?php
+                                <?php if ($module->adminName() !== $group) : ?>
+                                    <h3><?= $module->adminName() ?></h3><?php
                                 endif; ?>
                                 <ul>
                                     <?= IconMenu::widget([
