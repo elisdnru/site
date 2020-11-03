@@ -29,9 +29,11 @@ class DefaultController extends AdminController
     public function actionIndex(): string
     {
         $modules = Yii::$app->moduleAdminDashboard->groupedModules();
+        $notifications = Yii::$app->moduleAdminNotifications->allNotifications();
 
         return $this->render('index', [
             'modules' => $modules,
+            'notifications' => $notifications,
             'user' => $this->loadUser(),
         ]);
     }

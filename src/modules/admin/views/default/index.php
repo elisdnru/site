@@ -15,17 +15,6 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 <h1>Панель управления</h1>
 
 <div class="controlPanel">
-
-    <?php
-    $notifications = [];
-    foreach ($modules as $group) {
-        foreach ($group as $module) {
-            if (Yii::$app->moduleAdminNotifications->notifications($module->id)) {
-                $notifications = array_merge($notifications, Yii::$app->moduleAdminNotifications->notifications($module->id));
-            }
-        }
-    }
-    ?>
     <fieldset>
         <h2>Уведомления</h2>
         <ul class="adminlist">

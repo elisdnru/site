@@ -2,6 +2,7 @@
 
 namespace app\modules\comment;
 
+use app\components\module\admin\AdminDashboardItem;
 use app\components\module\admin\AdminNotificationsProvider;
 use app\components\module\routes\RoutesProvider;
 use app\modules\comment\models\Comment;
