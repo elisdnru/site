@@ -7,7 +7,6 @@ use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;
 use app\modules\user\models\User;
-use Yii;
 use yii\web\Request;
 use yii\web\Session;
 

@@ -5,7 +5,6 @@ namespace app\modules\blog\controllers\admin;
 use app\modules\blog\forms\PostSearch;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
-use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

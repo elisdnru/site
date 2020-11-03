@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\controllers;
 
-use app\components\module\admin\AdminDashboardItem;
 use app\modules\user\models\Access;
 use app\components\AdminController;
 use app\modules\user\models\User;

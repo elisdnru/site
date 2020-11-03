@@ -5,7 +5,6 @@ namespace app\modules\user\controllers;
 use app\components\Controller;
 use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
-use Yii;
 use yii\web\Request;
 use yii\web\Session;
 

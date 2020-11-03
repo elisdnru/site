@@ -7,7 +7,6 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\components\AdminController;
 use app\modules\user\models\Access;
-use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;

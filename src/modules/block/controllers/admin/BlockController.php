@@ -5,7 +5,6 @@ namespace app\modules\block\controllers\admin;
 use app\modules\block\models\Block;
 use app\modules\block\forms\BlockSearch;
 use app\components\AdminController;
-use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

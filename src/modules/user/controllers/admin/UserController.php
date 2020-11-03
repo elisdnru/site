@@ -6,7 +6,6 @@ use app\modules\user\forms\admin\EditForm;
 use app\modules\user\forms\UserSearch;
 use app\components\AdminController;
 use app\modules\user\models\User;
-use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

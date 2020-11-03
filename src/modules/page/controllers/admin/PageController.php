@@ -5,7 +5,6 @@ namespace app\modules\page\controllers\admin;
 use app\components\AdminController;
 use app\modules\page\forms\PageSearch;
 use app\modules\page\models\Page;
-use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

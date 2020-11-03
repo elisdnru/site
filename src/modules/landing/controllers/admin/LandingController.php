@@ -5,7 +5,6 @@ namespace app\modules\landing\controllers\admin;
 use app\components\AdminController;
 use app\modules\landing\forms\LandingSearch;
 use app\modules\landing\models\Landing;
-use Yii;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

@@ -4,7 +4,6 @@ namespace app\modules\portfolio\controllers\admin;
 
 use app\components\AdminController;
 use app\modules\portfolio\models\Work;
-use Yii;
 use yii\data\Pagination;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
