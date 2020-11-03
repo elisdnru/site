@@ -2,7 +2,8 @@
 use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
 
-/** @var $modules \app\components\module\admin\AdminDashboardItem[] */
+/** @var $modules AdminDashboardItem[] */
+/** @var $notifications array[] */
 
 $this->title = 'Панель управления';
 $this->params['breadcrumbs'] = [
