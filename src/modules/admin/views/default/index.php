@@ -3,7 +3,6 @@ use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
 
 /** @var $modules AdminDashboardItem[] */
-/** @var $notifications array[] */
 
 $this->title = 'Панель управления';
 $this->params['breadcrumbs'] = [
@@ -16,6 +15,17 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 <h1>Панель управления</h1>
 
 <div class="controlPanel">
+
+    <?php
+    $notifications = [];
+    foreach ($modules as $group) {
+        foreach ($group as $module) {
+            foreach (Yii::$app->moduleAdminNotifications->notifications($module->id) as $notification) {
+                $notifications[] = $notification;
+            }
+        }
+    }
+    ?>
     <fieldset>
         <h2>Уведомления</h2>
         <ul class="adminlist">

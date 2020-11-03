@@ -3,7 +3,6 @@
 namespace app\modules\portfolio;
 
 use app\components\module\admin\AdminMenuProvider;
-use app\components\module\admin\AdminDashboardItem;
 use app\components\module\routes\RoutesProvider;
 use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
@@ -15,7 +14,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Url;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements AdminDashboardItem, RoutesProvider, AdminMenuProvider, SitemapProvider
+class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
 {
     public function adminGroup(): string
     {

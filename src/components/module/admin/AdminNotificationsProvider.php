@@ -2,7 +2,7 @@
 
 namespace app\components\module\admin;
 
-interface AdminNotificationsProvider
+interface AdminNotificationsProvider extends AdminDashboardItem
 {
     /**
      * @return array[]

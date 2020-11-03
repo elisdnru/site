@@ -3,11 +3,10 @@
 namespace app\modules\user;
 
 use app\components\module\admin\AdminMenuProvider;
-use app\components\module\admin\AdminDashboardItem;
 use app\components\module\routes\RoutesProvider;
 use yii\base\Module as Base;
 
-class Module extends Base implements AdminDashboardItem, RoutesProvider, AdminMenuProvider
+class Module extends Base implements RoutesProvider, AdminMenuProvider
 {
     public function adminGroup(): string
     {

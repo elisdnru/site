@@ -2,7 +2,6 @@
 
 namespace app\modules\comment;
 
-use app\components\module\admin\AdminDashboardItem;
 use app\components\module\admin\AdminNotificationsProvider;
 use app\components\module\routes\RoutesProvider;
 use app\modules\comment\models\Comment;
@@ -11,6 +10,16 @@ use yii\web\GroupUrlRule;
 
 class Module extends Base implements RoutesProvider, AdminNotificationsProvider
 {
+    public function adminGroup(): string
+    {
+        return '';
+    }
+
+    public function adminName(): string
+    {
+        return 'Комментарии';
+    }
+
     public static function adminNotifications(): array
     {
         $comments = Comment::find()->unread()->count();
