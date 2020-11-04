@@ -493,13 +493,9 @@
   </file>
   <file src="src/components/uploader/Uploader.php">
     <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="4">
       <code>$currentFile</code>
       <code>$currentFile</code>
-      <code>$requested-&gt;baseName</code>
-      <code>$requested-&gt;height</code>
-      <code>$requested-&gt;path</code>
-      <code>$requested-&gt;width</code>
       <code>$rule[0]</code>
       <code>$rule[1]</code>
     </MixedArgument>
