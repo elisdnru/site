@@ -2,8 +2,6 @@
 
 namespace app\components;
 
-use Yii;
-use yii\caching\TagDependency;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
@@ -30,16 +28,9 @@ abstract class AdminController extends Controller
                     'toggle' => ['post'],
                 ],
             ],
+            'cacheFlush' => [
+                'class' => CacheFlushBehavior::class
+            ],
         ];
-    }
-
-    public function beforeAction($action): bool
-    {
-        if (parent::beforeAction($action)) {
-            $tag = $this->module->id;
-            TagDependency::invalidate(Yii::$app->cache, $tag);
-            return true;
-        }
-        return false;
     }
 }

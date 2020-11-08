@@ -21,6 +21,7 @@
 
     <stubs>
         <file name="./psalm/yii/base/Application.php"/>
+        <file name="./psalm/yii/base/Controller.php"/>
     </stubs>
 
     <issueHandlers>
