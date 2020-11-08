@@ -2,9 +2,9 @@
 
 namespace app\components;
 
-use Yii;
 use yii\base\Behavior;
 use yii\base\Widget;
+use yii\caching\CacheInterface;
 
 class InlineWidgetsBehavior extends Behavior
 {
@@ -12,7 +12,14 @@ class InlineWidgetsBehavior extends Behavior
     public string $endBlock = '}]';
     public array $widgets = [];
 
+    private CacheInterface $cache;
     private ?string $widgetToken = null;
+
+    public function __construct(CacheInterface $cache, array $config = [])
+    {
+        parent::__construct($config);
+        $this->cache = $cache;
+    }
 
     public function init(): void
     {
@@ -74,14 +81,14 @@ class InlineWidgetsBehavior extends Behavior
 
         $index = 'widget_' . $widgetClass . '_' . serialize($attrs);
 
-        if ($cache && $cachedHtml = Yii::$app->cache->get($index)) {
+        if ($cache && $cachedHtml = $this->cache->get($index)) {
             $html = $cachedHtml;
         } else {
             ob_start();
             /** @var Widget $widgetClass */
             echo $widgetClass::widget($attrs);
             $html = trim(ob_get_clean());
-            Yii::$app->cache->set($index, $html, $cache);
+            $this->cache->set($index, $html, $cache);
         }
 
         return $html;
