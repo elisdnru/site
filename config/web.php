@@ -4,6 +4,7 @@ use app\components\SentryErrorHandler;
 use app\components\AuthIdentity;
 use yii\helpers\ArrayHelper;
 use yii\web\Cookie;
+use yii\web\User;
 
 $useSecureCookie = isset($_SERVER['HTTPS']) && (strcasecmp($_SERVER['HTTPS'], 'on') === 0 || $_SERVER['HTTPS'] === '1');
 
@@ -19,16 +20,7 @@ return ArrayHelper::merge(
                 ]
             ],
 
-            'user' => [
-                'identityClass' => AuthIdentity::class,
-                'enableAutoLogin' => true,
-                'identityCookie' => [
-                    'name' => '_identity',
-                    'httpOnly' => true,
-                    'secure' => $useSecureCookie,
-                ],
-                'loginUrl' => ['/user/default/login'],
-            ],
+            'user' => User::class,
 
             'session' => [
                 'cookieParams' => [
@@ -49,6 +41,18 @@ return ArrayHelper::merge(
                 Cookie::class => [
                     'httpOnly' => true,
                     'secure' => $useSecureCookie,
+                ],
+            ],
+            'singletons' => [
+                User::class => [
+                    'identityClass' => AuthIdentity::class,
+                    'enableAutoLogin' => true,
+                    'identityCookie' => [
+                        'name' => '_identity',
+                        'httpOnly' => true,
+                        'secure' => $useSecureCookie,
+                    ],
+                    'loginUrl' => ['/user/default/login'],
                 ],
             ],
         ],
