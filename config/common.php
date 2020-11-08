@@ -3,6 +3,7 @@
 use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminAccess;
+use app\extensions\file\File as FileExtension;
 use app\modules\edu\widgets\SeriesEpisodes;
 use app\components\ContentReplaceBehavior;
 use app\components\MathCaptchaAction;
@@ -130,29 +131,17 @@ return [
             'assignmentFile' => __DIR__ . '/rbac/assignments.php',
         ],
 
-        'moduleAdminAccess' => [
-            'class' => AdminAccess::class,
-        ],
+        'moduleAdminAccess' => AdminAccess::class,
 
-        'moduleAdminDashboard' => [
-            'class' => AdminDashboard::class,
-        ],
+        'moduleAdminDashboard' => AdminDashboard::class,
 
-        'moduleAdminMenu' => [
-            'class' => AdminMenu::class,
-        ],
+        'moduleAdminMenu' => AdminMenu::class,
 
-        'moduleAdminNotifications' => [
-            'class' => AdminNotifications::class,
-        ],
+        'moduleAdminNotifications' => AdminNotifications::class,
 
-        'image' => [
-            'class' => ImageHandler::class,
-        ],
+        'image' => ImageHandler::class,
 
-        'file' => [
-            'class' => \app\extensions\file\File::class,
-        ],
+        'file' => FileExtension::class,
 
         'uploader' => [
             'class' => Uploader::class,
