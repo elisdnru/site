@@ -18,6 +18,7 @@ use app\widgets\inline\SubscribeWebinars;
 use app\extensions\image\ImageHandler;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
+use yii\caching\CacheInterface;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\data\Pagination;
@@ -216,13 +217,7 @@ return [
             ],
         ],
 
-        'cache' => !getenv('APP_DEBUG') ? [
-            'class' => FileCache::class,
-            'dirMode' => 0777,
-            'fileMode' => 0666,
-        ] : [
-            'class' => DummyCache::class,
-        ],
+        'cache' => CacheInterface::class,
     ],
 
     'container' => [
@@ -238,6 +233,15 @@ return [
                 'backColor' => 0xffffff,
                 'foreColor' => 0xa00090,
             ],
+        ],
+        'singletons' => [
+            CacheInterface::class => !getenv('APP_DEBUG') ? [
+                'class' => FileCache::class,
+                'dirMode' => 0777,
+                'fileMode' => 0666,
+            ] : [
+                'class' => DummyCache::class,
+            ]
         ],
     ],
 
