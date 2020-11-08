@@ -7,6 +7,7 @@ use app\components\Controller;
 use app\modules\sitemap\components\Sitemap;
 use Yii;
 use yii\base\Module;
+use yii\caching\CacheInterface;
 use yii\helpers\Url;
 use yii\web\Response;
 
@@ -35,9 +36,9 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionXml(): string
+    public function actionXml(CacheInterface $cache): string
     {
-        if (!$xml = Yii::$app->cache->get('sitemap_xml')) {
+        if (!$xml = $cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
 
             foreach ($this->fetcher->getGroups() as $group) {
@@ -55,7 +56,7 @@ class DefaultController extends Controller
 
             $xml = $sitemap->render();
 
-            Yii::$app->cache->set('sitemap_xml', $xml, 3600);
+            $cache->set('sitemap_xml', $xml, 3600);
         }
 
         Yii::$app->response->format = Response::FORMAT_RAW;

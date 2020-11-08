@@ -4,7 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\modules\user\models\Access;
 use app\components\AdminController;
-use Yii;
+use yii\caching\CacheInterface;
 use yii\filters\AccessControl;
 use yii\web\Response;
 use yii\web\Session;
@@ -26,9 +26,9 @@ class CacheController extends AdminController
         ];
     }
 
-    public function actionClear(Session $session): Response
+    public function actionClear(Session $session, CacheInterface $cache): Response
     {
-        Yii::$app->cache->flush();
+        $cache->flush();
         $session->setFlash('success', 'Кэш очищен');
 
         return $this->redirect(['default/index']);
