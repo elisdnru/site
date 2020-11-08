@@ -347,11 +347,6 @@
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/module/admin/AdminAccess.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/components/module/admin/AdminDashboard.php">
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
@@ -649,9 +644,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/block/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -896,9 +888,6 @@
     <MissingPropertyType occurrences="1">
       <code>$del_image</code>
     </MissingPropertyType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -997,10 +986,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>AjaxController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>Yii::$app-&gt;user</code>
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/controllers/CommentController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -1027,9 +1012,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>CommentController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/controllers/admin/CommentController.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -1239,9 +1221,8 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>empty($cookie)</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyFetch occurrences="2">
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/contacts/Module.php">
@@ -1381,9 +1362,6 @@
       <code>$file</code>
       <code>$file</code>
     </TypeDoesNotContainType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/file/migrations/m130328_115251_create_file.php">
     <InvalidReturnType occurrences="2">
@@ -1923,9 +1901,6 @@
       <code>$this-&gt;network</code>
       <code>$this-&gt;token</code>
     </MixedOperand>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/ulogin/widgets/UloginWidget.php">
     <MissingParamType occurrences="1">
@@ -1969,12 +1944,8 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="5">
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;homeUrl</code>
-      <code>Yii::$app-&gt;user</code>
-      <code>Yii::$app-&gt;user</code>
-      <code>Yii::$app-&gt;user</code>
-      <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/ProfileController.php">
@@ -1989,9 +1960,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>ProfileController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/RegistrationController.php">
     <MissingPropertyType occurrences="5">
@@ -2057,9 +2025,6 @@
     <MixedArgument occurrences="1">
       <code>$username</code>
     </MixedArgument>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/forms/RegistrationForm.php">
     <MissingPropertyType occurrences="8">
@@ -2217,16 +2182,6 @@
     <PossiblyNullOperand occurrences="1">
       <code>Yii::$app-&gt;request-&gt;hostInfo</code>
     </PossiblyNullOperand>
-  </file>
-  <file src="src/modules/user/widgets/LoginFormWidget.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/widgets/AdminBar.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/widgets/Breadcrumbs.php">
     <MissingPropertyType occurrences="6">

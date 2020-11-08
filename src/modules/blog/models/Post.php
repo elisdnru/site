@@ -8,7 +8,6 @@ use app\components\Transliterator;
 use app\modules\blog\models\query\PostQuery;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -81,7 +80,6 @@ class Post extends ActiveRecord implements Material
             ['tagsString', 'string', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
-            ['author_id', 'default', 'value' => Yii::$app->user->id],
             ['group_id', 'default', 'value' => 0],
         ];
     }

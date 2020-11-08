@@ -7,6 +7,7 @@ use app\components\AdminController;
 use app\modules\user\models\User;
 use Yii;
 use yii\filters\AccessControl;
+use yii\web\User as WebUser;
 
 class DefaultController extends AdminController
 {
@@ -25,18 +26,18 @@ class DefaultController extends AdminController
         ];
     }
 
-    public function actionIndex(): string
+    public function actionIndex(WebUser $user): string
     {
         $modules = Yii::$app->moduleAdminDashboard->groupedModules();
 
         return $this->render('index', [
             'modules' => $modules,
-            'user' => $this->loadUser(),
+            'user' => $this->loadUser((int)$user->id),
         ]);
     }
 
-    private function loadUser(): ?User
+    private function loadUser(int $id): ?User
     {
-        return User::findOne(Yii::$app->user->id);
+        return User::findOne($id);
     }
 }

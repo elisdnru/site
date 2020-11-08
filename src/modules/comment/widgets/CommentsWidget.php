@@ -12,6 +12,7 @@ use yii\base\InvalidArgumentException;
 use yii\base\Widget;
 use yii\helpers\Json;
 use yii\web\Cookie;
+use yii\web\User as WebUser;
 
 class CommentsWidget extends Widget
 {
@@ -21,10 +22,18 @@ class CommentsWidget extends Widget
     public $url;
     public $user;
 
+    private WebUser $webUser;
+
+    public function __construct(WebUser $webUser, array $config = [])
+    {
+        parent::__construct($config);
+        $this->webUser = $webUser;
+    }
+
     public function run(): string
     {
         if (!$this->user) {
-            $this->user = User::findOne(Yii::$app->user->getId());
+            $this->user = User::findOne($this->webUser->id);
         }
 
         if (!$this->material_id) {

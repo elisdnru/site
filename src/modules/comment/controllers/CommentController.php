@@ -10,12 +10,13 @@ use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Session;
+use yii\web\User;
 
 class CommentController extends Controller
 {
-    public function actionUpdate(int $id, Request $request, Session $session)
+    public function actionUpdate(int $id, Request $request, Session $session, User $user)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id, (int)$user->id);
 
         $form = new CommentEditForm($model);
 
@@ -33,7 +34,7 @@ class CommentController extends Controller
         ]);
     }
 
-    private function loadModel(int $id): Comment
+    private function loadModel(int $id, int $userId): Comment
     {
         $model = Comment::find()
             ->published()
@@ -44,7 +45,7 @@ class CommentController extends Controller
             throw new NotFoundHttpException();
         }
 
-        if (!($model->user_id === Yii::$app->user->id || Yii::$app->moduleAdminAccess->isGranted('comment'))) {
+        if (!($model->user_id === $userId || Yii::$app->moduleAdminAccess->isGranted('comment'))) {
             throw new ForbiddenHttpException();
         }
 

@@ -8,6 +8,7 @@ use app\components\AdminController;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\User;
 
 class PostController extends AdminController
 {
@@ -22,7 +23,7 @@ class PostController extends AdminController
         ]);
     }
 
-    public function actionCreate(Request $request)
+    public function actionCreate(Request $request, User $user)
     {
         $model = new Post();
         $model->public = 1;
@@ -30,6 +31,7 @@ class PostController extends AdminController
         $model->image = '';
         $model->category_id = $request->get('category');
         $model->date = date('Y-m-d H:i:s');
+        $model->author_id = (int)$user->id;
 
         if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

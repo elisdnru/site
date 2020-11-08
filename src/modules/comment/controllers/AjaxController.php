@@ -5,12 +5,14 @@ namespace app\modules\comment\controllers;
 use app\modules\comment\models\Comment;
 use app\components\Controller;
 use Yii;
+use yii\base\Module;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\User;
 
 class AjaxController extends Controller
 {
@@ -27,15 +29,15 @@ class AjaxController extends Controller
         ]);
     }
 
-    public function actionDelete(int $id, Request $request): ?Response
+    public function actionDelete(int $id, Request $request, User $user): ?Response
     {
         $model = $this->loadModel($id);
 
-        if (!Yii::$app->user->id) {
+        if (!$user->id) {
             throw new ForbiddenHttpException();
         }
 
-        if (!(Yii::$app->moduleAdminAccess->isGranted('comment') || $model->user_id == Yii::$app->user->id)) {
+        if (!(Yii::$app->moduleAdminAccess->isGranted('comment') || $model->user_id == $user->id)) {
             throw new ForbiddenHttpException();
         }
 
@@ -56,15 +58,15 @@ class AjaxController extends Controller
         return null;
     }
 
-    public function actionHide(int $id, Request $request): ?Response
+    public function actionHide(int $id, Request $request, User $user): ?Response
     {
-        if (!Yii::$app->user->id) {
+        if (!$user->id) {
             throw new ForbiddenHttpException();
         }
 
         $model = $this->loadModel($id);
 
-        if (!(Yii::$app->moduleAdminAccess->isGranted('comment') || $model->user_id == Yii::$app->user->id)) {
+        if (!(Yii::$app->moduleAdminAccess->isGranted('comment') || $model->user_id == $user->id)) {
             throw new ForbiddenHttpException();
         }
 

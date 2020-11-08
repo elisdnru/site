@@ -4,18 +4,26 @@ namespace app\modules\user\widgets;
 
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
-use Yii;
 use yii\base\Widget;
+use yii\web\User as WebUser;
 
 class LoginFormWidget extends Widget
 {
+    private WebUser $user;
+
+    public function __construct(WebUser $user, array $config = [])
+    {
+        parent::__construct($config);
+        $this->user = $user;
+    }
+
     public function run(): string
     {
         $model = new LoginForm();
         $model->rememberMe = true;
 
-        if (Yii::$app->user->id) {
-            $user = User::findOne(Yii::$app->user->id);
+        if ($this->user->id) {
+            $user = User::findOne($this->user->id);
         } else {
             $user = null;
         }

@@ -4,8 +4,8 @@ namespace app\modules\user\forms;
 
 use app\components\AuthIdentity;
 use app\modules\user\models\User;
-use Yii;
 use yii\base\Model;
+use yii\web\User as WebUser;
 
 /**
  * LoginForm class.
@@ -62,13 +62,13 @@ class LoginForm extends Model
         }
     }
 
-    public function login(): bool
+    public function login(WebUser $webUser): bool
     {
         $identity = $this->loadIdentity($this->username, $this->password);
 
         if ($identity !== null) {
             $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
-            Yii::$app->user->login($identity, $duration);
+            $webUser->login($identity, $duration);
             return true;
         }
 

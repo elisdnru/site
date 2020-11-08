@@ -6,12 +6,12 @@ use app\components\Controller;
 use app\modules\user\forms\PasswordForm;
 use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\User;
-use Yii;
 use yii\filters\AccessControl;
 use yii\web\ForbiddenHttpException;
 use yii\web\Request;
 use yii\web\Session;
 use yii\web\UploadedFile;
+use yii\web\User as WebUser;
 
 class ProfileController extends Controller
 {
@@ -30,9 +30,9 @@ class ProfileController extends Controller
         ];
     }
 
-    public function actionEdit(Request $request, Session $session)
+    public function actionEdit(Request $request, Session $session, WebUser $webUser)
     {
-        $user = $this->loadModel();
+        $user = $this->loadModel((int)$webUser->id);
 
         $form = ProfileForm::fromUser($user);
 
@@ -61,9 +61,9 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function actionPassword(Request $request, Session $session)
+    public function actionPassword(Request $request, Session $session, WebUser $webUser)
     {
-        $user = $this->loadModel();
+        $user = $this->loadModel((int)$webUser->id);
 
         $form = PasswordForm::fromUser($user);
 
@@ -80,17 +80,17 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function actionView(): string
+    public function actionView(WebUser $webUser): string
     {
-        $user = $this->loadModel();
+        $user = $this->loadModel((int)$webUser->id);
         return $this->render('view', [
             'user' => $user,
         ]);
     }
 
-    private function loadModel(): User
+    private function loadModel(int $id): User
     {
-        $user = User::findOne(Yii::$app->user->id);
+        $user = User::findOne($id);
         if ($user === null) {
             throw new ForbiddenHttpException('Войдите или зарегистрируйтесь');
         }

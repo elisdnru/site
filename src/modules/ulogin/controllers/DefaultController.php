@@ -8,12 +8,13 @@ use Yii;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;
+use yii\web\User;
 
 class DefaultController extends Controller
 {
     public $enableCsrfValidation = false;
 
-    public function actionLogin(Request $request, Session $session): Response
+    public function actionLogin(Request $request, Session $session, User $user): Response
     {
         if (!$token = $request->post('token')) {
             return $this->redirect(Yii::$app->homeUrl);
@@ -24,7 +25,7 @@ class DefaultController extends Controller
 
             $uLogin->loadAuthData();
 
-            if (!($uLogin->validate() && $uLogin->login())) {
+            if (!($uLogin->validate() && $uLogin->login($user))) {
                 $session->setFlash('error', 'Возможно этот Email используется в другом аккаунте');
             }
         } else {

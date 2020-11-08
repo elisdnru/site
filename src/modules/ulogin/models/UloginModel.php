@@ -5,8 +5,8 @@ namespace app\modules\ulogin\models;
 use app\components\AuthIdentity;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
-use Yii;
 use yii\base\Model;
+use yii\web\User as WebUser;
 
 class UloginModel extends Model
 {
@@ -52,12 +52,12 @@ class UloginModel extends Model
         }
     }
 
-    public function login(): bool
+    public function login(WebUser $webUser): bool
     {
         $identity = $this->authenticate();
         if ($identity !== null) {
             $duration = 3600 * 24 * 30;
-            Yii::$app->user->login($identity, $duration);
+            $webUser->login($identity, $duration);
             return true;
         }
         return false;

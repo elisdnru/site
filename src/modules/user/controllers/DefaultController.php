@@ -9,39 +9,40 @@ use Yii;
 use yii\helpers\Url;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\User as WebUser;
 
 class DefaultController extends Controller
 {
-    public function actionLogin(Request $request)
+    public function actionLogin(Request $request, WebUser $webUser)
     {
-        $user = $this->loadUser();
+        $user = $this->loadUser((int)$webUser->id);
         if ($user) {
             return $this->redirect(Url::to(['/user/profile/view']));
         }
 
         $model = new LoginForm();
 
-        if ($model->load($request->post()) && $model->validate() && $model->login()) {
-            return $this->redirect(Yii::$app->user->returnUrl);
+        if ($model->load($request->post()) && $model->validate() && $model->login($webUser)) {
+            return $this->redirect($webUser->returnUrl);
         }
 
         return $this->render('login', ['model' => $model]);
     }
 
-    public function actionRelogin(): Response
+    public function actionRelogin(WebUser $webUser): Response
     {
-        Yii::$app->user->logout();
+        $webUser->logout();
         return $this->redirect(['login']);
     }
 
-    public function actionLogout(Request $request): Response
+    public function actionLogout(Request $request, WebUser $webUser): Response
     {
-        Yii::$app->user->logout();
+        $webUser->logout();
         return $this->redirect($request->getReferrer() ?: Yii::$app->homeUrl);
     }
 
-    private function loadUser(): ?User
+    private function loadUser(int $id): ?User
     {
-        return User::findOne(Yii::$app->user->id);
+        return User::findOne($id);
     }
 }

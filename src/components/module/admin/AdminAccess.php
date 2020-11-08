@@ -2,12 +2,19 @@
 
 namespace app\components\module\admin;
 
-use Yii;
+use yii\web\User;
 
 class AdminAccess
 {
+    private User $user;
+
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
     public function isGranted(string $module): bool
     {
-        return Yii::$app->user->can('module_' . $module);
+        return $this->user->can('module_' . $module);
     }
 }

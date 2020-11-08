@@ -8,12 +8,14 @@ use app\modules\user\models\User;
 use app\components\AdminController;
 use app\components\Transliterator;
 use Yii;
+use yii\base\Module;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;
+use yii\web\User as WebUser;
 
 class FileController extends AdminController
 {
@@ -21,6 +23,14 @@ class FileController extends AdminController
     public const FILES_UPLOAD_COUNT = 7;
 
     protected string $uploadRootPath = 'upload/media';
+
+    private WebUser $user;
+
+    public function __construct(string $id, Module $module, WebUser $user, array $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->user = $user;
+    }
 
     public function behaviors(): array
     {
@@ -192,6 +202,6 @@ class FileController extends AdminController
 
     private function loadUser(): ?User
     {
-        return User::findOne(Yii::$app->user->id);
+        return User::findOne($this->user->id);
     }
 }
