@@ -6,8 +6,6 @@ use app\components\FileNameGenerator;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 use RuntimeException;
-use StdClass;
-use Yii;
 use yii\web\UploadedFile;
 
 class Uploader
@@ -17,10 +15,19 @@ class Uploader
     public array $allowedThumbnailResolutions = [];
     public int $directoryRights = 755;
 
+    private File $file;
+    private ImageHandler $image;
+
+    public function __construct(File $file, ImageHandler $image)
+    {
+        $this->file = $file;
+        $this->image = $image;
+    }
+
     public function upload(UploadedFile $file, string $path): ?File
     {
         if (!is_dir($path)) {
-            Yii::$app->file->set($path)->createDir($this->directoryRights);
+            $this->file->set($path)->createDir($this->directoryRights);
         }
 
         $extension = strtolower($file->getExtension());
@@ -30,7 +37,7 @@ class Uploader
         $main = $path . '/' . $baseName;
 
         if ($file->saveAs($main)) {
-            return Yii::$app->file->set($main);
+            return $this->file->set($main);
         }
 
         return null;
@@ -50,7 +57,7 @@ class Uploader
             fwrite($f, $content);
             fclose($f);
 
-            return Yii::$app->file->set($orig);
+            return $this->file->set($orig);
         }
         return null;
     }
@@ -65,13 +72,13 @@ class Uploader
             return false;
         }
 
-        $dir = Yii::$app->file->set($path);
+        $dir = $this->file->set($path);
 
         if (!$dir->getContents()) {
             return false;
         }
 
-        $file = Yii::$app->file->set($path . '/' . $baseName);
+        $file = $this->file->set($path . '/' . $baseName);
         $fileName = $file->getFilename();
         $extension = $file->getExtension() ? '\.' . $file->getExtension() : '';
 
@@ -148,7 +155,7 @@ class Uploader
         /** @var $orig ImageHandler */
         /** @var $thumb ImageHandler */
 
-        if ($orig = Yii::$app->image->load($fileName)) {
+        if ($orig = $this->image->load($fileName)) {
             if ($width && $height) {
                 $thumb = $orig->adaptiveThumb($width, $height);
             } else {

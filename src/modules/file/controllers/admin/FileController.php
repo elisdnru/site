@@ -3,6 +3,8 @@
 namespace app\modules\file\controllers\admin;
 
 use app\components\FileNameFilter;
+use app\extensions\file\File;
+use app\extensions\image\ImageHandler;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\components\AdminController;
@@ -45,7 +47,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionIndex(string $path = '')
+    public function actionIndex(File $fileHandler, ImageHandler $imageHandler, string $path = '')
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
         $htmlroot = '/' . $this->getFileDir();
@@ -53,13 +55,13 @@ class FileController extends AdminController
         $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
 
         if (!file_exists($this->getFileDir() . '/' . $path)) {
-            Yii::$app->file->createDir(0754, $this->getFileDir() . '/' . $path);
+            $fileHandler->createDir(0754, $this->getFileDir() . '/' . $path);
         }
 
         if (!empty($_FILES)) {
             for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++) {
                 if (isset($_FILES['file_' . $i])) {
-                    $this->uploadPostFile('file_' . $i, $curpath);
+                    $this->uploadPostFile('file_' . $i, $curpath, $fileHandler, $imageHandler);
                 }
             }
             return $this->refresh();
@@ -69,7 +71,7 @@ class FileController extends AdminController
             $foldername = $_POST['foldername'];
 
             if (preg_match('|^[\\w\\d_-]+$|i', $foldername, $t)) {
-                Yii::$app->file->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $foldername);
+                $fileHandler->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $foldername);
             }
         }
 
@@ -81,10 +83,10 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionDelete(string $name, Request $request): ?Response
+    public function actionDelete(string $name, Request $request, File $fileHandler): ?Response
     {
         $name = FileNameFilter::escape($name);
-        $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
+        $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
             throw new NotFoundHttpException();
@@ -100,7 +102,7 @@ class FileController extends AdminController
         return null;
     }
 
-    public function actionRename(string $path, Request $request): ?Response
+    public function actionRename(string $path, Request $request, File $fileHandler): ?Response
     {
         $name = FileNameFilter::escape($request->post('name'));
         $to = FileNameFilter::escape($request->post('to'));
@@ -111,7 +113,7 @@ class FileController extends AdminController
 
         $name = ($path ? $path . '/' : '') . $name;
 
-        $file = Yii::$app->file->set($this->getFileDir() . '/' . $name, true);
+        $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file) {
             throw new NotFoundHttpException();
@@ -127,11 +129,11 @@ class FileController extends AdminController
         return null;
     }
 
-    private function uploadPostFile($field, $curpath): bool
+    private function uploadPostFile($field, $curpath, File $fileHandler, ImageHandler $imageHandler): bool
     {
         $success = false;
 
-        $uploaded = Yii::$app->file->set($field, true);
+        $uploaded = $fileHandler->set($field, true);
 
         if ($uploaded) {
             if ($uploaded->getBasename() === '.htaccess') {
@@ -145,7 +147,7 @@ class FileController extends AdminController
             }
 
             if ($success && in_array($uploaded->getExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
-                $orig = Yii::$app->image->load($file);
+                $orig = $imageHandler->load($file);
 
                 if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
                     $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . Transliterator::slug($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
@@ -156,16 +158,16 @@ class FileController extends AdminController
         return $success;
     }
 
-    public function actionProcess(string $path, Request $request, Session $session): ?Response
+    public function actionProcess(string $path, Request $request, Session $session, File $fileHandler): ?Response
     {
         $action = $request->post('action');
 
         if ($action) {
             $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
-            $dir = Yii::$app->file->set($curpath);
+            $dir = $fileHandler->set($curpath);
 
             foreach ($dir->getContents() as $item) {
-                $file = Yii::$app->file->set($item);
+                $file = $fileHandler->set($item);
 
                 if ($file->getBasename() !== '.htaccess') {
                     switch ($action) {

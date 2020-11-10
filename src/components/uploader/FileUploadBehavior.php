@@ -3,7 +3,7 @@
 namespace app\components\uploader;
 
 use app\extensions\file\File;
-use Yii;
+use app\extensions\image\ImageHandler;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\validators\Validator;
@@ -45,6 +45,18 @@ class FileUploadBehavior extends Behavior
     public int $defaultThumbHeight = 0;
     public string $imageWidthAttribute = '';
     public string $imageHeightAttribute = '';
+
+    private Uploader $uploader;
+    private File $file;
+    private ImageHandler $image;
+
+    public function __construct(Uploader $uploader, File $file, ImageHandler $image, array $config = [])
+    {
+        parent::__construct($config);
+        $this->uploader = $uploader;
+        $this->file = $file;
+        $this->image = $image;
+    }
 
     /**
      * @param ActiveRecord $owner
@@ -99,7 +111,7 @@ class FileUploadBehavior extends Behavior
     {
         $this->initAttributes();
         if ($this->cachedImageUrl === null) {
-            $this->cachedImageUrl = '/' . Yii::$app->uploader->getUrl($this->filePath, $this->owner->{$this->storageAttribute});
+            $this->cachedImageUrl = '/' . $this->uploader->getUrl($this->filePath, $this->owner->{$this->storageAttribute});
         }
         return $this->cachedImageUrl;
     }
@@ -119,7 +131,7 @@ class FileUploadBehavior extends Behavior
         $index = $width . 'x' . $height;
 
         if (!isset($this->cachedImageThumbUrl[$index])) {
-            $fileName = Yii::$app->uploader->getThumbUrl($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
+            $fileName = $this->uploader->getThumbUrl($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
             $this->cachedImageThumbUrl[$index] = '/' . $fileName;
         }
         return $this->cachedImageThumbUrl[$index];
@@ -133,16 +145,16 @@ class FileUploadBehavior extends Behavior
                 $width = $this->defaultThumbWidth;
                 $height = $this->defaultThumbHeight;
 
-                $thumbName = Yii::$app->uploader->createThumbFileName($this->owner->{$this->storageAttribute}, $width, $height);
+                $thumbName = $this->uploader->createThumbFileName($this->owner->{$this->storageAttribute}, $width, $height);
 
-                if (Yii::$app->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
-                    $file = Yii::$app->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
+                if ($this->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
+                    $file = $this->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
-                    $file = Yii::$app->uploader->createThumb($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
+                    $file = $this->uploader->createThumb($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
                 }
 
                 if ($file) {
-                    if ($image = Yii::$app->image->load($file->getRealPath())) {
+                    if ($image = $this->image->load($file->getRealPath())) {
                         $model->{$this->imageWidthAttribute} = $image->getWidth();
                         $model->{$this->imageHeightAttribute} = $image->getHeight();
                     }
@@ -191,7 +203,7 @@ class FileUploadBehavior extends Behavior
     {
         $model = $this->owner;
         if ($model->{$this->storageAttribute}) {
-            Yii::$app->uploader->delete($model->{$this->storageAttribute}, $this->filePath);
+            $this->uploader->delete($model->{$this->storageAttribute}, $this->filePath);
             if (isset($model->{$this->deleteAttribute})) {
                 $model->{$this->deleteAttribute} = false;
             }
@@ -201,11 +213,11 @@ class FileUploadBehavior extends Behavior
 
     private function uploadByUrl(string $fileUrl): ?File
     {
-        return Yii::$app->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
+        return $this->uploader->uploadByUrl($fileUrl, $this->filePath, 'jpg');
     }
 
     private function uploadFile(UploadedFile $uploadedFile): ?File
     {
-        return Yii::$app->uploader->upload($uploadedFile, $this->filePath);
+        return $this->uploader->upload($uploadedFile, $this->filePath);
     }
 }

@@ -139,46 +139,9 @@ return [
 
         'moduleAdminNotifications' => AdminNotifications::class,
 
-        'image' => ImageHandler::class,
-
         'file' => FileExtension::class,
 
-        'uploader' => [
-            'class' => Uploader::class,
-            'rootPath' => 'upload',
-            'emptyImage' => 'images/nophoto.png',
-            'allowedThumbnailResolutions' => [
-                ['upload/media', [
-                    '680x0',
-                ]],
-                // general
-                ['upload/images', [
-                    '250x0',
-                ]],
-                ['upload/images/users/avatars', [
-                    '100x100',
-                    '50x50',
-                ]],
-                ['upload/images/portfolio', [
-                    '198x0', // greed
-                    '190x0', // homepage
-                    '50x0', // admin
-                ]],
-                ['upload/images/blogs', [
-                    '100x100', // last posts
-                ]],
-                ['upload/images/users/avatars', [
-                    '100x100',
-                    '50x50',
-                ]],
-                ['upload/images/users/galleries', [
-                    '250x0', // admin
-                ]],
-                ['upload/images/pages', [
-                    '250x0', // default
-                ]],
-            ],
-        ],
+        'uploader' => Uploader::class,
 
         'log' => [
             'class' => yii\log\Dispatcher::class,
@@ -230,7 +193,45 @@ return [
                 'fileMode' => 0666,
             ] : [
                 'class' => DummyCache::class,
-            ]
+            ],
+            ImageHandler::class => [],
+            FileExtension::class => [],
+            Uploader::class => [
+                'class' => Uploader::class,
+                'rootPath' => 'upload',
+                'emptyImage' => 'images/nophoto.png',
+                'allowedThumbnailResolutions' => [
+                    ['upload/media', [
+                        '680x0',
+                    ]],
+                    // general
+                    ['upload/images', [
+                        '250x0',
+                    ]],
+                    ['upload/images/users/avatars', [
+                        '100x100',
+                        '50x50',
+                    ]],
+                    ['upload/images/portfolio', [
+                        '198x0', // greed
+                        '190x0', // homepage
+                        '50x0', // admin
+                    ]],
+                    ['upload/images/blogs', [
+                        '100x100', // last posts
+                    ]],
+                    ['upload/images/users/avatars', [
+                        '100x100',
+                        '50x50',
+                    ]],
+                    ['upload/images/users/galleries', [
+                        '250x0', // admin
+                    ]],
+                    ['upload/images/pages', [
+                        '250x0', // default
+                    ]],
+                ],
+            ],
         ],
     ],
 
