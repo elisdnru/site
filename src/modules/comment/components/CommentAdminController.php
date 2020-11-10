@@ -5,7 +5,6 @@ namespace app\modules\comment\components;
 use app\modules\comment\models\Comment;
 use BadMethodCallException;
 use app\components\AdminController;
-use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;

@@ -5,7 +5,6 @@ namespace app\modules\comment\controllers;
 use app\modules\comment\models\Comment;
 use app\components\Controller;
 use Yii;
-use yii\base\Module;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\ForbiddenHttpException;

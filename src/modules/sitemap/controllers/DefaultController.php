@@ -14,13 +14,7 @@ class DefaultController extends Controller
 {
     private GroupsFetcher $fetcher;
 
-    /**
-     * @param string $id
-     * @param Module $module
-     * @param GroupsFetcher $fetcher
-     * @param array $config
-     */
-    public function __construct($id, $module, GroupsFetcher $fetcher, $config = [])
+    public function __construct(string $id, Module $module, GroupsFetcher $fetcher, array $config = [])
     {
         parent::__construct($id, $module, $config);
         $this->fetcher = $fetcher;
