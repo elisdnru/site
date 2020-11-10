@@ -1823,12 +1823,6 @@
     <MixedAssignment occurrences="1">
       <code>$xml</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$xml</code>
-    </MixedReturnStatement>
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>

@@ -5,7 +5,6 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\models\Post;
 use app\components\Controller;
 use DateTimeImmutable;
-use Yii;
 use yii\helpers\Html;
 use yii\web\Request;
 use yii\web\Response;
@@ -13,7 +12,7 @@ use Laminas\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(Request $request, Response $response): Response
     {
         /** @var Post[] $posts */
         $posts = Post::find()->published()->orderBy(['date' => SORT_DESC])->limit(100)->all();
@@ -59,8 +58,9 @@ class FeedController extends Controller
             $feed->addEntry($item);
         }
 
-        Yii::$app->response->format = Response::FORMAT_RAW;
-        Yii::$app->response->headers['Content-Type'] = 'application/rss+xml;charset=UTF-8';
-        return $feed->export('rss');
+        $response->format = Response::FORMAT_RAW;
+        $response->headers['Content-Type'] = 'application/rss+xml;charset=UTF-8';
+        $response->content = $feed->export('rss');
+        return $response;
     }
 }

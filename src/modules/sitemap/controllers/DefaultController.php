@@ -5,7 +5,6 @@ namespace app\modules\sitemap\controllers;
 use app\components\module\sitemap\GroupsFetcher;
 use app\components\Controller;
 use app\modules\sitemap\components\Sitemap;
-use Yii;
 use yii\base\Module;
 use yii\caching\CacheInterface;
 use yii\helpers\Url;
@@ -36,7 +35,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function actionXml(CacheInterface $cache): string
+    public function actionXml(CacheInterface $cache, Response $response): Response
     {
         if (!$xml = $cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
@@ -59,8 +58,9 @@ class DefaultController extends Controller
             $cache->set('sitemap_xml', $xml, 3600);
         }
 
-        Yii::$app->response->format = Response::FORMAT_RAW;
-        Yii::$app->response->headers['Content-Type'] = 'application/xml;charset=UTF-8';
-        return $xml;
+        $response->format = Response::FORMAT_RAW;
+        $response->headers['Content-Type'] = 'application/xml;charset=UTF-8';
+        $response->content = (string)$xml;
+        return $response;
     }
 }
