@@ -1,6 +1,7 @@
 <?php
-/** @var $posts \app\modules\blog\models\Post[] */
+/** @var $posts Post[] */
 
+use app\modules\blog\models\Post;
 use yii\helpers\Html;
 
 ?>

@@ -3,10 +3,11 @@
 use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
+use yii\data\ActiveDataProvider;
 use yii\web\View;
 
 /** @var $this View|InlineWidgetsBehavior */
-/** @var $dataProvider \yii\data\ActiveDataProvider */
+/** @var $dataProvider ActiveDataProvider */
 
 $this->context->layout = 'index';
 

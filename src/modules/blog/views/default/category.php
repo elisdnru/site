@@ -1,4 +1,6 @@
 <?php
+
+use app\components\InlineWidgetsBehavior;
 use app\modules\blog\models\Category;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
@@ -6,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|\app\components\InlineWidgetsBehavior */
+/** @var $this View|InlineWidgetsBehavior */
 /** @var $category Category */
 /** @var $dataProvider ActiveDataProvider */
 

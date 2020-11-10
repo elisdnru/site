@@ -1,8 +1,9 @@
 <?php
-/** @var $data \app\modules\comment\models\Comment */
+/** @var $data Comment */
 
 use app\components\purifier\CommentPostFilter;
 use app\components\SocNetwork;
+use app\modules\comment\models\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
 

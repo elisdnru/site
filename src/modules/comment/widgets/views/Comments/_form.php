@@ -1,8 +1,9 @@
 <?php
-/** @var $user \app\modules\user\models\User */
+/** @var $user User */
 
 use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\UloginWidget;
+use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;

@@ -1,5 +1,6 @@
 <?php
 use app\components\DateFormatter;
+use app\modules\blog\models\Post;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
@@ -10,7 +11,7 @@ use yii\widgets\LinkPager;
 <div id="blogList">
     <div class="items">
         <?php foreach ($dataProvider->getModels() as $post) : ?>
-            <?php /** @var \app\modules\blog\models\Post $post */ ?>
+            <?php /** @var Post $post */ ?>
             <?php
             $links = [];
             foreach ($post->tags as $tag) {

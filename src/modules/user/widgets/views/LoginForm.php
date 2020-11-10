@@ -1,11 +1,13 @@
 <?php
 use app\components\SocNetwork;
 use app\modules\ulogin\widgets\UloginWidget;
+use app\modules\user\forms\LoginForm;
+use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $user \app\modules\user\models\User */
-/** @var $model \app\modules\user\forms\LoginForm */
+/** @var $user User */
+/** @var $model LoginForm */
 ?>
 <?php if ($user) : ?>
     <div style="float:left;">

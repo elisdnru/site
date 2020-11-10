@@ -1,8 +1,9 @@
 <?php
-/** @var $model \app\modules\user\models\User */
+/** @var $model User */
 /** @var $dataProvider ActiveDataProvider */
 
 use app\modules\user\models\Access;
+use app\modules\user\models\User;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -50,7 +51,7 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $user) : ?>
-                    <?php /** @var $user \app\modules\user\models\User */ ?>
+                    <?php /** @var $user User */ ?>
                     <tr>
                         <td style="width:50px">
                             <img src="<?= $user->getAvatarUrl(50, 50) ?>" width="50px" alt=""/>

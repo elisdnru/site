@@ -1,8 +1,13 @@
 <?php
-/** @var $comments \app\modules\comment\models\Comment[] */
-/** @var $user \app\modules\user\models\User */
-/** @var $form \app\modules\comment\forms\CommentForm */
+/** @var $comments Comment[] */
+/** @var $user User */
+/** @var $form CommentForm */
 /** @var $authorId int */
+
+use app\modules\comment\forms\CommentForm;
+use app\modules\comment\models\Comment;
+use app\modules\user\models\User;
+
 ?>
 <div id="comments">
 

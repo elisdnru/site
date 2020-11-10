@@ -1,5 +1,7 @@
 <?php
-/** @var $model \app\modules\comment\models\Comment */
+/** @var $model Comment */
+
+use app\modules\comment\models\Comment;
 
 $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [

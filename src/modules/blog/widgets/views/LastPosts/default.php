@@ -1,8 +1,10 @@
 <?php
+
+use app\modules\blog\models\Post;
 use app\widgets\Portlet;
 use yii\helpers\Html;
 
-/** @var $posts \app\modules\blog\models\Post[] */
+/** @var $posts Post[] */
 ?>
 <?php if (count($posts)) : ?>
     <?php Portlet::begin(['title' => null]); ?>

@@ -1,11 +1,12 @@
 <?php
 
 use app\components\SocNetwork;
+use app\modules\user\models\User;
 use app\widgets\Portlet;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $model \app\modules\user\models\User */
+/** @var $model User */
 
 $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = [

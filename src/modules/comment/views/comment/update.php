@@ -1,9 +1,13 @@
 <?php
-use app\modules\user\models\Access;
 
-/** @var $model \app\modules\comment\models\Comment */
-/** @var $form \app\modules\comment\forms\CommentForm */
-/** @var $user \app\modules\user\models\User */
+use app\modules\comment\forms\CommentForm;
+use app\modules\comment\models\Comment;
+use app\modules\user\models\Access;
+use app\modules\user\models\User;
+
+/** @var $model Comment */
+/** @var $form CommentForm */
+/** @var $user User */
 
 $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [

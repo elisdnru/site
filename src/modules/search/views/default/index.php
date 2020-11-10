@@ -1,13 +1,16 @@
 <?php
+
+use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
-/** @var $this \yii\web\View|\app\components\InlineWidgetsBehavior */
+/** @var $this View|InlineWidgetsBehavior */
 /** @var $dataProvider ActiveDataProvider */
 /** @var $query string */
 

@@ -2,13 +2,15 @@
 use app\components\DateFormatter;
 use app\components\purifier\CommentPostFilter;
 use app\components\SocNetwork;
+use app\modules\comment\models\Comment;
+use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var $indent int */
 /** @var $authorId int */
-/** @var $comment \app\modules\comment\models\Comment */
-/** @var $user \app\modules\user\models\User */
+/** @var $comment Comment */
+/** @var $user User */
 ?>
 <article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
     <?php if ($comment->user) : ?>

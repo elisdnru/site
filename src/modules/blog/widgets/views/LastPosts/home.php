@@ -1,8 +1,9 @@
 <?php
 use app\components\DateFormatter;
+use app\modules\blog\models\Post;
 use yii\helpers\Html;
 
-/** @var $posts \app\modules\blog\models\Post[] */
+/** @var $posts Post[] */
 ?>
 <?php foreach ($posts as $data) : ?>
     <?php

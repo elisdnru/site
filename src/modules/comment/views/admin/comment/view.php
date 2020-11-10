@@ -1,7 +1,8 @@
 <?php
-/** @var $model \app\modules\comment\models\Comment */
+/** @var $model Comment */
 
 use app\assets\CommentsAsset;
+use app\modules\comment\models\Comment;
 
 $this->title = 'Комментарий';
 $this->params['breadcrumbs'] = [
