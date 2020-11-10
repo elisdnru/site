@@ -963,18 +963,12 @@
     <MismatchingDocblockReturnType occurrences="1">
       <code>string|Comment</code>
     </MismatchingDocblockReturnType>
-    <MissingParamType occurrences="1">
-      <code>$attribute</code>
-    </MissingParamType>
     <MixedArgument occurrences="1">
-      <code>Yii::$app-&gt;request-&gt;post()</code>
+      <code>$request-&gt;post()</code>
     </MixedArgument>
     <MixedInferredReturnType occurrences="1">
       <code>string|Comment</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$attribute</code>
-    </MixedOperand>
     <PossiblyFalsePropertyAssignmentValue occurrences="1">
       <code>false</code>
     </PossiblyFalsePropertyAssignmentValue>

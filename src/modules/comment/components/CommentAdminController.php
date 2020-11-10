@@ -11,6 +11,7 @@ use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 abstract class CommentAdminController extends AdminController
@@ -57,12 +58,15 @@ abstract class CommentAdminController extends AdminController
     }
 
     /**
+     * @param int $id
+     * @param Request $request
      * @return Response|string
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
@@ -70,7 +74,7 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionToggle(int $id, $attribute): ?Response
+    public function actionToggle(int $id, string $attribute, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -81,8 +85,8 @@ abstract class CommentAdminController extends AdminController
         $model->$attribute = $model->$attribute ? '0' : '1';
         $model->save();
 
-        if (!Yii::$app->request->getIsAjax()) {
-            return $this->redirect(Yii::$app->request->getReferrer() ?: ['index']);
+        if (!$request->getIsAjax()) {
+            return $this->redirect($request->getReferrer() ?: ['index']);
         }
         return null;
     }
@@ -95,7 +99,7 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
-    public function actionDelete(int $id): ?Response
+    public function actionDelete(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -110,13 +114,13 @@ abstract class CommentAdminController extends AdminController
             throw new BadRequestHttpException('Error');
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
     }
 
-    public function actionModer(int $id): ?Response
+    public function actionModer(int $id, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -126,20 +130,20 @@ abstract class CommentAdminController extends AdminController
             throw new BadRequestHttpException('Error');
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
     }
 
-    public function actionModerAll(): ?Response
+    public function actionModerAll(Request $request): ?Response
     {
         foreach ($this->getModelName()::find()->unread()->each() as $item) {
             $item->moder = 1;
             $item->save();
         }
 
-        if (!Yii::$app->request->getIsAjax()) {
+        if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
