@@ -19,7 +19,7 @@ class AdminDashboard
     {
         $modules = [];
 
-        foreach (Yii::$app->modules as $key => $value) {
+        foreach (Yii::$app->getModules() as $key => $value) {
             $module = Yii::$app->getModule($key);
             if ($module && $module instanceof AdminDashboardItem && $this->access->isGranted($module->id)) {
                 $modules[$module->adminGroup()][$module->adminName()] = $module;
