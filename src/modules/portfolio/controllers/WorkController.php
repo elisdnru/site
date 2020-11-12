@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 use app\components\module\admin\AdminAccess;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Url;

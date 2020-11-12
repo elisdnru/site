@@ -5,7 +5,7 @@ namespace app\modules\user\controllers;
 use app\components\MathCaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\user\models\User;
 use yii\mail\MailerInterface;
 use yii\web\Request;

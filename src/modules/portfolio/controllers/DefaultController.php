@@ -2,7 +2,7 @@
 
 namespace app\modules\portfolio\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\portfolio\models\query\WorkQuery;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;

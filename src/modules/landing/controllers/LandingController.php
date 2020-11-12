@@ -2,7 +2,7 @@
 
 namespace app\modules\landing\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\landing\models\Landing;
 use yii\caching\TagDependency;
 use yii\web\NotFoundHttpException;

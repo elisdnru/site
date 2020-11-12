@@ -1257,7 +1257,9 @@
       <code>$id</code>
       <code>$module</code>
     </MixedArgument>
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>DefaultController</code>
+      <code>DefaultController</code>
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
     <TypeDoesNotContainType occurrences="1">
@@ -1785,7 +1787,9 @@
     <MixedAssignment occurrences="1">
       <code>$xml</code>
     </MixedAssignment>
-    <PropertyNotSetInConstructor occurrences="1">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>DefaultController</code>
+      <code>DefaultController</code>
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
   </file>

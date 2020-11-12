@@ -2,7 +2,7 @@
 
 namespace app\modules\image\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 use app\components\uploader\Uploader;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

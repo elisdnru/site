@@ -3,7 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\Post;
-use app\components\Controller;
+use yii\web\Controller;
 use DateTimeImmutable;
 use yii\helpers\Html;
 use yii\web\Request;

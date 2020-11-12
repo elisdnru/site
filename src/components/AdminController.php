@@ -4,6 +4,7 @@ namespace app\components;
 
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\web\Controller;
 
 abstract class AdminController extends Controller
 {

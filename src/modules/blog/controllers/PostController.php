@@ -4,7 +4,7 @@ namespace app\modules\blog\controllers;
 
 use app\components\module\admin\AdminAccess;
 use app\modules\blog\models\Post;
-use app\components\Controller;
+use yii\web\Controller;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

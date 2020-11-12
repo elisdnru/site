@@ -6,7 +6,7 @@ use app\modules\blog\models\Category;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
-use app\components\Controller;
+use yii\web\Controller;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;

@@ -4,7 +4,7 @@ namespace app\modules\comment\controllers;
 
 use app\components\module\admin\AdminAccess;
 use app\modules\comment\models\Comment;
-use app\components\Controller;
+use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\ForbiddenHttpException;

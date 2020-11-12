@@ -5,7 +5,7 @@ namespace app\modules\comment\controllers;
 use app\components\module\admin\AdminAccess;
 use app\modules\comment\forms\CommentEditForm;
 use app\modules\comment\models\Comment;
-use app\components\Controller;
+use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

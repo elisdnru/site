@@ -3,7 +3,7 @@
 namespace app\modules\sitemap\controllers;
 
 use app\components\module\sitemap\GroupsFetcher;
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\sitemap\components\Sitemap;
 use yii\base\Module;
 use yii\caching\CacheInterface;

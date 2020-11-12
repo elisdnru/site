@@ -10,7 +10,7 @@
 namespace app\modules\search\controllers;
 
 use app\modules\search\models\Search;
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\search\forms\SearchForm;
 use Yii;
 use yii\data\ActiveDataProvider;

@@ -2,7 +2,7 @@
 
 namespace app\modules\page\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
 use yii\web\NotFoundHttpException;

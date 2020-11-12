@@ -2,7 +2,7 @@
 
 namespace app\modules\edu\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 use app\modules\edu\components\api\Api;
 
 class DefaultController extends Controller

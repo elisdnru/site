@@ -2,7 +2,7 @@
 
 namespace app\modules\services\controllers;
 
-use app\components\Controller;
+use yii\web\Controller;
 
 class DefaultController extends Controller
 {
