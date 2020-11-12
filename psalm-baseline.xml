@@ -1095,12 +1095,11 @@
     <MissingReturnType occurrences="1">
       <code>getAvatarUrl</code>
     </MissingReturnType>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$row['type']</code>
       <code>$this-&gt;$attribute</code>
       <code>$this-&gt;$attribute</code>
       <code>$width</code>
-      <code>Yii::$app-&gt;params['GENERAL.ADMIN_EMAIL']</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$a['liked']</code>

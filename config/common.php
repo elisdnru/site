@@ -236,8 +236,4 @@ return [
             AdminNotifications::class => [],
         ],
     ],
-
-    'params' => [
-        'GENERAL.ADMIN_EMAIL' => getenv('MAILER_FROM_EMAIL'),
-    ],
 ];
