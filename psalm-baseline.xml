@@ -316,9 +316,6 @@
       <code>Category[]|BatchQueryResult</code>
       <code>Category|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>CategoryQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Category|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -334,9 +331,6 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>parent::each($batchSize, $db)</code>
     </LessSpecificReturnStatement>
-    <MethodSignatureMismatch occurrences="1">
-      <code>TreeCategoryQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>TreeCategory|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -894,9 +888,6 @@
       <code>Group[]|BatchQueryResult</code>
       <code>Group|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>GroupQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Group|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -909,9 +900,6 @@
       <code>Post[]|BatchQueryResult</code>
       <code>Post|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>PostQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -1090,11 +1078,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>'#'</code>
     </DocblockTypeContradiction>
-    <InvalidScalarArgument occurrences="3">
-      <code>'comment'</code>
-      <code>'comment'</code>
-      <code>'comment'</code>
-    </InvalidScalarArgument>
     <InvalidStringClass occurrences="1">
       <code>new $class(null)</code>
     </InvalidStringClass>
@@ -1143,9 +1126,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;material</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyAssignment occurrences="1">
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyAssignment>
     <UndefinedMagicPropertyFetch occurrences="2">
       <code>Yii::$app-&gt;session</code>
       <code>Yii::$app-&gt;session</code>
@@ -1156,9 +1136,6 @@
       <code>Comment[]|BatchQueryResult</code>
       <code>Comment|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>CommentQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -1460,9 +1437,6 @@
       <code>Landing[]|BatchQueryResult</code>
       <code>Landing|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>LandingQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Landing|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -1589,9 +1563,6 @@
       <code>Page[]|BatchQueryResult</code>
       <code>Page|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>PageQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Page|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
@@ -1745,9 +1716,6 @@
     <ImplementedReturnTypeMismatch occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <MethodSignatureMismatch occurrences="1">
-      <code>WorkQuery</code>
-    </MethodSignatureMismatch>
     <MismatchingDocblockReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
