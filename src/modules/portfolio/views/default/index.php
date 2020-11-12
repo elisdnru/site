@@ -1,5 +1,6 @@
 <?php
 
+use app\assets\PortfolioAsset;
 use app\components\PaginationFormatter;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
@@ -27,6 +28,8 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
     }
 }
+
+PortfolioAsset::register($this);
 ?>
 
 <h1>Портфолио</h1>

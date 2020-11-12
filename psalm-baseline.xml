@@ -1575,11 +1575,6 @@
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/portfolio/components/PortfolioBaseController.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>Yii::$app-&gt;view</code>
-    </ArgumentTypeCoercion>
-  </file>
   <file src="src/modules/portfolio/controllers/DefaultController.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$category === null</code>

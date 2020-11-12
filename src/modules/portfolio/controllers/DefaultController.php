@@ -2,15 +2,15 @@
 
 namespace app\modules\portfolio\controllers;
 
+use app\components\Controller;
 use app\modules\portfolio\models\query\WorkQuery;
-use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 
-class DefaultController extends PortfolioBaseController
+class DefaultController extends Controller
 {
     private const PER_PAGE = 9;
 

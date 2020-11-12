@@ -2,15 +2,14 @@
 
 namespace app\modules\portfolio\controllers;
 
+use app\components\Controller;
 use app\components\module\admin\AdminAccess;
-use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
-
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 
-class WorkController extends PortfolioBaseController
+class WorkController extends Controller
 {
     public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null)
     {

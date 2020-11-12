@@ -1,5 +1,6 @@
 <?php
 use app\assets\ColorboxAsset;
+use app\assets\PortfolioAsset;
 use app\widgets\Share;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
@@ -26,9 +27,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create']];
     }
-} ?>
+}
 
-<?php ColorboxAsset::register($this) ?>
+PortfolioAsset::register($this);
+ColorboxAsset::register($this);
+?>
 
 <?php if (!$model->public) : ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
