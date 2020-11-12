@@ -2,18 +2,19 @@
 
 namespace app\modules\portfolio\controllers;
 
+use app\components\module\admin\AdminAccess;
 use app\modules\portfolio\components\PortfolioBaseController;
 use app\modules\portfolio\models\Work;
-use Yii;
+
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 
 class WorkController extends PortfolioBaseController
 {
-    public function actionShow(int $id, ?string $alias = null, Request $request)
+    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id, $access);
 
         if ('/' . $request->getPathInfo() !== $model->getUrl()) {
             return $this->redirect(Url::current(['alias' => $model->alias, 'category' => $model->category->getPath()]), 301);
@@ -24,11 +25,11 @@ class WorkController extends PortfolioBaseController
         ]);
     }
 
-    private function loadModel(int $id): Work
+    private function loadModel(int $id, AdminAccess $access): Work
     {
         $query = Work::find();
 
-        if (!Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
+        if (!$access->isGranted('portfolio')) {
             $query->published();
         }
 

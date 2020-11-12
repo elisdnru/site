@@ -8,13 +8,20 @@ use Yii;
 
 class AdminDashboard
 {
+    private AdminAccess $access;
+
+    public function __construct(AdminAccess $access)
+    {
+        $this->access = $access;
+    }
+
     public function groupedModules(): array
     {
         $modules = [];
 
         foreach (Yii::$app->modules as $key => $value) {
             $module = Yii::$app->getModule($key);
-            if ($module && $module instanceof AdminDashboardItem && Yii::$app->moduleAdminAccess->isGranted($module->id)) {
+            if ($module && $module instanceof AdminDashboardItem && $this->access->isGranted($module->id)) {
                 $modules[$module->adminGroup()][$module->adminName()] = $module;
             }
         }

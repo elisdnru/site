@@ -2,10 +2,10 @@
 
 namespace app\modules\comment\controllers;
 
+use app\components\module\admin\AdminAccess;
 use app\modules\comment\forms\CommentEditForm;
 use app\modules\comment\models\Comment;
 use app\components\Controller;
-use Yii;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -14,9 +14,9 @@ use yii\web\User;
 
 class CommentController extends Controller
 {
-    public function actionUpdate(int $id, Request $request, Session $session, User $user)
+    public function actionUpdate(int $id, Request $request, Session $session, User $user, AdminAccess $access)
     {
-        $model = $this->loadModel($id, (int)$user->id);
+        $model = $this->loadModel($id, (int)$user->id, $access);
 
         $form = new CommentEditForm($model);
 
@@ -34,7 +34,7 @@ class CommentController extends Controller
         ]);
     }
 
-    private function loadModel(int $id, int $userId): Comment
+    private function loadModel(int $id, int $userId, AdminAccess $access): Comment
     {
         $model = Comment::find()
             ->published()
@@ -45,7 +45,7 @@ class CommentController extends Controller
             throw new NotFoundHttpException();
         }
 
-        if (!($model->user_id === $userId || Yii::$app->moduleAdminAccess->isGranted('comment'))) {
+        if (!($model->user_id === $userId || $access->isGranted('comment'))) {
             throw new ForbiddenHttpException();
         }
 

@@ -119,15 +119,11 @@ return [
         ],
 
         'moduleAdminAccess' => AdminAccess::class,
-
         'moduleAdminDashboard' => AdminDashboard::class,
-
         'moduleAdminMenu' => AdminMenu::class,
-
         'moduleAdminNotifications' => AdminNotifications::class,
 
         'file' => FileExtension::class,
-
         'uploader' => Uploader::class,
 
         'log' => [
@@ -234,6 +230,10 @@ return [
                     ]],
                 ],
             ],
+            AdminAccess::class => [],
+            AdminDashboard::class => [],
+            AdminMenu::class => [],
+            AdminNotifications::class => [],
         ],
     ],
 

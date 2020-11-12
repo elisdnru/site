@@ -2,18 +2,18 @@
 
 namespace app\modules\blog\controllers;
 
+use app\components\module\admin\AdminAccess;
 use app\modules\blog\models\Post;
 use app\components\Controller;
-use Yii;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 
 class PostController extends Controller
 {
-    public function actionShow(int $id, ?string $alias = null, Request $request)
+    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null)
     {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id, $access);
 
         if ('/' . $request->getPathInfo() !== $model->getUrl()) {
             return $this->redirect(Url::current(['alias' => $model->alias]), 301);
@@ -24,11 +24,11 @@ class PostController extends Controller
         ]);
     }
 
-    private function loadModel(int $id): Post
+    private function loadModel(int $id, AdminAccess $access): Post
     {
         $query = Post::find();
 
-        if (!Yii::$app->moduleAdminAccess->isGranted('blog')) {
+        if (!$access->isGranted('blog')) {
             $query = $query->published();
         }
 

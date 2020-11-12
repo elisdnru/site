@@ -2,10 +2,10 @@
 
 namespace app\modules\admin\controllers;
 
+use app\components\module\admin\AdminDashboard;
 use app\modules\user\models\Access;
 use app\components\AdminController;
 use app\modules\user\models\User;
-use Yii;
 use yii\filters\AccessControl;
 use yii\web\User as WebUser;
 
@@ -26,9 +26,9 @@ class DefaultController extends AdminController
         ];
     }
 
-    public function actionIndex(WebUser $user): string
+    public function actionIndex(WebUser $user, AdminDashboard $dashboard): string
     {
-        $modules = Yii::$app->moduleAdminDashboard->groupedModules();
+        $modules = $dashboard->groupedModules();
 
         return $this->render('index', [
             'modules' => $modules,
