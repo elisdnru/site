@@ -2,7 +2,6 @@
 
 namespace app\widgets;
 
-use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -24,7 +23,7 @@ class Breadcrumbs extends Widget
 
         $html = Html::beginTag($this->tagName, $this->htmlOptions) . "\n";
         $links = [];
-        $definedLinks = ['Дмитрий Елисеев' => Yii::$app->homeUrl] + $this->links;
+        $definedLinks = ['Дмитрий Елисеев' => ['/home/default/index']] + $this->links;
         foreach ($definedLinks as $label => $url) {
             if (is_string($label) || is_array($url)) {
                 $links[] = strtr($this->activeLinkTemplate, [
