@@ -5,7 +5,6 @@ namespace app\modules\user\controllers;
 use app\components\Controller;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
-use Yii;
 use yii\helpers\Url;
 use yii\web\Request;
 use yii\web\Response;
@@ -38,7 +37,7 @@ class DefaultController extends Controller
     public function actionLogout(Request $request, WebUser $webUser): Response
     {
         $webUser->logout();
-        return $this->redirect($request->getReferrer() ?: Yii::$app->homeUrl);
+        return $this->redirect($request->getReferrer() ?: ['/home/default/index']);
     }
 
     private function loadUser(int $id): ?User
