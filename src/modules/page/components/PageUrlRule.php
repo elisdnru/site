@@ -3,7 +3,6 @@
 namespace app\modules\page\components;
 
 use app\modules\page\models\Page;
-use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\UrlRuleInterface;
 
@@ -30,10 +29,6 @@ class PageUrlRule implements UrlRuleInterface
     public function parseRequest($manager, $request)
     {
         if (!preg_match('|^(?P<path>\w[\w_/-]+)$|', $request->getPathInfo(), $matches)) {
-            return false;
-        }
-
-        if (Yii::$app->hasModule($matches['path'])) {
             return false;
         }
 
