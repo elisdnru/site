@@ -59,7 +59,7 @@ class FeedController extends Controller
         }
 
         $response->format = Response::FORMAT_RAW;
-        $response->headers['Content-Type'] = 'application/rss+xml;charset=UTF-8';
+        $response->headers->set('Content-Type', 'application/rss+xml;charset=UTF-8');
         $response->content = $feed->export('rss');
         return $response;
     }

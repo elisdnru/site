@@ -53,7 +53,7 @@ class DefaultController extends Controller
         }
 
         $response->format = Response::FORMAT_RAW;
-        $response->headers['Content-Type'] = 'application/xml;charset=UTF-8';
+        $response->headers->set('Content-Type', 'application/xml;charset=UTF-8');
         $response->content = (string)$xml;
         return $response;
     }
