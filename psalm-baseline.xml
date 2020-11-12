@@ -1900,9 +1900,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;homeUrl</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/controllers/ProfileController.php">
     <MissingReturnType occurrences="2">

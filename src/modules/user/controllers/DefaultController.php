@@ -28,12 +28,6 @@ class DefaultController extends Controller
         return $this->render('login', ['model' => $model]);
     }
 
-    public function actionRelogin(WebUser $webUser): Response
-    {
-        $webUser->logout();
-        return $this->redirect(['login']);
-    }
-
     public function actionLogout(Request $request, WebUser $webUser): Response
     {
         $webUser->logout();

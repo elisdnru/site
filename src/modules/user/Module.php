@@ -28,7 +28,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider
     public static function routes(): array
     {
         return [
-            '<action:login|logout|relogin>' => 'user/default/<action>',
+            '<action:login|logout>' => 'user/default/<action>',
             'registration' => 'user/registration/request',
             'registration/confirm' => 'user/registration/confirm',
             'registration/captcha<id:\d+>' => 'user/registration/captcha<id>',
