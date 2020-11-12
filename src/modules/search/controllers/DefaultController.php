@@ -14,16 +14,17 @@ use app\components\Controller;
 use app\modules\search\forms\SearchForm;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\db\Connection;
 use yii\web\Request;
 
 class DefaultController extends Controller
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(Request $request, Connection $db): string
     {
         $model = new SearchForm();
 
         if ($model->load($request->queryParams) && $model->validate()) {
-            $this->createViewTable();
+            self::createViewTable($db);
 
             $query = Search::find()
                 ->andWhere([
@@ -49,7 +50,7 @@ class DefaultController extends Controller
         return $this->render('error');
     }
 
-    private function createViewTable(): void
+    private static function createViewTable(Connection $db): void
     {
         $query = 'CREATE OR REPLACE VIEW search AS ';
         $tables = [];
@@ -59,6 +60,6 @@ class DefaultController extends Controller
         $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\blog\\\\models\\\\Post\' AS material_class FROM blog_posts WHERE public=1';
         $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\portfolio\\\\models\\\\Work\' AS material_class FROM portfolio_works WHERE public=1';
 
-        Yii::$app->db->createCommand($query . implode(' UNION ', $tables))->execute();
+        $db->createCommand($query . implode(' UNION ', $tables))->execute();
     }
 }

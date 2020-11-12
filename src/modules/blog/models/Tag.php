@@ -82,7 +82,7 @@ class Tag extends ActiveRecord
 
     public function getPostIds(): array
     {
-        $postIds = Yii::$app->db
+        $postIds = self::getDb()
             ->createCommand('SELECT post_id FROM blog_post_tags WHERE tag_id=:tag', [':tag' => $this->id])
             ->queryColumn();
 
