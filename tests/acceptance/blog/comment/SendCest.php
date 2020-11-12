@@ -4,6 +4,7 @@ namespace tests\acceptance\blog\comment;
 
 use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
+use tests\fixtures\blog\CommentFixture;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
@@ -19,14 +20,16 @@ class SendCest
             'group' => GroupFixture::class,
             'user' => UserFixture::class,
             'post' => PostFixture::class,
+            'comment' => CommentFixture::class,
         ]);
     }
 
     public function guest(AcceptanceTester $I): void
     {
-        $I->amOnPage('blog/1/post-1');
+        $I->amOnPage('blog/6/post-comments');
         $I->seeElement('#comment-form');
 
+        $I->fillField('CommentForm[parent_id]', '4');
         $I->fillField('CommentForm[name]', 'Name');
         $I->fillField('CommentForm[email]', 'new-comment@app.test');
         $I->fillField('CommentForm[site]', 'https://app.test');
@@ -36,6 +39,7 @@ class SendCest
 
         $I->see('Ваш коментарий добавлен', '.flash-success');
         $I->seeInSource('<p>New Comment</p>');
+        $I->seeEmailSentTo('author@app.test');
     }
 
     public function notValid(AcceptanceTester $I): void

@@ -166,16 +166,7 @@ class Comment extends ActiveRecord
         }
     }
 
-    public function afterSave($insert, $changedAttributes): void
-    {
-        if ($this->isNewRecord) {
-            $this->sendNotifications(Yii::$app->mailer);
-        }
-
-        parent::afterSave($insert, $changedAttributes);
-    }
-
-    private function sendNotifications(MailerInterface $mailer): void
+    public function sendNotifications(MailerInterface $mailer): void
     {
         if ($this->parent && $this->parent->email !== $this->email) {
             $this->parent->sendNotify($this, $mailer);

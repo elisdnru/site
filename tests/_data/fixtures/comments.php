@@ -55,7 +55,7 @@ return [
         'material_id' => 6,
         'user_id' => 2,
         'name' => 'User',
-        'email' => 'user@app.test',
+        'email' => 'author@app.test',
         'site' => '',
         'text' => 'User Comment',
         'text_purified' => '<p>User Comment</p>',
