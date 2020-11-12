@@ -7,6 +7,7 @@ use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\components\Controller;
 use app\modules\user\models\User;
+use yii\mail\MailerInterface;
 use yii\web\Request;
 use yii\web\Session;
 
@@ -26,7 +27,7 @@ class RegistrationController extends Controller
         ];
     }
 
-    public function actionRequest(Request $request, Session $session)
+    public function actionRequest(Request $request, Session $session, MailerInterface $mailer)
     {
         $model = new RegistrationForm();
 
@@ -43,7 +44,7 @@ class RegistrationController extends Controller
                 $user->role = Access::ROLE_USER;
 
                 if ($user->save(false)) {
-                    $user->sendCommit();
+                    $user->sendCommit($mailer);
                     $session->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
                     return $this->refresh();
                 }

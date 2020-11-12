@@ -25,6 +25,7 @@ use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
+use yii\mail\MailerInterface;
 use yii\web\JqueryAsset;
 use yii\widgets\LinkPager;
 
@@ -96,21 +97,7 @@ return [
             'enableSchemaCache' => true,
         ],
 
-        'mailer' => [
-            'class' => yii\swiftmailer\Mailer::class,
-            'viewPath' => '@app/views/email',
-            'transport' => [
-                'class' => Swift_SmtpTransport::class,
-                'host' => getenv('MAILER_HOST'),
-                'port' => getenv('MAILER_PORT'),
-                'username' => getenv('MAILER_USER'),
-                'password' => getenv('MAILER_PASSWORD'),
-                'encryption' => getenv('MAILER_ENCRYPTION'),
-            ],
-            'messageConfig' => [
-                'from' => getenv('MAILER_FROM_EMAIL'),
-            ],
-        ],
+        'mailer' => MailerInterface::class,
 
         'assetManager' => [
             'linkAssets' => true,
@@ -193,6 +180,21 @@ return [
                 'fileMode' => 0666,
             ] : [
                 'class' => DummyCache::class,
+            ],
+            MailerInterface::class => [
+                'class' => yii\swiftmailer\Mailer::class,
+                'viewPath' => '@app/views/email',
+                'transport' => [
+                    'class' => Swift_SmtpTransport::class,
+                    'host' => getenv('MAILER_HOST'),
+                    'port' => getenv('MAILER_PORT'),
+                    'username' => getenv('MAILER_USER'),
+                    'password' => getenv('MAILER_PASSWORD'),
+                    'encryption' => getenv('MAILER_ENCRYPTION'),
+                ],
+                'messageConfig' => [
+                    'from' => getenv('MAILER_FROM_EMAIL'),
+                ],
             ],
             ImageHandler::class => [],
             FileExtension::class => [],

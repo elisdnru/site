@@ -5,12 +5,13 @@ namespace app\modules\user\controllers;
 use app\components\Controller;
 use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
+use yii\mail\MailerInterface;
 use yii\web\Request;
 use yii\web\Session;
 
 class RemindController extends Controller
 {
-    public function actionRemind(Request $request, Session $session)
+    public function actionRemind(Request $request, Session $session, MailerInterface $mailer)
     {
         $model = new RemindForm();
 
@@ -22,7 +23,7 @@ class RemindController extends Controller
                 $user->password_hash = $user->hashPassword($password);
 
                 if ($user->save()) {
-                    $user->sendRemind($password);
+                    $user->sendRemind($password, $mailer);
                     $session->setFlash('success', 'Новые параметры отправлены на Email');
                     return $this->redirect(['default/login']);
                 }

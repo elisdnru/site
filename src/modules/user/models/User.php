@@ -11,6 +11,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\helpers\Url;
+use yii\mail\MailerInterface;
 use yii\web\UploadedFile;
 
 /**
@@ -164,7 +165,7 @@ class User extends ActiveRecord
         return Gravatar::url($this->email, $width, Yii::$app->request->hostInfo . '/images/noavatar.png');
     }
 
-    public function sendCommit(): void
+    public function sendCommit(MailerInterface $mailer): void
     {
         if (!$this->id) {
             return;
@@ -174,7 +175,7 @@ class User extends ActiveRecord
 
         $this->updateAttributes(['confirm' => $this->confirm]);
 
-        $mail = Yii::$app->mailer
+        $mail = $mailer
             ->compose(['html' => 'confirm'], [
                 'user' => $this,
                 'confirmUrl' => Url::to(['/user/registration/confirm', 'code' => $this->confirm], true),
@@ -186,9 +187,9 @@ class User extends ActiveRecord
         }
     }
 
-    public function sendRemind(string $password): void
+    public function sendRemind(string $password, MailerInterface $mailer): void
     {
-        $mail = Yii::$app->mailer
+        $mail = $mailer
             ->compose(['html' => 'remind'], [
                 'password' => $password,
             ])

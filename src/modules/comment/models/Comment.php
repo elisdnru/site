@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
+use yii\mail\MailerInterface;
 
 /**
  * @property string $id
@@ -168,23 +169,23 @@ class Comment extends ActiveRecord
     public function afterSave($insert, $changedAttributes): void
     {
         if ($this->isNewRecord) {
-            $this->sendNotifications();
+            $this->sendNotifications(Yii::$app->mailer);
         }
 
         parent::afterSave($insert, $changedAttributes);
     }
 
-    private function sendNotifications(): void
+    private function sendNotifications(MailerInterface $mailer): void
     {
         if ($this->parent && $this->parent->email !== $this->email) {
-            $this->parent->sendNotify($this);
+            $this->parent->sendNotify($this, $mailer);
         }
     }
 
-    private function sendNotify($current): void
+    private function sendNotify($current, MailerInterface $mailer): void
     {
         if ($this->email !== $current->email) {
-            Yii::$app->mailer
+            $mailer
                 ->compose(['html' => 'comment'], [
                     'comment' => $this,
                     'current' => $current,
