@@ -6,9 +6,16 @@ use InvalidArgumentException;
 
 class DateFormatter
 {
+    /**
+     * @param int|string $date
+     * @param bool $showTime
+     * @param bool $showMonth
+     * @return string
+     */
     public static function format($date, bool $showTime = false, bool $showMonth = true): string
     {
-        if (is_numeric($date)) {
+        /** @var int $time */
+        if (is_int($date)) {
             $time = $date;
         } elseif (!$time = strtotime($date)) {
             throw new InvalidArgumentException('Invalid Date');

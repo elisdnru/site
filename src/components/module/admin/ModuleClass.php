@@ -8,6 +8,11 @@ use InvalidArgumentException;
 
 class ModuleClass
 {
+    /**
+     * @param mixed[] $modules
+     * @param string $name
+     * @return string
+     */
     public static function getClass(array $modules, string $name): string
     {
         $module = $modules[$name] ?? null;

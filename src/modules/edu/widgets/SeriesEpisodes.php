@@ -13,7 +13,7 @@ class SeriesEpisodes extends Widget
 
     private Api $api;
 
-    public function __construct(Api $api, $config = [])
+    public function __construct(Api $api, array $config = [])
     {
         parent::__construct($config);
         $this->api = $api;

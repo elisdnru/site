@@ -6,7 +6,7 @@ class CommentPostFilter
 {
     public static function fixMarkup(?string $text): ?string
     {
-        return preg_replace_callback('@(<p>.*?</p>)@s', static function ($matches): string {
+        return preg_replace_callback('@(<p>.*?</p>)@s', static function (array $matches): string {
             return nl2br($matches[0]);
         }, $text);
     }

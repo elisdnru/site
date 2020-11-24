@@ -19,6 +19,10 @@ class AdminDashboard
     {
         $modules = [];
 
+        /**
+         * @var string $key
+         * @var array $value
+         */
         foreach (Yii::$app->getModules() as $key => $value) {
             $module = Yii::$app->getModule($key);
             if ($module && $module instanceof AdminDashboardItem && $this->access->isGranted($module->id)) {

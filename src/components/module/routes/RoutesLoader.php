@@ -16,6 +16,10 @@ class RoutesLoader implements BootstrapInterface
 
         $sets = [];
 
+        /**
+         * @var string $name
+         * @var array $definition
+         */
         foreach ($app->getModules() as $name => $definition) {
             if (($set = $this->getRouteSet($name, $definition)) !== []) {
                 $sets[] = $set;

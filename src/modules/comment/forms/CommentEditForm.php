@@ -9,7 +9,7 @@ class CommentEditForm extends Model
 {
     public $text;
 
-    public function __construct(Comment $comment, $config = [])
+    public function __construct(Comment $comment, array $config = [])
     {
         parent::__construct($config);
         $this->text = $comment->text;

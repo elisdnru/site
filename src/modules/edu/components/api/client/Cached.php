@@ -31,6 +31,7 @@ class Cached implements ClientInterface
 
         $key = self::cacheKey($request);
 
+        /** @var array $cached */
         if (($cached = $this->cache->get($key)) !== null) {
             return ArraySerializer::fromArray($cached);
         }

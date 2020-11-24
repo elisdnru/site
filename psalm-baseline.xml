@@ -8,24 +8,6 @@
       <code>$this-&gt;assignments[$userId]</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/components/DateFormatter.php">
-    <InvalidScalarArgument occurrences="8">
-      <code>$time</code>
-      <code>$time</code>
-      <code>$time</code>
-      <code>$time</code>
-      <code>$time</code>
-      <code>$time</code>
-      <code>$time</code>
-      <code>$time</code>
-    </InvalidScalarArgument>
-    <MissingParamType occurrences="1">
-      <code>$date</code>
-    </MissingParamType>
-    <MixedArgument occurrences="1">
-      <code>$date</code>
-    </MixedArgument>
-  </file>
   <file src="src/components/ImageValidator.php">
     <PropertyNotSetInConstructor occurrences="22">
       <code>ImageValidator</code>
@@ -97,19 +79,13 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;query instanceof QueryInterface</code>
     </DocblockTypeContradiction>
-    <MissingParamType occurrences="3">
-      <code>$foolproof</code>
-      <code>$indent</code>
-      <code>$items</code>
-    </MissingParamType>
+    <MixedArgument occurrences="1">
+      <code>$item-&gt;{$this-&gt;childrenRelation}</code>
+    </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$data[]</code>
       <code>$item</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$foolproof</code>
-      <code>$indent</code>
-    </MixedOperand>
     <MixedPropertyAssignment occurrences="1">
       <code>$item</code>
     </MixedPropertyAssignment>
@@ -341,14 +317,6 @@
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/module/admin/AdminDashboard.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$key</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$value</code>
-    </MixedAssignment>
-  </file>
   <file src="src/components/module/admin/ModuleClass.php">
     <MixedAssignment occurrences="1">
       <code>$module</code>
@@ -361,17 +329,10 @@
     </MixedReturnStatement>
   </file>
   <file src="src/components/module/routes/RoutesLoader.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="2">
       <code>$class</code>
-      <code>$definition</code>
       <code>$set['routes']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$name</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$definition</code>
-    </MixedAssignment>
   </file>
   <file src="src/components/psr/SimpleCache.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -387,15 +348,9 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="src/components/purifier/CommentPostFilter.php">
-    <MissingClosureParamType occurrences="1">
-      <code>$matches</code>
-    </MissingClosureParamType>
     <MixedArgument occurrences="1">
       <code>$matches[0]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$matches[0]</code>
-    </MixedArrayAccess>
     <PossiblyNullArgument occurrences="1">
       <code>$text</code>
     </PossiblyNullArgument>
@@ -989,15 +944,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/forms/CommentEditForm.php">
-    <MissingParamType occurrences="1">
-      <code>$config</code>
-    </MissingParamType>
     <MissingPropertyType occurrences="1">
       <code>$text</code>
     </MissingPropertyType>
-    <MixedArgument occurrences="1">
-      <code>$config</code>
-    </MixedArgument>
   </file>
   <file src="src/modules/comment/forms/CommentForm.php">
     <MissingPropertyType occurrences="7">
@@ -1232,13 +1181,11 @@
     </InvalidArgument>
   </file>
   <file src="src/modules/edu/controllers/DefaultController.php">
-    <MissingParamType occurrences="3">
-      <code>$config</code>
+    <MissingParamType occurrences="2">
       <code>$id</code>
       <code>$module</code>
     </MissingParamType>
-    <MixedArgument occurrences="3">
-      <code>$config</code>
+    <MixedArgument occurrences="2">
       <code>$id</code>
       <code>$module</code>
     </MixedArgument>
@@ -1252,12 +1199,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/modules/edu/widgets/SeriesEpisodes.php">
-    <MissingParamType occurrences="1">
-      <code>$config</code>
-    </MissingParamType>
-    <MixedArgument occurrences="1">
-      <code>$config</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$episodes</code>
     </MixedAssignment>

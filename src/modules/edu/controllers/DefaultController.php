@@ -9,7 +9,7 @@ class DefaultController extends Controller
 {
     private Api $api;
 
-    public function __construct($id, $module, Api $api, $config = [])
+    public function __construct($id, $module, Api $api, array $config = [])
     {
         parent::__construct($id, $module, $config);
         $this->api = $api;

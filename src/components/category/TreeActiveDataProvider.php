@@ -43,7 +43,7 @@ class TreeActiveDataProvider extends ActiveDataProvider
         return $items;
     }
 
-    protected function buildRecursive($items, $indent = 0, $foolproof = 20): array
+    protected function buildRecursive(array $items, int $indent = 0, int $foolproof = 20): array
     {
         $data = [];
         foreach ($items as $item) {
