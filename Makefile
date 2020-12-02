@@ -1,7 +1,7 @@
 up: docker-up
 down: docker-down
 restart: docker-down docker-up
-init: docker-down-clear site-clear docker-pull docker-build docker-up site-init site-ready
+init: docker-down-clear site-clear docker-pull docker-build-pull docker-build docker-up site-init site-ready
 check: validate lint test
 validate: site-composer-validate
 lint: site-lint site-analyze
@@ -17,10 +17,13 @@ docker-down-clear:
 	docker-compose down -v --remove-orphans
 
 docker-pull:
-	- docker-compose pull --include-deps
+	- docker-compose pull
 
 docker-build:
 	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1
+
+docker-build-pull:
+	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
 
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test
 
