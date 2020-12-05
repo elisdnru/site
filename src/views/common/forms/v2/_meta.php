@@ -1,7 +1,8 @@
 <?php
-/** @var $model ActiveRecord */
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
+
+/** @var ActiveRecord $model */
 ?>
 
 <fieldset>

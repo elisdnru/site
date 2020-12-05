@@ -1,13 +1,15 @@
 <?php
-/** @var $model User */
-/** @var $dataProvider ActiveDataProvider */
-
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+
+/**
+ * @var User $model
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'] = [

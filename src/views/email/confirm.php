@@ -1,6 +1,7 @@
 <?php
-/** @var $confirmUrl string */
 use yii\helpers\Html;
+
+/** @var string $confirmUrl */
 ?>
 
 <p>Здравствуйте! Кто-то указал ваш email при регистрации на сайте <?= Yii::$app->request->getHostInfo() ?></p>

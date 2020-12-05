@@ -1,11 +1,11 @@
 <?php
-/** @var $items Work[] */
-
 use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
+
+/** @var Work[] $items */
 
 CarouselAsset::register($this);
 ?>

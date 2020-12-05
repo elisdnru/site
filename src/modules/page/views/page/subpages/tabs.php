@@ -1,10 +1,13 @@
-<!-- Подстраницы (табы) -->
 <?php
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $page Page */
+/**
+ * @var View $this
+ * @var Page $page
+ */
 ?>
 <?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])) : ?>
     <?php if ($page->parent) : ?>

@@ -11,6 +11,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
+/** @var string $content */
+
 MainAsset::register($this);
 
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);

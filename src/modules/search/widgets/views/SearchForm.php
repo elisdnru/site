@@ -4,7 +4,7 @@ use app\modules\search\forms\SearchForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $form SearchForm */
+/** @var SearchForm $form */
 ?>
 <div class="search_form">
     <form action="<?= Url::to(['/search/default/index']) ?>" method="get">

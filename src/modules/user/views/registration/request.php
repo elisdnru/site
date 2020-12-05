@@ -6,8 +6,10 @@ use yii\captcha\Captcha;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/** @var $form ActiveForm */
-/** @var $model RegistrationForm */
+/**
+ * @var ActiveForm $form
+ * @var RegistrationForm $model
+ */
 $this->context->layout = 'user';
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'] = [

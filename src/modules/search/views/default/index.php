@@ -10,9 +10,11 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
-/** @var $this View|InlineWidgetsBehavior */
-/** @var $dataProvider ActiveDataProvider */
-/** @var $query string */
+/**
+ * @var View|InlineWidgetsBehavior $this
+ * @var ActiveDataProvider $dataProvider
+ * @var string $query
+ */
 
 $this->title = 'Поиск по сайту' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 

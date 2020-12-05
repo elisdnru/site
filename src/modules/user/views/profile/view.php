@@ -6,7 +6,7 @@ use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $user User */
+/** @var User $user */
 
 $this->context->layout = 'user';
 $this->title = 'Профиль пользователя ' . $user->username;

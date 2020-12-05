@@ -1,10 +1,12 @@
 <?php
-/** @var $title string */
-/** @var $description string */
-/** @var $image string */
-/** @var $url string */
-
 use yii\helpers\Html;
+
+/**
+ * @var string $title
+ * @var string $description
+ * @var string $image
+ * @var string $url
+ */
 ?>
 <?php
 $providers = [

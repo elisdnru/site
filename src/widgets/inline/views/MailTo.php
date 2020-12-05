@@ -1,5 +1,5 @@
 <?php
-/** @var $email string */
+/** @var string $email */
 ?>
 
 <script>

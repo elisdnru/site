@@ -4,6 +4,8 @@ use app\assets\AdminAsset;
 use app\widgets\Breadcrumbs;
 use app\widgets\Messages;
 
+/** @var string $content */
+
 AdminAsset::register($this);
 ?>
 

@@ -1,7 +1,8 @@
 <?php
-/** @var $page Page */
 
 use app\modules\page\models\Page;
+
+/** @var Page $page */
 
 ?>
 <?php if (!$page->hidetitle) : ?>

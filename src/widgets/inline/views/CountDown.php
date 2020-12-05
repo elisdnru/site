@@ -1,8 +1,11 @@
 <?php
-/** @var $title string */
-/** @var $date string */
 use app\assets\CountDownAsset;
 use yii\helpers\Html;
+
+/**
+ * @var string $title
+ * @var string $date
+ */
 
 CountDownAsset::register($this);
 ?>

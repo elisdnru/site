@@ -1,8 +1,13 @@
 <?php
-/** @var $page Page */
 
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use yii\web\View;
+
+/**
+ * @var View $this
+ * @var Page $page
+ */
 
 $this->title = $page->pagetitle ?: $page->title;
 

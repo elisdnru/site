@@ -1,5 +1,4 @@
 <?php
-/** @var $this View */
 
 use app\modules\user\forms\admin\EditForm;
 use app\modules\user\models\User;
@@ -7,10 +6,13 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model User */
-/** @var $form ActiveForm */
-/** @var $user User */
-/** @var $model EditForm */
+/**
+ * @var User $model
+ * @var ActiveForm $form
+ * @var User $user
+ * @var EditForm $model
+ * @var View $this
+ */
 
 $this->title = 'Редактирование данных пользователя';
 $this->params['breadcrumbs'] = [

@@ -1,7 +1,12 @@
-<?php $this->beginContent('@app/views/layouts/main.php');
+<?php
 
 use app\widgets\Breadcrumbs;
-use app\widgets\Messages; ?>
+use app\widgets\Messages;
+
+/** @var string $content */
+
+$this->beginContent('@app/views/layouts/main.php');
+?>
 
 <div class="main left_main">
 

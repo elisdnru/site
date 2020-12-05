@@ -4,8 +4,10 @@ use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\web\View;
 
-/** @var $this View */
-/** @var $dataProvider ActiveDataProvider */
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->title = 'Поиск по сайту';
 

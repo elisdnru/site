@@ -3187,55 +3187,24 @@
     </InvalidScope>
   </file>
   <file src="src/modules/page/views/page/_head.php">
-    <InvalidScope occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
+    <InvalidScope occurrences="1">
+      <code>$this-&gt;registerMetaTag(['name' =&gt; 'description', 'content' =&gt; $page-&gt;description])</code>
     </InvalidScope>
-    <MixedPropertyFetch occurrences="2">
-      <code>$page-&gt;pagetitle</code>
-      <code>$page-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$page</code>
-      <code>$page</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/page/show.php">
     <InvalidScope occurrences="1">
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1"/>
-    <MixedPropertyFetch occurrences="1">
-      <code>$page-&gt;styles</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$page</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/page/views/page/subpages/default.php">
-    <MixedArgument occurrences="1">
-      <code>$page-&gt;title</code>
-    </MixedArgument>
-    <MixedPropertyFetch occurrences="2">
-      <code>$page-&gt;hidetitle</code>
-      <code>$page-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$page</code>
-      <code>$page</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/page/subpages/tabs.php">
     <InvalidScope occurrences="1">
-      <code>$this</code>
+      <code>$this-&gt;beginCache(__FILE__ . __LINE__ . '_tabs_' . $page-&gt;id, ['dependency' =&gt; new TagDependency(['tags' =&gt; 'page'])])</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1"/>
   </file>
   <file src="src/modules/page/views/page/subpages/tabschild.php">
     <InvalidScope occurrences="1">
-      <code>$this</code>
+      <code>$this-&gt;beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page-&gt;id, ['dependency' =&gt; new TagDependency(['tags' =&gt; 'page'])])</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1"/>
   </file>
   <file src="src/modules/portfolio/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3733,24 +3702,6 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MixedArgument occurrences="3">
-      <code>$item-&gt;getImageThumbUrl(190, 0)</code>
-      <code>$item-&gt;getUrl()</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getImageThumbUrl</code>
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$items</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/products/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3764,14 +3715,10 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/products/views/default/index.php">
-    <InvalidScope occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
+    <InvalidScope occurrences="1"/>
+    <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/products/views/layouts/index.php">
     <InvalidScope occurrences="1">
@@ -3812,47 +3759,20 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/search/views/default/error.php">
-    <InvalidScope occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
+    <InvalidScope occurrences="1">
+      <code>$this-&gt;registerMetaTag(['name' =&gt; 'description', 'content' =&gt; 'Поиск по сайту'])</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
   </file>
   <file src="src/modules/search/views/default/index.php">
-    <InvalidScope occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="2">
+    <InvalidScope occurrences="1"/>
+    <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
-      <code>getPagination</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-    </MixedOperand>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
+    </PossiblyFalseReference>
   </file>
   <file src="src/modules/search/widgets/views/SearchForm.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="1">
+    <PossiblyNullArgument occurrences="1">
       <code>$form-&gt;q</code>
-    </MixedArgument>
-    <MixedPropertyFetch occurrences="1">
-      <code>$form-&gt;q</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$form</code>
-    </UndefinedGlobalVariable>
+    </PossiblyNullArgument>
   </file>
   <file src="src/modules/services/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3866,14 +3786,10 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/services/views/default/index.php">
-    <InvalidScope occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
+    <InvalidScope occurrences="1"/>
+    <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/services/views/layouts/index.php">
     <InvalidScope occurrences="1">
@@ -3898,34 +3814,16 @@
   </file>
   <file src="src/modules/sitemap/views/default/_recursive.php">
     <InvalidScope occurrences="1">
-      <code>$this</code>
+      <code>$this-&gt;render('_recursive', ['items' =&gt; $item-&gt;children, 'models' =&gt; [], 'parent' =&gt; 0])</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="3">
-      <code>$item-&gt;label</code>
-      <code>$item-&gt;url</code>
+    <MixedArgument occurrences="1">
       <code>$this-&gt;render('_recursive', ['items' =&gt; $item-&gt;children, 'models' =&gt; [], 'parent' =&gt; 0])</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$item-&gt;children</code>
-      <code>$item-&gt;label</code>
-      <code>$item-&gt;url</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$items</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/sitemap/views/default/index.php">
-    <InvalidScope occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
+    <InvalidScope occurrences="1">
+      <code>$this-&gt;registerMetaTag(['name' =&gt; 'description', 'content' =&gt; 'Карта сайта'])</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
   </file>
   <file src="src/modules/subscribe/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3939,34 +3837,22 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/subscribe/views/default/activate.php">
-    <InvalidScope occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
+    <InvalidScope occurrences="1"/>
+    <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/subscribe/views/default/index.php">
-    <InvalidScope occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
+    <InvalidScope occurrences="1"/>
+    <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/subscribe/views/default/success.php">
-    <InvalidScope occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
+    <InvalidScope occurrences="1"/>
+    <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/subscribe/views/layouts/index.php">
     <InvalidScope occurrences="1">
@@ -4037,21 +3923,6 @@
     </MixedArgument>
   </file>
   <file src="src/modules/ulogin/widgets/views/uloginWidget.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="5">
-      <code>$display</code>
-      <code>$fields</code>
-      <code>$hidden</code>
-      <code>$providers</code>
-      <code>$redirect</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="5">
-      <code>$display</code>
-      <code>$fields</code>
-      <code>$hidden</code>
-      <code>$providers</code>
-      <code>$redirect</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -4284,19 +4155,7 @@
       <code>$this</code>
     </InvalidScope>
     <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="18">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('create_datetime', ['class' =&gt; 'sort-link', 'label' =&gt; 'Дата'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('email', ['class' =&gt; 'sort-link', 'label' =&gt; 'Email'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('fio', ['class' =&gt; 'sort-link', 'label' =&gt; 'ФИО'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('role', ['class' =&gt; 'sort-link', 'label' =&gt; 'Роль'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('username', ['class' =&gt; 'sort-link', 'label' =&gt; 'Логин'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
+    <MixedArgument occurrences="6">
       <code>$user-&gt;create_datetime</code>
       <code>$user-&gt;email</code>
       <code>$user-&gt;getAvatarUrl(50, 50)</code>
@@ -4307,23 +4166,9 @@
     <MixedAssignment occurrences="1">
       <code>$user</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="16">
+    <MixedMethodCall occurrences="2">
       <code>getAvatarUrl</code>
-      <code>getCount</code>
       <code>getFio</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
     </MixedMethodCall>
     <MixedPropertyFetch occurrences="6">
       <code>$user-&gt;confirm</code>
@@ -4333,74 +4178,19 @@
       <code>$user-&gt;role</code>
       <code>$user-&gt;username</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="10">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="5">
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/user/views/admin/user/update.php">
-    <InvalidScope occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="24">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model-&gt;getRoles()</code>
-      <code>$user-&gt;getAvatarUrl()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="9">
-      <code>getAvatarUrl</code>
-      <code>getRoles</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$model-&gt;id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$user</code>
-    </UndefinedGlobalVariable>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+    </MixedArrayAssignment>
   </file>
   <file src="src/modules/user/views/admin/user/view.php">
     <InvalidScope occurrences="4">
@@ -4464,22 +4254,6 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="8">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/user/views/layouts/user.php">
     <InvalidScope occurrences="1">
@@ -4493,36 +4267,6 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="14">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$user-&gt;getAvatarUrl()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="4">
-      <code>getAvatarUrl</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$user</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -4534,29 +4278,6 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="9">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="3">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -4569,50 +4290,9 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="8">
-      <code>$user-&gt;getAvatarUrl()</code>
-      <code>$user-&gt;getCommentsCount()</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$user-&gt;getFio()</code>
-      <code>$user-&gt;identity</code>
-      <code>$user-&gt;network</code>
-      <code>$user-&gt;site</code>
-      <code>$user-&gt;site</code>
-      <code>$user-&gt;username</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="3">
-      <code>getAvatarUrl</code>
-      <code>getCommentsCount</code>
-      <code>getFio</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$user-&gt;username</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="6">
-      <code>$user-&gt;id</code>
-      <code>$user-&gt;id</code>
-      <code>$user-&gt;identity</code>
-      <code>$user-&gt;network</code>
-      <code>$user-&gt;site</code>
-      <code>$user-&gt;username</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="13">
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-      <code>$user</code>
-    </UndefinedGlobalVariable>
+    </PossiblyNullArgument>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -4630,45 +4310,6 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="21">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="7">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/user/views/remind/remind.php">
     <InvalidScope occurrences="3">
@@ -4676,109 +4317,36 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="3">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/user/widgets/views/LoginForm.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="8">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$user-&gt;getAvatarUrl()</code>
+    <InvalidScalarArgument occurrences="1">
       <code>$user-&gt;getCommentsCount()</code>
+    </InvalidScalarArgument>
+    <PossiblyNullArgument occurrences="1">
       <code>$user-&gt;getFio()</code>
-      <code>$user-&gt;identity</code>
-      <code>$user-&gt;network</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="3">
-      <code>getAvatarUrl</code>
-      <code>getCommentsCount</code>
-      <code>getFio</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$user-&gt;identity</code>
-      <code>$user-&gt;network</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
+    </PossiblyNullArgument>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$user</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/views/common/forms/v2/_meta.php">
-    <MixedArgument occurrences="6">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="2">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/views/email/comment.php">
-    <MixedArgument occurrences="3">
-      <code>$comment-&gt;id</code>
+    <MixedArgument occurrences="1">
       <code>$comment-&gt;material-&gt;title</code>
-      <code>$current-&gt;text</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>$_SERVER['SERVER_NAME']</code>
-      <code>$comment-&gt;material-&gt;getUrl()</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="4">
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;material</code>
+    <NoInterfaceProperties occurrences="1">
       <code>$comment-&gt;material-&gt;title</code>
-      <code>$current-&gt;text</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="4">
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$current</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/views/email/confirm.php">
-    <MixedArgument occurrences="2">
-      <code>$confirmUrl</code>
-      <code>$confirmUrl</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$confirmUrl</code>
-    </UndefinedGlobalVariable>
+    </NoInterfaceProperties>
+    <PossiblyNullReference occurrences="1">
+      <code>getUrl</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/views/email/layouts/html.php">
     <InvalidScope occurrences="1">
-      <code>$this</code>
+      <code>$this-&gt;beginPage()</code>
     </InvalidScope>
-  </file>
-  <file src="src/views/email/remind.php">
-    <MixedArgument occurrences="1">
-      <code>$password</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$password</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/views/layouts/_counters.php">
     <InvalidScope occurrences="1">
@@ -4790,14 +4358,6 @@
       <code>$this</code>
       <code>$this</code>
     </InvalidScope>
-  </file>
-  <file src="src/views/layouts/blank.php">
-    <MixedArgument occurrences="1">
-      <code>$content</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/views/layouts/main.php">
     <InvalidScope occurrences="2">
@@ -4854,28 +4414,6 @@
     <InvalidScope occurrences="1">
       <code>$this</code>
     </InvalidScope>
-    <MixedArgument occurrences="2">
-      <code>$date</code>
-      <code>$title</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$date</code>
-      <code>$title</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/widgets/inline/views/MailTo.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="1">
-      <code>$email</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$email</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/widgets/views/AdminBar.php">
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$links</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/widgets/views/Messages.php">
     <MixedArgument occurrences="3">
@@ -4886,17 +4424,5 @@
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;session</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/widgets/views/Share.php">
-    <UndefinedGlobalVariable occurrences="8">
-      <code>$description</code>
-      <code>$image</code>
-      <code>$title</code>
-      <code>$title</code>
-      <code>$title</code>
-      <code>$url</code>
-      <code>$url</code>
-      <code>$url</code>
-    </UndefinedGlobalVariable>
   </file>
 </files>

@@ -1,8 +1,8 @@
 <?php
-/** @var array $links */
 use yii\helpers\Url;
 use yii\widgets\Menu;
 
+/** @var array $links */
 ?>
 <div class="adminblock">
     <div class="adminlinks">

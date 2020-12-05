@@ -3,8 +3,10 @@
 use app\components\CSSMinimizer;
 use app\modules\page\models\Page;
 
-/** @var $page Page */
-/** @var $subpages_layout string */
+/**
+ * @var Page $page
+ * @var string $subpages_layout
+ */
 
 if ($page->styles) {
     $this->registerCss(CSSMinimizer::minimize(strip_tags($page->styles)));

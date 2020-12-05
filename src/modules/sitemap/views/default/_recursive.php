@@ -4,8 +4,10 @@ use app\components\module\sitemap\Item;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View */
-/** @var $items Item[] */
+/**
+ * @var View $this
+ * @var Item[] $items
+ */
 ?>
 
 <?php if ($items) : ?>

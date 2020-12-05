@@ -1,12 +1,14 @@
 <?php
-/** @var $form ActiveForm */
 
 use app\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/** @var $model RemindForm */
+/**
+ * @var ActiveForm $form
+ * @var RemindForm $model
+ */
 $this->context->layout = 'user';
 $this->title = 'Восстановление пароля';
 $this->params['breadcrumbs'] = [

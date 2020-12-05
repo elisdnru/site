@@ -1,6 +1,7 @@
 <?php
-/** @var $password string */
 use yii\helpers\Html;
+
+/** @var string $password */
 ?>
 <p>Запрошен сброс пароля на сайте <?= Yii::$app->request->getHostInfo() ?></p>
 

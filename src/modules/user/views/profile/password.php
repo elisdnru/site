@@ -7,8 +7,10 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-/** @var $form ActiveForm */
-/** @var $model PasswordForm */
+/**
+ * @var ActiveForm $form
+ * @var PasswordForm $model
+ */
 
 $this->context->layout = 'user';
 $this->title = 'Мой профиль';

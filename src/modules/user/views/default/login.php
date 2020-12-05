@@ -1,6 +1,4 @@
 <?php
-/** @var $form ActiveForm */
-/** @var $model LoginForm */
 $this->context->layout = 'user';
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'] = [
@@ -12,7 +10,13 @@ use app\widgets\Portlet;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\ActiveForm; ?>
+use yii\widgets\ActiveForm;
+
+/**
+ * @var ActiveForm $form
+ * @var LoginForm $model
+ */
+?>
 
 <h1>Вход в аккаунт</h1>
 

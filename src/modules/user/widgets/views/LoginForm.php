@@ -6,8 +6,10 @@ use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $user User */
-/** @var $model LoginForm */
+/**
+ * @var User $user
+ * @var LoginForm $model
+ */
 ?>
 <?php if ($user) : ?>
     <div style="float:left;">

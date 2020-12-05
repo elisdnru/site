@@ -7,9 +7,11 @@ use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/** @var $form ActiveForm */
-/** @var $user User */
-/** @var $model ProfileForm */
+/**
+ * @var ActiveForm $form
+ * @var User $user
+ * @var ProfileForm $model
+ */
 
 $this->context->layout = 'user';
 $this->title = 'Мой профиль';

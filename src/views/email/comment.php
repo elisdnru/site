@@ -1,9 +1,12 @@
 <?php
-/** @var $comment Comment */
-/** @var $current Comment */
-
 use app\modules\comment\models\Comment;
-use yii\helpers\Html; ?>
+use yii\helpers\Html;
+
+/**
+ * @var Comment $comment
+ * @var Comment $current
+ */
+?>
 <?php
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $comment->material->getUrl();
 ?>
