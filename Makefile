@@ -56,7 +56,7 @@ site-ready:
 
 site-lint:
 	docker-compose run --rm php-cli composer lint
-	docker-compose run --rm php-cli composer cs-check
+	docker-compose run --rm php-cli composer phpcs
 
 site-analyze:
 	docker-compose run --rm php-cli composer psalm

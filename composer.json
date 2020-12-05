@@ -66,8 +66,8 @@
         "app-test": "php bin/app-test.php",
         "test": "codecept",
         "lint": "phplint",
-        "cs-check": "phpcs",
-        "cs-fix": "phpcbf",
-        "psalm": "psalm --no-diff"
+        "phpcs": "phpcs --standard=phpcs.xml",
+        "phpcbf": "phpcbf --standard=phpcs.xml",
+        "psalm": "psalm --config=psalm.xml --no-diff"
     }
 }
