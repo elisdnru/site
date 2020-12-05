@@ -14,7 +14,7 @@ class FeedController extends Controller
 {
     public function actionIndex(Request $request, Response $response): Response
     {
-        /** @var Post[] $posts */
+        /** @psalm-var Post[] $posts */
         $posts = Post::find()->published()->orderBy(['date' => SORT_DESC])->limit(100)->all();
 
         $feed = new Feed();
@@ -22,12 +22,12 @@ class FeedController extends Controller
         $feed->setTitle('Дмитрий Елисеев');
         $feed->setDescription('ElisDN');
 
-        $host = (string)$request->hostInfo;
+        $host = (string)$request->getHostInfo();
 
         $feed->setLanguage('ru');
         $feed->setDateModified(new DateTimeImmutable());
         $feed->setLink($host);
-        $feed->setCopyright('Copyright ' . date('Y') . ' ' . ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME']));
+        $feed->setCopyright('Copyright ' . date('Y') . ' ' . $host);
         $feed->setGenerator('ElisDN');
 
         foreach ($posts as $model) {

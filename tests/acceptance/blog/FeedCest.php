@@ -28,7 +28,12 @@ class FeedCest
         $I->seeResponseCodeIs(200);
         $I->seeElement('rss');
 
+        $I->seeInSource('<title>Дмитрий Елисеев</title>');
+        $I->seeInSource('<description>ElisDN</description>');
+        $I->seeInSource('<copyright>Copyright 2020 http://nginx:81</copyright>');
+
         $I->seeInSource('<title>Post 1</title>');
+        $I->seeInSource('<link>http://nginx:81/blog/1/post-1</link>');
         $I->seeInSource('<link>http://nginx:81/blog/1/post-1</link>');
         $I->dontSeeInSource('<title>Post 2</title>');
     }
