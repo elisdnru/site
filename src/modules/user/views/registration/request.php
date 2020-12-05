@@ -88,7 +88,7 @@ $this->params['breadcrumbs'] = [
 
         <div class="row buttons">
             <br />
-            <?= \yii\helpers\Html::submitButton('Зарегистрироваться') ?>
+            <?= Html::submitButton('Зарегистрироваться') ?>
         </div>
     </form>
 

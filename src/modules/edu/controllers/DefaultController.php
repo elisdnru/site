@@ -17,7 +17,7 @@ class DefaultController extends Controller
 
     public function actionIndex(): string
     {
-        $series = $this->api->get('/edge/edu/series') ?? [];
+        $series = $this->api->get('/edge/edu/series');
 
         return $this->render('index', [
             'series' => $series,
