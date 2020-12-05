@@ -12,9 +12,6 @@
         <directory name="src" />
         <ignoreFiles>
             <directory name="src/extensions" />
-            <directory name="src/views" />
-            <directory name="src/modules/*/views" />
-            <directory name="src/modules/*/widgets/views" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
