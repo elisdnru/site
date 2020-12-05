@@ -29,7 +29,7 @@ class TagController extends AdminController
     {
         $model = new Tag();
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -48,7 +48,7 @@ class TagController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

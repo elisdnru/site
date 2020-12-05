@@ -1,10 +1,10 @@
 <?php
 /** @var $title string */
-
-use yii\helpers\Html;
-
 /** @var $description string */
 /** @var $image string */
+/** @var $url string */
+
+use yii\helpers\Html;
 ?>
 <?php
 $providers = [

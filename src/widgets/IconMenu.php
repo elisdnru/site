@@ -7,10 +7,14 @@ use yii\widgets\Menu;
 
 class IconMenu extends Menu
 {
-    public $iconsPath = '';
+    public string $iconsPath = '';
 
     protected function renderItem($item): string
     {
+        /**
+         * @psalm-var array{icon: string, label: string, url: array, linkOptions: array} $item
+         */
+
         $icon = !empty($item['icon']) ? Html::img($this->iconsPath . $item['icon'], ['alt' => $item['label']]) : '';
         $options = $item['linkOptions'] ?? [];
 

@@ -170,7 +170,7 @@ class File
      * @return File CFile instance for the specified filesystem object
      * @throws RuntimeException
      */
-    public function set($filePath, $greedy = false): File
+    public function set(string $filePath, bool $greedy = false): File
     {
         if (trim($filePath) !== '') {
             $uploaded = null;

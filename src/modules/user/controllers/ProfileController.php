@@ -36,7 +36,7 @@ class ProfileController extends Controller
 
         $form = ProfileForm::fromUser($user);
 
-        if ($form->load($request->post())) {
+        if ($form->load((array)$request->post())) {
             $form->avatar = UploadedFile::getInstance($form, 'avatar');
             if ($form->validate()) {
                 $user->firstname = $form->firstname;
@@ -67,7 +67,7 @@ class ProfileController extends Controller
 
         $form = PasswordForm::fromUser($user);
 
-        if ($form->load($request->post()) && $form->validate()) {
+        if ($form->load((array)$request->post()) && $form->validate()) {
             $user->password_hash = $user->hashPassword($form->password);
             if ($user->save(false)) {
                 $session->setFlash('success', 'Пароль сохранён.');

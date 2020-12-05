@@ -27,7 +27,7 @@ class LandingController extends AdminController
         $model = new Landing();
         $model->parent_id = $request->get('parent');
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
@@ -46,7 +46,7 @@ class LandingController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         }
 

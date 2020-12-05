@@ -9,8 +9,8 @@ use yii\caching\TagDependency;
 class UpdatedPostsWidget extends Widget
 {
     public string $tpl = 'default';
-    public $class = '';
-    public $limit = 10;
+    public string $class = '';
+    public int $limit = 10;
 
     public function run(): string
     {

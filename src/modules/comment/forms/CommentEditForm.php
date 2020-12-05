@@ -7,7 +7,7 @@ use yii\base\Model;
 
 class CommentEditForm extends Model
 {
-    public $text;
+    public string $text;
 
     public function __construct(Comment $comment, array $config = [])
     {

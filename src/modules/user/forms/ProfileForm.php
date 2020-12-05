@@ -11,7 +11,7 @@ class ProfileForm extends Model
 {
     public string $lastname = '';
     public string $firstname = '';
-    public string $site = '';
+    public ?string $site = null;
     public ?UploadedFile $avatar = null;
     public string $del_avatar = '';
 

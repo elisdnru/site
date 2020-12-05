@@ -28,7 +28,7 @@ class PageController extends AdminController
         $model->date = date('Y-m-d');
         $model->parent_id = $request->get('parent', 0);
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -47,7 +47,7 @@ class PageController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

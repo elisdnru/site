@@ -4,13 +4,9 @@ namespace app\modules\blog\forms;
 
 use yii\base\Model;
 
-/**
- * @property integer $id
- * @property string $title
- */
 class GroupForm extends Model
 {
-    public ?string $title = null;
+    public string $title = '';
 
     public function rules(): array
     {
@@ -23,7 +19,6 @@ class GroupForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'id' => 'ID',
             'title' => 'Наименование группы',
         ];
     }

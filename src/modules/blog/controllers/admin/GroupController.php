@@ -44,7 +44,7 @@ class GroupController extends AdminController
 
         $form = new GroupForm();
 
-        if ($form->load($request->post()) && $form->validate()) {
+        if ($form->load((array)$request->post()) && $form->validate()) {
             $model = new Group();
             $model->attributes = $form->attributes;
 

@@ -14,7 +14,7 @@ class TagSearch extends Tag
         ];
     }
 
-    public function search(array $params, $pageSize = 100): ActiveDataProvider
+    public function search(array $params, int $pageSize = 100): ActiveDataProvider
     {
         $query = Tag::find();
 

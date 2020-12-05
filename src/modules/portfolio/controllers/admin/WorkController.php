@@ -63,7 +63,7 @@ class WorkController extends AdminController
         $model->category_id = $request->get('category');
         $model->date = date('Y-m-d H:i:s');
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
@@ -80,7 +80,7 @@ class WorkController extends AdminController
     public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [

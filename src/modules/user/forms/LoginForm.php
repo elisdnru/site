@@ -7,16 +7,11 @@ use app\modules\user\models\User;
 use yii\base\Model;
 use yii\web\User as WebUser;
 
-/**
- * LoginForm class.
- * LoginForm is the data structure for keeping
- * user login form data. It is used by the 'login' action of 'SiteController'.
- */
 class LoginForm extends Model
 {
-    public $username;
-    public $password;
-    public $rememberMe = true;
+    public string $username = '';
+    public string $password = '';
+    public string $rememberMe = '1';
 
     /**
      * Declares the validation rules.
@@ -75,7 +70,7 @@ class LoginForm extends Model
         return false;
     }
 
-    private function loadIdentity($username, $password): ?AuthIdentity
+    private function loadIdentity(string $username, string $password): ?AuthIdentity
     {
         /** @var User $user */
         $user = User::findBySql('SELECT * FROM users WHERE LOWER(username) = :name OR LOWER(email) = :name', [

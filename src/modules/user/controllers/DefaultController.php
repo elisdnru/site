@@ -21,7 +21,7 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
 
-        if ($model->load($request->post()) && $model->validate() && $model->login($webUser)) {
+        if ($model->load((array)$request->post()) && $model->validate() && $model->login($webUser)) {
             return $this->redirect($webUser->returnUrl);
         }
 

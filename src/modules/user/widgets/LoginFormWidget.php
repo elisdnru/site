@@ -20,7 +20,7 @@ class LoginFormWidget extends Widget
     public function run(): string
     {
         $model = new LoginForm();
-        $model->rememberMe = true;
+        $model->rememberMe = '1';
 
         if ($this->user->id) {
             $user = User::findOne($this->user->id);

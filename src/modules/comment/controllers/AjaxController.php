@@ -36,12 +36,12 @@ class AjaxController extends Controller
             throw new ForbiddenHttpException();
         }
 
-        if (!($access->isGranted('comment') || $model->user_id == $user->id)) {
+        if (!($access->isGranted('comment') || $model->user_id === $user->id)) {
             throw new ForbiddenHttpException();
         }
 
         if ($model->children) {
-            $model->public = false;
+            $model->public = 0;
             $success = $model->save(false);
         } else {
             $success = $model->delete();
@@ -65,7 +65,7 @@ class AjaxController extends Controller
 
         $model = $this->loadModel($id);
 
-        if (!($access->isGranted('comment') || $model->user_id == $user->id)) {
+        if (!($access->isGranted('comment') || $model->user_id === $user->id)) {
             throw new ForbiddenHttpException();
         }
 

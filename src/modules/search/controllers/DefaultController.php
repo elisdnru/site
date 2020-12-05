@@ -23,7 +23,7 @@ class DefaultController extends Controller
     {
         $model = new SearchForm();
 
-        if ($model->load($request->queryParams) && $model->validate()) {
+        if ($model->load($request->getQueryParams()) && $model->validate()) {
             self::createViewTable($db);
 
             $query = Search::find()

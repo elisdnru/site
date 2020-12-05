@@ -8,12 +8,12 @@ use yii\base\Widget;
 class ThemePostsWidget extends Widget
 {
     public string $tpl = 'ThemePosts';
-    public $current = 0;
-    public $group = 0;
+    public int $current = 0;
+    public ?int $group = null;
 
     public function run(): string
     {
-        if (!(int)$this->group) {
+        if ($this->group === null) {
             return '';
         }
 

@@ -19,20 +19,20 @@ use yii\mail\MailerInterface;
  * @property string $type
  * @property integer $material_id
  * @property string $date
- * @property string $user_id
- * @property string $name
+ * @property int $user_id
+ * @property string|null $name
  * @property string $email
- * @property string $site
+ * @property string|null $site
  * @property string $text
  * @property string $text_purified
  * @property integer $public
  * @property integer $moder
- * @property integer $parent_id
+ * @property integer|null $parent_id
  * @property Comment[] $children
  * @property integer $likes
  * @property User|null $user
  * @property Comment|null $parent
- * @property Material $material
+ * @property Material|null $material
  */
 class Comment extends ActiveRecord
 {
@@ -173,7 +173,7 @@ class Comment extends ActiveRecord
         }
     }
 
-    private function sendNotify($current, MailerInterface $mailer): void
+    private function sendNotify(self $current, MailerInterface $mailer): void
     {
         if ($this->email !== $current->email) {
             $mailer
@@ -198,9 +198,12 @@ class Comment extends ActiveRecord
         return $this->cachedUrl;
     }
 
+    /**
+     * @var string[]
+     */
     private array $cachedAvatarUrl = [];
 
-    public function getAvatarUrl($width = User::IMAGE_WIDTH, $height = User::IMAGE_HEIGHT)
+    public function getAvatarUrl(int $width = User::IMAGE_WIDTH, int $height = User::IMAGE_HEIGHT): string
     {
         $index = $width . 'x' . $height;
 

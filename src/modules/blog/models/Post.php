@@ -50,7 +50,7 @@ class Post extends ActiveRecord implements Material
     private const IMAGE_WIDTH = 250;
     private const IMAGE_PATH = 'upload/images/blogs';
 
-    public $del_image = false;
+    public string $del_image = '';
 
     public string $newgroup = '';
 

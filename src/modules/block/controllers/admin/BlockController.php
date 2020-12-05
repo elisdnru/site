@@ -28,7 +28,7 @@ class BlockController extends AdminController
     public function actionCreate(Request $request)
     {
         $model = new Block();
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
@@ -45,7 +45,7 @@ class BlockController extends AdminController
     public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [

@@ -9,18 +9,29 @@ use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
+use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
 class CommentController extends Controller
 {
+    /**
+     * @param int $id
+     * @param Request $request
+     * @param Session $session
+     * @param User $user
+     * @param AdminAccess $access
+     * @return string|Response
+     * @throws ForbiddenHttpException
+     * @throws NotFoundHttpException
+     */
     public function actionUpdate(int $id, Request $request, Session $session, User $user, AdminAccess $access)
     {
         $model = $this->loadModel($id, (int)$user->id, $access);
 
         $form = new CommentEditForm($model);
 
-        if ($form->load($request->post()) && $form->validate()) {
+        if ($form->load((array)$request->post()) && $form->validate()) {
             $model->text = $form->text;
             if ($model->save()) {
                 $session->setFlash('success', 'Ваш коментарий сохранён');
@@ -36,6 +47,7 @@ class CommentController extends Controller
 
     private function loadModel(int $id, int $userId, AdminAccess $access): Comment
     {
+        /** @var Comment|null $model */
         $model = Comment::find()
             ->published()
             ->andWhere(['id' => $id])

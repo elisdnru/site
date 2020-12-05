@@ -17,7 +17,7 @@ class PostSearch extends Post
         ];
     }
 
-    public function search(array $params, $pageSize = 30): ActiveDataProvider
+    public function search(array $params, int $pageSize = 30): ActiveDataProvider
     {
         $query = self::find()->alias('t')->joinWith(['category', 'group']);
 

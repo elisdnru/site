@@ -18,21 +18,20 @@ use yii\web\UploadedFile;
  * @property integer $id
  * @property string $username
  * @property string $password_hash
- * @property string $salt
+ * @property string|null $salt
  * @property string $email
- * @property string $identity
- * @property string $network
- * @property string $confirm
+ * @property string|null $identity
+ * @property string|null $network
+ * @property string|null $confirm
  * @property string $role
  * @property string $create_datetime
  * @property string $last_modify_datetime
  * @property string|null $last_visit_datetime
  * @property integer $active
- * @property string|UploadedFile $avatar
- *
+ * @property string|UploadedFile|null $avatar
  * @property string $lastname
  * @property string $firstname
- * @property string $site
+ * @property string|null $site
  */
 class User extends ActiveRecord
 {
@@ -118,7 +117,7 @@ class User extends ActiveRecord
         parent::afterFind();
     }
 
-    public function validatePassword($password): bool
+    public function validatePassword(string $password): bool
     {
         return
             password_verify($password, $this->password_hash) ||
@@ -130,9 +129,9 @@ class User extends ActiveRecord
         return (string)password_hash($password, PASSWORD_DEFAULT);
     }
 
-    public function oldHashPassword($password): string
+    public function oldHashPassword(string $password): string
     {
-        return md5('%#w_wrb13&p' . $this->salt . $password);
+        return md5('%#w_wrb13&p' . ($this->salt ?: '') . $password);
     }
 
     public function getFio(): ?string
@@ -142,7 +141,7 @@ class User extends ActiveRecord
 
     private ?string $cachedAvatarUrl = null;
 
-    public function getAvatarUrl($width = self::IMAGE_WIDTH, $height = self::IMAGE_HEIGHT): string
+    public function getAvatarUrl(int $width = self::IMAGE_WIDTH, int $height = self::IMAGE_HEIGHT): string
     {
         if ($this->cachedAvatarUrl === null) {
             if (!is_string($this->avatar)) {
@@ -160,9 +159,9 @@ class User extends ActiveRecord
         return $this->cachedAvatarUrl;
     }
 
-    public function getDefaultAvatarUrl($width): string
+    public function getDefaultAvatarUrl(int $width): string
     {
-        return Gravatar::url($this->email, $width, Yii::$app->request->hostInfo . '/images/noavatar.png');
+        return Gravatar::url($this->email, $width, (Yii::$app->request->hostInfo ?: '') . '/images/noavatar.png');
     }
 
     public function sendCommit(MailerInterface $mailer): void

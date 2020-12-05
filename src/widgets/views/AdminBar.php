@@ -1,5 +1,5 @@
 <?php
-
+/** @var array $links */
 use yii\helpers\Url;
 use yii\widgets\Menu;
 

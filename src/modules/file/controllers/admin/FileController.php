@@ -47,6 +47,13 @@ class FileController extends AdminController
         ]);
     }
 
+    /**
+     * @param File $fileHandler
+     * @param ImageHandler $imageHandler
+     * @param string $path
+     * @return string|Response
+     * @throws BadRequestHttpException
+     */
     public function actionIndex(File $fileHandler, ImageHandler $imageHandler, string $path = '')
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
@@ -60,8 +67,9 @@ class FileController extends AdminController
 
         if (!empty($_FILES)) {
             for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++) {
-                if (isset($_FILES['file_' . $i])) {
-                    $this->uploadPostFile('file_' . $i, $curpath, $fileHandler, $imageHandler);
+                $index = 'file_' . $i;
+                if (isset($_FILES[$index])) {
+                    $this->uploadPostFile($index, $curpath, $fileHandler, $imageHandler);
                 }
             }
             return $this->refresh();
@@ -129,29 +137,36 @@ class FileController extends AdminController
         return null;
     }
 
-    private function uploadPostFile($field, $curpath, File $fileHandler, ImageHandler $imageHandler): bool
-    {
+    private function uploadPostFile(
+        string $field,
+        string $curpath,
+        File $fileHandler,
+        ImageHandler $imageHandler
+    ): bool {
         $success = false;
 
         $uploaded = $fileHandler->set($field, true);
 
-        if ($uploaded) {
-            if ($uploaded->getBasename() === '.htaccess') {
-                throw new BadRequestHttpException('Отказано в доступе к загрузке файла .htaccess');
-            }
+        if ($uploaded->getBasename() === '.htaccess') {
+            throw new BadRequestHttpException('Отказано в доступе к загрузке файла .htaccess');
+        }
 
-            $file = $curpath . '/' . Transliterator::slug($uploaded->getFilename()) . '.' . $uploaded->getExtension();
+        $slug = Transliterator::slug($uploaded->getFilename() ?: '');
+        $extension = $uploaded->getExtension() ?: '';
 
-            if (!$uploaded->Move($file)) {
-                $success = true;
-            }
+        $file = $curpath . '/' . $slug . '.' . $extension;
 
-            if ($success && in_array($uploaded->getExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
-                $orig = $imageHandler->load($file);
+        if (!$uploaded->move($file)) {
+            $success = true;
+        }
 
-                if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
-                    $orig->thumb(self::THUMB_IMAGE_WIDTH, false)->save($curpath . '/' . Transliterator::slug($uploaded->getFilename()) . '_prev.' . $uploaded->getExtension());
-                }
+        if ($success && in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
+            $orig = $imageHandler->load($file);
+
+            if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
+                $orig
+                    ->thumb(self::THUMB_IMAGE_WIDTH, false)
+                    ->save($curpath . '/' . $slug . '_prev.' . $extension);
             }
         }
 

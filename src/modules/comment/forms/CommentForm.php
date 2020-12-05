@@ -4,19 +4,17 @@ namespace app\modules\comment\forms;
 
 use yii\base\Model;
 
-/**
- * @property string $user
- * @property string $text
- */
 class CommentForm extends Model
 {
-    public $name;
-    public $email;
-    public $site;
-    public $text;
-    public $parent_id;
-    public $yqe1;
-    public $yqe2;
+    public const SCENARIO_ANONIM = 'anonim';
+
+    public ?string $name = null;
+    public ?string $email = null;
+    public ?string $site = null;
+    public string $text = '';
+    public ?string $parent_id = null;
+    public string $yqe1 = '';
+    public string $yqe2 = '';
 
     public function rules(): array
     {
@@ -25,11 +23,11 @@ class CommentForm extends Model
             ['parent_id', 'integer'],
 
             ['name', 'string', 'max' => 255],
-            ['name', 'required', 'message' => 'Представьтесь, пожалуйста.', 'on' => 'anonim'],
+            ['name', 'required', 'message' => 'Представьтесь, пожалуйста.', 'on' => self::SCENARIO_ANONIM],
 
             ['email', 'string', 'max' => 255],
             ['email', 'email', 'message' => 'Неверный формат E-mail адреса.'],
-            ['email', 'required', 'message' => 'Введите Email', 'on' => 'anonim'],
+            ['email', 'required', 'message' => 'Введите Email', 'on' => self::SCENARIO_ANONIM],
 
             ['site', 'url'],
             ['site', 'string', 'max' => 255],

@@ -17,11 +17,13 @@ use yii\web\User as WebUser;
 
 class CommentsWidget extends Widget
 {
-    public $material_id;
-    public $authorId;
-    public $type;
-    public $url;
-    public $user;
+    public int $material_id = 0;
+    public ?int $authorId = null;
+    /**
+     * @psalm-var class-string
+     */
+    public ?string $type = null;
+    public string $url = '';
 
     private WebUser $webUser;
     private MailerInterface $mailer;
@@ -35,43 +37,45 @@ class CommentsWidget extends Widget
 
     public function run(): string
     {
-        if (!$this->user) {
-            $this->user = User::findOne($this->webUser->id);
-        }
-
         if (!$this->material_id) {
             throw new InvalidArgumentException('Empty material_id.');
         }
 
-        if (!$this->type) {
+        if (empty($this->type)) {
             throw new InvalidArgumentException('Empty type of comments.');
         }
 
         $form = new CommentForm();
 
-        if (!$this->user) {
-            $form->scenario = 'anonim';
+        $user = User::findOne($this->webUser->id);
+
+        if ($user === null) {
+            $form->scenario = CommentForm::SCENARIO_ANONIM;
             $form->attributes = $this->loadFormState();
         }
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        if ($form->load((array)Yii::$app->request->post()) && $form->validate()) {
             $this->saveFormState([
                 'name' => $form->name,
                 'email' => $form->email,
                 'site' => $form->site,
             ]);
 
+            /** @psalm-var class-string<Comment> $className */
             $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
 
-            /** @var Comment $comment */
+            /**
+             * @var Comment $comment
+             * @psalm-suppress UnsafeInstantiation
+             */
             $comment = new $className;
             $comment->attributes = $form->attributes;
             $comment->material_id = $this->material_id;
             $comment->public = 1;
             $comment->moder = 0;
 
-            if ($this->user) {
-                $comment->user_id = $this->user->id;
+            if ($user !== null) {
+                $comment->user_id = $user->id;
             }
 
             if ($comment->save()) {
@@ -83,8 +87,9 @@ class CommentsWidget extends Widget
             }
         }
 
+        /** @psalm-var Comment[] $items */
         $items = Comment::find()
-            ->where(null)
+            ->where([])
             ->type($this->type)
             ->material($this->material_id)
             ->orderBy(['id' => SORT_ASC])
@@ -93,7 +98,7 @@ class CommentsWidget extends Widget
         $comments = [];
 
         foreach ($items as $item) {
-            $comments[$item->parent_id ?? 0][] = $item;
+            $comments[(int)$item->parent_id][] = $item;
         }
 
         CommentsAsset::register($this->view);
@@ -101,14 +106,14 @@ class CommentsWidget extends Widget
         return $this->render('Comments/comments', [
             'comments' => $comments,
             'form' => $form,
-            'user' => $this->user,
+            'user' => $user,
             'material_id' => $this->material_id,
             'type' => $this->type,
             'authorId' => $this->authorId,
         ]);
     }
 
-    private function saveFormState($attributes): void
+    private function saveFormState(array $attributes): void
     {
         try {
             $data = Json::encode($attributes);
@@ -129,14 +134,11 @@ class CommentsWidget extends Widget
 
     private function loadFormState(): array
     {
-        $cookie = Yii::$app->request->cookies['comment_form_data'];
-        if (!empty($cookie)) {
-            try {
-                return Json::decode($cookie->value);
-            } catch (InvalidArgumentException $e) {
-                return [];
-            }
+        $value = (string)Yii::$app->request->cookies->getValue('comment_form_data');
+        try {
+            return (array)Json::decode($value);
+        } catch (InvalidArgumentException $e) {
+            return [];
         }
-        return [];
     }
 }

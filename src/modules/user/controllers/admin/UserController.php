@@ -35,7 +35,7 @@ class UserController extends AdminController
 
         $form = EditForm::fromUser($user);
 
-        if ($form->load($request->post())) {
+        if ($form->load((array)$request->post())) {
             $form->avatar = UploadedFile::getInstance($form, 'avatar');
             if ($form->validate()) {
                 $user->username = $form->username;

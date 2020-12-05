@@ -65,7 +65,7 @@ abstract class CommentAdminController extends AdminController
     public function actionUpdate(int $id, Request $request)
     {
         $model = $this->loadModel($id);
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
@@ -103,7 +103,7 @@ abstract class CommentAdminController extends AdminController
         $model = $this->loadModel($id);
 
         if ($model->children) {
-            $model->public = false;
+            $model->public = 0;
             $success = $model->save(false);
         } else {
             $success = $model->delete();
@@ -123,7 +123,7 @@ abstract class CommentAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $model->moder = !$model->moder;
+        $model->moder = $model->moder ? 0 : 1;
 
         if (!$model->save()) {
             throw new BadRequestHttpException('Error');
@@ -150,7 +150,6 @@ abstract class CommentAdminController extends AdminController
 
     public function loadModel(int $id): Comment
     {
-        /** @var Comment $model */
         $model = $this->getModelName()::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
@@ -165,6 +164,7 @@ abstract class CommentAdminController extends AdminController
 
     /**
      * @return string|Comment
+     * @psalm-return class-string<Comment>
      */
     protected function getModelName(): string
     {

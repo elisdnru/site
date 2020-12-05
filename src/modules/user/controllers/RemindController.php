@@ -15,7 +15,7 @@ class RemindController extends Controller
     {
         $model = new RemindForm();
 
-        if ($model->load($request->post()) && $model->validate()) {
+        if ($model->load((array)$request->post()) && $model->validate()) {
             $user = User::findOne(['email' => $model->email]);
 
             if ($user) {

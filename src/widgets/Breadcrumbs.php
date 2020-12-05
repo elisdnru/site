@@ -8,29 +8,33 @@ use yii\helpers\Url;
 
 class Breadcrumbs extends Widget
 {
-    public $tagName = 'div';
-    public $htmlOptions = ['class' => 'breadcrumbs'];
-    public $links = [];
-    public $activeLinkTemplate = '<a href="{url}">{label}</a>';
-    public $inactiveLinkTemplate = '<!--noindex--><span>{label}</span><!--/noindex-->';
-    public $separator = ' &raquo; ';
+    public string $tagName = 'div';
+    public array $htmlOptions = ['class' => 'breadcrumbs'];
+    public array $links = [];
+    public string $activeLinkTemplate = '<a href="{url}">{label}</a>';
+    public string $inactiveLinkTemplate = '<!--noindex--><span>{label}</span><!--/noindex-->';
+    public string $separator = ' &raquo; ';
 
     public function run(): string
     {
-        if (empty($this->links)) {
+        if ($this->links === []) {
             return '';
         }
 
         $html = Html::beginTag($this->tagName, $this->htmlOptions) . "\n";
         $links = [];
         $definedLinks = ['Дмитрий Елисеев' => ['/home/default/index']] + $this->links;
+        /**
+         * @var string|int $label
+         * @var string|array $url
+         */
         foreach ($definedLinks as $label => $url) {
-            if (is_string($label) || is_array($url)) {
+            if (is_string($label)) {
                 $links[] = strtr($this->activeLinkTemplate, [
                     '{url}' => Url::to($url),
                     '{label}' => Html::encode($label),
                 ]);
-            } else {
+            } elseif (is_string($url)) {
                 $links[] = str_replace('{label}', Html::encode($url), $this->inactiveLinkTemplate);
             }
         }

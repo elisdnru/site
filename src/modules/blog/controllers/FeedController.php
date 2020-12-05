@@ -46,10 +46,7 @@ class FeedController extends Controller
             $description .= Html::tag('p', Html::a('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
 
             $item->setDescription($description);
-
-            if ($model->category) {
-                $item->addCategory(['term' => $model->category->title]);
-            }
+            $item->addCategory(['term' => $model->category->title]);
 
             $item->setLink($link);
             $item->setDateModified(new DateTimeImmutable($model->date));

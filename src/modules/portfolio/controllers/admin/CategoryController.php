@@ -49,7 +49,7 @@ class CategoryController extends AdminController
     {
         $model = new Category();
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -68,7 +68,7 @@ class CategoryController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if ($model->load($request->post()) && $model->save()) {
+        if ($model->load((array)$request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
