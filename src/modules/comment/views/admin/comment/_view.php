@@ -15,11 +15,7 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
 ?>
 
 <article class="comment<?= !$data->moder ? ' newcomment' : '' ?><?= !$data->public ? ' nopublcomment' : '' ?>" id="comment_<?= $data->id ?>">
-    <?php if ($data->user) : ?>
-        <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>" alt="">
-    <?php else : ?>
-        <img class="userpic" src="<?= $data->getAvatarUrl(50, 50) ?>" alt="">
-    <?php endif; ?>
+    <img class="userpic" src="<?= Html::encode($data->getAvatarUrl(50, 50)) ?>" alt="">
 
     <header>
 

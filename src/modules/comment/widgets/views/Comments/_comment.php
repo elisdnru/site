@@ -13,11 +13,7 @@ use yii\helpers\Url;
 /** @var $user User */
 ?>
 <article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
-    <?php if ($comment->user) : ?>
-        <img class="userpic" src="<?= $comment->getAvatarUrl(50, 50) ?>" alt="">
-    <?php else : ?>
-        <img class="userpic" src="<?= Html::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
-    <?php endif; ?>
+    <img class="userpic" src="<?= Html::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
 
     <header>
         <span class="link">
