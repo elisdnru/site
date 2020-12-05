@@ -146,7 +146,7 @@ class User extends ActiveRecord
     {
         if ($this->cachedAvatarUrl === null) {
             if (!is_string($this->avatar)) {
-                return '';
+                return $this->getDefaultAvatarUrl($width);
             }
             if (preg_match('|^https?:\/\/|', $this->avatar)) {
                 $this->cachedAvatarUrl = $this->avatar;
