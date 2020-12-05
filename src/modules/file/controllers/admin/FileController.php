@@ -70,7 +70,7 @@ class FileController extends AdminController
         if (!empty($_POST['foldername'])) {
             $foldername = $_POST['foldername'];
 
-            if (preg_match('|^[\\w\\d_-]+$|i', $foldername, $t)) {
+            if (preg_match('|^[\\w-]+$|i', $foldername, $t)) {
                 $fileHandler->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $foldername);
             }
         }
