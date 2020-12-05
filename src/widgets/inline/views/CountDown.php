@@ -1,6 +1,13 @@
 <?php
 use app\assets\CountDownAsset;
 use yii\helpers\Html;
+use yii\web\View;
+
+/**
+ * @var View $this
+ * @var string $title
+ * @var string $date
+ */
 
 /**
  * @var string $title

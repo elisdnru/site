@@ -24,6 +24,16 @@
     <issueHandlers>
         <LessSpecificReturnType errorLevel="info" />
 
+        <InvalidScope>
+            <errorLevel type="suppress">
+                <directory name="src/views" />
+                <directory name="src/widgets/views" />
+                <directory name="src/widgets/inline/views" />
+                <directory name="src/modules/*/views" />
+                <directory name="src/modules/*/widgets/views" />
+            </errorLevel>
+        </InvalidScope>
+
         <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
                 <file name="src/components/category/models/CategoryQuery.php"/>
