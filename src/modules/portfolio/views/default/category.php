@@ -7,10 +7,14 @@ use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
-/** @var $dataProvider ActiveDataProvider */
-/** @var $category Category */
-/** @var $subcategories Category[] */
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ * @var Category $category
+ * @var Category[] $subcategories
+ */
 $this->context->layout = 'index';
 
 $this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);

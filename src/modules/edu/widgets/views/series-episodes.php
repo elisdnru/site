@@ -1,10 +1,12 @@
 <?php
 declare(strict_types=1);
-/**
- * @var $slug string
- * @var $episodes array
- */
+
 use yii\helpers\Html;
+
+/**
+ * @var string $slug
+ * @var array $episodes
+ */
 ?>
 
 <?php if ($episodes) : ?>

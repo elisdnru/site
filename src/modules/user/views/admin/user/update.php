@@ -7,11 +7,11 @@ use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
+ * @var View $this
  * @var User $model
  * @var ActiveForm $form
  * @var User $user
  * @var EditForm $model
- * @var View $this
  */
 
 $this->title = 'Редактирование данных пользователя';

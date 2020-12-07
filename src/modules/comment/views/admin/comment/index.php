@@ -1,6 +1,4 @@
 <?php
-/** @var $this View */
-/** @var $dataProvider CDataProvider */
 
 use app\assets\CommentsAsset;
 use yii\data\ActiveDataProvider;
@@ -8,8 +6,11 @@ use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $material ActiveRecord */
-/** @var $dataPrvider ActiveDataProvider */
+/**
+ * @var View $this
+ * @var ActiveRecord $material
+ * @var ActiveDataProvider $dataPrvider
+ */
 
 $this->title = 'Комментарии';
 

@@ -1,6 +1,15 @@
-<?php $this->beginContent('@app/views/layouts/main.php');
+<?php
 
-use app\widgets\Messages; ?>
+use app\widgets\Messages;
+use yii\web\View;
+
+/**
+ * @var View $this
+ * @var string $content
+ */
+
+$this->beginContent('@app/views/layouts/main.php');
+?>
 
 <div class="main left_main">
 

@@ -8,9 +8,11 @@ use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|InlineWidgetsBehavior */
-/** @var $category Category */
-/** @var $dataProvider ActiveDataProvider */
+/**
+ * @var View|InlineWidgetsBehavior $this
+ * @var Category $category
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->context->layout = 'index';
 

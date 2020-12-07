@@ -6,7 +6,12 @@ use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use yii\caching\TagDependency;
+use yii\web\View;
 use yii\widgets\Menu;
+
+/**
+ * @var View $this
+ */
 ?>
 
 <!--noindex-->

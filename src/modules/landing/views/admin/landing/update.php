@@ -1,7 +1,11 @@
 <?php
 use app\modules\landing\models\Landing;
+use yii\web\View;
 
-/** @var $model Landing */
+/**
+ * @var View $this
+ * @var Landing $model
+ */
 
 $this->title = 'Редактор лендингов';
 $this->params['breadcrumbs'] = [

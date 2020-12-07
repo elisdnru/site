@@ -6,9 +6,11 @@ use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\web\View;
 
-/** @var $this View */
-/** @var $searchForm SearchForm */
-/** @var $dataProvider ActiveDataProvider */
+/**
+ * @var View $this
+ * @var SearchForm $searchForm
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->context->layout = 'index';
 

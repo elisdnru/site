@@ -1,7 +1,11 @@
 <?php
 use app\modules\block\models\Block;
+use yii\web\View;
 
-/** @var $model Block */
+/**
+ * @var View $this
+ * @var Block $model
+ */
 ?>
 <?php
 $this->title = 'Редактор блоков';

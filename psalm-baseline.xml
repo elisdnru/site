@@ -595,27 +595,19 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/admin/views/default/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="5">
-      <code>$group</code>
+    <MixedArgument occurrences="4">
       <code>$module-&gt;adminName()</code>
       <code>$module-&gt;id</code>
       <code>$module-&gt;id</code>
       <code>$module-&gt;id</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$group</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="6">
-      <code>$group</code>
-      <code>$group</code>
-      <code>$groupModules</code>
+    <MixedAssignment occurrences="3">
       <code>$module</code>
       <code>$module</code>
       <code>$module</code>
@@ -624,20 +616,16 @@
       <code>adminName</code>
       <code>adminName</code>
     </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="4">
+    <MixedPropertyFetch occurrences="3">
       <code>$module-&gt;id</code>
       <code>$module-&gt;id</code>
       <code>$module-&gt;id</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$modules</code>
-      <code>$modules</code>
-    </UndefinedGlobalVariable>
+    <RawObjectIteration occurrences="3">
+      <code>$group</code>
+      <code>$groupModules</code>
+      <code>$groupModules</code>
+    </RawObjectIteration>
   </file>
   <file src="src/modules/block/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -697,157 +685,42 @@
     </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/block/views/admin/block/create.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/block/views/admin/block/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="2">
       <code>$block-&gt;alias</code>
       <code>$block-&gt;title</code>
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('alias', ['class' =&gt; 'sort-link', 'label' =&gt; 'Код для вставки'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Наименование'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
-      <code>$model</code>
-      <code>$model</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$block</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
-      <code>link</code>
-      <code>link</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="4">
+    <MixedPropertyFetch occurrences="3">
       <code>$block-&gt;alias</code>
       <code>$block-&gt;id</code>
       <code>$block-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="7">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="2">
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/block/views/admin/block/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="2">
-      <code>$model-&gt;alias</code>
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$model-&gt;alias</code>
-      <code>$model-&gt;id</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/block/views/admin/block/view.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="2">
-      <code>$model-&gt;text</code>
-      <code>$model-&gt;title</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedOperand occurrences="1">
-      <code>$model-&gt;title</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="4">
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;text</code>
-      <code>$model-&gt;title</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="5">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/block/widgets/BlockWidget.php">
     <DocblockTypeContradiction occurrences="1">
@@ -1026,359 +899,99 @@
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/blog/views/admin/category/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="17">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="6">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;parent_id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/blog/views/admin/category/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="3">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/category/index.php">
-    <MixedArgument occurrences="12">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('alias', ['class' =&gt; 'sort-link', 'label' =&gt; 'Псевдоним'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('sort', ['class' =&gt; 'sort-link', 'label' =&gt; 'Позиция'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Заголовок'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
+    <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;indent * 4</code>
       <code>$item-&gt;sort</code>
       <code>$item-&gt;title</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="3">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="10">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$item-&gt;indent</code>
     </MixedOperand>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="6">
+    <MixedPropertyFetch occurrences="5">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;id</code>
       <code>$item-&gt;indent</code>
       <code>$item-&gt;sort</code>
       <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="8">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="3">
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/views/admin/category/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="3">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/comment/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$material-&gt;title</code>
-      <code>$this</code>
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' =&gt; $dataProvider])</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getUrl</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="5">
-      <code>$material-&gt;title</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$dataProvider</code>
+    <RedundantCondition occurrences="1">
+      <code>$material !== null</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$material</code>
-    </UndefinedGlobalVariable>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>$material-&gt;title</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/admin/comment/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/comment/view.php">
-    <MixedArgument occurrences="2">
-      <code>$this</code>
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_view', ['data' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/group/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="6">
-      <code>$item</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;title</code>
+    <MixedArgument occurrences="2">
       <code>$itemForm</code>
       <code>$itemForm</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="4">
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;postsCount</code>
-      <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
+    <UndefinedGlobalVariable occurrences="1">
       <code>$itemForm</code>
-      <code>$items</code>
     </UndefinedGlobalVariable>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>$item-&gt;postsCount</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/admin/post/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="44">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model-&gt;getImageUrl()</code>
+    <MixedArgument occurrences="2">
       <code>$model-&gt;imageThumbUrl</code>
       <code>$tag</code>
     </MixedArgument>
@@ -1388,113 +1001,28 @@
     <MixedAssignment occurrences="1">
       <code>$tag</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="15">
-      <code>getImageUrl</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>registerJs</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;image</code>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>$model-&gt;imageThumbUrl</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/admin/post/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="3">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/post/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="16">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('t.category_id', ['class' =&gt; 'sort-link', 'label' =&gt; 'Раздел'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('t.date', ['class' =&gt; 'sort-link', 'label' =&gt; 'Дата'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('t.group_id', ['class' =&gt; 'sort-link', 'label' =&gt; 'Группа'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('t.public', ['class' =&gt; 'sort-link', 'label' =&gt; 'О'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('t.title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Заголовок'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
+    <MixedArgument occurrences="4">
       <code>$item-&gt;category-&gt;fullTitle</code>
       <code>$item-&gt;date</code>
       <code>$item-&gt;group-&gt;title</code>
       <code>$item-&gt;title</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="14">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="9">
+    <MixedPropertyFetch occurrences="8">
       <code>$item-&gt;category</code>
       <code>$item-&gt;category-&gt;fullTitle</code>
       <code>$item-&gt;date</code>
@@ -1503,223 +1031,77 @@
       <code>$item-&gt;id</code>
       <code>$item-&gt;public</code>
       <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="10">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="5">
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/views/admin/post/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="5">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="6">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$model-&gt;category_id</code>
-      <code>$model-&gt;id</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/blog/views/admin/tag/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="4">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/tag/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="4">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/admin/tag/index.php">
-    <MixedArgument occurrences="6">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Заголовок'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
+    <MixedArgument occurrences="3">
       <code>$item-&gt;frequency</code>
       <code>$item-&gt;getUrl()</code>
       <code>$item-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="4">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="7">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
+    <MixedMethodCall occurrences="1">
       <code>getUrl</code>
-      <code>link</code>
     </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="4">
+    <MixedPropertyFetch occurrences="3">
       <code>$item-&gt;frequency</code>
       <code>$item-&gt;id</code>
       <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="5">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="1">
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/views/admin/tag/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="4">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/default/_loop.php">
-    <MissingDocblockType occurrences="1"/>
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getModels</code>
-      <code>getPagination</code>
-    </MixedMethodCall>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$post-&gt;category</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/views/default/category.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="7">
-      <code>$category-&gt;getBreadcrumbs()</code>
-      <code>$category-&gt;text</code>
-      <code>$category-&gt;title</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
+    <MixedArgument occurrences="2">
       <code>$this-&gt;decodeWidgets(trim($category-&gt;text))</code>
       <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
     </MixedArgument>
@@ -1733,63 +1115,26 @@
       <code>$this-&gt;params['breadcrumbs']</code>
       <code>$this-&gt;params['breadcrumbs']</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>decodeWidgets</code>
-      <code>getBreadcrumbs</code>
-      <code>getPage</code>
-      <code>getPage</code>
-      <code>getPagination</code>
-      <code>getPagination</code>
-      <code>registerMetaTag</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="4">
-      <code>$category-&gt;description</code>
-      <code>$category-&gt;pagetitle</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="7">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
+    <MixedAssignment occurrences="5">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </MixedAssignment>
+    <MixedPropertyAssignment occurrences="1">
       <code>$this-&gt;context</code>
     </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="7">
-      <code>$category-&gt;description</code>
-      <code>$category-&gt;id</code>
-      <code>$category-&gt;pagetitle</code>
-      <code>$category-&gt;text</code>
-      <code>$category-&gt;title</code>
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="10">
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
+    <PossiblyFalseReference occurrences="2">
+      <code>getPage</code>
+      <code>getPage</code>
+    </PossiblyFalseReference>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="4">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
+    <MixedArgument occurrences="2">
       <code>$this-&gt;params['admin'] ?? []</code>
       <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
     </MixedArgument>
@@ -1804,221 +1149,68 @@
       <code>$this-&gt;params['admin']</code>
       <code>$this-&gt;params['breadcrumbs']</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="6">
-      <code>getPage</code>
-      <code>getPage</code>
-      <code>getPagination</code>
-      <code>getPagination</code>
-      <code>registerMetaTag</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="2">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="7">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
+    <MixedAssignment occurrences="5">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </MixedAssignment>
+    <MixedPropertyAssignment occurrences="1">
       <code>$this-&gt;context</code>
     </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <PossiblyFalseReference occurrences="2">
+      <code>getPage</code>
+      <code>getPage</code>
+    </PossiblyFalseReference>
     <PossiblyNullArgument occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullPropertyFetch>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/search.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="2">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="3">
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
+    <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
-      <code>getPagination</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
+    </PossiblyFalseReference>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/tag.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="4">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$tag-&gt;title</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="7">
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
+    <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
-      <code>getPagination</code>
-      <code>getPagination</code>
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="5">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-      <code>$tag-&gt;title</code>
-      <code>$tag-&gt;title</code>
-      <code>$tag-&gt;title</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$tag-&gt;title</code>
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="7">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$tag</code>
-      <code>$tag</code>
-      <code>$tag</code>
-      <code>$tag</code>
-    </UndefinedGlobalVariable>
+    </PossiblyFalseReference>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/layouts/_sidebar.php">
-    <MixedMethodCall occurrences="8">
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyFetch>
-  </file>
-  <file src="src/modules/blog/views/layouts/index.php">
-    <MixedArgument occurrences="2">
-      <code>$content</code>
-      <code>$this-&gt;render('/layouts/_sidebar')</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="7">
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginContent</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endContent</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/blog/views/layouts/post.php">
-    <MixedArgument occurrences="2">
-      <code>$content</code>
-      <code>$this-&gt;render('/layouts/_sidebar')</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="3">
-      <code>beginContent</code>
-      <code>endContent</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;route</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/blog/views/post/show.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="10">
-      <code>$count</code>
-      <code>$model-&gt;category-&gt;getBreadcrumbs(true)</code>
-      <code>$model-&gt;date</code>
-      <code>$model-&gt;getImageUrl()</code>
-      <code>$model-&gt;styles</code>
-      <code>$model-&gt;title</code>
-      <code>$tag-&gt;getUrl()</code>
-      <code>$tag-&gt;title</code>
-      <code>$this</code>
+    <MixedArgument occurrences="1">
       <code>$this-&gt;decodeWidgets($model-&gt;text_purified)</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
@@ -2034,123 +1226,32 @@
       <code>$this-&gt;params['breadcrumbs']</code>
       <code>$this-&gt;params['breadcrumbs']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
-      <code>$count</code>
-      <code>$tag</code>
+    <MixedAssignment occurrences="7">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="25">
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>decodeWidgets</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>getBreadcrumbs</code>
-      <code>getCommentsNewCount</code>
-      <code>getImageUrl</code>
-      <code>getImageUrl</code>
-      <code>getImageUrl</code>
-      <code>getImageUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-      <code>registerCss</code>
-      <code>registerLinkTag</code>
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="6">
-      <code>$count</code>
-      <code>$model-&gt;getImageUrl()</code>
-      <code>$model-&gt;getImageUrl()</code>
-      <code>$model-&gt;getUrl()</code>
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;id</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="9">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
+    <MixedPropertyAssignment occurrences="1">
       <code>$this-&gt;context</code>
     </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="23">
-      <code>$model-&gt;author_id</code>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullOperand occurrences="3">
+      <code>$host</code>
+      <code>$host</code>
+      <code>$host</code>
+    </PossiblyNullOperand>
+    <RedundantCondition occurrences="1">
       <code>$model-&gt;category</code>
-      <code>$model-&gt;category_id</code>
-      <code>$model-&gt;date</code>
-      <code>$model-&gt;description</code>
-      <code>$model-&gt;group_id</code>
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;image</code>
-      <code>$model-&gt;image_alt</code>
-      <code>$model-&gt;image_height</code>
-      <code>$model-&gt;image_show</code>
-      <code>$model-&gt;image_width</code>
-      <code>$model-&gt;pagetitle</code>
-      <code>$model-&gt;public</code>
-      <code>$model-&gt;styles</code>
-      <code>$model-&gt;tags</code>
-      <code>$model-&gt;text_purified</code>
-      <code>$model-&gt;title</code>
-      <code>$tag-&gt;title</code>
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="40">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$model-&gt;category</code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2163,116 +1264,10 @@
       <code>$this-&gt;limit</code>
     </MixedArgument>
   </file>
-  <file src="src/modules/blog/widgets/views/LastPosts/default.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="5">
-      <code>$post-&gt;getImageThumbUrl(100, 100)</code>
-      <code>$post-&gt;getUrl()</code>
-      <code>$post-&gt;short_purified</code>
-      <code>$post-&gt;title</code>
-      <code>$posts</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$post</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getImageThumbUrl</code>
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="3">
-      <code>$post-&gt;image</code>
-      <code>$post-&gt;short_purified</code>
-      <code>$post-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$posts</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/blog/widgets/views/LastPosts/home.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="13">
-      <code>$data-&gt;category-&gt;getUrl()</code>
-      <code>$data-&gt;category-&gt;title</code>
-      <code>$data-&gt;date</code>
-      <code>$data-&gt;getCommentsCount()</code>
-      <code>$data-&gt;getUrl()</code>
-      <code>$data-&gt;getUrl()</code>
-      <code>$data-&gt;short_purified</code>
-      <code>$data-&gt;title</code>
-      <code>$imageUrl</code>
-      <code>$imageUrl</code>
-      <code>$imageUrl</code>
-      <code>$tag-&gt;getUrl()</code>
-      <code>$tag-&gt;title</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="5">
-      <code>$data</code>
-      <code>$imageUrl</code>
-      <code>$properties['height']</code>
-      <code>$properties['width']</code>
-      <code>$tag</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="6">
-      <code>getCommentsCount</code>
-      <code>getImageThumbUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="10">
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$data-&gt;category</code>
-      <code>$data-&gt;category-&gt;title</code>
-      <code>$data-&gt;date</code>
-      <code>$data-&gt;image</code>
-      <code>$data-&gt;image_height</code>
-      <code>$data-&gt;image_width</code>
-      <code>$data-&gt;short_purified</code>
-      <code>$data-&gt;tags</code>
-      <code>$data-&gt;title</code>
-      <code>$tag-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$posts</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/blog/widgets/views/OtherPosts.php">
-    <MixedArgument occurrences="6">
-      <code>$post-&gt;getImageThumbUrl(100, 100)</code>
-      <code>$post-&gt;getUrl()</code>
-      <code>$post-&gt;getUrl()</code>
-      <code>$post-&gt;short_purified</code>
-      <code>$post-&gt;title</code>
-      <code>$posts</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$post</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getImageThumbUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="3">
-      <code>$post-&gt;image</code>
-      <code>$post-&gt;short_purified</code>
-      <code>$post-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$posts</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/blog/widgets/views/SearchForm.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="1">
-      <code>$form-&gt;word</code>
-    </MixedArgument>
-    <MixedPropertyFetch occurrences="1">
-      <code>$form-&gt;word</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$form</code>
-    </UndefinedGlobalVariable>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/blog/widgets/views/TagCloud.php">
     <MixedArgument occurrences="2">
@@ -2289,9 +1284,6 @@
       <code>$tag-&gt;frequency</code>
       <code>$tag-&gt;title</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$tags</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/blog/widgets/views/ThemePosts.php">
     <MixedArgument occurrences="3">
@@ -2310,29 +1302,6 @@
       <code>$item-&gt;title</code>
       <code>$item-&gt;title</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$current</code>
-      <code>$posts</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/blog/widgets/views/UpdatedPosts/default.php">
-    <MixedArgument occurrences="3">
-      <code>$post-&gt;getUrl()</code>
-      <code>$post-&gt;title</code>
-      <code>$posts</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$post</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$post-&gt;title</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$posts</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/comment/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -2453,47 +1422,6 @@
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/comment/views/admin/comment/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="20">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model-&gt;user-&gt;getFio()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="7">
-      <code>getFio</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;user</code>
-      <code>$model-&gt;user_id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/comment/views/admin/comment/_list.php">
     <MixedArgument occurrences="1">
       <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_view', ['data' =&gt; $data])</code>
@@ -2501,236 +1429,58 @@
     <MixedAssignment occurrences="1">
       <code>$data</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getModels</code>
-      <code>getPagination</code>
+    <MixedMethodCall occurrences="1">
       <code>render</code>
     </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/comment/views/admin/comment/_view.php">
-    <MixedArgument occurrences="17">
-      <code>$data-&gt;date</code>
-      <code>$data-&gt;getAvatarUrl(50, 50)</code>
-      <code>$data-&gt;getUrl()</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;likes</code>
+    <MixedArgument occurrences="1">
       <code>$data-&gt;material-&gt;title</code>
-      <code>$data-&gt;name</code>
-      <code>$data-&gt;name</code>
-      <code>$data-&gt;site</code>
-      <code>$data-&gt;text_purified</code>
-      <code>$data-&gt;user-&gt;identity</code>
-      <code>$data-&gt;user-&gt;network</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="2">
-      <code>getAvatarUrl</code>
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="16">
-      <code>$data-&gt;date</code>
-      <code>$data-&gt;id</code>
-      <code>$data-&gt;liked</code>
-      <code>$data-&gt;likes</code>
-      <code>$data-&gt;material</code>
+    <NoInterfaceProperties occurrences="1">
       <code>$data-&gt;material-&gt;title</code>
-      <code>$data-&gt;material_id</code>
-      <code>$data-&gt;moder</code>
+    </NoInterfaceProperties>
+    <PossiblyNullArgument occurrences="1">
       <code>$data-&gt;name</code>
-      <code>$data-&gt;name</code>
-      <code>$data-&gt;public</code>
-      <code>$data-&gt;site</code>
-      <code>$data-&gt;text_purified</code>
-      <code>$data-&gt;user</code>
-      <code>$data-&gt;user-&gt;identity</code>
-      <code>$data-&gt;user-&gt;network</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="35">
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-    </UndefinedGlobalVariable>
+    </PossiblyNullArgument>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>$data-&gt;liked</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/views/admin/comment/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$material-&gt;title</code>
-      <code>$this</code>
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' =&gt; $dataProvider])</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="4">
-      <code>$material-&gt;title</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$material !== null</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedGlobalVariable occurrences="1">
       <code>$dataProvider</code>
-      <code>$material</code>
     </UndefinedGlobalVariable>
+    <UndefinedMagicPropertyFetch occurrences="1">
+      <code>$material-&gt;title</code>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/views/admin/comment/update.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/comment/views/admin/comment/view.php">
-    <MixedArgument occurrences="2">
-      <code>$this</code>
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_view', ['data' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/comment/views/comment/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="3">
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$form</code>
-      <code>$form</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/comment/views/comment/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1"/>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getUrl</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$form</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2741,140 +1491,26 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="15">
-      <code>$comment-&gt;date</code>
-      <code>$comment-&gt;getAvatarUrl(50, 50)</code>
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;likes</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$comment-&gt;name</code>
-      <code>$comment-&gt;name</code>
-      <code>$comment-&gt;site</code>
-      <code>$comment-&gt;text_purified</code>
-      <code>$comment-&gt;user-&gt;identity</code>
-      <code>$comment-&gt;user-&gt;network</code>
-      <code>$indent &lt; 8 ? $indent * 20 : 8 * 20</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>getAvatarUrl</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$indent</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="17">
-      <code>$comment-&gt;date</code>
-      <code>$comment-&gt;id</code>
+    </PossiblyNullArgument>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$user</code>
+      <code>$user</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>$comment-&gt;liked</code>
-      <code>$comment-&gt;likes</code>
-      <code>$comment-&gt;name</code>
-      <code>$comment-&gt;name</code>
-      <code>$comment-&gt;public</code>
-      <code>$comment-&gt;site</code>
-      <code>$comment-&gt;text_purified</code>
-      <code>$comment-&gt;user</code>
-      <code>$comment-&gt;user</code>
-      <code>$comment-&gt;user</code>
-      <code>$comment-&gt;user-&gt;identity</code>
-      <code>$comment-&gt;user-&gt;network</code>
-      <code>$comment-&gt;user_id</code>
-      <code>$user-&gt;id</code>
-      <code>$user-&gt;id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="33">
-      <code>$authorId</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$comment</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$user</code>
-      <code>$user</code>
-    </UndefinedGlobalVariable>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="21">
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$user-&gt;getAvatarUrl()</code>
-      <code>$user-&gt;getFio()</code>
-      <code>$user-&gt;getFio()</code>
-      <code>$user-&gt;site</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="11">
-      <code>getAvatarUrl</code>
-      <code>getFio</code>
-      <code>getFio</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>isAttributeRequired</code>
-      <code>isAttributeRequired</code>
-      <code>isAttributeRequired</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$user-&gt;id</code>
-      <code>$user-&gt;site</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="5">
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$user</code>
-    </UndefinedGlobalVariable>
+    </RedundantConditionGivenDocblockType>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_tree.php">
-    <MissingDocblockType occurrences="1"/>
     <MixedArgument occurrences="2"/>
     <MixedArrayOffset occurrences="1">
       <code>$comments[$comment-&gt;id]</code>
@@ -2886,40 +1522,20 @@
       <code>render</code>
       <code>render</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$indent</code>
-    </MixedOperand>
     <MixedPropertyFetch occurrences="2">
       <code>$comment-&gt;id</code>
       <code>$comment-&gt;id</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="8">
-      <code>$authorId</code>
-      <code>$authorId</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$parent</code>
-      <code>$user</code>
-      <code>$user</code>
-    </UndefinedGlobalVariable>
+    <UndefinedDocblockClass occurrences="2">
+      <code>$comments</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/comments.php">
-    <MixedArgument occurrences="3">
-      <code>$comments</code>
-    </MixedArgument>
+    <MixedArgument occurrences="2"/>
     <MixedMethodCall occurrences="2">
       <code>render</code>
       <code>render</code>
     </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="6">
-      <code>$authorId</code>
-      <code>$comments</code>
-      <code>$comments</code>
-      <code>$form</code>
-      <code>$user</code>
-      <code>$user</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/contacts/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -2963,24 +1579,6 @@
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/contacts/views/layouts/index.php">
-    <MixedArgument occurrences="1">
-      <code>$content</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/donate/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
@@ -2993,54 +1591,16 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/donate/views/default/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/donate/views/layouts/index.php">
-    <MixedArgument occurrences="1">
-      <code>$content</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/edu/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3087,69 +1647,31 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/edu/views/default/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
     <MixedArgument occurrences="4">
       <code>$item['slug']</code>
       <code>$item['slug']</code>
       <code>$item['thumbnail']</code>
       <code>$item['title']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
+    <MixedArrayAccess occurrences="4">
       <code>$item['slug']</code>
       <code>$item['slug']</code>
       <code>$item['thumbnail']</code>
       <code>$item['title']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$series</code>
-    </UndefinedGlobalVariable>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/edu/views/layouts/index.php">
-    <MixedArgument occurrences="1">
-      <code>$content</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/edu/widgets/SeriesEpisodes.php">
     <MixedAssignment occurrences="1">
@@ -3173,14 +1695,9 @@
     <MixedAssignment occurrences="1">
       <code>$episode</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>$episode['slug']</code>
-      <code>$slug</code>
     </MixedOperand>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$episodes</code>
-      <code>$slug</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/file/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3237,48 +1754,17 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/file/views/admin/file/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="2">
       <code>$file-&gt;getSize()</code>
-      <code>$htmlroot</code>
       <code>$item</code>
-      <code>$path</code>
-      <code>$this</code>
-      <code>$this</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="2">
       <code>$contents</code>
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>registerJs</code>
-      <code>registerJs</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="7">
-      <code>$htmlroot</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$root</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
     <PossiblyNullArgument occurrences="7">
       <code>$file-&gt;getBasename()</code>
       <code>$file-&gt;getBasename()</code>
@@ -3294,19 +1780,9 @@
       <code>$file-&gt;getBasename()</code>
       <code>$file-&gt;getBasename()</code>
     </PossiblyNullOperand>
-    <UndefinedGlobalVariable occurrences="11">
-      <code>$htmlroot</code>
-      <code>$htmlroot</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$path</code>
-      <code>$root</code>
-      <code>$upload_count</code>
-    </UndefinedGlobalVariable>
+    <UndefinedDocblockClass occurrences="1">
+      <code>$this-&gt;title</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/modules/home/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3328,93 +1804,23 @@
     <MixedArgument occurrences="1">
       <code>$this-&gt;params['admin'] ?? []</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAssignment>
-    <MixedMethodCall occurrences="5">
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/home/views/error/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="2">
-      <code>$message</code>
-      <code>$name</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedOperand occurrences="1">
       <code>$error['code'] ?? ''</code>
     </MixedOperand>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$message</code>
-      <code>$name</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/home/views/layouts/_sidebar.php">
-    <MixedMethodCall occurrences="10">
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>beginCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-      <code>endCache</code>
-    </MixedMethodCall>
-  </file>
-  <file src="src/modules/home/views/layouts/index.php">
-    <MixedArgument occurrences="2">
-      <code>$content</code>
-      <code>$this-&gt;render('/layouts/_sidebar')</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="3">
-      <code>beginContent</code>
-      <code>endContent</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/image/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3488,167 +1894,49 @@
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/landing/views/admin/landing/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="15">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="5">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;parent_id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/landing/views/admin/landing/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/landing/views/admin/landing/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="10">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('alias', ['class' =&gt; 'sort-link', 'label' =&gt; 'Псевдоним'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Заголовок'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
+    <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;getUrl()</code>
       <code>$item-&gt;indent * 4</code>
       <code>$item-&gt;title</code>
-      <code>$model</code>
-      <code>$model</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="9">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
+    <MixedMethodCall occurrences="1">
       <code>getUrl</code>
-      <code>link</code>
-      <code>link</code>
     </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$item-&gt;indent</code>
     </MixedOperand>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="5">
+    <MixedPropertyFetch occurrences="4">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;id</code>
       <code>$item-&gt;indent</code>
       <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="7">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="2">
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/landing/views/admin/landing/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="3">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getUrl</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/landing/views/landing/show.php">
     <MissingDocblockType occurrences="1">
@@ -3789,146 +2077,40 @@
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/page/views/admin/page/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="30">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$this-&gt;render('//common/forms/v2/_meta', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="11">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;parent_id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/page/views/admin/page/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/admin/page/index.php">
-    <MixedArgument occurrences="10">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('alias', ['class' =&gt; 'sort-link', 'label' =&gt; 'Псевдоним'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Заголовок'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
+    <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;getUrl()</code>
       <code>$item-&gt;indent * 4</code>
       <code>$item-&gt;title</code>
-      <code>$model</code>
-      <code>$model</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="9">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
+    <MixedMethodCall occurrences="1">
       <code>getUrl</code>
-      <code>link</code>
-      <code>link</code>
     </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$item-&gt;indent</code>
     </MixedOperand>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="5">
+    <MixedPropertyFetch occurrences="4">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;id</code>
       <code>$item-&gt;indent</code>
       <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="7">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="2">
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/page/views/admin/page/update.php">
     <MissingDocblockType occurrences="1">
@@ -3963,149 +2145,38 @@
     </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/default/copyright.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/page/views/default/privacy.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>registerMetaTag</code>
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/page/views/layouts/_sidebar.php">
-    <MixedMethodCall occurrences="2">
-      <code>beginCache</code>
-      <code>endCache</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;route</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/page/views/layouts/blank.php">
-    <MixedArgument occurrences="1">
-      <code>$content</code>
-    </MixedArgument>
-    <MixedPropertyAssignment occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/page/views/layouts/default.php">
-    <MixedArgument occurrences="2">
-      <code>$content</code>
-      <code>$this-&gt;render('/layouts/_sidebar')</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="3">
-      <code>beginContent</code>
-      <code>endContent</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/page/views/layouts/fullscreen.php">
-    <MixedArgument occurrences="1">
-      <code>$content</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
-  </file>
-  <file src="src/modules/page/views/layouts/leftcolumn.php">
-    <MixedArgument occurrences="2">
-      <code>$content</code>
-      <code>$this-&gt;render('/layouts/_sidebar')</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="3">
-      <code>beginContent</code>
-      <code>endContent</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$content</code>
-    </UndefinedGlobalVariable>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/page/views/page/_head.php">
     <MixedArrayAssignment occurrences="3">
@@ -4119,19 +2190,10 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/page/views/page/show.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="2">
       <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
       <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
-      <code>$this-&gt;render($subpages_layout, ['page' =&gt; $page])</code>
-      <code>$this-&gt;render('_head', ['page' =&gt; $page])</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="5">
-      <code>decodeWidgets</code>
-      <code>decodeWidgets</code>
-      <code>registerCss</code>
-      <code>render</code>
-      <code>render</code>
-    </MixedMethodCall>
   </file>
   <file src="src/modules/page/views/page/subpages/tabs.php">
     <RedundantConditionGivenDocblockType occurrences="1">
@@ -4283,296 +2345,70 @@
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/portfolio/views/admin/category/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="17">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="6">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;parent_id</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/portfolio/views/admin/category/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/portfolio/views/admin/category/index.php">
-    <MixedArgument occurrences="12">
-      <code>$dataProvider-&gt;getCount()</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('alias', ['class' =&gt; 'sort-link', 'label' =&gt; 'Псевдоним'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('sort', ['class' =&gt; 'sort-link', 'label' =&gt; 'Позиция'])</code>
-      <code>$dataProvider-&gt;getSort()-&gt;link('title', ['class' =&gt; 'sort-link', 'label' =&gt; 'Заголовок'])</code>
-      <code>$dataProvider-&gt;getTotalCount()</code>
+    <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;indent * 4</code>
       <code>$item-&gt;sort</code>
       <code>$item-&gt;title</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="10">
-      <code>getCount</code>
-      <code>getModels</code>
-      <code>getPagination</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getSort</code>
-      <code>getTotalCount</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$item-&gt;indent</code>
     </MixedOperand>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="6">
+    <MixedPropertyFetch occurrences="5">
       <code>$item-&gt;alias</code>
       <code>$item-&gt;id</code>
       <code>$item-&gt;indent</code>
       <code>$item-&gt;sort</code>
       <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
     </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="8">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    <PossiblyInvalidMethodCall occurrences="3">
+      <code>link</code>
+      <code>link</code>
+      <code>link</code>
+    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/portfolio/views/admin/category/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/portfolio/views/admin/work/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="28">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model-&gt;getImageUrl()</code>
+    <MixedArgument occurrences="1">
       <code>$model-&gt;imageThumbUrl</code>
-      <code>$this-&gt;render('//common/forms/v2/_meta', ['model' =&gt; $model])</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="9">
-      <code>getImageUrl</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$model-&gt;image</code>
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>$model-&gt;imageThumbUrl</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/admin/work/create.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/portfolio/views/admin/work/index.php">
-    <MixedArgument occurrences="9">
+    <InvalidArgument occurrences="1">
       <code>$category</code>
-      <code>$item-&gt;category-&gt;title</code>
-      <code>$item-&gt;getImageThumbUrl(50, 0)</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;title</code>
-      <code>$item-&gt;title</code>
-      <code>$item-&gt;title</code>
-      <code>$this</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    </InvalidArgument>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getImageThumbUrl</code>
-      <code>registerJs</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="7">
-      <code>$item-&gt;category</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;image</code>
-      <code>$item-&gt;public</code>
-      <code>$item-&gt;title</code>
-      <code>$item-&gt;title</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="5">
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$pages</code>
-      <code>$works</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/portfolio/views/admin/work/update.php">
     <MissingDocblockType occurrences="1">
@@ -4612,181 +2448,51 @@
     <MixedAssignment occurrences="1">
       <code>$work</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getModels</code>
-      <code>getPagination</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/portfolio/views/default/category.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="4">
       <code>$category-&gt;breadcrumbs</code>
-      <code>$category-&gt;text</code>
-      <code>$category-&gt;title</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$subcategory-&gt;getUrl()</code>
-      <code>$subcategory-&gt;title</code>
-      <code>$this</code>
       <code>$this-&gt;decodeWidgets(trim($category-&gt;text))</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
       <code>$title</code>
       <code>$url</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="4">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="3">
-      <code>$subcategory</code>
+    <MixedAssignment occurrences="2">
       <code>$title</code>
       <code>$url</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>decodeWidgets</code>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
+    <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
-      <code>getPagination</code>
-      <code>getPagination</code>
-      <code>getUrl</code>
-      <code>registerMetaTag</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="4">
-      <code>$category-&gt;description</code>
-      <code>$category-&gt;pagetitle</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="8">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="9">
+    </PossiblyFalseReference>
+    <UndefinedMagicPropertyFetch occurrences="2">
       <code>$category-&gt;breadcrumbs</code>
-      <code>$category-&gt;description</code>
-      <code>$category-&gt;id</code>
-      <code>$category-&gt;pagetitle</code>
-      <code>$category-&gt;text</code>
-      <code>$category-&gt;title</code>
-      <code>$subcategory-&gt;title</code>
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="13">
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$category</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-      <code>$subcategories</code>
-    </UndefinedGlobalVariable>
-    <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/default/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="5">
-      <code>$category-&gt;getUrl()</code>
-      <code>$category-&gt;title</code>
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage() + 1</code>
-      <code>$this</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="3">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="1">
-      <code>$category</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="5">
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
+    <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
-      <code>getPagination</code>
-      <code>getUrl</code>
-      <code>registerMetaTag</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$dataProvider-&gt;getPagination()-&gt;getPage()</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="6">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$category-&gt;title</code>
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="3">
-      <code>$categories</code>
-      <code>$dataProvider</code>
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
+    </PossiblyFalseReference>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/portfolio/views/layouts/_sidebar.php">
-    <MixedMethodCall occurrences="2">
-      <code>beginCache</code>
-      <code>endCache</code>
-    </MixedMethodCall>
-  </file>
-  <file src="src/modules/portfolio/views/layouts/index.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('/layouts/_sidebar')</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="3">
-      <code>beginContent</code>
-      <code>endContent</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/work/show.php">
     <MissingDocblockType occurrences="1">
@@ -4896,14 +2602,6 @@
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/portfolio/widgets/views/Portfolio.php">
-    <MixedArgument occurrences="1">
-      <code>$this</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>registerJs</code>
-    </MixedMethodCall>
-  </file>
   <file src="src/modules/products/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
@@ -4926,18 +2624,6 @@
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/products/views/layouts/index.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
   </file>
   <file src="src/modules/search/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -5054,18 +2740,6 @@
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/services/views/layouts/index.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-  </file>
   <file src="src/modules/sitemap/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
@@ -5136,18 +2810,6 @@
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/subscribe/views/layouts/index.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
   </file>
   <file src="src/modules/ulogin/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -5448,12 +3110,8 @@
       <code>$user-&gt;role</code>
       <code>$user-&gt;username</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$user</code>
@@ -5462,12 +3120,7 @@
       <code>getAvatarUrl</code>
       <code>getFio</code>
     </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="2">
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="7">
-      <code>$this-&gt;params</code>
+    <MixedPropertyFetch occurrences="6">
       <code>$user-&gt;confirm</code>
       <code>$user-&gt;create_datetime</code>
       <code>$user-&gt;email</code>
@@ -5554,95 +3207,40 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/default/login.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-  </file>
-  <file src="src/modules/user/views/layouts/user.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/user/views/profile/edit.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/password.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="1">
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/view.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;params['admin'][]</code>
+      <code>$this-&gt;params['admin'][]</code>
     </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
     <PossiblyNullArgument occurrences="1">
       <code>$user-&gt;getFio()</code>
     </PossiblyNullArgument>
@@ -5651,46 +3249,19 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/registration/confirm.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/user/views/registration/request.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/user/views/remind/remind.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;layout</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/modules/user/widgets/views/LoginForm.php">
     <InvalidScalarArgument occurrences="1">
@@ -5724,50 +3295,20 @@
     </MixedMethodCall>
   </file>
   <file src="src/views/layouts/admin.php">
-    <MixedArgument occurrences="2">
-      <code>$this</code>
+    <MixedArgument occurrences="1">
       <code>$this-&gt;params['breadcrumbs']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="2">
-      <code>beginContent</code>
-      <code>endContent</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;route</code>
+    </NoInterfaceProperties>
   </file>
   <file src="src/views/layouts/main.php">
-    <MixedArgument occurrences="4">
-      <code>$this</code>
+    <MixedArgument occurrences="1">
       <code>$this-&gt;params['admin'] ?? []</code>
-      <code>$this-&gt;render('//layouts/_counters')</code>
-      <code>$this-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedMethodCall occurrences="9">
-      <code>beginBody</code>
-      <code>beginCache</code>
-      <code>beginPage</code>
-      <code>endBody</code>
-      <code>endCache</code>
-      <code>endPage</code>
-      <code>head</code>
-      <code>registerLinkTag</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="4">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;title</code>
-    </MixedPropertyFetch>
+    <NoInterfaceProperties occurrences="1">
+      <code>$this-&gt;context-&gt;route</code>
+    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -5816,11 +3357,6 @@
       <code>$date</code>
       <code>$email</code>
     </MissingPropertyType>
-  </file>
-  <file src="src/widgets/inline/views/CountDown.php">
-    <MixedArgument occurrences="1">
-      <code>$this</code>
-    </MixedArgument>
   </file>
   <file src="src/widgets/views/Messages.php">
     <MixedArgument occurrences="3">

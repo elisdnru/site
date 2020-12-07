@@ -1,6 +1,4 @@
 <?php
-/** @var $this View */
-/** @var $dataProvider ActiveDataProvider */
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
@@ -11,7 +9,11 @@ use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
-/** @var $model Post */
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ * @var Post $model
+ */
 
 $this->title = 'Записи блога';
 $this->params['breadcrumbs'] = [

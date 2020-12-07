@@ -1,13 +1,15 @@
 <?php
-/** @var $this View */
 
 use app\modules\portfolio\models\Category;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model Category */
-/** @var $form ActiveForm */
+/**
+ * @var View $this
+ * @var Category $model
+ * @var ActiveForm $form
+ */
 ?>
 
 <div class="form">

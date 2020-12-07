@@ -1,13 +1,15 @@
 <?php
-/** @var $this View */
 
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model Landing */
-/** @var $form ActiveForm */
+/**
+ * @var View $this
+ * @var Landing $model
+ * @var ActiveForm $form
+ */
 ?>
 
 <div class="form">

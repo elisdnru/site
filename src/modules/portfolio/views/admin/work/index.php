@@ -1,9 +1,5 @@
 <?php
 
-/** @var $category Category */
-/** @var $works Work[] */
-/** @var $pages Pagination */
-
 use app\assets\JqueryUiAsset;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
@@ -12,6 +8,13 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\LinkPager;
+
+/**
+ * @var View $this
+ * @var Category $category
+ * @var Work[] $works
+ * @var Pagination $pages
+ */
 
 $this->title = 'Работы портфолио';
 $this->params['breadcrumbs'] = [

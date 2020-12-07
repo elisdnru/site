@@ -5,8 +5,12 @@ use app\widgets\Portlet;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
-/** @var User $user */
+/**
+ * @var View $this
+ * @var User $user
+ */
 
 $this->context->layout = 'user';
 $this->title = 'Профиль пользователя ' . $user->username;

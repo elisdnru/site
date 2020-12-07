@@ -1,9 +1,11 @@
 <?php
 
-/** @var $posts Post */
-/** @var $current int */
-
 use app\modules\blog\models\Post;
+
+/**
+ * @var Post $posts
+ * @var int $current
+ */
 
 ?>
 <br />

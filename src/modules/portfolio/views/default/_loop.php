@@ -1,10 +1,14 @@
 <?php
-/** @var $dataProvider ActiveDataProvider */
 use app\modules\portfolio\models\Work;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ */
 ?>
 
 <div id="worklist" class = "greed_container">

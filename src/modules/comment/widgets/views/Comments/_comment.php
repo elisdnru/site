@@ -7,10 +7,12 @@ use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/** @var $indent int */
-/** @var $authorId int */
-/** @var $comment Comment */
-/** @var $user User */
+/**
+ * @var int $indent
+ * @var int $authorId
+ * @var Comment $comment
+ * @var User $user
+ */
 ?>
 <article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
     <img class="userpic" src="<?= Html::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">

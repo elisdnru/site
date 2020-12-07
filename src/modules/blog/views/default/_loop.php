@@ -5,7 +5,7 @@ use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
-/** @var $dataProvider ActiveDataProvider */
+/** @var ActiveDataProvider $dataProvider */
 ?>
 
 <div id="blogList">

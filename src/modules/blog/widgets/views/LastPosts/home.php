@@ -3,7 +3,7 @@ use app\components\DateFormatter;
 use app\modules\blog\models\Post;
 use yii\helpers\Html;
 
-/** @var $posts Post[] */
+/** @var Post[] $posts */
 ?>
 <?php foreach ($posts as $data) : ?>
     <?php

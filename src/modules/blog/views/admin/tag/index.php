@@ -1,12 +1,15 @@
 <?php
-/** @var $this View */
-/** @var $dataProvider ActiveDataProvider */
 
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\LinkPager;
+
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->title = 'Метки записей';
 $this->params['breadcrumbs'] = [

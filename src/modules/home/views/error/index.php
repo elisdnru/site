@@ -2,13 +2,14 @@
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $page Page */
-
-/* @var $this yii\web\View */
-/* @var $name string */
-/* @var $message string */
-/* @var $exception Exception */
+/**
+ * @var View $this
+ * @var string $name
+ * @var string $message
+ * @var Exception $exception
+ */
 
 $this->title = 'Ошибка';
 $this->params['breadcrumbs'] = [

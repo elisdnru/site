@@ -1,5 +1,4 @@
 <?php
-/** @var $this View */
 
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
@@ -7,8 +6,11 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model Work */
-/** @var $form ActiveForm */
+/**
+ * @var View $this
+ * @var Work $model
+ * @var ActiveForm $form
+ */
 ?>
 
 <div class="form">

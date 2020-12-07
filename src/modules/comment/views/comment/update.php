@@ -4,10 +4,14 @@ use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
+use yii\web\View;
 
-/** @var $model Comment */
-/** @var $form CommentForm */
-/** @var $user User */
+/**
+ * @var View $this
+ * @var Comment $model
+ * @var CommentForm $form
+ * @var User $user
+ */
 
 $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [

@@ -3,7 +3,9 @@
 use app\modules\comment\forms\CommentForm;
 use yii\helpers\Html;
 
-/** @var $form CommentForm */
+/**
+ * @var CommentForm $form
+ */
 ?>
 <div class="form">
 

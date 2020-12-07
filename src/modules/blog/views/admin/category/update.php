@@ -1,10 +1,12 @@
 <?php
-/** @var $this View */
 
 use app\modules\blog\models\Category;
 use yii\web\View;
 
-/** @var $model Category */
+/**
+ * @var View $this
+ * @var Category $model
+ */
 
 $this->title = 'Редактор категории блога';
 $this->params['breadcrumbs'] = [

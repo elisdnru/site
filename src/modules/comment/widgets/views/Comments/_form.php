@@ -1,5 +1,4 @@
 <?php
-/** @var $user User */
 
 use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\UloginWidget;
@@ -8,8 +7,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-/** @var $f ActiveForm */
-/** @var $form CommentForm */
+/**
+ * @var User $user
+ * @var ActiveForm $f
+ * @var CommentForm $form
+ */
 ?>
 <!--noindex-->
 <div id="comment-form" class="form">

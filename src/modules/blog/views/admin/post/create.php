@@ -1,10 +1,12 @@
 <?php
-/** @var $this View */
 
 use app\modules\blog\models\Post;
 use yii\web\View;
 
-/** @var $model Post */
+/**
+ * @var View $this
+ * @var Post $model
+ */
 
 $this->title = 'Редактор записи блога';
 $this->params['breadcrumbs'] = [

@@ -5,7 +5,10 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
-/** @var Work[] $items */
+/**
+ * @var View $this
+ * @var Work[] $items
+ */
 
 CarouselAsset::register($this);
 ?>

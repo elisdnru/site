@@ -1,21 +1,24 @@
 <?php
-$this->context->layout = 'user';
-$this->title = 'Авторизация';
-$this->params['breadcrumbs'] = [
-    'Вход на сайт'
-];
 
 use app\modules\user\forms\LoginForm;
 use app\widgets\Portlet;
 use app\modules\ulogin\widgets\UloginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
+ * @var View $this
  * @var ActiveForm $form
  * @var LoginForm $model
  */
+
+$this->context->layout = 'user';
+$this->title = 'Авторизация';
+$this->params['breadcrumbs'] = [
+    'Вход на сайт'
+];
 ?>
 
 <h1>Вход в аккаунт</h1>

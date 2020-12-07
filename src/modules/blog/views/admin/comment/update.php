@@ -1,5 +1,11 @@
 <?php
-/** @var $model \app\modules\blog\models\Comment */
+use app\modules\blog\models\Comment;
+use yii\web\View;
+
+/**
+ * @var View $this
+ * @var Comment $model
+ */
 
 $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [

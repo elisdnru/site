@@ -9,11 +9,6 @@ use yii\web\View;
  * @var string $date
  */
 
-/**
- * @var string $title
- * @var string $date
- */
-
 CountDownAsset::register($this);
 ?>
 

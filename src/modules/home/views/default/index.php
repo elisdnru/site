@@ -6,7 +6,9 @@ use yii\caching\TagDependency;
 use yii\helpers\Url;
 use yii\web\View;
 
-/** @var $this View */
+/**
+ * @var View $this
+ */
 
 $this->context->layout = 'index';
 

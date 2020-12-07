@@ -1,8 +1,12 @@
 <?php
 use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
+use yii\web\View;
 
-/** @var $modules AdminDashboardItem[] */
+/**
+ * @var View $this
+ * @var AdminDashboardItem[] $modules
+ */
 
 $this->title = 'Панель управления';
 $this->params['breadcrumbs'] = [

@@ -4,7 +4,7 @@ use app\modules\blog\models\Post;
 use app\widgets\Portlet;
 use yii\helpers\Html;
 
-/** @var $posts Post[] */
+/** @var Post[] $posts */
 ?>
 <?php if (count($posts)) : ?>
     <?php Portlet::begin(['title' => null]); ?>

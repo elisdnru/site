@@ -1,5 +1,4 @@
 <?php
-/** @var $this View */
 
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
@@ -8,9 +7,12 @@ use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $items Group[] */
-/** @var $form ActiveForm */
-/** @var $itemForm GroupForm */
+/**
+ * @var View $this
+ * @var Group[] $items
+ * @var ActiveForm $form
+ * @var GroupForm$itemForm
+ */
 
 $this->title = 'Тематические группы записей';
 $this->params['breadcrumbs'] = [

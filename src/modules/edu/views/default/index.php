@@ -4,8 +4,10 @@ use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View */
-/** @var $series array */
+/**
+ * @var View $this
+ * @var array $series
+ */
 
 $this->context->layout = 'index';
 

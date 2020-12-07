@@ -6,8 +6,12 @@ use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $model Work */
+/**
+ * @var View $this
+ * @var $model Work
+ */
 
 $this->context->layout = 'index';
 

@@ -4,9 +4,11 @@ use app\modules\user\models\User;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
 /**
+ * @var View $this
  * @var User $model
  * @var ActiveDataProvider $dataProvider
  */

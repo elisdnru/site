@@ -3,10 +3,14 @@ use app\modules\block\forms\BlockSearch;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
-/** @var $dataProvider ActiveDataProvider */
-/** @var $model BlockSearch */
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ * @var BlockSearch $model
+ */
 
 $this->title = 'Блоки';
 $this->params['breadcrumbs'] = [

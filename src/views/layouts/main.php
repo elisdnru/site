@@ -11,7 +11,10 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
-/** @var string $content */
+/**
+ * @var View $this
+ * @var string $content
+ */
 
 MainAsset::register($this);
 

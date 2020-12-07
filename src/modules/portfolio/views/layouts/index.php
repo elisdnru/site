@@ -2,8 +2,12 @@
 
 use app\widgets\Breadcrumbs;
 use app\widgets\Messages;
+use yii\web\View;
 
-/** @var string $content */
+/**
+ * @var View $this
+ * @var string $content
+ */
 
 $this->beginContent('@app/views/layouts/main.php');
 ?>

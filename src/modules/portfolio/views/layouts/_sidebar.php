@@ -4,8 +4,12 @@ use app\widgets\Follow;
 use app\widgets\Portlet;
 use app\modules\portfolio\models\Category;
 use yii\caching\TagDependency;
+use yii\web\View;
 use yii\widgets\Menu;
 
+/**
+ * @var View $this
+ */
 ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>

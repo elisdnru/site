@@ -1,13 +1,15 @@
 <?php
-/** @var $this View */
 
 use app\modules\blog\models\Tag;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model Tag */
-/** @var $form ActiveForm */
+/**
+ * @var View $this
+ * @var Tag $model
+ * @var ActiveForm $form
+ */
 ?>
 
 <div class="form">

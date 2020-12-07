@@ -1,5 +1,9 @@
 <?php
 
+use yii\web\View;
+
+/** @var View $this */
+
 $this->context->layout = 'user';
 
 $this->title = 'Подтверждение регистрации';

@@ -5,8 +5,12 @@ use app\modules\user\models\User;
 use app\widgets\Portlet;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
-/** @var $model User */
+/**
+ * @var View $this
+ * @var $model User
+ */
 
 $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = [

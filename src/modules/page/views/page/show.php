@@ -2,8 +2,10 @@
 
 use app\components\CSSMinimizer;
 use app\modules\page\models\Page;
+use yii\web\View;
 
 /**
+ * @var View $this
  * @var Page $page
  * @var string $subpages_layout
  */

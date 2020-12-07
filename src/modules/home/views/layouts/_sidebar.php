@@ -8,7 +8,12 @@ use app\modules\blog\widgets\TagCloudWidget;
 use app\modules\blog\widgets\UpdatedPostsWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use yii\caching\TagDependency;
+use yii\web\View;
 use yii\widgets\Menu;
+
+/**
+ * @var View $this
+ */
 ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>

@@ -14,12 +14,15 @@ use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View|InlineWidgetsBehavior */
-/** @var $model Post */
-/** @var $dataProvider CActiveDataProvider */
+/**
+ * @var View|InlineWidgetsBehavior $this
+ * @var Post $model
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->context->layout = 'post';
 

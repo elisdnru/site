@@ -1,9 +1,15 @@
 <?php
-/** @var $comments Comment */
-/** @var $parent int */
-/** @var $indent int */
-/** @var $authorId int */
-/** @var $user User */
+
+use app\modules\user\models\User;
+
+/**
+ * @var Comment $comments
+ * @var int $parent
+ * @var int $indent
+ * @var int $authorId
+ * @var User $user
+ */
+
 ?>
 <?php if (isset($comments[$parent])) : ?>
     <?php foreach ($comments[$parent] as $comment) : ?>

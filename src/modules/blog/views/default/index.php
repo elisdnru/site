@@ -6,8 +6,10 @@ use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
 use yii\web\View;
 
-/** @var $this View|InlineWidgetsBehavior */
-/** @var $dataProvider ActiveDataProvider */
+/**
+ * @var View|InlineWidgetsBehavior $this
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->context->layout = 'index';
 

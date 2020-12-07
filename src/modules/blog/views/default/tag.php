@@ -6,9 +6,11 @@ use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
-/** @var $this View */
-/** @var $tag Tag */
-/** @var $dataProvider ActiveDataProvider */
+/**
+ * @var View $this
+ * @var Tag $tag
+ * @var ActiveDataProvider $dataProvider
+ */
 
 $this->context->layout = 'index';
 

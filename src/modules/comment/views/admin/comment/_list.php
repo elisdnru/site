@@ -1,8 +1,10 @@
 <?php
-/** @var $dataProvider ActiveDataProvider */
 
 use yii\data\ActiveDataProvider;
-use yii\widgets\LinkPager; ?>
+use yii\widgets\LinkPager;
+
+/** @var ActiveDataProvider $dataProvider */
+?>
 
 <div class="items">
     <?php foreach ($dataProvider->getModels() as $data) : ?>

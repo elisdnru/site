@@ -1,11 +1,12 @@
 <?php
-/** @var $data Comment */
 
 use app\components\purifier\CommentPostFilter;
 use app\components\SocNetwork;
 use app\modules\comment\models\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
+
+/** @var Comment $data */
 
 $groupurl = Url::to(['index', 'id' => $data->material_id]);
 $editurl = Url::to(['update', 'id' => $data->id]);

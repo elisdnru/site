@@ -3,9 +3,11 @@
 use app\modules\user\models\Access;
 use yii\web\View;
 
-/** @var $this View */
-/** @var $series array */
-/** @var $items array */
+/**
+ * @var View $this
+ * @var array $series
+ * @var array $items
+ */
 
 $this->context->layout = 'fullscreen';
 

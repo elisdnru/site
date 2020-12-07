@@ -1,12 +1,17 @@
 <?php
-/** @var $model Page */
-/** @var $dataProvider TreeActiveDataProvider */
 
 use app\components\category\TreeActiveDataProvider;
 use app\modules\page\models\Page;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
+
+/**
+ * @var View $this
+ * @var Page $model
+ * @var TreeActiveDataProvider $dataProvider
+ */
 
 $this->title = 'Страницы';
 $this->params['breadcrumbs'] = [

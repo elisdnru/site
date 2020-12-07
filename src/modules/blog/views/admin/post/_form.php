@@ -1,5 +1,4 @@
 <?php
-/** @var $this View */
 
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
@@ -10,8 +9,11 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model Post */
-/** @var $form ActiveForm */
+/**
+ * @var View $this
+ * @var Post $model
+ * @var ActiveForm $form
+ */
 ?>
 
 <div id="post-form" class="form">

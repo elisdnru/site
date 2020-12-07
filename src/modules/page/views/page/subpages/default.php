@@ -2,7 +2,9 @@
 
 use app\modules\page\models\Page;
 
-/** @var Page $page */
+/**
+ * @var Page $page
+ */
 
 ?>
 <?php if (!$page->hidetitle) : ?>

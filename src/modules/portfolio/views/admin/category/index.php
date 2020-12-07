@@ -1,12 +1,17 @@
 <?php
-/** @var $model Category */
-/** @var $dataProvider TreeActiveDataProvider */
 
 use app\components\category\TreeActiveDataProvider;
 use app\modules\portfolio\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
+
+/**
+ * @var View $this
+ * @var Category $model
+ * @var TreeActiveDataProvider $dataProvider
+ */
 
 $this->title = 'Категории портфолио';
 $this->params['breadcrumbs'] = [

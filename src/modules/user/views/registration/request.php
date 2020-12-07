@@ -4,9 +4,11 @@ use app\widgets\Portlet;
 use app\modules\user\forms\RegistrationForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
+ * @var View $this
  * @var ActiveForm $form
  * @var RegistrationForm $model
  */

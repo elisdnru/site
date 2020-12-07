@@ -1,9 +1,17 @@
-<?php use app\widgets\Portlet;
+<?php
+
+use app\widgets\Portlet;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use yii\caching\TagDependency;
+use yii\web\View;
 
-if ($this->context->route !== 'user/default/login') : ?>
+/**
+ * @var View $this
+ */
+?>
+
+<?php if ($this->context->route !== 'user/default/login') : ?>
     <?php Portlet::begin(['title' => 'Личный кабинет']); ?>
     <?= LoginFormWidget::widget() ?>
     <?php Portlet::end(); ?>

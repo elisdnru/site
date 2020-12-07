@@ -1,5 +1,4 @@
 <?php
-/** @var $this View */
 
 use app\assets\ColorboxAsset;
 use yii\helpers\Html;
@@ -7,10 +6,14 @@ use yii\helpers\Url;
 use yii\web\JqueryAsset;
 use yii\web\View;
 
-/** @var $model File */
-/** @var $htmlroot string */
-/** @var $root string */
-/** @var $upload_count integer */
+/**
+ * @var View $this
+ * @var File $model
+ * @var string $htmlroot
+ * @var string $root
+ * @var string $path
+ * @var integer $upload_count
+ */
 
 $this->title = 'Файловый менеджер';
 $this->params['breadcrumbs'] = [

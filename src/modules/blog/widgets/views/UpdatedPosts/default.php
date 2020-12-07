@@ -1,8 +1,9 @@
 <?php
-/** @var $posts Post[] */
 
 use app\modules\blog\models\Post;
 use yii\helpers\Html;
+
+/** @var Post[] $posts */
 
 ?>
 <?php if (count($posts)) : ?>

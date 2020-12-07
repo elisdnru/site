@@ -1,7 +1,13 @@
 <?php
-/** @var $model \app\modules\blog\models\Comment */
 
 use app\assets\CommentsAsset;
+use app\modules\blog\models\Comment;
+use yii\web\View;
+
+/**
+ * @var View $this
+ * @var Comment $model
+ */
 
 $this->title = 'Комментарий';
 $this->params['breadcrumbs'] = [

@@ -5,9 +5,13 @@ use app\components\PaginationFormatter;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
+use yii\web\View;
 
-/** @var $dataProvider ActiveDataProvider */
-/** @var $categories Category[] */
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ * @var Category[] $categories
+ */
 $this->context->layout = 'index';
 
 $this->title = 'Портфолио' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);

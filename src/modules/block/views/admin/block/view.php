@@ -1,8 +1,12 @@
 <?php
 use app\modules\block\models\Block;
 use yii\helpers\Html;
+use yii\web\View;
 
-/** @var $model Block */
+/**
+ * @var View $this
+ * @var Block $model
+ */
 
 $this->title = 'Блок ' . $model->title;
 $this->params['breadcrumbs'] = [

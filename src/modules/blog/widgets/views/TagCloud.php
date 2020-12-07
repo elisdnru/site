@@ -1,8 +1,8 @@
 <?php
-/** @var $tags array */
 
 use yii\helpers\Html;
 
+/** @var array $tags */
 ?>
 <div id="tag_cloud" class="tags">
     <?php foreach ($tags as $tag) : ?>
