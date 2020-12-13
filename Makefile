@@ -11,10 +11,10 @@ docker-up:
 	docker-compose up -d
 
 docker-down:
-	docker-compose down --remove-orphans
+	docker-compose down --remove-orphans -t 3
 
 docker-down-clear:
-	docker-compose down -v --remove-orphans
+	docker-compose down -v --remove-orphans -t 1
 
 docker-pull:
 	- docker-compose pull
