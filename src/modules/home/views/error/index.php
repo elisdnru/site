@@ -18,7 +18,7 @@ $this->params['breadcrumbs'] = [
 ?>
 
 <?php if (Yii::$app->user->can(Access::CONTROL)) {
-    $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => '/index'];
+    $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => ['default/index']];
 } ?>
 
 <h2><?= $name ?></h2>
