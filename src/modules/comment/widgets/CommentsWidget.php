@@ -13,6 +13,7 @@ use yii\base\Widget;
 use yii\helpers\Json;
 use yii\mail\MailerInterface;
 use yii\web\Cookie;
+use yii\web\Session;
 use yii\web\User as WebUser;
 
 class CommentsWidget extends Widget
@@ -27,12 +28,14 @@ class CommentsWidget extends Widget
 
     private WebUser $webUser;
     private MailerInterface $mailer;
+    private Session $session;
 
-    public function __construct(WebUser $webUser, MailerInterface $mailer, array $config = [])
+    public function __construct(WebUser $webUser, MailerInterface $mailer, Session $session, array $config = [])
     {
         parent::__construct($config);
         $this->webUser = $webUser;
         $this->mailer = $mailer;
+        $this->session = $session;
     }
 
     public function run(): string
@@ -80,7 +83,7 @@ class CommentsWidget extends Widget
 
             if ($comment->save()) {
                 $comment->sendNotifications($this->mailer);
-                Yii::$app->session->setFlash('success', 'Ваш коментарий добавлен');
+                $this->session->setFlash('success', 'Ваш коментарий добавлен');
                 Yii::$app->controller->redirect($comment->getUrl());
                 Yii::$app->end();
                 return '';

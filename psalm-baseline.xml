@@ -1364,11 +1364,6 @@
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/comment/widgets/CommentsWidget.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">
     <PossiblyNullArgument occurrences="1">
       <code>$comment-&gt;name</code>
