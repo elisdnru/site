@@ -30,6 +30,8 @@ class Provider implements BootstrapInterface
         $container->setSingleton(Api::class, static function (Container $container) use ($app) {
             /** @var CacheInterface $cache */
             $cache = $container->get(CacheInterface::class);
+            /** @psalm-var array{deworker_api_url: string} $params */
+            $params = $app->params;
             return new Api(
                 new Muted(
                     new Cached(
@@ -41,7 +43,7 @@ class Provider implements BootstrapInterface
                     new ResponseFactory()
                 ),
                 new RequestFactory(),
-                'https://api.deworker.pro'
+                $params['deworker_api_url']
             );
         });
     }

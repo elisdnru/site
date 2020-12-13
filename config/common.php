@@ -236,4 +236,7 @@ return [
             AdminNotifications::class => [],
         ],
     ],
+    'params' => [
+        'deworker_api_url' => getenv('DEWORKER_API_URL')
+    ],
 ];

@@ -34,6 +34,7 @@ services:
             MAILER_PASSWORD: secret
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
+            DEWORKER_API_URL: http://wiremock/deworker
             SENTRY_DSN: ""
         volumes:
             - ./:/app
@@ -58,6 +59,7 @@ services:
             MAILER_PASSWORD: secret
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
+            DEWORKER_API_URL: http://wiremock/deworker
             SENTRY_DSN: ""
         volumes:
             - .:/app
@@ -99,6 +101,16 @@ services:
         image: mailhog/mailhog
         ports:
             - "8081:8025"
+    wiremock:
+        image: rodolpheche/wiremock:latest-alpine
+        volumes:
+            - ./wiremock:/home/wiremock
+        ports:
+            - "8082:80"
+        command:
+            - '--port=80'
+            - '--global-response-templating'
+            - '--verbose'
 
 volumes:
     mysql-test:

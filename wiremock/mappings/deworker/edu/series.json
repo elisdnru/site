@@ -1,0 +1,41 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/deworker/edge/edu/series"
+    },
+    "response": {
+        "status": 200,
+        "jsonBody": [
+            {
+                "slug": "http-basics",
+                "title": "Использование HTTP заголовков",
+                "thumbnail": "https://277215.selcdn.ru/static/edu/series/http-basics/23b54dd5.png"
+            },
+            {
+                "slug": "objects-relations",
+                "title": "ООП: Взаимодействие объектов",
+                "thumbnail": "https://277215.selcdn.ru/static/edu/series/objects-relations/1280x720.png"
+            },
+            {
+                "slug": "ip-geolocator",
+                "title": "Разработка и рефакторинг геолокатора",
+                "thumbnail": "https://277215.selcdn.ru/static/edu/series/ip-geolocator/3ac59006.png"
+            },
+            {
+                "slug": "interactive-site",
+                "title": "Разработка аукциона на SlimPHP и ReactJS",
+                "thumbnail": "https://277215.selcdn.ru/static/edu/series/interactive-site/960x540.png"
+            },
+            {
+                "slug": "what-is-react",
+                "title": "Что есть React: Пишем свой UI-фреймворк",
+                "thumbnail": "https://277215.selcdn.ru/static/edu/series/what-is-react/286f72a6-2104-4f79-a842-76b367606a64.png"
+            },
+            {
+                "slug": "http-framework",
+                "title": "Написание HTTP-фреймворка",
+                "thumbnail": "https://277215.selcdn.ru/static/edu/series/http-framework/960x540.png"
+            }
+        ]
+    }
+}
