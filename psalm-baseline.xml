@@ -852,6 +852,14 @@
       <code>m191023_111425_remove_comments_count</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/blog/migrations/m201213_171234_add_nullable.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201213_171234_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Group[]|BatchQueryResult</code>
@@ -1885,6 +1893,14 @@
       <code>m191025_175116_remove_image</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/page/migrations/m201213_171235_add_nullable.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201213_171235_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/page/models/query/PageQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Page[]|BatchQueryResult</code>
@@ -2097,6 +2113,14 @@
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153214_remove_keywords</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/migrations/m201213_171236_add_nullable.php">
+    <InvalidReturnType occurrences="1">
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201213_171236_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/models/Work.php">

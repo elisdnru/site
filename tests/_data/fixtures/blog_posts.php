@@ -37,7 +37,7 @@ return [
         'text_purified' => '',
         'pagetitle' => '',
         'description' => '',
-        'group_id' => 0,
+        'group_id' => null,
         'public' => 0,
         'image' => '',
         'image_width' => 0,

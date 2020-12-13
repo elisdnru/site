@@ -21,7 +21,7 @@ return [
     'parent' => [
         'id' => 2,
         'date' => '2016-12-11 12:34',
-        'parent_id' => 0,
+        'parent_id' => null,
         'alias' => 'info',
         'title' => 'Info',
         'hidetitle' => 0,
@@ -38,7 +38,7 @@ return [
     'domain' => [
         'id' => 3,
         'date' => '2016-12-11 12:34',
-        'parent_id' => 0,
+        'parent_id' => null,
         'alias' => 'domain',
         'title' => 'Domain',
         'hidetitle' => 0,

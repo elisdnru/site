@@ -16,7 +16,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      */
     public function roots(): ActiveQuery
     {
-        return $this->getQuery()->andWhere(['or', ['parent_id' => null], ['parent_id' => 0]]);
+        return $this->getQuery()->andWhere(['parent_id' => null]);
     }
 
     public function getAssocList($parent = null): array

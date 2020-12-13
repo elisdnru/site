@@ -17,7 +17,7 @@ return [
         'alias' => 'category-2',
         'title' => 'Category 2',
         'text' => '<p>Category 2</p>',
-        'parent_id' => 0,
+        'parent_id' => null,
         'pagetitle' => 'Title 2',
         'description' => '',
     ],

@@ -31,7 +31,7 @@ class TreeActiveDataProvider extends ActiveDataProvider
         $isEmptyCondition = empty($rootQuery->where);
 
         if ($isEmptyCondition) {
-            $rootQuery->andWhere(['or', ['parent_id' => null], ['parent_id' => 0]]);
+            $rootQuery->andWhere(['parent_id' => null]);
         }
 
         $items = $rootQuery->all($this->db);

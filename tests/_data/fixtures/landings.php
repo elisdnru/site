@@ -11,7 +11,7 @@ return [
     ],
     'parent' => [
         'id' => 2,
-        'parent_id' => 0,
+        'parent_id' => null,
         'alias' => 'course',
         'title' => 'Course',
         'text' => '<p>Course Content</p>',

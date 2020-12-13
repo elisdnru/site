@@ -4,7 +4,7 @@ return [
     'first-root' => [
         'id' => 1,
         'sort' => 1,
-        'parent_id' => 0,
+        'parent_id' => null,
         'alias' => 'first-root',
         'title' => 'First Root',
     ],
