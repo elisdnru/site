@@ -1666,6 +1666,9 @@
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$this-&gt;params</code>
+    </PropertyTypeCoercion>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
