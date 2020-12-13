@@ -13,7 +13,7 @@ class ThemePostsWidget extends Widget
 
     public function run(): string
     {
-        if ($this->group === null) {
+        if ($this->group === null || $this->group === 0) {
             return '';
         }
 
