@@ -1526,9 +1526,6 @@
     <MixedAssignment occurrences="1">
       <code>$episodes</code>
     </MixedAssignment>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$slug</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/edu/widgets/views/series-episodes.php">
     <MixedArgument occurrences="2">

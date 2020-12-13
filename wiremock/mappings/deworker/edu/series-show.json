@@ -1,0 +1,47 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/deworker/edge/edu/series/([\\w-]+)"
+    },
+    "response": {
+        "status": 200,
+        "jsonBody": {
+            "id" : "698356ad-3261-4068-9bc7-5247570d87b4",
+            "slug" : "interactive-site",
+            "title" : "Разработка аукциона на SlimPHP и ReactJS",
+            "description" : "<p>Серия скринкастов по разработке интерактивного аукциона.</p>",
+            "meta" : {
+                "title" : "Разработка аукциона на Slim PHP и ReactJS",
+                "description" : "Серия скринкастов по разработке интерактивного проекта с API на Slim Framework и фронтендом на ReactJS"
+            },
+            "episodes" : [ {
+                "slug" : "structure",
+                "title" : "Структура проекта",
+                "thumbnail" : "https://277215.selcdn.ru/static/edu/series/interactive-site/001-structure/3c002de9-c2e6-47d3-98fb-b3d44d12631e.png",
+                "duration" : 1144,
+                "short" : "Постановка задачи по разработке будущего проекта и определение используемых подходов. Предполагаемая структура проекта.",
+                "index" : 1,
+                "public" : true,
+                "free" : true
+            }, {
+                "slug" : "why-microframework",
+                "title" : "Почему именно микрофреймворк",
+                "thumbnail" : "https://277215.selcdn.ru/static/edu/series/interactive-site/002-why-microframework/a2cad8a3-b4e4-476c-8cd8-f975c05d8655.png",
+                "duration" : 979,
+                "short" : "Причины выбора микрофреймворка и его отличия от классических фреймворков. Почему мы используем Slim и React.",
+                "index" : 2,
+                "public" : true,
+                "free" : true
+            }, {
+                "slug" : "what-is-docker",
+                "title" : "Что есть Docker",
+                "thumbnail" : "https://277215.selcdn.ru/static/edu/series/interactive-site/003-what-is-docker/d85950bf-3b21-4e5f-be01-586b0379564e.png",
+                "duration" : 2449,
+                "short" : "Чем является Docker и чем не является. Удобство использования Docker для локальной разработки и для продакшена.",
+                "index" : 3,
+                "public" : true,
+                "free" : true
+            } ]
+        }
+    }
+}

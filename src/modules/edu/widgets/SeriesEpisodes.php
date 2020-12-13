@@ -9,7 +9,7 @@ use yii\base\Widget;
 
 class SeriesEpisodes extends Widget
 {
-    public string $slug;
+    public string $slug = '';
 
     private Api $api;
 

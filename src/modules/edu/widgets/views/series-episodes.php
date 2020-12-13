@@ -10,7 +10,7 @@ use yii\helpers\Html;
 ?>
 
 <?php if ($episodes) : ?>
-    <ol>
+    <ol class="series-episodes">
         <?php foreach ($episodes as $episode) : ?>
             <li>
                 <?php if ($episode['public']) : ?>
