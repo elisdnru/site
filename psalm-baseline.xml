@@ -604,9 +604,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$group</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="3">
       <code>$module</code>
       <code>$module</code>
@@ -684,19 +681,11 @@
       <code>$model</code>
     </UndefinedGlobalVariable>
   </file>
-  <file src="src/modules/block/views/admin/block/create.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/block/views/admin/block/index.php">
     <MixedArgument occurrences="2">
       <code>$block-&gt;alias</code>
       <code>$block-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$block</code>
     </MixedAssignment>
@@ -709,18 +698,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/block/views/admin/block/update.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
-  <file src="src/modules/block/views/admin/block/view.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="src/modules/block/widgets/BlockWidget.php">
     <DocblockTypeContradiction occurrences="1">
@@ -899,13 +876,6 @@
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/blog/views/admin/category/create.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/blog/views/admin/category/index.php">
     <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
@@ -913,11 +883,6 @@
       <code>$item-&gt;sort</code>
       <code>$item-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
@@ -937,21 +902,10 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/blog/views/admin/category/update.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/blog/views/admin/comment/index.php">
     <MixedArgument occurrences="1">
       <code>$material-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <RedundantCondition occurrences="1">
       <code>$material !== null</code>
     </RedundantCondition>
@@ -962,27 +916,11 @@
       <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/blog/views/admin/comment/update.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
-  <file src="src/modules/blog/views/admin/comment/view.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/blog/views/admin/group/index.php">
     <MixedArgument occurrences="2">
       <code>$itemForm</code>
       <code>$itemForm</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <UndefinedGlobalVariable occurrences="1">
       <code>$itemForm</code>
     </UndefinedGlobalVariable>
@@ -1004,13 +942,6 @@
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>$model-&gt;imageThumbUrl</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/blog/views/admin/post/create.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="src/modules/blog/views/admin/post/index.php">
     <MixedArgument occurrences="4">
@@ -1040,35 +971,12 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/blog/views/admin/post/update.php">
-    <MixedArrayAssignment occurrences="5">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
-  <file src="src/modules/blog/views/admin/tag/create.php">
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/blog/views/admin/tag/index.php">
     <MixedArgument occurrences="3">
       <code>$item-&gt;frequency</code>
       <code>$item-&gt;getUrl()</code>
       <code>$item-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
@@ -1083,14 +991,6 @@
     <PossiblyInvalidMethodCall occurrences="1">
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/blog/views/admin/tag/update.php">
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="src/modules/blog/views/default/_loop.php">
     <MixedAssignment occurrences="1">
@@ -1174,10 +1074,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/search.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -1189,10 +1085,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/tag.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -1451,9 +1343,6 @@
     <MixedArgument occurrences="1">
       <code>$material-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$material !== null</code>
     </RedundantConditionGivenDocblockType>
@@ -1464,23 +1353,7 @@
       <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/comment/views/admin/comment/update.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
-  <file src="src/modules/comment/views/admin/comment/view.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/comment/views/comment/update.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1591,10 +1464,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/donate/views/default/index.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -1659,10 +1528,6 @@
       <code>$item['thumbnail']</code>
       <code>$item['title']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
@@ -1758,9 +1623,6 @@
       <code>$file-&gt;getSize()</code>
       <code>$item</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="2">
       <code>$contents</code>
       <code>$item</code>
@@ -1801,9 +1663,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/home/views/default/index.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;params['admin'] ?? []</code>
-    </MixedArgument>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -1812,9 +1671,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/home/views/error/index.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedOperand occurrences="1">
       <code>$error['code'] ?? ''</code>
     </MixedOperand>
@@ -1894,12 +1750,6 @@
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/landing/views/admin/landing/create.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/landing/views/admin/landing/index.php">
     <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
@@ -1907,10 +1757,6 @@
       <code>$item-&gt;indent * 4</code>
       <code>$item-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
@@ -1930,13 +1776,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/landing/views/admin/landing/update.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="src/modules/landing/views/landing/show.php">
     <MissingDocblockType occurrences="1">
@@ -2077,11 +1916,6 @@
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/page/views/admin/page/create.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/page/views/admin/page/index.php">
     <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
@@ -2089,9 +1923,6 @@
       <code>$item-&gt;indent * 4</code>
       <code>$item-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
@@ -2145,10 +1976,6 @@
     </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/default/copyright.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2157,10 +1984,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/page/views/default/privacy.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2179,11 +2002,12 @@
     </NoInterfaceProperties>
   </file>
   <file src="src/modules/page/views/page/_head.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
+    <PropertyTypeCoercion occurrences="4">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </PropertyTypeCoercion>
     <UndefinedMagicPropertyFetch occurrences="2">
       <code>$page-&gt;breadcrumbs</code>
       <code>Yii::$app-&gt;user</code>
@@ -2345,12 +2169,6 @@
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/portfolio/views/admin/category/create.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/portfolio/views/admin/category/index.php">
     <MixedArgument occurrences="4">
       <code>$item-&gt;alias</code>
@@ -2358,10 +2176,6 @@
       <code>$item-&gt;sort</code>
       <code>$item-&gt;title</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
@@ -2381,12 +2195,6 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/portfolio/views/admin/category/update.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/portfolio/views/admin/work/_form.php">
     <MixedArgument occurrences="1">
       <code>$model-&gt;imageThumbUrl</code>
@@ -2395,20 +2203,10 @@
       <code>$model-&gt;imageThumbUrl</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/portfolio/views/admin/work/create.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="src/modules/portfolio/views/admin/work/index.php">
     <InvalidArgument occurrences="1">
       <code>$category</code>
     </InvalidArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="src/modules/portfolio/views/admin/work/update.php">
     <MissingDocblockType occurrences="1">
@@ -2456,12 +2254,6 @@
       <code>$title</code>
       <code>$url</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="2">
       <code>$title</code>
       <code>$url</code>
@@ -2479,11 +2271,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/default/index.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2614,10 +2401,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/products/views/default/index.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2659,10 +2442,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/search/views/default/error.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2729,10 +2508,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/services/views/default/index.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2757,9 +2532,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/sitemap/views/default/index.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2776,10 +2548,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/subscribe/views/default/activate.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2788,10 +2556,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/subscribe/views/default/index.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -2800,10 +2564,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/subscribe/views/default/success.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -3110,9 +2870,6 @@
       <code>$user-&gt;role</code>
       <code>$user-&gt;username</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$user</code>
     </MixedAssignment>
@@ -3135,12 +2892,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/user/views/admin/user/update.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="src/modules/user/views/admin/user/view.php">
     <MissingDocblockType occurrences="1">
@@ -3212,9 +2963,6 @@
     </NoInterfaceProperties>
   </file>
   <file src="src/modules/user/views/profile/edit.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -3223,9 +2971,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/password.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -3234,10 +2979,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/view.php">
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;params['admin'][]</code>
-      <code>$this-&gt;params['admin'][]</code>
-    </MixedArrayAssignment>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;layout</code>
     </NoInterfaceProperties>
@@ -3295,17 +3036,11 @@
     </MixedMethodCall>
   </file>
   <file src="src/views/layouts/admin.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArgument>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;route</code>
     </NoInterfaceProperties>
   </file>
   <file src="src/views/layouts/main.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;params['admin'] ?? []</code>
-    </MixedArgument>
     <NoInterfaceProperties occurrences="1">
       <code>$this-&gt;context-&gt;route</code>
     </NoInterfaceProperties>
