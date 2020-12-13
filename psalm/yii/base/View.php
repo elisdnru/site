@@ -8,7 +8,7 @@ class View extends Component implements DynamicContentAwareInterface
 {
     /**
      * @psalm-var array{
-     *     breadcrumbs: array,
+     *     breadcrumbs: array<array-key, array|string>,
      *     admin: array<array-key, array{label: string, url: string|array}>
      * }
      */

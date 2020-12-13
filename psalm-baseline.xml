@@ -903,6 +903,9 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/views/admin/comment/index.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;params</code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument occurrences="1">
       <code>$material-&gt;title</code>
     </MixedArgument>
@@ -1340,6 +1343,9 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/views/admin/comment/index.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;params</code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument occurrences="1">
       <code>$material-&gt;title</code>
     </MixedArgument>
@@ -2268,6 +2274,13 @@
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
+    <PropertyTypeCoercion occurrences="5">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </PropertyTypeCoercion>
     <UndefinedMagicPropertyFetch occurrences="2">
       <code>$category-&gt;breadcrumbs</code>
       <code>Yii::$app-&gt;user</code>
