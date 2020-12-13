@@ -21,5 +21,10 @@ use app\extensions\file\File;
  */
 class Application extends Module
 {
-
+    /**
+     * @psalm-var array{
+     *     deworker_api_url: string
+     * }
+     */
+    public $params = [];
 }
