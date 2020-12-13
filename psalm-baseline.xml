@@ -1077,9 +1077,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/search.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
     </PossiblyFalseReference>
@@ -1088,9 +1085,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/tag.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
@@ -1098,11 +1092,6 @@
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/blog/views/layouts/_sidebar.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;route</code>
-    </NoInterfaceProperties>
   </file>
   <file src="src/modules/blog/views/post/show.php">
     <MixedArgument occurrences="1">
@@ -1465,9 +1454,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/donate/views/default/index.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1532,9 +1518,6 @@
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1664,9 +1647,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/home/views/default/index.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
@@ -1980,30 +1960,14 @@
     </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/default/copyright.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/page/views/default/privacy.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/page/views/layouts/_sidebar.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;route</code>
-    </NoInterfaceProperties>
-  </file>
-  <file src="src/modules/page/views/layouts/blank.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
   </file>
   <file src="src/modules/page/views/page/_head.php">
     <PropertyTypeCoercion occurrences="4">
@@ -2056,9 +2020,6 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$model</code>
     </LessSpecificReturnStatement>
-    <MissingReturnType occurrences="1">
-      <code>actionShow</code>
-    </MissingReturnType>
     <MoreSpecificReturnType occurrences="1">
       <code>Work</code>
     </MoreSpecificReturnType>
@@ -2262,9 +2223,6 @@
       <code>$title</code>
       <code>$url</code>
     </MixedAssignment>
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
@@ -2282,9 +2240,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/default/index.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
     </PossiblyFalseReference>
@@ -2412,9 +2367,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/products/views/default/index.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2519,9 +2471,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/services/views/default/index.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2559,25 +2508,16 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/subscribe/views/default/activate.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/subscribe/views/default/index.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/subscribe/views/default/success.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2968,52 +2908,23 @@
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/user/views/default/login.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
-  </file>
   <file src="src/modules/user/views/profile/edit.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/password.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/view.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
     <PossiblyNullArgument occurrences="1">
       <code>$user-&gt;getFio()</code>
     </PossiblyNullArgument>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/user/views/registration/confirm.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
-  </file>
-  <file src="src/modules/user/views/registration/request.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
-  </file>
-  <file src="src/modules/user/views/remind/remind.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </NoInterfaceProperties>
   </file>
   <file src="src/modules/user/widgets/views/LoginForm.php">
     <InvalidScalarArgument occurrences="1">
@@ -3046,15 +2957,7 @@
       <code>registerJs</code>
     </MixedMethodCall>
   </file>
-  <file src="src/views/layouts/admin.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;route</code>
-    </NoInterfaceProperties>
-  </file>
   <file src="src/views/layouts/main.php">
-    <NoInterfaceProperties occurrences="1">
-      <code>$this-&gt;context-&gt;route</code>
-    </NoInterfaceProperties>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>

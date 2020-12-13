@@ -14,7 +14,7 @@ class View extends Component implements DynamicContentAwareInterface
      */
     public $params = [];
     /**
-     * @var ViewContextInterface|Controller
+     * @var Controller
      */
     public $context;
 
