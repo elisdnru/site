@@ -93,21 +93,25 @@ window.getCSRFToken = function () {
 
     var data = new FormData();
     data.set('_csrf', getCSRFToken());
-    axios({
-      method: 'post',
-      url: link.href,
-      data: data,
-      config: {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+    fetch(link.href, {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: data,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
       }
     })
+      .then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
       .then(function () {
         document.querySelector('#' + link.dataset.del).style.display = 'none'
       })
       .catch(function (error) {
-        alert(error.response.data);
+        alert(error.message);
       });
   });
 
@@ -127,21 +131,28 @@ window.getCSRFToken = function () {
 
     var data = new FormData();
     data.set('_csrf', getCSRFToken());
-    axios({
-      method: 'post',
-      url: link.href,
-      data: data,
-      config: {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+    fetch(link.href, {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: data,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
       }
     })
       .then(function (response) {
-        document.querySelector('#' + link.dataset.del).innerHTML = response.data
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (data) {
+        document.querySelector('#' + link.dataset.del).innerHTML = data
       })
       .catch(function (error) {
-        alert(error.response.data);
+        alert(error.message);
       });
   });
 
@@ -161,20 +172,22 @@ window.getCSRFToken = function () {
 
     var data = new FormData();
     data.set('_csrf', getCSRFToken());
-    axios({
-      method: 'post',
-      url: link.href,
-      data: data,
-      config: {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+    fetch(link.href, {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: data,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
       }
     })
-      .then(function () {
+      .then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
       })
       .catch(function (error) {
-        alert(error.response.data);
+        alert(error.message);
       });
   });
 })();

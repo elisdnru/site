@@ -45,7 +45,6 @@ module.exports = {
     new MergeIntoSingleFilePlugin({
       files: {
         'main.js': [
-          'node_modules/axios/dist/axios.min.js',
           'assets/js/site.js',
           'assets/js/form-action.js',
           'assets/js/share.js',

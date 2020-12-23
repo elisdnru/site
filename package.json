@@ -5,7 +5,6 @@
     "watch": "webpack --watch"
   },
   "devDependencies": {
-    "axios": "^0.20.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.2.2",
     "file-loader": "^6.1.0",

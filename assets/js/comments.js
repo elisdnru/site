@@ -8,18 +8,25 @@
 
     var data = new FormData();
     data.set('_csrf', getCSRFToken());
-    axios({
-      method: 'post',
-      url: event.target.dataset.url,
-      data: data,
-      config: {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+    fetch(event.target.dataset.url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: data,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
       }
     })
       .then(function (response) {
-        document.querySelector('#' + event.target.dataset.load).innerHTML = response.data
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (data) {
+        document.querySelector('#' + event.target.dataset.load).innerHTML = data
       })
       .catch(function (error) {
         console.log(error);
