@@ -1,13 +1,13 @@
-window.getCSRFToken = function (){
+window.getCSRFToken = function () {
   return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 };
 
-(function(){
+(function () {
   var portlet = document.querySelector('.sidebar .portlet-fixed');
   var marker = document.querySelector('.bottom-marker');
   var wrapper = document.querySelector('#wrapper');
   if (portlet && marker) {
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       var offset = marker.offsetTop;
       var scrollYpos = window.pageYOffset;
       var width = wrapper.offsetWidth;
@@ -53,15 +53,19 @@ window.getCSRFToken = function (){
 
   if (window.IntersectionObserver) {
     var observer = new IntersectionObserver(onChange, config);
-    [].forEach.call(images, function (image) { observer.observe(image); });
+    [].forEach.call(images, function (image) {
+      observer.observe(image);
+    });
   } else {
     console.log('%cIntersection Observers not supported');
-    [].forEach.call(images, function (image) { loadImage(image); });
+    [].forEach.call(images, function (image) {
+      loadImage(image);
+    });
   }
 })();
 
 (function () {
-  function getLink(elem, selector) {
+  function getLink (elem, selector) {
     if (elem.matches(selector)) {
       return elem;
     }
@@ -93,9 +97,11 @@ window.getCSRFToken = function (){
       method: 'post',
       url: link.href,
       data: data,
-      config: { headers: {
+      config: {
+        headers: {
           'Content-Type': 'multipart/form-data'
-        }}
+        }
+      }
     })
       .then(function () {
         document.querySelector('#' + link.dataset.del).style.display = 'none'
@@ -125,9 +131,11 @@ window.getCSRFToken = function (){
       method: 'post',
       url: link.href,
       data: data,
-      config: { headers: {
+      config: {
+        headers: {
           'Content-Type': 'multipart/form-data'
-        }}
+        }
+      }
     })
       .then(function (response) {
         document.querySelector('#' + link.dataset.del).innerHTML = response.data
@@ -157,11 +165,14 @@ window.getCSRFToken = function (){
       method: 'post',
       url: link.href,
       data: data,
-      config: { headers: {
+      config: {
+        headers: {
           'Content-Type': 'multipart/form-data'
-        }}
+        }
+      }
     })
-      .then(function () {})
+      .then(function () {
+      })
       .catch(function (error) {
         alert(error.response.data);
       });

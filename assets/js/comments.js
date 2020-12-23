@@ -1,4 +1,3 @@
-
 (function () {
   document.addEventListener('click', function (event) {
     if (!event.target.matches('.ajax_like')) {
@@ -13,9 +12,11 @@
       method: 'post',
       url: event.target.dataset.url,
       data: data,
-      config: { headers: {
+      config: {
+        headers: {
           'Content-Type': 'multipart/form-data'
-        }}
+        }
+      }
     })
       .then(function (response) {
         document.querySelector('#' + event.target.dataset.load).innerHTML = response.data
