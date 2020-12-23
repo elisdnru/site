@@ -54,6 +54,9 @@ site-migrations-test:
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 
+site-assets-build:
+	docker-compose run --rm node-cli yarn build
+
 site-lint:
 	docker-compose run --rm php-cli composer lint
 	docker-compose run --rm php-cli composer phpcs
