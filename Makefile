@@ -1,7 +1,7 @@
+init: docker-down-clear site-clear docker-pull docker-build docker-build docker-up site-init site-ready
 up: docker-up
 down: docker-down
 restart: docker-down docker-up
-init: docker-down-clear site-clear docker-pull docker-build docker-build docker-up site-init site-ready
 check: validate lint test
 validate: site-composer-validate
 lint: site-lint site-analyze
