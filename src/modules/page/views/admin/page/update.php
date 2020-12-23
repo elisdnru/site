@@ -4,7 +4,7 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var $model Page
+ * @var Page $model
  */
 
 $this->title = 'Редактор страниц';

@@ -2,7 +2,7 @@
 
 /**
  * @var View $this
- * @var $model Work
+ * @var Work $model
  */
 
 $this->title = 'Редактор работы';

@@ -9,7 +9,7 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var $model User
+ * @var User $model
  */
 
 $this->title = 'Профиль пользователя ' . $model->username;

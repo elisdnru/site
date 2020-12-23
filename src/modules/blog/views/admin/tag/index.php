@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\blog\models\Tag;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -40,11 +41,12 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $item) : ?>
+                    <?php /** @var Tag $item */ ?>
                     <tr>
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><?= Html::encode($item->title) ?></a>
                         </td>
-                        <td style="width:130px; text-align:center"><?= Html::encode($item->frequency) ?></td>
+                        <td style="width:130px; text-align:center"><?= $item->getFrequency() ?></td>
                         <td class="button-column">
                             <a href="<?= $item->getUrl() ?>"><span class="icon view"></span></a>
                         </td>

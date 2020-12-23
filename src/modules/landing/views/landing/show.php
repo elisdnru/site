@@ -6,7 +6,7 @@ use yii\web\View;
 
 /**
  * @var View|InlineWidgetsBehavior $this
- * @var $landing Landing
+ * @var Landing $landing
  */
 
 echo $this->decodeWidgets($landing->text);

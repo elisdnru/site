@@ -436,7 +436,6 @@
     </PossiblyNullPropertyFetch>
   </file>
   <file src="src/components/uploader/Uploader.php">
-    <MissingDocblockType occurrences="1"/>
     <MixedArgument occurrences="4">
       <code>$currentFile</code>
       <code>$currentFile</code>
@@ -658,42 +657,10 @@
       <code>m191007_115551_rename_tables</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/block/views/admin/block/_form.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="10">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="3">
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-      <code>hasErrors</code>
-    </MixedMethodCall>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$model</code>
-    </UndefinedGlobalVariable>
-  </file>
   <file src="src/modules/block/views/admin/block/index.php">
-    <MixedArgument occurrences="2">
-      <code>$block-&gt;alias</code>
-      <code>$block-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$block</code>
     </MixedAssignment>
-    <MixedPropertyFetch occurrences="3">
-      <code>$block-&gt;alias</code>
-      <code>$block-&gt;id</code>
-      <code>$block-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="2">
       <code>link</code>
       <code>link</code>
@@ -885,25 +852,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/blog/views/admin/category/index.php">
-    <MixedArgument occurrences="4">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;indent * 4</code>
-      <code>$item-&gt;sort</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$item-&gt;indent</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="5">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;indent</code>
-      <code>$item-&gt;sort</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="3">
       <code>link</code>
       <code>link</code>
@@ -955,25 +906,9 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/admin/post/index.php">
-    <MixedArgument occurrences="4">
-      <code>$item-&gt;category-&gt;fullTitle</code>
-      <code>$item-&gt;date</code>
-      <code>$item-&gt;group-&gt;title</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedPropertyFetch occurrences="8">
-      <code>$item-&gt;category</code>
-      <code>$item-&gt;category-&gt;fullTitle</code>
-      <code>$item-&gt;date</code>
-      <code>$item-&gt;group</code>
-      <code>$item-&gt;group-&gt;title</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;public</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="5">
       <code>link</code>
       <code>link</code>
@@ -983,22 +918,9 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/views/admin/tag/index.php">
-    <MixedArgument occurrences="3">
-      <code>$item-&gt;frequency</code>
-      <code>$item-&gt;getUrl()</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="3">
-      <code>$item-&gt;frequency</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="1">
       <code>link</code>
     </PossiblyInvalidMethodCall>
@@ -1420,32 +1342,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/contacts/views/default/index.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="5">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$this-&gt;context</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -1740,48 +1636,18 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/landing/views/admin/landing/index.php">
-    <MixedArgument occurrences="4">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;getUrl()</code>
-      <code>$item-&gt;indent * 4</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$item-&gt;indent</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="4">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;indent</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="2">
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/landing/views/landing/show.php">
-    <MissingDocblockType occurrences="1">
-      <code>echo $this-&gt;decodeWidgets($landing-&gt;text);</code>
-    </MissingDocblockType>
     <MixedArgument occurrences="1">
       <code>$this-&gt;decodeWidgets($landing-&gt;text)</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>decodeWidgets</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="1">
-      <code>$landing-&gt;text</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$landing</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1914,63 +1780,13 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/page/views/admin/page/index.php">
-    <MixedArgument occurrences="4">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;getUrl()</code>
-      <code>$item-&gt;indent * 4</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$item-&gt;indent</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="4">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;indent</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="2">
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/page/views/admin/page/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getUrl</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/page/views/default/copyright.php">
     <UndefinedMagicPropertyFetch occurrences="1">
@@ -2156,25 +1972,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/portfolio/views/admin/category/index.php">
-    <MixedArgument occurrences="4">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;indent * 4</code>
-      <code>$item-&gt;sort</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$item-&gt;indent</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="5">
-      <code>$item-&gt;alias</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;indent</code>
-      <code>$item-&gt;sort</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="3">
       <code>link</code>
       <code>link</code>
@@ -2193,40 +1993,6 @@
     <InvalidArgument occurrences="1">
       <code>$category</code>
     </InvalidArgument>
-  </file>
-  <file src="src/modules/portfolio/views/admin/work/update.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('_form', ['model' =&gt; $model])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getUrl</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment occurrences="4">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="2">
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
   </file>
   <file src="src/modules/portfolio/views/default/_loop.php">
     <MixedAssignment occurrences="1">
@@ -2269,109 +2035,19 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/work/show.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;context-&gt;layout</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="11">
-      <code>$model-&gt;category-&gt;getBreadcrumbs(true)</code>
-      <code>$model-&gt;category-&gt;getUrl()</code>
-      <code>$model-&gt;category-&gt;title</code>
-      <code>$model-&gt;getImageThumbUrl()</code>
-      <code>$model-&gt;getImageUrl()</code>
-      <code>$model-&gt;short_purified</code>
-      <code>$model-&gt;text_purified</code>
-      <code>$model-&gt;title</code>
-      <code>$this</code>
-      <code>$this</code>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;params</code>
+    </InvalidPropertyAssignmentValue>
+    <MixedArgument occurrences="1">
       <code>$this-&gt;decodeWidgets(trim($model-&gt;text_purified))</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="7">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
-      <code>$properties['height']</code>
-      <code>$properties['width']</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="9">
-      <code>beginCache</code>
-      <code>decodeWidgets</code>
-      <code>endCache</code>
-      <code>getBreadcrumbs</code>
-      <code>getImageThumbUrl</code>
-      <code>getImageUrl</code>
-      <code>getImageUrl</code>
-      <code>getUrl</code>
-      <code>registerMetaTag</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$model-&gt;id</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="9">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="17">
-      <code>$model-&gt;category</code>
-      <code>$model-&gt;category-&gt;title</code>
-      <code>$model-&gt;category_id</code>
-      <code>$model-&gt;description</code>
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;image</code>
-      <code>$model-&gt;image_height</code>
-      <code>$model-&gt;image_show</code>
-      <code>$model-&gt;image_width</code>
-      <code>$model-&gt;pagetitle</code>
-      <code>$model-&gt;public</code>
-      <code>$model-&gt;short_purified</code>
-      <code>$model-&gt;text_purified</code>
-      <code>$model-&gt;title</code>
-      <code>$this-&gt;context</code>
+    <PropertyTypeCoercion occurrences="5">
       <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="25">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </PropertyTypeCoercion>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2431,12 +2107,10 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/search/views/default/index.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="4">
       <code>$model-&gt;material-&gt;getImageThumbUrl()</code>
       <code>$model-&gt;material-&gt;getUrl()</code>
       <code>$model-&gt;material-&gt;getUrl()</code>
-      <code>$model-&gt;text</code>
-      <code>$model-&gt;title</code>
       <code>$this-&gt;clearWidgets($model-&gt;text)</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
@@ -2454,24 +2128,18 @@
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="4">
-      <code>getImageThumbUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-      <code>hasAttribute</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="5">
-      <code>$model-&gt;material</code>
-      <code>$model-&gt;material-&gt;image_height</code>
-      <code>$model-&gt;material-&gt;image_width</code>
-      <code>$model-&gt;text</code>
-      <code>$model-&gt;title</code>
-    </MixedPropertyFetch>
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
-    <UndefinedMagicPropertyFetch occurrences="1">
+    <UndefinedMagicMethod occurrences="3">
+      <code>getImageThumbUrl</code>
+      <code>getUrl</code>
+      <code>getUrl</code>
+    </UndefinedMagicMethod>
+    <UndefinedMagicPropertyFetch occurrences="3">
+      <code>$model-&gt;material-&gt;image_height</code>
+      <code>$model-&gt;material-&gt;image_width</code>
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
@@ -2833,30 +2501,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/views/admin/user/index.php">
-    <MissingDocblockType occurrences="1"/>
-    <MixedArgument occurrences="6">
-      <code>$user-&gt;create_datetime</code>
-      <code>$user-&gt;email</code>
-      <code>$user-&gt;getAvatarUrl(50, 50)</code>
-      <code>$user-&gt;getFio()</code>
-      <code>$user-&gt;role</code>
-      <code>$user-&gt;username</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$user</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getAvatarUrl</code>
-      <code>getFio</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="6">
-      <code>$user-&gt;confirm</code>
-      <code>$user-&gt;create_datetime</code>
-      <code>$user-&gt;email</code>
-      <code>$user-&gt;id</code>
-      <code>$user-&gt;role</code>
-      <code>$user-&gt;username</code>
-    </MixedPropertyFetch>
     <PossiblyInvalidMethodCall occurrences="5">
       <code>link</code>
       <code>link</code>
@@ -2866,65 +2513,6 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/user/views/admin/user/view.php">
-    <MissingDocblockType occurrences="1">
-      <code>$this-&gt;title</code>
-    </MissingDocblockType>
-    <MixedArgument occurrences="8">
-      <code>$model-&gt;getAvatarUrl()</code>
-      <code>$model-&gt;getCommentsCount()</code>
-      <code>$model-&gt;getFio()</code>
-      <code>$model-&gt;identity</code>
-      <code>$model-&gt;network</code>
-      <code>$model-&gt;site</code>
-      <code>$model-&gt;site</code>
-      <code>$model-&gt;username</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getAvatarUrl</code>
-      <code>getCommentsCount</code>
-      <code>getFio</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$model-&gt;username</code>
-    </MixedOperand>
-    <MixedPropertyAssignment occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="6">
-      <code>$model-&gt;id</code>
-      <code>$model-&gt;identity</code>
-      <code>$model-&gt;network</code>
-      <code>$model-&gt;site</code>
-      <code>$model-&gt;username</code>
-      <code>$this-&gt;params</code>
-    </MixedPropertyFetch>
-    <UndefinedGlobalVariable occurrences="15">
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-      <code>$model</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2940,9 +2528,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/views/profile/view.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$user-&gt;getFio()</code>
-    </PossiblyNullArgument>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
@@ -2951,9 +2536,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$user-&gt;getCommentsCount()</code>
     </InvalidScalarArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$user-&gt;getFio()</code>
-    </PossiblyNullArgument>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$user</code>
     </RedundantConditionGivenDocblockType>

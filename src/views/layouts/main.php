@@ -20,7 +20,6 @@ MainAsset::register($this);
 
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
-/** @var $this View */
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

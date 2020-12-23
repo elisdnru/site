@@ -1,13 +1,15 @@
 <?php
-/** @var $this View */
 
 use app\modules\block\models\Block;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
-/** @var $model Block */
-/** @var $form ActiveForm */
+/**
+ * @var View $this
+ * @var Block $model
+ * @var ActiveForm $form
+ */
 ?>
 
 <div class="form">

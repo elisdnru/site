@@ -39,6 +39,7 @@ use yii\helpers\Url;
  * @property integer $public
  *
  * @property User $author
+ * @property Group|null $group
  * @property PostTag[] $postTags
  * @property Category $category
  * @property Tag[] $tags

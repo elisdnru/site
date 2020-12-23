@@ -134,7 +134,7 @@ class User extends ActiveRecord
         return md5('%#w_wrb13&p' . ($this->salt ?: '') . $password);
     }
 
-    public function getFio(): ?string
+    public function getFio(): string
     {
         return trim($this->lastname . ' ' . $this->firstname);
     }

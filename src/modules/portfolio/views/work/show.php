@@ -10,7 +10,7 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var $model Work
+ * @var Work $model
  */
 
 $this->context->layout = 'index';

@@ -49,6 +49,7 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $item) : ?>
+                    <?php /** @var Category $item */ ?>
                     <tr>
                         <td style="width:50px; text-align:center">
                             <?= Html::encode($item->sort) ?>

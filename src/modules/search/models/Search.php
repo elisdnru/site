@@ -9,6 +9,8 @@ use yii\db\ActiveRecord;
  * @property string $text
  * @property string $material_class
  * @property integer $material_id
+ *
+ * @property ActiveRecord $material
  */
 class Search extends ActiveRecord
 {

@@ -1,5 +1,6 @@
 <?php
 use app\modules\block\forms\BlockSearch;
+use app\modules\block\models\Block;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -45,6 +46,7 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $block) : ?>
+                    <?php /** @var Block $block */ ?>
                     <tr>
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]) ?>"><?= Html::encode($block->title) ?></a>

@@ -3,6 +3,7 @@
 use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\search\components\SearchHighlighter;
+use app\modules\search\models\Search;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\data\ActiveDataProvider;
@@ -43,6 +44,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div class="items">
     <?php foreach ($dataProvider->getModels() as $model) : ?>
+        <?php /** @var Search $model */ ?>
         <article class="entry list">
             <header>
                 <h2>

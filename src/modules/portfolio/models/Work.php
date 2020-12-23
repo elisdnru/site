@@ -19,7 +19,9 @@ use yii\helpers\Url;
  * @property string $pagetitle
  * @property string $description
  * @property string $short
+ * @property string $short_purified
  * @property string $text
+ * @property string $text_purified
  * @property string $image
  * @property integer $image_width
  * @property integer $image_height

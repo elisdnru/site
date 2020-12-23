@@ -152,8 +152,10 @@ class Uploader
             return false;
         }
 
-        /** @var $orig ImageHandler */
-        /** @var $thumb ImageHandler */
+        /**
+         * @var ImageHandler $orig
+         * @var ImageHandler $thumb
+         */
 
         if ($orig = $this->image->load($fileName)) {
             if ($width && $height) {

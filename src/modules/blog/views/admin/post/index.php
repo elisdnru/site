@@ -59,6 +59,7 @@ $this->params['admin'] = [
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getModels() as $item) : ?>
+                    <?php /** @var Post $item */ ?>
                     <tr>
                         <td style="width:130px; text-align:center">
                             <?= Html::encode($item->date) ?>
@@ -66,7 +67,7 @@ $this->params['admin'] = [
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><?= Html::encode($item->title) ?></a>
                         </td>
-                        <td><?= $item->category ? Html::encode($item->category->fullTitle) : '' ?></td>
+                        <td><?= Html::encode($item->category->getFullTitle()) ?></td>
                         <td><?= $item->group ? Html::encode($item->group->title) : '' ?></td>
                         <td style="width:30px; text-align:center">
                             <?php if ($item->public) : ?>
