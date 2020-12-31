@@ -71,7 +71,7 @@ JqueryUiAsset::register($this);
             <tr class="<?= $item->public ? '' : 'disable' ?>">
                 <td width="50px" style="text-align: center">
                     <?php if ($item->image) : ?>
-                        <a href="<?= $editurl ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50, 0) ?>" alt="<?= $item->title ?>"></a>
+                        <a href="<?= $editurl ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50) ?>" alt="<?= $item->title ?>"></a>
                     <?php endif; ?>
                 </td>
                 <td><a href="<?= $editurl ?>"><?= $item->title ?></a></td>
