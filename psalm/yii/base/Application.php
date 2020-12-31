@@ -10,8 +10,10 @@ use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
 use app\components\uploader\Uploader;
 use app\extensions\file\File;
+use yii\web\User;
 
 /**
+ * @property User $user
  * @property AdminAccess $moduleAdminAccess
  * @property AdminDashboard $moduleAdminDashboard
  * @property AdminMenu $moduleAdminMenu

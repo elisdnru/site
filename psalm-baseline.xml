@@ -924,9 +924,6 @@
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/index.php">
     <MixedArgument occurrences="2">
@@ -964,26 +961,17 @@
     <PossiblyNullPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullPropertyFetch>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/search.php">
     <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
     </PossiblyFalseReference>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/default/tag.php">
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/post/show.php">
     <MixedArgument occurrences="1">
@@ -1029,9 +1017,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$model-&gt;category</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/widgets/LastPostsWidget.php">
     <MissingPropertyType occurrences="1">
@@ -1226,11 +1211,6 @@
       <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/comment/views/comment/update.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">
     <PossiblyNullArgument occurrences="1">
       <code>$comment-&gt;name</code>
@@ -1247,9 +1227,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$user</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_tree.php">
     <MixedArgument occurrences="2"/>
@@ -1284,21 +1261,11 @@
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/contacts/views/default/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/donate/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/donate/views/default/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/edu/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1359,9 +1326,6 @@
     <MixedAssignment occurrences="1">
       <code>$item</code>
     </MixedAssignment>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/edu/widgets/SeriesEpisodes.php">
     <MixedAssignment occurrences="1">
@@ -1475,17 +1439,11 @@
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/home/views/error/index.php">
     <MixedOperand occurrences="1">
       <code>$error['code'] ?? ''</code>
     </MixedOperand>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/image/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1690,16 +1648,6 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/page/views/default/copyright.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/page/views/default/privacy.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/page/views/page/_head.php">
     <PropertyTypeCoercion occurrences="4">
       <code>$this-&gt;params</code>
@@ -1707,9 +1655,8 @@
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-    <UndefinedMagicPropertyFetch occurrences="2">
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>$page-&gt;breadcrumbs</code>
-      <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/page/views/page/show.php">
@@ -1909,18 +1856,14 @@
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-    <UndefinedMagicPropertyFetch occurrences="2">
+    <UndefinedMagicPropertyFetch occurrences="1">
       <code>$category-&gt;breadcrumbs</code>
-      <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/default/index.php">
     <PossiblyFalseReference occurrences="1">
       <code>getPage</code>
     </PossiblyFalseReference>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/work/show.php">
     <InvalidPropertyAssignmentValue occurrences="1">
@@ -1936,20 +1879,12 @@
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/products/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/products/views/default/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/search/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -1978,11 +1913,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_stripos($text, $word, null, 'UTF-8')</code>
     </PossiblyFalseOperand>
-  </file>
-  <file src="src/modules/search/views/default/error.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/search/views/default/index.php">
     <MixedArgument occurrences="4">
@@ -2015,10 +1945,9 @@
       <code>getUrl</code>
       <code>getUrl</code>
     </UndefinedMagicMethod>
-    <UndefinedMagicPropertyFetch occurrences="3">
+    <UndefinedMagicPropertyFetch occurrences="2">
       <code>$model-&gt;material-&gt;image_height</code>
       <code>$model-&gt;material-&gt;image_width</code>
-      <code>Yii::$app-&gt;user</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/search/widgets/views/SearchForm.php">
@@ -2031,11 +1960,6 @@
       <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/services/views/default/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/sitemap/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -2052,31 +1976,11 @@
       <code>DefaultController</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/sitemap/views/default/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/subscribe/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/subscribe/views/default/activate.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/subscribe/views/default/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/subscribe/views/default/success.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/ulogin/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -2137,11 +2041,6 @@
     <MixedArgument occurrences="1">
       <code>$params</code>
     </MixedArgument>
-  </file>
-  <file src="src/modules/ulogin/widgets/views/uloginWidget.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/user/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -2359,26 +2258,6 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/user/views/admin/user/view.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/user/views/profile/edit.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/user/views/profile/password.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/user/views/profile/view.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/user/widgets/views/LoginForm.php">
     <InvalidScalarArgument occurrences="1">
       <code>$user-&gt;getCommentsCount()</code>
@@ -2407,11 +2286,6 @@
       <code>registerJs</code>
     </MixedMethodCall>
   </file>
-  <file src="src/views/layouts/main.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;user</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/widgets/MainMenu.php">
     <PropertyNotSetInConstructor occurrences="4">
       <code>MainMenu</code>
@@ -2424,38 +2298,6 @@
     <PossiblyFalseArgument occurrences="1">
       <code>false</code>
     </PossiblyFalseArgument>
-    <PossiblyNullOperand occurrences="1">
-      <code>$result</code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/widgets/Share.php">
-    <MissingPropertyType occurrences="4">
-      <code>$description</code>
-      <code>$image</code>
-      <code>$title</code>
-      <code>$url</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;description</code>
-    </MixedArgument>
-    <MixedOperand occurrences="1">
-      <code>$this-&gt;image</code>
-    </MixedOperand>
-    <PossiblyNullOperand occurrences="1">
-      <code>$host</code>
-    </PossiblyNullOperand>
-  </file>
-  <file src="src/widgets/inline/CountDown.php">
-    <MissingPropertyType occurrences="2">
-      <code>$date</code>
-      <code>$title</code>
-    </MissingPropertyType>
-  </file>
-  <file src="src/widgets/inline/MailTo.php">
-    <MissingPropertyType occurrences="2">
-      <code>$date</code>
-      <code>$email</code>
-    </MissingPropertyType>
   </file>
   <file src="src/widgets/views/Messages.php">
     <MixedArgument occurrences="3">

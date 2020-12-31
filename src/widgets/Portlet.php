@@ -17,7 +17,7 @@ class Portlet extends Widget
     public string $contentCssClass = 'portlet-content';
     public bool $hideOnEmpty = true;
 
-    private ?string $openTag = null;
+    private string $openTag = '';
 
     public function init(): void
     {

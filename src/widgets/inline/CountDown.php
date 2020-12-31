@@ -8,8 +8,8 @@ use yii\base\Widget;
 
 class CountDown extends Widget
 {
-    public $title;
-    public $date;
+    public string $title = '';
+    public string $date = '';
 
     public function run(): string
     {

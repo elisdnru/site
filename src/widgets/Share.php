@@ -2,19 +2,24 @@
 
 namespace app\widgets;
 
+use RuntimeException;
 use Yii;
 use yii\base\Widget;
 
 class Share extends Widget
 {
-    public $url = '';
-    public $title = '';
-    public $description = '';
-    public $image = '';
+    public string $url = '';
+    public string $title = '';
+    public string $description = '';
+    public string $image = '';
 
     public function run(): string
     {
         $host = Yii::$app->request->getHostInfo();
+
+        if ($host === null) {
+            throw new RuntimeException('Empty host.');
+        }
 
         return $this->render('Share', [
             'url' => $this->url ?: $host . '/' . Yii::$app->request->getPathInfo(),

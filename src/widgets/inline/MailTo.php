@@ -8,8 +8,7 @@ use yii\base\Widget;
 
 class MailTo extends Widget
 {
-    public $email;
-    public $date;
+    public string $email = '';
 
     public function run(): string
     {
