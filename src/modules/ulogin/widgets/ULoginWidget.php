@@ -6,7 +6,7 @@ use yii\base\Widget;
 
 class ULoginWidget extends Widget
 {
-    private static $once = false;
+    private static bool $once = false;
 
     private array $params = [
         'display' => 'panel',

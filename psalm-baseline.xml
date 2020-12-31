@@ -1835,30 +1835,41 @@
     </MixedAssignment>
   </file>
   <file src="src/modules/portfolio/views/default/category.php">
-    <MixedArgument occurrences="4">
-      <code>$category-&gt;breadcrumbs</code>
+    <MixedArgument occurrences="3">
       <code>$this-&gt;decodeWidgets(trim($category-&gt;text))</code>
-      <code>$title</code>
+      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
       <code>$url</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$title</code>
+    <MixedArrayAccess occurrences="1">
+      <code>$this-&gt;params['admin']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="6">
+      <code>$this-&gt;params['admin']</code>
+      <code>$this-&gt;params['admin']</code>
+      <code>$this-&gt;params['admin']</code>
+      <code>$this-&gt;params['admin']</code>
+      <code>$this-&gt;params['breadcrumbs']</code>
+      <code>$this-&gt;params['breadcrumbs']</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="7">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
       <code>$url</code>
     </MixedAssignment>
+    <MixedPropertyAssignment occurrences="1">
+      <code>$this-&gt;context</code>
+    </MixedPropertyAssignment>
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
-    <PropertyTypeCoercion occurrences="5">
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </PropertyTypeCoercion>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$category-&gt;breadcrumbs</code>
-    </UndefinedMagicPropertyFetch>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="src/modules/portfolio/views/default/index.php">
     <PossiblyFalseReference occurrences="1">
@@ -2035,9 +2046,6 @@
     <MissingParamType occurrences="1">
       <code>$params</code>
     </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$once</code>
-    </MissingPropertyType>
     <MixedArgument occurrences="1">
       <code>$params</code>
     </MixedArgument>

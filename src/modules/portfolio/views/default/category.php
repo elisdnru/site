@@ -1,6 +1,7 @@
 <?php
 
 use app\assets\PortfolioAsset;
+use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\portfolio\models\Category;
 use app\modules\user\models\Access;
@@ -10,7 +11,7 @@ use yii\helpers\Url;
 use yii\web\View;
 
 /**
- * @var View $this
+ * @var View|InlineWidgetsBehavior $this
  * @var ActiveDataProvider $dataProvider
  * @var Category $category
  * @var Category[] $subcategories
@@ -27,7 +28,7 @@ $this->registerMetaTag([
 $this->params['breadcrumbs'] = [
     'Портфолио' => ['index'],
 ];
-$this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->breadcrumbs);
+$this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->getBreadcrumbs());
 
 if (Yii::$app->user->can(Access::CONTROL)) {
     if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
@@ -42,7 +43,7 @@ PortfolioAsset::register($this);
 ?>
 
 <h1><a rel="nofollow" href="<?= Url::to(['index']) ?>">Портфолио</a> &rarr;
-    <?php foreach ($category->breadcrumbs as $title => $url) : ?>
+    <?php foreach ($category->getBreadcrumbs() as $title => $url) : ?>
         <?php if (!is_numeric($title)) : ?>
             <a rel="nofollow" href="<?= $url ?>"><?= Html::encode($title) ?></a> &rarr;
         <?php endif; ?>
