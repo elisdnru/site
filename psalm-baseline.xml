@@ -2000,7 +2000,7 @@
       <code>Yii::$app-&gt;homeUrl</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/ulogin/models/UloginModel.php">
+  <file src="src/modules/ulogin/models/ULoginModel.php">
     <MissingPropertyType occurrences="9">
       <code>$email</code>
       <code>$error_message</code>
@@ -2031,7 +2031,7 @@
       <code>$this-&gt;token</code>
     </MixedOperand>
   </file>
-  <file src="src/modules/ulogin/widgets/UloginWidget.php">
+  <file src="src/modules/ulogin/widgets/ULoginWidget.php">
     <MissingParamType occurrences="1">
       <code>$params</code>
     </MissingParamType>

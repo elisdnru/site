@@ -3,7 +3,7 @@
 namespace app\modules\ulogin\controllers;
 
 use yii\web\Controller;
-use app\modules\ulogin\models\UloginModel;
+use app\modules\ulogin\models\ULoginModel;
 use Yii;
 use yii\web\Request;
 use yii\web\Response;
@@ -20,7 +20,7 @@ class DefaultController extends Controller
             return $this->redirect(Yii::$app->homeUrl);
         }
         if ($token !== 'undefined') {
-            $uLogin = new UloginModel();
+            $uLogin = new ULoginModel();
             $uLogin->attributes = $request->post();
 
             $uLogin->loadAuthData();

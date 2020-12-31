@@ -2,7 +2,7 @@
 
 use app\modules\user\forms\LoginForm;
 use app\widgets\Portlet;
-use app\modules\ulogin\widgets\UloginWidget;
+use app\modules\ulogin\widgets\ULoginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'] = [
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>
-<?= UloginWidget::widget([
+<?= ULoginWidget::widget([
     'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::$app->request->getUrl(), '/')], true)]
 ]) ?>
 <?php Portlet::end(); ?>

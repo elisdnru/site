@@ -1,7 +1,7 @@
 <?php
 
 use app\modules\comment\forms\CommentForm;
-use app\modules\ulogin\widgets\UloginWidget;
+use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
         <?php else : ?>
             <div style="margin-bottom: 10px">
                 <div style="float: right; margin-right: -10px">
-                    <?= UloginWidget::widget([
+                    <?= ULoginWidget::widget([
                         'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments', 'display' => 'panel']
                     ]) ?>
                 </div>

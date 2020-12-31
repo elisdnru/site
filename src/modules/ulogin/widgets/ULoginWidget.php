@@ -4,7 +4,7 @@ namespace app\modules\ulogin\widgets;
 
 use yii\base\Widget;
 
-class UloginWidget extends Widget
+class ULoginWidget extends Widget
 {
     private static $once = false;
 
@@ -23,7 +23,7 @@ class UloginWidget extends Widget
             return '';
         }
         self::$once = true;
-        return $this->render('uloginWidget', $this->params);
+        return $this->render('uLoginWidget', $this->params);
     }
 
     public function setParams($params): void

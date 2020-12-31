@@ -8,7 +8,7 @@ use app\modules\user\models\User;
 use yii\base\Model;
 use yii\web\User as WebUser;
 
-class UloginModel extends Model
+class ULoginModel extends Model
 {
     public $identity;
     public $network;

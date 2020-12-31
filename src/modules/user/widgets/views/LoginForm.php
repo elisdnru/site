@@ -1,6 +1,6 @@
 <?php
 use app\components\SocNetwork;
-use app\modules\ulogin\widgets\UloginWidget;
+use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use yii\helpers\Html;
@@ -54,7 +54,7 @@ use yii\helpers\Url;
     <?= Html::endForm() ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
-        <?= UloginWidget::widget([
+        <?= ULoginWidget::widget([
             'params' => [
                 'display' => 'small',
                 'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::$app->request->getUrl(), '/')], true)
