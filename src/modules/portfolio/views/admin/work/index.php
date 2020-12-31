@@ -61,25 +61,25 @@ JqueryUiAsset::register($this);
 <div id="listBlock">
 
     <?php foreach ($works as $item) :
-        $editurl = Url::to(['update', 'id' => $item->id]);
-        $delurl = Url::to(['delete', 'id' => $item->id]);
+        $editUrl = Url::to(['update', 'id' => $item->id]);
+        $delUrl = Url::to(['delete', 'id' => $item->id]);
 
-        $toggle_public = Url::to(['toggle', 'id' => $item->id, 'param' => 'public']);
+        $togglePublic = Url::to(['toggle', 'id' => $item->id, 'param' => 'public']);
         ?>
 
         <table id="item_<?= $item->id ?>" class="grid nomargin sortable">
             <tr class="<?= $item->public ? '' : 'disable' ?>">
                 <td width="50px" style="text-align: center">
                     <?php if ($item->image) : ?>
-                        <a href="<?= $editurl ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50) ?>" alt="<?= $item->title ?>"></a>
+                        <a href="<?= $editUrl ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50) ?>" alt="<?= $item->title ?>"></a>
                     <?php endif; ?>
                 </td>
-                <td><a href="<?= $editurl ?>"><?= $item->title ?></a></td>
+                <td><a href="<?= $editUrl ?>"><?= $item->title ?></a></td>
                 <td width="200px" style="text-align: center">
-                    <a href="<?= $editurl ?>"><?= $item->category->title ?></a>
+                    <a href="<?= $editUrl ?>"><?= $item->category->title ?></a>
                 </td>
                 <td width="20px" style="text-align: center; padding: 0" title="Опубликовано">
-                    <a class="ajax_post" href="<?= $toggle_public ?>">
+                    <a class="ajax_post" href="<?= $togglePublic ?>">
                         <?php if ($item->public) : ?>
                             <img src="/images/admin/yes.png" alt="">
                         <?php else : ?>
@@ -88,10 +88,10 @@ JqueryUiAsset::register($this);
                     </a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a href="<?= $editurl ?>"><img src="/images/admin/edit.png" alt="" title="Править"></a>
+                    <a href="<?= $editUrl ?>"><img src="/images/admin/edit.png" alt="" title="Править"></a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delurl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                    <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                 </td>
             </tr>
         </table>
