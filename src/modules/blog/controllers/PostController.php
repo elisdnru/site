@@ -8,9 +8,17 @@ use yii\web\Controller;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
+use yii\web\Response;
 
 class PostController extends Controller
 {
+    /**
+     * @param int $id
+     * @param Request $request
+     * @param AdminAccess $access
+     * @param string|null $alias
+     * @return string|Response
+     */
     public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null)
     {
         $model = $this->loadModel($id, $access);

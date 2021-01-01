@@ -23,6 +23,11 @@ class PostController extends AdminController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return string|Response
+     */
     public function actionCreate(Request $request, User $user)
     {
         $model = new Post();

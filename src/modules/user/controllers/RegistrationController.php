@@ -9,6 +9,7 @@ use yii\web\Controller;
 use app\modules\user\models\User;
 use yii\mail\MailerInterface;
 use yii\web\Request;
+use yii\web\Response;
 use yii\web\Session;
 
 class RegistrationController extends Controller
@@ -27,6 +28,12 @@ class RegistrationController extends Controller
         ];
     }
 
+    /**
+     * @param Request $request
+     * @param Session $session
+     * @param MailerInterface $mailer
+     * @return string|Response
+     */
     public function actionRequest(Request $request, Session $session, MailerInterface $mailer)
     {
         $model = new RegistrationForm();
@@ -55,6 +62,11 @@ class RegistrationController extends Controller
         return $this->render('request', ['model' => $model]);
     }
 
+    /**
+     * @param string $code
+     * @param Session $session
+     * @return string|Response
+     */
     public function actionConfirm(string $code, Session $session)
     {
         $user = User::findOne(['confirm' => $code]);

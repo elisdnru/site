@@ -9,6 +9,7 @@ use app\modules\user\models\User;
 use yii\filters\AccessControl;
 use yii\web\ForbiddenHttpException;
 use yii\web\Request;
+use yii\web\Response;
 use yii\web\Session;
 use yii\web\UploadedFile;
 use yii\web\User as WebUser;
@@ -30,6 +31,13 @@ class ProfileController extends Controller
         ];
     }
 
+    /**
+     * @param Request $request
+     * @param Session $session
+     * @param WebUser $webUser
+     * @return string|Response
+     * @throws ForbiddenHttpException
+     */
     public function actionEdit(Request $request, Session $session, WebUser $webUser)
     {
         $user = $this->loadModel((int)$webUser->id);
@@ -61,6 +69,13 @@ class ProfileController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param Session $session
+     * @param WebUser $webUser
+     * @return string|Response
+     * @throws ForbiddenHttpException
+     */
     public function actionPassword(Request $request, Session $session, WebUser $webUser)
     {
         $user = $this->loadModel((int)$webUser->id);

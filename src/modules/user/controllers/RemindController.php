@@ -7,10 +7,17 @@ use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use yii\mail\MailerInterface;
 use yii\web\Request;
+use yii\web\Response;
 use yii\web\Session;
 
 class RemindController extends Controller
 {
+    /**
+     * @param Request $request
+     * @param Session $session
+     * @param MailerInterface $mailer
+     * @return string|Response
+     */
     public function actionRemind(Request $request, Session $session, MailerInterface $mailer)
     {
         $model = new RemindForm();

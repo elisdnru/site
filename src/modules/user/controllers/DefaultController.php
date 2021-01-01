@@ -12,6 +12,11 @@ use yii\web\User as WebUser;
 
 class DefaultController extends Controller
 {
+    /**
+     * @param Request $request
+     * @param WebUser $webUser
+     * @return string|Response
+     */
     public function actionLogin(Request $request, WebUser $webUser)
     {
         $user = $this->loadUser((int)$webUser->id);

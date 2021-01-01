@@ -55,6 +55,10 @@ class WorkController extends AdminController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return string|Response
+     */
     public function actionCreate(Request $request)
     {
         $model = new Work();

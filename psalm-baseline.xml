@@ -680,9 +680,6 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$model</code>
     </LessSpecificReturnStatement>
-    <MissingReturnType occurrences="1">
-      <code>actionShow</code>
-    </MissingReturnType>
     <MoreSpecificReturnType occurrences="1">
       <code>Post</code>
     </MoreSpecificReturnType>
@@ -704,11 +701,6 @@
     <UndefinedInterfaceMethod occurrences="1">
       <code>validate</code>
     </UndefinedInterfaceMethod>
-  </file>
-  <file src="src/modules/blog/controllers/admin/PostController.php">
-    <MissingReturnType occurrences="1">
-      <code>actionCreate</code>
-    </MissingReturnType>
   </file>
   <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
     <InvalidReturnType occurrences="2">
@@ -1470,16 +1462,6 @@
       <code>$landing === null</code>
     </DocblockTypeContradiction>
   </file>
-  <file src="src/modules/landing/controllers/admin/LandingController.php">
-    <MissingReturnType occurrences="1">
-      <code>actionCreate</code>
-    </MissingReturnType>
-  </file>
-  <file src="src/modules/landing/forms/LandingSearch.php">
-    <MissingParamType occurrences="1">
-      <code>$pageSize</code>
-    </MissingParamType>
-  </file>
   <file src="src/modules/landing/migrations/m191025_144021_create_landing.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -1538,16 +1520,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$page === null</code>
     </DocblockTypeContradiction>
-  </file>
-  <file src="src/modules/page/controllers/admin/PageController.php">
-    <MissingReturnType occurrences="1">
-      <code>actionCreate</code>
-    </MissingReturnType>
-  </file>
-  <file src="src/modules/page/forms/PageSearch.php">
-    <MissingParamType occurrences="1">
-      <code>$pageSize</code>
-    </MissingParamType>
   </file>
   <file src="src/modules/page/migrations/m130328_120429_create_page.php">
     <InvalidReturnType occurrences="2">
@@ -1703,9 +1675,6 @@
     <MissingParamType occurrences="1">
       <code>$attribute</code>
     </MissingParamType>
-    <MissingReturnType occurrences="1">
-      <code>actionCreate</code>
-    </MissingReturnType>
     <MixedArgument occurrences="2">
       <code>$id</code>
       <code>$id</code>
@@ -2071,17 +2040,6 @@
       <code>UsernameValidator</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/user/controllers/DefaultController.php">
-    <MissingReturnType occurrences="1">
-      <code>actionLogin</code>
-    </MissingReturnType>
-  </file>
-  <file src="src/modules/user/controllers/ProfileController.php">
-    <MissingReturnType occurrences="2">
-      <code>actionEdit</code>
-      <code>actionPassword</code>
-    </MissingReturnType>
-  </file>
   <file src="src/modules/user/controllers/RegistrationController.php">
     <MissingPropertyType occurrences="5">
       <code>$model-&gt;email</code>
@@ -2090,10 +2048,6 @@
       <code>$model-&gt;password</code>
       <code>$model-&gt;username</code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="2">
-      <code>actionConfirm</code>
-      <code>actionRequest</code>
-    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$model-&gt;password</code>
     </MixedArgument>
@@ -2109,9 +2063,6 @@
     <MissingPropertyType occurrences="1">
       <code>$model-&gt;email</code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="1">
-      <code>actionRemind</code>
-    </MissingReturnType>
   </file>
   <file src="src/modules/user/forms/LoginForm.php">
     <DocblockTypeContradiction occurrences="1">
