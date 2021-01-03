@@ -5,7 +5,6 @@ Disallow: /login
 Disallow: /logout
 Disallow: /registration
 Disallow: /remind
-Disallow: /confirmregister
 Disallow: /error
 Disallow: /comment
 Disallow: /blog/date/
