@@ -38,9 +38,14 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h1>Поддержать проект</h1>
 
     <div class="text">
+        <iframe
+            src="https://yoomoney.ru/quickpay/shop-widget?writer=seller&targets=%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D0%BD%D0%BE%D1%81%D1%82%D1%8C&targets-hint=&default-sum=&button-text=14&payment-type-choice=on&hint=&successURL=&quickpay=shop&account=41001172664775"
+            width="100%" height="222" frameborder="0" allowtransparency="true" scrolling="no"
+        ></iframe>
+
         <p>
-            Если хотите меня за что-нибудь поблагодарить, то приобретите любой <a href="/products">мастер-класс</a>,
-            вступите в клуб <a href="https://deworker.pro" target="_blank">Deworker.PRO</a>
-            или <a href="/subscribe">подпишитесь</a> на рассылку.</p>
+            Помимо этого можете приобрести любой <a href="/products">мастер-класс</a>
+            или подписаться на скринкасты <a href="https://deworker.pro" target="_blank">Deworker.PRO</a>
+        </p>
     </div>
 </section>
