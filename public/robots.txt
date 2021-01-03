@@ -12,6 +12,9 @@ Disallow: /blog/date/
 Disallow: /blog/search
 Disallow: /search
 Disallow: /users
+Disallow: /copyright
+Disallow: /privacy
+Disallow: /donate
 Disallow: /portfolio/*/*
 
 User-agent: Mediapartners-Google
