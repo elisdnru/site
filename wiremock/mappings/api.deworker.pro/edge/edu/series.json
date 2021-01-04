@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "url": "/deworker/edge/edu/series"
+        "url": "/api.deworker.pro/edge/edu/series"
     },
     "response": {
         "status": 200,
