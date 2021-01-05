@@ -630,11 +630,6 @@
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/block/forms/BlockSearch.php">
-    <MissingParamType occurrences="1">
-      <code>$pageSize</code>
-    </MissingParamType>
-  </file>
   <file src="src/modules/block/migrations/m130328_093402_create_block.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -1694,11 +1689,6 @@
       <code>$sort</code>
     </PossiblyInvalidPropertyAssignmentValue>
   </file>
-  <file src="src/modules/portfolio/forms/CategorySearch.php">
-    <MissingParamType occurrences="1">
-      <code>$pageSize</code>
-    </MissingParamType>
-  </file>
   <file src="src/modules/portfolio/migrations/m130328_122419_create_portfolio_work.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -2086,14 +2076,6 @@
       <code>$email</code>
     </MissingPropertyType>
   </file>
-  <file src="src/modules/user/forms/UserSearch.php">
-    <MissingParamType occurrences="1">
-      <code>$pageSize</code>
-    </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$fio</code>
-    </MissingPropertyType>
-  </file>
   <file src="src/modules/user/migrations/m130328_130712_create_user.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -2218,9 +2200,6 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/user/widgets/views/LoginForm.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$user-&gt;getCommentsCount()</code>
-    </InvalidScalarArgument>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$user</code>
     </RedundantConditionGivenDocblockType>
@@ -2238,12 +2217,6 @@
     <PossiblyNullReference occurrences="1">
       <code>getUrl</code>
     </PossiblyNullReference>
-  </file>
-  <file src="src/views/layouts/_counters.php">
-    <MixedMethodCall occurrences="2">
-      <code>registerJs</code>
-      <code>registerJs</code>
-    </MixedMethodCall>
   </file>
   <file src="src/widgets/MainMenu.php">
     <PropertyNotSetInConstructor occurrences="4">

@@ -16,7 +16,7 @@ class BlockSearch extends Block
         ];
     }
 
-    public function search(array $params, $pageSize = 30): ActiveDataProvider
+    public function search(array $params, int $pageSize = 30): ActiveDataProvider
     {
         $query = self::find();
 

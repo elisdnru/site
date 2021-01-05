@@ -10,7 +10,7 @@ use yii\db\Expression;
 
 class UserSearch extends User
 {
-    public $fio;
+    public ?string $fio = null;
 
     public function rules(): array
     {
@@ -19,7 +19,7 @@ class UserSearch extends User
         ];
     }
 
-    public function search(array $params, $pageSize = 30): ActiveDataProvider
+    public function search(array $params, int $pageSize = 30): ActiveDataProvider
     {
         $query = self::find();
 

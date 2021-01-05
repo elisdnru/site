@@ -27,7 +27,7 @@ use yii\helpers\Url;
                 <?= Html::encode($user->getFio()) ?>
             </strong>
         </p>
-        <p class="nomargin">Комментариев: <?= Html::encode($user->getCommentsCount()) ?></p>
+        <p class="nomargin">Комментариев: <?= $user->getCommentsCount() ?></p>
         <p class="nomargin" style="font-size:12px">
             <a href="<?= Url::to(['/user/profile/view']) ?>">Профиль</a> |
             <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>

@@ -14,7 +14,7 @@ class CategorySearch extends Category
         ];
     }
 
-    public function search(array $params, $pageSize = 10): TreeActiveDataProvider
+    public function search(array $params, int $pageSize = 10): TreeActiveDataProvider
     {
         $query = Category::find()->alias('t');
 
