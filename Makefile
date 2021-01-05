@@ -7,6 +7,8 @@ validate: site-composer-validate
 lint: site-lint site-analyze
 test: site-test
 
+update-deps: site-composer-update site-assets-update restart
+
 docker-up:
 	docker-compose up -d
 
@@ -33,11 +35,17 @@ site-permissions:
 site-composer-install:
 	docker-compose run --rm php-cli composer install
 
+site-composer-update:
+	docker-compose run --rm php-cli composer update
+
 site-composer-validate:
 	docker-compose run --rm php-cli composer validate
 
 site-assets-install:
 	docker-compose run --rm node-cli yarn install
+
+site-assets-update:
+	docker-compose run --rm node-cli yarn upgrade
 
 site-wait-db:
 	docker-compose run --rm php-cli wait-for-it mysql:3306 -t 30
