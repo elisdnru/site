@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: elisdn
- * Date: 7/9/13
- * Time: 10:00 AM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace app\modules\search\controllers;
 

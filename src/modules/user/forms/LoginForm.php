@@ -13,26 +13,15 @@ class LoginForm extends Model
     public string $password = '';
     public string $rememberMe = '1';
 
-    /**
-     * Declares the validation rules.
-     * The rules state that username and password are required,
-     * and password needs to be authenticated.
-     */
     public function rules(): array
     {
         return [
-            // username and password are required
             [['username', 'password'], 'required'],
-            // rememberMe needs to be a boolean
             ['rememberMe', 'boolean'],
-            // password needs to be authenticated
             ['password', 'authenticate'],
         ];
     }
 
-    /**
-     * Declares attribute labels.
-     */
     public function attributeLabels(): array
     {
         return [
@@ -42,10 +31,6 @@ class LoginForm extends Model
         ];
     }
 
-    /**
-     * Authenticates the password.
-     * This is the 'authenticate' validator as declared in rules().
-     */
     public function authenticate(): void
     {
         if ($this->hasErrors()) {
