@@ -70,6 +70,9 @@ site-lint:
 	docker-compose run --rm php-cli composer phpcs
 
 site-analyze:
+	docker-compose run --rm php-cli composer psalm -- --no-diff
+
+site-analyze-diff:
 	docker-compose run --rm php-cli composer psalm
 
 site-analyze-baseline:

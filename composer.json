@@ -68,6 +68,6 @@
         "lint": "phplint",
         "phpcs": "phpcs --standard=phpcs.xml",
         "phpcbf": "phpcbf --standard=phpcs.xml",
-        "psalm": "psalm --config=psalm.xml --no-diff"
+        "psalm": "psalm --config=psalm.xml"
     }
 }
