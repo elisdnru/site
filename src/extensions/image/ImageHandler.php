@@ -3,6 +3,7 @@
 namespace app\extensions\image;
 
 use app\extensions\AntiMagic;
+use GdImage;
 use RuntimeException;
 
 /**
@@ -92,7 +93,7 @@ class ImageHandler
 
     private function checkLoaded(): void
     {
-        if (!is_resource($this->image)) {
+        if (!$this->image instanceof GdImage) {
             throw new RuntimeException('Load image first');
         }
     }

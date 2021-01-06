@@ -14,7 +14,7 @@ class ImageValidator extends YiiImageValidator
         try {
             return parent::validateImage($image);
         } catch (ErrorException $e) {
-            if ($e->getMessage() === 'getimagesize(): Read error!') {
+            if (str_starts_with($e->getMessage(), 'getimagesize(): Error reading from ')) {
                 return [$this->notImage, ['file' => $image->name]];
             }
             throw $e;
