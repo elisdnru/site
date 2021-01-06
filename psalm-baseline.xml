@@ -1257,14 +1257,6 @@
     </InvalidArgument>
   </file>
   <file src="src/modules/edu/controllers/DefaultController.php">
-    <MissingParamType occurrences="2">
-      <code>$id</code>
-      <code>$module</code>
-    </MissingParamType>
-    <MixedArgument occurrences="2">
-      <code>$id</code>
-      <code>$module</code>
-    </MixedArgument>
     <PropertyNotSetInConstructor occurrences="2">
       <code>DefaultController</code>
       <code>DefaultController</code>
@@ -1605,11 +1597,6 @@
       <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
     </MixedArgument>
   </file>
-  <file src="src/modules/page/views/page/subpages/tabs.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$page-&gt;parent</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/modules/portfolio/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
@@ -1647,10 +1634,9 @@
       <code>$id</code>
       <code>$id</code>
     </MixedArgument>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$id</code>
       <code>$id</code>
-      <code>$items</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$attribute</code>

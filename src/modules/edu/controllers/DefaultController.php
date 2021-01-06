@@ -2,6 +2,7 @@
 
 namespace app\modules\edu\controllers;
 
+use yii\base\Module;
 use yii\web\Controller;
 use app\modules\edu\components\api\Api;
 
@@ -9,7 +10,7 @@ class DefaultController extends Controller
 {
     private Api $api;
 
-    public function __construct($id, $module, Api $api, array $config = [])
+    public function __construct(string $id, Module $module, Api $api, array $config = [])
     {
         parent::__construct($id, $module, $config);
         $this->api = $api;

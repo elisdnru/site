@@ -131,7 +131,7 @@ class WorkController extends AdminController
     {
         $success = true;
 
-        $items = $request->post('item');
+        $items = (array)$request->post('item');
 
         if ($items) {
             $sort = 0;

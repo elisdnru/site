@@ -28,7 +28,7 @@ use yii\helpers\Url;
  * @property string $system
  *
  * @property Page[] $children
- * @property Page $parent
+ * @property Page|null $parent
  *
  * @mixin CategoryTreeBehavior
  */
