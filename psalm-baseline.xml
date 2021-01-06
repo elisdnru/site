@@ -635,11 +635,6 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/block/widgets/BlockWidget.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$block</code>
-    </DocblockTypeContradiction>
-  </file>
   <file src="src/modules/blog/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
@@ -2022,10 +2017,6 @@
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
-    <TypeDoesNotContainType occurrences="2">
-      <code>YII_ENV_TEST</code>
-      <code>YII_ENV_TEST</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">

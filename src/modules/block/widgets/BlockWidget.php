@@ -18,14 +18,14 @@ class BlockWidget extends Widget
             return '<div class="flash-error">[*block|id=?*]</div>';
         }
 
-        /** @var Block $block */
+        /** @var Block|null $block */
         $block = Block::find()
             ->cache(0, new TagDependency(['tags' => 'block']))
             ->andWhere(['alias' => $this->id])
             ->limit(1)
             ->one();
 
-        if (!$block) {
+        if ($block === null) {
             return '';
         }
 
