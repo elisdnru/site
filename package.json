@@ -5,6 +5,7 @@
     "watch": "webpack --watch"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.12.5",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.2.2",
     "file-loader": "^6.1.0",
