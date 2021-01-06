@@ -1,11 +1,11 @@
 <?php
-use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
+use yii\base\Module;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var AdminDashboardItem[] $modules
+ * @var Module[][] $modules
  */
 
 $this->title = 'Панель управления';

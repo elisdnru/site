@@ -595,34 +595,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/admin/views/default/index.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="1">
       <code>$module-&gt;adminName()</code>
-      <code>$module-&gt;id</code>
-      <code>$module-&gt;id</code>
-      <code>$module-&gt;id</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$group</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="3">
-      <code>$module</code>
-      <code>$module</code>
-      <code>$module</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>adminName</code>
-      <code>adminName</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="3">
-      <code>$module-&gt;id</code>
-      <code>$module-&gt;id</code>
-      <code>$module-&gt;id</code>
-    </MixedPropertyFetch>
-    <RawObjectIteration occurrences="3">
-      <code>$group</code>
-      <code>$groupModules</code>
-      <code>$groupModules</code>
-    </RawObjectIteration>
   </file>
   <file src="src/modules/block/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
