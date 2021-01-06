@@ -76,7 +76,7 @@ site-analyze-diff:
 	docker-compose run --rm php-cli composer psalm
 
 site-analyze-baseline:
-	docker-compose run --rm php-cli composer psalm -- --set-baseline=psalm-baseline.xml
+	docker-compose run --rm php-cli composer psalm -- --no-diff --set-baseline=psalm-baseline.xml
 
 site-test:
 	docker-compose run --rm php-cli composer test run unit,integration,acceptance

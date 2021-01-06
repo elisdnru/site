@@ -2003,6 +2003,10 @@
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
+    <TypeDoesNotContainType occurrences="2">
+      <code>YII_ENV_TEST</code>
+      <code>YII_ENV_TEST</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">
