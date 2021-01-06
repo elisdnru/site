@@ -54,13 +54,13 @@ module.exports = {
           'assets/js/comments.js'
         ],
         'jquery.js': [
-          'assets/js/jquery.min.js'
+          'assets/js/jquery.js'
         ],
         'jcarousellite.js': [
-          'assets/js/jcarousellite.min.js'
+          'assets/js/jquery.jcarousellite.js'
         ],
         'colorbox.js': [
-          'assets/js/jquery.colorbox-min.js',
+          'assets/js/jquery.colorbox.js',
           'assets/js/colorbox.js'
         ],
         'countdown.js': [
