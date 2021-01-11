@@ -39,7 +39,11 @@
         "bower-asset/jquery":"*",
         "bower-asset/inputmask":"*",
         "bower-asset/punycode":"*",
-        "bower-asset/yii2-pjax":"*"
+        "bower-asset/yii2-pjax":"*",
+        "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php80": "*"
     },
     "autoload": {
         "files": [
