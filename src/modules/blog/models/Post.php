@@ -51,7 +51,7 @@ class Post extends ActiveRecord implements Material
     private const IMAGE_WIDTH = 250;
     private const IMAGE_PATH = 'upload/images/blogs';
 
-    public string $del_image = '';
+    public string $delImage = '';
 
     public string $newgroup = '';
 
@@ -76,7 +76,7 @@ class Post extends ActiveRecord implements Material
             ['group_id', 'exist', 'targetClass' => Group::class, 'targetAttribute' => 'id'],
             [['public', 'image_show'], 'integer'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['styles', 'short', 'text', 'description', 'del_image'], 'safe'],
+            [['styles', 'short', 'text', 'description', 'delImage'], 'safe'],
             [['title', 'alias', 'newgroup', 'image_alt', 'pagetitle'], 'string', 'max' => '255'],
             ['tagsString', 'string', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
@@ -136,7 +136,7 @@ class Post extends ActiveRecord implements Material
             'short' => 'Превью',
             'text' => 'Текст',
             'image' => 'Картинка для статьи',
-            'del_image' => 'Удалить изображение',
+            'delImage' => 'Удалить изображение',
             'image_alt' => 'Описание изображения (по умолчанию как заголовок)',
             'image_show' => 'Отображать при открытии новости',
             'group_id' => 'Выберите тематическую группу',
@@ -181,7 +181,7 @@ class Post extends ActiveRecord implements Material
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
-                'deleteAttribute' => 'del_image',
+                'deleteAttribute' => 'delImage',
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
                 'imageWidthAttribute' => 'image_width',

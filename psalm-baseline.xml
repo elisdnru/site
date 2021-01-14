@@ -1310,13 +1310,13 @@
   </file>
   <file src="src/modules/file/controllers/admin/FileController.php">
     <MixedArgument occurrences="1">
-      <code>$foldername</code>
+      <code>$folderName</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
-      <code>$foldername</code>
+      <code>$folderName</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
-      <code>$foldername</code>
+      <code>$folderName</code>
     </MixedOperand>
     <TypeDoesNotContainType occurrences="2">
       <code>$file</code>
@@ -1690,7 +1690,7 @@
       <code>$only_public</code>
     </MissingParamType>
     <MissingPropertyType occurrences="1">
-      <code>$del_image</code>
+      <code>$delImage</code>
     </MissingPropertyType>
     <MoreSpecificReturnType occurrences="1">
       <code>?self</code>
@@ -1989,10 +1989,6 @@
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
-    <TypeDoesNotContainType occurrences="2">
-      <code>YII_ENV_TEST</code>
-      <code>YII_ENV_TEST</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">

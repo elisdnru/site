@@ -57,9 +57,9 @@ class FileController extends AdminController
     public function actionIndex(File $fileHandler, ImageHandler $imageHandler, string $path = '')
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
-        $htmlroot = '/' . $this->getFileDir();
+        $htmlRoot = '/' . $this->getFileDir();
 
-        $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
+        $currentPath = $this->getFileDir() . ($path ? '/' . $path : '');
 
         if (!file_exists($this->getFileDir() . '/' . $path)) {
             $fileHandler->createDir(0754, $this->getFileDir() . '/' . $path);
@@ -69,25 +69,25 @@ class FileController extends AdminController
             for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++) {
                 $index = 'file_' . $i;
                 if (isset($_FILES[$index])) {
-                    $this->uploadPostFile($index, $curpath, $fileHandler, $imageHandler);
+                    $this->uploadPostFile($index, $currentPath, $fileHandler, $imageHandler);
                 }
             }
             return $this->refresh();
         }
 
-        if (!empty($_POST['foldername'])) {
-            $foldername = $_POST['foldername'];
+        if (!empty($_POST['folderName'])) {
+            $folderName = $_POST['folderName'];
 
-            if (preg_match('|^[\\w-]+$|i', $foldername, $t)) {
-                $fileHandler->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $foldername);
+            if (preg_match('|^[\\w-]+$|i', $folderName, $t)) {
+                $fileHandler->CreateDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $folderName);
             }
         }
 
         return $this->render('index', [
-            'htmlroot' => $htmlroot,
+            'htmlRoot' => $htmlRoot,
             'root' => $root,
             'path' => $path,
-            'upload_count' => self::FILES_UPLOAD_COUNT,
+            'uploadCount' => self::FILES_UPLOAD_COUNT,
         ]);
     }
 
@@ -153,7 +153,7 @@ class FileController extends AdminController
 
     private function uploadPostFile(
         string $field,
-        string $curpath,
+        string $currentPath,
         File $fileHandler,
         ImageHandler $imageHandler
     ): bool {
@@ -168,7 +168,7 @@ class FileController extends AdminController
         $slug = Transliterator::slug($uploaded->getFilename() ?: '');
         $extension = $uploaded->getExtension() ?: '';
 
-        $file = $curpath . '/' . $slug . '.' . $extension;
+        $file = $currentPath . '/' . $slug . '.' . $extension;
 
         if (!$uploaded->move($file)) {
             $success = true;
@@ -180,7 +180,7 @@ class FileController extends AdminController
             if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
                 $orig
                     ->thumb(self::THUMB_IMAGE_WIDTH, false)
-                    ->save($curpath . '/' . $slug . '_prev.' . $extension);
+                    ->save($currentPath . '/' . $slug . '_prev.' . $extension);
             }
         }
 

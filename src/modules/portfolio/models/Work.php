@@ -38,7 +38,7 @@ class Work extends ActiveRecord
     public const IMAGE_WIDTH = 250;
     public const IMAGE_PATH = 'upload/images/portfolio';
 
-    public $del_image = false;
+    public $delImage = false;
 
     public static function tableName(): string
     {
@@ -56,7 +56,7 @@ class Work extends ActiveRecord
             [['date', 'category_id', 'alias', 'title'], 'required'],
             [['sort', 'public', 'image_show'], 'integer'],
             ['category_id', 'exist', 'targetClass' => Category::class],
-            [['short', 'text', 'description', 'del_image'], 'safe'],
+            [['short', 'text', 'description', 'delImage'], 'safe'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
             [['title', 'alias', 'pagetitle'], 'string', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#s'],
@@ -83,7 +83,7 @@ class Work extends ActiveRecord
             'short' => 'Превью',
             'text' => 'Текст',
             'image' => 'Картинка для статьи',
-            'del_image' => 'Удалить изображение',
+            'delImage' => 'Удалить изображение',
             'image_show' => 'Отображать при открытии',
             'public' => 'Опубликовано',
         ];
@@ -113,7 +113,7 @@ class Work extends ActiveRecord
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
-                'deleteAttribute' => 'del_image',
+                'deleteAttribute' => 'delImage',
                 'enableWatermark' => true,
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,

@@ -7,10 +7,10 @@ use yii\web\View;
 /**
  * @var View $this
  * @var File $model
- * @var string $htmlroot
+ * @var string $htmlRoot
  * @var string $root
  * @var string $path
- * @var integer $upload_count
+ * @var integer $uploadCount
  */
 
 $this->title = 'Файловый менеджер';
@@ -31,7 +31,7 @@ $nav = '';
 ?>
 
 <h3>
-    <a href="<?= Url::to(['index']) ?>"><?= $htmlroot ?></a>
+    <a href="<?= Url::to(['index']) ?>"><?= $htmlRoot ?></a>
     <?php foreach ($folders as $folder) : ?>
         <?php $nav .= $nav ? '/' . $folder : $folder; ?>
 
@@ -89,7 +89,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                     <td>
                         <a class="floatright" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
                         <img src="/images/admin/fileicon.jpg">
-                        <a href="<?= $htmlroot . '/' . ($path ? $path . '/' : '') . $file->getBasename() ?>"><?= $file->getBasename() ?></a>
+                        <a href="<?= $htmlRoot . '/' . ($path ? $path . '/' : '') . $file->getBasename() ?>"><?= $file->getBasename() ?></a>
                     </td>
                     <td style="text-align: center">
                         <?= $file->getSize() ?>
@@ -114,7 +114,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 
 <?= Html::beginForm() ?>
 
-<?= Html::textInput('foldername', '', ['size' => 30]) ?>
+<?= Html::textInput('folderName', '', ['size' => 30]) ?>
 <?= Html::submitButton('Создать директорию') ?>
 
 <?= Html::endForm() ?>
@@ -127,7 +127,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
     ]) ?>
 
     <p>
-        <?php for ($i = 1; $i <= $upload_count; $i++) : ?>
+        <?php for ($i = 1; $i <= $uploadCount; $i++) : ?>
             <?= Html::fileInput('file_' . $i) ?><br />
         <?php endfor; ?>
     </p>
