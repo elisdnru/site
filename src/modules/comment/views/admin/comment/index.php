@@ -9,7 +9,7 @@ use yii\web\View;
 /**
  * @var View $this
  * @var ActiveRecord $material
- * @var ActiveDataProvider $dataPrvider
+ * @var ActiveDataProvider $dataProvider
  */
 
 $this->title = 'Комментарии';

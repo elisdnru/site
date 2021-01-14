@@ -1164,9 +1164,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$material !== null</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$dataProvider</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
