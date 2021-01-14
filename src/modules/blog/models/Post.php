@@ -53,7 +53,7 @@ class Post extends ActiveRecord implements Material
 
     public string $delImage = '';
 
-    public string $newgroup = '';
+    public string $newGroup = '';
 
     protected ?string $tags_string = null;
 
@@ -77,7 +77,7 @@ class Post extends ActiveRecord implements Material
             [['public', 'image_show'], 'integer'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
             [['styles', 'short', 'text', 'description', 'delImage'], 'safe'],
-            [['title', 'alias', 'newgroup', 'image_alt', 'pagetitle'], 'string', 'max' => '255'],
+            [['title', 'alias', 'newGroup', 'image_alt', 'pagetitle'], 'string', 'max' => '255'],
             ['tagsString', 'string', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
@@ -140,7 +140,7 @@ class Post extends ActiveRecord implements Material
             'image_alt' => 'Описание изображения (по умолчанию как заголовок)',
             'image_show' => 'Отображать при открытии новости',
             'group_id' => 'Выберите тематическую группу',
-            'newgroup' => '...или введите имя новой',
+            'newGroup' => '...или введите имя новой',
             'public' => 'Опубликовано',
         ];
     }
@@ -229,12 +229,12 @@ class Post extends ActiveRecord implements Material
 
     private function processThematicGroup(): void
     {
-        if ($this->newgroup) {
+        if ($this->newGroup) {
             $group = new Group();
-            $group->title = $this->newgroup;
+            $group->title = $this->newGroup;
             if ($group->save()) {
                 $this->group_id = $group->id;
-                $this->newgroup = '';
+                $this->newGroup = '';
             }
         }
     }

@@ -100,10 +100,10 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'group_id', ['class' => 'errorMessage']) ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('newgroup') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'newgroup') ?><br />
-                <?= Html::activeTextInput($model, 'newgroup', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'newgroup', ['class' => 'errorMessage']) ?>
+            <div class="row<?= $model->hasErrors('newGroup') ? ' error' : '' ?>">
+                <?= Html::activeLabel($model, 'newGroup') ?><br />
+                <?= Html::activeTextInput($model, 'newGroup', ['size' => 60, 'maxlength' => 255]) ?><br />
+                <?= Html::error($model, 'newGroup', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>
 
