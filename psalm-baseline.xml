@@ -1164,6 +1164,9 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$material !== null</code>
     </RedundantConditionGivenDocblockType>
+    <UndefinedGlobalVariable occurrences="1">
+      <code>$dataProvider</code>
+    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
@@ -1986,6 +1989,10 @@
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
+    <TypeDoesNotContainType occurrences="2">
+      <code>YII_ENV_TEST</code>
+      <code>YII_ENV_TEST</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">
