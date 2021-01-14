@@ -37,7 +37,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h1>Услуги по интернет-разработке</h1>
 
     <div class="text">
-        <?= PortfolioWidget::widget(['limit' => 7]) ?>
+        <?= PortfolioWidget::widget(['limit' => 3]) ?>
 
         <div style="width: 400px; float: right; margin-top: -20px;">
             <p style="text-align: right; margin-bottom: 20px;"><img src="/images/services.jpg" width="400" height="300" alt="" /></p>

@@ -56,9 +56,6 @@ module.exports = {
         'jquery.js': [
           'assets/js/jquery.js'
         ],
-        'jcarousellite.js': [
-          'assets/js/jquery.jcarousellite.js'
-        ],
         'colorbox.js': [
           'assets/js/jquery.colorbox.js',
           'assets/js/colorbox.js'
@@ -71,7 +68,6 @@ module.exports = {
         'main.js': code => minify(code).code,
         'jquery.js': code => minify(code).code,
         'comments.js': code => minify(code).code,
-        'jcarousellite.js': code => minify(code).code,
         'colorbox.js': code => minify(code).code,
         'countdown.js': code => minify(code).code
       }

@@ -1,5 +1,4 @@
 <?php
-use app\assets\CarouselAsset;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -9,8 +8,6 @@ use yii\web\View;
  * @var View $this
  * @var Work[] $items
  */
-
-CarouselAsset::register($this);
 ?>
 
 <div class="portfolio ribbed">
@@ -31,22 +28,3 @@ CarouselAsset::register($this);
         </ul>
     </div>
 </div>
-
-<script>
-<?php ob_start() ?>
-
-jQuery(function($) {
-    $(function () {
-        $('.portfolioSlider').jCarouselLite({
-            circular: false,
-            speed: 800,
-            scroll: 2,
-            visible: 4,
-            btnNext: '.carouselNextLink',
-            btnPrev: '.carouselPrevLink'
-        });
-    });
-});
-
-<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
-</script>
