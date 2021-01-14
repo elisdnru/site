@@ -14,7 +14,6 @@ module.exports = {
     'admin-bar': './assets/css/admin-bar.css',
     comments: './assets/css/comments.css',
     portfolio: './assets/css/portfolio.css',
-    colorbox: './assets/css/colorbox.css',
     highlight: './assets/css/highlight.css'
   },
   output: {
@@ -56,10 +55,6 @@ module.exports = {
         'jquery.js': [
           'assets/js/jquery.js'
         ],
-        'colorbox.js': [
-          'assets/js/jquery.colorbox.js',
-          'assets/js/colorbox.js'
-        ],
         'countdown.js': [
           'assets/js/countdown.js'
         ],
@@ -68,7 +63,6 @@ module.exports = {
         'main.js': code => minify(code).code,
         'jquery.js': code => minify(code).code,
         'comments.js': code => minify(code).code,
-        'colorbox.js': code => minify(code).code,
         'countdown.js': code => minify(code).code
       }
     })

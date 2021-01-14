@@ -1,5 +1,4 @@
 <?php
-use app\assets\ColorboxAsset;
 use app\assets\PortfolioAsset;
 use app\widgets\Share;
 use app\modules\portfolio\models\Work;
@@ -34,7 +33,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 
 PortfolioAsset::register($this);
-ColorboxAsset::register($this);
 ?>
 
 <?php if (!$model->public) : ?>
@@ -62,7 +60,7 @@ ColorboxAsset::register($this);
                 ?>
 
                 <p class="thumb">
-                    <a class="lightbox" href="<?= $model->getImageUrl() ?>"><?= Html::img($model->getImageThumbUrl(), $properties) ?></a>
+                    <a href="<?= $model->getImageUrl() ?>"><?= Html::img($model->getImageThumbUrl(), $properties) ?></a>
                 </p>
 
             <?php endif; ?>
