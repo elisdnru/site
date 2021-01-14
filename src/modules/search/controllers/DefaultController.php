@@ -5,7 +5,6 @@ namespace app\modules\search\controllers;
 use app\modules\search\models\Search;
 use yii\web\Controller;
 use app\modules\search\forms\SearchForm;
-use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\Connection;
 use yii\web\Request;

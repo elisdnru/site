@@ -23,16 +23,13 @@ class Pluraliser
         switch ($l1) {
             case 1:
                 return $input[0];
-                break;
             case 2:
             case 3:
             case 4:
                 return $input[1];
-                break;
             case 0:
             default:
                 return $input[2];
-                break;
         }
     }
 }

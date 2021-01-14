@@ -17,7 +17,6 @@ use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
-use yii\web\Session;
 use yii\web\User as WebUser;
 
 class FileController extends AdminController

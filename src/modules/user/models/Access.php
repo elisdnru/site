@@ -23,13 +23,10 @@ class Access
         switch ($role) {
             case self::ROLE_USER:
                 return 'Пользователь';
-                break;
             case self::ROLE_MANAGER:
                 return 'Контент-менеджер';
-                break;
             case self::ROLE_ADMIN:
                 return 'Администратор';
-                break;
         }
         return '';
     }

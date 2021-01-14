@@ -115,25 +115,21 @@ class ImageHandler
                         return $result;
                     }
                     throw new RuntimeException('Invalid image gif format');
-                    break;
                 case self::IMG_JPEG:
                     if ($result['image'] = imagecreatefromjpeg($file)) {
                         return $result;
                     }
                     throw new RuntimeException('Invalid image jpeg format');
-                    break;
                 case self::IMG_PNG:
                     if ($result['image'] = imagecreatefrompng($file)) {
                         return $result;
                     }
                     throw new RuntimeException('Invalid image png format');
-                    break;
                 case self::IMG_WEBP:
                     if ($result['image'] = imagecreatefromwebp($file)) {
                         return $result;
                     }
                     throw new RuntimeException('Invalid image png format');
-                    break;
                 default:
                     throw new RuntimeException('Not supported image format');
             }

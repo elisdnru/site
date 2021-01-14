@@ -1,5 +1,5 @@
 <?php
-use app\modules\page\models\Page;
+
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
