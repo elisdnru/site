@@ -5,6 +5,7 @@ namespace app\modules\file\controllers\admin;
 use app\components\FileNameFilter;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
+use app\modules\file\forms\RenameForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\components\AdminController;
@@ -40,7 +41,6 @@ class FileController extends AdminController
             [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'rename' => ['post'],
                     'process' => ['post'],
                 ],
             ]
@@ -110,31 +110,45 @@ class FileController extends AdminController
         return null;
     }
 
-    public function actionRename(string $path, Request $request, File $fileHandler): ?Response
+    /**
+     * @param string $path
+     * @param string $name
+     * @param Request $request
+     * @param File $fileHandler
+     * @return string|Response
+     * @throws BadRequestHttpException
+     * @throws NotFoundHttpException
+     */
+    public function actionRename(string $path, string $name, Request $request, File $fileHandler)
     {
-        $name = FileNameFilter::escape($request->post('name'));
-        $to = FileNameFilter::escape($request->post('to'));
+        $form = new RenameForm();
+        $form->name = $name;
 
-        if (!$name || !$to) {
-            throw new BadRequestHttpException('Некорректный запрос');
+        if ($form->load((array)$request->post()) && $form->validate()) {
+            $path = FileNameFilter::escape($path);
+            $name = FileNameFilter::escape($name);
+
+            $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
+
+            if (!$file) {
+                throw new NotFoundHttpException();
+            }
+
+            $to = FileNameFilter::escape($form->name);
+
+            if (!$file->rename($this->getFileDir() . '/' . $path . '/' . $to)) {
+                throw new BadRequestHttpException('Ошибка переименования');
+            }
+
+            if (!$request->getIsAjax()) {
+                return $this->redirect(['index', 'path' => $path]);
+            }
         }
 
-        $name = ($path ? $path . '/' : '') . $name;
-
-        $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
-
-        if (!$file) {
-            throw new NotFoundHttpException();
-        }
-
-        if (!$file->rename($to)) {
-            throw new BadRequestHttpException('Ошибка переименования');
-        }
-
-        if (!$request->getIsAjax()) {
-            return $this->redirect(['index', 'path' => $path]);
-        }
-        return null;
+        return $this->render('rename', [
+            'model' => $form,
+            'path' => $path,
+        ]);
     }
 
     private function uploadPostFile(
@@ -171,37 +185,6 @@ class FileController extends AdminController
         }
 
         return $success;
-    }
-
-    public function actionProcess(string $path, Request $request, Session $session, File $fileHandler): ?Response
-    {
-        $action = $request->post('action');
-
-        if ($action) {
-            $curpath = $this->getFileDir() . ($path ? '/' . $path : '');
-            $dir = $fileHandler->set($curpath);
-
-            foreach ($dir->getContents() as $item) {
-                $file = $fileHandler->set($item);
-
-                if ($file->getBasename() !== '.htaccess') {
-                    switch ($action) {
-                        case 'del':
-                            if ($request->post('del_' . md5($file->getBasename()))) {
-                                if ($file->Delete()) {
-                                    $session->setFlash('success', 'Удалено');
-                                }
-                            }
-                            break;
-                    }
-                }
-            }
-        }
-
-        if (!$request->getIsAjax()) {
-            return $this->redirect(['index', 'path' => $path]);
-        }
-        return null;
     }
 
     private function getFileDir(): string
