@@ -7,14 +7,9 @@ use yii\helpers\Html;
 
 class Portlet extends Widget
 {
-    public string $url = '';
-
-    public string $tagName = 'div';
     public array $htmlOptions = ['class' => 'portlet'];
+    public ?string $url = null;
     public ?string $title = null;
-    public string $decorationCssClass = 'portlet-decoration';
-    public string $titleCssClass = 'portlet-title';
-    public string $contentCssClass = 'portlet-content';
     public bool $hideOnEmpty = true;
 
     private string $openTag = '';
@@ -24,9 +19,9 @@ class Portlet extends Widget
         ob_start();
         ob_implicit_flush(false);
 
-        echo Html::beginTag($this->tagName, $this->htmlOptions) . "\n";
+        echo Html::beginTag('div', $this->htmlOptions) . "\n";
         $this->renderDecoration();
-        echo "<div class=\"{$this->contentCssClass}\">\n";
+        echo "<div class=\"portlet-content\">\n";
 
         $this->openTag = ob_get_contents();
         ob_clean();
@@ -41,20 +36,18 @@ class Portlet extends Widget
         $result = $this->openTag;
         $result .= $content;
         $result .= "</div>\n";
-        $result .= Html::endTag($this->tagName);
+        $result .= Html::endTag('div');
         return $result;
     }
 
     private function renderDecoration(): void
     {
         if ($this->title !== null) {
-            echo "<div class=\"{$this->decorationCssClass}\">\n";
             if ($this->url) {
-                echo "<div class=\"{$this->titleCssClass}\"><span><a href=\"{$this->url}\">{$this->title}</a></span></div>\n";
+                echo "<div class=\"portlet-title\"><span><a href=\"{$this->url}\">{$this->title}</a></span></div>\n";
             } else {
-                echo "<div class=\"{$this->titleCssClass}\"><span>{$this->title}</span></div>\n";
+                echo "<div class=\"portlet-title\"><span>{$this->title}</span></div>\n";
             }
-            echo "</div>\n";
         }
     }
 }
