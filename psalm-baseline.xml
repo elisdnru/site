@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.3.2@57b53ff26237074fdf5cbcb034f7da5172be4524">
+<files psalm-version="4.4.0@ef4afd72bca50a0aff61599d3e433c9ee64287ac">
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -1309,27 +1309,15 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/file/controllers/admin/FileController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="1">
       <code>$foldername</code>
-      <code>$item</code>
-      <code>$request-&gt;post('name')</code>
-      <code>$request-&gt;post('to')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$action</code>
+    <MixedAssignment occurrences="1">
       <code>$foldername</code>
-      <code>$item</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$foldername</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$request-&gt;post('name')</code>
-      <code>$request-&gt;post('to')</code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$file-&gt;getBasename()</code>
-    </PossiblyNullArgument>
     <TypeDoesNotContainType occurrences="2">
       <code>$file</code>
       <code>$file</code>
@@ -1362,8 +1350,7 @@
       <code>$contents</code>
       <code>$item</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="7">
-      <code>$file-&gt;getBasename()</code>
+    <PossiblyNullArgument occurrences="6">
       <code>$file-&gt;getBasename()</code>
       <code>$file-&gt;getBasename()</code>
       <code>$file-&gt;getBasename()</code>
@@ -1371,8 +1358,7 @@
       <code>$file-&gt;getTimeModified()</code>
       <code>$file-&gt;getTimeModified()</code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="4">
-      <code>$file-&gt;getBasename()</code>
+    <PossiblyNullOperand occurrences="3">
       <code>$file-&gt;getBasename()</code>
       <code>$file-&gt;getBasename()</code>
       <code>$file-&gt;getBasename()</code>
