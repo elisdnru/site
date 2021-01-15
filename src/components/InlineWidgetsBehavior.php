@@ -13,16 +13,12 @@ class InlineWidgetsBehavior extends Behavior
     public array $widgets = [];
 
     private CacheInterface $cache;
-    private ?string $widgetToken = null;
+    private string $widgetToken;
 
     public function __construct(CacheInterface $cache, array $config = [])
     {
         parent::__construct($config);
         $this->cache = $cache;
-    }
-
-    public function init(): void
-    {
         $this->widgetToken = md5(microtime());
     }
 
