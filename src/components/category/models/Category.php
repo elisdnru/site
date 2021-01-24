@@ -3,7 +3,7 @@
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryBehavior;
-use app\components\Transliterator;
+use app\components\Slugger;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
@@ -82,7 +82,7 @@ abstract class Category extends ActiveRecord
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = Transliterator::slug($this->title);
+            $this->alias = Slugger::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

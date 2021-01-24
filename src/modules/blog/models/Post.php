@@ -3,8 +3,8 @@
 namespace app\modules\blog\models;
 
 use app\components\purifier\PurifyTextBehavior;
+use app\components\Slugger;
 use app\components\uploader\FileUploadBehavior;
-use app\components\Transliterator;
 use app\modules\blog\models\query\PostQuery;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
@@ -214,7 +214,7 @@ class Post extends ActiveRecord implements Material
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = Transliterator::slug($this->title);
+            $this->alias = Slugger::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

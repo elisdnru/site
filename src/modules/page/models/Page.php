@@ -4,7 +4,7 @@ namespace app\modules\page\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
-use app\components\Transliterator;
+use app\components\Slugger;
 use app\modules\page\models\query\PageQuery;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -180,7 +180,7 @@ class Page extends ActiveRecord
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
-            $this->alias = Transliterator::slug($this->title);
+            $this->alias = Slugger::slug($this->title);
         }
         if (!$this->pagetitle) {
             $this->pagetitle = strip_tags($this->title);

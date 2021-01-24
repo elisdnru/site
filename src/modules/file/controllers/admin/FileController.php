@@ -3,13 +3,13 @@
 namespace app\modules\file\controllers\admin;
 
 use app\components\FileNameFilter;
+use app\components\Slugger;
 use app\extensions\file\File;
 use app\extensions\image\ImageHandler;
 use app\modules\file\forms\RenameForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\components\AdminController;
-use app\components\Transliterator;
 use Yii;
 use yii\base\Module;
 use yii\filters\VerbFilter;
@@ -164,7 +164,7 @@ class FileController extends AdminController
             throw new BadRequestHttpException('Отказано в доступе к загрузке файла .htaccess');
         }
 
-        $slug = Transliterator::slug($uploaded->getFilename() ?: '');
+        $slug = Slugger::slug($uploaded->getFilename() ?: '');
         $extension = $uploaded->getExtension() ?: '';
 
         $file = $currentPath . '/' . $slug . '.' . $extension;

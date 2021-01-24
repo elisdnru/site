@@ -10,9 +10,4 @@ class Transliterator
     {
         return Inflector::transliterate($string);
     }
-
-    public static function slug(string $string): string
-    {
-        return Inflector::slug($string);
-    }
 }
