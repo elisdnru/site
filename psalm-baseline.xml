@@ -2142,6 +2142,21 @@
       <code>m191023_111426_remove_comments_count</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/user/migrations/m201030_155612_remove_middlename.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201030_155612_remove_middlename</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m201030_162824_rename_password.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201030_162824_rename_password</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/user/migrations/m201030_165531_rename_name.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m201030_165531_rename_name</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/user/views/admin/user/index.php">
     <MixedAssignment occurrences="1">
       <code>$user</code>

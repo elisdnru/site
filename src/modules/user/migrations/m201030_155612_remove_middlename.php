@@ -4,11 +4,6 @@ use yii\db\Migration;
 
 class m201030_155612_remove_middlename extends Migration
 {
-    /**
-     * @var int|null
-     */
-    public $maxSqlOutputLength = null;
-
     public function safeUp()
     {
         $this->dropColumn('users', 'middlename');
