@@ -13,7 +13,7 @@ class PostSearch extends Post
     {
         return [
             [['id', 'date', 'category_id', 'author_id', 'title'], 'safe'],
-            [['pagetitle', 'description', 'image_alt', 'text', 'public'], 'safe'],
+            [['meta_title', 'meta_description', 'image_alt', 'text', 'public'], 'safe'],
         ];
     }
 

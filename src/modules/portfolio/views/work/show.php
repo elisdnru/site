@@ -14,8 +14,8 @@ use yii\web\View;
 
 $this->context->layout = 'index';
 
-$this->title = $model->pagetitle;
-$this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
+$this->title = $model->meta_title;
+$this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
 
 $this->params['breadcrumbs'] = [
     'Портфолио' => ['/portfolio/default/index']
@@ -91,6 +91,6 @@ PortfolioAsset::register($this);
 
 <?= Share::widget([
     'title' => $model->title,
-    'description' => $model->description,
+    'description' => $model->meta_description,
     'image' => $model->getImageUrl(),
 ]) ?>

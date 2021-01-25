@@ -16,8 +16,8 @@ use yii\helpers\Url;
  * @property string $date
  * @property string $title
  * @property string $hidetitle
- * @property string $pagetitle
- * @property string $description
+ * @property string $meta_title
+ * @property string $meta_description
  * @property string $robots
  * @property string $styles
  * @property string $text
@@ -70,9 +70,9 @@ class Page extends ActiveRecord
         return [
             [['alias', 'title'], 'required'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
-            [['alias', 'title', 'pagetitle', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
+            [['alias', 'title', 'meta_title', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
             [['hidetitle', 'parent_id'], 'integer'],
-            [['date', 'styles', 'text', 'description', 'system'], 'safe'],
+            [['date', 'styles', 'text', 'meta_description', 'system'], 'safe'],
         ];
     }
 
@@ -101,8 +101,8 @@ class Page extends ActiveRecord
             'date' => 'Дата создания',
             'title' => 'Заголовок',
             'hidetitle' => 'Скрыть заголовок',
-            'pagetitle' => 'Заголовок окна (title)',
-            'description' => 'Описание (description)',
+            'meta_title' => 'Заголовок окна (title)',
+            'meta_description' => 'Описание (meta_description)',
             'robots' => 'Индексация (robots)',
             'system' => 'Системная',
             'styles' => 'CSS стили',
@@ -182,8 +182,8 @@ class Page extends ActiveRecord
         if (!$this->alias) {
             $this->alias = Slugger::slug($this->title);
         }
-        if (!$this->pagetitle) {
-            $this->pagetitle = strip_tags($this->title);
+        if (!$this->meta_title) {
+            $this->meta_title = strip_tags($this->title);
         }
     }
 

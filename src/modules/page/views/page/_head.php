@@ -9,9 +9,9 @@ use yii\web\View;
  * @var Page $page
  */
 
-$this->title = $page->pagetitle ?: $page->title;
+$this->title = $page->meta_title ?: $page->title;
 
-$this->registerMetaTag(['name' => 'description', 'content' => $page->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $page->meta_description]);
 
 $this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [];
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.4.0@ef4afd72bca50a0aff61599d3e433c9ee64287ac">
+<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -64,16 +64,6 @@
       <code>$text</code>
       <code>$text</code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="8">
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-      <code>$this-&gt;widgetToken</code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/components/category/TreeActiveDataProvider.php">
     <DocblockTypeContradiction occurrences="1">
@@ -747,6 +737,15 @@
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m201213_171234_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/blog/migrations/m210125_100812_rename_meta.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeDown</code>
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m210125_100812_rename_meta</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
@@ -1542,6 +1541,15 @@
       <code>m201213_171235_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/page/migrations/m210125_100813_rename_meta.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeDown</code>
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m210125_100813_rename_meta</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/page/models/query/PageQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Page[]|BatchQueryResult</code>
@@ -1673,6 +1681,15 @@
     </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m201213_171236_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/modules/portfolio/migrations/m210125_100814_rename_meta.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeDown</code>
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m210125_100814_rename_meta</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/models/Work.php">
@@ -1986,10 +2003,6 @@
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
-    <TypeDoesNotContainType occurrences="2">
-      <code>YII_ENV_TEST</code>
-      <code>YII_ENV_TEST</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/modules/user/controllers/RemindController.php">
     <MissingPropertyType occurrences="1">

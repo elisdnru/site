@@ -8,8 +8,8 @@ return [
         'title' => 'Category 1',
         'text' => '<p>Category 1</p>',
         'parent_id' => 2,
-        'pagetitle' => '',
-        'description' => '',
+        'meta_title' => '',
+        'meta_description' => '',
     ],
     'parent_category' => [
         'id' => 2,
@@ -18,8 +18,8 @@ return [
         'title' => 'Category 2',
         'text' => '<p>Category 2</p>',
         'parent_id' => null,
-        'pagetitle' => 'Title 2',
-        'description' => '',
+        'meta_title' => 'Title 2',
+        'meta_description' => '',
     ],
     'category_with_posts' => [
         'id' => 3,
@@ -28,8 +28,8 @@ return [
         'title' => 'Category 3',
         'text' => '<p>Category 3</p>',
         'parent_id' => null,
-        'pagetitle' => '',
-        'description' => '',
+        'meta_title' => '',
+        'meta_description' => '',
     ],
     'category_without_posts' => [
         'id' => 4,
@@ -38,7 +38,7 @@ return [
         'title' => 'Category 4',
         'text' => '<p>Category 4</p>',
         'parent_id' => null,
-        'pagetitle' => '',
-        'description' => '',
+        'meta_title' => '',
+        'meta_description' => '',
     ],
 ];

@@ -16,11 +16,11 @@ use yii\web\View;
 
 $this->context->layout = 'index';
 
-$this->title = $category->pagetitle . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
+$this->title = $category->meta_title . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $category->description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
+    'content' => $category->meta_description . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
 ]);
 
 $this->params['breadcrumbs'] = [

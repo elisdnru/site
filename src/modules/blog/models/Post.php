@@ -23,8 +23,8 @@ use yii\helpers\Url;
  * @property integer $author_id
  * @property string $alias
  * @property string $title
- * @property string $pagetitle
- * @property string $description
+ * @property string $meta_title
+ * @property string $meta_description
  * @property string $styles
  * @property string $short
  * @property string $short_purified
@@ -76,8 +76,8 @@ class Post extends ActiveRecord implements Material
             ['group_id', 'exist', 'targetClass' => Group::class, 'targetAttribute' => 'id'],
             [['public', 'image_show'], 'integer'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['styles', 'short', 'text', 'description', 'delImage'], 'safe'],
-            [['title', 'alias', 'newGroup', 'image_alt', 'pagetitle'], 'string', 'max' => '255'],
+            [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
+            [['title', 'alias', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
             ['tagsString', 'string', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
@@ -130,8 +130,8 @@ class Post extends ActiveRecord implements Material
             'author_id' => 'Автор',
             'title' => 'Заголовок',
             'alias' => 'URL транслитом',
-            'pagetitle' => 'Заголовок страницы (title)',
-            'description' => 'Описание (description)',
+            'meta_title' => 'Заголовок страницы (title)',
+            'meta_description' => 'Описание (meta_description)',
             'styles' => 'CSS стили',
             'short' => 'Превью',
             'text' => 'Текст',
@@ -216,11 +216,11 @@ class Post extends ActiveRecord implements Material
         if (!$this->alias) {
             $this->alias = Slugger::slug($this->title);
         }
-        if (!$this->pagetitle) {
-            $this->pagetitle = strip_tags($this->title);
+        if (!$this->meta_title) {
+            $this->meta_title = strip_tags($this->title);
         }
-        if (!$this->description) {
-            $this->description = strip_tags($this->short);
+        if (!$this->meta_description) {
+            $this->meta_description = strip_tags($this->short);
         }
         if (!$this->image_alt) {
             $this->image_alt = $this->title;

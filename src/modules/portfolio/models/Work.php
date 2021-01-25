@@ -16,8 +16,8 @@ use yii\helpers\Url;
  * @property string $category_id
  * @property string $alias
  * @property string $title
- * @property string $pagetitle
- * @property string $description
+ * @property string $meta_title
+ * @property string $meta_description
  * @property string $short
  * @property string $short_purified
  * @property string $text
@@ -56,9 +56,9 @@ class Work extends ActiveRecord
             [['date', 'category_id', 'alias', 'title'], 'required'],
             [['sort', 'public', 'image_show'], 'integer'],
             ['category_id', 'exist', 'targetClass' => Category::class],
-            [['short', 'text', 'description', 'delImage'], 'safe'],
+            [['short', 'text', 'meta_description', 'delImage'], 'safe'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['title', 'alias', 'pagetitle'], 'string', 'max' => '255'],
+            [['title', 'alias', 'meta_title'], 'string', 'max' => '255'],
             ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#s'],
             ['alias', 'unique'],
         ];
@@ -78,8 +78,8 @@ class Work extends ActiveRecord
             'category_id' => 'Раздел',
             'title' => 'Заголовок',
             'alias' => 'URL транслитом',
-            'pagetitle' => 'Заголовок страницы (title)',
-            'description' => 'Описание (description)',
+            'meta_title' => 'Заголовок страницы (title)',
+            'meta_description' => 'Описание (meta_description)',
             'short' => 'Превью',
             'text' => 'Текст',
             'image' => 'Картинка для статьи',
@@ -134,11 +134,11 @@ class Work extends ActiveRecord
 
     private function fillDefaultValues(): void
     {
-        if (!$this->pagetitle) {
-            $this->pagetitle = strip_tags($this->title);
+        if (!$this->meta_title) {
+            $this->meta_title = strip_tags($this->title);
         }
-        if (!$this->description) {
-            $this->description = strip_tags($this->short);
+        if (!$this->meta_description) {
+            $this->meta_description = strip_tags($this->short);
         }
     }
 

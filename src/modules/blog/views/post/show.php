@@ -26,9 +26,9 @@ use yii\web\View;
 
 $this->context->layout = 'post';
 
-$this->title = $model->pagetitle;
+$this->title = $model->meta_title;
 
-$this->registerMetaTag(['name' => 'description', 'content' => $model->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
 
 $this->params['breadcrumbs'] = [
     'Блог' => ['/blog']
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'] = [
 $host = Yii::$app->request->getHostInfo();
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
-$this->registerMetaTag(['property' => 'og:description', 'content' => $model->description]);
+$this->registerMetaTag(['property' => 'og:meta_description', 'content' => $model->meta_description]);
 $this->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->getUrl()]);
 
 if ($model->image) {
@@ -137,7 +137,7 @@ HighlightAsset::register($this);
 
     <?= Share::widget([
         'title' => $model->title,
-        'description' => $model->description,
+        'description' => $model->meta_description,
         'image' => $model->getImageUrl(),
     ]) ?>
 

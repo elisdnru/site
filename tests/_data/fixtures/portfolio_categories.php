@@ -8,8 +8,8 @@ return [
         'title' => 'Category 1',
         'text' => '<p>Category 1</p>',
         'parent_id' => 2,
-        'pagetitle' => '',
-        'description' => '',
+        'meta_title' => '',
+        'meta_description' => '',
     ],
     'parent_category' => [
         'id' => 2,
@@ -18,7 +18,7 @@ return [
         'title' => 'Category 2',
         'text' => '<p>Category 2</p>',
         'parent_id' => null,
-        'pagetitle' => 'Title 2',
-        'description' => '',
+        'meta_title' => 'Title 2',
+        'meta_description' => '',
     ],
 ];

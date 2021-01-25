@@ -7,14 +7,14 @@ use yii\helpers\Html;
 
 <fieldset>
     <h4>Мета-информация</h4>
-    <div class="row<?= $model->hasErrors('pagetitle') ? ' error' : '' ?>">
-        <?= Html::activeLabel($model, 'pagetitle') ?><br />
-        <?= Html::activeTextInput($model, 'pagetitle') ?><br />
-        <?= Html::error($model, 'pagetitle', ['class' => 'errorMessage']) ?>
+    <div class="row<?= $model->hasErrors('meta_title') ? ' error' : '' ?>">
+        <?= Html::activeLabel($model, 'meta_title') ?><br />
+        <?= Html::activeTextInput($model, 'meta_title') ?><br />
+        <?= Html::error($model, 'meta_title', ['class' => 'errorMessage']) ?>
     </div>
-    <div class="row<?= $model->hasErrors('description') ? ' error' : '' ?>">
-        <?= Html::activeLabel($model, 'description') ?><br />
-        <?= Html::activeTextarea($model, 'description', ['rows' => 3, 'cols' => 80]) ?><br />
-        <?= Html::error($model, 'description', ['class' => 'errorMessage']) ?>
+    <div class="row<?= $model->hasErrors('meta_description') ? ' error' : '' ?>">
+        <?= Html::activeLabel($model, 'meta_description') ?><br />
+        <?= Html::activeTextarea($model, 'meta_description', ['rows' => 3, 'cols' => 80]) ?><br />
+        <?= Html::error($model, 'meta_description', ['class' => 'errorMessage']) ?>
     </div>
 </fieldset>

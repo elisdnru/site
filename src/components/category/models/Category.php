@@ -13,8 +13,8 @@ use yii\helpers\Url;
  * @property string $alias
  * @property string $title
  * @property string $text
- * @property string $pagetitle
- * @property string $description
+ * @property string $meta_title
+ * @property string $meta_description
  *
  * @mixin CategoryBehavior
  */
@@ -38,8 +38,8 @@ abstract class Category extends ActiveRecord
             [['alias', 'title'], 'required'],
             ['alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['sort', 'integer'],
-            [['alias', 'title', 'pagetitle'], 'string', 'max' => 255],
-            [['text', 'description'], 'string'],
+            [['alias', 'title', 'meta_title'], 'string', 'max' => 255],
+            [['text', 'meta_description'], 'string'],
         ];
     }
 
@@ -56,8 +56,8 @@ abstract class Category extends ActiveRecord
             'alias' => 'URL транслитом',
             'title' => 'Наименование',
             'text' => 'Текст',
-            'pagetitle' => 'Заголовок окна',
-            'description' => 'Описание',
+            'meta_title' => 'Заголовок окна',
+            'meta_description' => 'Описание',
         ];
     }
 
@@ -84,11 +84,11 @@ abstract class Category extends ActiveRecord
         if (!$this->alias) {
             $this->alias = Slugger::slug($this->title);
         }
-        if (!$this->pagetitle) {
-            $this->pagetitle = strip_tags($this->title);
+        if (!$this->meta_title) {
+            $this->meta_title = strip_tags($this->title);
         }
-        if (!$this->description) {
-            $this->description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
+        if (!$this->meta_description) {
+            $this->meta_description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
         }
     }
 
