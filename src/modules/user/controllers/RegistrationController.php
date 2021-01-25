@@ -14,6 +14,9 @@ use yii\web\Session;
 
 class RegistrationController extends Controller
 {
+    /**
+     * @psalm-suppress TypeDoesNotContainType
+     */
     public function actions(): array
     {
         return [
