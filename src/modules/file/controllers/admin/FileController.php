@@ -46,14 +46,7 @@ class FileController extends AdminController
         ]);
     }
 
-    /**
-     * @param File $fileHandler
-     * @param ImageHandler $imageHandler
-     * @param string $path
-     * @return string|Response
-     * @throws BadRequestHttpException
-     */
-    public function actionIndex(File $fileHandler, ImageHandler $imageHandler, string $path = '')
+    public function actionIndex(File $fileHandler, ImageHandler $imageHandler, string $path = ''): Response|string
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
         $htmlRoot = '/' . $this->getFileDir();
@@ -109,16 +102,7 @@ class FileController extends AdminController
         return null;
     }
 
-    /**
-     * @param string $path
-     * @param string $name
-     * @param Request $request
-     * @param File $fileHandler
-     * @return string|Response
-     * @throws BadRequestHttpException
-     * @throws NotFoundHttpException
-     */
-    public function actionRename(string $path, string $name, Request $request, File $fileHandler)
+    public function actionRename(string $path, string $name, Request $request, File $fileHandler): Response|string
     {
         $form = new RenameForm();
         $form->name = $name;

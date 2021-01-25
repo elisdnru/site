@@ -22,11 +22,7 @@ class LandingController extends AdminController
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @return string|Response
-     */
-    public function actionCreate(Request $request)
+    public function actionCreate(Request $request): Response|string
     {
         $model = new Landing();
         $model->parent_id = $request->get('parent');
@@ -40,13 +36,7 @@ class LandingController extends AdminController
         ]);
     }
 
-    /**
-     * @param int $id
-     * @param Request $request
-     * @return Response|string
-     * @throws NotFoundHttpException
-     */
-    public function actionUpdate(int $id, Request $request)
+    public function actionUpdate(int $id, Request $request): Response|string
     {
         $model = $this->loadModel($id);
 

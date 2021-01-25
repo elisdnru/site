@@ -46,11 +46,7 @@ class DefaultController extends Controller
         return $this->redirect(['index'], 301);
     }
 
-    /**
-     * @param string $tag
-     * @return Response|string
-     */
-    public function actionTag(string $tag)
+    public function actionTag(string $tag): Response|string
     {
         if (!$model = $this->loadTagModel($tag)) {
             return $this->redirect(['index']);

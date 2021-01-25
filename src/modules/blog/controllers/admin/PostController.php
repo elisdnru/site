@@ -23,12 +23,7 @@ class PostController extends AdminController
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @param User $user
-     * @return string|Response
-     */
-    public function actionCreate(Request $request, User $user)
+    public function actionCreate(Request $request, User $user): Response|string
     {
         $model = new Post();
         $model->public = 1;
@@ -47,13 +42,7 @@ class PostController extends AdminController
         ]);
     }
 
-    /**
-     * @param int $id
-     * @param Request $request
-     * @return Response|string
-     * @throws NotFoundHttpException
-     */
-    public function actionUpdate(int $id, Request $request)
+    public function actionUpdate(int $id, Request $request): Response|string
     {
         $model = $this->loadModel($id);
 

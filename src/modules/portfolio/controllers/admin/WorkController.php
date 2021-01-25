@@ -55,11 +55,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @return string|Response
-     */
-    public function actionCreate(Request $request)
+    public function actionCreate(Request $request): Response|string
     {
         $model = new Work();
         $model->public = 1;
@@ -75,13 +71,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    /**
-     * @param int $id
-     * @param Request $request
-     * @return Response|string
-     * @throws NotFoundHttpException
-     */
-    public function actionUpdate(int $id, Request $request)
+    public function actionUpdate(int $id, Request $request): Response|string
     {
         $model = $this->loadModel($id);
         if ($model->load((array)$request->post()) && $model->save()) {

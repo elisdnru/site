@@ -3,6 +3,7 @@
 namespace app\components\purifier;
 
 use app\extensions\markdown\MarkdownParser;
+use BadMethodCallException;
 use yii\base\Behavior;
 use yii\base\Component;
 use yii\db\ActiveRecord;
@@ -120,12 +121,9 @@ class PurifyTextBehavior extends Behavior
 
     private array $preContents = [];
 
-    /**
-     * @return ActiveRecord|Component
-     */
-    private function getModel(): ActiveRecord
+    private function getModel(): ActiveRecord|Component
     {
-        return $this->owner;
+        return $this->owner ?? throw new BadMethodCallException('Empty owner.');
     }
 
     private function storePreContent(array $matches): string

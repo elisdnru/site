@@ -31,14 +31,7 @@ class ProfileController extends Controller
         ];
     }
 
-    /**
-     * @param Request $request
-     * @param Session $session
-     * @param WebUser $webUser
-     * @return string|Response
-     * @throws ForbiddenHttpException
-     */
-    public function actionEdit(Request $request, Session $session, WebUser $webUser)
+    public function actionEdit(Request $request, Session $session, WebUser $webUser): Response|string
     {
         $user = $this->loadModel((int)$webUser->id);
 
@@ -69,14 +62,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @param Session $session
-     * @param WebUser $webUser
-     * @return string|Response
-     * @throws ForbiddenHttpException
-     */
-    public function actionPassword(Request $request, Session $session, WebUser $webUser)
+    public function actionPassword(Request $request, Session $session, WebUser $webUser): Response|string
     {
         $user = $this->loadModel((int)$webUser->id);
 

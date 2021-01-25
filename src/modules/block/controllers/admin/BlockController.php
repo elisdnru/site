@@ -21,11 +21,7 @@ class BlockController extends AdminController
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @return Response|string
-     */
-    public function actionCreate(Request $request)
+    public function actionCreate(Request $request): Response|string
     {
         $model = new Block();
         if ($model->load((array)$request->post()) && $model->save()) {

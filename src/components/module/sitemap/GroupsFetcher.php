@@ -57,12 +57,7 @@ class GroupsFetcher
         return $result;
     }
 
-    /**
-     * @param string $name
-     * @param array|object $module
-     * @return Set|null
-     */
-    private function getGroupsSet(string $name, $module): ?Set
+    private function getGroupsSet(string $name, object|array $module): ?Set
     {
         if (is_object($module)) {
             $class = get_class($module);

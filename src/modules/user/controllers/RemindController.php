@@ -12,13 +12,7 @@ use yii\web\Session;
 
 class RemindController extends Controller
 {
-    /**
-     * @param Request $request
-     * @param Session $session
-     * @param MailerInterface $mailer
-     * @return string|Response
-     */
-    public function actionRemind(Request $request, Session $session, MailerInterface $mailer)
+    public function actionRemind(Request $request, Session $session, MailerInterface $mailer): Response|string
     {
         $model = new RemindForm();
 

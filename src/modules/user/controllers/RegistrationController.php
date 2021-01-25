@@ -31,13 +31,7 @@ class RegistrationController extends Controller
         ];
     }
 
-    /**
-     * @param Request $request
-     * @param Session $session
-     * @param MailerInterface $mailer
-     * @return string|Response
-     */
-    public function actionRequest(Request $request, Session $session, MailerInterface $mailer)
+    public function actionRequest(Request $request, Session $session, MailerInterface $mailer): Response|string
     {
         $model = new RegistrationForm();
 
@@ -65,12 +59,7 @@ class RegistrationController extends Controller
         return $this->render('request', ['model' => $model]);
     }
 
-    /**
-     * @param string $code
-     * @param Session $session
-     * @return string|Response
-     */
-    public function actionConfirm(string $code, Session $session)
+    public function actionConfirm(string $code, Session $session): Response|string
     {
         $user = User::findOne(['confirm' => $code]);
 

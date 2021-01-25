@@ -42,11 +42,7 @@ class CategoryController extends AdminController
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @return Response|string
-     */
-    public function actionCreate(Request $request)
+    public function actionCreate(Request $request): Response|string
     {
         $model = new Category();
 

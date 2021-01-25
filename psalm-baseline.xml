@@ -167,9 +167,6 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$model</code>
     </LessSpecificReturnStatement>
-    <MismatchingDocblockReturnType occurrences="1">
-      <code>ActiveQuery|self</code>
-    </MismatchingDocblockReturnType>
     <MissingParamType occurrences="14">
       <code>$items</code>
       <code>$parent</code>
@@ -246,9 +243,6 @@
       <code>$titles[]</code>
       <code>$titles[]</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>ActiveQuery|self</code>
-    </MixedInferredReturnType>
     <MixedMethodCall occurrences="5">
       <code>getPrimaryKey</code>
       <code>getPrimaryKey</code>
@@ -360,9 +354,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>random_int(0, 100000)</code>
     </InvalidScalarArgument>
-    <MismatchingDocblockReturnType occurrences="1">
-      <code>ActiveRecord|Component</code>
-    </MismatchingDocblockReturnType>
     <MixedArgument occurrences="10">
       <code>$matches[2]</code>
       <code>$matches[2]</code>
@@ -378,9 +369,6 @@
     <MixedAssignment occurrences="1">
       <code>$transform</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>ActiveRecord|Component</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="4">
       <code>$matches[1]</code>
       <code>$matches[1]</code>

@@ -15,18 +15,13 @@ use yii\web\User;
 
 class CommentController extends Controller
 {
-    /**
-     * @param int $id
-     * @param Request $request
-     * @param Session $session
-     * @param User $user
-     * @param AdminAccess $access
-     * @return string|Response
-     * @throws ForbiddenHttpException
-     * @throws NotFoundHttpException
-     */
-    public function actionUpdate(int $id, Request $request, Session $session, User $user, AdminAccess $access)
-    {
+    public function actionUpdate(
+        int $id,
+        Request $request,
+        Session $session,
+        User $user,
+        AdminAccess $access
+    ): Response|string {
         $model = $this->loadModel($id, (int)$user->id, $access);
 
         $form = new CommentEditForm($model);

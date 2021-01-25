@@ -13,16 +13,7 @@ use yii\web\Response;
 
 class WorkController extends Controller
 {
-    /**
-     * @param int $id
-     * @param Request $request
-     * @param AdminAccess $access
-     * @param string|null $alias
-     * @return string|Response
-     * @throws NotFoundHttpException
-     * @throws InvalidConfigException
-     */
-    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null)
+    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null): Response|string
     {
         $model = $this->loadModel($id, $access);
 

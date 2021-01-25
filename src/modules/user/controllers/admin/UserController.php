@@ -23,13 +23,7 @@ class UserController extends AdminController
         ]);
     }
 
-    /**
-     * @param int $id
-     * @param Request $request
-     * @return Response|string
-     * @throws NotFoundHttpException
-     */
-    public function actionUpdate(int $id, Request $request)
+    public function actionUpdate(int $id, Request $request): Response|string
     {
         $user = $this->loadModel($id);
 
