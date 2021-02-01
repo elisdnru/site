@@ -1576,6 +1576,12 @@
       <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
     </MixedArgument>
   </file>
+  <file src="src/modules/partner/Module.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Module</code>
+      <code>Module</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/portfolio/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>

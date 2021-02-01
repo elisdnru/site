@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\user\models\Access;
+use yii\helpers\Url;
 use yii\web\View;
 
 /**
@@ -118,6 +119,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <hr />
 
-        <p><a href="https://products.elisdn.ru/join/" target="_blank">Партнёрская программа</a></p>
+        <p><a href="<?= Url::to(['/partner/default/index']) ?>">Партнёрская программа</a></p>
     </div>
 </section>

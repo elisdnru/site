@@ -63,6 +63,7 @@ return [
         'edu' => ['class' => app\modules\edu\Module::class],
         'page' => ['class' => app\modules\page\Module::class],
         'landing' => ['class' => app\modules\landing\Module::class],
+        'partner' => ['class' => app\modules\partner\Module::class],
         'portfolio' => ['class' => app\modules\portfolio\Module::class],
         'products' => ['class' => app\modules\products\Module::class],
         'search' => ['class' => app\modules\search\Module::class],
