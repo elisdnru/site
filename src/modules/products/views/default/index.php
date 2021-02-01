@@ -119,6 +119,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <hr />
 
-        <p><a href="<?= Url::to(['/partner/default/index']) ?>">Партнёрская программа</a></p>
+        <p style="margin-bottom: 0"><a href="<?= Url::to(['/partner/default/index']) ?>">Партнёрская программа</a></p>
     </div>
 </section>

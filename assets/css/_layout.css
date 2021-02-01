@@ -20,7 +20,7 @@ body {
 #wrapper::after {
   content: '';
   display: block;
-  height: 150px;
+  height: 130px;
 }
 
 #header {
