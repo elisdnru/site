@@ -129,7 +129,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             своих ссылок удалите свой идентификатор из cookies вашего браузера.
         </p>
 
-        <p style="text-align: center; margin: 30px 0">
+        <p style="text-align: center; margin: 30px 0 0 0">
             <a target="_blank" class="order-button" href="https://products.elisdn.ru/join/" rel="noopener">Подключиться к программе</a>
         </p>
     </div>
