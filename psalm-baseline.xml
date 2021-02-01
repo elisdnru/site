@@ -1582,6 +1582,12 @@
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/partner/controllers/DefaultController.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>DefaultController</code>
+      <code>DefaultController</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/portfolio/Module.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>Module</code>
