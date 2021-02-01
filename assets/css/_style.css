@@ -120,8 +120,8 @@ ul.short_list li {
   content: attr(data-date);
 }
 
-.entry .text a.order-button,
-.entry .text a.order-button:visited {
+.text a.order-button,
+.text a.order-button:visited {
   padding: 12px 20px;
   border-radius: 60px;
   color: #fff;
@@ -130,7 +130,7 @@ ul.short_list li {
   font-size: 16px;
 }
 
-.entry .text a.order-button:hover {
+.text a.order-button:hover {
   background: #3987cb;
   color: #fff;
 }
