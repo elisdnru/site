@@ -110,7 +110,7 @@ use yii\widgets\ActiveForm;
         <fieldset class="editor">
             <div class="row<?= $model->hasErrors('short') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'short') ?><br />
-                <?= Html::activeTextarea($model, 'short', ['rows' => 6, 'cols' => 80]) ?><br />
+                <?= Html::activeTextarea($model, 'short', ['rows' => 6, 'cols' => 80, 'placeholder' => '<p></p>']) ?><br />
                 <?= Html::error($model, 'short', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>
@@ -118,7 +118,7 @@ use yii\widgets\ActiveForm;
         <fieldset class="editor">
             <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'text') ?><br />
-                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]) ?><br />
+                <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80, 'placeholder' => 'Markdown']) ?><br />
                 <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
             </div>
         </fieldset>
