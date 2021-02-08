@@ -1293,15 +1293,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/file/controllers/admin/FileController.php">
-    <MixedArgument occurrences="1">
-      <code>$folderName</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$folderName</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$folderName</code>
-    </MixedOperand>
     <TypeDoesNotContainType occurrences="2">
       <code>$file</code>
       <code>$file</code>
