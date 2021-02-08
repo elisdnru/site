@@ -1,4 +1,6 @@
 <?php
+
+use app\components\Csrf;
 use app\modules\block\models\Block;
 use yii\helpers\Html;
 use yii\web\View;
@@ -25,7 +27,7 @@ $this->params['admin'][] = ['label' => 'Файлы', 'url' => ['index']];
 
     <form method="post">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <fieldset>
             <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">

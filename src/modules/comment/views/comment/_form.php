@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\comment\forms\CommentForm;
 use yii\helpers\Html;
 
@@ -10,7 +11,7 @@ use yii\helpers\Html;
 <div class="form">
 
     <form action="?" method="post" id="comment-form">
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <fieldset>
 

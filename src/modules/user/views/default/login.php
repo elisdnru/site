@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\user\forms\LoginForm;
 use app\widgets\Portlet;
 use app\modules\ulogin\widgets\ULoginWidget;
@@ -29,7 +30,7 @@ $this->params['breadcrumbs'] = [
 
     <form action="?" method="post" id="login-form">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <div class="row">
             <?= Html::activeLabel($model, 'username') ?><br />

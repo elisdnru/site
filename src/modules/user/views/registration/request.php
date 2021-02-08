@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\widgets\Portlet;
 use app\modules\user\forms\RegistrationForm;
 use yii\captcha\Captcha;
@@ -26,7 +27,7 @@ $this->params['breadcrumbs'] = [
 
     <form action="?" method="post" id="register-form">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <div class="row<?= $model->hasErrors('username') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'username') ?><br />

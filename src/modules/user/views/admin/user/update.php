@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\user\forms\admin\EditForm;
 use app\modules\user\models\User;
 use yii\helpers\Html;
@@ -30,7 +31,7 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
 
     <form action="?" method="post" enctype="multipart/form-data">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 

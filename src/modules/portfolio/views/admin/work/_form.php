@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Html;
@@ -16,7 +17,7 @@ use yii\widgets\ActiveForm;
 <div class="form">
     <form action="?" method="post" enctype="multipart/form-data">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 

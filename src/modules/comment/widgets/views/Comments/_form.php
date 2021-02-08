@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\models\User;
@@ -18,7 +19,7 @@ use yii\widgets\ActiveForm;
 
     <form action="#comment-form" method="post">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <?php if ($user && $user->id) : ?>
             <a href="<?= Url::to(['/user/profile/view']) ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->getAvatarUrl() ?>" alt=""></a>

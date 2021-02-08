@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\user\forms\PasswordForm;
 use app\widgets\Portlet;
 use app\modules\user\models\Access;
@@ -31,7 +32,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
     <form action="?" method="post" id="password-form">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <div class="row required<?= $model->hasErrors('current') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'current') ?> &nbsp;

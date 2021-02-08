@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\User;
 use app\widgets\Portlet;
@@ -32,7 +33,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
     <form action="?" method="post" enctype="multipart/form-data" id="profile-form">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <div>
             <div class="row required <?= $model->hasErrors('lastname') ? ' error' : '' ?>">

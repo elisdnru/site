@@ -1,5 +1,6 @@
 <?php
 
+use app\components\Csrf;
 use app\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
 use yii\helpers\Html;
@@ -25,7 +26,7 @@ $this->params['breadcrumbs'] = [
 
     <form action="?" method="post" id="remind-form">
 
-        <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+        <?= Csrf::hiddenInput() ?>
 
         <div class="row">
             <?= Html::activeLabel($model, 'email') ?><br />
