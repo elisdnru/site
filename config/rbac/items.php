@@ -129,7 +129,6 @@ return [
             'module_admin',
             'module_comment',
             'module_file',
-            'module_new',
             'module_page',
             'role_user',
         ],
