@@ -113,6 +113,7 @@ class Work extends ActiveRecord
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
+                'storageAttribute' => 'image',
                 'deleteAttribute' => 'delImage',
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,

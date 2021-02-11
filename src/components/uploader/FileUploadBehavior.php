@@ -24,26 +24,27 @@ use yii\web\UploadedFile;
  *         'ImageUpload' => [
  *             'class'=> FileUploadBehavior::class,
  *             'fileAttribute' => 'image',
- *             'fileTypes' => ['jpg', 'jpeg', 'gif', 'png'],
+ *             'storageAttribute' => 'image',
  *             'deleteAttribute' => 'delImage',
+ *             'fileTypes' => ['jpg', 'jpeg', 'gif', 'png'],
  *             'filePath' => 'upload/images',
  *         ]
  *     ];
  * }
  * </pre>
- *
  */
 class FileUploadBehavior extends Behavior
 {
     public string $fileAttribute = 'file';
+    public string $storageAttribute = 'file';
+    public string $deleteAttribute = 'delFile';
     public array $fileTypes = ['jpg', 'jpeg', 'gif', 'png'];
-    public ?string $storageAttribute = null; // set if it different from fileAttribute
-    public ?string $deleteAttribute = null; // field for "Delete image" checkbox
     public string $filePath = '';
     public int $defaultThumbWidth = 200;
     public int $defaultThumbHeight = 0;
     public string $imageWidthAttribute = '';
     public string $imageHeightAttribute = '';
+    public bool $enableWatermark = false;
 
     private Uploader $uploader;
     private File $file;
@@ -81,7 +82,6 @@ class FileUploadBehavior extends Behavior
 
     public function beforeSave(): void
     {
-        $this->initAttributes();
         /** @var ActiveRecord $model */
         $model = $this->owner;
 
@@ -100,7 +100,6 @@ class FileUploadBehavior extends Behavior
 
     public function beforeDelete(): void
     {
-        $this->initAttributes();
         $this->deleteFile();
     }
 
@@ -108,7 +107,6 @@ class FileUploadBehavior extends Behavior
 
     public function getImageUrl(): string
     {
-        $this->initAttributes();
         if ($this->cachedImageUrl === null) {
             $this->cachedImageUrl = '/' . $this->uploader->getUrl($this->filePath, $this->owner->{$this->storageAttribute});
         }
@@ -119,7 +117,6 @@ class FileUploadBehavior extends Behavior
 
     public function getImageThumbUrl(int $width = 0, int $height = 0): string
     {
-        $this->initAttributes();
         if (!$width) {
             $width = $this->defaultThumbWidth;
         }
@@ -159,13 +156,6 @@ class FileUploadBehavior extends Behavior
                     }
                 }
             }
-        }
-    }
-
-    private function initAttributes(): void
-    {
-        if (empty($this->storageAttribute)) {
-            $this->storageAttribute = $this->fileAttribute;
         }
     }
 

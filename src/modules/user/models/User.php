@@ -87,6 +87,7 @@ class User extends ActiveRecord
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'avatar',
+                'storageAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,

@@ -487,10 +487,6 @@
       <code>append</code>
       <code>getRealPath</code>
     </PossiblyInvalidMethodCall>
-    <PossiblyNullArgument occurrences="2">
-      <code>$this-&gt;storageAttribute</code>
-      <code>$this-&gt;storageAttribute</code>
-    </PossiblyNullArgument>
   </file>
   <file src="src/components/uploader/Uploader.php">
     <MixedArgument occurrences="4">
@@ -4431,8 +4427,7 @@
     <MixedAssignment occurrences="1">
       <code>$authData</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>$_SERVER['HTTP_HOST']</code>
+    <MixedOperand occurrences="2">
       <code>$this-&gt;network</code>
       <code>$this-&gt;token</code>
     </MixedOperand>
