@@ -37,7 +37,6 @@ class FileUploadBehavior extends Behavior
 {
     public string $fileAttribute = 'file';
     public array $fileTypes = ['jpg', 'jpeg', 'gif', 'png'];
-    public bool $enableWatermark = false;
     public ?string $storageAttribute = null; // set if it different from fileAttribute
     public ?string $deleteAttribute = null; // field for "Delete image" checkbox
     public string $filePath = '';

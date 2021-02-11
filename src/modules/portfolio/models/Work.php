@@ -114,7 +114,6 @@ class Work extends ActiveRecord
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'deleteAttribute' => 'delImage',
-                'enableWatermark' => true,
                 'filePath' => self::IMAGE_PATH,
                 'defaultThumbWidth' => self::IMAGE_WIDTH,
                 'imageWidthAttribute' => 'image_width',
