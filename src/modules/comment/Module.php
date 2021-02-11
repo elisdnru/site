@@ -25,7 +25,11 @@ class Module extends Base implements RoutesProvider, AdminNotificationsProvider
         $comments = Comment::find()->unread()->count();
 
         return [
-            ['label' => 'Все комментарии' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/comment/admin/comment/index'], 'icon' => 'comments.png'],
+            [
+                'label' => 'Все комментарии' . ($comments ? ' (' . $comments . ')' : ''),
+                'url' => ['/comment/admin/comment/index'],
+                'icon' => 'comments.png',
+            ],
         ];
     }
 

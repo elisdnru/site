@@ -48,7 +48,11 @@ class Module extends Base implements
         $comments = Comment::find()->unread()->count();
 
         return [
-            ['label' => 'Комментарии к записям' . ($comments ? ' (' . $comments . ')' : ''), 'url' => ['/blog/admin/comment/index'], 'icon' => 'comments.png'],
+            [
+                'label' => 'Комментарии к записям' . ($comments ? ' (' . $comments . ')' : ''),
+                'url' => ['/blog/admin/comment/index'],
+                'icon' => 'comments.png',
+            ],
         ];
     }
 
