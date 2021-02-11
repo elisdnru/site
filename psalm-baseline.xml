@@ -4661,9 +4661,6 @@
     <MixedArgument occurrences="1">
       <code>$comment-&gt;material-&gt;title</code>
     </MixedArgument>
-    <MixedOperand occurrences="1">
-      <code>$_SERVER['SERVER_NAME']</code>
-    </MixedOperand>
     <NoInterfaceProperties occurrences="1">
       <code>$comment-&gt;material-&gt;title</code>
     </NoInterfaceProperties>
