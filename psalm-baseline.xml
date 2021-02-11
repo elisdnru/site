@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
+<files psalm-version="4.5.0@a45b5e2ae01d43175ff02684f592c83cfbd48533">
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -383,14 +383,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/components/uploader/FileUploadBehavior.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="3">
       <code>$fileUrl</code>
       <code>$model-&gt;{$this-&gt;fileAttribute}</code>
-      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
       <code>$uploadedFile</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
@@ -406,6 +401,13 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$owner</code>
     </MoreSpecificImplementedParamType>
+    <NullArgument occurrences="5">
+      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
+    </NullArgument>
     <PossiblyInvalidMethodCall occurrences="2">
       <code>append</code>
       <code>getRealPath</code>
@@ -414,15 +416,6 @@
       <code>$this-&gt;storageAttribute</code>
       <code>$this-&gt;storageAttribute</code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="7">
-      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-    </PossiblyNullPropertyFetch>
   </file>
   <file src="src/components/uploader/Uploader.php">
     <MixedArgument occurrences="4">
