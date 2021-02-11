@@ -5,6 +5,7 @@ use app\modules\block\widgets\BlockWidget;
 use app\widgets\AdminBar;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use app\widgets\Counters;
 use app\widgets\MainMenu;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
@@ -96,9 +97,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     <div class="content">
 
         <div class="counters">
-            <?php if (!YII_DEBUG && !Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
-                <?= $this->render('//layouts/_counters') ?>
-            <?php endif; ?>
+            <?= Counters::widget() ?>
         </div>
 
         <!--noindex-->
