@@ -21,7 +21,7 @@ class CommentProcessingTest extends Unit
 
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
-    protected function _before()
+    protected function _before(): void
     {
         $this->tester->haveFixtures([
             'comment' => CommentFixture::class,

@@ -18,18 +18,16 @@ class View extends Component implements DynamicContentAwareInterface
      */
     public $context;
 
-    public function getDynamicPlaceholders()
+    public function getDynamicPlaceholders(): array
     {
-        // TODO: Implement getDynamicPlaceholders() method.
+        return [];
     }
 
-    public function setDynamicPlaceholders($placeholders)
+    public function setDynamicPlaceholders($placeholders): void
     {
-        // TODO: Implement setDynamicPlaceholders() method.
     }
 
-    public function addDynamicPlaceholder($name, $statements)
+    public function addDynamicPlaceholder($name, $statements): void
     {
-        // TODO: Implement addDynamicPlaceholder() method.
     }
 }

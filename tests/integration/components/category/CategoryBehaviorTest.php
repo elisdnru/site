@@ -17,7 +17,7 @@ class CategoryBehaviorTest extends Unit
 
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
-    protected function _before()
+    protected function _before(): void
     {
         if (!Yii::$app->db->getTableSchema(Category::tableName())) {
             Yii::$app->db->createCommand()->createTable(Category::tableName(), [

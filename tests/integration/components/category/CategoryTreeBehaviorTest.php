@@ -17,7 +17,7 @@ class CategoryTreeBehaviorTest extends Unit
 
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
-    protected function _before()
+    protected function _before(): void
     {
         if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {
             Yii::$app->db->createCommand()->createTable(TreeCategory::tableName(), [

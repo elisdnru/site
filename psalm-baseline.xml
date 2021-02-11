@@ -5542,9 +5542,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="tests/integration/blog/CommentProcessingTest.php">
-    <MissingReturnType occurrences="1">
-      <code>_before</code>
-    </MissingReturnType>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$post-&gt;id</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -5568,9 +5565,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="tests/integration/components/category/CategoryBehaviorTest.php">
-    <MissingReturnType occurrences="1">
-      <code>_before</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="4">
       <code>$query</code>
       <code>$tester</code>
@@ -5588,9 +5582,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="tests/integration/components/category/CategoryTreeBehaviorTest.php">
-    <MissingReturnType occurrences="1">
-      <code>_before</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="4">
       <code>$find</code>
       <code>$tester</code>
