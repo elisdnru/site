@@ -120,7 +120,7 @@ class CommentsWidget extends Widget
     {
         try {
             $data = Json::encode($attributes);
-        } catch (InvalidArgumentException $e) {
+        } catch (InvalidArgumentException) {
             $data = null;
         }
 
@@ -140,7 +140,7 @@ class CommentsWidget extends Widget
         $value = (string)Yii::$app->request->cookies->getValue('comment_form_data');
         try {
             return (array)Json::decode($value);
-        } catch (InvalidArgumentException $e) {
+        } catch (InvalidArgumentException) {
             return [];
         }
     }

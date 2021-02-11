@@ -2,7 +2,6 @@
 
 namespace app\modules\portfolio\controllers;
 
-use yii\base\InvalidConfigException;
 use yii\web\Controller;
 use app\components\module\admin\AdminAccess;
 use app\modules\portfolio\models\Work;
