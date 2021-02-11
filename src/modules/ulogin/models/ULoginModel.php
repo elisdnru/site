@@ -44,7 +44,7 @@ class ULoginModel extends Model
 
     public function loadAuthData(): void
     {
-        $body = file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=' . $_SERVER['HTTP_HOST']);
+        $body = file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=elisdn.ru');
         if ($authData = json_decode($body, true)) {
             $this->setAttributes($authData);
             $this->firstname = $authData['first_name'];
