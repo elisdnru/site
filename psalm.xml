@@ -10,6 +10,9 @@
     autoloader="./vendor/yiisoft/yii2/Yii.php"
 >
     <projectFiles>
+        <directory name="bin" />
+        <directory name="config" />
+        <file name="public/index.php" />
         <directory name="src" />
         <directory name="tests" />
         <ignoreFiles>
