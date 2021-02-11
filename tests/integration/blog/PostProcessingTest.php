@@ -35,8 +35,8 @@ class PostProcessingTest extends Unit
         $post = Post::findOne(1);
 
         $post->short = 'Lorem ipsum dolor sit amet.';
-        $this->assertTrue($post->save(), 'Save model');
-        $this->assertEquals('Lorem ipsum dolor sit amet.', $post->short_purified);
+        self::assertTrue($post->save(), 'Save model');
+        self::assertEquals('Lorem ipsum dolor sit amet.', $post->short_purified);
     }
 
     public function testText(): void
@@ -66,7 +66,7 @@ END;
 END;
 
         $post->text = $source;
-        $this->assertTrue($post->save(), 'Save model');
-        $this->assertEquals($expected, $post->text_purified);
+        self::assertTrue($post->save(), 'Save model');
+        self::assertEquals($expected, $post->text_purified);
     }
 }

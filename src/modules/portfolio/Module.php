@@ -76,7 +76,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
                     []
                 )
             ]),
-            new Group('Портфолио', array_map(function (Work $work): Item {
+            new Group('Портфолио', array_map(static function (Work $work): Item {
                 return new Item(
                     $work->getUrl(),
                     $work->title,

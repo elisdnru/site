@@ -56,7 +56,7 @@ END;
 
 <p>&lt;script&gt;alert('XSS');&lt;/script&gt;</p>
 END;
-        $this->assertTrue($comment->save(), 'Save model');
-        $this->assertEquals($expected, $comment->text_purified);
+        self::assertTrue($comment->save(), 'Save model');
+        self::assertEquals($expected, $comment->text_purified);
     }
 }
