@@ -16,5 +16,7 @@ class HtmlCest
         $I->seeLink('Авторские продукты', '/products');
         $I->seeLink('Официальный блог', '/blog');
         $I->seeLink('Контактные данные', '/contacts');
+        $I->seeLink('Неделя ООП', '/oop-week');
+        $I->seeLink('Git и Composer для начинающих', '/git-composer');
     }
 }
