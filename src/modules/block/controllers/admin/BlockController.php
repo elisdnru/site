@@ -32,13 +32,7 @@ class BlockController extends AdminController
         ]);
     }
 
-    /**
-     * @param int $id
-     * @param Request $request
-     * @return Response|string
-     * @throws NotFoundHttpException
-     */
-    public function actionUpdate(int $id, Request $request)
+    public function actionUpdate(int $id, Request $request): Response|string
     {
         $model = $this->loadModel($id);
         if ($model->load((array)$request->post()) && $model->save()) {

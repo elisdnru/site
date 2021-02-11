@@ -135,7 +135,7 @@ class File
      * @param string $filePath Path to file specified by user
      * @return File instance
      */
-    private static function getInstance($filePath): self
+    private static function getInstance(string $filePath): self
     {
         if (!array_key_exists($filePath, self::$instances)) {
             self::$instances[$filePath] = new self();
@@ -149,7 +149,7 @@ class File
      * @param string $message Message to be logged
      * 'error', 'info', see CLogger constants definitions)
      */
-    private function addLog($message): void
+    private function addLog(string $message): void
     {
         Yii::info($message . ' (obj: ' . $this->getRealPath() . ')', 'ext.file');
     }
@@ -278,7 +278,7 @@ class File
      * @param string $dir_separator Directory separator char (depends upon OS)
      * @return string Real file path
      */
-    private function realPath($suppliedPath, $dir_separator = DIRECTORY_SEPARATOR): string
+    private function realPath(string $suppliedPath, $dir_separator = DIRECTORY_SEPARATOR): string
     {
         $currentPath = $suppliedPath;
 
@@ -515,9 +515,9 @@ class File
      * For now used only internally.
      *
      * @param string $mode Type of access required to the stream
-     * @return mixed Current CFile object on success, 'false' on fail.
+     * @return File|null Current CFile object on success, 'false' on fail.
      */
-    private function open($mode): ?self
+    private function open(string $mode): ?self
     {
         if ($this->handle === null) {
             if ($this->handle = fopen($this->realpath, $mode)) {
@@ -552,7 +552,7 @@ class File
      * instead of ID should be returned.
      * @return mixed Owner name, or ID if $getName set to 'false'
      */
-    public function getOwner($getName = true)
+    public function getOwner($getName = true): mixed
     {
         if (!isset($this->owner)) {
             $this->owner = $this->getExists() ? fileowner($this->realpath) : null;
@@ -575,7 +575,7 @@ class File
      * instead of ID should be returned.
      * @return mixed Group name, or ID if $getName set to 'false'
      */
-    public function getGroup($getName = true)
+    public function getGroup($getName = true): mixed
     {
         if (!isset($this->group)) {
             $this->group = $this->getExists() ? filegroup($this->realpath) : null;
@@ -616,7 +616,7 @@ class File
      * @return mixed Filesystem object size formatted (eg. '70.4 KB') or in
      * bytes (eg. '72081') if $format set to 'false'
      */
-    public function getSize($format = '0.00')
+    public function getSize($format = '0.00'): mixed
     {
         if (!isset($this->size)) {
             if ($this->getIsFile()) {
@@ -661,7 +661,7 @@ class File
      * @param integer $format Number format (see {@link CNumberFormatter})
      * @return string Filesystem object size in human readable format
      */
-    private function formatFileSize($bytes, $format): string
+    private function formatFileSize(int $bytes, int $format): string
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
@@ -748,7 +748,7 @@ class File
      * Could be a string, or an array of strings (perl regexp supported).
      * @return mixed The read data or 'false' on fail.
      */
-    public function getContents($recursive = false, $filter = null)
+    public function getContents($recursive = false, $filter = null): mixed
     {
         if ($this->getReadable()) {
             if ($this->getIsFile()) {
@@ -820,14 +820,14 @@ class File
      * Used internally by {@link dirContents} method.
      *
      * @param string $str String representing filepath to be filtered
-     * @param array $filter An array of filter rules, where each rule is a
+     * @param array|null $filter An array of filter rules, where each rule is a
      * string, supposing that the string starting with '/' is a regular
      * expression. Any other string reated as an extension part of the
      * given filepath (eg. file extension)
      * @return boolean Returns 'true' if the supplied string matched one of
      * the filter rules.
      */
-    private function filterPassed($str, $filter): bool
+    private function filterPassed(string $str, ?array $filter): bool
     {
         $passed = false;
 
@@ -989,9 +989,9 @@ class File
      * For UNIX systems.
      *
      * @param mixed $owner New owner name or ID
-     * @return mixed Current CFile object on success, 'false' on fail.
+     * @return File|null Current CFile object on success, 'false' on fail.
      */
-    public function setOwner($owner): ?self
+    public function setOwner(mixed $owner): ?self
     {
         if ($this->getExists() && chown($this->realpath, $owner)) {
             $this->owner = $owner;
@@ -1008,9 +1008,9 @@ class File
      * For UNIX systems.
      *
      * @param mixed $group New group name or ID
-     * @return mixed Current CFile object on success, 'false' on fail.
+     * @return File|null Current CFile object on success, 'false' on fail.
      */
-    public function setGroup($group): ?self
+    public function setGroup(mixed $group): ?self
     {
         if ($this->getExists() && chgrp($this->realpath, $group)) {
             $this->group = $group;
@@ -1028,9 +1028,9 @@ class File
      *
      * @param string $permissions New filesystem object permissions in numeric
      * (octal, i.e. '0755') format
-     * @return mixed Current CFile object on success, 'false' on fail.
+     * @return File|null Current CFile object on success, 'false' on fail.
      */
-    public function setPermissions($permissions): ?self
+    public function setPermissions(string $permissions): ?self
     {
         if ($this->getExists() && is_numeric($permissions)) {
             // '755' normalize to octal '0755'
@@ -1057,7 +1057,7 @@ class File
      * @return string Resolved real destination path for the current filesystem
      * object
      */
-    private function resolveDestPath($fileDest): string
+    private function resolveDestPath(string $fileDest): string
     {
         if (strpos($fileDest, DIRECTORY_SEPARATOR) === false) {
             return $this->getDirname() . DIRECTORY_SEPARATOR . $fileDest;
@@ -1073,10 +1073,10 @@ class File
      *
      * @param string $fileDest Destination path for the current filesystem
      * object to be copied to
-     * @return mixed New CFile object for newly created filesystem object on
+     * @return File|null New CFile object for newly created filesystem object on
      * success, 'false' on fail.
      */
-    public function copy($fileDest): ?self
+    public function copy(string $fileDest): ?self
     {
         $destRealPath = $this->resolveDestPath($fileDest);
 
@@ -1111,9 +1111,9 @@ class File
      *
      * @param string $fileDest Destination path for the current filesystem
      * object to be renamed/moved to
-     * @return mixed Updated current CFile object on success, 'false' on fail.
+     * @return File|null Updated current CFile object on success, 'false' on fail.
      */
-    public function rename($fileDest): ?self
+    public function rename(string $fileDest): ?self
     {
         $destRealPath = $this->resolveDestPath($fileDest);
 

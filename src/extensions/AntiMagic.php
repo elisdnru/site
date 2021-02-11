@@ -20,7 +20,7 @@ trait AntiMagic
         throw new UnknownPropertyException('Setting unknown property: ' . get_class($this) . '::' . $name);
     }
 
-    public function __isset($name)
+    public function __isset($name): bool
     {
         return false;
     }

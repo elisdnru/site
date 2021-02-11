@@ -267,8 +267,13 @@ class ImageHandler
         return $this;
     }
 
-    public function watermark($watermarkFile, $offsetX, $offsetY, $corner = self::CORNER_RIGHT_BOTTOM, $zoom = false)
-    {
+    public function watermark(
+        $watermarkFile,
+        $offsetX,
+        $offsetY,
+        $corner = self::CORNER_RIGHT_BOTTOM,
+        $zoom = false
+    ): bool|static {
 
         $this->checkLoaded();
 
