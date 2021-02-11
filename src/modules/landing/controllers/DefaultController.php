@@ -27,4 +27,9 @@ class DefaultController extends Controller
     {
         return $this->render('laravel-board');
     }
+
+    public function actionProjectManager(): string
+    {
+        return $this->render('project-manager');
+    }
 }

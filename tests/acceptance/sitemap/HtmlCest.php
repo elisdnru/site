@@ -20,5 +20,6 @@ class HtmlCest
         $I->seeLink('Git и Composer для начинающих', '/git-composer');
         $I->seeLink('Мастер-класс Yii2 Shop', '/yii2-shop');
         $I->seeLink('Мастер-класс Laravel', '/laravel-board');
+        $I->seeLink('Мастер-класс Symfony', '/project-manager');
     }
 }

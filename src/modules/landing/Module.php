@@ -39,6 +39,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
             'oop-week' => 'landing/default/oop-week',
             'yii2-shop' => 'landing/default/yii2-shop',
             'laravel-board' => 'landing/default/laravel-board',
+            'project-manager' => 'landing/default/project-manager',
             ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
@@ -79,6 +80,12 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
                 new Item(
                     '/laravel-board',
                     'Мастер-класс Laravel',
+                    new Xml(Xml::WEEKLY, 0.5, null),
+                    []
+                ),
+                new Item(
+                    '/project-manager',
+                    'Мастер-класс Symfony',
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []
                 ),
