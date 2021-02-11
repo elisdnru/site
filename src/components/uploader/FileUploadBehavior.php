@@ -175,7 +175,7 @@ class FileUploadBehavior extends Behavior
         /** @var ActiveRecord $model */
         $model = $this->owner;
 
-        if (preg_match('|^http:\/\/|', $model->{$this->fileAttribute})) {
+        if (preg_match('|^http://|', $model->{$this->fileAttribute})) {
             $fileUrl = $model->{$this->fileAttribute};
             $this->deleteFile();
 
