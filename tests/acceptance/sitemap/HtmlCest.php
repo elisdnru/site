@@ -18,5 +18,6 @@ class HtmlCest
         $I->seeLink('Контактные данные', '/contacts');
         $I->seeLink('Неделя ООП', '/oop-week');
         $I->seeLink('Git и Composer для начинающих', '/git-composer');
+        $I->seeLink('Мастер-класс Yii2 Shop', '/yii2-shop');
     }
 }

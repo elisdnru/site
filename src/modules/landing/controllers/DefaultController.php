@@ -17,4 +17,9 @@ class DefaultController extends Controller
     {
         return $this->render('git-composer');
     }
+
+    public function actionYii2Shop(): string
+    {
+        return $this->render('yii2-shop');
+    }
 }
