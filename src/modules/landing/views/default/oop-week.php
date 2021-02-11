@@ -72,7 +72,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
 
     .intro {
         position: relative;
-        background: #00437c url('/landing/oop-week/intro.jpg') no-repeat center top;
+        background: #00437c url('/landing/intro.jpg') no-repeat center top;
     }
 
     @media (min-width: 768px) {
