@@ -209,7 +209,6 @@ return [
                     ['upload/media', [
                         '680x0',
                     ]],
-                    // general
                     ['upload/images', [
                         '250x0',
                     ]],
@@ -219,21 +218,11 @@ return [
                     ]],
                     ['upload/images/portfolio', [
                         '198x0', // greed
-                        '190x0', // homepage
+                        '190x0', // widget
                         '50x0', // admin
                     ]],
                     ['upload/images/blogs', [
                         '100x100', // last posts
-                    ]],
-                    ['upload/images/users/avatars', [
-                        '100x100',
-                        '50x50',
-                    ]],
-                    ['upload/images/users/galleries', [
-                        '250x0', // admin
-                    ]],
-                    ['upload/images/pages', [
-                        '250x0', // default
                     ]],
                 ],
             ],
