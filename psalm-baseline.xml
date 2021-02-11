@@ -528,15 +528,6 @@
     </MixedOperand>
   </file>
   <file src="src/extensions/file/File.php">
-    <DeprecatedMethod occurrences="7">
-      <code>Yii::trace('Copying directory "' . $this-&gt;realpath . '" to "' . $destRealPath . '"', 'ext.file')</code>
-      <code>Yii::trace('File "' . $filePath . '" is identified as uploaded', 'ext.file')</code>
-      <code>Yii::trace('Filesystem object availability test: ' . $this-&gt;realpath, 'ext.file')</code>
-      <code>Yii::trace('Path "' . $suppliedPath . '" resolved into "' . $realpath . '"', 'ext.file')</code>
-      <code>Yii::trace('Purging directory "' . $path . '"', 'ext.file')</code>
-      <code>Yii::trace('The string supplied to ' . __METHOD__ . ' method - "' . $filePath . '" is identified as the alias to "' . $pathOfAlias . '"', 'ext.file')</code>
-      <code>Yii::trace('Trying to get MIME type for "' . $this-&gt;realpath . '" from extension "' . $this-&gt;extension . '"', 'ext.file')</code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;handle === null</code>
     </DocblockTypeContradiction>

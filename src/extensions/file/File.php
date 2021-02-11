@@ -179,9 +179,9 @@ class File
                 $uploaded = UploadedFile::getInstanceByName($filePath);
                 if ($uploaded) {
                     $filePath = $uploaded->tempName;
-                    Yii::trace('File "' . $filePath . '" is identified as uploaded', 'ext.file');
+                    Yii::debug('File "' . $filePath . '" is identified as uploaded', 'ext.file');
                 } elseif ($pathOfAlias = Yii::getAlias($filePath)) {
-                    Yii::trace('The string supplied to ' . __METHOD__ . ' method - "' . $filePath . '" is identified as the alias to "' . $pathOfAlias . '"', 'ext.file');
+                    Yii::debug('The string supplied to ' . __METHOD__ . ' method - "' . $filePath . '" is identified as the alias to "' . $pathOfAlias . '"', 'ext.file');
                     $filePath = $pathOfAlias;
                 }
             }
@@ -319,7 +319,7 @@ class File
         $realpath = $winDrive . $dir_separator . implode($dir_separator, $pathsArr);
 
         if ($currentPath !== $suppliedPath) {
-            Yii::trace('Path "' . $suppliedPath . '" resolved into "' . $realpath . '"', 'ext.file');
+            Yii::debug('Path "' . $suppliedPath . '" resolved into "' . $realpath . '"', 'ext.file');
         }
 
         return $realpath;
@@ -440,7 +440,7 @@ class File
      */
     private function exists(): bool
     {
-        Yii::trace('Filesystem object availability test: ' . $this->realpath, 'ext.file');
+        Yii::debug('Filesystem object availability test: ' . $this->realpath, 'ext.file');
 
         if (file_exists($this->realpath)) {
             $this->exists = true;
@@ -1085,7 +1085,7 @@ class File
                 return $this->set($destRealPath);
             }
         } else {
-            Yii::trace('Copying directory "' . $this->realpath . '" to "' . $destRealPath . '"', 'ext.file');
+            Yii::debug('Copying directory "' . $this->realpath . '" to "' . $destRealPath . '"', 'ext.file');
             $dirContents = $this->dirContents($this->realpath, true);
             foreach ($dirContents as $item) {
                 $itemDest = $destRealPath . str_replace($this->realpath, '', $item);
@@ -1159,7 +1159,7 @@ class File
                 return $this->setContents('');
             }
         } else {
-            Yii::trace('Purging directory "' . $path . '"', 'ext.file');
+            Yii::debug('Purging directory "' . $path . '"', 'ext.file');
             $dirContents = $this->dirContents($path, true);
             foreach ($dirContents as $item) {
                 if (is_file($item)) {
@@ -1329,7 +1329,7 @@ class File
     public function getMimeTypeByExtension(): ?string
     {
         if ($this->getIsFile()) {
-            Yii::trace('Trying to get MIME type for "' . $this->realpath . '" from extension "' . $this->extension . '"', 'ext.file');
+            Yii::debug('Trying to get MIME type for "' . $this->realpath . '" from extension "' . $this->extension . '"', 'ext.file');
             static $extensions;
             if ($extensions === null) {
                 $extensions = require Yii::getAlias(FileHelper::$mimeMagicFile);
