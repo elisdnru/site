@@ -12,7 +12,6 @@
     <projectFiles>
         <directory name="src" />
         <ignoreFiles>
-            <directory name="src/extensions" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
