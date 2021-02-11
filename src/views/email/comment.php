@@ -1,6 +1,7 @@
 <?php
 use app\modules\comment\models\Comment;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * @var Comment $comment
@@ -8,7 +9,7 @@ use yii\helpers\Html;
  */
 ?>
 <?php
-$url = 'http://' . $_SERVER['SERVER_NAME'] . $comment->material->getUrl();
+$url = Url::to($comment->material->getUrl(), true);
 ?>
 
 <p>
