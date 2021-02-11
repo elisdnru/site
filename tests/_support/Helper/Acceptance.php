@@ -2,9 +2,10 @@
 
 namespace tests\Helper;
 
+use Codeception\Module;
 use GuzzleHttp\Client;
 
-class Acceptance extends \Codeception\Module
+class Acceptance extends Module
 {
     public function dontHaveEmails(): void
     {

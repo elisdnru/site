@@ -2,7 +2,9 @@
 
 namespace tests\Helper;
 
-class Integration extends \Codeception\Module
+use Codeception\Module;
+
+class Integration extends Module
 {
 
 }

@@ -10,11 +10,12 @@ use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\blog\CommentFixture;
 use tests\fixtures\user\UserFixture;
+use tests\IntegrationTester;
 
 class CommentProcessingTest extends Unit
 {
     /**
-     * @var \tests\IntegrationTester
+     * @var IntegrationTester
      */
     protected $tester;
 

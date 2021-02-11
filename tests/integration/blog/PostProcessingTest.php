@@ -8,11 +8,12 @@ use tests\fixtures\blog\CategoryFixture;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
+use tests\IntegrationTester;
 
 class PostProcessingTest extends Unit
 {
     /**
-     * @var \tests\IntegrationTester
+     * @var IntegrationTester
      */
     protected $tester;
 

@@ -2,6 +2,8 @@
 
 namespace tests;
 
+use Codeception\Actor;
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -17,7 +19,7 @@ namespace tests;
  *
  * @SuppressWarnings(PHPMD)
 */
-class IntegrationTester extends \Codeception\Actor
+class IntegrationTester extends Actor
 {
     use _generated\IntegrationTesterActions;
 
