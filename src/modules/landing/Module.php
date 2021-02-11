@@ -35,6 +35,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
     public static function routes(): array
     {
         return [
+            'oop-week' => 'landing/default/oop-week',
             ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
@@ -53,7 +54,15 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
             ->all();
 
         return [
-            new Group('Продукты', self::itemRecursive($landings, null))
+            new Group('Продукты', [
+                new Item(
+                    '/oop-week',
+                    'Неделя ООП',
+                    new Xml(Xml::WEEKLY, 0.5, null),
+                    []
+                ),
+            ]),
+            new Group('Продукты', self::itemRecursive($landings, null)),
         ];
     }
 
