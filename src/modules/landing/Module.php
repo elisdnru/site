@@ -35,6 +35,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
     public static function routes(): array
     {
         return [
+            'git-composer' => 'landing/default/git-composer',
             'oop-week' => 'landing/default/oop-week',
             ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
@@ -55,6 +56,12 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
 
         return [
             new Group('Продукты', [
+                new Item(
+                    '/git-composer',
+                    'Git и Composer для начинающих',
+                    new Xml(Xml::WEEKLY, 0.5, null),
+                    []
+                ),
                 new Item(
                     '/oop-week',
                     'Неделя ООП',

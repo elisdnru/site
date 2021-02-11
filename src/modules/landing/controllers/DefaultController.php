@@ -12,4 +12,9 @@ class DefaultController extends Controller
     {
         return $this->render('oop-week');
     }
+
+    public function actionGitComposer(): string
+    {
+        return $this->render('git-composer');
+    }
 }
