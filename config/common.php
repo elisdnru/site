@@ -16,7 +16,7 @@ use app\widgets\inline\CountDown;
 use app\widgets\inline\MailTo;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
-use app\extensions\image\ImageHandler;
+use app\extensions\image\Image;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use yii\caching\CacheInterface;
@@ -199,7 +199,7 @@ return [
                     ],
                 ],
             ],
-            ImageHandler::class => [],
+            Image::class => [],
             FileExtension::class => [],
             Uploader::class => [
                 'class' => Uploader::class,

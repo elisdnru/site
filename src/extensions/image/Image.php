@@ -13,7 +13,7 @@ use RuntimeException;
  * @version 1.2
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-class ImageHandler
+class Image
 {
     use AntiMagic;
 

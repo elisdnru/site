@@ -700,7 +700,7 @@
       <code>require Yii::getAlias(FileHelper::$mimeMagicFile)</code>
     </UnresolvableInclude>
   </file>
-  <file src="src/extensions/image/ImageHandler.php">
+  <file src="src/extensions/image/Image.php">
     <InvalidScalarArgument occurrences="7">
       <code>$newWidth</code>
       <code>$newWidth</code>

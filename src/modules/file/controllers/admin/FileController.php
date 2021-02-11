@@ -5,7 +5,7 @@ namespace app\modules\file\controllers\admin;
 use app\components\FileNameFilter;
 use app\components\Slugger;
 use app\extensions\file\File;
-use app\extensions\image\ImageHandler;
+use app\extensions\image\Image;
 use app\modules\file\forms\RenameForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
@@ -46,7 +46,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionIndex(File $fileHandler, ImageHandler $imageHandler, string $path = ''): Response|string
+    public function actionIndex(File $fileHandler, Image $image, string $path = ''): Response|string
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
         $htmlRoot = '/' . $this->getFileDir();
@@ -61,7 +61,7 @@ class FileController extends AdminController
             for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++) {
                 $index = 'file_' . $i;
                 if (isset($_FILES[$index])) {
-                    $this->uploadPostFile($index, $currentPath, $fileHandler, $imageHandler);
+                    $this->uploadPostFile($index, $currentPath, $fileHandler, $image);
                 }
             }
             return $this->refresh();
@@ -138,7 +138,7 @@ class FileController extends AdminController
         string $field,
         string $currentPath,
         File $fileHandler,
-        ImageHandler $imageHandler
+        Image $image
     ): bool {
         $success = false;
 
@@ -158,7 +158,7 @@ class FileController extends AdminController
         }
 
         if ($success && in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-            $orig = $imageHandler->load($file);
+            $orig = $image->load($file);
 
             if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
                 $orig

@@ -4,7 +4,7 @@ namespace app\components\uploader;
 
 use app\components\FileNameGenerator;
 use app\extensions\file\File;
-use app\extensions\image\ImageHandler;
+use app\extensions\image\Image;
 use RuntimeException;
 use yii\web\UploadedFile;
 
@@ -16,9 +16,9 @@ class Uploader
     public int $directoryRights = 755;
 
     private File $file;
-    private ImageHandler $image;
+    private Image $image;
 
-    public function __construct(File $file, ImageHandler $image)
+    public function __construct(File $file, Image $image)
     {
         $this->file = $file;
         $this->image = $image;
@@ -153,8 +153,8 @@ class Uploader
         }
 
         /**
-         * @var ImageHandler $orig
-         * @var ImageHandler $thumb
+         * @var Image $orig
+         * @var Image $thumb
          */
 
         if ($orig = $this->image->load($fileName)) {
@@ -170,7 +170,7 @@ class Uploader
                 throw new RuntimeException('Unable to save ' . $targetName);
             }
 
-            if (!$thumb->save($targetName . '.webp', ImageHandler::IMG_WEBP, 100)) {
+            if (!$thumb->save($targetName . '.webp', Image::IMG_WEBP, 100)) {
                 throw new RuntimeException('Unable to save ' . $targetName . 'webp');
             }
             return true;

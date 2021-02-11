@@ -3,7 +3,7 @@
 namespace app\components\uploader;
 
 use app\extensions\file\File;
-use app\extensions\image\ImageHandler;
+use app\extensions\image\Image;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\validators\Validator;
@@ -48,9 +48,9 @@ class FileUploadBehavior extends Behavior
 
     private Uploader $uploader;
     private File $file;
-    private ImageHandler $image;
+    private Image $image;
 
-    public function __construct(Uploader $uploader, File $file, ImageHandler $image, array $config = [])
+    public function __construct(Uploader $uploader, File $file, Image $image, array $config = [])
     {
         parent::__construct($config);
         $this->uploader = $uploader;
