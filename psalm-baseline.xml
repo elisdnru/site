@@ -92,6 +92,11 @@
     <PossiblyInvalidMethodCall occurrences="1">
       <code>getOrders</code>
     </PossiblyInvalidMethodCall>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>TreeActiveDataProvider</code>
+      <code>TreeActiveDataProvider</code>
+      <code>TreeActiveDataProvider</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/category/behaviors/CategoryBehavior.php">
     <MixedArgument occurrences="1">
@@ -283,6 +288,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Category|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+      <code>CategoryQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/category/models/TreeCategoryQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -301,6 +334,34 @@
     <MoreSpecificReturnType occurrences="1">
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+      <code>TreeCategoryQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/module/admin/ModuleClass.php">
     <MixedAssignment occurrences="1">
@@ -2999,6 +3060,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Group|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+      <code>GroupQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/models/query/PostQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -3011,6 +3100,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+      <code>PostQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/views/admin/category/index.php">
     <MixedAssignment occurrences="1">
@@ -3367,6 +3484,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+      <code>CommentQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/views/admin/comment/_list.php">
     <MixedArgument occurrences="1">
@@ -3660,6 +3805,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+      <code>LandingQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/landing/views/admin/landing/index.php">
     <MixedAssignment occurrences="1">
@@ -3792,6 +3965,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+      <code>PageQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/views/admin/page/index.php">
     <MixedAssignment occurrences="1">
@@ -3966,6 +4167,34 @@
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="26">
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+      <code>WorkQuery</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/views/admin/category/index.php">
     <MixedAssignment occurrences="1">
@@ -4224,6 +4453,12 @@
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>CurrentPasswordValidator</code>
+      <code>CurrentPasswordValidator</code>
+      <code>CurrentPasswordValidator</code>
+      <code>CurrentPasswordValidator</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/components/UsernameValidator.php">
     <PropertyNotSetInConstructor occurrences="3">
@@ -4430,6 +4665,14 @@
     <PossiblyNullReference occurrences="1">
       <code>getUrl</code>
     </PossiblyNullReference>
+  </file>
+  <file src="src/widgets/IconMenu.php">
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>IconMenu</code>
+      <code>IconMenu</code>
+      <code>IconMenu</code>
+      <code>IconMenu</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="src/widgets/MainMenu.php">
     <PropertyNotSetInConstructor occurrences="4">
