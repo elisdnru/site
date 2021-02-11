@@ -70,7 +70,7 @@ class Comment extends ActiveRecord
     public function fixedText(string $attribute): void
     {
         $this->$attribute = preg_replace('#\r\n#s', "\n", trim($this->$attribute));
-        $this->$attribute = preg_replace('#([^\n])\n?<pre\>#s', "$1\n\n<pre>", $this->$attribute);
+        $this->$attribute = preg_replace('#([^\n])\n?<pre>#s', "$1\n\n<pre>", $this->$attribute);
     }
 
     public function getParent(): ActiveQuery
