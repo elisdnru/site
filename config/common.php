@@ -25,8 +25,14 @@ use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
+use yii\log\Dispatcher;
 use yii\mail\MailerInterface;
+use yii\rbac\ManagerInterface;
+use yii\swiftmailer\Mailer;
+use yii\web\AssetManager;
 use yii\web\JqueryAsset;
+use yii\web\UrlManager;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
 $runtime = dirname(__DIR__) . '/var/' . PHP_SAPI;
@@ -76,84 +82,20 @@ return [
     ],
 
     'components' => [
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'enableStrictParsing' => true,
-            'suffix' => '',
-            'rules' => [
-                '<module:\w+>/admin/<controller:\w+>' => '<module>/admin/<controller>/index',
-                '<module:\w+>/admin/<controller:\w+>/<id:\d+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
-                '<module:\w+>/admin/<controller:\w+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
-            ],
-        ],
-
-        'db' => [
-            'class' => Connection::class,
-            'dsn' => 'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME'),
-            'username' => getenv('DB_USERNAME'),
-            'password' => getenv('DB_PASSWORD'),
-            'tablePrefix' => '',
-            'charset' => 'utf8',
-            'enableSchemaCache' => true,
-        ],
-
+        'urlManager' => UrlManager::class,
+        'db' => Connection::class,
         'mailer' => MailerInterface::class,
-
-        'assetManager' => [
-            'linkAssets' => true,
-            'appendTimestamp' => true,
-            'bundles' => [
-                JqueryAsset::class => [
-                    'sourcePath' => null,
-                    'baseUrl' => '/build',
-                    'js' => ['jquery.js'],
-                ],
-            ],
-        ],
-
-        'authManager' => [
-            'class' => AuthManager::class,
-            'itemFile' => __DIR__ . '/rbac/items.php',
-            'ruleFile' => __DIR__ . '/rbac/rules.php',
-            'assignmentFile' => __DIR__ . '/rbac/assignments.php',
-        ],
-
+        'assetManager' => AssetManager::class,
+        'authManager' => ManagerInterface::class,
+        'log' => Dispatcher::class,
+        'view' => View::class,
+        'cache' => CacheInterface::class,
         'moduleAdminAccess' => AdminAccess::class,
         'moduleAdminDashboard' => AdminDashboard::class,
         'moduleAdminMenu' => AdminMenu::class,
         'moduleAdminNotifications' => AdminNotifications::class,
-
         'file' => FileExtension::class,
         'uploader' => Uploader::class,
-
-        'log' => [
-            'class' => yii\log\Dispatcher::class,
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-        ],
-
-        'view' => [
-            'as InlineWidgetsBehavior' => [
-                'class' => InlineWidgetsBehavior::class,
-                'widgets' => [
-                    'lastPosts' => LastPostsWidget::class,
-                    'block' => BlockWidget::class,
-                    'countdown' => CountDown::class,
-                    'subscribe_webinars' => SubscribeWebinars::class,
-                    'subscribe_news' => SubscribeNews::class,
-                    'mailto' => MailTo::class,
-                    'deworker-series-episodes' => SeriesEpisodes::class,
-                ],
-            ],
-            'as Replace' => [
-                'class' => ContentReplaceBehavior::class,
-                'replaces' => [
-                    'http://www.elisdn.ru' => 'https://elisdn.ru',
-                ],
-            ],
-        ],
-
-        'cache' => CacheInterface::class,
     ],
 
     'container' => [
@@ -171,6 +113,49 @@ return [
             ],
         ],
         'singletons' => [
+            UrlManager::class => [
+                'class' => UrlManager::class,
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+                'enableStrictParsing' => true,
+                'suffix' => '',
+                'rules' => [
+                    '<module:\w+>/admin/<controller:\w+>' => '<module>/admin/<controller>/index',
+                    '<module:\w+>/admin/<controller:\w+>/<id:\d+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
+                    '<module:\w+>/admin/<controller:\w+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
+                ],
+            ],
+            Connection::class => [
+                'class' => Connection::class,
+                'dsn' => 'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME'),
+                'username' => getenv('DB_USERNAME'),
+                'password' => getenv('DB_PASSWORD'),
+                'tablePrefix' => '',
+                'charset' => 'utf8',
+                'enableSchemaCache' => true,
+            ],
+            AssetManager::class => [
+                'class' => AssetManager::class,
+                'linkAssets' => true,
+                'appendTimestamp' => true,
+                'bundles' => [
+                    JqueryAsset::class => [
+                        'sourcePath' => null,
+                        'baseUrl' => '/build',
+                        'js' => ['jquery.js'],
+                    ],
+                ],
+            ],
+            ManagerInterface::class => [
+                'class' => AuthManager::class,
+                'itemFile' => __DIR__ . '/rbac/items.php',
+                'ruleFile' => __DIR__ . '/rbac/rules.php',
+                'assignmentFile' => __DIR__ . '/rbac/assignments.php',
+            ],
+            Dispatcher::class => [
+                'class' => Dispatcher::class,
+                'traceLevel' => YII_DEBUG ? 3 : 0,
+            ],
             CacheInterface::class => !getenv('APP_DEBUG') ? [
                 'class' => FileCache::class,
                 'dirMode' => 0777,
@@ -179,7 +164,7 @@ return [
                 'class' => DummyCache::class,
             ],
             MailerInterface::class => [
-                'class' => yii\swiftmailer\Mailer::class,
+                'class' => Mailer::class,
                 'viewPath' => '@app/views/email',
                 'transport' => [
                     'class' => Swift_SmtpTransport::class,
@@ -191,6 +176,27 @@ return [
                 ],
                 'messageConfig' => [
                     'from' => getenv('MAILER_FROM_EMAIL'),
+                ],
+            ],
+            View::class => [
+                'class' => View::class,
+                'as InlineWidgetsBehavior' => [
+                    'class' => InlineWidgetsBehavior::class,
+                    'widgets' => [
+                        'lastPosts' => LastPostsWidget::class,
+                        'block' => BlockWidget::class,
+                        'countdown' => CountDown::class,
+                        'subscribe_webinars' => SubscribeWebinars::class,
+                        'subscribe_news' => SubscribeNews::class,
+                        'mailto' => MailTo::class,
+                        'deworker-series-episodes' => SeriesEpisodes::class,
+                    ],
+                ],
+                'as Replace' => [
+                    'class' => ContentReplaceBehavior::class,
+                    'replaces' => [
+                        'http://www.elisdn.ru' => 'https://elisdn.ru',
+                    ],
                 ],
             ],
             ImageHandler::class => [],
