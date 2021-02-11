@@ -217,7 +217,7 @@ return [
                         '50x50',
                     ]],
                     ['upload/images/portfolio', [
-                        '198x0', // greed
+                        '198x0', // index
                         '190x0', // widget
                         '50x0', // admin
                     ]],
