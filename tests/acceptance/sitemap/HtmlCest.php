@@ -19,5 +19,6 @@ class HtmlCest
         $I->seeLink('Неделя ООП', '/oop-week');
         $I->seeLink('Git и Composer для начинающих', '/git-composer');
         $I->seeLink('Мастер-класс Yii2 Shop', '/yii2-shop');
+        $I->seeLink('Мастер-класс Laravel', '/laravel-board');
     }
 }

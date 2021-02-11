@@ -38,6 +38,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
             'git-composer' => 'landing/default/git-composer',
             'oop-week' => 'landing/default/oop-week',
             'yii2-shop' => 'landing/default/yii2-shop',
+            'laravel-board' => 'landing/default/laravel-board',
             ['class' => components\LandingUrlRule::class, 'cache' => 3600 * 24],
         ];
     }
@@ -72,6 +73,12 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
                 new Item(
                     '/yii2-shop',
                     'Мастер-класс Yii2 Shop',
+                    new Xml(Xml::WEEKLY, 0.5, null),
+                    []
+                ),
+                new Item(
+                    '/laravel-board',
+                    'Мастер-класс Laravel',
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []
                 ),

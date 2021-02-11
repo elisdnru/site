@@ -18,5 +18,6 @@ class XmlCest
         $I->see('http://nginx:81/contacts', 'loc');
         $I->see('http://nginx:81/oop-week', 'loc');
         $I->see('http://nginx:81/yii2-shop', 'loc');
+        $I->see('http://nginx:81/laravel-board', 'loc');
     }
 }

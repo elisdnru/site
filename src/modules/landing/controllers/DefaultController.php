@@ -22,4 +22,9 @@ class DefaultController extends Controller
     {
         return $this->render('yii2-shop');
     }
+
+    public function actionLaravelBoard(): string
+    {
+        return $this->render('laravel-board');
+    }
 }
