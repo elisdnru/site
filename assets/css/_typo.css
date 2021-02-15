@@ -118,7 +118,8 @@ blockquote {
   margin-bottom: 20px;
 }
 
-blockquote p:last-child {
+blockquote p:last-child,
+blockquote ul:last-child {
   margin-bottom: 0;
 }
 
