@@ -1,13 +1,7 @@
 <?php
 
-use app\assets\MainAsset;
-use app\modules\block\widgets\BlockWidget;
-use app\widgets\AdminBar;
-use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use app\widgets\Counters;
-use app\widgets\MainMenu;
-use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;

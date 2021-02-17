@@ -10,7 +10,6 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
-use yii\helpers\Url;
 use yii\mail\MailerInterface;
 use yii\web\UploadedFile;
 
