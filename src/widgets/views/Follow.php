@@ -29,7 +29,7 @@ $providers = [
             <label><input type="checkbox" required /> согласен с <a target="_blank" href="/privacy">политикой</a></label>
         </div>
         <div class="row button">
-            <button type="submit">Подписаться на плюшки</button>
+            <button type="submit">Подписаться на новости</button>
         </div>
     </form>
 </div>
