@@ -131,7 +131,7 @@ return [
                 'username' => getenv('DB_USERNAME'),
                 'password' => getenv('DB_PASSWORD'),
                 'tablePrefix' => '',
-                'charset' => 'utf8',
+                'charset' => 'utf8mb4',
                 'enableSchemaCache' => true,
             ],
             AssetManager::class => [
