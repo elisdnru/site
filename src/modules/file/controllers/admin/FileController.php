@@ -14,7 +14,6 @@ use Yii;
 use yii\base\Module;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
-use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\User as WebUser;
@@ -88,10 +87,6 @@ class FileController extends AdminController
         $name = FileNameFilter::escape($name);
         $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
 
-        if (!$file) {
-            throw new NotFoundHttpException();
-        }
-
         if (!$file->delete()) {
             throw new BadRequestHttpException('Ошибка удаления');
         }
@@ -112,10 +107,6 @@ class FileController extends AdminController
             $name = FileNameFilter::escape($name);
 
             $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
-
-            if (!$file) {
-                throw new NotFoundHttpException();
-            }
 
             $to = FileNameFilter::escape($form->name);
 
