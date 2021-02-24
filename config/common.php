@@ -52,7 +52,9 @@ return [
 
     'bootstrap' => [
         RoutesLoader::class,
-        app\components\psr\Provider::class,
+        app\components\psr\HttpFactoryProvider::class,
+        app\components\psr\HttpClientProvider::class,
+        app\components\psr\SimpleCacheProvider::class,
         app\components\module\sitemap\Provider::class,
         app\modules\edu\components\Provider::class,
     ],
