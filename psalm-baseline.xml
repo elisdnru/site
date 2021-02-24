@@ -3700,30 +3700,22 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/file/views/admin/file/index.php">
-    <MixedArgument occurrences="2">
-      <code>$file-&gt;getSize()</code>
-      <code>$item</code>
+    <MixedArgument occurrences="1">
+      <code>$item-&gt;getSize()</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$contents</code>
-      <code>$item</code>
-    </MixedAssignment>
     <PossiblyNullArgument occurrences="6">
-      <code>$file-&gt;getBasename()</code>
-      <code>$file-&gt;getBasename()</code>
-      <code>$file-&gt;getBasename()</code>
-      <code>$file-&gt;getBasename()</code>
-      <code>$file-&gt;getTimeModified()</code>
-      <code>$file-&gt;getTimeModified()</code>
+      <code>$item-&gt;getBasename()</code>
+      <code>$item-&gt;getBasename()</code>
+      <code>$item-&gt;getBasename()</code>
+      <code>$item-&gt;getBasename()</code>
+      <code>$item-&gt;getTimeModified()</code>
+      <code>$item-&gt;getTimeModified()</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="3">
-      <code>$file-&gt;getBasename()</code>
-      <code>$file-&gt;getBasename()</code>
-      <code>$file-&gt;getBasename()</code>
+      <code>$item-&gt;getBasename()</code>
+      <code>$item-&gt;getBasename()</code>
+      <code>$item-&gt;getBasename()</code>
     </PossiblyNullOperand>
-    <UndefinedDocblockClass occurrences="1">
-      <code>$this-&gt;title</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="src/modules/home/Module.php">
     <PropertyNotSetInConstructor occurrences="2">

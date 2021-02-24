@@ -69,10 +69,18 @@ class FileController extends AdminController
             }
         }
 
+        $dir = $fileHandler->set($root . '/' . $path);
+
+        $items = array_map(
+            fn (string $path): File => $fileHandler->set($path),
+            (array)$dir->getContents()
+        );
+
         return $this->render('index', [
             'htmlRoot' => $htmlRoot,
             'root' => $root,
             'path' => $path,
+            'items' => $items,
             'uploadCount' => self::UPLOAD_COUNT,
         ]);
     }

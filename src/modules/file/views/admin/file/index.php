@@ -1,12 +1,13 @@
 <?php
 
+use app\extensions\file\File;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var File $model
+ * @var File[] $items
  * @var string $htmlRoot
  * @var string $root
  * @var string $path
@@ -45,7 +46,6 @@ $nav = '';
 </h3>
 
 <?php
-$dir = Yii::$app->file->set($root . '/' . $path);
 $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переименовать']);
 ?>
 
@@ -58,43 +58,42 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
         <th style="width:16px"></th>
     </tr>
 
-    <?php if ($contents = $dir->getContents()) : ?>
-        <?php foreach ($contents as $item) : ?>
-            <?php $file = Yii::$app->file->set($item); ?>
-            <?php $delUrl = Url::to(['delete', 'name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
-            <?php $renameUrl = Url::to(['rename', 'path' => $path, 'name' => $file->getBasename()]); ?>
+    <?php if ($items) : ?>
+        <?php foreach ($items as $item) : ?>
+            <?php $delUrl = Url::to(['delete', 'name' => ($path ? $path . '/' : '') . $item->getBasename()]); ?>
+            <?php $renameUrl = Url::to(['rename', 'path' => $path, 'name' => $item->getBasename()]); ?>
 
-            <?php if ($file->getIsDir()) : ?>
-                <tr id="item_<?= md5($file->getBasename()) ?>">
+            <?php if ($item->getIsDir()) : ?>
+                <tr id="item_<?= md5($item->getBasename()) ?>">
                     <td>
                         <a class="floatright" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
                         <img src="/images/admin/foldericon.jpg" alt="">
-                        <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . $file->getBasename()]) ?>"><?= $file->getBasename() ?></a>
+                        <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . $item->getBasename()]) ?>"><?= $item->getBasename() ?></a>
                     </td>
                     <td></td>
                     <td style="text-align: center">
-                        <?= date('Y-m-d h:i:s', $file->getTimeModified()) ?>
+                        <?= date('Y-m-d h:i:s', $item->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить директорию &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax_del" data-del="item_<?= md5($item->getBasename()) ?>" title="Удалить директорию &laquo;<?= $item->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
             <?php else : ?>
-                <tr id="item_<?= md5($file->getBasename()) ?>">
+                <tr id="item_<?= md5($item->getBasename()) ?>">
                     <td>
                         <a class="floatright" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
                         <img src="/images/admin/fileicon.jpg">
-                        <a href="<?= $htmlRoot . '/' . ($path ? $path . '/' : '') . $file->getBasename() ?>"><?= $file->getBasename() ?></a>
+                        <a href="<?= $htmlRoot . '/' . ($path ? $path . '/' : '') . $item->getBasename() ?>"><?= $item->getBasename() ?></a>
                     </td>
                     <td style="text-align: center">
-                        <?= $file->getSize() ?>
+                        <?= $item->getSize() ?>
                     </td>
                     <td style="text-align: center">
-                        <?= date('Y-m-d h:i:s', $file->getTimeModified()) ?>
+                        <?= date('Y-m-d h:i:s', $item->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax_del" data-del="item_<?= md5($file->getBasename()) ?>" title="Удалить файл &laquo;<?= $file->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax_del" data-del="item_<?= md5($item->getBasename()) ?>" title="Удалить файл &laquo;<?= $item->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
