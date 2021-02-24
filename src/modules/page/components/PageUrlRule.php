@@ -10,7 +10,7 @@ class PageUrlRule implements UrlRuleInterface
 {
     public int $cache = 0;
 
-    public function createUrl($manager, $route, $params)
+    public function createUrl($manager, $route, $params): bool|string
     {
         if ($route !== 'page/page/show') {
             return false;
@@ -20,7 +20,7 @@ class PageUrlRule implements UrlRuleInterface
             throw new InvalidArgumentException('Empty page path.');
         }
 
-        return $params['path'];
+        return (string)$params['path'];
     }
 
     /**

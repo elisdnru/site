@@ -9,9 +9,7 @@ use yii\web\UrlRuleInterface;
 
 class CategoryUrlRule implements UrlRuleInterface
 {
-    public $cache = 0;
-
-    public function createUrl($manager, $route, $params)
+    public function createUrl($manager, $route, $params): bool|string
     {
         if ($route !== 'category') {
             return false;
@@ -21,7 +19,7 @@ class CategoryUrlRule implements UrlRuleInterface
             throw new InvalidArgumentException('Empty path.');
         }
 
-        return $params['category'];
+        return (string)$params['category'];
     }
 
     /**

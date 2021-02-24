@@ -19,7 +19,7 @@ class PostProcessingTest extends Unit
 
     // phpcs:disable
     // PSR2.Method Declarations.Underscore
-    protected function _before()
+    protected function _before(): void
     {
         $this->tester->haveFixtures([
             'blog_post' => PostFixture::class,

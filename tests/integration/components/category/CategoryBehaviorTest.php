@@ -102,6 +102,7 @@ class CategoryBehaviorTest extends Unit
 
     public function testFindByAliasSuccess(): void
     {
+        /** @var Category|null $category */
         $category = $this->query->findByAlias('first');
 
         self::assertNotNull($category);

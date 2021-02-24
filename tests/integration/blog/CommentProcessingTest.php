@@ -5,6 +5,7 @@ namespace tests\integration\blog;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
 use Codeception\Test\Unit;
+use LogicException;
 use tests\fixtures\blog\CategoryFixture;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
@@ -34,7 +35,7 @@ class CommentProcessingTest extends Unit
 
     public function testComment(): void
     {
-        $post = Post::findOne(1);
+        $post = Post::findOne(1) ?: throw new LogicException('Not found.');
 
         $comment = new Comment();
 

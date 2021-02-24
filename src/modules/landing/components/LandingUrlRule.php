@@ -10,7 +10,7 @@ class LandingUrlRule implements UrlRuleInterface
 {
     public int $cache = 0;
 
-    public function createUrl($manager, $route, $params)
+    public function createUrl($manager, $route, $params): bool|string
     {
         if ($route !== 'landing/landing/show') {
             return false;
@@ -20,7 +20,7 @@ class LandingUrlRule implements UrlRuleInterface
             throw new InvalidArgumentException('Empty landing path.');
         }
 
-        return $params['path'];
+        return (string)$params['path'];
     }
 
     /**

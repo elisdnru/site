@@ -3745,14 +3745,6 @@
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/landing/components/LandingUrlRule.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>createUrl</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$params['path']</code>
-    </MixedReturnStatement>
-  </file>
   <file src="src/modules/landing/controllers/LandingController.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$landing === null</code>
@@ -3831,14 +3823,6 @@
       <code>Module</code>
       <code>Module</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/components/PageUrlRule.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>createUrl</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$params['path']</code>
-    </MixedReturnStatement>
   </file>
   <file src="src/modules/page/controllers/PageController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -5510,24 +5494,6 @@
       <code>UserFixture</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="tests/integration/blog/CommentProcessingTest.php">
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$post-&gt;id</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PossiblyNullPropertyFetch occurrences="1">
-      <code>$post-&gt;id</code>
-    </PossiblyNullPropertyFetch>
-  </file>
-  <file src="tests/integration/blog/PostProcessingTest.php">
-    <MissingReturnType occurrences="1">
-      <code>_before</code>
-    </MissingReturnType>
-  </file>
-  <file src="tests/integration/components/category/CategoryBehaviorTest.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$category-&gt;alias</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="tests/integration/components/category/CategoryFixture.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>CategoryFixture</code>
@@ -5542,17 +5508,6 @@
       <code>$category-&gt;alias</code>
       <code>$category-&gt;alias</code>
     </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="tests/integration/components/category/CategoryUrlRule.php">
-    <MissingPropertyType occurrences="1">
-      <code>$cache</code>
-    </MissingPropertyType>
-    <MixedInferredReturnType occurrences="1">
-      <code>createUrl</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$params['category']</code>
-    </MixedReturnStatement>
   </file>
   <file src="tests/integration/components/category/TreeCategoryFixture.php">
     <PropertyNotSetInConstructor occurrences="2">
