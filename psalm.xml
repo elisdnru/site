@@ -9,6 +9,10 @@
     cacheDirectory="./var/.psalm"
     autoloader="./vendor/yiisoft/yii2/Yii.php"
 >
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+
     <projectFiles>
         <directory name="bin" />
         <directory name="config" />

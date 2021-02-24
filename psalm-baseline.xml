@@ -5544,29 +5544,13 @@
     <PossiblyNullPropertyFetch occurrences="1">
       <code>$post-&gt;id</code>
     </PossiblyNullPropertyFetch>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$tester</code>
-      <code>CommentProcessingTest</code>
-      <code>CommentProcessingTest</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="tests/integration/blog/PostProcessingTest.php">
     <MissingReturnType occurrences="1">
       <code>_before</code>
     </MissingReturnType>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$tester</code>
-      <code>PostProcessingTest</code>
-      <code>PostProcessingTest</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="tests/integration/components/category/CategoryBehaviorTest.php">
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>$query</code>
-      <code>$tester</code>
-      <code>CategoryBehaviorTest</code>
-      <code>CategoryBehaviorTest</code>
-    </PropertyNotSetInConstructor>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>$category-&gt;alias</code>
     </UndefinedMagicPropertyFetch>
@@ -5578,12 +5562,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="tests/integration/components/category/CategoryTreeBehaviorTest.php">
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>$find</code>
-      <code>$tester</code>
-      <code>CategoryTreeBehaviorTest</code>
-      <code>CategoryTreeBehaviorTest</code>
-    </PropertyNotSetInConstructor>
     <UndefinedMagicMethod occurrences="1">
       <code>getArray</code>
     </UndefinedMagicMethod>
@@ -5607,18 +5585,6 @@
     <PropertyNotSetInConstructor occurrences="2">
       <code>TreeCategoryFixture</code>
       <code>TreeCategoryFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/unit/components/FileNameHelperTest.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>FileNameHelperTest</code>
-      <code>FileNameHelperTest</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/unit/components/uploader/UploaderTest.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>UploaderTest</code>
-      <code>UploaderTest</code>
     </PropertyNotSetInConstructor>
   </file>
 </files>
