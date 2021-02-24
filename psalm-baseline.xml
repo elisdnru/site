@@ -404,19 +404,6 @@
       <code>$class::sitemapPriority()</code>
     </MixedMethodCall>
   </file>
-  <file src="src/components/psr/SimpleCacheAdapter.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>(array)$keys</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$key</code>
-      <code>$result</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$ttl</code>
-      <code>$ttl</code>
-    </PossiblyInvalidArgument>
-  </file>
   <file src="src/components/purifier/CommentPostFilter.php">
     <MixedArgument occurrences="1">
       <code>$matches[0]</code>
