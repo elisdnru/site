@@ -4,11 +4,11 @@ namespace app\modules\blog\controllers\admin;
 
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
-use app\modules\comment\components\CommentAdminController as Base;
+use app\modules\comment\components\CommentAdminController;
 use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
-class CommentController extends Base
+class CommentController extends CommentAdminController
 {
     protected function loadMaterialModel(int $id): ActiveRecord
     {
