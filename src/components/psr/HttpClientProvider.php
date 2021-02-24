@@ -19,11 +19,10 @@ class HttpClientProvider implements BootstrapInterface
         $container = Yii::$container;
 
         $container->setSingleton(ClientInterface::class, static function (Container $container) {
-            /** @var ResponseFactoryInterface $responseFactory */
-            $responseFactory = $container->get(ResponseFactoryInterface::class);
-            /** @var StreamFactoryInterface $streamFactory */
-            $streamFactory = $container->get(StreamFactoryInterface::class);
-            return new Client($responseFactory, $streamFactory);
+            return new Client(
+                $container->get(ResponseFactoryInterface::class),
+                $container->get(StreamFactoryInterface::class)
+            );
         });
     }
 }

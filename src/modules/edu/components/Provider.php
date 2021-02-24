@@ -22,25 +22,17 @@ class Provider implements BootstrapInterface
         $container = Yii::$container;
 
         $container->setSingleton(Api::class, static function (Container $container) use ($app) {
-            /** @var CacheInterface $cache */
-            $cache = $container->get(CacheInterface::class);
-            /** @var ResponseFactoryInterface $responseFactory */
-            $responseFactory = $container->get(ResponseFactoryInterface::class);
-            /** @var RequestFactoryInterface $requestFactory */
-            $requestFactory = $container->get(RequestFactoryInterface::class);
-            /** @var ClientInterface $httpClient */
-            $httpClient = $container->get(ClientInterface::class);
             return new Api(
                 new Muted(
                     new Cached(
-                        $httpClient,
-                        $cache,
+                        $container->get(ClientInterface::class),
+                        $container->get(CacheInterface::class),
                         3600
                     ),
                     $app->getErrorHandler(),
-                    $responseFactory
+                    $container->get(ResponseFactoryInterface::class)
                 ),
-                $requestFactory,
+                $container->get(RequestFactoryInterface::class),
                 $app->params['deworker_api_url']
             );
         });
