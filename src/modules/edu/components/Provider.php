@@ -7,7 +7,7 @@ namespace app\modules\edu\components;
 use app\modules\edu\components\api\Api;
 use app\modules\edu\components\api\client\Cached;
 use app\modules\edu\components\api\client\Muted;
-use Http\Client\Curl\Client;
+use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\SimpleCache\CacheInterface;
@@ -28,10 +28,12 @@ class Provider implements BootstrapInterface
             $responseFactory = $container->get(ResponseFactoryInterface::class);
             /** @var RequestFactoryInterface $requestFactory */
             $requestFactory = $container->get(RequestFactoryInterface::class);
+            /** @var ClientInterface $httpClient */
+            $httpClient = $container->get(ClientInterface::class);
             return new Api(
                 new Muted(
                     new Cached(
-                        new Client(),
+                        $httpClient,
                         $cache,
                         3600
                     ),
