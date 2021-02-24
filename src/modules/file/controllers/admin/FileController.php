@@ -5,7 +5,6 @@ namespace app\modules\file\controllers\admin;
 use app\components\FileNameFilter;
 use app\components\Slugger;
 use app\extensions\file\File;
-use app\extensions\image\Image;
 use app\modules\file\forms\RenameForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
@@ -20,7 +19,6 @@ use yii\web\User as WebUser;
 
 class FileController extends AdminController
 {
-    private const THUMB_WIDTH = 84;
     private const UPLOAD_COUNT = 7;
     private const UPLOAD_PATH = 'upload/media';
 
@@ -44,7 +42,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionIndex(File $fileHandler, Image $image, string $path = ''): Response|string
+    public function actionIndex(File $fileHandler, string $path = ''): Response|string
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
         $htmlRoot = '/' . $this->getFileDir();
@@ -59,7 +57,7 @@ class FileController extends AdminController
             for ($i = 1; $i <= self::UPLOAD_COUNT; $i++) {
                 $index = 'file_' . $i;
                 if (isset($_FILES[$index])) {
-                    $this->uploadPostFile($index, $currentPath, $fileHandler, $image);
+                    $this->uploadPostFile($index, $currentPath, $fileHandler);
                 }
             }
             return $this->refresh();
@@ -124,12 +122,8 @@ class FileController extends AdminController
         ]);
     }
 
-    private function uploadPostFile(
-        string $field,
-        string $currentPath,
-        File $fileHandler,
-        Image $image
-    ): bool {
+    private function uploadPostFile(string $field, string $currentPath, File $fileHandler): bool
+    {
         $success = false;
 
         $uploaded = $fileHandler->set($field, true);
@@ -145,16 +139,6 @@ class FileController extends AdminController
 
         if (!$uploaded->move($file)) {
             $success = true;
-        }
-
-        if ($success && in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-            $orig = $image->load($file);
-
-            if ($orig && $orig->getWidth() > self::THUMB_WIDTH) {
-                $orig
-                    ->thumb(self::THUMB_WIDTH, false)
-                    ->save($currentPath . '/' . $slug . '_prev.' . $extension);
-            }
         }
 
         return $success;

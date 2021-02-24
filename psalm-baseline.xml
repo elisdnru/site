@@ -3681,12 +3681,6 @@
       <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/file/controllers/admin/FileController.php">
-    <TypeDoesNotContainType occurrences="2">
-      <code>$file</code>
-      <code>$file</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/modules/file/migrations/m130328_115251_create_file.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
