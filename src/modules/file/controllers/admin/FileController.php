@@ -20,10 +20,9 @@ use yii\web\User as WebUser;
 
 class FileController extends AdminController
 {
-    public const THUMB_IMAGE_WIDTH = 84;
-    public const FILES_UPLOAD_COUNT = 7;
-
-    protected string $uploadRootPath = 'upload/media';
+    private const THUMB_WIDTH = 84;
+    private const UPLOAD_COUNT = 7;
+    private const UPLOAD_PATH = 'upload/media';
 
     private WebUser $user;
 
@@ -57,7 +56,7 @@ class FileController extends AdminController
         }
 
         if (!empty($_FILES)) {
-            for ($i = 1; $i <= self::FILES_UPLOAD_COUNT; $i++) {
+            for ($i = 1; $i <= self::UPLOAD_COUNT; $i++) {
                 $index = 'file_' . $i;
                 if (isset($_FILES[$index])) {
                     $this->uploadPostFile($index, $currentPath, $fileHandler, $image);
@@ -78,7 +77,7 @@ class FileController extends AdminController
             'htmlRoot' => $htmlRoot,
             'root' => $root,
             'path' => $path,
-            'uploadCount' => self::FILES_UPLOAD_COUNT,
+            'uploadCount' => self::UPLOAD_COUNT,
         ]);
     }
 
@@ -151,9 +150,9 @@ class FileController extends AdminController
         if ($success && in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
             $orig = $image->load($file);
 
-            if ($orig && $orig->getWidth() > self::THUMB_IMAGE_WIDTH) {
+            if ($orig && $orig->getWidth() > self::THUMB_WIDTH) {
                 $orig
-                    ->thumb(self::THUMB_IMAGE_WIDTH, false)
+                    ->thumb(self::THUMB_WIDTH, false)
                     ->save($currentPath . '/' . $slug . '_prev.' . $extension);
             }
         }
@@ -166,10 +165,10 @@ class FileController extends AdminController
         $user = $this->loadUser();
 
         if ($user && $user->role !== Access::ROLE_ADMIN) {
-            return $this->uploadRootPath . '/users/' . $user->username;
+            return self::UPLOAD_PATH . '/users/' . $user->username;
         }
 
-        return $this->uploadRootPath;
+        return self::UPLOAD_PATH;
     }
 
     private function loadUser(): ?User
