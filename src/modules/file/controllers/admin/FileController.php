@@ -42,7 +42,7 @@ class FileController extends AdminController
         ]);
     }
 
-    public function actionIndex(File $fileHandler, string $path = ''): Response|string
+    public function actionIndex(Request $request, File $fileHandler, string $path = ''): Response|string
     {
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
         $htmlRoot = '/' . $this->getFileDir();
@@ -63,9 +63,7 @@ class FileController extends AdminController
             return $this->refresh();
         }
 
-        if (!empty($_POST['folderName'])) {
-            $folderName = (string)$_POST['folderName'];
-
+        if ($folderName = (string)$request->getBodyParam('folderName')) {
             if (preg_match('|^[\\w-]+$|i', $folderName, $t)) {
                 $fileHandler->createDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $folderName);
             }
