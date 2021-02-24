@@ -60,12 +60,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 
     <?php if ($contents = $dir->getContents()) : ?>
         <?php foreach ($contents as $item) : ?>
-            <?php
-            $file = Yii::$app->file->set($item);
-            if ($file->getBasename() === '.htaccess') {
-                continue;
-            }
-            ?>
+            <?php $file = Yii::$app->file->set($item); ?>
             <?php $delUrl = Url::to(['delete', 'name' => ($path ? $path . '/' : '') . $file->getBasename()]); ?>
             <?php $renameUrl = Url::to(['rename', 'path' => $path, 'name' => $file->getBasename()]); ?>
 

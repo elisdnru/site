@@ -126,10 +126,6 @@ class FileController extends AdminController
 
         $uploaded = $fileHandler->set($field, true);
 
-        if ($uploaded->getBasename() === '.htaccess') {
-            throw new BadRequestHttpException('Отказано в доступе к загрузке файла .htaccess');
-        }
-
         $slug = Slugger::slug($uploaded->getFilename() ?: '');
         $extension = $uploaded->getExtension() ?: '';
 
