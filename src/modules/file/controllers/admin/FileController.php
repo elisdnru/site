@@ -166,12 +166,10 @@ class FileController extends AdminController
         $user = $this->loadUser();
 
         if ($user && $user->role !== Access::ROLE_ADMIN) {
-            $dir = $this->uploadRootPath . '/users/' . $user->username;
-        } else {
-            $dir = $this->uploadRootPath;
+            return $this->uploadRootPath . '/users/' . $user->username;
         }
 
-        return $dir;
+        return $this->uploadRootPath;
     }
 
     private function loadUser(): ?User
