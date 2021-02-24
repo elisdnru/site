@@ -2,7 +2,7 @@
 
 namespace app\extensions\image;
 
-use app\extensions\AntiMagic;
+use app\components\AntiMagic;
 use GdImage;
 use RuntimeException;
 

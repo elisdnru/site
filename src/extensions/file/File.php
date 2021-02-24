@@ -2,7 +2,7 @@
 
 namespace app\extensions\file;
 
-use app\extensions\AntiMagic;
+use app\components\AntiMagic;
 use RuntimeException;
 use Yii;
 use yii\helpers\FileHelper;

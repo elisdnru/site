@@ -14,6 +14,22 @@
       <code>$_SERVER['HTTPS']</code>
     </MixedArgument>
   </file>
+  <file src="src/components/AntiMagic.php">
+    <MissingParamType occurrences="7">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$params</code>
+      <code>$value</code>
+    </MissingParamType>
+    <MixedOperand occurrences="3">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+    </MixedOperand>
+  </file>
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -493,22 +509,6 @@
     <PossiblyNullOperand occurrences="1">
       <code>$file-&gt;getExtension()</code>
     </PossiblyNullOperand>
-  </file>
-  <file src="src/extensions/AntiMagic.php">
-    <MissingParamType occurrences="7">
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$params</code>
-      <code>$value</code>
-    </MissingParamType>
-    <MixedOperand occurrences="3">
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-    </MixedOperand>
   </file>
   <file src="src/extensions/file/File.php">
     <DocblockTypeContradiction occurrences="1">
