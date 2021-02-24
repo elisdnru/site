@@ -404,7 +404,7 @@
       <code>$class::sitemapPriority()</code>
     </MixedMethodCall>
   </file>
-  <file src="src/components/psr/SimpleCache.php">
+  <file src="src/components/psr/SimpleCacheAdapter.php">
     <MixedArgumentTypeCoercion occurrences="1">
       <code>(array)$keys</code>
     </MixedArgumentTypeCoercion>

@@ -7,7 +7,7 @@ namespace app\components\psr;
 use Psr\SimpleCache\CacheInterface;
 use yii\caching\CacheInterface as YiiCacheInterface;
 
-class SimpleCache implements CacheInterface
+class SimpleCacheAdapter implements CacheInterface
 {
     private YiiCacheInterface $cache;
 

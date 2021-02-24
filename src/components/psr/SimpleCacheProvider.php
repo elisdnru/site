@@ -17,7 +17,7 @@ class SimpleCacheProvider implements BootstrapInterface
         $container = Yii::$container;
 
         $container->setSingleton(CacheInterface::class, static function (Container $container) {
-            return new SimpleCache(
+            return new SimpleCacheAdapter(
                 $container->get(YiiCacheInterface::class)
             );
         });
