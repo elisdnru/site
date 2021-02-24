@@ -57,7 +57,7 @@ class FileController extends AdminController
             for ($i = 1; $i <= self::UPLOAD_COUNT; $i++) {
                 $index = 'file_' . $i;
                 if (isset($_FILES[$index])) {
-                    $this->uploadPostFile($index, $currentPath, $fileHandler);
+                    $this->uploadFile($index, $currentPath, $fileHandler);
                 }
             }
             return $this->refresh();
@@ -120,7 +120,7 @@ class FileController extends AdminController
         ]);
     }
 
-    private function uploadPostFile(string $field, string $currentPath, File $fileHandler): bool
+    private function uploadFile(string $field, string $currentPath, File $fileHandler): bool
     {
         $success = false;
 
