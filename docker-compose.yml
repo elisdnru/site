@@ -76,7 +76,7 @@ services:
             - ./:/app
         working_dir: /app
     mysql:
-        image: mysql:5.7
+        image: mariadb:10
         volumes:
             - ./volumes/mysql:/var/lib/mysql
         environment:
@@ -87,7 +87,7 @@ services:
         ports:
             - "33061:3306"
     mysql-test:
-        image: mysql:5.7
+        image: mariadb:10
         volumes:
             - mysql-test:/var/lib/mysql
         environment:
