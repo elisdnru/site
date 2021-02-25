@@ -31,8 +31,8 @@ use yii\helpers\Url;
  * @property string $text
  * @property string $text_purified
  * @property string $image
- * @property string $image_width
- * @property string $image_height
+ * @property int|null $image_width
+ * @property int|null $image_height
  * @property string $image_alt
  * @property integer $image_show
  * @property integer $group_id

@@ -3037,6 +3037,15 @@
       <code>m210125_100812_rename_meta</code>
     </PropertyNotSetInConstructor>
   </file>
+  <file src="src/modules/blog/migrations/m210225_094512_add_nullable.php">
+    <InvalidReturnType occurrences="2">
+      <code>safeDown</code>
+      <code>safeUp</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>m210225_094512_add_nullable</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Group[]|BatchQueryResult</code>
