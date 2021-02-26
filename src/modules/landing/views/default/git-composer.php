@@ -104,15 +104,10 @@ $this->title = 'Git и Composer для начинающих';
         text-decoration: none;
         padding: 10px 60px;
         background: #3388d8;
-        background: -moz-linear-gradient(#3388d8, #2a70b1);
-        background: -webkit-linear-gradient(#3388d8, #2a70b1);
-        background: -o-linear-gradient(#3388d8, #2a70b1);
-        background: -ms-linear-gradient(#3388d8, #2a70b1);
+        background: linear-gradient(#3388d8, #2a70b1);
         color: #fff;
         border: none;
         border-radius: 100px;
-        -moz-border-radius: 100px;
-        -webkit-border-radius: 100px;
     }
 
     a.order-button:hover {

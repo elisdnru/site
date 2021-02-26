@@ -86,10 +86,7 @@
 
 .smart .item.item_web .title {
   background: #990066;
-  background: -moz-linear-gradient(#cc00cc, #990066);
-  background: -webkit-linear-gradient(#cc00cc, #990066);
-  background: -o-linear-gradient(#cc00cc, #990066);
-  background: -ms-linear-gradient(#cc00cc, #990066);
+  background: linear-gradient(#cc00cc, #990066);
 }
 
 .smart .item ul li {
@@ -105,10 +102,7 @@
 
 .smart .item.item_verstka .title {
   background: #0c5016;
-  background: -moz-linear-gradient(#237427, #0c5016);
-  background: -webkit-linear-gradient(#237427, #0c5016);
-  background: -o-linear-gradient(#237427, #0c5016);
-  background: -ms-linear-gradient(#237427, #0c5016);
+  background: linear-gradient(#237427, #0c5016);
 }
 
 .smart .item.item_program {
@@ -123,10 +117,7 @@
 
 .smart .item.item_program .title {
   background: #ad2c07;
-  background: -moz-linear-gradient(#cc330a, #ad2c07);
-  background: -webkit-linear-gradient(#cc330a, #ad2c07);
-  background: -o-linear-gradient(#cc330a, #ad2c07);
-  background: -ms-linear-gradient(#cc330a, #ad2c07);
+  background: linear-gradient(#cc330a, #ad2c07);
 }
 
 .smart .item.item_program:before {
@@ -165,8 +156,5 @@
 
 .smart .item.item_site .title {
   background: #2547cc;
-  background: -moz-linear-gradient(#0c61cc, #2547cc);
-  background: -webkit-linear-gradient(#0c61cc, #2547cc);
-  background: -o-linear-gradient(#0c61cc, #2547cc);
-  background: -ms-linear-gradient(#0c61cc, #2547cc);
+  background: linear-gradient(#0c61cc, #2547cc);
 }
