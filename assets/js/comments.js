@@ -1,15 +1,15 @@
-require('../css/comments.css');
+import '../css/comments.css'
 
 (function () {
   document.addEventListener('click', function (event) {
     if (!event.target.matches('.ajax_like')) {
-      return;
+      return
     }
 
-    event.preventDefault();
+    event.preventDefault()
 
-    var data = new FormData();
-    data.set('_csrf', getCSRFToken());
+    const data = new FormData()
+    data.set('_csrf', getCSRFToken())
     fetch(event.target.dataset.url, {
       method: 'POST',
       credentials: 'same-origin',
@@ -20,35 +20,35 @@ require('../css/comments.css');
     })
       .then(function (response) {
         if (!response.ok) {
-          throw Error(response.statusText);
+          throw Error(response.statusText)
         }
-        return response;
+        return response
       })
       .then(function (response) {
-        return response.text();
+        return response.text()
       })
       .then(function (data) {
         document.querySelector('#' + event.target.dataset.load).innerHTML = data
       })
       .catch(function (error) {
-        console.log(error);
-      });
-  });
+        console.log(error)
+      })
+  })
 
-  function setParentComment (id) {
-    var parentField = document.querySelector('#comment-parent-id')
+  function setParentComment(id) {
+    const parentField = document.querySelector('#comment-parent-id')
     if (typeof parentField != 'undefined') {
       parentField.value = id
     }
   }
 
-  function initComments () {
-    var form = document.querySelector('#comment-form')
+  function initComments() {
+    const form = document.querySelector('#comment-form')
 
-    var replySpans = document.querySelectorAll('.comment .reply');
+    const replySpans = document.querySelectorAll('.comment .reply');
 
     [].forEach.call(replySpans, function (span) {
-      var a = document.createElement('a')
+      const a = document.createElement('a')
       a.classList.add('reply')
       a.dataset.id = span.dataset.id
       a.href = '#comment-form'
@@ -56,16 +56,16 @@ require('../css/comments.css');
       span.parentNode.replaceChild(a, span)
     })
 
-    var replyLinks = document.querySelectorAll('.comment .reply');
+    const replyLinks = document.querySelectorAll('.comment .reply');
     [].forEach.call(replyLinks, function (link) {
       link.addEventListener('click', function () {
-        var comment = link.parentNode.parentNode
+        const comment = link.parentNode.parentNode
 
         form.parentElement.removeChild(form)
         form.style['margin-left'] = (parseInt(comment.style['margin-left']) + 20) + 'px'
         comment.after(form)
 
-        var id = parseInt(this.dataset.id)
+        const id = parseInt(this.dataset.id)
 
         form.querySelector('form').setAttribute('action', '#comment_' + id)
 
@@ -75,7 +75,7 @@ require('../css/comments.css');
       })
     })
 
-    var replyToAll = document.querySelector('.reply-comment');
+    const replyToAll = document.querySelector('.reply-comment')
     if (replyToAll) {
       replyToAll.addEventListener('click', function () {
         form.parentElement.removeChild(form)
@@ -88,4 +88,4 @@ require('../css/comments.css');
   }
 
   initComments()
-})();
+})()

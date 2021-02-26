@@ -1,5 +1,5 @@
-require('../css/main.css');
-require('./_site');
-require('./_form-action');
-require('./_share');
-require('./_ulogin');
+import '../css/main.css'
+import './_site'
+import './_form-action'
+import './_share'
+import './_ulogin'
