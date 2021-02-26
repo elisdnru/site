@@ -9,14 +9,14 @@ use yii\web\JqueryAsset;
 
 class JqueryUiAsset extends AssetBundle
 {
-    public $sourcePath = '@app/../assets/jui';
+    public $baseUrl = '/build';
 
     public $css = [
-        'css/jquery-ui.css',
+        'jquery-ui.css',
     ];
 
     public $js = [
-        'js/jquery-ui.min.js',
+        'jquery-ui.js',
     ];
 
     public $depends = [

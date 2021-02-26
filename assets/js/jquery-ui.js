@@ -1,0 +1,9 @@
+import jQuery from 'jquery'
+
+window.$ = window.jQuery = jQuery
+
+import 'jquery-ui/ui/widgets/sortable'
+import 'jquery-ui/ui/disable-selection'
+import 'jquery-ui/themes/base/core.css'
+import 'jquery-ui/themes/base/sortable.css'
+import 'jquery-ui/themes/base/theme.css'

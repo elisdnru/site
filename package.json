@@ -5,7 +5,8 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",

@@ -14,6 +14,7 @@ module.exports = {
     portfolio: './assets/css/portfolio.css',
     highlight: './assets/css/highlight.css',
     jquery: './assets/js/jquery.js',
+    'jquery-ui': './assets/js/jquery-ui.js',
     countdown: './assets/js/countdown.js'
   },
   output: {
