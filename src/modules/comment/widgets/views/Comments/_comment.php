@@ -29,7 +29,7 @@ use yii\helpers\Url;
 
         <span class="like">
             <span id="like-<?= $comment->id ?>"><?= $comment->likes ?></span>
-            <span class="ajax_like like-icon<?= $comment->liked ? ' like-active' : '' ?>" data-load="like-<?= $comment->id ?>" data-url="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
+            <span class="ajax-like like-icon<?= $comment->liked ? ' like-active' : '' ?>" data-load="like-<?= $comment->id ?>" data-url="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
         </span>
 
         <h2 class="date enc-date" data-date="<?= DateFormatter::format($comment->date, true) ?>">&nbsp;</h2>

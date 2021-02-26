@@ -2,7 +2,7 @@ import '../css/comments.css'
 import getCSRFToken from './csrf'
 ;(function () {
   document.addEventListener('click', function (event) {
-    if (!event.target.matches('.ajax_like')) {
+    if (!event.target.matches('.ajax-like')) {
       return
     }
 
