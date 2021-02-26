@@ -33,7 +33,7 @@ JqueryUiAsset::register($this);
 </p>
 <h1>Портфолио</h1>
 
-<p id="saving" style="display:none;float:right"><img src="/images/loading.gif" alt=""></p>
+<p id="saving" style="display:none;float:right">Saving...</p>
 
 <form action="?" method="get">
 <p>
