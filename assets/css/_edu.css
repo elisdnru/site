@@ -28,22 +28,37 @@
 
 .edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper {
   margin: 0 10px;
-  box-shadow: 0 1px 10px rgba(0,0,0,.05);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   background: #fff;
 }
 
-.edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .thumb-wrapper {
+.edu-items
+  .edu-items-wrapper
+  .edu-items-item
+  .edu-items-item-wrapper
+  .thumb-wrapper {
   position: relative;
   min-height: 40px;
 }
 
-.edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .thumb-wrapper .thumb {
+.edu-items
+  .edu-items-wrapper
+  .edu-items-item
+  .edu-items-item-wrapper
+  .thumb-wrapper
+  .thumb {
   display: block;
   text-decoration: none;
 }
 
-.edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .thumb-wrapper .thumb img {
+.edu-items
+  .edu-items-wrapper
+  .edu-items-item
+  .edu-items-item-wrapper
+  .thumb-wrapper
+  .thumb
+  img {
   display: block;
   width: 100%;
   border-radius: 4px 4px 0 0;
@@ -53,15 +68,26 @@
   padding: 13px;
 }
 
-.edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .body .title {
-  font-family: Ubuntu,Arial,sans-serif;
+.edu-items
+  .edu-items-wrapper
+  .edu-items-item
+  .edu-items-item-wrapper
+  .body
+  .title {
+  font-family: Ubuntu, Arial, sans-serif;
   line-height: 1;
-  font-size: .85rem;
+  font-size: 0.85rem;
   color: #222;
   margin-bottom: 0;
 }
 
-.edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .body .title a {
+.edu-items
+  .edu-items-wrapper
+  .edu-items-item
+  .edu-items-item-wrapper
+  .body
+  .title
+  a {
   color: #222;
   text-decoration: none;
 }

@@ -1,11 +1,17 @@
-(function ($) {
-  const countdowns = document.querySelectorAll('.countdown');
-  [].forEach.call(countdowns, function (countdown) {
+;(function ($) {
+  const countdowns = document.querySelectorAll('.countdown')
+  ;[].forEach.call(countdowns, function (countdown) {
     const title = countdown.dataset.title
     const date = new Date(countdown.dataset.date)
     $(countdown).eTimer({
       etType: 0,
-      etDate: date.getDate().toString().padStart(2, '0') + '.' + (date.getMonth() + 1).toString().padStart(2, '0') + '.2019.' + date.getHours().toString().padStart(2, '0') + '.00',
+      etDate:
+        date.getDate().toString().padStart(2, '0') +
+        '.' +
+        (date.getMonth() + 1).toString().padStart(2, '0') +
+        '.2019.' +
+        date.getHours().toString().padStart(2, '0') +
+        '.00',
       etTitleText: title,
       etTitleSize: 20,
       etShowSign: 1,
@@ -29,7 +35,7 @@
       etNumberBorderSize: 0,
       etNumberBorderRadius: 10,
       etNumberBorderColor: 'white',
-      etNumberShadow: 'inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5)'
+      etNumberShadow: 'inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5)',
     })
   })
 })(window.jQuery)

@@ -1,4 +1,4 @@
-(function () {
+;(function () {
   const portlet = document.querySelector('.sidebar .portlet-fixed')
   const marker = document.querySelector('.bottom-marker')
   const wrapper = document.querySelector('.page-wrapper')
@@ -18,4 +18,4 @@
       }
     })
   }
-})();
+})()

@@ -1,10 +1,7 @@
-div.form {
-}
-
-div.form input[type=email],
-div.form input[type=url],
-div.form input[type=text],
-div.form input[type=password],
+div.form input[type='email'],
+div.form input[type='url'],
+div.form input[type='text'],
+div.form input[type='password'],
 div.form textarea,
 div.form select {
   margin: 0.2em 0 0.5em 0;
@@ -13,8 +10,8 @@ div.form select {
   box-sizing: border-box;
 }
 
-div.form input[type=checkbox],
-div.form input[type=radio] {
+div.form input[type='checkbox'],
+div.form input[type='radio'] {
   margin-right: 6px;
   vertical-align: middle;
 }
@@ -42,7 +39,6 @@ div.form .row.buttons button {
   margin: 0;
   padding: 3px 10px;
   background: #ddd;
-
   background: linear-gradient(#eee, #ccc);
   border-top: #ddd 1px solid;
   border-left: #ddd 1px solid;
@@ -67,7 +63,7 @@ div.form span.required {
   color: red;
 }
 
-div.form .row.required label:after {
+div.form .row.required label::after {
   content: ' *';
   color: red;
 }
@@ -75,7 +71,7 @@ div.form .row.required label:after {
 div.form div.error label:first-child,
 div.form label.error,
 div.form span.error {
-  color: #C00;
+  color: #c00;
 }
 
 div.form div.error input,
@@ -84,8 +80,8 @@ div.form div.error select,
 div.form input.error,
 div.form textarea.error,
 div.form select.error {
-  background: #FEE;
-  border-color: #C00;
+  background: #fee;
+  border-color: #c00;
 }
 
 div.form div.success input,
@@ -94,17 +90,8 @@ div.form div.success select,
 div.form input.success,
 div.form textarea.success,
 div.form select.success {
-  background: #E6EFC2;
-  border-color: #C6D880;
-}
-
-
-div.form .errorSummary {
-  border: 2px solid #C00;
-  padding: 7px 7px 12px 7px;
-  margin: 0 0 20px 0;
-  background: #FEE;
-  font-size: 0.9em;
+  background: #e6efc2;
+  border-color: #c6d880;
 }
 
 div.form .errorMessage {
@@ -113,7 +100,11 @@ div.form .errorMessage {
 }
 
 div.form .errorSummary {
+  border: 2px solid #c00;
   padding: 7px;
+  margin: 0 0 20px 0;
+  background: #fee;
+  font-size: 0.9em;
 }
 
 div.form .errorSummary p {
@@ -128,8 +119,8 @@ div.form .errorSummary ul {
 
 div.form .tooltip {
   display: none;
-  background-color: #EFFDFF;
-  border: 1px solid #79B4DC;
+  background-color: #effdff;
+  border: 1px solid #79b4dc;
   padding: 10px;
   width: 300px;
 }
@@ -140,12 +131,12 @@ div.form .tooltip ul {
 }
 
 div.form .tooltip code {
-  color: #CA0EE3;
+  color: #ca0ee3;
   font-size: 0.9em;
 }
 
 div.form.login {
-  border: 1px solid #C9E0ED;
+  border: 1px solid #c9e0ed;
   width: 200px;
   margin: 0 auto;
   margin-top: 50px;

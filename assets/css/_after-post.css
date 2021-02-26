@@ -14,14 +14,14 @@
   line-height: 1.2;
 }
 
-.subscribe-after-post .subscribe-form:after {
+.subscribe-after-post .subscribe-form::after {
   content: '';
   display: block;
   clear: both;
 }
 
-.subscribe-after-post input[type=text],
-.subscribe-after-post input[type=email] {
+.subscribe-after-post input[type='text'],
+.subscribe-after-post input[type='email'] {
   max-width: 100% !important;
   box-sizing: border-box;
   padding: 5px 4px;
@@ -54,9 +54,8 @@
   padding: 10px 18px;
   color: #fff;
   cursor: pointer;
-  background: #dd3333;
-  background: linear-gradient(#ff8d3b, #dd3333);
+  background: linear-gradient(#ff8d3b, #d33);
   border: none;
   border-radius: 30px;
-  font-size: 13px
+  font-size: 13px;
 }

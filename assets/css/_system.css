@@ -15,7 +15,7 @@
 p.note {
   background: #eee;
   color: #264409;
-  padding: .4em .8em;
+  padding: 0.4em 0.8em;
   margin-bottom: 1em !important;
   border: 1px solid #ccc;
 }
@@ -37,10 +37,3 @@ fieldset.editor {
 fieldset.editor label {
   margin-left: 10px !important;
 }
-
-
-
-
-
-
-

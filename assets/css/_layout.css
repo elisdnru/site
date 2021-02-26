@@ -61,9 +61,6 @@ body {
   color: #555;
 }
 
-.page-header .title p:first-child {
-}
-
 .page-header .search {
   float: right;
   width: 100px;
@@ -85,7 +82,7 @@ body {
   border: 1px solid #ddd;
 }
 
-.main-nav ul:after {
+.main-nav ul::after {
   content: '';
   display: block;
   clear: both;
@@ -127,7 +124,8 @@ body {
   color: #fff;
 }
 
-.main-nav ul li:hover a:after, .main-nav ul li.active a:after {
+.main-nav ul li:hover a::after,
+.main-nav ul li.active a::after {
   display: block;
   content: '';
   margin: 0;
@@ -142,7 +140,7 @@ body {
   opacity: 0.2;
 }
 
-.main-nav > ul > li.important:before {
+.main-nav > ul > li.important::before {
   content: '';
   display: block;
   background: #d00;
@@ -160,7 +158,8 @@ body {
   position: relative;
 }
 
-.main, .sidebar {
+.main,
+.sidebar {
   position: relative;
   z-index: 2;
   margin-bottom: 20px;
@@ -234,7 +233,7 @@ body {
   color: #ccc;
 }
 
-.page-footer:before {
+.page-footer::before {
   content: '';
   display: block;
   width: 100%;
@@ -352,11 +351,12 @@ body {
     width: 260px;
   }
 
-  .page-header, .page-content {
+  .page-header,
+  .page-content {
     padding: 20px;
   }
 
-  .page-content:before {
+  .page-content::before {
     content: '';
     display: block;
     width: 100%;
@@ -391,7 +391,7 @@ body {
     border: none;
   }
 
-  .main-nav ul:after {
+  .main-nav ul::after {
     display: block;
     content: '';
     margin: 0;
@@ -455,7 +455,8 @@ body {
     color: #fff;
   }
 
-  .main-nav ul li:hover a:after, .main-nav ul li.active a:after {
+  .main-nav ul li:hover a::after,
+  .main-nav ul li.active a::after {
     display: block;
     content: '';
     margin: 0;
@@ -472,7 +473,8 @@ body {
 }
 
 @media screen and (min-width: 780px) {
-  .page-wrapper, .page-footer {
+  .page-wrapper,
+  .page-footer {
     width: 780px;
   }
 
@@ -480,15 +482,18 @@ body {
     display: block;
   }
 
-  .main, .sidebar {
+  .main,
+  .sidebar {
     margin-bottom: 0;
   }
 
-  .main.left-main, .main.right-main {
+  .main.left-main,
+  .main.right-main {
     width: 460px;
   }
 
-  .sidebar.left-sidebar, .sidebar.right-sidebar {
+  .sidebar.left-sidebar,
+  .sidebar.right-sidebar {
     width: 260px;
   }
 
@@ -516,21 +521,25 @@ body {
 }
 
 @media screen and (min-width: 900px) {
-  .page-wrapper, .page-footer {
+  .page-wrapper,
+  .page-footer {
     width: 900px;
   }
 
-  .main.left-main, .main.right-main {
+  .main.left-main,
+  .main.right-main {
     width: 580px;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .page-wrapper, .page-footer {
+  .page-wrapper,
+  .page-footer {
     width: 1000px;
   }
 
-  .main.left-main, .main.right-main {
+  .main.left-main,
+  .main.right-main {
     width: 680px;
   }
 }

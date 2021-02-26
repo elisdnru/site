@@ -9,7 +9,11 @@ a:hover {
   text-decoration: underline;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: arial, sans-serif;
   font-weight: normal;
   margin-bottom: 15px;
@@ -36,9 +40,6 @@ h4 {
   margin-bottom: 10px;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a {
-}
-
 p {
   margin: 0 0 20px 0;
   line-height: 1.4;
@@ -58,7 +59,8 @@ li {
   margin: 6px 0;
 }
 
-li ul, li ol {
+li ul,
+li ol {
   margin: 10px 0 10px 20px;
 }
 
@@ -81,12 +83,14 @@ table {
   border-collapse: collapse;
 }
 
-table th, table td {
+table th,
+table td {
   border: #ccc 1px solid;
   font-size: 13px;
 }
 
-table th p, table td p {
+table th p,
+table td p {
   margin: 0;
 }
 
@@ -136,7 +140,7 @@ pre {
 
 pre.console {
   border: none;
-  background: #330B25;
+  background: #330b25;
   color: #eee;
   position: relative;
 }
@@ -154,7 +158,6 @@ code {
 kbd {
   border: #aaa 1px solid;
   border-radius: 3px;
-
   font-family: Consolas, 'Courier New', monospace;
   background: #f6f6f6;
   padding: 4px 6px;

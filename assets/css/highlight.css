@@ -1,383 +1,379 @@
 .php-hl-default {
-    color: Black;
+  color: black;
 }
 .php-hl-code {
-    color: Gray;
+  color: gray;
 }
 .php-hl-brackets {
-    color: Olive;
+  color: olive;
 }
 .php-hl-comment {
-    color: #808080;
-	font-style: italic;
+  color: #808080;
+  font-style: italic;
 }
 .php-hl-quotes {
-    color: red;
+  color: red;
 }
 .php-hl-string {
-    color: Red;
+  color: red;
 }
 .php-hl-identifier {
-    color: green;
+  color: green;
 }
 .php-hl-builtin {
-    color: Teal;
+  color: teal;
 }
 .php-hl-reserved {
-    color: black;
-	font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
 .php-hl-inlinedoc {
-    color: Blue;
+  color: blue;
 }
 .php-hl-var {
-    color: blue;
+  color: blue;
 }
 .php-hl-url {
-    color: Blue;
+  color: blue;
 }
 .php-hl-special {
-    color: Navy;
+  color: navy;
 }
 .php-hl-number {
-    color: Maroon;
+  color: maroon;
 }
 .php-hl-inlinetags {
-    color: Blue;
+  color: blue;
 }
 .php-hl-main {
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: normal;
-    font-size: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
+  font-size: 12px;
 }
 ol.php-hl-main pre {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 .php-hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999;
+  color: white;
 }
 .php-hl-table {
-    font-family: courier;
-    font-size: 12px;
-    border: solid 1px #505050;
+  font-family: courier, monospace;
+  font-size: 12px;
+  border: solid 1px #505050;
 }
 
 .xml-hl-default {
-    color: Black;
+  color: black;
 }
 .xml-hl-code {
-    color: Gray;
+  color: gray;
 }
 .xml-hl-brackets {
-    color: Olive;
+  color: olive;
 }
 .xml-hl-comment {
-    color: #808080;
-	font-style: italic;
+  color: #808080;
+  font-style: italic;
 }
 .xml-hl-quotes {
-    color: red;
+  color: red;
 }
 .xml-hl-string {
-    color: Red;
+  color: red;
 }
 .xml-hl-identifier {
-    color: Blue;
+  color: blue;
 }
 .xml-hl-builtin {
-    color: Teal;
+  color: teal;
 }
 .xml-hl-reserved {
-    color: Green;
+  color: green;
 }
 .xml-hl-inlinedoc {
-    color: Blue;
+  color: blue;
 }
 .xml-hl-var {
-    color: #000020;
+  color: #000020;
 }
 .xml-hl-url {
-    color: Blue;
+  color: blue;
 }
 .xml-hl-special {
-    color: Navy;
+  color: navy;
 }
 .xml-hl-number {
-    color: Maroon;
+  color: maroon;
 }
 .xml-hl-inlinetags {
-    color: Blue;
+  color: blue;
 }
 .xml-hl-main {
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: normal;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
 }
 .xml-hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999;
+  color: white;
 }
 .xml-hl-table {
-    font-family: courier;
-    font-size: 12px;
-    border: solid 1px #505050;
+  font-family: courier, monospace;
+  font-size: 12px;
+  border: solid 1px #505050;
 }
 
 .html-hl-default {
-    color: Black;
+  color: black;
 }
 .html-hl-code {
-    color: Gray;
+  color: gray;
 }
 .html-hl-brackets {
-    color: Olive;
+  color: olive;
 }
 .html-hl-comment {
-    color: #808080;
-	font-style: italic;
+  color: #808080;
+  font-style: italic;
 }
 .html-hl-quotes {
-    color: red;
+  color: red;
 }
 .html-hl-string {
-    color: Red;
+  color: red;
 }
 .html-hl-identifier {
-    color: Blue;
+  color: blue;
 }
 .html-hl-builtin {
-    color: Teal;
+  color: teal;
 }
 .html-hl-reserved {
-    color: Green;
+  color: green;
 }
 .html-hl-inlinedoc {
-    color: Blue;
+  color: blue;
 }
 .html-hl-var {
-    color: #000020;
+  color: #000020;
 }
 .html-hl-url {
-    color: Blue;
+  color: blue;
 }
 .html-hl-special {
-    color: Navy;
+  color: navy;
 }
 .html-hl-number {
-    color: Maroon;
+  color: maroon;
 }
 .html-hl-inlinetags {
-    color: Blue;
+  color: blue;
 }
 .html-hl-main {
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: normal;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
 }
 .html-hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999;
+  color: white;
 }
 .html-hl-table {
-    font-family: courier;
-    font-size: 12px;
-    border: solid 1px #505050;
+  font-family: courier, monospace;
+  font-size: 12px;
+  border: solid 1px #505050;
 }
 
 .css-hl-default {
-    color: Black;
+  color: black;
 }
 .css-hl-code {
-    color: Gray;
+  color: gray;
 }
 .css-hl-brackets {
-    color: Olive;
+  color: olive;
 }
 .css-hl-comment {
-    color: #808080;
-	font-style: italic;
+  color: #808080;
+  font-style: italic;
 }
 .css-hl-quotes {
-    color: red;
+  color: red;
 }
 .css-hl-string {
-    color: Red;
+  color: red;
 }
 .css-hl-identifier {
-    color: Blue;
+  color: blue;
 }
 .css-hl-builtin {
-    color: Teal;
+  color: teal;
 }
 .css-hl-reserved {
-    color: Green;
+  color: green;
 }
 .css-hl-inlinedoc {
-    color: Blue;
+  color: blue;
 }
 .css-hl-var {
-    color: #000020;
+  color: #000020;
 }
 .css-hl-url {
-    color: Blue;
+  color: blue;
 }
 .css-hl-special {
-    color: Navy;
+  color: navy;
 }
 .css-hl-number {
-    color: Maroon;
+  color: maroon;
 }
 .css-hl-inlinetags {
-    color: Blue;
+  color: blue;
 }
 .css-hl-main {
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: normal;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
 }
 .css-hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999;
+  color: white;
 }
 .css-hl-table {
-    font-family: courier;
-    font-size: 12px;
-    border: solid 1px #505050;
+  font-family: courier, monospace;
+  font-size: 12px;
+  border: solid 1px #505050;
 }
 
 .javascript-hl-default {
-    color: Black;
+  color: black;
 }
 .javascript-hl-code {
-    color: Gray;
+  color: gray;
 }
 .javascript-hl-brackets {
-    color: Olive;
+  color: olive;
 }
 .javascript-hl-comment {
-    color: #808080;
-	font-style: italic;
+  color: #808080;
+  font-style: italic;
 }
 .javascript-hl-quotes {
-    color: red;
+  color: red;
 }
 .javascript-hl-string {
-    color: Red;
+  color: red;
 }
 .javascript-hl-identifier {
-    color: Blue;
+  color: blue;
 }
 .javascript-hl-builtin {
-    color: Teal;
+  color: teal;
 }
 .javascript-hl-reserved {
-    color: Green;
+  color: green;
 }
 .javascript-hl-inlinedoc {
-    color: Blue;
+  color: blue;
 }
 .javascript-hl-var {
-    color: #000020;
+  color: #000020;
 }
 .javascript-hl-url {
-    color: Blue;
+  color: blue;
 }
 .javascript-hl-special {
-    color: Navy;
+  color: navy;
 }
 .javascript-hl-number {
-    color: Maroon;
+  color: maroon;
 }
 .javascript-hl-inlinetags {
-    color: Blue;
+  color: blue;
 }
 .javascript-hl-main {
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: normal;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
 }
 .javascript-hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999;
+  color: white;
 }
 .javascript-hl-table {
-    font-family: courier;
-    font-size: 12px;
-    border: solid 1px #505050;
+  font-family: courier, monospace;
+  font-size: 12px;
+  border: solid 1px #505050;
 }
-
 
 .sql-hl-default {
-    color: Black;
+  color: black;
 }
 .sql-hl-code {
-    color: Gray;
+  color: gray;
 }
 .sql-hl-brackets {
-    color: Olive;
+  color: olive;
 }
 .sql-hl-comment {
-    color: #808080;
-	font-style: italic;
+  color: #808080;
+  font-style: italic;
 }
 .sql-hl-quotes {
-    color: red;
+  color: red;
 }
 .sql-hl-string {
-    color: Red;
+  color: red;
 }
 .sql-hl-identifier {
-    color: Blue;
+  color: blue;
 }
 .sql-hl-builtin {
-    color: Teal;
+  color: teal;
 }
 .sql-hl-reserved {
-    color: Green;
+  color: green;
 }
 .sql-hl-inlinedoc {
-    color: Blue;
+  color: blue;
 }
 .sql-hl-var {
-    color: #000020;
+  color: #000020;
 }
 .sql-hl-url {
-    color: Blue;
+  color: blue;
 }
 .sql-hl-special {
-    color: Navy;
+  color: navy;
 }
 .sql-hl-number {
-    color: Maroon;
+  color: maroon;
 }
 .sql-hl-inlinetags {
-    color: Blue;
+  color: blue;
 }
 .sql-hl-main {
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: normal;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
 }
 .sql-hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999;
+  color: white;
 }
 .sql-hl-table {
   font-family: courier, monospace;
-    font-size: 12px;
-    border: solid 1px #505050;
+  font-size: 12px;
+  border: solid 1px #505050;
 }
 
-.source .copycode
-{
-	text-align: right;
-	float: right;
+.source .copycode {
+  text-align: right;
+  float: right;
 }
 
-.source .copycode a
-{
-	cursor: pointer;
-	color: blue;
+.source .copycode a {
+  cursor: pointer;
+  color: blue;
 }
 
-.source .copycode_hover a
-{
-	color: red;
+.source .copycode_hover a {
+  color: red;
 }

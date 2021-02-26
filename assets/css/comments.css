@@ -110,7 +110,7 @@
 }
 
 .comment .author a {
-  color: #990000;
+  color: #900;
   text-decoration: underline;
 }
 
@@ -123,13 +123,14 @@
   margin: 0 10px 10px 0;
   width: 50px;
   height: 50px;
-  background: url('../images/comments/noavatar.png')
+  background: url('../images/comments/noavatar.png');
 }
 
 .comment .text {
   line-height: 1.2;
   margin: 0 0 10px 60px;
   color: #333;
+  overflow: auto;
 }
 
 .comment .text p {
@@ -183,8 +184,8 @@
 }
 
 .comment.newcomment {
-  background: #E6F2FF;
-  background: linear-gradient(#eff8ff, #FBC2C4);
+  background: #e6f2ff;
+  background: linear-gradient(#eff8ff, #fbc2c4);
   border: #ccc 1px solid;
 }
 
@@ -200,9 +201,9 @@
   border: #ccc 1px solid;
 }
 
-#comment-form input[type=email],
-#comment-form input[type=url],
-#comment-form input[type=text],
+#comment-form input[type='email'],
+#comment-form input[type='url'],
+#comment-form input[type='text'],
 #comment-form textarea,
 #comment-form select {
   padding: 4px 4px;
@@ -218,28 +219,25 @@
   display: none;
 }
 
-.comment .text {
-  overflow: auto;
-}
-
 #comment-form fieldset {
   clear: both;
 }
 
-#comment-form input[type=text], #comment-form textarea {
+#comment-form input[type='text'],
+#comment-form textarea {
   width: 100% !important;
   box-sizing: border-box;
 }
 
-#comment-form  input[type=checkbox] {
+#comment-form input[type='checkbox'] {
   margin-right: 6px;
   vertical-align: middle;
 }
 
 @media screen and (min-width: 600px) {
-  #comment-form input[type=email],
-  #comment-form input[type=url],
-  #comment-form input[type=text] {
+  #comment-form input[type='email'],
+  #comment-form input[type='url'],
+  #comment-form input[type='text'] {
     width: 50% !important;
   }
 }

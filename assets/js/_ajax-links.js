@@ -1,12 +1,15 @@
 import getCSRFToken from './csrf'
-
-(function () {
+;(function () {
   function getLink(elem, selector) {
     if (elem.matches(selector)) {
       return elem
     }
 
-    if (elem.parentNode && elem.parentNode.matches && elem.parentNode.matches(selector)) {
+    if (
+      elem.parentNode &&
+      elem.parentNode.matches &&
+      elem.parentNode.matches(selector)
+    ) {
       return elem.parentNode
     }
 
@@ -19,7 +22,9 @@ import getCSRFToken from './csrf'
       return
     }
 
-    const label = link.getAttribute('title') ? link.getAttribute('title') : 'Вы уверены?'
+    const label = link.getAttribute('title')
+      ? link.getAttribute('title')
+      : 'Вы уверены?'
     if (!confirm(label)) {
       event.preventDefault()
       return
@@ -34,8 +39,8 @@ import getCSRFToken from './csrf'
       credentials: 'same-origin',
       body: data,
       headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     })
       .then(function (response) {
         if (!response.ok) {
@@ -57,7 +62,9 @@ import getCSRFToken from './csrf'
       return
     }
 
-    const label = link.getAttribute('title') ? link.getAttribute('title') : 'Вы уверены?'
+    const label = link.getAttribute('title')
+      ? link.getAttribute('title')
+      : 'Вы уверены?'
     if (!confirm(label)) {
       event.preventDefault()
       return
@@ -72,8 +79,8 @@ import getCSRFToken from './csrf'
       credentials: 'same-origin',
       body: data,
       headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     })
       .then(function (response) {
         if (!response.ok) {
@@ -98,7 +105,9 @@ import getCSRFToken from './csrf'
       return
     }
 
-    const label = link.getAttribute('title') ? link.getAttribute('title') : 'Вы уверены?'
+    const label = link.getAttribute('title')
+      ? link.getAttribute('title')
+      : 'Вы уверены?'
     if (!confirm(label)) {
       event.preventDefault()
       return
@@ -113,8 +122,8 @@ import getCSRFToken from './csrf'
       credentials: 'same-origin',
       body: data,
       headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     })
       .then(function (response) {
         if (!response.ok) {

@@ -1,7 +1,6 @@
 import '../css/comments.css'
 import getCSRFToken from './csrf'
-
-(function () {
+;(function () {
   document.addEventListener('click', function (event) {
     if (!event.target.matches('.ajax_like')) {
       return
@@ -16,8 +15,8 @@ import getCSRFToken from './csrf'
       credentials: 'same-origin',
       body: data,
       headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     })
       .then(function (response) {
         if (!response.ok) {
@@ -38,7 +37,7 @@ import getCSRFToken from './csrf'
 
   function setParentComment(id) {
     const parentField = document.querySelector('#comment-parent-id')
-    if (typeof parentField != 'undefined') {
+    if (typeof parentField !== 'undefined') {
       parentField.value = id
     }
   }
@@ -46,9 +45,9 @@ import getCSRFToken from './csrf'
   function initComments() {
     const form = document.querySelector('#comment-form')
 
-    const replySpans = document.querySelectorAll('.comment .reply');
+    const replySpans = document.querySelectorAll('.comment .reply')
 
-    [].forEach.call(replySpans, function (span) {
+    ;[].forEach.call(replySpans, function (span) {
       const a = document.createElement('a')
       a.classList.add('reply')
       a.dataset.id = span.dataset.id
@@ -57,13 +56,14 @@ import getCSRFToken from './csrf'
       span.parentNode.replaceChild(a, span)
     })
 
-    const replyLinks = document.querySelectorAll('.comment .reply');
-    [].forEach.call(replyLinks, function (link) {
+    const replyLinks = document.querySelectorAll('.comment .reply')
+    ;[].forEach.call(replyLinks, function (link) {
       link.addEventListener('click', function () {
         const comment = link.parentNode.parentNode
 
         form.parentElement.removeChild(form)
-        form.style['margin-left'] = (parseInt(comment.style['margin-left']) + 20) + 'px'
+        form.style['margin-left'] =
+          parseInt(comment.style['margin-left']) + 20 + 'px'
         comment.after(form)
 
         const id = parseInt(this.dataset.id)

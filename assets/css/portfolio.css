@@ -67,7 +67,6 @@
   margin: 0;
   padding: 10px;
   box-shadow: 1px 2px 2px 1px #ccc;
-
   width: 190px;
   height: 180px;
   background: #fff url('../images/loading.gif') center center no-repeat;
@@ -126,7 +125,6 @@ p.portfolio-description {
   float: none;
   margin: 0 0 10px 0;
   border-radius: 4px;
-
   padding: 6px;
 }
 
@@ -134,7 +132,6 @@ p.portfolio-description {
   display: block;
   position: relative;
   margin: 0;
-
   width: 198px;
   height: 180px;
   background-position: center top;

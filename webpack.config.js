@@ -15,11 +15,11 @@ module.exports = {
     highlight: './assets/css/highlight.css',
     jquery: './assets/js/jquery.js',
     'jquery-ui': './assets/js/jquery-ui.js',
-    countdown: './assets/js/countdown.js'
+    countdown: './assets/js/countdown.js',
   },
   output: {
     path: __dirname + '/public/build',
-    filename: '[name].js'
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -29,31 +29,28 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: ['file-loader']
+        use: ['file-loader'],
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ],
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css'
+      chunkFilename: '[id].css',
     }),
   ],
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-  }
+  },
 }

@@ -11,7 +11,7 @@
   line-height: 1.4;
 }
 
-.home-hello p:after {
+.home-hello p::after {
   content: '';
   display: block;
   clear: left;

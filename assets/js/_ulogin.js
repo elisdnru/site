@@ -1,4 +1,4 @@
-(function () {
+;(function () {
   const widget = document.querySelector('#uLogin')
   if (!widget) {
     return
@@ -6,11 +6,11 @@
 
   const config = {
     rootMargin: '50px 0px',
-    threshold: 0.01
+    threshold: 0.01,
   }
 
   const loadWidget = function () {
-    var s = document.createElement('script')
+    const s = document.createElement('script')
     s.src = '//ulogin.ru/js/ulogin.js'
     s.async = true
     document.querySelector('body').appendChild(s)

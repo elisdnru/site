@@ -1,57 +1,57 @@
 .hl-default {
-    color: Black;
+  color: Black;
 }
 .hl-code {
-    color: Gray;
+  color: Gray;
 }
 .hl-brackets {
-    color: Olive;
+  color: Olive;
 }
 .hl-comment {
-    color: Orange;
+  color: Orange;
 }
 .hl-quotes {
-    color: Darkred;
+  color: Darkred;
 }
 .hl-string {
-    color: Red;
+  color: Red;
 }
 .hl-identifier {
-    color: Blue;
+  color: Blue;
 }
 .hl-builtin {
-    color: Teal;
+  color: Teal;
 }
 .hl-reserved {
-    color: Green;
+  color: Green;
 }
 .hl-inlinedoc {
-    color: Blue;
+  color: Blue;
 }
 .hl-var {
-    color: Darkblue;
+  color: Darkblue;
 }
 .hl-url {
-    color: Blue;
+  color: Blue;
 }
 .hl-special {
-    color: Navy;
+  color: Navy;
 }
 .hl-number {
-    color: Maroon;
+  color: Maroon;
 }
 .hl-inlinetags {
-    color: Blue;
+  color: Blue;
 }
 .hl-main {
-    background-color: White;
+  background-color: White;
 }
 .hl-gutter {
-    background-color: #999999;
-    color: White
+  background-color: #999999;
+  color: White;
 }
 .hl-table {
-    font-family: courier;
-    font-size: 12px;
-    border: solid 1px Lightgrey;
+  font-family: courier;
+  font-size: 12px;
+  border: solid 1px Lightgrey;
 }

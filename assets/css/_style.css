@@ -72,7 +72,7 @@ div.breadcrumbs span {
 }
 
 .subpages li.active a {
-  background: #C7360D;
+  background: #c7360d;
   cursor: default;
 }
 
@@ -116,7 +116,7 @@ ul.short-list li {
   margin-bottom: 20px !important;
 }
 
-.enc-date:before {
+.enc-date::before {
   content: attr(data-date);
 }
 
