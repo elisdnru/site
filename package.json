@@ -4,6 +4,9 @@
     "build": "webpack",
     "watch": "webpack --watch"
   },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
   "devDependencies": {
     "@babel/runtime": "^7.12.5",
     "clean-webpack-plugin": "^3.0.0",

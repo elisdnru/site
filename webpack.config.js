@@ -14,7 +14,8 @@ module.exports = {
     'admin-bar': './assets/css/admin-bar.css',
     comments: './assets/js/comments.js',
     portfolio: './assets/css/portfolio.css',
-    highlight: './assets/css/highlight.css'
+    highlight: './assets/css/highlight.css',
+    jquery: './assets/js/jquery.js'
   },
   output: {
     path: __dirname + '/public/build',
@@ -43,15 +44,11 @@ module.exports = {
     }),
     new MergeIntoSingleFilePlugin({
       files: {
-        'jquery.js': [
-          'assets/js/jquery.js'
-        ],
         'countdown.js': [
           'assets/js/countdown.js'
         ],
       },
       transform: {
-        'jquery.js': code => minify(code).code,
         'countdown.js': code => minify(code).code
       }
     })
