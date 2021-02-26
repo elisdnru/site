@@ -360,7 +360,7 @@ ol.php-hl-main pre {
     color: White
 }
 .sql-hl-table {
-    font-family: courier;
+  font-family: courier, monospace;
     font-size: 12px;
     border: solid 1px #505050;
 }
