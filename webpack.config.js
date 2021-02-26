@@ -2,8 +2,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
-const { minify } = require('uglify-js')
 
 module.exports = {
   mode: 'production',
@@ -15,7 +13,8 @@ module.exports = {
     comments: './assets/js/comments.js',
     portfolio: './assets/css/portfolio.css',
     highlight: './assets/css/highlight.css',
-    jquery: './assets/js/jquery.js'
+    jquery: './assets/js/jquery.js',
+    countdown: './assets/js/countdown.js'
   },
   output: {
     path: __dirname + '/public/build',
@@ -42,16 +41,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new MergeIntoSingleFilePlugin({
-      files: {
-        'countdown.js': [
-          'assets/js/countdown.js'
-        ],
-      },
-      transform: {
-        'countdown.js': code => minify(code).code
-      }
-    })
   ],
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
