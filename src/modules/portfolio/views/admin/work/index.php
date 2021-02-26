@@ -118,6 +118,7 @@ JqueryUiAsset::register($this);
 
 jQuery(function($) {
     $(function () {
+        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var listBlock = $('#list-block');
         listBlock.sortable({
             placeholder: 'ui-state-highlight',
@@ -131,7 +132,7 @@ jQuery(function($) {
                 $.ajax({
                     type: 'POST',
                     url: '<?= Url::to(['sort']) ?>',
-                    data: items + '&_csrf=' + getCSRFToken(),
+                    data: items + '&_csrf=' + token,
                     success: function () {
                         $('#saving').hide()
                     },

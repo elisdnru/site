@@ -1,3 +1,5 @@
+import getCSRFToken from './csrf'
+
 (function () {
   function getLink(elem, selector) {
     if (elem.matches(selector)) {

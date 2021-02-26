@@ -1,4 +1,5 @@
 import '../css/comments.css'
+import getCSRFToken from './csrf'
 
 (function () {
   document.addEventListener('click', function (event) {
