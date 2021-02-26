@@ -76,7 +76,7 @@ use yii\widgets\ActiveForm;
             <?= Html::activeLabel($form, 'text') ?><br />
             <?= Html::activeTextarea($form, 'text', ['rows' => 10, 'cols' => 80, 'style' => 'width:99%']) ?><br />
             <?= Html::error($form, 'text', ['class' => 'errorMessage']) ?>
-            <p class="coment_note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;pre&gt;</p>
+            <p class="coment-note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;pre&gt;</p>
         </div>
 
         <div class="row dp3a<?= $form->hasErrors('yqe1') ? ' error' : '' ?>">

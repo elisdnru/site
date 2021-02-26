@@ -50,7 +50,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         </div>
         <p class="clear">&nbsp;</p>
         <div class="smart">
-            <div class="item item_web">
+            <div class="item item-web">
                 <div class="body">
                     <div class="title">
                         <p>Веб-дизайн</p>
@@ -63,7 +63,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     </ul>
                 </div>
             </div>
-            <div class="item item_verstka">
+            <div class="item item-verstka">
                 <div class="body">
                     <div class="title">
                         <p>HTML-вёрстка</p>
@@ -76,7 +76,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     </ul>
                 </div>
             </div>
-            <div class="item item_program">
+            <div class="item item-program">
                 <div class="body">
                     <div class="title">
                         <p>Веб-программирование</p>
@@ -89,7 +89,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     </ul>
                 </div>
             </div>
-            <div class="item item_site">
+            <div class="item item-site">
                 <div class="body">
                     <div class="title">
                         <p>Сайт &laquo;под ключ&raquo; &raquo;</p>

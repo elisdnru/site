@@ -21,15 +21,15 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
     <header>
 
         <span class="link">
-            <a class="ajax_post" title="Прочитать/Вернуть комментарий" href="<?= $moderurl ?>"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Прочесть' : 'Новый' ?>" title="<?= $data->public ? 'Прочесть' : 'Новый' ?>"></a>
-            <a class="ajax_post" title="Скрыть/отобразить комментарий" href="<?= $publicurl ?>"><img src="/images/admin/no.png" width="16" height="16" alt="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>" title="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>"></a>
+            <a class="ajax-post" title="Прочитать/Вернуть комментарий" href="<?= $moderurl ?>"><img src="/images/admin/yes.png" width="16" height="16" alt="<?php echo $data->public ? 'Прочесть' : 'Новый' ?>" title="<?= $data->public ? 'Прочесть' : 'Новый' ?>"></a>
+            <a class="ajax-post" title="Скрыть/отобразить комментарий" href="<?= $publicurl ?>"><img src="/images/admin/no.png" width="16" height="16" alt="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>" title="<?= $data->public ? 'Скрыть' : 'Опубликовать' ?>"></a>
             <a href="<?= $editurl ?>"><img src="/images/admin/edit.png" width="16" height="16" alt="Редактировать" title="Редактировать"></a>
-            <a class="ajax_del" data-del="comment_<?= $data->id ?>" title="Удалить комментарий" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+            <a class="ajax-del" data-del="comment_<?= $data->id ?>" title="Удалить комментарий" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
         </span>
 
         <span class="like">
             <span id="like_<?= $data->id ?>"><?= $data->likes ?></span>
-            <a rel="nofollow" class="ajax_load like_icon<?= $data->liked ? ' like_active' : '' ?>" data-load="like_<?= $data->id ?>" href="<?= Url::to(['/comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
+            <a rel="nofollow" class="ajax-load like-icon<?= $data->liked ? ' like-active' : '' ?>" data-load="like_<?= $data->id ?>" href="<?= Url::to(['/comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
         </span>
 
         <h2 class="date"><?= $data->date ?></h2>

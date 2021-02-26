@@ -12,7 +12,7 @@
   }
 
   document.addEventListener('click', function (event) {
-    const link = getLink(event.target, '.ajax_del')
+    const link = getLink(event.target, '.ajax-del')
     if (!link) {
       return
     }
@@ -50,7 +50,7 @@
   })
 
   document.addEventListener('click', function (event) {
-    const link = getLink(event.target, '.ajax_load')
+    const link = getLink(event.target, '.ajax-load')
     if (!link) {
       return
     }
@@ -91,7 +91,7 @@
   })
 
   document.addEventListener('click', function (event) {
-    const link = getLink(event.target, '.ajax_post')
+    const link = getLink(event.target, '.ajax-post')
     if (!link) {
       return
     }

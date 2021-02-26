@@ -18,7 +18,7 @@
   }
 }
 
-.portfolio .carousel_link {
+.portfolio .carousel-link {
   position: absolute;
   top: 50px;
   width: 24px;
@@ -28,17 +28,17 @@
   cursor: pointer;
 }
 
-.portfolio .carousel_link.carouselPrevLink {
+.portfolio .carousel-link.carousel-prev-link {
   left: 10px;
   background-image: url('../images/portfolio/left.png');
 }
 
-.portfolio .carousel_link.carouselNextLink {
+.portfolio .carousel-link.carousel-next-link {
   right: 10px;
   background-image: url('../images/portfolio/right.png');
 }
 
-.portfolioSlider {
+.portfolio-slider {
   list-style: none;
   margin: 0 0 0 25px;
   padding: 0;

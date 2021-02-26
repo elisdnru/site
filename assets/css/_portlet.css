@@ -53,7 +53,7 @@
   text-decoration: none;
 }
 
-.portlet-content ul li.sup_active > a {
+.portlet-content ul li.sup-active > a {
   color: #333333;
   background: #fff;
   text-decoration: underline;
@@ -80,13 +80,13 @@
   padding: 10px 0 10px 90px;
 }
 
-.portlet-content ul.last_updated li a {
+.portlet-content ul.last-updated li a {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
 }
 
-.portlet-content ul.last_updated li a:after {
+.portlet-content ul.last-updated li a:after {
   content: '';
   display: block;
   width: 40px;
@@ -113,7 +113,7 @@
   color: #333;
 }
 
-.adminblock {
+.admin-block {
   margin: 0;
 }
 

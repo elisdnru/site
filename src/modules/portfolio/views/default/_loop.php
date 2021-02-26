@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
  */
 ?>
 
-<div id="worklist" class = "greed_container">
+<div id="worklist" class = "greed-container">
     <div class="items">
         <?php foreach ($dataProvider->getModels() as $work) : ?>
             <?php /** @var Work $work */ ?>

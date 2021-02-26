@@ -1,4 +1,4 @@
-.entry_date, .entry_tags {
+.entry-date, .entry-tags {
   border: #d6d6d6 1px solid;
   background: #eee;
   background: linear-gradient(#f6f6f6, #eee);
@@ -8,11 +8,11 @@
   float: left;
 }
 
-.entry_date {
+.entry-date {
   margin-right: 10px;
 }
 
-.entry_date span, .entry_tags a {
+.entry-date span, .entry-tags a {
   display: inline-block;
   text-decoration: none;
   padding: 4px 10px;
@@ -20,11 +20,11 @@
   background: #fff;
 }
 
-.entry_date span:last-child, .entry_tags a:last-child {
+.entry-date span:last-child, .entry-tags a:last-child {
   border-radius: 0 6px 6px 0;
 }
 
-.entry_tags a:hover {
+.entry-tags a:hover {
   color: #333;
   text-decoration: underline;
 }

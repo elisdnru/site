@@ -124,10 +124,10 @@ HighlightAsset::register($this);
         $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
-    <p class="entry_date">
+    <p class="entry-date">
         Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date) ?>">&nbsp;</span>
     </p>
-    <p class="entry_tags">Метки: <?= implode('', $links) ?></p>
+    <p class="entry-tags">Метки: <?= implode('', $links) ?></p>
     <div class="clear"></div>
     <!--/noindex-->
 

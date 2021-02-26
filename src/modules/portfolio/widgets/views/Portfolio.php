@@ -11,9 +11,9 @@ use yii\web\View;
 ?>
 
 <div class="portfolio ribbed">
-    <div class="carousel_link carouselPrevLink"></div>
-    <div class="carousel_link carouselNextLink"></div>
-    <div class="portfolioSlider">
+    <div class="carousel-link carousel-prev-link"></div>
+    <div class="carousel-link carousel-next-link"></div>
+    <div class="portfolio-slider">
         <ul>
             <?php foreach ($items as $item) : ?>
                 <li>

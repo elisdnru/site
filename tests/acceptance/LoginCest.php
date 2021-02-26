@@ -29,7 +29,7 @@ class LoginCest
         $I->see('Новое в Блоге');
         $I->seeLink('Профиль', '/profile');
         $I->seeCookie('_identity');
-        $I->dontSeeElement('.adminbar');
+        $I->dontSeeElement('.admin-bar');
     }
 
     public function admin(AcceptanceTester $I): void
@@ -44,7 +44,7 @@ class LoginCest
 
         $I->see('Новое в Блоге');
         $I->seeCookie('_identity');
-        $I->seeElement('.adminbar');
+        $I->seeElement('.admin-bar');
     }
 
     public function unconfirmed(AcceptanceTester $I): void

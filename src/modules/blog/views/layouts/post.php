@@ -11,7 +11,7 @@ use yii\web\View;
 
 <?php $this->beginContent('@app/views/layouts/main.php'); ?>
 
-<div class="main left_main">
+<div class="main left-main">
 
     <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
     <?= Messages::widget() ?>
@@ -20,7 +20,7 @@ use yii\web\View;
 
 </div>
 
-<aside class="sidebar right_sidebar">
+<aside class="sidebar right-sidebar">
 
     <?= $this->render('/layouts/_sidebar') ?>
 

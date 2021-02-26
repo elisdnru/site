@@ -1,4 +1,4 @@
-ul.tags_list {
+ul.tags-list {
   list-style: none;
   margin: 0;
   padding: 6px 6px 0 6px;
@@ -7,7 +7,7 @@ ul.tags_list {
   border: #ddd 1px solid;
 }
 
-.tags_list li {
+.tags-list li {
   margin: 0 6px 6px 0;
   padding: 0;
   background: #e6e6e6;
@@ -15,22 +15,22 @@ ul.tags_list {
   border-radius: 20px;
 }
 
-.tags_list li a {
+.tags-list li a {
   display: block;
   padding: 2px 8px 3px 8px;
   color: #fff;
   text-decoration: none;
 }
 
-.tags_list li.active {
+.tags-list li.active {
   background: #0965c0;
 }
 
-.tags_list li .tag {
+.tags-list li .tag {
   float: left;
   color: #111;
 }
 
-.tags_list li.active .tag {
+.tags-list li.active .tag {
   color: #fff;
 }

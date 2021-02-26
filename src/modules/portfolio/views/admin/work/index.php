@@ -79,7 +79,7 @@ JqueryUiAsset::register($this);
                     <a href="<?= $editUrl ?>"><?= $item->category->title ?></a>
                 </td>
                 <td width="20px" style="text-align: center; padding: 0" title="Опубликовано">
-                    <a class="ajax_post" href="<?= $togglePublic ?>">
+                    <a class="ajax-post" href="<?= $togglePublic ?>">
                         <?php if ($item->public) : ?>
                             <img src="/images/admin/yes.png" alt="">
                         <?php else : ?>
@@ -91,7 +91,7 @@ JqueryUiAsset::register($this);
                     <a href="<?= $editUrl ?>"><img src="/images/admin/edit.png" alt="" title="Править"></a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a class="ajax_del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                    <a class="ajax-del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                 </td>
             </tr>
         </table>

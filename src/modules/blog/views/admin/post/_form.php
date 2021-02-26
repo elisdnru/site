@@ -141,7 +141,7 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'tagsString', ['class' => 'errorMessage']) ?>
             </div>
             <div class="row">
-                <ul class="tags_list" id="tagsVariants">
+                <ul class="tags-list" id="tagsVariants">
                     <?php foreach (ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title') as $id => $tag) : ?>
                         <li id="tag_<?= $id ?>">
                             <a class="tag" href="#"><?= Html::encode($tag) ?></a>

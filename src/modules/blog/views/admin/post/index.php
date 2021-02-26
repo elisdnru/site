@@ -78,7 +78,7 @@ $this->params['admin'] = [
                         </td>
                         <td class="button-column"><a href="<?= Url::to(['view', 'id' => $item->id]) ?>"><span class="icon view"></span></a></td>
                         <td class="button-column"><a href="<?= Url::to(['update', 'id' => $item->id]) ?>"><span class="icon edit"></span></a></td>
-                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $item->id]) ?>" class="ajax_del"><span class="icon delete"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $item->id]) ?>" class="ajax-del"><span class="icon delete"></span></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

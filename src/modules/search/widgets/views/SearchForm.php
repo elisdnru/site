@@ -6,12 +6,12 @@ use yii\helpers\Url;
 
 /** @var SearchForm $form */
 ?>
-<div class="search_form">
+<div class="search-form">
     <form action="<?= Url::to(['/search/default/index']) ?>" method="get">
-        <div class="search_word">
+        <div class="search-word">
             <input type="text" name="q" value="<?= Html::encode($form->q) ?>" placeholder="Поиск">
         </div>
-        <div class="search_button">
+        <div class="search-button">
             <button type="submit"></button>
         </div>
     </form>

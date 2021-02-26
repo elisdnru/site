@@ -7,7 +7,7 @@
   padding: 10px;
 }
 
-#comment-form .coment_note {
+#comment-form .coment-note {
   margin-bottom: 10px;
   font-size: 12px;
   color: #333;
@@ -84,7 +84,7 @@
   padding-left: 15px;
 }
 
-.comment .like_icon {
+.comment .like-icon {
   display: inline-block;
   width: 10px;
   height: 9px;
@@ -92,11 +92,11 @@
   cursor: pointer;
 }
 
-.comment .like_icon.like_active {
+.comment .like-icon.like-active {
   background-position: 0 -9px;
 }
 
-.comment .like_icon:hover {
+.comment .like-icon:hover {
   background-position: 0 -9px;
 }
 

@@ -33,10 +33,10 @@ class SearchCest
     public function post(AcceptanceTester $I): void
     {
         $I->amOnPage('');
-        $I->seeElement('.search_form');
+        $I->seeElement('.search-form');
 
         $I->fillField('q', 'post');
-        $I->click('', '.search_form');
+        $I->click('', '.search-form');
 
         $I->see('Поиск по сайту', 'h1');
         $I->seeInSource('<a href="/blog/1/post-1"><mark>post</mark> 1</a>');
@@ -45,10 +45,10 @@ class SearchCest
     public function work(AcceptanceTester $I): void
     {
         $I->amOnPage('');
-        $I->seeElement('.search_form');
+        $I->seeElement('.search-form');
 
         $I->fillField('q', 'work');
-        $I->click('', '.search_form');
+        $I->click('', '.search-form');
 
         $I->see('Поиск по сайту', 'h1');
         $I->seeInSource('<a href="/portfolio/category-2/1/work-1"><mark>work</mark> 1</a>');
@@ -57,10 +57,10 @@ class SearchCest
     public function page(AcceptanceTester $I): void
     {
         $I->amOnPage('');
-        $I->seeElement('.search_form');
+        $I->seeElement('.search-form');
 
         $I->fillField('q', 'about');
-        $I->click('', '.search_form');
+        $I->click('', '.search-form');
 
         $I->see('Поиск по сайту', 'h1');
         $I->seeInSource('<a href="/info/about"><mark>about</mark></a>');
@@ -69,10 +69,10 @@ class SearchCest
     public function landing(AcceptanceTester $I): void
     {
         $I->amOnPage('');
-        $I->seeElement('.search_form');
+        $I->seeElement('.search-form');
 
         $I->fillField('q', 'course');
-        $I->click('', '.search_form');
+        $I->click('', '.search-form');
 
         $I->see('Поиск по сайту', 'h1');
         $I->seeInSource('<a href="/course"><mark>course</mark></a>');

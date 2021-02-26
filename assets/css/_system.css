@@ -20,13 +20,13 @@ p.note {
   border: 1px solid #ccc;
 }
 
-p.note_bot {
+p.note-bot {
   margin-bottom: 20px;
   font-size: 11px;
   color: #999;
 }
 
-p.note_bot a {
+p.note-bot a {
   color: #666;
 }
 

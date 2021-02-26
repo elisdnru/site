@@ -5,12 +5,12 @@ use yii\helpers\Url;
 
 /** @var SearchForm $form */
 ?>
-<div class="search_form form">
+<div class="search-form form">
     <?= Html::beginForm(Url::to(['/blog/default/search']), 'get') ?>
-    <div class="row search_word">
+    <div class="row search-word">
         <?= Html::textInput('word', $form->word, ['placeholder' => 'Поиск в блоге']) ?>
     </div>
-    <div class="row buttons search_button">
+    <div class="row buttons search-button">
         <button type="submit"></button>
     </div>
     <?= Html::endForm() ?>

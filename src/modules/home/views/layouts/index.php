@@ -11,7 +11,7 @@ use yii\web\View;
 $this->beginContent('@app/views/layouts/main.php');
 ?>
 
-<div class="main left_main">
+<div class="main left-main">
 
     <?= Messages::widget() ?>
 
@@ -19,7 +19,7 @@ $this->beginContent('@app/views/layouts/main.php');
 
 </div>
 
-<aside class="sidebar right_sidebar">
+<aside class="sidebar right-sidebar">
 
     <?= $this->render('/layouts/_sidebar') ?>
 

@@ -78,7 +78,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     </header>
 
     <?php if (count($this->params['admin'] ?? [])) : ?>
-        <div class="adminbar">
+        <div class="admin-bar">
             <?= AdminBar::widget([
                 'links' => $this->params['admin'],
             ]) ?>
@@ -106,7 +106,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         </div>
         <!--/noindex-->
 
-        <div class="system_nav">
+        <div class="system-nav">
             <?php if (Yii::$app->request->getPathInfo() !== 'sitemap') : ?>
                 <a href="/sitemap">Карта сайта</a>
             <?php else : ?>

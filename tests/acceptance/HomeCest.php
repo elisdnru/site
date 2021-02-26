@@ -11,6 +11,6 @@ class HomeCest
         $I->amOnPage('');
         $I->see('Дмитрий Елисеев', 'h1');
         $I->see('Новое в Блоге');
-        $I->dontSeeElement('.adminbar');
+        $I->dontSeeElement('.admin-bar');
     }
 }

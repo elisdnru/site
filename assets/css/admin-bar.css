@@ -1,8 +1,8 @@
-.adminblock {
+.admin-block {
   margin: 0;
 }
 
-.adminlinks {
+.admin-links {
   border: none;
   border-top: 1px solid #ccc;
   border-bottom: #ccc 1px solid;
@@ -11,19 +11,19 @@
   padding: 15px 20px;
 }
 
-.adminlinks ul {
+.admin-links ul {
   margin: 0 !important;
   list-style: none !important;
   font-size: 0 !important;
 }
 
-.adminlinks ul li {
+.admin-links ul li {
   margin: 0 !important;
   display: inline-block !important;
   font-size: 12px !important;
 }
 
-.adminlinks a {
+.admin-links a {
   display: inline-block;
   font-family: arial, sans-serif !important;
   color: #b7131c !important;
@@ -38,11 +38,11 @@
   background: linear-gradient(#fff, #eee) !important;
 }
 
-.adminlinks a:hover {
+.admin-links a:hover {
   color: #b7131c !important;
   text-decoration: underline !important;
 }
 
-.adminlinks a img {
+.admin-links a img {
   display: inline;
 }
