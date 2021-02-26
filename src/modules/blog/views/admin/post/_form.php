@@ -141,9 +141,9 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'tagsString', ['class' => 'errorMessage']) ?>
             </div>
             <div class="row">
-                <ul class="tags-list" id="tagsVariants">
+                <ul class="tags-list" id="tags-variants">
                     <?php foreach (ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title') as $id => $tag) : ?>
-                        <li id="tag_<?= $id ?>">
+                        <li id="tag-<?= $id ?>">
                             <a class="tag" href="#"><?= Html::encode($tag) ?></a>
                         </li>
                     <?php endforeach; ?>
@@ -156,7 +156,7 @@ use yii\widgets\ActiveForm;
 
         (function () {
             var tagsInput = document.querySelector('#post-tagsstring');
-            var tagsVariants = document.querySelectorAll('#tagsVariants li');
+            var tagsVariants = document.querySelectorAll('#tags-variants li');
 
             function highlightActive () {
                 var tags = tagsInput.value.split(', ');

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /** @var array $tags */
 ?>
-<div id="tag_cloud" class="tags">
+<div class="tags">
     <?php foreach ($tags as $tag) : ?>
         <?php
         $size = (int)$tag->frequency + 8;

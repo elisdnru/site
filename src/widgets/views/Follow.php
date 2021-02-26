@@ -11,7 +11,7 @@ $providers = [
 ]
 ?>
 
-<div id="follow" class="follow">
+<div class="follow">
     <?php foreach ($providers as $provider) : ?>
         <a rel="noopener" href="<?= Html::encode($provider['url']) ?>" title="<?= Html::encode($provider['name']) ?>"><span class="follow-<?= $provider['class'] ?>"></span></a>
     <?php endforeach; ?>

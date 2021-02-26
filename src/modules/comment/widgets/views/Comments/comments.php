@@ -15,7 +15,7 @@ use app\modules\user\models\User;
 
     <div class="block-title">Комментарии</div>
 
-    <div id="commentsList">
+    <div>
         <?= $this->render('_tree', [
             'indent' => 0,
             'comments' => $comments,

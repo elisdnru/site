@@ -8,7 +8,7 @@ use yii\widgets\LinkPager;
 /** @var ActiveDataProvider $dataProvider */
 ?>
 
-<div id="blogList">
+<div>
     <div class="items">
         <?php foreach ($dataProvider->getModels() as $post) : ?>
             <?php /** @var Post $post */ ?>

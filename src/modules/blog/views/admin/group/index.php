@@ -40,12 +40,12 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
             $postsUrl = Url::to(['/blog/admin/post', 'Post[group_id]' => $item->id]);
 
             ?>
-            <tr id="item_<?= $item->id ?>">
+            <tr id="item-<?= $item->id ?>">
                 <td><?= Html::activeTextInput($item, "[$item->id]title", ['style' => 'width:99%', 'maxlength' => 255]) ?></td>
                 <td style="text-align: center"><a href="<?= $postsUrl ?>">Записи</a></td>
                 <td style="text-align: center">
                     <?php if ($item->postsCount === 0) : ?>
-                        <a class="ajax-del" data-del="item_<?= $item->id ?>" title="Удалить группу &laquo;<?= Html::encode($item->title) ?>&raquo;" href="<?= $delUrl ?>">
+                        <a class="ajax-del" data-del="item-<?= $item->id ?>" title="Удалить группу &laquo;<?= Html::encode($item->title) ?>&raquo;" href="<?= $delUrl ?>">
                             <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить">
                         </a>
                     <?php endif; ?>

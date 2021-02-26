@@ -15,7 +15,7 @@ AdminAsset::register($this);
 
 <?php $this->beginContent('@app/views/layouts/main.php'); ?>
 
-<section class="main" id="admin">
+<section class="main admin">
 
     <?= Breadcrumbs::widget([
         'links' => array_filter(array_merge(

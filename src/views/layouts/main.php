@@ -45,9 +45,9 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <body>
 <?php $this->beginBody() ?>
 
-<div id="wrapper">
+<div class="page-wrapper">
 
-    <header id="header">
+    <header class="page-header">
         <?php if ($this->context->route !== 'home/default/index') :
             ?><!--noindex--><?php
         endif; ?>
@@ -72,8 +72,8 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
             <?= SearchFormWidget::widget() ?>
         </div>
 
-        <nav id="main_nav">
-            <?= MainMenu::widget(['id' => 'main_nav_list']) ?>
+        <nav class="main-nav">
+            <?= MainMenu::widget() ?>
         </nav>
     </header>
 
@@ -85,7 +85,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         </div>
     <?php endif; ?>
 
-    <div id="content">
+    <div class="page-content">
 
         <?= $content ?>
 
@@ -93,7 +93,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     </div>
 </div>
 
-<footer id="footer">
+<footer class="page-footer">
     <div class="content">
 
         <div class="counters">

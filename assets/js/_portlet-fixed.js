@@ -1,7 +1,7 @@
 (function () {
   const portlet = document.querySelector('.sidebar .portlet-fixed')
   const marker = document.querySelector('.bottom-marker')
-  const wrapper = document.querySelector('#wrapper')
+  const wrapper = document.querySelector('.page-wrapper')
   if (portlet && marker) {
     window.addEventListener('scroll', function () {
       const offset = marker.offsetTop

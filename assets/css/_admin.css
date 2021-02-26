@@ -1,4 +1,4 @@
-#admin .body {
+.main.admin .body {
   background: #fff !important;
   padding: 10px;
 }
@@ -69,18 +69,18 @@ table.grid a {
   text-decoration: underline;
 }
 
-#admin fieldset input[type=url],
-#admin fieldset input[type=email],
-#admin fieldset input[type=text],
-#admin fieldset input[type=file],
-#admin fieldset input[type=password],
-#admin fieldset textarea,
-#admin fieldset select {
+.main.admin fieldset input[type=url],
+.main.admin fieldset input[type=email],
+.main.admin fieldset input[type=text],
+.main.admin fieldset input[type=file],
+.main.admin fieldset input[type=password],
+.main.admin fieldset textarea,
+.main.admin fieldset select {
   width: 100%;
   padding: 2px 4px;
 }
 
-#admin .buttons input, #admin .buttons button {
+.main.admin .buttons input, .main.admin .buttons button {
   border: #999 1px solid;
   padding: 2px 20px;
   margin-bottom: 16px;
@@ -92,7 +92,7 @@ table.grid a {
   color: #333;
 }
 
-#admin .controlPanel fieldset {
+.main.admin .controlPanel fieldset {
   border: 1px solid #ccc;
   background: #fff;
   padding: 8px 8px 0 8px;
@@ -100,7 +100,7 @@ table.grid a {
   border-radius: 5px;
 }
 
-#admin .controlPanel fieldset h2 {
+.main.admin .controlPanel fieldset h2 {
   margin: -8px -8px 10px -8px;
   padding: 5px 8px;
   background: #505050;
@@ -112,16 +112,16 @@ table.grid a {
   border-radius: 5px 5px 0 0;
 }
 
-#admin .controlPanel ul.adminlist {
+.main.admin .controlPanel ul.adminlist {
   list-style: none !important;
   margin: 0 !important;
 }
 
-#admin .controlPanel ul.adminlist li {
+.main.admin .controlPanel ul.adminlist li {
   margin: 0 0 8px 0 !important;
 }
 
-#admin .controlPanel ul.adminlist li h3 {
+.main.admin .controlPanel ul.adminlist li h3 {
   padding: 6px 8px 0 8px;
   font-size: 14px;
   font-weight: normal;
@@ -132,7 +132,7 @@ table.grid a {
   border-radius: 5px 5px 0 0;
 }
 
-#admin .controlPanel ul.adminlist li ul {
+.main.admin .controlPanel ul.adminlist li ul {
   clear: both;
   list-style: none !important;
   margin: 0 !important;
@@ -141,13 +141,13 @@ table.grid a {
   background: linear-gradient(#eee, #e6e6e6);
 }
 
-#admin .controlPanel ul.adminlist li ul:after {
+.main.admin .controlPanel ul.adminlist li ul:after {
   content: '';
   display: block;
   clear: both;
 }
 
-#admin .controlPanel ul.adminlist li ul li {
+.main.admin .controlPanel ul.adminlist li ul li {
   float: left;
   margin: 0 0 8px 8px !important;
   padding: 6px 14px !important;
@@ -157,23 +157,23 @@ table.grid a {
   background: linear-gradient(#fff, #eee) !important;
 }
 
-#admin .controlPanel ul.adminlist li ul li a {
+.main.admin .controlPanel ul.adminlist li ul li a {
   color: #222;
   text-decoration: none;
 }
 
-#admin .controlPanel ul.adminlist li ul li a:hover {
+.main.admin .controlPanel ul.adminlist li ul li a:hover {
   color: #b7131c;
   text-decoration: underline;
 }
 
-#admin .controlPanel ul.adminlist li ul li img {
+.main.admin .controlPanel ul.adminlist li ul li img {
   display: inline;
   vertical-align: middle;
   margin: 0 6px 0 0;
 }
 
-#admin ul.yiiPager {
+.main.admin ul.yiiPager {
   margin: 30px 0 20px 0;
   padding: 0;
   line-height: 100%;
@@ -181,18 +181,18 @@ table.grid a {
   font-size: 0;
 }
 
-#admin ul.yiiPager li {
+.main.admin ul.yiiPager li {
   display: inline-block;
   font-size: 13px;
 }
 
-#admin ul.yiiPager a:link,
-#admin ul.yiiPager a:visited {
+.main.admin ul.yiiPager a:link,
+.main.admin ul.yiiPager a:visited {
   color: #333;;
   text-decoration: underline;
 }
 
-#admin ul.yiiPager .page a {
+.main.admin ul.yiiPager .page a {
   font-weight: normal;
   border: none;
   padding: 5px 10px;
@@ -200,12 +200,12 @@ table.grid a {
   text-decoration: underline;
 }
 
-#admin ul.yiiPager .page a:hover {
+.main.admin ul.yiiPager .page a:hover {
   background: #09c;
   color: #fff;
 }
 
-#admin ul.yiiPager .selected a {
+.main.admin ul.yiiPager .selected a {
   background: #b7131c !important;
   color: #fff;
   font-weight: normal;
@@ -213,24 +213,24 @@ table.grid a {
   cursor: default;
 }
 
-#admin ul.yiiPager .hidden a {
+.main.admin ul.yiiPager .hidden a {
   visibility: hidden;
 }
 
-#admin ul.yiiPager .previous {
+.main.admin ul.yiiPager .previous {
   float: left;
 }
 
-#admin ul.yiiPager .next {
+.main.admin ul.yiiPager .next {
   float: right;
 }
 
-#admin ul.yiiPager .first,
-#admin ul.yiiPager .last {
+.main.admin ul.yiiPager .first,
+.main.admin ul.yiiPager .last {
   display: none;
 }
 
-#admin fieldset {
+.main.admin fieldset {
   border: 1px solid #ccc;
   background: #eee;
   padding: 8px 10px;
@@ -238,7 +238,7 @@ table.grid a {
   border-radius: 5px;
 }
 
-#admin fieldset h4 {
+.main.admin fieldset h4 {
   margin: -9px -11px 10px -11px;
   padding: 5px 10px;
   background: #444;

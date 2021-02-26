@@ -28,8 +28,8 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $data->id]);
         </span>
 
         <span class="like">
-            <span id="like_<?= $data->id ?>"><?= $data->likes ?></span>
-            <a rel="nofollow" class="ajax-load like-icon<?= $data->liked ? ' like-active' : '' ?>" data-load="like_<?= $data->id ?>" href="<?= Url::to(['/comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
+            <span id="like-<?= $data->id ?>"><?= $data->likes ?></span>
+            <a rel="nofollow" class="ajax-load like-icon<?= $data->liked ? ' like-active' : '' ?>" data-load="like-<?= $data->id ?>" href="<?= Url::to(['/comment/ajax/like', 'id' => $data->id]) ?>" title="Мне нравится"></a>
         </span>
 
         <h2 class="date"><?= $data->date ?></h2>

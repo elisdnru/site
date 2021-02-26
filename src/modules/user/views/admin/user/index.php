@@ -23,7 +23,7 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
 
 <h1>Пользователи</h1>
 
-<div id="posts-grid" class="grid-view">
+<div class="grid-view">
     <div class="summary"><?= $dataProvider->getCount() ?> из <?= $dataProvider->getTotalCount() ?></div>
     <form action="?" method="get">
         <table class="items">

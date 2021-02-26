@@ -80,7 +80,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                 </tr>
 
             <?php else : ?>
-                <tr id="item_<?= md5($item->getBasename()) ?>">
+                <tr id="item-<?= md5($item->getBasename()) ?>">
                     <td>
                         <a class="floatright" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
                         <img src="/images/admin/fileicon.jpg">
@@ -93,7 +93,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                         <?= date('Y-m-d h:i:s', $item->getTimeModified()) ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax-del" data-del="item_<?= md5($item->getBasename()) ?>" title="Удалить файл &laquo;<?= $item->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax-del" data-del="item-<?= md5($item->getBasename()) ?>" title="Удалить файл &laquo;<?= $item->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 

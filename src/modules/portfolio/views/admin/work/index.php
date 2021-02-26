@@ -58,7 +58,7 @@ JqueryUiAsset::register($this);
     </tr>
 </table>
 
-<div id="listBlock">
+<div id="list-block">
 
     <?php foreach ($works as $item) :
         $editUrl = Url::to(['update', 'id' => $item->id]);
@@ -118,7 +118,7 @@ JqueryUiAsset::register($this);
 
 jQuery(function($) {
     $(function () {
-        var listBlock = $('#listBlock');
+        var listBlock = $('#list-block');
         listBlock.sortable({
             placeholder: 'ui-state-highlight',
             items: '>table',
