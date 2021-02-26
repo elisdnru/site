@@ -18,27 +18,6 @@
   border-radius: 4px 4px 0 0;
 }
 
-.portlet-title:after {
-  display: block;
-  content: '';
-  margin: 0;
-  padding: 0;
-  height: 16px;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  background: #fff;
-  opacity: 0.3;
-  border-radius: 4px 4px 0 0;
-}
-
-.portlet-title span {
-  position: relative;
-  z-index: 2;
-}
-
 .portlet-content {
   padding: 15px 10px 10px 10px;
 }

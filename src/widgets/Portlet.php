@@ -44,9 +44,9 @@ class Portlet extends Widget
     {
         if ($this->title !== null) {
             if ($this->url) {
-                echo "<div class=\"portlet-title\"><span><a href=\"{$this->url}\">{$this->title}</a></span></div>\n";
+                echo "<div class=\"portlet-title\"><a href=\"{$this->url}\">{$this->title}</a></div>\n";
             } else {
-                echo "<div class=\"portlet-title\"><span>{$this->title}</span></div>\n";
+                echo "<div class=\"portlet-title\">{$this->title}</div>\n";
             }
         }
     }
