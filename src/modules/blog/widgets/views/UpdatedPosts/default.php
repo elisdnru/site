@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 ?>
 <?php if (count($posts)) : ?>
-    <ul class="last_updated">
+    <ul class="last-updated">
         <?php foreach ($posts as $post) : ?>
             <li><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a></li>
         <?php endforeach; ?>
