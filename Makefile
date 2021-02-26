@@ -4,7 +4,7 @@ down: docker-down
 restart: docker-down docker-up
 check: validate lint test
 validate: site-composer-validate
-lint: site-lint site-analyze
+lint: site-lint site-assets-lint site-analyze
 test: site-test
 
 update-deps: site-composer-update site-assets-update restart
@@ -68,6 +68,16 @@ site-assets-build:
 site-lint:
 	docker-compose run --rm php-cli composer lint
 	docker-compose run --rm php-cli composer phpcs
+
+site-assets-lint:
+	docker-compose run --rm node-cli yarn eslint
+	docker-compose run --rm node-cli yarn stylelint
+
+site-assets-eslint-fix:
+	docker-compose run --rm node-cli yarn eslint-fix
+
+site-assets-pretty:
+	docker-compose run --rm node-cli yarn prettier
 
 site-analyze:
 	docker-compose run --rm php-cli composer psalm -- --no-diff
