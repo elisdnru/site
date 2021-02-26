@@ -1,3 +1,5 @@
+require('../css/comments.css');
+
 (function () {
   document.addEventListener('click', function (event) {
     if (!event.target.matches('.ajax_like')) {

@@ -9,10 +9,10 @@ module.exports = {
   mode: 'production',
   context: __dirname,
   entry: {
-    main: './assets/css/main.css',
+    main: './assets/js/main.js',
     admin: './assets/css/admin.css',
     'admin-bar': './assets/css/admin-bar.css',
-    comments: './assets/css/comments.css',
+    comments: './assets/js/comments.js',
     portfolio: './assets/css/portfolio.css',
     highlight: './assets/css/highlight.css'
   },
@@ -43,15 +43,6 @@ module.exports = {
     }),
     new MergeIntoSingleFilePlugin({
       files: {
-        'main.js': [
-          'assets/js/site.js',
-          'assets/js/form-action.js',
-          'assets/js/share.js',
-          'assets/js/ulogin.js'
-        ],
-        'comments.js': [
-          'assets/js/comments.js'
-        ],
         'jquery.js': [
           'assets/js/jquery.js'
         ],
@@ -60,9 +51,7 @@ module.exports = {
         ],
       },
       transform: {
-        'main.js': code => minify(code).code,
         'jquery.js': code => minify(code).code,
-        'comments.js': code => minify(code).code,
         'countdown.js': code => minify(code).code
       }
     })
