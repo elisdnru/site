@@ -1,7 +1,4 @@
-import jQuery from 'jquery'
-
-window.$ = window.jQuery = jQuery
-
+import './jquery'
 import 'jquery-ui/ui/widgets/sortable'
 import 'jquery-ui/ui/disable-selection'
 import 'jquery-ui/themes/base/core.css'
