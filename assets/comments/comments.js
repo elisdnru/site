@@ -1,5 +1,5 @@
-import '../css/comments.css'
-import getCSRFToken from './csrf'
+import './comments.css'
+import getCSRFToken from '../csrf'
 ;(function () {
   document.addEventListener('click', function (event) {
     if (!event.target.matches('.ajax-like')) {

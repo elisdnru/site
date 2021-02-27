@@ -1,11 +1,10 @@
 .grid-view table.items th a.asc {
-  background: url('../images/admin/gridview/sort_up.gif') right center no-repeat;
+  background: url('sort_up.gif') right center no-repeat;
   padding-right: 10px;
 }
 
 .grid-view table.items th a.desc {
-  background: url('../images/admin/gridview/sort_down.gif') right center
-    no-repeat;
+  background: url('sort_down.gif') right center no-repeat;
   padding-right: 10px;
 }
 
@@ -149,13 +148,13 @@
 }
 
 .icon.view {
-  background: url('../../public/images/admin/view.png') 0 0 no-repeat;
+  background: url('view.png') 0 0 no-repeat;
 }
 
 .icon.edit {
-  background: url('../../public/images/admin/edit.png') 0 0 no-repeat;
+  background: url('edit.png') 0 0 no-repeat;
 }
 
 .icon.delete {
-  background: url('../../public/images/admin/del.png') 0 0 no-repeat;
+  background: url('del.png') 0 0 no-repeat;
 }

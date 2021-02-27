@@ -16,7 +16,7 @@
   height: 40px;
   background-position: 0 0;
   background-repeat: no-repeat;
-  background-image: url('../images/share.png');
+  background-image: url('share.png');
 }
 
 .share a span.share-vk {

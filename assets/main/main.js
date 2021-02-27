@@ -1,4 +1,4 @@
-import '../css/main.css'
+import './main.css'
 
 import './_ajax-links'
 import './_form-action'

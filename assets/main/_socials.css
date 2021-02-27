@@ -4,7 +4,7 @@ span.social-icon {
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
-  background-image: url('../images/socials.png');
+  background-image: url('socials.png');
   background-position: 0 -207px;
 }
 
