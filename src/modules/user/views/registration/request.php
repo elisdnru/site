@@ -32,13 +32,13 @@ $this->params['breadcrumbs'] = [
         <div class="row<?= $model->hasErrors('username') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'username') ?><br />
             <?= Html::activeTextInput($model, 'username', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'username', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'email') ?><br />
             <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'email', ['class' => 'error-message']) ?>
         </div>
 
         <hr />
@@ -46,13 +46,13 @@ $this->params['breadcrumbs'] = [
         <div class="row<?= $model->hasErrors('password') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'password') ?><br />
             <?= Html::activePasswordInput($model, 'password', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'password', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'password', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row<?= $model->hasErrors('confirm') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'confirm') ?><br />
             <?= Html::activePasswordInput($model, 'confirm', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'confirm', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'confirm', ['class' => 'error-message']) ?>
         </div>
 
         <hr />
@@ -60,13 +60,13 @@ $this->params['breadcrumbs'] = [
         <div class="row<?= $model->hasErrors('lastname') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'lastname') ?><br />
             <?= Html::activeTextInput($model, 'lastname', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'lastname', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row<?= $model->hasErrors('firstname') ? ' error' : '' ?> required">
             <?= Html::activeLabel($model, 'firstname') ?><br />
             <?= Html::activeTextInput($model, 'firstname', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'firstname', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'firstname', ['class' => 'error-message']) ?>
         </div>
 
         <hr />
@@ -80,7 +80,7 @@ $this->params['breadcrumbs'] = [
                     'captchaAction' => '/user/registration/captcha1',
                 ]) ?>
             </div>
-            <?= Html::error($model, 'test1', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'test1', ['class' => 'error-message']) ?>
             <div>
                 <?= Captcha::widget([
                     'model' => $model,
@@ -88,7 +88,7 @@ $this->params['breadcrumbs'] = [
                     'captchaAction' => '/user/registration/captcha2',
                 ]) ?>
             </div>
-            <?= Html::error($model, 'test2', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'test2', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row buttons">

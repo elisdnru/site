@@ -49,9 +49,9 @@ class SendCest
 
         $I->click('Отправить комментарий', '#comment-form');
 
-        $I->see('Напишите текст комментария.', '.errorMessage');
-        $I->see('Представьтесь, пожалуйста.', '.errorMessage');
-        $I->see('Введите Email', '.errorMessage');
+        $I->see('Напишите текст комментария.', '.error-message');
+        $I->see('Представьтесь, пожалуйста.', '.error-message');
+        $I->see('Введите Email', '.error-message');
     }
 
     public function user(AcceptanceTester $I): void

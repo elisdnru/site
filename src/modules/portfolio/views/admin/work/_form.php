@@ -33,25 +33,25 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'title') ?><br />
                 <?= Html::activeTextInput($model, 'title') ?><br />
-                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'title', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('alias') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'alias') ?><br />
                 <?= Html::activeTextInput($model, 'alias') ?><br />
-                <?= Html::error($model, 'alias', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'alias', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('category_id') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'category_id') ?><br />
                 <?= Html::activeDropDownList($model, 'category_id', Category::find()->getTabList()) ?><br />
-                <?= Html::error($model, 'category_id', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'category_id', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('date') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'date') ?><br />
                 <?= Html::activeTextInput($model, 'date') ?><br />
-                <?= Html::error($model, 'date', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'date', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row">
@@ -75,7 +75,7 @@ use yii\widgets\ActiveForm;
                 <div class="row<?= $model->hasErrors('image') ? ' error' : '' ?>">
                     <?= Html::activeLabel($model, 'image') ?><br />
                     <?= Html::activeFileInput($model, 'image') ?><br />
-                    <?= Html::error($model, 'image', ['class' => 'errorMessage']) ?>
+                    <?= Html::error($model, 'image', ['class' => 'error-message']) ?>
                 </div>
             </div>
             <div class="row">
@@ -87,7 +87,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('short') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'short') ?><br />
                 <?= Html::activeTextarea($model, 'short', ['rows' => 6, 'cols' => 80]) ?><br />
-                <?= Html::error($model, 'short', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'short', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -95,7 +95,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'text') ?><br />
                 <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]) ?><br />
-                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'text', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 

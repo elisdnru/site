@@ -31,12 +31,12 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'title') ?><br />
                 <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'title', ['class' => 'error-message']) ?>
             </div>
             <div class="row<?= $model->hasErrors('alias') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'alias') ?><br />
                 <?= Html::activeTextInput($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'alias', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'alias', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -44,7 +44,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'text') ?><br />
                 <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80]) ?><br />
-                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'text', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 

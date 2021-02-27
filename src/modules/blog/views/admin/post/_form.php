@@ -37,25 +37,25 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'title') ?><br />
                 <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'title', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('alias') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'alias') ?><br />
                 <?= Html::activeTextInput($model, 'alias', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'alias', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'alias', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('category_id') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'category_id') ?><br />
                 <?= Html::activeDropDownList($model, 'category_id', Category::find()->getTabList()) ?><br />
-                <?= Html::error($model, 'category_id', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'category_id', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('date') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'date') ?><br />
                 <?= Html::activeTextInput($model, 'date') ?><br />
-                <?= Html::error($model, 'date', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'date', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row">
@@ -78,13 +78,13 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('image') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'image') ?><br />
                 <?= Html::activeFileInput($model, 'image') ?><br />
-                <?= Html::error($model, 'image', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'image', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('image_alt') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'image_alt') ?><br />
                 <?= Html::activeTextInput($model, 'image_alt', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'image_alt', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'image_alt', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row">
@@ -98,13 +98,13 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('group_id') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'group_id') ?><br />
                 <?= Html::activeDropDownList($model, 'group_id', Group::find()->getAssocList(), ['prompt' => '']) ?><br />
-                <?= Html::error($model, 'group_id', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'group_id', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('newGroup') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'newGroup') ?><br />
                 <?= Html::activeTextInput($model, 'newGroup', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'newGroup', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'newGroup', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -112,7 +112,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('short') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'short') ?><br />
                 <?= Html::activeTextarea($model, 'short', ['rows' => 6, 'cols' => 80, 'placeholder' => '<p></p>']) ?><br />
-                <?= Html::error($model, 'short', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'short', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -120,7 +120,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'text') ?><br />
                 <?= Html::activeTextarea($model, 'text', ['rows' => 40, 'cols' => 80, 'placeholder' => 'Markdown']) ?><br />
-                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'text', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -128,7 +128,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('styles') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'styles') ?><br />
                 <?= Html::activeTextarea($model, 'styles', ['rows' => 10, 'cols' => 80]) ?><br />
-                <?= Html::error($model, 'styles', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'styles', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -138,7 +138,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('tagsString') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'tagsString') ?><br />
                 <?= Html::activeTextInput($model, 'tagsString', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'tagsString', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'tagsString', ['class' => 'error-message']) ?>
             </div>
             <div class="row">
                 <ul class="tags-list" id="tags-variants">

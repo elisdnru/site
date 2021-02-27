@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $model->hasErrors('title') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'title') ?><br />
                 <?= Html::activeTextInput($model, 'title', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'title', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'title', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 

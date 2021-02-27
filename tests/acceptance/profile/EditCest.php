@@ -84,9 +84,9 @@ class EditCest
 
         $I->click('Сохранить', '#profile-form');
 
-        $I->see('Необходимо заполнить «Фамилия».', '.errorMessage');
-        $I->see('Необходимо заполнить «Имя».', '.errorMessage');
-        $I->see('Значение «Сайт» не является правильным URL.', '.errorMessage');
-        $I->see('Файл «no-avatar.txt» не является изображением.', '.errorMessage');
+        $I->see('Необходимо заполнить «Фамилия».', '.error-message');
+        $I->see('Необходимо заполнить «Имя».', '.error-message');
+        $I->see('Значение «Сайт» не является правильным URL.', '.error-message');
+        $I->see('Файл «no-avatar.txt» не является изображением.', '.error-message');
     }
 }

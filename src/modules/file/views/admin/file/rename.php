@@ -33,7 +33,7 @@ $this->params['admin'][] = ['label' => 'Файлы', 'url' => ['index']];
             <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'name') ?><br />
                 <?= Html::activeTextInput($model, 'name', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'name', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 

@@ -53,19 +53,19 @@ use yii\widgets\ActiveForm;
             <div class="row<?= $form->hasErrors('name') ? ' error' : '' ?><?= $form->isAttributeRequired('name') ? ' required' : '' ?>">
                 <?= Html::activeLabel($form, 'name') ?><br />
                 <?= Html::activeTextInput($form, 'name', ['size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($form, 'name', ['class' => 'errorMessage']) ?>
+                <?= Html::error($form, 'name', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $form->hasErrors('email') ? ' error' : '' ?><?= $form->isAttributeRequired('email') ? ' required' : '' ?>">
                 <?= Html::activeLabel($form, 'email') ?> (никто не увидит)<br />
                 <?= Html::activeTextInput($form, 'email', ['type' => 'email', 'size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($form, 'email', ['class' => 'errorMessage']) ?>
+                <?= Html::error($form, 'email', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $form->hasErrors('site') ? ' error' : '' ?><?= $form->isAttributeRequired('site') ? ' required' : '' ?>">
                 <?= Html::activeLabel($form, 'site') ?><br />
                 <?= Html::activeTextInput($form, 'site', ['type' => 'url', 'size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($form, 'site', ['class' => 'errorMessage']) ?>
+                <?= Html::error($form, 'site', ['class' => 'error-message']) ?>
             </div>
 
         <?php endif; ?>
@@ -75,18 +75,18 @@ use yii\widgets\ActiveForm;
         <div class="row<?= $form->hasErrors('text') ? ' error' : '' ?> required">
             <?= Html::activeLabel($form, 'text') ?><br />
             <?= Html::activeTextarea($form, 'text', ['rows' => 10, 'cols' => 80, 'style' => 'width:99%']) ?><br />
-            <?= Html::error($form, 'text', ['class' => 'errorMessage']) ?>
+            <?= Html::error($form, 'text', ['class' => 'error-message']) ?>
             <p class="coment-note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;pre&gt;</p>
         </div>
 
         <div class="row dp3a<?= $form->hasErrors('yqe1') ? ' error' : '' ?>">
             <?= Html::activeCheckbox($form, 'yqe1') ?>
-            <?= Html::error($form, 'yqe1', ['class' => 'errorMessage']) ?>
+            <?= Html::error($form, 'yqe1', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row dt1s">
             <?= Html::activeCheckbox($form, 'yqe2') ?>
-            <?= Html::error($form, 'yqe2', ['class' => 'errorMessage']) ?>
+            <?= Html::error($form, 'yqe2', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row buttons">

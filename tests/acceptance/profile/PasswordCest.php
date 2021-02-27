@@ -52,8 +52,8 @@ class PasswordCest
 
         $I->click('Сохранить', '#password-form');
 
-        $I->see('Необходимо заполнить «Текущий пароль».', '.errorMessage');
-        $I->see('Необходимо заполнить «Новый пароль».', '.errorMessage');
+        $I->see('Необходимо заполнить «Текущий пароль».', '.error-message');
+        $I->see('Необходимо заполнить «Новый пароль».', '.error-message');
     }
 
     public function confirmValidation(AcceptanceTester $I): void
@@ -69,7 +69,7 @@ class PasswordCest
 
         $I->click('Сохранить', '#password-form');
 
-        $I->see('Пароли не совпадают.', '.errorMessage');
+        $I->see('Пароли не совпадают.', '.error-message');
     }
 
     public function wrongValidation(AcceptanceTester $I): void
@@ -85,6 +85,6 @@ class PasswordCest
 
         $I->click('Сохранить', '#password-form');
 
-        $I->see('Неверный текущий пароль.', '.errorMessage');
+        $I->see('Неверный текущий пароль.', '.error-message');
     }
 }

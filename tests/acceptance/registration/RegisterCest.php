@@ -47,13 +47,13 @@ class RegisterCest
 
         $I->click('Зарегистрироваться', '#register-form');
 
-        $I->see('Необходимо заполнить «Логин».', '.errorMessage');
-        $I->see('Необходимо заполнить «Email».', '.errorMessage');
-        $I->see('Необходимо заполнить «Новый пароль».', '.errorMessage');
-        $I->see('Необходимо заполнить «Имя».', '.errorMessage');
-        $I->see('Необходимо заполнить «Фамилия».', '.errorMessage');
-        $I->see('Необходимо заполнить «Код 1».', '.errorMessage');
-        $I->see('Необходимо заполнить «Код 2».', '.errorMessage');
+        $I->see('Необходимо заполнить «Логин».', '.error-message');
+        $I->see('Необходимо заполнить «Email».', '.error-message');
+        $I->see('Необходимо заполнить «Новый пароль».', '.error-message');
+        $I->see('Необходимо заполнить «Имя».', '.error-message');
+        $I->see('Необходимо заполнить «Фамилия».', '.error-message');
+        $I->see('Необходимо заполнить «Код 1».', '.error-message');
+        $I->see('Необходимо заполнить «Код 2».', '.error-message');
     }
 
     public function notValid(AcceptanceTester $I): void
@@ -71,11 +71,11 @@ class RegisterCest
 
         $I->click('Зарегистрироваться', '#register-form');
 
-        $I->see('Логин содержит запрещённые символы.', '.errorMessage');
-        $I->see('Значение «Email» не является правильным email адресом.', '.errorMessage');
-        $I->see('Пароль должен быть не короче 6 символов.', '.errorMessage');
-        $I->see('Пароли не совпадают.', '.errorMessage');
-        $I->see('Неправильный проверочный код.', '.errorMessage');
+        $I->see('Логин содержит запрещённые символы.', '.error-message');
+        $I->see('Значение «Email» не является правильным email адресом.', '.error-message');
+        $I->see('Пароль должен быть не короче 6 символов.', '.error-message');
+        $I->see('Пароли не совпадают.', '.error-message');
+        $I->see('Неправильный проверочный код.', '.error-message');
     }
 
     public function captcha1(AcceptanceTester $I): void

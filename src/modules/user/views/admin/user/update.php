@@ -43,19 +43,19 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
             <div class="row<?= $model->hasErrors('username') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'username') ?><br />
                 <?= Html::activeTextInput($model, 'username') ?><br />
-                <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'username', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'email') ?><br />
                 <?= Html::activeTextInput($model, 'email') ?><br />
-                <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'email', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('role') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'role') ?><br />
                 <?= Html::activeDropDownList($model, 'role', $model->getRoles()) ?><br />
-                <?= Html::error($model, 'role', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'role', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -65,13 +65,13 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
             <div class="row<?= $model->hasErrors('lastname') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'lastname') ?><br />
                 <?= Html::activeTextInput($model, 'lastname') ?><br />
-                <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'lastname', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('firstname') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'firstname') ?><br />
                 <?= Html::activeTextInput($model, 'firstname') ?><br />
-                <?= Html::error($model, 'firstname', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'firstname', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
@@ -80,7 +80,7 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
             <div class="row<?= $model->hasErrors('avatar') ? ' error' : '' ?>">
                 <p><img src="<?= $user->getAvatarUrl() ?>" width="50" alt="" /></p>
                 <?= Html::activeFileInput($model, 'avatar') ?><br />
-                <?= Html::error($model, 'avatar', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'avatar', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row">
@@ -94,7 +94,7 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
             <div class="row<?= $model->hasErrors('site') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'site') ?><br />
                 <?= Html::activeTextInput($model, 'site') ?><br />
-                <?= Html::error($model, 'site', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'site', ['class' => 'error-message']) ?>
             </div>
 
         </fieldset>

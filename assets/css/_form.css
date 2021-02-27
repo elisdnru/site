@@ -94,7 +94,7 @@ div.form select.success {
   border-color: #c6d880;
 }
 
-div.form .errorMessage {
+div.form .error-message {
   color: red;
   font-size: 0.9em;
 }

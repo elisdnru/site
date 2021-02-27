@@ -39,19 +39,19 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <div class="row required <?= $model->hasErrors('lastname') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'lastname') ?><br />
                 <?= Html::activeTextInput($model, 'lastname', ['size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'lastname', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'lastname', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row required <?= $model->hasErrors('firstname') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'firstname') ?><br />
                 <?= Html::activeTextInput($model, 'firstname', ['size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'firstname', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'firstname', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('site') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'site') ?><br />
                 <?= Html::activeTextInput($model, 'site', ['type' => 'url', 'size' => 40, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'site', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'site', ['class' => 'error-message']) ?>
             </div>
 
             <hr />
@@ -60,7 +60,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <p style="float:right"><img src="<?= $user->getAvatarUrl() ?>" alt="" width="50" height="50"></p>
                 <?= Html::activeLabel($model, 'avatar') ?><br />
                 <?= Html::activeTextInput($model, 'avatar', ['type' => 'file', 'size' => 30]) ?>
-                <?= Html::error($model, 'avatar', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'avatar', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row">

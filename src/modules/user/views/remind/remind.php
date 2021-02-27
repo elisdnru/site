@@ -31,7 +31,7 @@ $this->params['breadcrumbs'] = [
         <div class="row">
             <?= Html::activeLabel($model, 'email') ?><br />
             <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 30]) ?><br />
-            <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'email', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row buttons">

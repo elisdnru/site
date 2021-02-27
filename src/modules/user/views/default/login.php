@@ -35,17 +35,17 @@ $this->params['breadcrumbs'] = [
         <div class="row">
             <?= Html::activeLabel($model, 'username') ?><br />
             <?= Html::activeTextInput($model, 'username', ['size' => 30]) ?><br />
-            <?= Html::error($model, 'username', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'username', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row">
             <?= Html::activeLabel($model, 'password') ?><br />
             <?= Html::activePasswordInput($model, 'password', ['size' => 30]) ?><br />
-            <?= Html::error($model, 'password', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'password', ['class' => 'error-message']) ?>
         </div>
         <div class="row rememberMe" style="margin-bottom: 10px">
             <?= Html::activeCheckbox($model, 'rememberMe') ?><br />
-            <?= Html::error($model, 'rememberMe', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'rememberMe', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row buttons">

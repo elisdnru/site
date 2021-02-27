@@ -38,19 +38,19 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <?= Html::activeLabel($model, 'current') ?> &nbsp;
             (<a target="_blank" href="<?= Url::to(['/user/remind/remind']) ?>">получить</a>)<br />
             <?= Html::activePasswordInput($model, 'current', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'current', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'current', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row required<?= $model->hasErrors('password') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'password') ?><br />
             <?= Html::activePasswordInput($model, 'password', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'password', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'password', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row required<?= $model->hasErrors('confirm') ? ' error' : '' ?>">
             <?= Html::activeLabel($model, 'confirm') ?><br />
             <?= Html::activePasswordInput($model, 'confirm', ['size' => 40, 'maxlength' => 255]) ?><br />
-            <?= Html::error($model, 'confirm', ['class' => 'errorMessage']) ?>
+            <?= Html::error($model, 'confirm', ['class' => 'error-message']) ?>
         </div>
 
         <div class="row buttons">

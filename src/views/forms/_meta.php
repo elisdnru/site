@@ -10,11 +10,11 @@ use yii\helpers\Html;
     <div class="row<?= $model->hasErrors('meta_title') ? ' error' : '' ?>">
         <?= Html::activeLabel($model, 'meta_title') ?><br />
         <?= Html::activeTextInput($model, 'meta_title') ?><br />
-        <?= Html::error($model, 'meta_title', ['class' => 'errorMessage']) ?>
+        <?= Html::error($model, 'meta_title', ['class' => 'error-message']) ?>
     </div>
     <div class="row<?= $model->hasErrors('meta_description') ? ' error' : '' ?>">
         <?= Html::activeLabel($model, 'meta_description') ?><br />
         <?= Html::activeTextarea($model, 'meta_description', ['rows' => 3, 'cols' => 80]) ?><br />
-        <?= Html::error($model, 'meta_description', ['class' => 'errorMessage']) ?>
+        <?= Html::error($model, 'meta_description', ['class' => 'error-message']) ?>
     </div>
 </fieldset>

@@ -18,7 +18,7 @@ use yii\helpers\Html;
             <div class="row<?= $form->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($form, 'text') ?><br />
                 <?= Html::activeTextarea($form, 'text', ['rows' => 20, 'cols' => 80, 'style' => 'width:99%']) ?><br />
-                <?= Html::error($form, 'text', ['class' => 'errorMessage']) ?>
+                <?= Html::error($form, 'text', ['class' => 'error-message']) ?>
                 <p class="coment-note">Можно использовать теги &lt;p&gt; &lt;ul&gt; &lt;li&gt; &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;pre&gt;</p>
             </div>
 

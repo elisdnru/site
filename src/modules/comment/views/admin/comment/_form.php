@@ -30,13 +30,13 @@ use yii\web\View;
             <div class="row<?= $model->hasErrors('date') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'date') ?><br />
                 <?= Html::activeTextInput($model, 'date') ?><br />
-                <?= Html::error($model, 'date', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'date', ['class' => 'error-message']) ?>
             </div>
 
             <div class="row<?= $model->hasErrors('parent_id') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'parent_id') ?><br />
                 <?= Html::activeTextInput($model, 'parent_id') ?><br />
-                <?= Html::error($model, 'parent_id', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'parent_id', ['class' => 'error-message']) ?>
             </div>
 
             <?php if ($model->user) : ?>
@@ -47,19 +47,19 @@ use yii\web\View;
                 <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
                     <?= Html::activeLabel($model, 'name') ?><br />
                     <?= Html::activeTextInput($model, 'name') ?><br />
-                    <?= Html::error($model, 'name', ['class' => 'errorMessage']) ?>
+                    <?= Html::error($model, 'name', ['class' => 'error-message']) ?>
                 </div>
 
                 <div class="row<?= $model->hasErrors('email') ? ' error' : '' ?>">
                     <?= Html::activeLabel($model, 'email') ?><br />
                     <?= Html::activeTextInput($model, 'email', ['type' => 'email']) ?><br />
-                    <?= Html::error($model, 'email', ['class' => 'errorMessage']) ?>
+                    <?= Html::error($model, 'email', ['class' => 'error-message']) ?>
                 </div>
 
                 <div class="row<?= $model->hasErrors('site') ? ' error' : '' ?>">
                     <?= Html::activeLabel($model, 'site') ?><br />
                     <?= Html::activeTextInput($model, 'site', ['type' => 'url']) ?><br />
-                    <?= Html::error($model, 'site', ['class' => 'errorMessage']) ?>
+                    <?= Html::error($model, 'site', ['class' => 'error-message']) ?>
                 </div>
             <?php endif; ?>
         </fieldset>
@@ -68,7 +68,7 @@ use yii\web\View;
             <div class="row<?= $model->hasErrors('text') ? ' error' : '' ?>">
                 <?= Html::activeLabel($model, 'text') ?><br />
                 <?= Html::activeTextarea($model, 'text', ['rows' => 20, 'cols' => 80]) ?><br />
-                <?= Html::error($model, 'text', ['class' => 'errorMessage']) ?>
+                <?= Html::error($model, 'text', ['class' => 'error-message']) ?>
             </div>
         </fieldset>
 
