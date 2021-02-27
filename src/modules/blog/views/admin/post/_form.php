@@ -195,7 +195,7 @@ use yii\widgets\ActiveForm;
         <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
         </script>
 
-        <?= $this->render('//common/forms/_meta', [
+        <?= $this->render('//forms/_meta', [
             'model' => $model,
         ]) ?>
 

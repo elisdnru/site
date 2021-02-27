@@ -61,7 +61,7 @@ use yii\widgets\ActiveForm;
             </div>
         </fieldset>
 
-        <?= $this->render('//common/forms/_meta', [
+        <?= $this->render('//forms/_meta', [
             'model' => $model,
         ]) ?>
 

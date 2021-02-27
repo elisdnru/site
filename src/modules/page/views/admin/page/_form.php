@@ -86,7 +86,7 @@ use yii\widgets\ActiveForm;
             </div>
         </fieldset>
 
-        <?= $this->render('//common/forms/_meta', ['model' => $model]) ?>
+        <?= $this->render('//forms/_meta', ['model' => $model]) ?>
 
         <fieldset>
             <h4>Индексация</h4>

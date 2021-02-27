@@ -99,7 +99,7 @@ use yii\widgets\ActiveForm;
             </div>
         </fieldset>
 
-        <?= $this->render('//common/forms/_meta', ['model' => $model]) ?>
+        <?= $this->render('//forms/_meta', ['model' => $model]) ?>
 
         <div class="row buttons">
             <?= Html::submitButton('Сохранить') ?>
