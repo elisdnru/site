@@ -1,7 +1,3 @@
-.grid-view-loading {
-  background: url('../images/loading.gif') no-repeat;
-}
-
 .grid-view table.items th a.asc {
   background: url('../images/admin/gridview/sort_up.gif') right center no-repeat;
   padding-right: 10px;
