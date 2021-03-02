@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.6.1@e93e532e4eaad6d68c4d7b606853800eaceccc72">
+<files psalm-version="4.6.2@bca09d74adc704c4eaee36a3c3e9d379e290fc3b">
   <file src="config/common.php">
     <PossiblyFalseOperand occurrences="2">
       <code>getenv('DB_HOST')</code>
@@ -1328,9 +1328,6 @@
       <code>$this-&gt;_str</code>
       <code>$this-&gt;_subst</code>
     </UndefinedThisPropertyFetch>
-    <UnresolvableInclude occurrences="1">
-      <code>include_once $langFile</code>
-    </UnresolvableInclude>
   </file>
   <file src="src/extensions/markdown/TextHighlighter/Text/Highlighter/ABAP.php">
     <PropertyNotSetInConstructor occurrences="2">
