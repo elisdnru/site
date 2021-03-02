@@ -87,9 +87,9 @@ class CategoryTreeBehaviorTest extends Unit
             'first-root' => 'First Root',
             'second-root' => 'Second Root',
             'third-root' => 'Third Root',
-            'first-root-first-middle' => 'First Root First Middle',
-            'first-middle-child' => 'First Root First Middle Child',
-            'first-root-second-middle' => 'First Root Second Middle',
+            'first-root-first-middle' => 'First Root - First Root First Middle',
+            'first-middle-child' => 'First Root - First Root First Middle - First Root First Middle Child',
+            'first-root-second-middle' => 'First Root - First Root Second Middle',
         ], $this->find->getAliasList());
     }
 
@@ -97,9 +97,9 @@ class CategoryTreeBehaviorTest extends Unit
     {
         self::assertEquals([
             'first-root' => 'First Root',
-            'first-root-first-middle' => 'First Root First Middle',
-            'first-middle-child' => 'First Root First Middle Child',
-            'first-root-second-middle' => 'First Root Second Middle',
+            'first-root-first-middle' => 'First Root - First Root First Middle',
+            'first-middle-child' => 'First Root - First Root First Middle - First Root First Middle Child',
+            'first-root-second-middle' => 'First Root - First Root Second Middle',
         ], $this->find->getAliasList(1));
     }
 

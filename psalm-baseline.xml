@@ -224,9 +224,9 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="19">
       <code>$item[$this-&gt;aliasAttribute]</code>
-      <code>$item[$this-&gt;aliasAttribute]</code>
       <code>$item[$this-&gt;parentAttribute]</code>
       <code>$item[$this-&gt;parentAttribute]</code>
+      <code>$item[$this-&gt;primaryKeyAttribute]</code>
       <code>$item[$this-&gt;primaryKeyAttribute]</code>
       <code>$item[$this-&gt;primaryKeyAttribute]</code>
       <code>$item[$this-&gt;primaryKeyAttribute]</code>
@@ -244,7 +244,7 @@
       <code>$temp[$this-&gt;parentAttribute]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="8">
-      <code>$associated[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
       <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
       <code>$resultArray[$id]</code>
       <code>$result[$item[$this-&gt;aliasAttribute]]</code>
@@ -256,7 +256,7 @@
     <MixedAssignment occurrences="23">
       <code>$array[]</code>
       <code>$array[]</code>
-      <code>$associated[$item[$this-&gt;aliasAttribute]]</code>
+      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
       <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
       <code>$id</code>
       <code>$item</code>

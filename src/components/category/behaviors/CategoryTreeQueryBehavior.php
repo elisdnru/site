@@ -57,7 +57,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
         $associated = [];
         foreach ($items as $item) {
-            $associated[$item[$this->aliasAttribute]] = $item;
+            $associated[$item[$this->primaryKeyAttribute]] = $item;
         }
         $items = $associated;
 
