@@ -4,6 +4,8 @@ namespace app\components\category;
 
 use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecordInterface;
 use yii\db\QueryInterface;
 
 class TreeActiveDataProvider extends ActiveDataProvider
@@ -12,10 +14,13 @@ class TreeActiveDataProvider extends ActiveDataProvider
 
     protected function prepareModels(): array
     {
-        if (!$this->query instanceof QueryInterface) {
-            throw new InvalidConfigException('The "query" property must be an instance of a class that implements the QueryInterface e.g. yii\db\Query or its subclasses.');
+        $originQuery = $this->query;
+
+        if (!$originQuery instanceof ActiveQuery) {
+            throw new InvalidConfigException('The "query" property must be an instance of a class that implements the ActiveQuery.');
         }
-        $query = clone $this->query;
+
+        $query = clone $originQuery;
         if (($pagination = $this->getPagination()) !== false) {
             $pagination->totalCount = $this->getTotalCount();
             if ($pagination->totalCount === 0) {
@@ -43,17 +48,24 @@ class TreeActiveDataProvider extends ActiveDataProvider
         return $items;
     }
 
+    /**
+     * @param ActiveRecordInterface[] $items
+     * @param int $indent
+     * @param int $foolproof
+     * @return ActiveRecordInterface[]
+     */
     protected function buildRecursive(array $items, int $indent = 0, int $foolproof = 20): array
     {
         $data = [];
         foreach ($items as $item) {
+            /** @psalm-suppress NoInterfaceProperties */
             $item->indent = $indent;
             $data[] = $item;
-            if ($foolproof && $item->{$this->childrenRelation}) {
+            if ($foolproof && $children = Attribute::ars($item, $this->childrenRelation)) {
                 /** @noinspection SlowArrayOperationsInLoopInspection */
                 $data = array_merge(
                     $data,
-                    $this->buildRecursive($item->{$this->childrenRelation}, $indent + 1, $foolproof - 1)
+                    $this->buildRecursive($children, $indent + 1, $foolproof - 1)
                 );
             }
         }

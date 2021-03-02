@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace app\components\category\behaviors;
 
+use app\components\category\Attribute;
+use app\components\category\models\TreeCategory;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -16,7 +18,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getQuery()->andWhere([$this->parentAttribute => null]);
     }
 
-    public function getAssocList($parent = null): array
+    public function getAssocList(int $parent = null): array
     {
         $items = $this->getFullAssocData([
             $this->primaryKeyAttribute,
@@ -26,28 +28,28 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
         $associated = [];
         foreach ($items as $item) {
-            $associated[$item[$this->primaryKeyAttribute]] = $item;
+            $associated[Attribute::int($item, $this->primaryKeyAttribute)] = $item;
         }
         $items = $associated;
 
         $result = [];
 
         foreach ($items as $item) {
-            $titles = [$item[$this->titleAttribute]];
+            $titles = [Attribute::string($item, $this->titleAttribute)];
 
             $temp = $item;
-            while (isset($items[(int)$temp[$this->parentAttribute]])) {
-                $titles[] = $items[(int)$temp[$this->parentAttribute]][$this->titleAttribute];
-                $temp = $items[(int)$temp[$this->parentAttribute]];
+            while (isset($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1])) {
+                $titles[] = Attribute::string($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1], $this->titleAttribute);
+                $temp = $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1];
             }
 
-            $result[$item[$this->primaryKeyAttribute]] = implode(' - ', array_reverse($titles));
+            $result[Attribute::int($item, $this->primaryKeyAttribute)] = implode(' - ', array_reverse($titles));
         }
 
         return $result;
     }
 
-    public function getAliasList($parent = null): array
+    public function getAliasList(int $parent = null): array
     {
         $items = $this->getFullAssocData([
             $this->aliasAttribute,
@@ -57,30 +59,29 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
         $associated = [];
         foreach ($items as $item) {
-            $associated[$item[$this->primaryKeyAttribute]] = $item;
+            $associated[Attribute::int($item, $this->primaryKeyAttribute)] = $item;
         }
         $items = $associated;
 
         $result = [];
 
         foreach ($items as $item) {
-            $titles = [$item[$this->titleAttribute]];
+            $titles = [Attribute::string($item, $this->titleAttribute)];
 
             $temp = $item;
-            while (isset($items[(int)$temp[$this->parentAttribute]])) {
-                $titles[] = $items[(int)$temp[$this->parentAttribute]][$this->titleAttribute];
-                $temp = $items[(int)$temp[$this->parentAttribute]];
+            while (isset($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1])) {
+                $titles[] = Attribute::string($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1], $this->titleAttribute);
+                $temp = $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1];
             }
 
-            $result[$item[$this->aliasAttribute]] = implode(' - ', array_reverse($titles));
+            $result[Attribute::string($item, $this->aliasAttribute)] = implode(' - ', array_reverse($titles));
         }
 
         return $result;
     }
 
-    public function getTabList($parent = null): array
+    public function getTabList(int $parent = null): array
     {
-        $parents = $this->processParents($parent);
 
         $items = $this->getFullAssocData([
             $this->primaryKeyAttribute,
@@ -88,25 +89,31 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $this->parentAttribute
         ], $parent);
 
+        /** @var string[] $result */
         $result = [];
-        foreach ($parents as $parent_id) {
-            $this->getTabListRecursive($items, $result, $parent_id);
-        }
+
+        $this->getTabListRecursive($items, $result, $parent);
 
         return $result;
     }
 
-    protected function getTabListRecursive(array &$items, array &$result, $parent_id, int $indent = 0): void
+    /**
+     * @param ActiveRecord[] $items
+     * @param string[] $result
+     * @param int|null $parent
+     * @param int $indent
+     */
+    protected function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
     {
         foreach ($items as $item) {
-            if ((int)$item[$this->parentAttribute] === (int)$parent_id && !isset($result[$item[$this->primaryKeyAttribute]])) {
-                $result[$item[$this->primaryKeyAttribute]] = str_repeat('-- ', $indent) . $item[$this->titleAttribute];
-                $this->getTabListRecursive($items, $result, $item[$this->primaryKeyAttribute], $indent + 1);
+            if (Attribute::intOrNull($item, $this->parentAttribute) === $parent && !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])) {
+                $result[Attribute::int($item, $this->primaryKeyAttribute)] = str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute);
+                $this->getTabListRecursive($items, $result, Attribute::int($item, $this->primaryKeyAttribute), $indent + 1);
             }
         }
     }
 
-    public function getUrlList($parent = null): array
+    public function getUrlList(int $parent = null): array
     {
         $query = $this->getQuery();
 
@@ -114,29 +121,38 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $query->andWhere([$this->primaryKeyAttribute => $this->getChildrenArray($parent)]);
         }
 
+        /** @var ActiveRecord[] $items */
         $items = $query->all();
 
+        /** @var ActiveRecord[][] $categories */
         $categories = [];
         foreach ($items as $item) {
-            $categories[(int)$item->{$this->parentAttribute}][] = $item;
+            $categories[Attribute::intOrNull($item, $this->parentAttribute) ?: 0][] = $item;
         }
 
-        return $this->getUrlListRecursive($categories, $parent);
+        return $this->getUrlListRecursive($categories, $parent ?: 0);
     }
 
-    protected function getUrlListRecursive(array $items, $parent, int $indent = 0): array
+    /**
+     * @param ActiveRecord[][] $items
+     * @param int $parent
+     * @param int $indent
+     * @return array|string[]
+     */
+    protected function getUrlListRecursive(array $items, int $parent, int $indent = 0): array
     {
-        $parent = (int)$parent;
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
             foreach ($items[$parent] as $item) {
-                $resultArray = $resultArray + [$item->{$this->urlAttribute} => str_repeat('-- ', $indent) . $item->{$this->titleAttribute}] + $this->getUrlListRecursive($items, $item->getPrimaryKey(), $indent + 1);
+                $resultArray = $resultArray + [
+                        Attribute::string($item, $this->urlAttribute) => str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute)
+                    ] + $this->getUrlListRecursive($items, (int)$item->getPrimaryKey(), $indent + 1);
             }
         }
         return $resultArray;
     }
 
-    public function getMenuList(string $path, int $sub = 0, $parent = null): array
+    public function getMenuList(string $path, int $sub = 0, int $parent = null): array
     {
         $query = $this->getQuery();
 
@@ -144,32 +160,40 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $query->andWhere([$this->primaryKeyAttribute => $this->getChildrenArray($parent)]);
         }
 
+        /** @var TreeCategory[] $items */
         $items = $query->all();
 
+        /** @var TreeCategory[][] $categories */
         $categories = [];
         foreach ($items as $item) {
-            $categories[(int)$item->{$this->parentAttribute}][] = $item;
+            $categories[Attribute::intOrNull($item, $this->parentAttribute) ?: 0][] = $item;
         }
 
-        return $this->getMenuListRecursive($path, $categories, $parent, $sub);
+        return $this->getMenuListRecursive($path, $categories, $parent ?: 0, $sub);
     }
 
-    protected function getMenuListRecursive(string $path, array $items, $parent, $sub): array
+    /**
+     * @param string $path
+     * @param TreeCategory[][] $items
+     * @param int $parent
+     * @param int $sub
+     * @return array[]
+     */
+    protected function getMenuListRecursive(string $path, array $items, int $parent, int $sub): array
     {
-        $parent = (int)$parent;
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
             foreach ($items[$parent] as $item) {
-                $id = $item->getPrimaryKey();
+                $id = (int)$item->getPrimaryKey();
                 $resultArray[$id] = [
                         'id' => $id,
-                        'label' => $item->{$this->titleAttribute},
-                        'url' => $item->{$this->urlAttribute},
-                        'icon' => $this->iconAttribute !== null ? $item->{$this->iconAttribute} : '',
+                        'label' => Attribute::string($item, $this->titleAttribute),
+                        'url' => Attribute::string($item, $this->urlAttribute),
+                        'icon' => $this->iconAttribute !== null ? Attribute::string($item, $this->iconAttribute) : '',
                         'active' => $item->isLinkActive($path),
                     ] + (
                         $sub
-                        ? ['items' => $this->getMenuListRecursive($path, $items, $item->getPrimaryKey(), $sub - 1)]
+                        ? ['items' => $this->getMenuListRecursive($path, $items, (int)$item->getPrimaryKey(), $sub - 1)]
                         : []
                     );
             }
@@ -191,7 +215,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $model = $query->limit(1)->one();
         } else {
             $query->andWhere([$this->aliasAttribute => $chunks[0]]);
-            /** @var ActiveRecord|CategoryTreeBehavior $parent */
+            /** @var TreeCategory|null $parent */
             $parent = $query->limit(1)->one();
 
             if ($parent !== null) {
@@ -208,60 +232,42 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $model;
     }
 
-    public function getChildrenArray($parent = null): array
+    public function getChildrenArray(int $parent = null): array
     {
-        $parents = $this->processParents($parent);
-
+        /** @var ActiveRecord[] $items */
         $items = $this->getQuery()
             ->select([$this->primaryKeyAttribute, $this->titleAttribute, $this->parentAttribute])
             ->all();
 
+        /** @var int[] $result */
         $result = [];
 
-        foreach ($parents as $parent_id) {
-            $this->childrenArrayRecursive($items, $result, $parent_id);
-        }
+        $this->childrenArrayRecursive($items, $result, $parent);
 
         return array_unique($result);
     }
 
-    protected function childrenArrayRecursive(array &$items, array &$result, $parent_id): void
+    /**
+     * @param ActiveRecord[] $items
+     * @param int[] $result
+     * @param int|null $parent
+     */
+    protected function childrenArrayRecursive(array &$items, array &$result, ?int $parent): void
     {
         foreach ($items as $item) {
-            if ((int)$item[$this->parentAttribute] === (int)$parent_id) {
-                $result[] = $item[$this->primaryKeyAttribute];
-                $this->childrenArrayRecursive($items, $result, $item[$this->primaryKeyAttribute]);
+            if (Attribute::intOrNull($item, $this->parentAttribute) === $parent) {
+                $result[] = Attribute::int($item, $this->primaryKeyAttribute);
+                $this->childrenArrayRecursive($items, $result, Attribute::int($item, $this->primaryKeyAttribute));
             }
         }
     }
 
-    protected function processParents($parent): array
-    {
-        return $this->arrayFromArgs($parent);
-    }
-
-    protected function arrayFromArgs($items): array
-    {
-        $array = [];
-
-        if (!$items) {
-            $items = [0];
-        } elseif (!is_array($items)) {
-            $items = [$items];
-        }
-
-        foreach ($items as $item) {
-            if (is_object($item)) {
-                $array[] = $item->getPrimaryKey();
-            } else {
-                $array[] = $item;
-            }
-        }
-
-        return array_unique($array);
-    }
-
-    protected function getFullAssocData(array $attributes, $parent = null): array
+    /**
+     * @param string[] $attributes
+     * @param int|null $parent
+     * @return ActiveRecord[]
+     */
+    protected function getFullAssocData(array $attributes, int $parent = null): array
     {
         $query = $this->getQuery();
 
@@ -273,6 +279,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $query->andWhere([$this->primaryKeyAttribute => array_merge([$parent], $this->getChildrenArray($parent))]);
         }
 
+        /** @var ActiveRecord[] */
         return $query->all();
     }
 }

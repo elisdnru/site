@@ -96,26 +96,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/components/category/TreeActiveDataProvider.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$this-&gt;query instanceof QueryInterface</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$item-&gt;{$this-&gt;childrenRelation}</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$data[]</code>
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedPropertyAssignment occurrences="1">
-      <code>$item</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch occurrences="2">
-      <code>$item-&gt;{$this-&gt;childrenRelation}</code>
-      <code>$item-&gt;{$this-&gt;childrenRelation}</code>
-    </MixedPropertyFetch>
-    <NoInterfaceProperties occurrences="1">
-      <code>$rootQuery-&gt;where</code>
-    </NoInterfaceProperties>
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;db</code>
     </PossiblyInvalidArgument>
@@ -128,181 +108,13 @@
       <code>TreeActiveDataProvider</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/components/category/behaviors/CategoryBehavior.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;getModel()-&gt;{$this-&gt;aliasAttribute}</code>
-    </MixedArgument>
-  </file>
-  <file src="src/components/category/behaviors/CategoryQueryBehavior.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$this-&gt;getQuery()-&gt;andWhere([$this-&gt;aliasAttribute =&gt; $alias])-&gt;limit(1)-&gt;one()</code>
-    </LessSpecificReturnStatement>
-    <MixedArrayOffset occurrences="1">
-      <code>$result[$id]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="2">
-      <code>$id</code>
-      <code>$result[$item-&gt;{$this-&gt;urlAttribute}]</code>
-    </MixedAssignment>
-    <MoreSpecificReturnType occurrences="1">
-      <code>?ActiveRecord</code>
-    </MoreSpecificReturnType>
-    <PossiblyInvalidClone occurrences="1">
-      <code>clone $this-&gt;owner</code>
-    </PossiblyInvalidClone>
-    <UndefinedMagicMethod occurrences="1">
-      <code>isLinkActive</code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/components/category/behaviors/CategoryTreeBehavior.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$query-&gt;limit(1)-&gt;one()</code>
-    </LessSpecificReturnStatement>
-    <MissingParamType occurrences="2">
-      <code>$items</code>
-      <code>$parent</code>
-    </MissingParamType>
-    <MixedArrayOffset occurrences="1">
-      <code>$breadcrumbs[$page-&gt;{$this-&gt;parentRelation}-&gt;{$this-&gt;titleAttribute}]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="10">
-      <code>$array[]</code>
-      <code>$array[]</code>
-      <code>$breadcrumbs[$page-&gt;{$this-&gt;parentRelation}-&gt;{$this-&gt;titleAttribute}]</code>
-      <code>$category</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$model</code>
-      <code>$page</code>
-      <code>$titles[]</code>
-      <code>$uri[]</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getPrimaryKey</code>
-      <code>getPrimaryKey</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="11">
-      <code>$category-&gt;{$this-&gt;parentRelation}</code>
-      <code>$category-&gt;{$this-&gt;parentRelation}</code>
-      <code>$category-&gt;{$this-&gt;parentRelation}</code>
-      <code>$item-&gt;{$this-&gt;parentRelation}</code>
-      <code>$item-&gt;{$this-&gt;parentRelation}</code>
-      <code>$item-&gt;{$this-&gt;parentRelation}</code>
-      <code>$model-&gt;{$this-&gt;parentRelation}</code>
-      <code>$page-&gt;{$this-&gt;parentRelation}</code>
-      <code>$page-&gt;{$this-&gt;parentRelation}</code>
-      <code>$page-&gt;{$this-&gt;parentRelation}</code>
-      <code>$page-&gt;{$this-&gt;parentRelation}</code>
-    </MixedPropertyFetch>
-    <MoreSpecificReturnType occurrences="1">
-      <code>?ActiveRecord</code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
     <LessSpecificReturnStatement occurrences="1">
       <code>$model</code>
     </LessSpecificReturnStatement>
-    <MissingParamType occurrences="14">
-      <code>$items</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent</code>
-      <code>$parent_id</code>
-      <code>$parent_id</code>
-      <code>$sub</code>
-    </MissingParamType>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$attributes</code>
-      <code>array_combine($attributes, $attributes)</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="19">
-      <code>$item[$this-&gt;aliasAttribute]</code>
-      <code>$item[$this-&gt;parentAttribute]</code>
-      <code>$item[$this-&gt;parentAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;primaryKeyAttribute]</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
-      <code>$items[(int)$temp[$this-&gt;parentAttribute]][$this-&gt;titleAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-      <code>$temp[$this-&gt;parentAttribute]</code>
-    </MixedArrayAccess>
-    <MixedArrayOffset occurrences="8">
-      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$resultArray[$id]</code>
-      <code>$result[$item[$this-&gt;aliasAttribute]]</code>
-      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$result[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>[$item-&gt;{$this-&gt;urlAttribute} =&gt; str_repeat('-- ', $indent) . $item-&gt;{$this-&gt;titleAttribute}]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="23">
-      <code>$array[]</code>
-      <code>$array[]</code>
-      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$associated[$item[$this-&gt;primaryKeyAttribute]]</code>
-      <code>$id</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$parent_id</code>
-      <code>$parent_id</code>
-      <code>$result[]</code>
-      <code>$temp</code>
-      <code>$temp</code>
-      <code>$temp</code>
-      <code>$temp</code>
-      <code>$titles[]</code>
-      <code>$titles[]</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="5">
-      <code>getPrimaryKey</code>
-      <code>getPrimaryKey</code>
-      <code>getPrimaryKey</code>
-      <code>getPrimaryKey</code>
-      <code>isLinkActive</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="3">
-      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
-      <code>$item[$this-&gt;titleAttribute]</code>
-      <code>$sub</code>
-    </MixedOperand>
-    <MixedPropertyFetch occurrences="5">
-      <code>$item-&gt;{$this-&gt;iconAttribute}</code>
-      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
-      <code>$item-&gt;{$this-&gt;titleAttribute}</code>
-      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
-      <code>$item-&gt;{$this-&gt;urlAttribute}</code>
-    </MixedPropertyFetch>
     <MoreSpecificReturnType occurrences="1">
       <code>?ActiveRecord</code>
     </MoreSpecificReturnType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$parent !== null</code>
-    </RedundantConditionGivenDocblockType>
     <UndefinedMagicMethod occurrences="1">
       <code>getChildByAlias</code>
     </UndefinedMagicMethod>
