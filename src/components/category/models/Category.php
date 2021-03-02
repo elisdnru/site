@@ -8,8 +8,8 @@ use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
- * @property string $id
- * @property string $sort
+ * @property int $id
+ * @property int $sort
  * @property string $alias
  * @property string $title
  * @property string $text

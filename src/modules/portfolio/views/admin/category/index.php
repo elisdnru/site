@@ -50,7 +50,7 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
                     <?php /** @var Category $item */ ?>
                     <tr>
                         <td style="width:50px; text-align:center">
-                            <?= Html::encode($item->sort) ?>
+                            <?= $item->sort ?>
                         </td>
                         <td>
                             <?= str_repeat('&nbsp;', $item->indent * 4) ?>
