@@ -103,7 +103,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      * @param int|null $parent
      * @param int $indent
      */
-    protected function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
+    private function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
     {
         foreach ($items as $item) {
             if (Attribute::intOrNull($item, $this->parentAttribute) === $parent && !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])) {
@@ -139,7 +139,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      * @param int $indent
      * @return array|string[]
      */
-    protected function getUrlListRecursive(array $items, int $parent, int $indent = 0): array
+    private function getUrlListRecursive(array $items, int $parent, int $indent = 0): array
     {
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
@@ -179,7 +179,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      * @param int $sub
      * @return array[]
      */
-    protected function getMenuListRecursive(string $path, array $items, int $parent, int $sub): array
+    private function getMenuListRecursive(string $path, array $items, int $parent, int $sub): array
     {
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
@@ -252,7 +252,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      * @param int[] $result
      * @param int|null $parent
      */
-    protected function childrenArrayRecursive(array &$items, array &$result, ?int $parent): void
+    private function childrenArrayRecursive(array &$items, array &$result, ?int $parent): void
     {
         foreach ($items as $item) {
             if (Attribute::intOrNull($item, $this->parentAttribute) === $parent) {
@@ -267,7 +267,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      * @param int|null $parent
      * @return ActiveRecord[]
      */
-    protected function getFullAssocData(array $attributes, int $parent = null): array
+    private function getFullAssocData(array $attributes, int $parent = null): array
     {
         $query = $this->getQuery();
 

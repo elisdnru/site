@@ -10,7 +10,7 @@ class Sitemap
     /**
      * @var array[]
      */
-    protected array $items = [];
+    private array $items = [];
 
     public function addLoc(string $loc, string $changeFreq, float $priority, ?DateTimeImmutable $lastMod): void
     {

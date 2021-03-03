@@ -55,7 +55,7 @@ class Post extends ActiveRecord implements Material
 
     public string $newGroup = '';
 
-    protected ?string $tags_string = null;
+    private ?string $tags_string = null;
 
     public static function tableName(): string
     {

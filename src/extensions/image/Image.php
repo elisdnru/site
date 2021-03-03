@@ -138,7 +138,7 @@ class Image
         }
     }
 
-    protected function initImage($image = false): void
+    private function initImage($image = false): void
     {
         if ($image === false) {
             $image = $this->originalImage;
