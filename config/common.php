@@ -51,12 +51,12 @@ return [
     'language' => 'ru',
 
     'bootstrap' => [
-        RoutesLoader::class,
         app\components\psr\HttpFactoryProvider::class,
         app\components\psr\HttpClientProvider::class,
         app\components\psr\SimpleCacheProvider::class,
         app\components\module\Provider::class,
         app\modules\edu\components\Provider::class,
+        RoutesLoader::class,
     ],
 
     'modules' => [
