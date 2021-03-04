@@ -10,6 +10,7 @@ use yii\base\Module;
 
 /**
  * @psalm-type ModuleDefinition = array{class?: string}
+ * @psalm-type ModuleDefinitions = array<string, ModuleDefinition>
  */
 class Modules
 {
@@ -22,11 +23,11 @@ class Modules
 
     /**
      * @return array
-     * @psalm-return array<string, ModuleDefinition>
+     * @psalm-return ModuleDefinitions
      */
     public function definitions(): array
     {
-        /** @psalm-var array<string, ModuleDefinition> */
+        /** @psalm-var ModuleDefinitions */
         return $this->app->getModules();
     }
 
