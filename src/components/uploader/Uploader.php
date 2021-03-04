@@ -2,7 +2,7 @@
 
 namespace app\components\uploader;
 
-use app\components\FileNameGenerator;
+use app\components\FilenameGenerator;
 use app\extensions\file\File;
 use app\extensions\image\Image;
 use RuntimeException;
@@ -31,7 +31,7 @@ class Uploader
         }
 
         $extension = strtolower($file->getExtension());
-        $fileName = FileNameGenerator::generate($path, $extension);
+        $fileName = FilenameGenerator::generate($path, $extension);
         $baseName = $fileName . '.' . $extension;
 
         $main = $path . '/' . $baseName;
@@ -48,7 +48,7 @@ class Uploader
         $content = file_get_contents($url);
 
         if ($content) {
-            $fileName = FileNameGenerator::generate($path, $extension);
+            $fileName = FilenameGenerator::generate($path, $extension);
             $baseName = $fileName . '.' . $extension;
 
             $orig = $path . '/' . $baseName;

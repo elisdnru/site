@@ -2,7 +2,7 @@
 
 namespace app\components;
 
-class FileNameGenerator
+class FilenameGenerator
 {
     public static function generate(string $path, string $extension = ''): string
     {

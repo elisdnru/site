@@ -2,7 +2,7 @@
 
 namespace app\modules\file\controllers\admin;
 
-use app\components\FileNameEscaper;
+use app\components\FilenameEscaper;
 use app\components\Slugger;
 use app\extensions\file\File;
 use app\modules\file\forms\RenameForm;
@@ -87,7 +87,7 @@ class FileController extends AdminController
 
     public function actionDelete(string $name, Request $request, File $fileHandler): ?Response
     {
-        $name = FileNameEscaper::escape($name);
+        $name = FilenameEscaper::escape($name);
         $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file->delete()) {
@@ -106,12 +106,12 @@ class FileController extends AdminController
         $form->name = $name;
 
         if ($form->load((array)$request->post()) && $form->validate()) {
-            $path = FileNameEscaper::escape($path);
-            $name = FileNameEscaper::escape($name);
+            $path = FilenameEscaper::escape($path);
+            $name = FilenameEscaper::escape($name);
 
             $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
 
-            $to = FileNameEscaper::escape($form->name);
+            $to = FilenameEscaper::escape($form->name);
 
             if (!$file->rename($this->getFileDir() . '/' . $path . '/' . $to)) {
                 throw new BadRequestHttpException('Ошибка переименования');

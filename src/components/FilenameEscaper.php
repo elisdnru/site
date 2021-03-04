@@ -2,7 +2,7 @@
 
 namespace app\components;
 
-class FileNameEscaper
+class FilenameEscaper
 {
     public static function escape(string $name): string
     {
