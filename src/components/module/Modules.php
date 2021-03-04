@@ -8,6 +8,9 @@ use OutOfBoundsException;
 use yii\base\Application;
 use yii\base\Module;
 
+/**
+ * @psalm-type ModuleDefinition = array{class?: string}
+ */
 class Modules
 {
     private Application $app;
@@ -19,11 +22,11 @@ class Modules
 
     /**
      * @return array
-     * @psalm-return array<string, array>
+     * @psalm-return array<string, ModuleDefinition>
      */
     public function definitions(): array
     {
-        /** @psalm-var array<string, array> */
+        /** @psalm-var array<string, ModuleDefinition> */
         return $this->app->getModules();
     }
 
