@@ -102,9 +102,7 @@
     <PossiblyInvalidMethodCall occurrences="1">
       <code>getOrders</code>
     </PossiblyInvalidMethodCall>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>TreeActiveDataProvider</code>
-      <code>TreeActiveDataProvider</code>
+    <PropertyNotSetInConstructor occurrences="1">
       <code>TreeActiveDataProvider</code>
     </PropertyNotSetInConstructor>
   </file>
@@ -130,12 +128,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Category|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>CategoryQuery</code>
       <code>CategoryQuery</code>
       <code>CategoryQuery</code>
@@ -176,12 +169,7 @@
     <MoreSpecificReturnType occurrences="1">
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>TreeCategoryQuery</code>
       <code>TreeCategoryQuery</code>
       <code>TreeCategoryQuery</code>
@@ -2676,12 +2664,6 @@
       <code>m201015_174612_remove_menu_table</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/modules/admin/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/admin/views/default/index.php">
     <MixedArgument occurrences="1">
       <code>$module-&gt;adminName()</code>
@@ -2689,12 +2671,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$group</code>
     </MixedArgumentTypeCoercion>
-  </file>
-  <file src="src/modules/block/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/block/migrations/m130328_093402_create_block.php">
     <InvalidReturnType occurrences="2">
@@ -2722,12 +2698,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/blog/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/controllers/PostController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -2866,12 +2836,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Group|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>GroupQuery</code>
       <code>GroupQuery</code>
       <code>GroupQuery</code>
@@ -2906,12 +2871,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>PostQuery</code>
       <code>PostQuery</code>
       <code>PostQuery</code>
@@ -3187,12 +3147,6 @@
       <code>$item-&gt;title</code>
     </MixedPropertyFetch>
   </file>
-  <file src="src/modules/comment/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -3299,12 +3253,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>CommentQuery</code>
       <code>CommentQuery</code>
       <code>CommentQuery</code>
@@ -3411,24 +3360,6 @@
       <code>render</code>
     </MixedMethodCall>
   </file>
-  <file src="src/modules/contacts/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/donate/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/edu/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/edu/components/api/Api.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -3493,12 +3424,6 @@
       <code>$episode['slug']</code>
     </MixedOperand>
   </file>
-  <file src="src/modules/file/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/file/migrations/m130328_115251_create_file.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -3535,12 +3460,6 @@
       <code>$item-&gt;getBasename()</code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/modules/home/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/home/views/default/index.php">
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
@@ -3550,18 +3469,6 @@
     <MixedOperand occurrences="1">
       <code>$error['code'] ?? ''</code>
     </MixedOperand>
-  </file>
-  <file src="src/modules/image/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/landing/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/landing/controllers/LandingController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -3593,12 +3500,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>LandingQuery</code>
       <code>LandingQuery</code>
       <code>LandingQuery</code>
@@ -3635,12 +3537,6 @@
     <MixedArgument occurrences="1">
       <code>$this-&gt;decodeWidgets($landing-&gt;text)</code>
     </MixedArgument>
-  </file>
-  <file src="src/modules/page/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/controllers/PageController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -3745,12 +3641,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>PageQuery</code>
       <code>PageQuery</code>
       <code>PageQuery</code>
@@ -3800,22 +3691,10 @@
       <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
     </MixedArgument>
   </file>
-  <file src="src/modules/partner/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/partner/controllers/DefaultController.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>DefaultController</code>
       <code>DefaultController</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/controllers/DefaultController.php">
@@ -3947,12 +3826,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="26">
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
+    <PropertyNotSetInConstructor occurrences="21">
       <code>WorkQuery</code>
       <code>WorkQuery</code>
       <code>WorkQuery</code>
@@ -4061,18 +3935,6 @@
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
   </file>
-  <file src="src/modules/products/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/search/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/search/components/SearchHighlighter.php">
     <MissingParamType occurrences="2">
       <code>$text</code>
@@ -4136,18 +3998,6 @@
       <code>$form-&gt;q</code>
     </PossiblyNullArgument>
   </file>
-  <file src="src/modules/services/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/sitemap/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/sitemap/controllers/DefaultController.php">
     <MixedAssignment occurrences="1">
       <code>$xml</code>
@@ -4155,18 +4005,6 @@
     <PropertyNotSetInConstructor occurrences="2">
       <code>DefaultController</code>
       <code>DefaultController</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/subscribe/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/ulogin/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/ulogin/controllers/DefaultController.php">
@@ -4218,12 +4056,6 @@
     <MixedArgument occurrences="1">
       <code>$params</code>
     </MixedArgument>
-  </file>
-  <file src="src/modules/user/Module.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>Module</code>
-      <code>Module</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/components/CurrentPasswordValidator.php">
     <MixedArgument occurrences="1">
