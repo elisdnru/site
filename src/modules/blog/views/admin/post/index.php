@@ -28,7 +28,7 @@ $this->params['admin'] = [
 ];
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
+<p class="float-right"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Записи блога</h1>
 
 <div class="grid-view">

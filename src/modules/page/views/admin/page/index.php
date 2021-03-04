@@ -24,7 +24,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
 }
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
+<p class="float-right"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 
 <h1>Страницы</h1>
 

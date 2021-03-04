@@ -24,7 +24,7 @@ $this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/gr
 $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
+<p class="float-right"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Метки записей блога</h1>
 
 <div class="grid-view">

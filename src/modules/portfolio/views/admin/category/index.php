@@ -22,7 +22,7 @@ $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/adm
 $this->params['admin'][] = ['label' => 'Добавить категорию', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
+<p class="float-right"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>Категории работ</h1>
 
 <div class="grid-view">

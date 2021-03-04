@@ -253,6 +253,6 @@ table.grid a {
   cursor: move;
 }
 
-.floatright {
+.float-right {
   float: right !important;
 }

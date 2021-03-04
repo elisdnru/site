@@ -29,7 +29,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
 JqueryUiAsset::register($this);
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create', 'category' => $category]) ?>">Добавить</a>
+<p class="float-right"><a href="<?= Url::to(['create', 'category' => $category]) ?>">Добавить</a>
 </p>
 <h1>Портфолио</h1>
 

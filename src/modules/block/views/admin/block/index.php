@@ -21,7 +21,7 @@ $this->params['breadcrumbs'] = [
 $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['create']];
 ?>
 
-<p class="floatright"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
+<p class="float-right"><a href="<?= Url::to(['create']) ?>">Добавить</a></p>
 <h1>HTML-Блоки</h1>
 
 <div class="grid-view">

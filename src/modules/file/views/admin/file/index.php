@@ -66,7 +66,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
             <?php if ($item->getIsDir()) : ?>
                 <tr id="item_<?= md5($item->getBasename()) ?>">
                     <td>
-                        <a class="floatright" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
+                        <a class="float-right" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
                         <img src="/images/admin/foldericon.jpg" alt="">
                         <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . $item->getBasename()]) ?>"><?= $item->getBasename() ?></a>
                     </td>
@@ -82,7 +82,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
             <?php else : ?>
                 <tr id="item-<?= md5($item->getBasename()) ?>">
                     <td>
-                        <a class="floatright" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
+                        <a class="float-right" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
                         <img src="/images/admin/fileicon.jpg">
                         <a href="<?= $htmlRoot . '/' . ($path ? $path . '/' : '') . $item->getBasename() ?>"><?= $item->getBasename() ?></a>
                     </td>
