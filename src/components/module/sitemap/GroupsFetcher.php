@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace app\components\module\sitemap;
 
+use app\components\module\Modules;
 use RuntimeException;
-use yii\base\Application;
 
 class GroupsFetcher
 {
-    private Application $app;
+    private Modules $modules;
 
-    public function __construct(Application $app)
+    public function __construct(Modules $modules)
     {
-        $this->app = $app;
+        $this->modules = $modules;
     }
 
     /**
@@ -28,7 +28,7 @@ class GroupsFetcher
          * @var string $name
          * @var array $definition
          */
-        foreach ($this->app->getModules() as $name => $definition) {
+        foreach ($this->modules->definitions() as $name => $definition) {
             if (($set = $this->getGroupsSet($name, $definition)) !== null) {
                 $sets[] = $set;
             }

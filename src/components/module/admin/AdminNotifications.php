@@ -2,17 +2,24 @@
 
 namespace app\components\module\admin;
 
-use Yii;
+use app\components\module\Modules;
 
 class AdminNotifications
 {
+    private Modules $modules;
+
+    public function __construct(Modules $modules)
+    {
+        $this->modules = $modules;
+    }
+
     /**
      * @param string $module
      * @return array[]
      */
     public function notifications(string $module): array
     {
-        $class = ModuleClass::getClass(Yii::$app->getModules(), $module);
+        $class = ModuleClass::getClass($this->modules->definitions(), $module);
 
         if (!is_subclass_of($class, AdminNotificationsProvider::class)) {
             return [];

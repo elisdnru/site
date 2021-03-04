@@ -1,24 +1,24 @@
 <?php
 
+use app\components\AuthManager;
+use app\components\ContentReplaceBehavior;
+use app\components\InlineWidgetsBehavior;
+use app\components\MathCaptchaAction;
+use app\components\module\admin\AdminAccess;
 use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
-use app\components\module\admin\AdminAccess;
-use app\extensions\file\File as FileExtension;
-use app\modules\edu\widgets\SeriesEpisodes;
-use app\components\ContentReplaceBehavior;
-use app\components\MathCaptchaAction;
-use app\components\InlineWidgetsBehavior;
 use app\components\module\admin\AdminNotifications;
 use app\components\module\routes\RoutesLoader;
 use app\components\uploader\Uploader;
-use app\components\AuthManager;
+use app\extensions\file\File as FileExtension;
+use app\extensions\image\Image;
+use app\modules\block\widgets\BlockWidget;
+use app\modules\blog\widgets\LastPostsWidget;
+use app\modules\edu\widgets\SeriesEpisodes;
 use app\widgets\inline\CountDown;
 use app\widgets\inline\MailTo;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
-use app\extensions\image\Image;
-use app\modules\block\widgets\BlockWidget;
-use app\modules\blog\widgets\LastPostsWidget;
 use yii\caching\CacheInterface;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
@@ -55,7 +55,7 @@ return [
         app\components\psr\HttpFactoryProvider::class,
         app\components\psr\HttpClientProvider::class,
         app\components\psr\SimpleCacheProvider::class,
-        app\components\module\sitemap\Provider::class,
+        \app\components\module\Provider::class,
         app\modules\edu\components\Provider::class,
     ],
 
