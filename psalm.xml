@@ -20,6 +20,7 @@
         <directory name="src" />
         <directory name="tests" />
         <ignoreFiles>
+            <directory name="src/extensions" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
