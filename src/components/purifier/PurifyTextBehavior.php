@@ -2,13 +2,9 @@
 
 namespace app\components\purifier;
 
-use app\extensions\markdown\MarkdownParser;
 use BadMethodCallException;
 use yii\base\Behavior;
-use yii\base\Component;
 use yii\db\ActiveRecord;
-use yii\helpers\Html;
-use yii\helpers\HtmlPurifier;
 
 class PurifyTextBehavior extends Behavior
 {
@@ -22,7 +18,16 @@ class PurifyTextBehavior extends Behavior
     public bool $processOnAfterFind = true;
     public bool $updateOnAfterFind = true;
 
+    private Markdown $markdown;
+    private Purifier $purifier;
     private string $contentHash = '';
+
+    public function __construct(Markdown $markdown, Purifier $purifier, array $config = [])
+    {
+        parent::__construct($config);
+        $this->markdown = $markdown;
+        $this->purifier = $purifier;
+    }
 
     public function events(): array
     {
@@ -78,38 +83,11 @@ class PurifyTextBehavior extends Behavior
         }
 
         if ($this->enableMarkdown) {
-            $text = $this->markdownText($text);
+            $text = $this->markdown->transform($text);
         }
 
         if ($this->enablePurifier) {
-            $text = $this->purifyText($text);
-        }
-
-        return $text;
-    }
-
-    public function markdownText(string $text): string
-    {
-        $pre = preg_replace('#(~~~[\r\n]+\[php\][\r\n]+)#', '$1<?php' . PHP_EOL, $text);
-
-        $md = new MarkdownParser();
-        $transform = (string)$md->transform($pre);
-
-        return str_replace('<pre><span class="php-hl-inlinetags">&lt;?php</span>' . PHP_EOL, '<pre>', $transform);
-    }
-
-    public function purifyText(string $text): string
-    {
-        if ($this->encodePreContent) {
-            $text = preg_replace_callback('|<pre([^>]*)>(.*)</pre>|ismU', [$this, 'storePreContent'], $text);
-            $text = preg_replace_callback('|<code([^>]*)>(.*)</code>|ismU', [$this, 'storeCodeContent'], $text);
-        }
-
-        $text = HtmlPurifier::process(trim($text), $this->purifierOptions);
-
-        if ($this->encodePreContent) {
-            $text = preg_replace_callback('|<pre([^>]*)>(.*)</pre>|ismU', [$this, 'resumePreContent'], $text);
-            $text = preg_replace_callback('|<code([^>]*)>(.*)</code>|ismU', [$this, 'resumeCodeContent'], $text);
+            $text = $this->purifier->purify($text, $this->purifierOptions, $this->encodePreContent);
         }
 
         return $text;
@@ -123,11 +101,6 @@ class PurifyTextBehavior extends Behavior
         ]);
     }
 
-    /**
-     * @var string[]|null[]
-     */
-    private array $preContents = [];
-
     private function getModel(): ActiveRecord
     {
         /** @var ActiveRecord|null $owner */
@@ -136,56 +109,6 @@ class PurifyTextBehavior extends Behavior
             throw new BadMethodCallException('Empty owner.');
         }
         return $owner;
-    }
-
-    /**
-     * @param string[] $matches
-     * @return string
-     */
-    private function storePreContent(array $matches): string
-    {
-        return '<pre' . $matches[1] . '>' . $this->storeContent($matches[2]) . '</pre>';
-    }
-
-    /**
-     * @param string[] $matches
-     * @return string
-     */
-    private function resumePreContent(array $matches): string
-    {
-        return '<pre' . $matches[1] . '>' . $this->resumeContent($matches[2]) . '</pre>';
-    }
-
-    /**
-     * @param string[] $matches
-     * @return string
-     */
-    private function storeCodeContent(array $matches): string
-    {
-        return '<code' . $matches[1] . '>' . $this->storeContent($matches[2]) . '</code>';
-    }
-
-    /**
-     * @param string[] $matches
-     * @return string
-     */
-    private function resumeCodeContent(array $matches): string
-    {
-        return '<code' . $matches[1] . '>' . $this->resumeContent($matches[2]) . '</code>';
-    }
-
-    private function storeContent(?string $content): string
-    {
-        do {
-            $id = bin2hex(random_bytes(10));
-        } while (isset($this->preContents[$id]));
-        $this->preContents[$id] = $content;
-        return $id;
-    }
-
-    private function resumeContent(string $id): string
-    {
-        return isset($this->preContents[$id]) ? Html::encode($this->preContents[$id]) : '';
     }
 
     private function calculateHash(?string $content): string
