@@ -151,17 +151,6 @@
       <code>TreeCategoryQuery</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/components/module/admin/ModuleClass.php">
-    <MixedAssignment occurrences="1">
-      <code>$module</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$module['class']</code>
-    </MixedReturnStatement>
-  </file>
   <file src="src/components/module/sitemap/GroupsFetcher.php">
     <MixedArgument occurrences="2">
       <code>$class::sitemap()</code>

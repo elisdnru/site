@@ -4,26 +4,31 @@ declare(strict_types=1);
 
 namespace app\components\module\admin;
 
+use RuntimeException;
+use yii\base\Module;
 use InvalidArgumentException;
 
 class ModuleClass
 {
     /**
-     * @param mixed[] $modules
+     * @param array[]|Module[] $modules
+     * @psalm-param array<string, array{class?: string}|Module> $modules
      * @param string $name
      * @return string
      */
     public static function getClass(array $modules, string $name): string
     {
         $module = $modules[$name] ?? null;
-
-        if ($module !== null && is_object($module)) {
+        if ($module === null) {
+            throw new InvalidArgumentException('Cannot detect module ' . $name);
+        }
+        if (is_object($module)) {
             return get_class($module);
         }
-        if ($module !== null && is_array($module)) {
-            return $module['class'];
+        $class = $module['class'] ?? '';
+        if ($class === '') {
+            throw new RuntimeException('Undefined class for module ' . $name);
         }
-
-        throw new InvalidArgumentException('Cannot detect module class ' . $name);
+        return $class;
     }
 }
