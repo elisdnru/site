@@ -64,37 +64,6 @@
       <code>ImageValidator</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/components/InlineWidgetsBehavior.php">
-    <InvalidNullableReturnType occurrences="1">
-      <code>string</code>
-    </InvalidNullableReturnType>
-    <MixedArgument occurrences="1">
-      <code>$class</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$cachedHtml</code>
-      <code>$class</code>
-      <code>$html</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$html</code>
-    </MixedReturnStatement>
-    <NullableReturnStatement occurrences="1">
-      <code>$text</code>
-    </NullableReturnStatement>
-    <PossiblyNullArgument occurrences="7">
-      <code>$attributesString</code>
-      <code>$output</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="src/components/category/TreeActiveDataProvider.php">
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;db</code>

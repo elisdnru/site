@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use Exception;
 use yii\base\Behavior;
 use yii\base\Widget;
 use yii\caching\CacheInterface;
@@ -10,6 +11,10 @@ class InlineWidgetsBehavior extends Behavior
 {
     public string $startBlock = '[{widget:';
     public string $endBlock = '}]';
+    /**
+     * @var string[]
+     * @psalm-var array<string, class-string<Widget>>
+     */
     public array $widgets = [];
 
     private CacheInterface $cache;
@@ -24,21 +29,27 @@ class InlineWidgetsBehavior extends Behavior
 
     public function decodeWidgets(?string $text): string
     {
-        $text = $this->clearAutoParagraphs($text);
-        $text = $this->replaceBlocks($text);
-        $text = $this->processWidgets($text);
-        return $text;
+        if ($text === null) {
+            return '';
+        }
+        $result = $this->clearAutoParagraphs($text);
+        $result = $this->replaceBlocks($result);
+        $result = $this->processWidgets($result);
+        return $result;
     }
 
     public function clearWidgets(?string $text): string
     {
-        $text = $this->clearAutoParagraphs($text);
-        $text = $this->replaceBlocks($text);
-        $text = $this->clearAllWidgets($text);
-        return $text;
+        if ($text === null) {
+            return '';
+        }
+        $result = $this->clearAutoParagraphs($text);
+        $result = $this->replaceBlocks($result);
+        $result = $this->clearAllWidgets($result);
+        return $result;
     }
 
-    private function processWidgets(?string $text): ?string
+    private function processWidgets(string $text): string
     {
         if (preg_match('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {
@@ -51,25 +62,32 @@ class InlineWidgetsBehavior extends Behavior
         return $text;
     }
 
-    private function clearAllWidgets(?string $text): string
+    private function clearAllWidgets(string $text): string
     {
         return preg_replace('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', '', $text);
     }
 
-    private function replaceBlocks(?string $text): string
+    private function replaceBlocks(string $text): string
     {
         $text = str_replace($this->startBlock, '{' . $this->widgetToken . ':', $text);
         $text = str_replace($this->endBlock, $this->widgetToken . '}', $text);
         return $text;
     }
 
-    private function clearAutoParagraphs(?string $output): string
+    private function clearAutoParagraphs(string $output): string
     {
         $output = str_replace('<p>' . $this->startBlock, $this->startBlock, $output);
         $output = str_replace($this->endBlock . '</p>', $this->endBlock, $output);
         return $output;
     }
 
+    /**
+     * @param string $widgetClass
+     * @psalm-param class-string<Widget> $widgetClass
+     * @param string $attributes
+     * @return string
+     * @throws Exception
+     */
     private function loadWidget(string $widgetClass, string $attributes = ''): string
     {
         $attrs = $this->parseAttributes($attributes);
@@ -77,11 +95,10 @@ class InlineWidgetsBehavior extends Behavior
 
         $index = 'widget_' . $widgetClass . '_' . serialize($attrs);
 
-        if ($cache && $cachedHtml = $this->cache->get($index)) {
+        if ($cache && $cachedHtml = (string)$this->cache->get($index)) {
             $html = $cachedHtml;
         } else {
             ob_start();
-            /** @var Widget $widgetClass */
             echo $widgetClass::widget($attrs);
             $html = trim(ob_get_clean());
             $this->cache->set($index, $html, $cache);
@@ -90,7 +107,7 @@ class InlineWidgetsBehavior extends Behavior
         return $html;
     }
 
-    private function parseAttributes(?string $attributesString): array
+    private function parseAttributes(string $attributesString): array
     {
         $params = explode(';', $attributesString);
         $attrs = [];
@@ -111,6 +128,7 @@ class InlineWidgetsBehavior extends Behavior
     private function extractCacheExpireTime(array &$attrs): int
     {
         $cache = 0;
+        /** @var array{cache?: string} $attrs */
         if (isset($attrs['cache'])) {
             $cache = (int)$attrs['cache'];
             unset($attrs['cache']);
