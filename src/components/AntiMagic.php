@@ -10,7 +10,7 @@ use yii\base\UnknownPropertyException;
 
 trait AntiMagic
 {
-    public function __get(string $name)
+    public function __get(string $name): mixed
     {
         throw new UnknownPropertyException('Getting unknown property: ' . get_class($this) . '::' . $name);
     }
