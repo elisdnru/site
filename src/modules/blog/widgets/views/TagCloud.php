@@ -1,13 +1,16 @@
 <?php
 
+use app\modules\blog\models\Tag;
 use yii\helpers\Html;
 
-/** @var array $tags */
+/**
+ * @var Tag[] $tags
+ */
 ?>
 <div class="tags">
     <?php foreach ($tags as $tag) : ?>
         <?php
-        $size = (int)$tag->frequency + 8;
+        $size = $tag->getFrequency() + 8;
         if ($size < 8) {
             $size = 9;
         }

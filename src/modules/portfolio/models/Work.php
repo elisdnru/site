@@ -10,8 +10,8 @@ use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
- * @property integer $id
- * @property string $sort
+ * @property int $id
+ * @property int $sort
  * @property string $date
  * @property string $category_id
  * @property string $alias
@@ -23,10 +23,10 @@ use yii\helpers\Url;
  * @property string $text
  * @property string $text_purified
  * @property string $image
- * @property integer $image_width
- * @property integer $image_height
- * @property integer $image_show
- * @property integer $public
+ * @property int $image_width
+ * @property int $image_height
+ * @property int $image_show
+ * @property int $public
  *
  * @property Category $category
  *
@@ -38,7 +38,7 @@ class Work extends ActiveRecord
     public const IMAGE_WIDTH = 250;
     public const IMAGE_PATH = 'upload/images/portfolio';
 
-    public $delImage = false;
+    public string|bool $delImage = false;
 
     public static function tableName(): string
     {
@@ -150,9 +150,9 @@ class Work extends ActiveRecord
         parent::afterSave($insert, $changedAttributes);
     }
 
-    public function getAssocList($only_public = false): array
+    public function getAssocList(bool $onlyPublic = false): array
     {
-        if ($only_public) {
+        if ($onlyPublic) {
             $query = self::find()->published();
         } else {
             $query = self::find();
@@ -164,8 +164,9 @@ class Work extends ActiveRecord
             ->indexBy('id')->column();
     }
 
-    public static function findByAlias($alias): ?self
+    public static function findByAlias(string $alias): ?self
     {
+        /** @var self */
         return self::find()->andWhere(['alias' => $alias])->one();
     }
 

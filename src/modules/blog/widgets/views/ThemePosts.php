@@ -3,7 +3,7 @@
 use app\modules\blog\models\Post;
 
 /**
- * @var Post $posts
+ * @var Post[] $posts
  * @var int $current
  */
 
@@ -12,7 +12,7 @@ use app\modules\blog\models\Post;
 <h4>Материалы по теме:</h4>
 <ul style="list-style: none; margin: 0">
     <?php foreach ($posts as $item) : ?>
-        <?php if ($item->id != $current) : ?>
+        <?php if ($item->id !== $current) : ?>
             <li>&raquo; <a href="<?= $item->getUrl() ?>"><?php echo $item->title ?></a></li>
         <?php else : ?>
             <li>&raquo; <?= $item->title ?></li>

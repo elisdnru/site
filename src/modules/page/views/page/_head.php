@@ -13,7 +13,7 @@ $this->title = $page->meta_title ?: $page->title;
 
 $this->registerMetaTag(['name' => 'description', 'content' => $page->meta_description]);
 
-$this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->breadcrumbs : [];
+$this->params['breadcrumbs'] = $page->alias !== 'index' ? $page->getBreadcrumbs() : [];
 
 $this->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
 

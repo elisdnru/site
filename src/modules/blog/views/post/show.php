@@ -20,6 +20,7 @@ use yii\web\View;
 
 /**
  * @var View|InlineWidgetsBehavior $this
+ * @psalm-var View&InlineWidgetsBehavior $this
  * @var Post $model
  * @var ActiveDataProvider $dataProvider
  */

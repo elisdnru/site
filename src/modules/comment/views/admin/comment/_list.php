@@ -1,9 +1,13 @@
 <?php
 
 use yii\data\ActiveDataProvider;
+use yii\web\View;
 use yii\widgets\LinkPager;
 
-/** @var ActiveDataProvider $dataProvider */
+/**
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ */
 ?>
 
 <div class="items">

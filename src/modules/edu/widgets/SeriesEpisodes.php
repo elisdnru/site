@@ -21,9 +21,12 @@ class SeriesEpisodes extends Widget
 
     public function run(): string
     {
+        /**
+         * @psalm-var array{episodes: array} $series
+         */
         $series = $this->api->get('/edge/edu/series/' . $this->slug);
 
-        $episodes = $series['episodes'] ?? [];
+        $episodes = $series['episodes'];
 
         return $this->render('series-episodes', [
             'slug' => $this->slug,

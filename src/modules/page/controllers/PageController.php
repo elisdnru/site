@@ -24,7 +24,7 @@ class PageController extends Controller
 
     private function loadModel(string $path): Page
     {
-        /** @var Page $page */
+        /** @var Page|null $page */
         $page = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))->findByPath($path);
         if ($page === null) {
             throw new NotFoundHttpException();

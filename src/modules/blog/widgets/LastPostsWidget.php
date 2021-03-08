@@ -10,13 +10,13 @@ class LastPostsWidget extends Widget
 {
     public string $tpl = 'default';
     public string $class = '';
-    public $limit = 10;
+    public int|string $limit = 10;
 
     public function run(): string
     {
         $posts = Post::find()
             ->published()
-            ->limit($this->limit)
+            ->limit((int)$this->limit)
             ->orderBy(['date' => SORT_DESC])
             ->with(['category', 'tags'])
             ->cache(0, new TagDependency(['tags' => ['blog']]))

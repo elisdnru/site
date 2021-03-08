@@ -1,11 +1,13 @@
 <?php
 
 use app\components\CSSMinimizer;
+use app\components\InlineWidgetsBehavior;
 use app\modules\page\models\Page;
 use yii\web\View;
 
 /**
- * @var View $this
+ * @var View|InlineWidgetsBehavior $this
+ * @psalm-var View&InlineWidgetsBehavior $this
  * @var Page $page
  * @var string $subpages_layout
  */

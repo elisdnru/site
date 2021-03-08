@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\edu\components\api\client;
 
+use Exception;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
@@ -29,6 +30,7 @@ class Muted implements ClientInterface
         try {
             return $this->next->sendRequest($request);
         } catch (ClientExceptionInterface $exception) {
+            /** @var Exception $exception */
             $this->handler->logException($exception);
             return $this->factory->createResponse(503);
         }

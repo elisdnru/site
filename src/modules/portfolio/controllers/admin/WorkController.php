@@ -82,7 +82,7 @@ class WorkController extends AdminController
         ]);
     }
 
-    public function actionToggle(int $id, $attribute, Request $request): ?Response
+    public function actionToggle(int $id, string $attribute, Request $request): ?Response
     {
         $model = $this->loadModel($id);
 
@@ -121,6 +121,7 @@ class WorkController extends AdminController
     {
         $success = true;
 
+        /** @var string[] $items */
         $items = (array)$request->post('item');
 
         if ($items) {
@@ -128,7 +129,7 @@ class WorkController extends AdminController
             $count = 0;
 
             foreach ($items as $id) {
-                $model = $this->loadModel($id);
+                $model = $this->loadModel((int)$id);
                 if ($model->sort > $sort) {
                     $sort = $model->sort;
                 }
@@ -140,7 +141,7 @@ class WorkController extends AdminController
             }
 
             foreach ($items as $id) {
-                $model = $this->loadModel($id);
+                $model = $this->loadModel((int)$id);
                 $model->sort = $sort;
                 $sort--;
                 $success = $success && $model->save();

@@ -2845,30 +2845,12 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/blog/views/default/category.php">
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;decodeWidgets(trim($category-&gt;text))</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
+    <InvalidPropertyAssignmentValue occurrences="4">
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedAssignment>
-    <MixedPropertyAssignment occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
+    </InvalidPropertyAssignmentValue>
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
@@ -2923,43 +2905,21 @@
     </PossiblyFalseReference>
   </file>
   <file src="src/modules/blog/views/post/show.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;decodeWidgets($model-&gt;text_purified)</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="7">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="7">
+    <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedAssignment>
-    <MixedPropertyAssignment occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$this</code>
-    </PossiblyInvalidArgument>
+    </InvalidPropertyAssignmentValue>
     <PossiblyNullOperand occurrences="3">
       <code>$host</code>
       <code>$host</code>
       <code>$host</code>
     </PossiblyNullOperand>
+    <PropertyTypeCoercion occurrences="5">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </PropertyTypeCoercion>
     <RedundantCondition occurrences="1">
       <code>$model-&gt;category</code>
     </RedundantCondition>
@@ -2967,52 +2927,10 @@
       <code>$model-&gt;category</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="src/modules/blog/widgets/LastPostsWidget.php">
-    <MissingPropertyType occurrences="1">
-      <code>$limit</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;limit</code>
-    </MixedArgument>
-  </file>
   <file src="src/modules/blog/widgets/views/LastPosts/home.php">
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$data-&gt;category</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/modules/blog/widgets/views/TagCloud.php">
-    <MixedArgument occurrences="2">
-      <code>$tag-&gt;getUrl()</code>
-      <code>$tag-&gt;title</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$tag</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$tag-&gt;frequency</code>
-      <code>$tag-&gt;title</code>
-    </MixedPropertyFetch>
-  </file>
-  <file src="src/modules/blog/widgets/views/ThemePosts.php">
-    <MixedArgument occurrences="3">
-      <code>$item-&gt;getUrl()</code>
-      <code>$item-&gt;title</code>
-      <code>$item-&gt;title</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getUrl</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="3">
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;title</code>
-      <code>$item-&gt;title</code>
-    </MixedPropertyFetch>
   </file>
   <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
     <InvalidReturnType occurrences="2">
@@ -3145,15 +3063,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/views/admin/comment/_list.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;render('@app/modules/comment/views/admin/comment/_view', ['data' =&gt; $data])</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$data</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
   </file>
   <file src="src/modules/comment/views/admin/comment/_view.php">
     <MixedArgument occurrences="1">
@@ -3195,11 +3107,6 @@
       <code>$comment-&gt;liked</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/comment/widgets/views/Comments/_form.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$user</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/modules/comment/widgets/views/Comments/_tree.php">
     <MixedArgument occurrences="2"/>
     <MixedArrayOffset occurrences="1">
@@ -3235,16 +3142,6 @@
       <code>$content ? json_decode($content, true, 512, JSON_THROW_ON_ERROR) : []</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/modules/edu/components/api/client/Cached.php">
-    <MixedArgument occurrences="1">
-      <code>$cached</code>
-    </MixedArgument>
-  </file>
-  <file src="src/modules/edu/components/api/client/Muted.php">
-    <InvalidArgument occurrences="1">
-      <code>$exception</code>
-    </InvalidArgument>
-  </file>
   <file src="src/modules/edu/controllers/DefaultController.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>DefaultController</code>
@@ -3266,11 +3163,6 @@
     </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$item</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/modules/edu/widgets/SeriesEpisodes.php">
-    <MixedAssignment occurrences="1">
-      <code>$episodes</code>
     </MixedAssignment>
   </file>
   <file src="src/modules/edu/widgets/views/series-episodes.php">
@@ -3331,11 +3223,6 @@
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-  </file>
-  <file src="src/modules/home/views/error/index.php">
-    <MixedOperand occurrences="1">
-      <code>$error['code'] ?? ''</code>
-    </MixedOperand>
   </file>
   <file src="src/modules/landing/controllers/LandingController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -3399,16 +3286,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/landing/views/landing/show.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;decodeWidgets($landing-&gt;text)</code>
-    </MixedArgument>
-  </file>
-  <file src="src/modules/page/controllers/PageController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$page === null</code>
-    </DocblockTypeContradiction>
   </file>
   <file src="src/modules/page/migrations/m130328_120429_create_page.php">
     <InvalidReturnType occurrences="2">
@@ -3548,15 +3425,6 @@
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$page-&gt;breadcrumbs</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/page/views/page/show.php">
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
-      <code>$this-&gt;decodeWidgets($page-&gt;text_purified)</code>
-    </MixedArgument>
   </file>
   <file src="src/modules/partner/controllers/DefaultController.php">
     <PropertyNotSetInConstructor occurrences="2">
@@ -3565,49 +3433,10 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/controllers/DefaultController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$category === null</code>
-    </DocblockTypeContradiction>
-    <MixedAssignment occurrences="1">
-      <code>$categories</code>
-    </MixedAssignment>
     <MixedMethodCall occurrences="2">
       <code>all</code>
       <code>orderBy</code>
     </MixedMethodCall>
-  </file>
-  <file src="src/modules/portfolio/controllers/WorkController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$model === null</code>
-    </DocblockTypeContradiction>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$model</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Work</code>
-    </MoreSpecificReturnType>
-  </file>
-  <file src="src/modules/portfolio/controllers/admin/WorkController.php">
-    <MissingParamType occurrences="1">
-      <code>$attribute</code>
-    </MissingParamType>
-    <MixedArgument occurrences="2">
-      <code>$id</code>
-      <code>$id</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$id</code>
-      <code>$id</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$attribute</code>
-    </MixedOperand>
-    <PossiblyInvalidOperand occurrences="1">
-      <code>$sort</code>
-    </PossiblyInvalidOperand>
-    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
-      <code>$sort</code>
-    </PossiblyInvalidPropertyAssignmentValue>
   </file>
   <file src="src/modules/portfolio/migrations/m130328_122419_create_portfolio_work.php">
     <InvalidReturnType occurrences="2">
@@ -3661,24 +3490,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>m210125_100814_rename_meta</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/models/Work.php">
-    <InvalidPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;id</code>
-    </InvalidPropertyAssignmentValue>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>self::find()-&gt;andWhere(['alias' =&gt; $alias])-&gt;one()</code>
-    </LessSpecificReturnStatement>
-    <MissingParamType occurrences="2">
-      <code>$alias</code>
-      <code>$only_public</code>
-    </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$delImage</code>
-    </MissingPropertyType>
-    <MoreSpecificReturnType occurrences="1">
-      <code>?self</code>
-    </MoreSpecificReturnType>
   </file>
   <file src="src/modules/portfolio/models/query/WorkQuery.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -3738,41 +3549,23 @@
     </MixedAssignment>
   </file>
   <file src="src/modules/portfolio/views/default/category.php">
-    <MixedArgument occurrences="3">
-      <code>$this-&gt;decodeWidgets(trim($category-&gt;text))</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
+    <InvalidPropertyAssignmentValue occurrences="5">
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+      <code>$this-&gt;params</code>
+    </InvalidPropertyAssignmentValue>
+    <MixedArgument occurrences="1">
       <code>$url</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="7">
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
+    <MixedAssignment occurrences="1">
       <code>$url</code>
     </MixedAssignment>
-    <MixedPropertyAssignment occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
     <PossiblyFalseReference occurrences="2">
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$this</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="src/modules/portfolio/views/default/index.php">
     <PossiblyFalseReference occurrences="1">
@@ -3783,9 +3576,6 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;params</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;decodeWidgets(trim($model-&gt;text_purified))</code>
-    </MixedArgument>
     <PropertyTypeCoercion occurrences="5">
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>

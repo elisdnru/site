@@ -8,6 +8,8 @@ use yii\web\View;
  * @var View $this
  * @var string $name
  * @var string $message
+ * @var array $error
+ * @psalm-var array{code?: int} $error
  * @var Exception $exception
  */
 

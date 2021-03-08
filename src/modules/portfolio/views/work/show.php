@@ -1,5 +1,6 @@
 <?php
 use app\assets\PortfolioAsset;
+use app\components\InlineWidgetsBehavior;
 use app\widgets\Share;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
@@ -8,7 +9,8 @@ use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var View $this
+ * @var View|InlineWidgetsBehavior $this
+ * @psalm-var View&InlineWidgetsBehavior $this
  * @var Work $model
  */
 

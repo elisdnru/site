@@ -24,6 +24,7 @@ class DefaultController extends Controller
             ],
         ]);
 
+        /** @var Category[] $categories */
         $categories = Category::find()->roots()->cache(0, new TagDependency(['tags' => ['portfolio']]))
             ->orderBy('sort')->all();
 
@@ -59,7 +60,7 @@ class DefaultController extends Controller
 
     private function loadCategoryModel(string $path): Category
     {
-        /** @var Category $category */
+        /** @var Category|null $category */
         $category = Category::find()->findByPath($path);
         if ($category === null) {
             throw new NotFoundHttpException();

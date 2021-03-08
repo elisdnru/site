@@ -9,7 +9,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /**
- * @var User $user
+ * @var User|null $user
  * @var ActiveForm $f
  * @var CommentForm $form
  */
@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
         <?= Csrf::hiddenInput() ?>
 
-        <?php if ($user && $user->id) : ?>
+        <?php if ($user !== null && $user->id) : ?>
             <a href="<?= Url::to(['/user/profile/view']) ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->getAvatarUrl() ?>" alt=""></a>
 
             <p class='exit' style="float: right">
