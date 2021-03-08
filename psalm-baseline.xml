@@ -64,17 +64,6 @@
       <code>ImageValidator</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="src/components/category/TreeActiveDataProvider.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$this-&gt;db</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidMethodCall occurrences="1">
-      <code>getOrders</code>
-    </PossiblyInvalidMethodCall>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>TreeActiveDataProvider</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
     <LessSpecificReturnStatement occurrences="1">
       <code>$model</code>

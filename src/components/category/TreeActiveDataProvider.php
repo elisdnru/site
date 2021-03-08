@@ -2,12 +2,17 @@
 
 namespace app\components\category;
 
+use LogicException;
 use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
+use yii\data\Sort;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecordInterface;
-use yii\db\QueryInterface;
+use yii\db\Connection;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class TreeActiveDataProvider extends ActiveDataProvider
 {
     public string $childrenRelation = 'children';
@@ -28,7 +33,7 @@ class TreeActiveDataProvider extends ActiveDataProvider
             }
             $query->limit($pagination->getLimit())->offset($pagination->getOffset());
         }
-        if (($sort = $this->getSort()) !== false) {
+        if (($sort = $this->getSort()) instanceof Sort) {
             $query->addOrderBy($sort->getOrders());
         }
 
@@ -37,6 +42,10 @@ class TreeActiveDataProvider extends ActiveDataProvider
 
         if ($isEmptyCondition) {
             $rootQuery->andWhere(['parent_id' => null]);
+        }
+
+        if ($this->db !== null && !$this->db instanceof Connection) {
+            throw new LogicException('Type');
         }
 
         $items = $rootQuery->all($this->db);
