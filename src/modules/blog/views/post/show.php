@@ -35,7 +35,7 @@ $this->params['breadcrumbs'] = [
     'Блог' => ['/blog']
 ];
 
-$host = Yii::$app->request->getHostInfo();
+$host = Yii::$app->request->getHostInfo() ?: '';
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
 $this->registerMetaTag(['property' => 'og:meta_description', 'content' => $model->meta_description]);
@@ -50,9 +50,7 @@ if ($model->styles) {
     $this->registerCss(CSSMinimizer::minimize(strip_tags($model->styles)));
 }
 
-if ($model->category) {
-    $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
-}
+$this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
 
 $this->params['breadcrumbs'][] = $model->title;
 
@@ -60,9 +58,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/blog/admin/post/update', 'id' => $model->id]];
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
-        if ($model->category) {
-            $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['admin/category/update', 'id' => $model->category_id]];
-        }
+        $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['admin/category/update', 'id' => $model->category_id]];
     }
     if (Yii::$app->moduleAdminAccess->isGranted('comment')) {
         $count = $model->getCommentsNewCount();

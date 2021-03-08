@@ -193,9 +193,7 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/components/uploader/Uploader.php">
-    <MixedArgument occurrences="4">
-      <code>$currentFile</code>
-      <code>$currentFile</code>
+    <MixedArgument occurrences="2">
       <code>$rule[0]</code>
       <code>$rule[1]</code>
     </MixedArgument>
@@ -203,8 +201,7 @@
       <code>$rule[0]</code>
       <code>$rule[1]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$currentFile</code>
+    <MixedAssignment occurrences="1">
       <code>$rule</code>
     </MixedAssignment>
     <PossiblyNullOperand occurrences="1">
@@ -2600,17 +2597,6 @@
       <code>link</code>
     </PossiblyInvalidMethodCall>
   </file>
-  <file src="src/modules/blog/controllers/PostController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$model === null</code>
-    </DocblockTypeContradiction>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$model</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Post</code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
@@ -2840,9 +2826,6 @@
     <MixedAssignment occurrences="1">
       <code>$post</code>
     </MixedAssignment>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$post-&gt;category</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/blog/views/default/category.php">
     <PossiblyFalseReference occurrences="2">
@@ -2897,19 +2880,6 @@
       <code>getPage</code>
       <code>getPage</code>
     </PossiblyFalseReference>
-  </file>
-  <file src="src/modules/blog/views/post/show.php">
-    <PossiblyNullOperand occurrences="3">
-      <code>$host</code>
-      <code>$host</code>
-      <code>$host</code>
-    </PossiblyNullOperand>
-    <RedundantCondition occurrences="1">
-      <code>$model-&gt;category</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$model-&gt;category</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
     <InvalidReturnType occurrences="2">
@@ -3113,14 +3083,6 @@
       <code>render</code>
     </MixedMethodCall>
   </file>
-  <file src="src/modules/edu/components/api/Api.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$content ? json_decode($content, true, 512, JSON_THROW_ON_ERROR) : []</code>
-    </MixedReturnStatement>
-  </file>
   <file src="src/modules/edu/controllers/DefaultController.php">
     <PropertyNotSetInConstructor occurrences="2">
       <code>DefaultController</code>
@@ -3179,24 +3141,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191004_125256_remove_file</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/file/views/admin/file/index.php">
-    <MixedArgument occurrences="1">
-      <code>$item-&gt;getSize()</code>
-    </MixedArgument>
-    <PossiblyNullArgument occurrences="6">
-      <code>$item-&gt;getBasename()</code>
-      <code>$item-&gt;getBasename()</code>
-      <code>$item-&gt;getBasename()</code>
-      <code>$item-&gt;getBasename()</code>
-      <code>$item-&gt;getTimeModified()</code>
-      <code>$item-&gt;getTimeModified()</code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="3">
-      <code>$item-&gt;getBasename()</code>
-      <code>$item-&gt;getBasename()</code>
-      <code>$item-&gt;getBasename()</code>
-    </PossiblyNullOperand>
   </file>
   <file src="src/modules/home/views/default/index.php">
     <PropertyTypeCoercion occurrences="1">
@@ -3509,11 +3453,6 @@
       <code>getPage</code>
     </PossiblyFalseReference>
   </file>
-  <file src="src/modules/search/components/SearchHighlighter.php">
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
-  </file>
   <file src="src/modules/search/views/default/index.php">
     <MixedArgument occurrences="4">
       <code>$model-&gt;material-&gt;getImageThumbUrl()</code>
@@ -3587,12 +3526,6 @@
     </MixedOperand>
   </file>
   <file src="src/modules/user/components/CurrentPasswordValidator.php">
-    <MixedArgument occurrences="1">
-      <code>$value</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$value</code>
-    </MixedAssignment>
     <PropertyNotSetInConstructor occurrences="4">
       <code>CurrentPasswordValidator</code>
       <code>CurrentPasswordValidator</code>
@@ -4631,15 +4564,6 @@
       <code>CategoryFixture</code>
       <code>CategoryFixture</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/integration/components/category/CategoryTreeBehaviorTest.php">
-    <UndefinedMagicMethod occurrences="1">
-      <code>getArray</code>
-    </UndefinedMagicMethod>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>$category-&gt;alias</code>
-      <code>$category-&gt;alias</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="tests/integration/components/category/TreeCategoryFixture.php">
     <PropertyNotSetInConstructor occurrences="2">

@@ -64,7 +64,7 @@ class GroupsFetcher
         } else {
             /**
              * @var SitemapProvider|null $class
-             * @psalm-var class-string|null $class
+             * @psalm-var class-string<SitemapProvider>|null $class
              */
             $class = $module['class'] ?? null;
         }

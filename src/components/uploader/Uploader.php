@@ -12,6 +12,10 @@ class Uploader
 {
     public string $rootPath = 'upload';
     public string $emptyImage = '';
+    /**
+     * @var array
+     * @vpsalm-var array<array-key, array{string|string[]}>
+     */
     public array $allowedThumbnailResolutions = [];
     public int $directoryRights = 755;
 
@@ -86,6 +90,7 @@ class Uploader
             return false;
         }
 
+        /** @var string $currentFile */
         foreach ($dir->getContents() as $currentFile) {
             if (preg_match('|^' . $fileName . '.*' . $extension . '$|s', basename($currentFile))) {
                 @unlink($currentFile);

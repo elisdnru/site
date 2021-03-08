@@ -26,11 +26,9 @@ use yii\widgets\LinkPager;
                         <div class="date">
                             <span class="enc-date" data-date="<?= DateFormatter::format($post->date) ?>">&nbsp;</span>
                         </div>
-                        <?php if ($post->category) : ?>
-                            <div class="category">
-                                <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
-                            </div>
-                        <?php endif; ?>
+                        <div class="category">
+                            <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
+                        </div>
                         <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                         <div class="comments">
                             <span><?= $post->getCommentsCount() ?></span>

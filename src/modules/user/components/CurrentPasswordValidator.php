@@ -18,6 +18,7 @@ class CurrentPasswordValidator extends Validator
 
     public function validateAttribute($model, $attribute): void
     {
+        /** @var string $value */
         $value = $model->$attribute;
         $record = $this->loadModel($model);
 

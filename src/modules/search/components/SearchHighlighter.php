@@ -10,7 +10,7 @@ class SearchHighlighter
             return '';
         }
         if ($word) {
-            $pos = max((int)mb_stripos($text, $word, null, 'UTF-8') - 100, 0);
+            $pos = max((int)mb_stripos($text, $word, 0, 'UTF-8') - 100, 0);
             $fragment = mb_substr($text, $pos, 200, 'UTF-8');
             $highlighted = str_ireplace($word, '<mark>' . $word . '</mark>', $fragment);
         } else {

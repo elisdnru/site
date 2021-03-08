@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\integration\components\category;
 
+use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use app\components\category\models\TreeCategoryQuery;
 use Codeception\Test\Unit;
 use tests\IntegrationTester;
@@ -52,11 +53,13 @@ class CategoryTreeBehaviorTest extends Unit
 
     public function testRoots(): void
     {
+        /** @var CategoryTreeQueryBehavior $roots */
+        $roots = $this->find->roots();
         self::assertEquals([
             0 => '1',
             1 => '2',
             2 => '3',
-        ], $this->find->roots()->getArray());
+        ], $roots->getArray());
     }
 
     public function testAssocList(): void
@@ -249,6 +252,7 @@ class CategoryTreeBehaviorTest extends Unit
 
     public function testFindByAliasSuccess(): void
     {
+        /** @var TreeCategory|null $category */
         $category = $this->find->findByAlias('first-middle-child');
 
         self::assertNotNull($category);
@@ -257,6 +261,7 @@ class CategoryTreeBehaviorTest extends Unit
 
     public function testFindByAliasNotFound(): void
     {
+        /** @var TreeCategory|null $category */
         $category = $this->find->findByAlias('unknown');
 
         self::assertNull($category);
@@ -264,6 +269,7 @@ class CategoryTreeBehaviorTest extends Unit
 
     public function testFindByPathSuccess(): void
     {
+        /** @var TreeCategory|null $category */
         $category = $this->find->findByPath('first-root/first-root-first-middle/first-middle-child');
 
         self::assertNotNull($category);
@@ -272,6 +278,7 @@ class CategoryTreeBehaviorTest extends Unit
 
     public function testFindByPathNotFound(): void
     {
+        /** @var TreeCategory|null $category */
         $category = $this->find->findByPath('first-root/first-middle-child');
 
         self::assertNull($category);
