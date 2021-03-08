@@ -18,9 +18,11 @@ class GroupController extends AdminController
 {
     public function actionIndex(Request $request): string
     {
+        /** @psalm-var Group[] $items */
         $items = Group::find()->orderBy(['title' => SORT_ASC])->all();
 
-        if ($post = $request->post('Group')) {
+        /** @var array[] $post */
+        if ($post = (array)$request->post('Group')) {
             $valid = true;
 
             foreach ($items as $item) {

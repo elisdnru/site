@@ -7,7 +7,7 @@ use app\modules\blog\models\query\GroupQuery;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $title
  *
  * @mixin CategoryBehavior

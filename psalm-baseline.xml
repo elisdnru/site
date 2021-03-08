@@ -2611,24 +2611,6 @@
       <code>Post</code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/modules/blog/controllers/admin/GroupController.php">
-    <MixedArrayOffset occurrences="2">
-      <code>$post[$item-&gt;id]</code>
-      <code>$post[$item-&gt;id]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="1">
-      <code>$post</code>
-    </MixedAssignment>
-    <NoInterfaceProperties occurrences="4">
-      <code>$item-&gt;attributes</code>
-      <code>$item-&gt;attributes</code>
-      <code>$item-&gt;id</code>
-      <code>$item-&gt;id</code>
-    </NoInterfaceProperties>
-    <UndefinedInterfaceMethod occurrences="1">
-      <code>validate</code>
-    </UndefinedInterfaceMethod>
-  </file>
   <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
     <InvalidReturnType occurrences="2">
       <code>safeDown</code>
