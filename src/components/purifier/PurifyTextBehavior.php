@@ -43,9 +43,9 @@ class PurifyTextBehavior extends Behavior
 
         if ($this->sourceAttribute &&
             $this->destinationAttribute &&
-            $this->calculateHash($model->{$this->sourceAttribute}) !== $this->contentHash
+            $this->calculateHash($this->getSource($model)) !== $this->contentHash
         ) {
-            $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
+            $model->{$this->destinationAttribute} = $this->processContent($this->getSource($model));
         }
     }
 
@@ -57,14 +57,14 @@ class PurifyTextBehavior extends Behavior
             return;
         }
 
-        $this->contentHash = $this->calculateHash($model->{$this->sourceAttribute});
+        $this->contentHash = $this->calculateHash($this->getSource($model));
 
         if ($this->sourceAttribute &&
             $this->destinationAttribute &&
-            $model->{$this->sourceAttribute} &&
-            !$model->{$this->destinationAttribute}
+            $this->getSource($model) &&
+            !$this->getDestination($model)
         ) {
-            $model->{$this->destinationAttribute} = $this->processContent($model->{$this->sourceAttribute});
+            $model->{$this->destinationAttribute} = $this->processContent($this->getSource($model));
             if ($this->updateOnAfterFind) {
                 $this->updateModel();
             }
@@ -73,6 +73,10 @@ class PurifyTextBehavior extends Behavior
 
     private function processContent(?string $text): ?string
     {
+        if ($text === null) {
+            return null;
+        }
+
         if ($this->enableMarkdown) {
             $text = $this->markdownText($text);
         }
@@ -84,17 +88,17 @@ class PurifyTextBehavior extends Behavior
         return $text;
     }
 
-    public function markdownText(?string $text): string
+    public function markdownText(string $text): string
     {
         $pre = preg_replace('#(~~~[\r\n]+\[php\][\r\n]+)#', '$1<?php' . PHP_EOL, $text);
 
         $md = new MarkdownParser();
-        $transform = $md->transform($pre);
+        $transform = (string)$md->transform($pre);
 
         return str_replace('<pre><span class="php-hl-inlinetags">&lt;?php</span>' . PHP_EOL, '<pre>', $transform);
     }
 
-    public function purifyText(?string $text): string
+    public function purifyText(string $text): string
     {
         if ($this->encodePreContent) {
             $text = preg_replace_callback('|<pre([^>]*)>(.*)</pre>|ismU', [$this, 'storePreContent'], $text);
@@ -115,32 +119,56 @@ class PurifyTextBehavior extends Behavior
     {
         $model = $this->getModel();
         $model->updateAttributes([
-            $this->destinationAttribute => $model->{$this->destinationAttribute}
+            $this->destinationAttribute => $this->getDestination($model)
         ]);
     }
 
+    /**
+     * @var string[]|null[]
+     */
     private array $preContents = [];
 
-    private function getModel(): ActiveRecord|Component
+    private function getModel(): ActiveRecord
     {
-        return $this->owner ?? throw new BadMethodCallException('Empty owner.');
+        /** @var ActiveRecord|null $owner */
+        $owner = $this->owner;
+        if ($owner === null) {
+            throw new BadMethodCallException('Empty owner.');
+        }
+        return $owner;
     }
 
+    /**
+     * @param string[] $matches
+     * @return string
+     */
     private function storePreContent(array $matches): string
     {
         return '<pre' . $matches[1] . '>' . $this->storeContent($matches[2]) . '</pre>';
     }
 
+    /**
+     * @param string[] $matches
+     * @return string
+     */
     private function resumePreContent(array $matches): string
     {
         return '<pre' . $matches[1] . '>' . $this->resumeContent($matches[2]) . '</pre>';
     }
 
+    /**
+     * @param string[] $matches
+     * @return string
+     */
     private function storeCodeContent(array $matches): string
     {
         return '<code' . $matches[1] . '>' . $this->storeContent($matches[2]) . '</code>';
     }
 
+    /**
+     * @param string[] $matches
+     * @return string
+     */
     private function resumeCodeContent(array $matches): string
     {
         return '<code' . $matches[1] . '>' . $this->resumeContent($matches[2]) . '</code>';
@@ -149,7 +177,7 @@ class PurifyTextBehavior extends Behavior
     private function storeContent(?string $content): string
     {
         do {
-            $id = md5(random_int(0, 100000));
+            $id = bin2hex(random_bytes(10));
         } while (isset($this->preContents[$id]));
         $this->preContents[$id] = $content;
         return $id;
@@ -162,6 +190,18 @@ class PurifyTextBehavior extends Behavior
 
     private function calculateHash(?string $content): string
     {
-        return md5($content);
+        return md5($content ?: '');
+    }
+
+    private function getSource(ActiveRecord $model): ?string
+    {
+        /** @var string|null */
+        return $model->{$this->sourceAttribute};
+    }
+
+    private function getDestination(ActiveRecord $model): ?string
+    {
+        /** @var string|null */
+        return $model->{$this->destinationAttribute};
     }
 }

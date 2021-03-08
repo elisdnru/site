@@ -161,38 +161,6 @@
       <code>$class::sitemapPriority()</code>
     </MixedMethodCall>
   </file>
-  <file src="src/components/purifier/PurifyTextBehavior.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>random_int(0, 100000)</code>
-    </InvalidScalarArgument>
-    <MixedArgument occurrences="10">
-      <code>$matches[2]</code>
-      <code>$matches[2]</code>
-      <code>$matches[2]</code>
-      <code>$matches[2]</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$model-&gt;{$this-&gt;sourceAttribute}</code>
-      <code>$this-&gt;preContents[$id]</code>
-      <code>$transform</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$transform</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>$matches[1]</code>
-      <code>$matches[1]</code>
-      <code>$matches[1]</code>
-      <code>$matches[1]</code>
-    </MixedOperand>
-    <PossiblyNullArgument occurrences="4">
-      <code>$content</code>
-      <code>$text</code>
-      <code>$text</code>
-      <code>$text</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="src/components/uploader/FileUploadBehavior.php">
     <MixedArgument occurrences="3">
       <code>$fileUrl</code>
