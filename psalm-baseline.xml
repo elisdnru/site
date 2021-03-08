@@ -2806,13 +2806,6 @@
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/admin/group/index.php">
-    <MixedArgument occurrences="2">
-      <code>$itemForm</code>
-      <code>$itemForm</code>
-    </MixedArgument>
-    <UndefinedGlobalVariable occurrences="1">
-      <code>$itemForm</code>
-    </UndefinedGlobalVariable>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>$item-&gt;postsCount</code>
     </UndefinedMagicPropertyFetch>

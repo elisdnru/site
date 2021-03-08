@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
  * @var View $this
  * @var Group[] $items
  * @var ActiveForm $form
- * @var GroupForm$itemForm
+ * @var GroupForm $itemForm
  */
 
 $this->title = 'Тематические группы записей';
