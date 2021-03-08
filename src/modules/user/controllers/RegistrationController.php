@@ -35,7 +35,7 @@ class RegistrationController extends Controller
     {
         $model = new RegistrationForm();
 
-        if ($post = $request->post('RegistrationForm')) {
+        if ($post = (array)$request->getBodyParam('RegistrationForm')) {
             $model->attributes = $post;
 
             if ($model->validate()) {

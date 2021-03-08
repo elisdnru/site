@@ -13,7 +13,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 {
     public string $parentAttribute = 'parent_id';
 
-    public function roots(): self|ActiveQuery
+    public function roots(): ActiveQuery
     {
         return $this->getQuery()->andWhere([$this->parentAttribute => null]);
     }

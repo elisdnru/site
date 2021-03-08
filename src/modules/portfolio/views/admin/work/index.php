@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
 
 /**
  * @var View $this
- * @var Category $category
+ * @var int $category
  * @var Work[] $works
  * @var Pagination $pages
  */
@@ -37,7 +37,7 @@ JqueryUiAsset::register($this);
 
 <form action="?" method="get">
 <p>
-    Раздел: <?= Html::dropDownList('category', $category, Category::find()->getTabList(), [
+    Раздел: <?= Html::dropDownList('category', (string)$category, Category::find()->getTabList(), [
         'prompt' => 'Все разделы',
         'onchange' => 'this.form.submit()',
     ]) ?>

@@ -6,7 +6,7 @@ use yii\base\Model;
 
 class RemindForm extends Model
 {
-    public $email;
+    public string $email = '';
 
     public function rules(): array
     {

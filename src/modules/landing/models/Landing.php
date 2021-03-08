@@ -13,8 +13,8 @@ use yii\helpers\Url;
  * @property string $alias
  * @property string $title
  * @property string $text
- * @property integer $parent_id
- * @property integer $system
+ * @property int|null $parent_id
+ * @property int $system
  *
  * @property Landing[] $children
  *

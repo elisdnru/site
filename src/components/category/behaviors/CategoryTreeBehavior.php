@@ -59,6 +59,10 @@ class CategoryTreeBehavior extends CategoryBehavior
         return false;
     }
 
+    /**
+     * @param bool $lastLink
+     * @return string[]
+     */
     public function getBreadcrumbs(bool $lastLink = false): array
     {
         if ($lastLink) {

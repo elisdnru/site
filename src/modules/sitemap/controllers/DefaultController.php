@@ -31,7 +31,7 @@ class DefaultController extends Controller
 
     public function actionXml(CacheInterface $cache, Response $response): Response
     {
-        if (!$xml = $cache->get('sitemap_xml')) {
+        if (!$xml = (string)$cache->get('sitemap_xml')) {
             $sitemap = new Sitemap();
 
             foreach ($this->fetcher->getGroups() as $group) {
@@ -54,7 +54,7 @@ class DefaultController extends Controller
 
         $response->format = Response::FORMAT_RAW;
         $response->headers->set('Content-Type', 'application/xml;charset=UTF-8');
-        $response->content = (string)$xml;
+        $response->content = $xml;
         return $response;
     }
 }

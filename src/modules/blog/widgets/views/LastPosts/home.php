@@ -23,11 +23,9 @@ use yii\helpers\Html;
                 <div class="date">
                     <span class="enc-date" data-date="<?= DateFormatter::format($data->date) ?>">&nbsp;</span>
                 </div>
-                <?php if ($data->category) : ?>
-                    <div class="category">
-                        <span><a href="<?= $data->category->getUrl() ?>"><?= Html::encode($data->category->title) ?></a></span>
-                    </div>
-                <?php endif; ?>
+                <div class="category">
+                    <span><a href="<?= $data->category->getUrl() ?>"><?= Html::encode($data->category->title) ?></a></span>
+                </div>
                 <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                 <div class="comments">
                     <span><?= $data->getCommentsCount() ?></span>

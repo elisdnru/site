@@ -17,12 +17,9 @@ class Portlet extends Widget
     public function init(): void
     {
         ob_start();
-        ob_implicit_flush(false);
-
         echo Html::beginTag('div', $this->htmlOptions) . "\n";
         $this->renderDecoration();
         echo "<div class=\"portlet-content\">\n";
-
         $this->openTag = ob_get_contents();
         ob_clean();
     }

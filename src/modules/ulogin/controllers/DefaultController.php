@@ -2,6 +2,8 @@
 
 namespace app\modules\ulogin\controllers;
 
+use BadMethodCallException;
+use yii\web\Application;
 use yii\web\Controller;
 use app\modules\ulogin\models\ULoginModel;
 use Yii;
@@ -16,7 +18,11 @@ class DefaultController extends Controller
 
     public function actionLogin(Request $request, Session $session, User $user): Response
     {
-        if (!$token = $request->post('token')) {
+        if (!Yii::$app instanceof Application) {
+            throw new BadMethodCallException('Not web app context.');
+        }
+
+        if (!$token = (string)$request->getBodyParam('token')) {
             return $this->redirect(Yii::$app->homeUrl);
         }
         if ($token !== 'undefined') {
@@ -32,6 +38,6 @@ class DefaultController extends Controller
             $session->setFlash('error', 'Какая-то техническая ошибка при авторизации');
         }
 
-        return $this->redirect($request->get('return', Yii::$app->homeUrl));
+        return $this->redirect((string)$request->getQueryParam('return', Yii::$app->homeUrl));
     }
 }

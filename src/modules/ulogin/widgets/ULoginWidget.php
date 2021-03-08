@@ -26,7 +26,7 @@ class ULoginWidget extends Widget
         return $this->render('uLoginWidget', $this->params);
     }
 
-    public function setParams($params): void
+    public function setParams(array $params): void
     {
         $this->params = array_merge($this->params, $params);
     }

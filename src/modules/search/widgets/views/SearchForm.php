@@ -9,7 +9,7 @@ use yii\helpers\Url;
 <div class="search-form">
     <form action="<?= Url::to(['/search/default/index']) ?>" method="get">
         <div class="search-word">
-            <input type="text" name="q" value="<?= Html::encode($form->q) ?>" placeholder="Поиск">
+            <input type="text" name="q" value="<?= Html::encode($form->q ?: '') ?>" placeholder="Поиск">
         </div>
         <div class="search-button">
             <button type="submit"></button>

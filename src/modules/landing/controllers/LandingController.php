@@ -22,7 +22,7 @@ class LandingController extends Controller
 
     private function loadModel(string $path): Landing
     {
-        /** @var Landing $landing */
+        /** @var Landing|null $landing */
         $landing = Landing::find()->cache(0, new TagDependency(['tags' => ['landing']]))->findByPath($path);
         if ($landing === null) {
             throw new NotFoundHttpException();

@@ -8,14 +8,14 @@ use yii\base\Model;
 
 class RegistrationForm extends Model
 {
-    public $username;
-    public $email;
-    public $password;
-    public $confirm;
-    public $lastname;
-    public $firstname;
-    public $test1;
-    public $test2;
+    public string $username = '';
+    public string $email = '';
+    public string $password = '';
+    public string $confirm = '';
+    public string $lastname = '';
+    public string $firstname = '';
+    public string $test1 = '';
+    public string $test2 = '';
 
     public function rules(): array
     {
