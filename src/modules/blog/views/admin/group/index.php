@@ -44,7 +44,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
                 <td><?= Html::activeTextInput($item, "[$item->id]title", ['style' => 'width:99%', 'maxlength' => 255]) ?></td>
                 <td style="text-align: center"><a href="<?= $postsUrl ?>">Записи</a></td>
                 <td style="text-align: center">
-                    <?php if ($item->postsCount === 0) : ?>
+                    <?php if ($item->getPostsCount() === 0) : ?>
                         <a class="ajax-del" data-del="item-<?= $item->id ?>" title="Удалить группу &laquo;<?= Html::encode($item->title) ?>&raquo;" href="<?= $delUrl ?>">
                             <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить">
                         </a>

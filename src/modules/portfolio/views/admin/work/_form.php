@@ -64,7 +64,7 @@ use yii\widgets\ActiveForm;
 
             <?php if ($model->image) : ?>
                 <div class="image">
-                    <a target="_blank" href="<?= $model->getImageUrl() ?>"><img src="<?= $model->imageThumbUrl ?>" alt=""></a>
+                    <a target="_blank" href="<?= $model->getImageUrl() ?>"><img src="<?= $model->getImageThumbUrl() ?>" alt=""></a>
                 </div>
                 <div class="row">
                     <?= Html::activeCheckbox($model, 'delImage') ?>

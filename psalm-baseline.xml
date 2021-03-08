@@ -2805,14 +2805,8 @@
       <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/blog/views/admin/group/index.php">
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$item-&gt;postsCount</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/blog/views/admin/post/_form.php">
-    <MixedArgument occurrences="2">
-      <code>$model-&gt;imageThumbUrl</code>
+    <MixedArgument occurrences="1">
       <code>$tag</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -2821,9 +2815,6 @@
     <MixedAssignment occurrences="1">
       <code>$tag</code>
     </MixedAssignment>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$model-&gt;imageThumbUrl</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/blog/views/admin/post/index.php">
     <MixedAssignment occurrences="1">
@@ -3735,14 +3726,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/portfolio/views/admin/work/_form.php">
-    <MixedArgument occurrences="1">
-      <code>$model-&gt;imageThumbUrl</code>
-    </MixedArgument>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$model-&gt;imageThumbUrl</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/portfolio/views/admin/work/index.php">
     <InvalidArgument occurrences="1">
