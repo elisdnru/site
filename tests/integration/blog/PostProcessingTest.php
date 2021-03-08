@@ -45,7 +45,7 @@ class PostProcessingTest extends Unit
         $post = Post::findOne(1);
 
         $source = <<<END
-Lorem ipsum dolor sit amet.
+Lorem ipsum `dolor` sit amet.
 
 ~~~
 [php]
@@ -57,7 +57,7 @@ interface A extends B
 END;
 
         $expected = <<<END
-<p>Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum <code>dolor</code> sit amet.</p>
 
 <div class="hl-code"><div class="php-hl-main"><pre><span class="php-hl-reserved">interface</span> <span class="php-hl-identifier">A</span> <span class="php-hl-reserved">extends</span> <span class="php-hl-identifier">B</span>
 <span class="php-hl-brackets">{</span>

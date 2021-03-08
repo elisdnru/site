@@ -49,11 +49,25 @@ class CommentProcessingTest extends Unit
         $comment->text = <<<END
 Lorem ipsum dolor sit amet.
 
+<p onclick="script()">XSS</p>
+
+<pre>
+<p>Code</p>
+<script>alert('XSS');</script>
+</pre>
+
 <script>alert('XSS');</script>
 END;
 
         $expected = <<<END
 <p>Lorem ipsum dolor sit amet.</p>
+
+<p>XSS</p>
+
+<pre>
+&lt;p&gt;Code&lt;/p&gt;
+&lt;script&gt;alert(&#039;XSS&#039;);&lt;/script&gt;
+</pre>
 
 <p>&lt;script&gt;alert('XSS');&lt;/script&gt;</p>
 END;
