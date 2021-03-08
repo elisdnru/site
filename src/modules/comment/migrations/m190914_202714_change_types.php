@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m190914_202714_change_types extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->update(
             '{{comment}}',
@@ -12,9 +12,10 @@ class m190914_202714_change_types extends Migration
             'type = :old_type',
             [':old_type' => 'BlogPost']
         );
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->update(
             '{{comment}}',
@@ -22,5 +23,6 @@ class m190914_202714_change_types extends Migration
             'type = :old_type',
             [':old_type' => 'app' . '\modules\blog\models\BlogPost']
         );
+        return true;
     }
 }

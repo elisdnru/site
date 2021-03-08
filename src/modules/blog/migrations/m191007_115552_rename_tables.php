@@ -12,17 +12,19 @@ class m191007_115552_rename_tables extends Migration
         'blog_tag' => 'blog_tags',
     ];
 
-    public function safeUp()
+    public function safeUp(): bool
     {
         foreach (self::TABLES as $old => $new) {
             $this->renameTable('{{' . $old . '}}', $new);
         }
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         foreach (self::TABLES as $old => $new) {
             $this->renameTable($new, '{{' . $old . '}}');
         }
+        return true;
     }
 }

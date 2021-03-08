@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_090350_create_blog_category extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{blog_category}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -38,13 +38,15 @@ class m130328_090350_create_blog_category extends Migration
         $this->createIndex('owner_id', '{{blog_category_lang}}', 'owner_id');
 
         $this->addForeignKey('blog_category_lang_owner', '{{blog_category_lang}}', 'owner_id', '{{blog_category}}', 'id', 'CASCADE', 'CASCADE');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropForeignKey('blog_category_lang_owner', '{{blog_category_lang}}');
 
         $this->dropTable('{{blog_category}}');
         $this->dropTable('{{blog_category_lang}}');
+        return true;
     }
 }

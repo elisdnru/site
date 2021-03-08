@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_130712_create_user extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{user}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -36,10 +36,12 @@ class m130328_130712_create_user extends Migration
         $this->createIndex('role', '{{user}}', 'role');
         $this->createIndex('active', '{{user}}', 'active');
         $this->createIndex('comments_count', '{{user}}', 'comments_count');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropTable('{{user}}');
+        return true;
     }
 }

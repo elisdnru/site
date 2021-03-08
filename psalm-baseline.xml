@@ -183,124 +183,76 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/migrations/m130329_081136_create_session.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130329_081136_create_session</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m180806_104328_remove_unused_modules.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m180806_104328_remove_unused_modules</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m180806_105831_remove_language_tables.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m180806_105831_remove_language_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m180806_112238_remove_unused_configs.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m180806_112238_remove_unused_configs</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m181022_111111_remove_config.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m181022_111111_remove_config</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m181022_112914_remove_modules_table.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m181022_112914_remove_modules_table</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m181022_141725_remove_attribute.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m181022_141725_remove_attribute</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m181022_141825_remove_unused_blocks.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m181022_141825_remove_unused_blocks</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m190806_190155_remove_gallery_tables.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190806_190155_remove_gallery_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m190806_200155_remove_new_tables.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190806_200155_remove_new_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m191007_104255_remove_new_gallery_table.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_104255_remove_new_gallery_table</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m191007_121851_rename_migrations_table.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_121851_rename_migrations_table</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m191007_181351_remove_migrations_view.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_181351_remove_migrations_view</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m200820_225703_remove_contacts_table.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m200820_225703_remove_contacts_table</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/migrations/m201015_174612_remove_menu_table.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m201015_174612_remove_menu_table</code>
     </PropertyNotSetInConstructor>
@@ -314,19 +266,11 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="src/modules/block/migrations/m130328_093402_create_block.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_093402_create_block</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/block/migrations/m191007_115551_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115551_rename_tables</code>
     </PropertyNotSetInConstructor>
@@ -341,98 +285,56 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_084945_create_blog_post</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m130328_090350_create_blog_category.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_090350_create_blog_category</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m130328_092321_create_blog_post_group.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_092321_create_blog_post_group</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m130328_092655_create_blog_tag.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_092655_create_blog_tag</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m191007_115552_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115552_rename_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m191010_181651_add_styles.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191010_181651_add_styles</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m191020_153212_remove_keywords.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153212_remove_keywords</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m191023_111425_remove_comments_count.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191023_111425_remove_comments_count</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m201213_171234_add_nullable.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m201213_171234_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m210125_100812_rename_meta.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m210125_100812_rename_meta</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/migrations/m210225_094512_add_nullable.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m210225_094512_add_nullable</code>
     </PropertyNotSetInConstructor>
@@ -625,62 +527,36 @@
     </PossiblyFalseReference>
   </file>
   <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_094620_create_comment</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/migrations/m190914_202714_change_types.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190914_202714_change_types</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/migrations/m191007_115553_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115553_rename_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/migrations/m191007_131514_change_types.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_131514_change_types</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/migrations/m191025_193912_add_nullable.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191025_193912_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/migrations/m191109_153821_add_nullable.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191109_153821_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/migrations/m210221_183532_change_charset.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m210221_183532_change_charset</code>
     </PropertyNotSetInConstructor>
@@ -868,19 +744,11 @@
     </MixedOperand>
   </file>
   <file src="src/modules/file/migrations/m130328_115251_create_file.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_115251_create_file</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/file/migrations/m191004_125256_remove_file.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191004_125256_remove_file</code>
     </PropertyNotSetInConstructor>
@@ -891,10 +759,6 @@
     </PropertyTypeCoercion>
   </file>
   <file src="src/modules/landing/migrations/m191025_144021_create_landing.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191025_144021_create_landing</code>
     </PropertyNotSetInConstructor>
@@ -944,88 +808,51 @@
     </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/page/migrations/m130328_120429_create_page.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_120429_create_page</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m130328_122139_create_page_layout.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_122139_create_page_layout</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m131126_163952_added_robots_field.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m131126_163952_added_robots_field</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m191007_111239_inline_page_layout.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_111239_inline_page_layout</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m191007_115556_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115556_rename_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m191010_181652_add_styles.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191010_181652_add_styles</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m191020_153213_remove_keywords.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153213_remove_keywords</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m191025_175116_remove_image.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191025_175116_remove_image</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m201213_171235_add_nullable.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m201213_171235_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/migrations/m210125_100813_rename_meta.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m210125_100813_rename_meta</code>
     </PropertyNotSetInConstructor>
@@ -1081,54 +908,31 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/migrations/m130328_122419_create_portfolio_work.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_122419_create_portfolio_work</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/migrations/m130328_123107_create_portfolio_category.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_123107_create_portfolio_category</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/migrations/m191007_115557_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115557_rename_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/migrations/m191020_153214_remove_keywords.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191020_153214_remove_keywords</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/migrations/m201213_171236_add_nullable.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m201213_171236_add_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/migrations/m210125_100814_rename_meta.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m210125_100814_rename_meta</code>
     </PropertyNotSetInConstructor>
@@ -1284,81 +1088,46 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m130328_130712_create_user.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_130712_create_user</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m130328_141310_create_user_page.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130328_141310_create_user_page</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m130717_065918_add_author_link.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m130717_065918_add_author_link</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m181022_130712_remove_address.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m181022_130712_remove_address</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m190918_143321_added_nullable.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190918_143321_added_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m190918_193620_added_nullable.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m190918_193620_added_nullable</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m191007_110105_remove_page.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_110105_remove_page</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m191007_115558_rename_tables.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191007_115558_rename_tables</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m191007_135558_rehash_passwords.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <MixedArgument occurrences="1">
       <code>$row['password']</code>
     </MixedArgument>
@@ -1378,18 +1147,11 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m191017_160126_change_salt.php">
-    <InvalidReturnType occurrences="2">
-      <code>safeDown</code>
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191017_160126_change_salt</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/migrations/m191023_111426_remove_comments_count.php">
-    <InvalidReturnType occurrences="1">
-      <code>safeUp</code>
-    </InvalidReturnType>
     <PropertyNotSetInConstructor occurrences="1">
       <code>m191023_111426_remove_comments_count</code>
     </PropertyNotSetInConstructor>

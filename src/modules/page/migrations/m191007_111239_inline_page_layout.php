@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m191007_111239_inline_page_layout extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->addColumn('{{page}}', 'layout', 'varchar(255) DEFAULT NULL');
         $this->addColumn('{{page}}', 'subpages_layout', 'varchar(255) DEFAULT NULL');
@@ -20,9 +20,10 @@ class m191007_111239_inline_page_layout extends Migration
 
         $this->dropTable('{{page_layout}}');
         $this->dropTable('{{page_layout_subpages}}');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         echo "m191007_111239_inline_page_layout does not support migration down.\n";
         return false;

@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_122419_create_portfolio_work extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{portfolio_work}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -52,13 +52,15 @@ class m130328_122419_create_portfolio_work extends Migration
         $this->createIndex('owner_id', '{{portfolio_work_lang}}', 'owner_id');
 
         $this->addForeignKey('portfolio_work_lang_owner', '{{portfolio_work_lang}}', 'owner_id', '{{portfolio_work}}', 'id', 'CASCADE', 'CASCADE');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropForeignKey('portfolio_work_lang_owner', '{{portfolio_work_lang}}');
 
         $this->dropTable('{{portfolio_work_lang}}');
         $this->dropTable('{{portfolio_work}}');
+        return true;
     }
 }

@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m180806_105831_remove_language_tables extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         if ($this->getDb()->getTableSchema('{{block_lang}}')) {
             $this->dropTable('{{block_lang}}');
@@ -26,9 +26,10 @@ class m180806_105831_remove_language_tables extends Migration
         $this->dropTable('{{portfolio_category_lang}}');
 
         $this->dropColumn('{{comment}}', 'lang_id');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         echo "m180806_105831_remove_language_tables does not support migration down.\n";
         return false;

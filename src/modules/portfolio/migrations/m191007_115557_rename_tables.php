@@ -9,17 +9,19 @@ class m191007_115557_rename_tables extends Migration
         'portfolio_work' => 'portfolio_works',
     ];
 
-    public function safeUp()
+    public function safeUp(): bool
     {
         foreach (self::TABLES as $old => $new) {
             $this->renameTable('{{' . $old . '}}', $new);
         }
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         foreach (self::TABLES as $old => $new) {
             $this->renameTable($new, '{{' . $old . '}}');
         }
+        return true;
     }
 }

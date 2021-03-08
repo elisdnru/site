@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_094620_create_comment extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{comment}}', [
             'id' => 'int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -32,10 +32,12 @@ class m130328_094620_create_comment extends Migration
         $this->createIndex('date', '{{comment}}', 'date');
         $this->createIndex('public', '{{comment}}', 'public');
         $this->createIndex('moder', '{{comment}}', 'moder');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropTable('{{comment}}');
+        return true;
     }
 }

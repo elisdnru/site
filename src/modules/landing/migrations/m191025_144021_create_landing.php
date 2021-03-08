@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m191025_144021_create_landing extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('landings', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -18,11 +18,13 @@ class m191025_144021_create_landing extends Migration
         $this->createIndex('landings_alias', 'landings', 'alias');
         $this->createIndex('landings_parent_id', 'landings', 'parent_id');
         $this->addForeignKey('landings_parent', 'landings', 'parent_id', 'landings', 'id');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropForeignKey('landings_parent', 'landings');
         $this->dropTable('landings');
+        return true;
     }
 }

@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m180806_104328_remove_unused_modules extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         if ($this->getDb()->getTableSchema('{{callme}}')) {
             $this->dropTable('{{callme}}');
@@ -70,9 +70,10 @@ class m180806_104328_remove_unused_modules extends Migration
         if ($this->getDb()->getTableSchema('{{user_photo}}')) {
             $this->dropTable('{{user_photo}}');
         }
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         echo "m180806_104328_remove_unused_modules does not support migration down.\n";
         return false;

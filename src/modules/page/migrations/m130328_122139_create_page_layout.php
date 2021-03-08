@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_122139_create_page_layout extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{page_layout}}', [
             'id' => 'int(11) NOT NULL PRIMARY KEY',
@@ -69,11 +69,13 @@ class m130328_122139_create_page_layout extends Migration
             'alias' => 'tabschild',
             'title' => 'Дочерние вкладки',
         ]);
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropTable('{{page_layout}}');
         $this->dropTable('{{page_layout_subpages}}');
+        return true;
     }
 }

@@ -5,7 +5,7 @@ use yii\db\Query;
 
 class m191007_135558_rehash_passwords extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->alterColumn('users', 'password', 'varchar(255) DEFAULT NULL');
 
@@ -24,9 +24,10 @@ class m191007_135558_rehash_passwords extends Migration
                 [':current_id' => $row['id']]
             );
         }
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         echo "m191007_135558_rehash_passwords does not support migration down.\n";
         return false;

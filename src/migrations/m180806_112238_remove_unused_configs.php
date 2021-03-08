@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m180806_112238_remove_unused_configs extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         if ($this->getDb()->getTableSchema('{{config}}')) {
             $this->delete('{{config}}', ['in', 'param', [
@@ -20,9 +20,10 @@ class m180806_112238_remove_unused_configs extends Migration
                 'USERPHOTO.MAX_COUNT',
             ]]);
         }
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         echo "m180806_112238_remove_unused_configs does not support migration down.\n";
         return false;

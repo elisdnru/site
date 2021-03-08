@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_093402_create_block extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{block}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -27,13 +27,15 @@ class m130328_093402_create_block extends Migration
         $this->createIndex('owner_id', '{{block_lang}}', 'owner_id');
 
         $this->addForeignKey('block_lang_owner', '{{block_lang}}', 'owner_id', '{{block}}', 'id', 'CASCADE', 'CASCADE');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropForeignKey('block_lang_owner', '{{block_lang}}');
 
         $this->dropTable('{{block_lang}}');
         $this->dropTable('{{block}}');
+        return true;
     }
 }

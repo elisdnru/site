@@ -4,13 +4,15 @@ use yii\db\Migration;
 
 class m191007_115556_rename_tables extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->renameTable('{{page}}', 'pages');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->renameTable('pages', '{{page}}');
+        return true;
     }
 }

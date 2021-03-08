@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_115251_create_file extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{file}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -15,10 +15,12 @@ class m130328_115251_create_file extends Migration
         ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
 
         $this->createIndex('material_id', '{{file}}', 'material_id');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropTable('{{file}}');
+        return true;
     }
 }

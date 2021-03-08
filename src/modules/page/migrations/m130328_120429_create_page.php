@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130328_120429_create_page extends Migration
 {
-    public function safeUp()
+    public function safeUp(): bool
     {
         $this->createTable('{{page}}', [
             'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
@@ -51,13 +51,15 @@ class m130328_120429_create_page extends Migration
         $this->createIndex('owner_id', '{{page_lang}}', 'owner_id');
 
         $this->addForeignKey('page_lang_owner', '{{page_lang}}', 'owner_id', '{{page}}', 'id', 'CASCADE', 'CASCADE');
+        return true;
     }
 
-    public function safeDown()
+    public function safeDown(): bool
     {
         $this->dropForeignKey('page_lang_owner', '{{page_lang}}');
 
         $this->dropTable('{{page_lang}}');
         $this->dropTable('{{page}}');
+        return true;
     }
 }
