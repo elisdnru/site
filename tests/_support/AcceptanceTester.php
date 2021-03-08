@@ -51,6 +51,6 @@ class AcceptanceTester extends Actor
 
     private function generateIdentity(int $userId, string $authKey): string
     {
-        return json_encode([$userId, $authKey, 0], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        return json_encode([$userId, $authKey, 0], JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 }

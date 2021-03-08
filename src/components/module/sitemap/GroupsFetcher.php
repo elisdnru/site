@@ -62,10 +62,7 @@ class GroupsFetcher
         if (is_object($module)) {
             $class = get_class($module);
         } else {
-            /**
-             * @var SitemapProvider|null $class
-             * @psalm-var class-string<SitemapProvider>|null $class
-             */
+            /** @psalm-var array{class: class-string<SitemapProvider>|null} $module */
             $class = $module['class'] ?? null;
         }
 
@@ -77,6 +74,10 @@ class GroupsFetcher
             return null;
         }
 
+        /**
+         * @var SitemapProvider $class
+         * @psalm-var class-string<SitemapProvider> $class
+         */
         return new Set(
             $class::sitemap(),
             $class::sitemapPriority()

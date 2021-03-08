@@ -16,6 +16,7 @@ class Acceptance extends Module
     {
         $client = $this->getMailerClient();
         $response = $client->get('/api/v2/search?' . http_build_query(['kind' => 'to', 'query' => $to]));
+        /** @var array{total: int} $data */
         $data = json_decode((string)$response->getBody(), true, 512, JSON_THROW_ON_ERROR);
         $this->assertGreaterThan(0, $data['total']);
     }

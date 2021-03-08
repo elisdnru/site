@@ -14,22 +14,6 @@
       <code>$_SERVER['HTTPS']</code>
     </MixedArgument>
   </file>
-  <file src="src/components/AntiMagic.php">
-    <MissingParamType occurrences="7">
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$params</code>
-      <code>$value</code>
-    </MissingParamType>
-    <MixedOperand occurrences="3">
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-    </MixedOperand>
-  </file>
   <file src="src/components/AuthManager.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -150,16 +134,6 @@
       <code>TreeCategoryQuery</code>
       <code>TreeCategoryQuery</code>
     </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/components/module/sitemap/GroupsFetcher.php">
-    <MixedArgument occurrences="2">
-      <code>$class::sitemap()</code>
-      <code>$class::sitemapPriority()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="2">
-      <code>$class::sitemap()</code>
-      <code>$class::sitemapPriority()</code>
-    </MixedMethodCall>
   </file>
   <file src="src/components/uploader/FileUploadBehavior.php">
     <MixedArgument occurrences="3">
@@ -3724,14 +3698,6 @@
     <ImplementedReturnTypeMismatch occurrences="1">
       <code>void</code>
     </ImplementedReturnTypeMismatch>
-  </file>
-  <file src="tests/_support/Helper/Acceptance.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$data['total']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$data</code>
-    </MixedAssignment>
   </file>
   <file src="tests/_support/IntegrationTester.php">
     <ImplementedReturnTypeMismatch occurrences="1">
