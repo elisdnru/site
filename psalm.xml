@@ -34,6 +34,7 @@
 
     <issueHandlers>
         <LessSpecificReturnType errorLevel="info" />
+        <PropertyNotSetInConstructor errorLevel="info" />
 
         <InvalidScope>
             <errorLevel type="suppress">

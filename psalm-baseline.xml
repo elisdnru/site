@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.6.2@bca09d74adc704c4eaee36a3c3e9d379e290fc3b">
+<files psalm-version="4.6.1@e93e532e4eaad6d68c4d7b606853800eaceccc72">
   <file src="config/common.php">
     <PossiblyFalseOperand occurrences="2">
       <code>getenv('DB_HOST')</code>
@@ -21,32 +21,6 @@
     <MixedReturnStatement occurrences="1">
       <code>$this-&gt;assignments[$userId]</code>
     </MixedReturnStatement>
-  </file>
-  <file src="src/components/ImageValidator.php">
-    <PropertyNotSetInConstructor occurrences="22">
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-      <code>ImageValidator</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
     <LessSpecificReturnStatement occurrences="1">
@@ -70,29 +44,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Category|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-      <code>CategoryQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/category/models/TreeCategoryQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -111,29 +62,6 @@
     <MoreSpecificReturnType occurrences="1">
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-      <code>TreeCategoryQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/components/uploader/FileUploadBehavior.php">
     <MixedArgument occurrences="3">
@@ -182,81 +110,6 @@
       <code>$file-&gt;getExtension()</code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/migrations/m130329_081136_create_session.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130329_081136_create_session</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m180806_104328_remove_unused_modules.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m180806_104328_remove_unused_modules</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m180806_105831_remove_language_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m180806_105831_remove_language_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m180806_112238_remove_unused_configs.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m180806_112238_remove_unused_configs</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m181022_111111_remove_config.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m181022_111111_remove_config</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m181022_112914_remove_modules_table.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m181022_112914_remove_modules_table</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m181022_141725_remove_attribute.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m181022_141725_remove_attribute</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m181022_141825_remove_unused_blocks.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m181022_141825_remove_unused_blocks</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m190806_190155_remove_gallery_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m190806_190155_remove_gallery_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m190806_200155_remove_new_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m190806_200155_remove_new_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m191007_104255_remove_new_gallery_table.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_104255_remove_new_gallery_table</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m191007_121851_rename_migrations_table.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_121851_rename_migrations_table</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m191007_181351_remove_migrations_view.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_181351_remove_migrations_view</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m200820_225703_remove_contacts_table.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m200820_225703_remove_contacts_table</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/migrations/m201015_174612_remove_menu_table.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201015_174612_remove_menu_table</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/admin/views/default/index.php">
     <MixedArgument occurrences="1">
       <code>$module-&gt;adminName()</code>
@@ -264,16 +117,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$group</code>
     </MixedArgumentTypeCoercion>
-  </file>
-  <file src="src/modules/block/migrations/m130328_093402_create_block.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_093402_create_block</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/block/migrations/m191007_115551_rename_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115551_rename_tables</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/block/views/admin/block/index.php">
     <MixedAssignment occurrences="1">
@@ -283,61 +126,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/blog/migrations/m130328_084945_create_blog_post.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_084945_create_blog_post</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m130328_090350_create_blog_category.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_090350_create_blog_category</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m130328_092321_create_blog_post_group.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_092321_create_blog_post_group</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m130328_092655_create_blog_tag.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_092655_create_blog_tag</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m191007_115552_rename_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115552_rename_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m191010_181651_add_styles.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191010_181651_add_styles</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m191020_153212_remove_keywords.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191020_153212_remove_keywords</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m191023_111425_remove_comments_count.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191023_111425_remove_comments_count</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m201213_171234_add_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201213_171234_add_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m210125_100812_rename_meta.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m210125_100812_rename_meta</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/blog/migrations/m210225_094512_add_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m210225_094512_add_nullable</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -350,29 +138,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Group|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-      <code>GroupQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/models/query/PostQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -385,29 +150,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-      <code>PostQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/blog/views/admin/category/index.php">
     <MixedAssignment occurrences="1">
@@ -526,41 +268,6 @@
       <code>getPage</code>
     </PossiblyFalseReference>
   </file>
-  <file src="src/modules/comment/migrations/m130328_094620_create_comment.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_094620_create_comment</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/comment/migrations/m190914_202714_change_types.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m190914_202714_change_types</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/comment/migrations/m191007_115553_rename_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115553_rename_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/comment/migrations/m191007_131514_change_types.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_131514_change_types</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/comment/migrations/m191025_193912_add_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191025_193912_add_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/comment/migrations/m191109_153821_add_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191109_153821_add_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/comment/migrations/m210221_183532_change_charset.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m210221_183532_change_charset</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/comment/models/Comment.php">
     <InvalidStringClass occurrences="1">
       <code>new $class(null)</code>
@@ -606,29 +313,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-      <code>CommentQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/comment/views/admin/comment/_list.php">
     <MixedAssignment occurrences="1">
@@ -702,12 +386,6 @@
       <code>render</code>
     </MixedMethodCall>
   </file>
-  <file src="src/modules/edu/controllers/DefaultController.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>DefaultController</code>
-      <code>DefaultController</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/edu/views/default/index.php">
     <MixedArgument occurrences="4">
       <code>$item['slug']</code>
@@ -743,25 +421,10 @@
       <code>$episode['slug']</code>
     </MixedOperand>
   </file>
-  <file src="src/modules/file/migrations/m130328_115251_create_file.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_115251_create_file</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/file/migrations/m191004_125256_remove_file.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191004_125256_remove_file</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/home/views/default/index.php">
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
-  </file>
-  <file src="src/modules/landing/migrations/m191025_144021_create_landing.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191025_144021_create_landing</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/landing/models/query/LandingQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -774,29 +437,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-      <code>LandingQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/landing/views/admin/landing/index.php">
     <MixedAssignment occurrences="1">
@@ -806,56 +446,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/page/migrations/m130328_120429_create_page.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_120429_create_page</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m130328_122139_create_page_layout.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_122139_create_page_layout</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m131126_163952_added_robots_field.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m131126_163952_added_robots_field</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m191007_111239_inline_page_layout.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_111239_inline_page_layout</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m191007_115556_rename_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115556_rename_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m191010_181652_add_styles.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191010_181652_add_styles</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m191020_153213_remove_keywords.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191020_153213_remove_keywords</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m191025_175116_remove_image.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191025_175116_remove_image</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m201213_171235_add_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201213_171235_add_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/page/migrations/m210125_100813_rename_meta.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m210125_100813_rename_meta</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/models/query/PageQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -868,29 +458,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-      <code>PageQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/page/views/admin/page/index.php">
     <MixedAssignment occurrences="1">
@@ -900,42 +467,6 @@
       <code>link</code>
       <code>link</code>
     </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/partner/controllers/DefaultController.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>DefaultController</code>
-      <code>DefaultController</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/migrations/m130328_122419_create_portfolio_work.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_122419_create_portfolio_work</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/migrations/m130328_123107_create_portfolio_category.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_123107_create_portfolio_category</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/migrations/m191007_115557_rename_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115557_rename_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/migrations/m191020_153214_remove_keywords.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191020_153214_remove_keywords</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/migrations/m201213_171236_add_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201213_171236_add_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/portfolio/migrations/m210125_100814_rename_meta.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m210125_100814_rename_meta</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/models/query/WorkQuery.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -950,29 +481,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <PropertyNotSetInConstructor occurrences="21">
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-      <code>WorkQuery</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/portfolio/views/admin/category/index.php">
     <MixedAssignment occurrences="1">
@@ -1036,12 +544,6 @@
       <code>$model-&gt;material-&gt;image_width</code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/modules/sitemap/controllers/DefaultController.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>DefaultController</code>
-      <code>DefaultController</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/ulogin/models/ULoginModel.php">
     <MissingPropertyType occurrences="9">
       <code>$email</code>
@@ -1072,61 +574,6 @@
       <code>$this-&gt;token</code>
     </MixedOperand>
   </file>
-  <file src="src/modules/user/components/CurrentPasswordValidator.php">
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>CurrentPasswordValidator</code>
-      <code>CurrentPasswordValidator</code>
-      <code>CurrentPasswordValidator</code>
-      <code>CurrentPasswordValidator</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/components/UsernameValidator.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>UsernameValidator</code>
-      <code>UsernameValidator</code>
-      <code>UsernameValidator</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m130328_130712_create_user.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_130712_create_user</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m130328_141310_create_user_page.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130328_141310_create_user_page</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m130717_065918_add_author_link.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m130717_065918_add_author_link</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m181022_130712_remove_address.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m181022_130712_remove_address</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m190918_143321_added_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m190918_143321_added_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m190918_193620_added_nullable.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m190918_193620_added_nullable</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m191007_110105_remove_page.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_110105_remove_page</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m191007_115558_rename_tables.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_115558_rename_tables</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/modules/user/migrations/m191007_135558_rehash_passwords.php">
     <MixedArgument occurrences="1">
       <code>$row['password']</code>
@@ -1142,34 +589,6 @@
     <MixedOperand occurrences="1">
       <code>$row['id']</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191007_135558_rehash_passwords</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m191017_160126_change_salt.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191017_160126_change_salt</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m191023_111426_remove_comments_count.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m191023_111426_remove_comments_count</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m201030_155612_remove_middlename.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201030_155612_remove_middlename</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m201030_162824_rename_password.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201030_162824_rename_password</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/modules/user/migrations/m201030_165531_rename_name.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>m201030_165531_rename_name</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/modules/user/views/admin/user/index.php">
     <MixedAssignment occurrences="1">
@@ -1198,22 +617,6 @@
     <PossiblyNullReference occurrences="1">
       <code>getUrl</code>
     </PossiblyNullReference>
-  </file>
-  <file src="src/widgets/IconMenu.php">
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>IconMenu</code>
-      <code>IconMenu</code>
-      <code>IconMenu</code>
-      <code>IconMenu</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/widgets/MainMenu.php">
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>MainMenu</code>
-      <code>MainMenu</code>
-      <code>MainMenu</code>
-      <code>MainMenu</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/widgets/views/Messages.php">
     <MixedArgument occurrences="3">
@@ -1995,77 +1398,5 @@
       <code>array|ArrayAccess</code>
       <code>array|ArrayAccess</code>
     </UndefinedDocblockClass>
-  </file>
-  <file src="tests/fixtures/blog/CategoryFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>CategoryFixture</code>
-      <code>CategoryFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/blog/CommentFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>CommentFixture</code>
-      <code>CommentFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/blog/GroupFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>GroupFixture</code>
-      <code>GroupFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/blog/PostFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>PostFixture</code>
-      <code>PostFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/blog/TagFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>TagFixture</code>
-      <code>TagFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/landing/LandingFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>LandingFixture</code>
-      <code>LandingFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/page/PageFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>PageFixture</code>
-      <code>PageFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/portfolio/CategoryFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>CategoryFixture</code>
-      <code>CategoryFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/portfolio/WorkFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>WorkFixture</code>
-      <code>WorkFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/fixtures/user/UserFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>UserFixture</code>
-      <code>UserFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/integration/components/category/CategoryFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>CategoryFixture</code>
-      <code>CategoryFixture</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="tests/integration/components/category/TreeCategoryFixture.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>TreeCategoryFixture</code>
-      <code>TreeCategoryFixture</code>
-    </PropertyNotSetInConstructor>
   </file>
 </files>
