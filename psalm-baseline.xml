@@ -357,25 +357,6 @@
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/search/views/default/index.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;clearWidgets($model-&gt;text)</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="3">
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedAssignment>
-  </file>
   <file src="src/modules/ulogin/models/ULoginModel.php">
     <MissingPropertyType occurrences="9">
       <code>$email</code>
