@@ -193,10 +193,8 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>new $class(null)</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$row['type']</code>
-      <code>$this-&gt;$attribute</code>
-      <code>$this-&gt;$attribute</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$a['liked']</code>
