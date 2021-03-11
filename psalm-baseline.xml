@@ -187,15 +187,6 @@
     </PossiblyNullPropertyFetch>
   </file>
   <file src="src/modules/comment/models/Comment.php">
-    <InvalidStringClass occurrences="1">
-      <code>new $class(null)</code>
-    </InvalidStringClass>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>new $class(null)</code>
-    </LessSpecificReturnStatement>
-    <MixedArgument occurrences="1">
-      <code>$row['type']</code>
-    </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$a['liked']</code>
       <code>$a['liked']</code>
@@ -207,9 +198,6 @@
       <code>$a</code>
       <code>$a</code>
     </MixedAssignment>
-    <MoreSpecificReturnType occurrences="1">
-      <code>self</code>
-    </MoreSpecificReturnType>
     <UndefinedMagicPropertyFetch occurrences="2">
       <code>Yii::$app-&gt;session</code>
       <code>Yii::$app-&gt;session</code>

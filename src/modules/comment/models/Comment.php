@@ -7,6 +7,7 @@ use app\components\Gravatar;
 use app\modules\comment\models\query\CommentQuery;
 use app\modules\user\models\User;
 use ReflectionClass;
+use ReflectionException;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -41,6 +42,27 @@ class Comment extends ActiveRecord
     public static function tableName(): string
     {
         return 'comments';
+    }
+
+    final public function __construct(array $config = [])
+    {
+        parent::__construct($config);
+    }
+
+    /**
+     * @param array $row
+     * @return static
+     * @throws ReflectionException
+     */
+    public static function instantiate($row): self
+    {
+        /**
+         * @var self $class
+         * @psalm-var array{type: class-string<static>} $row
+         * @psalm-var class-string<static> $class
+         */
+        $class = (new ReflectionClass($row['type']))->getNamespaceName() . '\Comment';
+        return new $class();
     }
 
     public function rules(): array
@@ -136,12 +158,6 @@ class Comment extends ActiveRecord
                 'processOnBeforeSave' => true,
             ]
         ];
-    }
-
-    public static function instantiate($row): self
-    {
-        $class = (new ReflectionClass($row['type']))->getNamespaceName() . '\Comment';
-        return new $class(null);
     }
 
     public function beforeSave($insert): bool
