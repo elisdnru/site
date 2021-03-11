@@ -10,8 +10,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="config/web.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$_SERVER['HTTPS']</code>
+      <code>$_SERVER['HTTP_X_FORWARDED_PROTO']</code>
     </MixedArgument>
   </file>
 </files>

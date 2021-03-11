@@ -9,7 +9,9 @@ use yii\web\Request;
 use yii\web\Session;
 use yii\web\User;
 
-$useSecureCookie = isset($_SERVER['HTTPS']) && (strcasecmp($_SERVER['HTTPS'], 'on') === 0 || $_SERVER['HTTPS'] === '1');
+$useSecureCookie =
+    (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
+    (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off');
 
 return ArrayHelper::merge(
     require(__DIR__ . '/common.php'),
