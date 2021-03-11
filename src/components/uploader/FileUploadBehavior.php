@@ -47,15 +47,15 @@ class FileUploadBehavior extends Behavior
     public bool $enableWatermark = false;
 
     private Uploader $uploader;
-    private File $file;
-    private Image $image;
+    private File $files;
+    private Image $images;
 
-    public function __construct(Uploader $uploader, File $file, Image $image, array $config = [])
+    public function __construct(Uploader $uploader, File $files, Image $images, array $config = [])
     {
         parent::__construct($config);
         $this->uploader = $uploader;
-        $this->file = $file;
-        $this->image = $image;
+        $this->files = $files;
+        $this->images = $images;
     }
 
     /**
@@ -144,13 +144,13 @@ class FileUploadBehavior extends Behavior
                 $thumbName = $this->uploader->createThumbFileName($this->owner->{$this->storageAttribute}, $width, $height);
 
                 if ($this->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
-                    $file = $this->file->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
+                    $file = $this->files->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
                     $file = $this->uploader->createThumb($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
                 }
 
                 if ($file) {
-                    if ($image = $this->image->load($file->getRealPath())) {
+                    if ($image = $this->images->load($file->getRealPath())) {
                         $model->{$this->imageWidthAttribute} = $image->getWidth();
                         $model->{$this->imageHeightAttribute} = $image->getHeight();
                     }
