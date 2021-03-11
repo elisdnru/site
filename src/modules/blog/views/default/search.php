@@ -8,7 +8,6 @@ use app\components\TextMarker;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\SearchFormWidget;
-use app\modules\search\models\Search;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
@@ -18,7 +17,7 @@ use yii\widgets\LinkPager;
  * @var View|InlineWidgetsBehavior $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var SearchForm $searchForm
- * @var DataProvider<Search> $dataProvider
+ * @var DataProvider<Post> $dataProvider
  */
 
 $this->context->layout = 'index';
