@@ -12,8 +12,8 @@ use yii\widgets\LinkPager;
 ?>
 
 <div class="items">
-    <?php foreach ($dataProvider->getItems() as $data) : ?>
-        <?= $this->render('@app/modules/comment/views/admin/comment/_view', ['data' => $data]) ?>
+    <?php foreach ($dataProvider->getItems() as $comment) : ?>
+        <?= $this->render('@app/modules/comment/views/admin/comment/_view', ['comment' => $comment]) ?>
     <?php endforeach; ?>
 </div>
 

@@ -220,10 +220,10 @@
   </file>
   <file src="src/modules/comment/views/admin/comment/_view.php">
     <PossiblyNullArgument occurrences="1">
-      <code>$data-&gt;name</code>
+      <code>$comment-&gt;name</code>
     </PossiblyNullArgument>
     <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$data-&gt;liked</code>
+      <code>$comment-&gt;liked</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">

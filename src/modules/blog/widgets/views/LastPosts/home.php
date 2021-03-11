@@ -7,45 +7,45 @@ use yii\helpers\Html;
  * @var Post[] $posts
  */
 ?>
-<?php foreach ($posts as $data) : ?>
+<?php foreach ($posts as $post) : ?>
     <?php
     $links = [];
-    foreach ($data->tags as $tag) {
+    foreach ($post->tags as $tag) {
         $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
 
     <div class="entry list">
         <div class="header">
-            <div class="title"><a href="<?= $data->getUrl() ?>"><?= Html::encode($data->title) ?></a></div>
+            <div class="title"><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a></div>
             <!--noindex-->
             <div class="info">
                 <div class="date">
-                    <span class="enc-date" data-date="<?= DateFormatter::format($data->date) ?>">&nbsp;</span>
+                    <span class="enc-date" data-date="<?= DateFormatter::format($post->date) ?>">&nbsp;</span>
                 </div>
                 <div class="category">
-                    <span><a href="<?= $data->category->getUrl() ?>"><?= Html::encode($data->category->title) ?></a></span>
+                    <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
                 </div>
                 <div class="tags"><span><?= implode(', ', $links) ?></span></div>
                 <div class="comments">
-                    <span><?= $data->getCommentsCount() ?></span>
+                    <span><?= $post->getCommentsCount() ?></span>
                 </div>
             </div>
-            <?php if ($data->image) : ?>
-                <?php $imageUrl = $data->getImageThumbUrl(250); ?>
+            <?php if ($post->image) : ?>
+                <?php $imageUrl = $post->getImageThumbUrl(250); ?>
                 <?php
                 $properties = [
                     'data-src' => $imageUrl
                 ];
-                if ($data->image_width) {
-                    $properties['width'] = $data->image_width;
+                if ($post->image_width) {
+                    $properties['width'] = $post->image_width;
                 }
-                if ($data->image_height) {
-                    $properties['height'] = $data->image_height;
+                if ($post->image_height) {
+                    $properties['height'] = $post->image_height;
                 }
                 ?>
                 <div class="thumb">
-                    <a href="<?= $data->getUrl() ?>">
+                    <a href="<?= $post->getUrl() ?>">
                         <picture>
                             <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
                             <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
@@ -56,7 +56,7 @@ use yii\helpers\Html;
             <?php endif; ?>
             <!--/noindex-->
         </div>
-        <div class="short"><?= trim($data->short_purified) ?></div>
+        <div class="short"><?= trim($post->short_purified) ?></div>
     </div>
 
 <?php endforeach; ?>

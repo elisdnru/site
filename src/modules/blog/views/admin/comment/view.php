@@ -23,4 +23,4 @@ CommentsAsset::register($this);
 
 <h1>Просмотр комментария</h1>
 
-<?= $this->render('@app/modules/comment/views/admin/comment/_view', ['data' => $model]) ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_view', ['comment' => $model]) ?>
