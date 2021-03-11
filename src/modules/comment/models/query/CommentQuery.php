@@ -37,7 +37,7 @@ class CommentQuery extends ActiveQuery
         return $this;
     }
 
-    public function type($type): self
+    public function type(string $type): self
     {
         if ($type) {
             return $this->andWhere(['type' => $type]);
