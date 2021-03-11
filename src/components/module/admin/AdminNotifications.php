@@ -16,6 +16,7 @@ class AdminNotifications
     /**
      * @param string $module
      * @return array[]
+     * @psalm-return array<array-key, array{label: string, url: string|array}>
      */
     public function notifications(string $module): array
     {

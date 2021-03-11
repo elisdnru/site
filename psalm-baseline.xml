@@ -68,11 +68,6 @@
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/blog/views/default/index.php">
-    <PropertyTypeCoercion occurrences="1">
-      <code>$this-&gt;params</code>
-    </PropertyTypeCoercion>
-  </file>
   <file src="src/modules/comment/models/Comment.php">
     <MixedArrayAccess occurrences="2">
       <code>$a['liked']</code>
@@ -104,11 +99,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/home/views/default/index.php">
-    <PropertyTypeCoercion occurrences="1">
-      <code>$this-&gt;params</code>
-    </PropertyTypeCoercion>
   </file>
   <file src="src/modules/landing/models/query/LandingQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">

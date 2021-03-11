@@ -31,7 +31,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category']];
     }
     if (Yii::$app->moduleAdminAccess->isGranted('blog') && Yii::$app->moduleAdminAccess->isGranted('comment')) {
-        $this->params['admin'] = array_merge($this->params['admin'] ?? [], Yii::$app->moduleAdminNotifications->notifications('blog'));
+        foreach (Yii::$app->moduleAdminNotifications->notifications('blog') as $notification) {
+            $this->params['admin'][] = $notification;
+        }
     }
 }
 ?>
