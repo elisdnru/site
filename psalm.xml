@@ -21,6 +21,7 @@
         <directory name="tests" />
         <ignoreFiles>
             <directory name="src/extensions" />
+            <directory name="tests/_support/_generated" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>

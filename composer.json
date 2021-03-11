@@ -56,7 +56,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "tests\\": "tests/"
+            "tests\\": "tests/",
+            "tests\\_generated\\": "tests/_support/_generated"
         }
     },
     "config": {
