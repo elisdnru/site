@@ -69,12 +69,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/blog/views/default/index.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
-    </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
-    </PossiblyNullPropertyFetch>
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
     </PropertyTypeCoercion>
