@@ -31,7 +31,6 @@ use yii\helpers\Url;
  * @property Category $category
  *
  * @mixin FileUploadBehavior
- * @method Work published()
  */
 class Work extends ActiveRecord
 {
