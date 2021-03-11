@@ -3,6 +3,7 @@
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -30,7 +31,7 @@ class TreeCategoryQuery extends CategoryQuery
      */
     public function all($db = null): array
     {
-        return parent::all($db);
+        return ActiveQuery::all($db);
     }
 
     /**
@@ -40,7 +41,7 @@ class TreeCategoryQuery extends CategoryQuery
      */
     public function each($batchSize = 100, $db = null): iterable
     {
-        return parent::each($batchSize, $db);
+        return ActiveQuery::each($batchSize, $db);
     }
 
     /**
@@ -49,6 +50,6 @@ class TreeCategoryQuery extends CategoryQuery
      */
     public function one($db = null): ?TreeCategory
     {
-        return parent::one($db);
+        return ActiveQuery::one($db);
     }
 }

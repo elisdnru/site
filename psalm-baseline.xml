@@ -31,18 +31,12 @@
       <code>TreeCategory[]|BatchQueryResult</code>
       <code>TreeCategory|ActiveRecord|null</code>
     </ImplementedReturnTypeMismatch>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>parent::each($batchSize, $db)</code>
-    </LessSpecificReturnStatement>
     <MismatchingDocblockReturnType occurrences="1">
       <code>TreeCategory|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
     <MixedInferredReturnType occurrences="1">
       <code>TreeCategory|ActiveRecord|null</code>
     </MixedInferredReturnType>
-    <MoreSpecificReturnType occurrences="1">
-      <code>TreeCategory[]|BatchQueryResult</code>
-    </MoreSpecificReturnType>
   </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
