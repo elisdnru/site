@@ -9,6 +9,9 @@ class m191007_135558_rehash_passwords extends Migration
     {
         $this->alterColumn('users', 'password', 'varchar(255) DEFAULT NULL');
 
+        /**
+         * @psalm-var array<array-key, array{id: int, password: string}> $rows
+         */
         $rows = (new Query())
             ->select('id, password')
             ->from('users')

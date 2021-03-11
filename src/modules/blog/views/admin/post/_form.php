@@ -142,7 +142,12 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="row">
                 <ul class="tags-list" id="tags-variants">
-                    <?php foreach (ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title') as $id => $tag) : ?>
+                    <?php
+                    /**
+                     * @var int $id
+                     * @var string $tag
+                     */
+                    foreach (ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title') as $id => $tag) : ?>
                         <li id="tag-<?= $id ?>">
                             <a class="tag" href="#"><?= Html::encode($tag) ?></a>
                         </li>

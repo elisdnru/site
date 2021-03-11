@@ -10,15 +10,15 @@ use yii\web\User as WebUser;
 
 class ULoginModel extends Model
 {
-    public $identity;
-    public $network;
-    public $email;
-    public $lastname;
-    public $firstname;
-    public $photo;
-    public $token;
-    public $error_type;
-    public $error_message;
+    public string $identity = '';
+    public string $network = '';
+    public string $token = '';
+    public string $email = '';
+    public string $firstname = '';
+    public string $lastname = '';
+    public ?string $photo = null;
+    public ?string $error_type = null;
+    public ?string $error_message = null;
 
     public function rules(): array
     {
@@ -45,12 +45,14 @@ class ULoginModel extends Model
     public function loadAuthData(): void
     {
         $body = file_get_contents('http://ulogin.ru/token.php?token=' . $this->token . '&host=elisdn.ru');
-        if ($authData = json_decode($body, true)) {
-            $this->setAttributes($authData);
-            $this->firstname = $authData['first_name'];
-            $this->lastname = $authData['last_name'];
-            $this->photo = $authData['photo'];
-        }
+        /**
+         * @psalm-var array{first_name: string, last_name: string, photo: string} $authData
+         */
+        $authData = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
+        $this->setAttributes($authData);
+        $this->firstname = $authData['first_name'];
+        $this->lastname = $authData['last_name'];
+        $this->photo = $authData['photo'];
     }
 
     public function login(WebUser $webUser): bool
@@ -100,7 +102,7 @@ class ULoginModel extends Model
         $user->role = Access::ROLE_USER;
         $user->lastname = $this->lastname;
         $user->firstname = $this->firstname;
-        $user->avatar = !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $this->photo) ? $this->photo : '';
+        $user->avatar = ($this->photo && !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $this->photo)) ? $this->photo : '';
 
         if (!$user->save()) {
             return null;

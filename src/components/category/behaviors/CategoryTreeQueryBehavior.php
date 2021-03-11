@@ -204,6 +204,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
     public function findByPath(string $path): ?ActiveRecord
     {
         $chunks = explode('/', trim($path, '/'));
+        /** @var ActiveRecord|null $model */
         $model = null;
 
         $query = $this->getQuery();
@@ -221,14 +222,17 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             if ($parent !== null) {
                 $chunks = array_slice($chunks, 1);
                 foreach ($chunks as $alias) {
+                    /** @var TreeCategory|null $model */
                     $model = $parent->getChildByAlias($alias, $this->getQuery());
-                    if (!$model) {
+                    if ($model === null) {
                         return null;
                     }
                     $parent = $model;
                 }
             }
         }
+
+        /** @var ActiveRecord|null */
         return $model;
     }
 

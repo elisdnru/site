@@ -3,8 +3,10 @@
 use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
+use yii\web\View;
 
 /**
+ * @var View $this
  * @var Comment[] $comments
  * @var User $user
  * @var CommentForm $form

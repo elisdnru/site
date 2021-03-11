@@ -14,25 +14,6 @@
       <code>$_SERVER['HTTPS']</code>
     </MixedArgument>
   </file>
-  <file src="src/components/AuthManager.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$this-&gt;assignments[$userId]</code>
-    </MixedReturnStatement>
-  </file>
-  <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$model</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
-      <code>?ActiveRecord</code>
-    </MoreSpecificReturnType>
-    <UndefinedMagicMethod occurrences="1">
-      <code>getChildByAlias</code>
-    </UndefinedMagicMethod>
-  </file>
   <file src="src/components/category/models/CategoryQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Category[]|BatchQueryResult</code>
@@ -86,17 +67,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/blog/views/admin/post/_form.php">
-    <MixedArgument occurrences="1">
-      <code>$tag</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$id</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$tag</code>
-    </MixedAssignment>
   </file>
   <file src="src/modules/blog/views/default/index.php">
     <MixedArgument occurrences="2">
@@ -163,48 +133,6 @@
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/comment/widgets/views/Comments/comments.php">
-    <MixedArgument occurrences="2"/>
-    <MixedMethodCall occurrences="2">
-      <code>render</code>
-      <code>render</code>
-    </MixedMethodCall>
-  </file>
-  <file src="src/modules/edu/views/default/index.php">
-    <MixedArgument occurrences="4">
-      <code>$item['slug']</code>
-      <code>$item['slug']</code>
-      <code>$item['thumbnail']</code>
-      <code>$item['title']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$item['slug']</code>
-      <code>$item['slug']</code>
-      <code>$item['thumbnail']</code>
-      <code>$item['title']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/modules/edu/widgets/views/series-episodes.php">
-    <MixedArgument occurrences="2">
-      <code>$episode['title']</code>
-      <code>$episode['title']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$episode['public']</code>
-      <code>$episode['slug']</code>
-      <code>$episode['title']</code>
-      <code>$episode['title']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$episode</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$episode['slug']</code>
-    </MixedOperand>
-  </file>
   <file src="src/modules/home/views/default/index.php">
     <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;params</code>
@@ -247,57 +175,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/ulogin/models/ULoginModel.php">
-    <MissingPropertyType occurrences="9">
-      <code>$email</code>
-      <code>$error_message</code>
-      <code>$error_type</code>
-      <code>$firstname</code>
-      <code>$identity</code>
-      <code>$lastname</code>
-      <code>$network</code>
-      <code>$photo</code>
-      <code>$token</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="3">
-      <code>$authData</code>
-      <code>$this-&gt;identity</code>
-      <code>$this-&gt;photo</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$authData['first_name']</code>
-      <code>$authData['last_name']</code>
-      <code>$authData['photo']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$authData</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$this-&gt;network</code>
-      <code>$this-&gt;token</code>
-    </MixedOperand>
-  </file>
-  <file src="src/modules/user/migrations/m191007_135558_rehash_passwords.php">
-    <MixedArgument occurrences="1">
-      <code>$row['password']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$row['id']</code>
-      <code>$row['id']</code>
-      <code>$row['password']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$row</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$row['id']</code>
-    </MixedOperand>
-  </file>
-  <file src="src/modules/user/widgets/views/LoginForm.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$user</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="tests/_support/AcceptanceTester.php">
     <ImplementedReturnTypeMismatch occurrences="1">

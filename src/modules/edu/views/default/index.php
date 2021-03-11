@@ -7,6 +7,11 @@ use yii\web\View;
 /**
  * @var View $this
  * @var array $series
+ * @psalm-var array<array-key, array{
+ *     slug: string,
+ *     title: string,
+ *     thumbnail: string
+ * }> $series
  */
 
 $this->context->layout = 'index';

@@ -7,11 +7,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /**
- * @var User $user
+ * @var User|null $user
  * @var LoginForm $model
  */
 ?>
-<?php if ($user) : ?>
+<?php if ($user !== null) : ?>
     <div style="float:left;">
         <a href="<?= Url::to(['/user/profile/view']) ?>">
             <img src="<?= $user->getAvatarUrl() ?>" alt="" width="50">
