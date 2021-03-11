@@ -7,6 +7,7 @@ namespace app\modules\portfolio\models\query;
 use app\modules\portfolio\models\Work;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
 class WorkQuery extends ActiveQuery
@@ -31,10 +32,23 @@ class WorkQuery extends ActiveQuery
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
+     * @param int $batchSize
      * @param Connection|null $db
-     * @return Work|ActiveRecord|null
+     * @return Work[]|BatchQueryResult
      */
-    public function one($db = null): ?Work
+    public function each($batchSize = 100, $db = null): array|BatchQueryResult
+    {
+        return parent::each($batchSize, $db);
+    }
+
+    /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
+     * @param Connection|null $db
+     * @return Work|array|null
+     * @psalm-return Work|null
+     */
+    public function one($db = null): array|Work|null
     {
         return parent::one($db);
     }

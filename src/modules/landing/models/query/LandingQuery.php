@@ -38,20 +38,23 @@ class LandingQuery extends ActiveQuery
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
      * @return Landing[]|BatchQueryResult
      */
-    public function each($batchSize = 100, $db = null): iterable
+    public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Landing|ActiveRecord|null
+     * @return Landing|array|null
+     * @psalm-return Landing|null
      */
-    public function one($db = null): ?Landing
+    public function one($db = null): array|Landing|null
     {
         return parent::one($db);
     }

@@ -35,20 +35,23 @@ class CategoryQuery extends ActiveQuery
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
      * @return Category[]|BatchQueryResult
      */
-    public function each($batchSize = 100, $db = null): iterable
+    public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Category|ActiveRecord|null
+     * @return Category|array|null
+     * @psalm-return Category|null
      */
-    public function one($db = null): ?Category
+    public function one($db = null): array|Category|null
     {
         return parent::one($db);
     }

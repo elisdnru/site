@@ -38,20 +38,23 @@ class GroupQuery extends ActiveQuery
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
      * @return Group[]|BatchQueryResult
      */
-    public function each($batchSize = 100, $db = null): iterable
+    public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Group|ActiveRecord|null
+     * @return Group|array|null
+     * @psalm-return Group|null
      */
-    public function one($db = null): ?Group
+    public function one($db = null): array|Group|null
     {
         return parent::one($db);
     }

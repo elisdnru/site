@@ -62,20 +62,23 @@ class CommentQuery extends ActiveQuery
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
      * @return Comment[]|BatchQueryResult
      */
-    public function each($batchSize = 100, $db = null): iterable
+    public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Comment|ActiveRecord|null
+     * @return Comment|array|null
+     * @psalm-return Comment|null
      */
-    public function one($db = null): ?Comment
+    public function one($db = null): array|Comment|null
     {
         return parent::one($db);
     }

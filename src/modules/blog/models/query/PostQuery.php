@@ -27,20 +27,23 @@ class PostQuery extends ActiveQuery
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
      * @return Post[]|BatchQueryResult
      */
-    public function each($batchSize = 100, $db = null): iterable
+    public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
     }
 
     /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Post|ActiveRecord|null
+     * @return Post|array|null
+     * @psalm-return Post|null
      */
-    public function one($db = null): ?Post
+    public function one($db = null): array|Post|null
     {
         return parent::one($db);
     }
