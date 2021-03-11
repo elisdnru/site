@@ -31,26 +31,17 @@ class CommentQuery extends ActiveQuery
 
     public function material(int $id): self
     {
-        if ($id) {
-            return $this->andWhere(['material_id' => $id]);
-        }
-        return $this;
+        return $this->andWhere(['material_id' => $id]);
     }
 
     public function type(string $type): self
     {
-        if ($type) {
-            return $this->andWhere(['type' => $type]);
-        }
-        return $this;
+        return $this->andWhere(['type' => $type]);
     }
 
     public function user(int $id): self
     {
-        if ($id) {
-            return $this->andWhere(['user_id' => $id]);
-        }
-        return $this;
+        return $this->andWhere(['user_id' => $id]);
     }
 
     public function unread(): self
