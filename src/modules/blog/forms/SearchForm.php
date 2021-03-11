@@ -4,9 +4,6 @@ namespace app\modules\blog\forms;
 
 use yii\base\Model;
 
-/**
- * @property integer $word
- */
 class SearchForm extends Model
 {
     public ?string $word = null;
