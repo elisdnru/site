@@ -218,46 +218,6 @@
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/comment/views/admin/comment/_view.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$comment-&gt;name</code>
-    </PossiblyNullArgument>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$comment-&gt;liked</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/comment/widgets/views/Comments/_comment.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$comment-&gt;name</code>
-    </PossiblyNullArgument>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$user</code>
-      <code>$user</code>
-    </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$comment-&gt;liked</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/comment/widgets/views/Comments/_tree.php">
-    <MixedArgument occurrences="2"/>
-    <MixedArrayOffset occurrences="1">
-      <code>$comments[$comment-&gt;id]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="1">
-      <code>$comment</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>render</code>
-      <code>render</code>
-    </MixedMethodCall>
-    <MixedPropertyFetch occurrences="2">
-      <code>$comment-&gt;id</code>
-      <code>$comment-&gt;id</code>
-    </MixedPropertyFetch>
-    <UndefinedDocblockClass occurrences="2">
-      <code>$comments</code>
-    </UndefinedDocblockClass>
-  </file>
   <file src="src/modules/comment/widgets/views/Comments/comments.php">
     <MixedArgument occurrences="2"/>
     <MixedMethodCall occurrences="2">

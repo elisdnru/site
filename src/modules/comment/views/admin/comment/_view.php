@@ -39,9 +39,9 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $comment->id]);
         <?php endif; ?>
 
         <span class="author">
-            <?php if ($comment->site) : ?>
+            <?php if (!empty($comment->site) && !empty($comment->name)) : ?>
                 <cite><a rel="nofollow" href="<?= Html::encode($comment->site) ?>"><?= Html::encode($comment->name) ?></a></cite>
-            <?php elseif ($comment->name) : ?>
+            <?php elseif (!empty($comment->name)) : ?>
                 <?= Html::encode($comment->name) ?>
             <?php else : ?>
                 <i>Неизвестный</i>

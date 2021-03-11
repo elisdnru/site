@@ -1,9 +1,12 @@
 <?php
 
+use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
+use yii\web\View;
 
 /**
- * @var Comment $comments
+ * @var View $this
+ * @var Comment[][] $comments
  * @var int $parent
  * @var int $indent
  * @var int $authorId
@@ -20,7 +23,7 @@ use app\modules\user\models\User;
             'user' => $user,
         ]) ?>
 
-        <?php if ($indent < 100 && isset($comments[$comment->id]) && $comments[$comment->id]) : ?>
+        <?php if ($indent < 100 && array_key_exists($comment->id, $comments)) : ?>
             <?= $this->render('_tree', [
                 'indent' => $indent + 1,
                 'comments' => $comments,

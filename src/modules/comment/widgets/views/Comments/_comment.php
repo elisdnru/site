@@ -11,7 +11,7 @@ use yii\helpers\Url;
  * @var int $indent
  * @var int $authorId
  * @var Comment $comment
- * @var User $user
+ * @var User|null $user
  */
 ?>
 <article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
@@ -19,10 +19,10 @@ use yii\helpers\Url;
 
     <header>
         <span class="link">
-            <?php if ($user && $comment->user && $user->id == $comment->user_id) : ?>
+            <?php if ($user !== null && $comment->user && $user->id == $comment->user_id) : ?>
                 <a rel="nofollow" href="<?= Url::to(['/comment/comment/update', 'id' => $comment->id]) ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий"></a>
             <?php endif; ?>
-            <?php if ($user && $comment->user && $user->id == $comment->user_id) : ?>
+            <?php if ($user !== null && $comment->user && $user->id == $comment->user_id) : ?>
                 <a rel="nofollow" class="ajax-del" data-del="comment_<?= $comment->id ?>" href="<?= Url::to(['/comment/ajax/delete', 'id' => $comment->id]) ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
             <?php endif; ?>
         </span>
@@ -39,9 +39,9 @@ use yii\helpers\Url;
         <?php endif; ?>
 
         <span class="author">
-            <?php if ($comment->site) : ?>
+            <?php if (!empty($comment->site) && !empty($comment->name)) : ?>
                 <cite><a href="<?= Html::encode($comment->site) ?>"><?= Html::encode($comment->name) ?></a></cite>
-            <?php elseif ($comment->name) : ?>
+            <?php elseif (!empty($comment->name)) : ?>
                 <cite><?= Html::encode($comment->name) ?></cite>
             <?php else : ?>
                 <cite><em>Неизвестный</em></cite>

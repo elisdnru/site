@@ -16,7 +16,7 @@ use yii\db\Expression;
 use yii\mail\MailerInterface;
 
 /**
- * @property string $id
+ * @property int $id
  * @property string $type
  * @property integer $material_id
  * @property string $date
