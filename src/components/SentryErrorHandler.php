@@ -9,9 +9,6 @@ use yii\web\ErrorHandler;
 use yii\web\HttpException;
 use function Sentry\captureException;
 
-/**
- * @psalm-suppress PropertyNotSetInConstructor
- */
 class SentryErrorHandler extends ErrorHandler
 {
     public bool $sentryActive = false;

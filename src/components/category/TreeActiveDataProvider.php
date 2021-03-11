@@ -10,9 +10,6 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecordInterface;
 use yii\db\Connection;
 
-/**
- * @psalm-suppress PropertyNotSetInConstructor
- */
 class TreeActiveDataProvider extends ActiveDataProvider
 {
     public string $childrenRelation = 'children';

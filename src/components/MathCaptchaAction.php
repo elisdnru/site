@@ -4,9 +4,6 @@ namespace app\components;
 
 use yii\captcha\CaptchaAction;
 
-/**
- * @psalm-suppress PropertyNotSetInConstructor
- */
 class MathCaptchaAction extends CaptchaAction
 {
     protected function generateVerifyCode(): string
