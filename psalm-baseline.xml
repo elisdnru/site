@@ -121,19 +121,4 @@
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="tests/_support/AcceptanceTester.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>void</code>
-    </ImplementedReturnTypeMismatch>
-  </file>
-  <file src="tests/_support/IntegrationTester.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>void</code>
-    </ImplementedReturnTypeMismatch>
-  </file>
-  <file src="tests/_support/UnitTester.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>void</code>
-    </ImplementedReturnTypeMismatch>
-  </file>
 </files>
