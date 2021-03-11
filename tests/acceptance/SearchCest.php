@@ -25,13 +25,12 @@ class SearchCest
     public function post(AcceptanceTester $I): void
     {
         $I->amOnPage('');
-        $I->seeElement('.search-form');
+        $I->seeElement('.page-header .search-form');
 
-        $I->fillField('q', 'post');
-        $I->click('', '.search-form');
+        $I->fillField('.page-header .search-form input', 'post');
+        $I->click('', '.page-header .search-form');
 
         $I->see('Поиск по сайту', 'h1');
         $I->seeInSource('<a href="/blog/1/post-1"><mark>post</mark> 1</a>');
     }
-
 }
