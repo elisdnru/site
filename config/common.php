@@ -128,7 +128,7 @@ return [
             ],
             Connection::class => [
                 'class' => Connection::class,
-                'dsn' => 'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME'),
+                'dsn' => 'mysql:host=' . (getenv('DB_HOST') ?: '') . ';dbname=' . (getenv('DB_NAME') ?: ''),
                 'username' => getenv('DB_USERNAME'),
                 'password' => getenv('DB_PASSWORD'),
                 'tablePrefix' => '',
@@ -155,7 +155,7 @@ return [
             ],
             Dispatcher::class => [
                 'class' => Dispatcher::class,
-                'traceLevel' => YII_DEBUG ? 3 : 0,
+                'traceLevel' => getenv('APP_DEBUG') ? 3 : 0,
             ],
             CacheInterface::class => !getenv('APP_DEBUG') ? [
                 'class' => FileCache::class,

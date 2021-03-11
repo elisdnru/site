@@ -9,7 +9,14 @@ use yii\web\Request;
 use yii\web\Session;
 use yii\web\User;
 
-$useSecureCookie =
+/**
+ * @psalm-var array{
+ *     HTTP_X_FORWARDED_PROTO?: string,
+ *     HTTPS?: string
+ * } $_SERVER
+ */
+
+$isSecure =
     (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
     (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off');
 
@@ -29,7 +36,7 @@ return ArrayHelper::merge(
             'definitions' => [
                 Cookie::class => [
                     'httpOnly' => true,
-                    'secure' => $useSecureCookie,
+                    'secure' => $isSecure,
                 ],
             ],
             'singletons' => [
@@ -38,14 +45,14 @@ return ArrayHelper::merge(
                     'cookieValidationKey' => getenv('COOKIE_SECRET'),
                     'csrfCookie' => [
                         'httpOnly' => true,
-                        'secure' => $useSecureCookie,
+                        'secure' => $isSecure,
                     ]
                 ],
                 Session::class => [
                     'class' => Session::class,
                     'cookieParams' => [
                         'httpOnly' => true,
-                        'secure' => $useSecureCookie,
+                        'secure' => $isSecure,
                     ],
                 ],
                 User::class => [
@@ -54,7 +61,7 @@ return ArrayHelper::merge(
                     'identityCookie' => [
                         'name' => '_identity',
                         'httpOnly' => true,
-                        'secure' => $useSecureCookie,
+                        'secure' => $isSecure,
                     ],
                     'loginUrl' => ['/user/default/login'],
                 ],

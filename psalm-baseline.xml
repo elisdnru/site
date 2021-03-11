@@ -1,18 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.6.1@e93e532e4eaad6d68c4d7b606853800eaceccc72">
-  <file src="config/common.php">
-    <PossiblyFalseOperand occurrences="2">
-      <code>getenv('DB_HOST')</code>
-      <code>getenv('DB_NAME')</code>
-    </PossiblyFalseOperand>
-    <TypeDoesNotContainType occurrences="1">
-      <code>YII_DEBUG</code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="config/web.php">
-    <MixedArgument occurrences="2">
-      <code>$_SERVER['HTTPS']</code>
-      <code>$_SERVER['HTTP_X_FORWARDED_PROTO']</code>
-    </MixedArgument>
-  </file>
-</files>
+<files psalm-version="4.6.1@e93e532e4eaad6d68c4d7b606853800eaceccc72"/>
