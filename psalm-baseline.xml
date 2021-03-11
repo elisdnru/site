@@ -114,9 +114,6 @@
     <MismatchingDocblockReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
-    <MissingParamType occurrences="1">
-      <code>$id</code>
-    </MissingParamType>
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>

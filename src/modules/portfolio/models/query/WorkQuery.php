@@ -16,7 +16,7 @@ class WorkQuery extends ActiveQuery
         return $this->andWhere(['public' => 1]);
     }
 
-    public function category($id): self
+    public function category(int $id): self
     {
         return $this->andWhere(['category_id' => $id]);
     }
