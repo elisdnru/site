@@ -14,11 +14,14 @@ class CommentQuery extends ActiveQuery
 {
     public function init(): void
     {
-        /** @var Comment $class */
+        /**
+         * @var Comment $class
+         * @psalm-var class-string<Comment> $class
+         */
         $class = $this->modelClass;
 
         if ($class::TYPE_OF_COMMENT) {
-            $this->type($class::TYPE_OF_COMMENT);
+            $this->type((string)$class::TYPE_OF_COMMENT);
         }
 
         parent::init();

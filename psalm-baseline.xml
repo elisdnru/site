@@ -76,9 +76,6 @@
     <MismatchingDocblockReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MismatchingDocblockReturnType>
-    <MixedArgument occurrences="1">
-      <code>$class::TYPE_OF_COMMENT</code>
-    </MixedArgument>
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
