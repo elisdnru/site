@@ -48,10 +48,7 @@ class DefaultController extends Controller
         $query = 'CREATE OR REPLACE VIEW search AS ';
         $tables = [];
 
-        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\page\\\\models\\\\Page\' AS material_class FROM pages';
-        $tables[] = 'SELECT title, text, id AS material_id, \'app\\\\modules\\\\landing\\\\models\\\\Landing\' AS material_class FROM landings';
         $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\blog\\\\models\\\\Post\' AS material_class FROM blog_posts WHERE public=1';
-        $tables[] = 'SELECT title, text_purified AS text, id AS material_id, \'app\\\\modules\\\\portfolio\\\\models\\\\Work\' AS material_class FROM portfolio_works WHERE public=1';
 
         $db->createCommand($query . implode(' UNION ', $tables))->execute();
     }

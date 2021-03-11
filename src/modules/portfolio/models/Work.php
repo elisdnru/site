@@ -5,8 +5,6 @@ namespace app\modules\portfolio\models;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\portfolio\models\query\WorkQuery;
-use app\modules\search\models\Image;
-use app\modules\search\models\Material;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -34,7 +32,7 @@ use yii\helpers\Url;
  *
  * @mixin FileUploadBehavior
  */
-class Work extends ActiveRecord implements Material
+class Work extends ActiveRecord
 {
     public const IMAGE_WIDTH = 250;
     public const IMAGE_PATH = 'upload/images/portfolio';
@@ -179,24 +177,5 @@ class Work extends ActiveRecord implements Material
             $this->cachedUrl = Url::to(['/portfolio/work/show', 'category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
         }
         return $this->cachedUrl;
-    }
-
-    public function getSearchTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function getSearchUrl(): string
-    {
-        return $this->getUrl();
-    }
-
-    public function getSearchImage(): ?Image
-    {
-        return !empty($this->image) ? new Image(
-            $this->image_width ?: 0,
-            $this->image_height ?: 0,
-            $this->getImageThumbUrl()
-        ) : null;
     }
 }

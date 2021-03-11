@@ -4,8 +4,6 @@ namespace app\modules\landing\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\modules\landing\models\query\LandingQuery;
-use app\modules\search\models\Image;
-use app\modules\search\models\Material;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -22,7 +20,7 @@ use yii\helpers\Url;
  *
  * @mixin CategoryTreeBehavior
  */
-class Landing extends ActiveRecord implements Material
+class Landing extends ActiveRecord
 {
     public int $indent = 0;
 
@@ -119,20 +117,5 @@ class Landing extends ActiveRecord implements Material
         foreach ($this->children as $child) {
             $child->delete();
         }
-    }
-
-    public function getSearchTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function getSearchUrl(): string
-    {
-        return $this->getUrl();
-    }
-
-    public function getSearchImage(): ?Image
-    {
-        return null;
     }
 }
