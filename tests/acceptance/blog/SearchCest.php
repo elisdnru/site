@@ -31,6 +31,6 @@ class SearchCest
         $I->click('', '.main .search-form');
 
         $I->see('Поиск по блогу', 'h1');
-        $I->seeInSource('<a href="/blog/1/post-1">Post 1</a>');
+        $I->seeInSource('<a href="/blog/1/post-1"><mark>post</mark> 1</a>');
     }
 }
