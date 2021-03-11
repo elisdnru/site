@@ -30,7 +30,7 @@ class SearchCest
         $I->fillField('.page-header .search-form input', 'post');
         $I->click('', '.page-header .search-form');
 
-        $I->see('Поиск по сайту', 'h1');
+        $I->see('Поиск в блоге', 'h1');
         $I->seeInSource('<a href="/blog/1/post-1"><mark>post</mark> 1</a>');
     }
 }
