@@ -6,19 +6,19 @@ use yii\base\Model;
 
 class SearchForm extends Model
 {
-    public ?string $word = null;
+    public ?string $q = null;
 
     public function rules(): array
     {
         return [
-            ['word', 'safe'],
+            ['q', 'safe'],
         ];
     }
 
     public function attributeLabels(): array
     {
         return [
-            'word' => 'Слово',
+            'q' => 'Слово',
         ];
     }
 

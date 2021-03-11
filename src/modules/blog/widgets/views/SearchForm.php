@@ -8,7 +8,7 @@ use yii\helpers\Url;
 <div class="search-form form">
     <?= Html::beginForm(Url::to(['/blog/default/search']), 'get') ?>
     <div class="row search-word">
-        <?= Html::textInput('word', $form->word, ['placeholder' => 'Поиск в блоге']) ?>
+        <?= Html::textInput('q', $form->q, ['placeholder' => 'Поиск в блоге']) ?>
     </div>
     <div class="row buttons search-button">
         <button type="submit"></button>

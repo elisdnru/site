@@ -71,9 +71,9 @@ class DefaultController extends Controller
         if ($form->load($request->getQueryParams())) {
             $query->andWhere([
                 'or',
-                ['like', 'title', $form->word],
-                ['like', 'text_purified', $form->word],
-                ['like', 'short_purified', $form->word],
+                ['like', 'title', $form->q],
+                ['like', 'text_purified', $form->q],
+                ['like', 'short_purified', $form->q],
             ]);
         }
 
