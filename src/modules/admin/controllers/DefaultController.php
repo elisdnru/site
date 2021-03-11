@@ -28,10 +28,10 @@ class DefaultController extends AdminController
 
     public function actionIndex(WebUser $user, AdminDashboard $dashboard): string
     {
-        $modules = $dashboard->groupedModules();
+        $groups = $dashboard->groupedModules();
 
         return $this->render('index', [
-            'modules' => $modules,
+            'groups' => $groups,
             'user' => $this->loadUser((int)$user->id),
         ]);
     }

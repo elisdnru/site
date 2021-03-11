@@ -1,11 +1,14 @@
 <?php
+
+use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
 use yii\base\Module;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Module[][] $modules
+ * @var Module[][] $groups
+ * @psalm-var array<string, Module[]> $groups
  */
 
 $this->title = 'Панель управления';
@@ -22,8 +25,8 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 
     <?php
     $notifications = [];
-    foreach ($modules as $group) {
-        foreach ($group as $module) {
+    foreach ($groups as $modules) {
+        foreach ($modules as $module) {
             foreach (Yii::$app->moduleAdminNotifications->notifications($module->id) as $notification) {
                 $notifications[] = $notification;
             }
@@ -42,10 +45,10 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
         </ul>
     </fieldset>
 
-    <?php foreach ($modules as $group => $groupModules) : ?>
+    <?php foreach ($groups as $group => $modules) : ?>
         <?php
         $has = false;
-        foreach ($groupModules as $module) {
+        foreach ($modules as $module) {
             if (Yii::$app->moduleAdminMenu->menu($module->id)) {
                 $has = true;
                 break;
@@ -57,12 +60,17 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
             <fieldset>
                 <h2><?= $group ?></h2>
                 <ul class="adminlist">
-                    <?php foreach ($groupModules as $module) : ?>
+                    <?php
+                    /**
+                     * @var Module|AdminDashboardItem $module
+                     * @psalm-var Module&AdminDashboardItem $module
+                     */
+                    foreach ($modules as $module) : ?>
                         <?php if (Yii::$app->moduleAdminMenu->menu($module->id)) : ?>
                             <li>
                                 <?php if ($module->adminName() !== $group) : ?>
-                                    <h3><?= $module->adminName() ?></h3><?php
-                                endif; ?>
+                                    <h3><?= $module->adminName() ?></h3>
+                                <?php endif; ?>
                                 <ul>
                                     <?= IconMenu::widget([
                                         'items' => array_merge(Yii::$app->moduleAdminMenu->menu($module->id), Yii::$app->moduleAdminNotifications->notifications($module->id)),

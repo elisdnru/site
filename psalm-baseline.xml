@@ -110,14 +110,6 @@
       <code>$file-&gt;getExtension()</code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/modules/admin/views/default/index.php">
-    <MixedArgument occurrences="1">
-      <code>$module-&gt;adminName()</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$group</code>
-    </MixedArgumentTypeCoercion>
-  </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Group[]|BatchQueryResult</code>
