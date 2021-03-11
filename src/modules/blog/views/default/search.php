@@ -38,7 +38,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1>Поиск по блогу</h1>
+<h1>Поиск в блоге</h1>
 
 <?= SearchFormWidget::widget() ?>
 
