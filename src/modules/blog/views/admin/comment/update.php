@@ -1,5 +1,5 @@
 <?php
-use app\modules\blog\models\Comment;
+use app\modules\comment\models\Comment;
 use yii\web\View;
 
 /**

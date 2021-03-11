@@ -32,7 +32,7 @@ use yii\mail\MailerInterface;
  * @property integer $likes
  * @property User|null $user
  * @property Comment|null $parent
- * @property Material|null $material
+ * @property Material $material
  */
 class Comment extends ActiveRecord
 {
@@ -192,7 +192,7 @@ class Comment extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
-            $this->cachedUrl = $this->material ? $this->material->getUrl() . '#comment_' . $this->id : '#';
+            $this->cachedUrl = $this->material->getCommentUrl() . '#comment_' . $this->id;
         }
 
         return $this->cachedUrl;

@@ -288,4 +288,14 @@ class Post extends ActiveRecord implements Material
         }
         return $this->cachedUrl;
     }
+
+    public function getCommentTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function getCommentUrl(): string
+    {
+        return $this->getUrl();
+    }
 }

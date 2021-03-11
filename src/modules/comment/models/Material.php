@@ -6,5 +6,6 @@ namespace app\modules\comment\models;
 
 interface Material
 {
-    public function getUrl(): string;
+    public function getCommentTitle(): string;
+    public function getCommentUrl(): string;
 }

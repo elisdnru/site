@@ -142,23 +142,6 @@
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/blog/views/admin/comment/index.php">
-    <InvalidPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;params</code>
-    </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="1">
-      <code>$material-&gt;title</code>
-    </MixedArgument>
-    <RedundantCondition occurrences="1">
-      <code>$material !== null</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$material</code>
-    </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$material-&gt;title</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="src/modules/blog/views/admin/post/_form.php">
     <MixedArgument occurrences="1">
       <code>$tag</code>
@@ -250,31 +233,11 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/comment/views/admin/comment/_view.php">
-    <MixedArgument occurrences="1">
-      <code>$data-&gt;material-&gt;title</code>
-    </MixedArgument>
-    <NoInterfaceProperties occurrences="1">
-      <code>$data-&gt;material-&gt;title</code>
-    </NoInterfaceProperties>
     <PossiblyNullArgument occurrences="1">
       <code>$data-&gt;name</code>
     </PossiblyNullArgument>
     <UndefinedMagicPropertyFetch occurrences="1">
       <code>$data-&gt;liked</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
-  <file src="src/modules/comment/views/admin/comment/index.php">
-    <InvalidPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;params</code>
-    </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="1">
-      <code>$material-&gt;title</code>
-    </MixedArgument>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$material !== null</code>
-    </RedundantConditionGivenDocblockType>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>$material-&gt;title</code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">
@@ -475,17 +438,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$user</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/views/email/comment.php">
-    <MixedArgument occurrences="1">
-      <code>$comment-&gt;material-&gt;title</code>
-    </MixedArgument>
-    <NoInterfaceProperties occurrences="1">
-      <code>$comment-&gt;material-&gt;title</code>
-    </NoInterfaceProperties>
-    <PossiblyNullReference occurrences="1">
-      <code>getUrl</code>
-    </PossiblyNullReference>
   </file>
   <file src="src/widgets/views/Messages.php">
     <MixedArgument occurrences="3">

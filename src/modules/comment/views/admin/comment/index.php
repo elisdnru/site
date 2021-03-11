@@ -3,13 +3,13 @@
 use app\assets\CommentsAsset;
 use app\components\DataProvider;
 use app\modules\comment\models\Comment;
-use yii\db\ActiveRecord;
+use app\modules\comment\models\Material;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var ActiveRecord $material
+ * @var Material|null $material
  * @var DataProvider<Comment> $dataProvider
  */
 
@@ -27,11 +27,11 @@ CommentsAsset::register($this);
     $this->params['breadcrumbs'] = [
         'Панель управления' => ['/admin/index'],
         'Комментарии' => ['index'],
-        $material->title
+        $material->getCommentTitle()
     ];
     ?>
 
-    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->title) ?>&raquo;</h1>
+    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->getCommentTitle()) ?>&raquo;</h1>
 
 <?php else : ?>
     <?php

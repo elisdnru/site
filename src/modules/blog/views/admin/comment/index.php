@@ -2,13 +2,14 @@
 
 use app\assets\CommentsAsset;
 use app\components\DataProvider;
-use app\modules\blog\models\Comment;
+use app\modules\comment\models\Comment;
+use app\modules\comment\models\Material;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Comment $material
+ * @var Material|null $material
  * @var DataProvider<Comment> $dataProvider
  */
 
@@ -17,8 +18,8 @@ $this->title = 'Комментарии к записям';
 if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
     $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
 }
-if ($material) {
-    $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->getUrl()];
+if ($material !== null) {
+    $this->params['admin'][] = ['label' => 'Перейти к записи', 'url' => $material->getCommentUrl()];
 }
 
 CommentsAsset::register($this);
@@ -30,11 +31,11 @@ CommentsAsset::register($this);
         'Панель управления' => ['/admin/index'],
         'Комментарии' => ['/comment/admin/comment/index'],
         'Комментарии к записям' => ['index'],
-        $material->title
+        $material->getCommentTitle()
     ];
     ?>
 
-    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->title) ?>&raquo;</h1>
+    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->getCommentTitle()) ?>&raquo;</h1>
 
 <?php else : ?>
     <?php

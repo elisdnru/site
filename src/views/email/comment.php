@@ -9,12 +9,12 @@ use yii\helpers\Url;
  */
 ?>
 <?php
-$url = Url::to($comment->material->getUrl(), true);
+$url = Url::to($comment->material->getCommentUrl(), true);
 ?>
 
 <p>
     На ваш комментарий к статье
-    &laquo;<a href="<?= $url ?>"><?= $comment->material->title ?></a>&raquo;
+    &laquo;<a href="<?= $url ?>"><?= $comment->material->getCommentTitle() ?></a>&raquo;
     кто-то написал ответ:
 </p>
 
