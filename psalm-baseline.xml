@@ -354,16 +354,6 @@
       <code>$user</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="src/widgets/views/Messages.php">
-    <MixedArgument occurrences="3">
-      <code>Yii::$app-&gt;session-&gt;getFlash('error')</code>
-      <code>Yii::$app-&gt;session-&gt;getFlash('notice')</code>
-      <code>Yii::$app-&gt;session-&gt;getFlash('success')</code>
-    </MixedArgument>
-    <UndefinedMagicPropertyFetch occurrences="1">
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyFetch>
-  </file>
   <file src="tests/_support/AcceptanceTester.php">
     <ImplementedReturnTypeMismatch occurrences="1">
       <code>void</code>

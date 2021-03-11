@@ -1,17 +1,26 @@
-<?php if (Yii::$app->session->hasFlash('notice')) : ?>
+<?php
+
+use yii\web\Session;
+
+/**
+ * @var Session $session
+ */
+?>
+
+<?php if ($session->hasFlash('notice')) : ?>
     <div class="flash-notice">
-        <?= Yii::$app->session->getFlash('notice') ?>
+        <?= (string)$session->getFlash('notice') ?>
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->session->hasFlash('success')) : ?>
+<?php if ($session->hasFlash('success')) : ?>
     <div class="flash-success">
-        <?= Yii::$app->session->getFlash('success') ?>
+        <?= (string)$session->getFlash('success') ?>
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->session->hasFlash('error')) : ?>
+<?php if ($session->hasFlash('error')) : ?>
     <div class="flash-error">
-        <?= Yii::$app->session->getFlash('error') ?>
+        <?= (string)$session->getFlash('error') ?>
     </div>
 <?php endif; ?>
