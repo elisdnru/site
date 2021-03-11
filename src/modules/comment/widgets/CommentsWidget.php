@@ -69,9 +69,8 @@ class CommentsWidget extends Widget
 
             /**
              * @var Comment $comment
-             * @psalm-suppress UnsafeInstantiation
              */
-            $comment = new $className;
+            $comment = new $className();
             $comment->attributes = $form->attributes;
             $comment->material_id = $this->material_id;
             $comment->public = 1;
