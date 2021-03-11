@@ -14,7 +14,7 @@ class Uploader
     public string $emptyImage = '';
     /**
      * @var array
-     * @vpsalm-var array<array-key, array{string|string[]}>
+     * @psalm-var array<array-key, array{0: string, 1: string[]}>
      */
     public array $allowedThumbnailResolutions = [];
     public int $directoryRights = 755;
@@ -84,7 +84,7 @@ class Uploader
 
         $file = $this->file->set($path . '/' . $baseName);
         $fileName = $file->getFilename();
-        $extension = $file->getExtension() ? '\.' . $file->getExtension() : '';
+        $extension = ($ext = $file->getExtension()) ? '\.' . $ext : '';
 
         if (!$fileName) {
             return false;
@@ -142,19 +142,19 @@ class Uploader
             return false;
         }
 
-        if (!$this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height)) {
+        if ($this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height) === null) {
             return false;
         }
 
         return true;
     }
 
-    public function createThumb(string $path, string $baseName, int $width = 0, int $height = 0): bool
+    public function createThumb(string $path, string $baseName, int $width = 0, int $height = 0): ?Image
     {
         $fileName = $path . '/' . $baseName;
 
         if (!file_exists($fileName)) {
-            return false;
+            return null;
         }
 
         /**
@@ -178,10 +178,10 @@ class Uploader
             if (!$thumb->save($targetName . '.webp', Image::IMG_WEBP, 100)) {
                 throw new RuntimeException('Unable to save ' . $targetName . 'webp');
             }
-            return true;
+            return $thumb;
         }
 
-        return false;
+        return null;
     }
 
     public function createThumbFileName(string $baseName, int $width, int $height): string

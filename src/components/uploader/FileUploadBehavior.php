@@ -4,6 +4,7 @@ namespace app\components\uploader;
 
 use app\extensions\file\File;
 use app\extensions\image\Image;
+use ArrayObject;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\validators\Validator;
@@ -58,17 +59,18 @@ class FileUploadBehavior extends Behavior
         $this->images = $images;
     }
 
-    /**
-     * @param ActiveRecord $owner
-     */
     public function attach($owner): void
     {
         parent::attach($owner);
+
+        /** @var ActiveRecord $owner */
         $fileValidator = Validator::createValidator('file', $owner, $this->fileAttribute, [
             'extensions' => $this->fileTypes,
             'skipOnEmpty' => true,
         ]);
-        $owner->getValidators()->append($fileValidator);
+        /** @var ArrayObject $validators */
+        $validators = $owner->getValidators();
+        $validators->append($fileValidator);
     }
 
     public function events(): array
@@ -82,8 +84,7 @@ class FileUploadBehavior extends Behavior
 
     public function beforeSave(): void
     {
-        /** @var ActiveRecord $model */
-        $model = $this->owner;
+        $model = $this->getModel();
 
         if (isset($model->{$this->deleteAttribute}) && $model->{$this->deleteAttribute}) {
             $this->deleteFile();
@@ -108,11 +109,15 @@ class FileUploadBehavior extends Behavior
     public function getImageUrl(): string
     {
         if ($this->cachedImageUrl === null) {
-            $this->cachedImageUrl = '/' . $this->uploader->getUrl($this->filePath, $this->owner->{$this->storageAttribute});
+            $name = (string)$this->getModel()->{$this->storageAttribute};
+            $this->cachedImageUrl = '/' . $this->uploader->getUrl($this->filePath, $name);
         }
         return $this->cachedImageUrl;
     }
 
+    /**
+     * @var string[]
+     */
     private array $cachedImageThumbUrl = [];
 
     public function getImageThumbUrl(int $width = 0, int $height = 0): string
@@ -127,33 +132,41 @@ class FileUploadBehavior extends Behavior
         $index = $width . 'x' . $height;
 
         if (!isset($this->cachedImageThumbUrl[$index])) {
-            $fileName = $this->uploader->getThumbUrl($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
+            $name = (string)$this->getModel()->{$this->storageAttribute};
+            $fileName = $this->uploader->getThumbUrl($this->filePath, $name, $width, $height);
             $this->cachedImageThumbUrl[$index] = '/' . $fileName;
         }
+
         return $this->cachedImageThumbUrl[$index];
     }
 
     private function processImageSizes(): void
     {
         if ($this->imageWidthAttribute && $this->imageHeightAttribute) {
-            $model = $this->owner;
-            if ($model->{$this->storageAttribute}) {
+            $model = $this->getModel();
+
+            $name = (string)$model->{$this->storageAttribute};
+
+            if ($name) {
                 $width = $this->defaultThumbWidth;
                 $height = $this->defaultThumbHeight;
 
-                $thumbName = $this->uploader->createThumbFileName($this->owner->{$this->storageAttribute}, $width, $height);
+                $thumbName = $this->uploader->createThumbFileName($name, $width, $height);
 
                 if ($this->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
                     $file = $this->files->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
                 } else {
-                    $file = $this->uploader->createThumb($this->filePath, $this->owner->{$this->storageAttribute}, $width, $height);
+                    $file = $this->uploader->createThumb(
+                        $this->filePath,
+                        $name,
+                        $width,
+                        $height
+                    );
                 }
 
-                if ($file) {
-                    if ($image = $this->images->load($file->getRealPath())) {
-                        $model->{$this->imageWidthAttribute} = $image->getWidth();
-                        $model->{$this->imageHeightAttribute} = $image->getHeight();
-                    }
+                if ($file !== null && ($image = $this->images->load($file->getRealPath()))) {
+                    $model->{$this->imageWidthAttribute} = $image->getWidth();
+                    $model->{$this->imageHeightAttribute} = $image->getHeight();
                 }
             }
         }
@@ -161,27 +174,30 @@ class FileUploadBehavior extends Behavior
 
     private function loadFile(): void
     {
-        /** @var ActiveRecord $model */
-        $model = $this->owner;
+        $model = $this->getModel();
 
-        if (preg_match('|^http://|', $model->{$this->fileAttribute})) {
-            $fileUrl = $model->{$this->fileAttribute};
+        /** @var string|UploadedFile $file */
+        $file = $model->{$this->fileAttribute};
+
+        if (is_string($file) && preg_match('|^http://|', $file)) {
             $this->deleteFile();
-
-            if ($upload = $this->uploadByUrl($fileUrl)) {
+            if ($upload = $this->uploadByUrl($file)) {
                 $model->{$this->fileAttribute} = '';
                 $model->{$this->storageAttribute} = $upload->getBasename();
             }
-        } elseif ($model->{$this->fileAttribute} instanceof UploadedFile) {
-            $uploadedFile = $model->{$this->fileAttribute};
-            $this->deleteFile();
+            return;
+        }
 
-            if ($upload = $this->uploadFile($uploadedFile)) {
+        if ($file instanceof UploadedFile) {
+            $this->deleteFile();
+            if ($upload = $this->uploadFile($file)) {
                 $model->{$this->storageAttribute} = $upload->getBasename();
             }
-        } elseif ($file = UploadedFile::getInstance($model, $this->fileAttribute)) {
-            $this->deleteFile();
+            return;
+        }
 
+        if ($file = UploadedFile::getInstance($model, $this->fileAttribute)) {
+            $this->deleteFile();
             if ($upload = $this->uploadFile($file)) {
                 $model->{$this->storageAttribute} = $upload->getBasename();
             }
@@ -190,9 +206,10 @@ class FileUploadBehavior extends Behavior
 
     private function deleteFile(): void
     {
-        $model = $this->owner;
-        if ($model->{$this->storageAttribute}) {
-            $this->uploader->delete($model->{$this->storageAttribute}, $this->filePath);
+        $model = $this->getModel();
+        $name = (string)$model->{$this->storageAttribute};
+        if ($name) {
+            $this->uploader->delete($name, $this->filePath);
             if (isset($model->{$this->deleteAttribute})) {
                 $model->{$this->deleteAttribute} = false;
             }
@@ -208,5 +225,12 @@ class FileUploadBehavior extends Behavior
     private function uploadFile(UploadedFile $uploadedFile): ?File
     {
         return $this->uploader->upload($uploadedFile, $this->filePath);
+    }
+
+    protected function getModel(): ActiveRecord
+    {
+        /** @var ActiveRecord $owner */
+        $owner = $this->owner;
+        return $owner;
     }
 }

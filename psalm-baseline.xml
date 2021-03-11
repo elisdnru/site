@@ -63,53 +63,6 @@
       <code>TreeCategory[]|BatchQueryResult</code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/uploader/FileUploadBehavior.php">
-    <MixedArgument occurrences="3">
-      <code>$fileUrl</code>
-      <code>$model-&gt;{$this-&gt;fileAttribute}</code>
-      <code>$uploadedFile</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$fileUrl</code>
-      <code>$uploadedFile</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$this-&gt;cachedImageThumbUrl[$index]</code>
-    </MixedReturnStatement>
-    <MoreSpecificImplementedParamType occurrences="1">
-      <code>$owner</code>
-    </MoreSpecificImplementedParamType>
-    <NullArgument occurrences="5">
-      <code>$model-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-      <code>$this-&gt;owner-&gt;{$this-&gt;storageAttribute}</code>
-    </NullArgument>
-    <PossiblyInvalidMethodCall occurrences="2">
-      <code>append</code>
-      <code>getRealPath</code>
-    </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/components/uploader/Uploader.php">
-    <MixedArgument occurrences="2">
-      <code>$rule[0]</code>
-      <code>$rule[1]</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$rule[0]</code>
-      <code>$rule[1]</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$rule</code>
-    </MixedAssignment>
-    <PossiblyNullOperand occurrences="1">
-      <code>$file-&gt;getExtension()</code>
-    </PossiblyNullOperand>
-  </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Group[]|BatchQueryResult</code>
