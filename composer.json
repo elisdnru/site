@@ -48,6 +48,7 @@
     },
     "autoload": {
         "files": [
+            "src/env.php",
             "src/extensions/markdown/markdown/markdown.php"
         ],
         "psr-4": {

@@ -42,7 +42,7 @@ return ArrayHelper::merge(
             'singletons' => [
                 Request::class => [
                     'class' => Request::class,
-                    'cookieValidationKey' => getenv('COOKIE_SECRET'),
+                    'cookieValidationKey' => env('COOKIE_SECRET'),
                     'csrfCookie' => [
                         'httpOnly' => true,
                         'secure' => $isSecure,
@@ -68,7 +68,7 @@ return ArrayHelper::merge(
                 ErrorHandler::class => [
                     'class' => SentryErrorHandler::class,
                     'errorAction' => 'home/error/index',
-                    'sentryActive' => !(bool)getenv('APP_DEBUG'),
+                    'sentryActive' => !(bool)env('APP_DEBUG'),
                 ],
             ],
         ],

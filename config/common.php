@@ -128,9 +128,9 @@ return [
             ],
             Connection::class => [
                 'class' => Connection::class,
-                'dsn' => 'mysql:host=' . (getenv('DB_HOST') ?: '') . ';dbname=' . (getenv('DB_NAME') ?: ''),
-                'username' => getenv('DB_USERNAME'),
-                'password' => getenv('DB_PASSWORD'),
+                'dsn' => 'mysql:host=' . env('DB_HOST') . ';dbname=' . env('DB_NAME'),
+                'username' => env('DB_USERNAME'),
+                'password' => env('DB_PASSWORD'),
                 'tablePrefix' => '',
                 'charset' => 'utf8mb4',
                 'enableSchemaCache' => true,
@@ -155,9 +155,9 @@ return [
             ],
             Dispatcher::class => [
                 'class' => Dispatcher::class,
-                'traceLevel' => getenv('APP_DEBUG') ? 3 : 0,
+                'traceLevel' => env('APP_DEBUG') ? 3 : 0,
             ],
-            CacheInterface::class => !getenv('APP_DEBUG') ? [
+            CacheInterface::class => !env('APP_DEBUG') ? [
                 'class' => FileCache::class,
                 'dirMode' => 0777,
                 'fileMode' => 0666,
@@ -169,14 +169,14 @@ return [
                 'viewPath' => '@app/views/email',
                 'transport' => [
                     'class' => Swift_SmtpTransport::class,
-                    'host' => getenv('MAILER_HOST'),
-                    'port' => getenv('MAILER_PORT'),
-                    'username' => getenv('MAILER_USER'),
-                    'password' => getenv('MAILER_PASSWORD'),
-                    'encryption' => getenv('MAILER_ENCRYPTION'),
+                    'host' => env('MAILER_HOST'),
+                    'port' => env('MAILER_PORT'),
+                    'username' => env('MAILER_USER'),
+                    'password' => env('MAILER_PASSWORD'),
+                    'encryption' => env('MAILER_ENCRYPTION'),
                 ],
                 'messageConfig' => [
-                    'from' => getenv('MAILER_FROM_EMAIL'),
+                    'from' => env('MAILER_FROM_EMAIL'),
                 ],
             ],
             View::class => [
@@ -234,6 +234,6 @@ return [
         ],
     ],
     'params' => [
-        'deworker_api_url' => getenv('DEWORKER_API_URL')
+        'deworker_api_url' => env('DEWORKER_API_URL')
     ],
 ];
