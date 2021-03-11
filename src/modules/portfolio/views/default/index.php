@@ -1,15 +1,16 @@
 <?php
 
 use app\assets\PortfolioAsset;
+use app\components\DataProvider;
 use app\components\PaginationFormatter;
 use app\modules\portfolio\models\Category;
+use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Work> $dataProvider
  * @var Category[] $categories
  */
 $this->context->layout = 'index';

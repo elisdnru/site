@@ -1,6 +1,6 @@
 <?php
 
-use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\blog\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -10,7 +10,7 @@ use yii\widgets\LinkPager;
 /**
  * @var View $this
  * @var Category $model
- * @var TreeActiveDataProvider $dataProvider
+ * @var DataProvider<Category> $dataProvider
  */
 
 $this->title = 'Категории записей';
@@ -48,7 +48,7 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item) : ?>
                     <?php /** @var Category $item */ ?>
                     <tr>
                         <td style="width:50px; text-align:center">

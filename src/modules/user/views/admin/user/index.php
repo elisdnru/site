@@ -1,7 +1,8 @@
 <?php
+
+use app\components\DataProvider;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -10,7 +11,7 @@ use yii\widgets\LinkPager;
 /**
  * @var View $this
  * @var User $model
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<User> $dataProvider
  */
 
 $this->title = 'Пользователи';
@@ -54,7 +55,7 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $user) : ?>
+                <?php foreach ($dataProvider->getItems() as $user) : ?>
                     <?php /** @var User $user */ ?>
                     <tr>
                         <td style="width:50px">

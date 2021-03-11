@@ -1,7 +1,8 @@
 <?php
 
 use app\assets\CommentsAsset;
-use yii\data\ActiveDataProvider;
+use app\components\DataProvider;
+use app\modules\comment\models\Comment;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\web\View;
@@ -9,7 +10,7 @@ use yii\web\View;
 /**
  * @var View $this
  * @var ActiveRecord $material
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Comment> $dataProvider
  */
 
 $this->title = 'Комментарии';

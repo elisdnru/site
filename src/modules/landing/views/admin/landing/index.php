@@ -1,6 +1,6 @@
 <?php
 
-use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -10,7 +10,7 @@ use yii\widgets\LinkPager;
 /**
  * @var View $this
  * @var Landing $model
- * @var TreeActiveDataProvider $dataProvider
+ * @var DataProvider<Landing> $dataProvider
  */
 
 $this->title = 'Лендинги';
@@ -51,7 +51,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item) : ?>
                     <?php /** @var Landing $item */ ?>
                     <tr>
                         <td>

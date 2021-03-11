@@ -2,6 +2,7 @@
 
 namespace app\modules\portfolio\controllers;
 
+use app\components\DataProvider;
 use yii\web\Controller;
 use app\modules\portfolio\models\query\WorkQuery;
 use app\modules\portfolio\models\Category;
@@ -16,13 +17,13 @@ class DefaultController extends Controller
 
     public function actionIndex(): string
     {
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $this->getStartQuery(),
             'pagination' => [
                 'defaultPageSize' => self::PER_PAGE,
                 'forcePageParam' => false,
             ],
-        ]);
+        ]));
 
         /** @var Category[] $categories */
         $categories = Category::find()->roots()->cache(0, new TagDependency(['tags' => ['portfolio']]))
@@ -43,13 +44,13 @@ class DefaultController extends Controller
 
         $subcategories = $model->children;
 
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
                 'defaultPageSize' => self::PER_PAGE,
                 'forcePageParam' => false,
             ],
-        ]);
+        ]));
 
         return $this->render('category', [
             'dataProvider' => $dataProvider,

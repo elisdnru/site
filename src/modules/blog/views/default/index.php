@@ -1,14 +1,15 @@
 <?php
 
+use app\components\DataProvider;
 use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
+use app\modules\blog\models\Post;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\web\View;
 
 /**
  * @var View|InlineWidgetsBehavior $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Post> $dataProvider
  */
 
 $this->context->layout = 'index';

@@ -3,6 +3,7 @@
 namespace app\modules\blog\forms;
 
 use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\blog\models\Category;
 
 class CategorySearch extends Category
@@ -14,11 +15,11 @@ class CategorySearch extends Category
         ];
     }
 
-    public function search(array $params, int $pageSize = 10): TreeActiveDataProvider
+    public function search(array $params, int $pageSize = 10): DataProvider
     {
         $query = Category::find()->alias('t');
 
-        $dataProvider = new TreeActiveDataProvider([
+        $dataProvider = new DataProvider(new TreeActiveDataProvider([
             'childrenRelation' => 'children',
             'query' => $query,
             'sort' => [
@@ -28,7 +29,7 @@ class CategorySearch extends Category
                 'pageSize' => $pageSize,
                 'pageParam' => 'page',
             ],
-        ]);
+        ]));
 
         $this->load($params);
 

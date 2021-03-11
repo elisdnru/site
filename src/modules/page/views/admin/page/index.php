@@ -1,6 +1,7 @@
 <?php
 
 use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\page\models\Page;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -10,7 +11,7 @@ use yii\widgets\LinkPager;
 /**
  * @var View $this
  * @var Page $model
- * @var TreeActiveDataProvider $dataProvider
+ * @var DataProvider<Page> $dataProvider
  */
 
 $this->title = 'Страницы';
@@ -49,7 +50,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item) : ?>
                     <?php /** @var Page $item */ ?>
                     <tr>
                         <td>

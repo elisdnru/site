@@ -1,7 +1,8 @@
 <?php
+
+use app\components\DataProvider;
 use app\modules\block\forms\BlockSearch;
 use app\modules\block\models\Block;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -9,7 +10,7 @@ use yii\widgets\LinkPager;
 
 /**
  * @var View $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Block> $dataProvider
  * @var BlockSearch $model
  */
 
@@ -45,7 +46,7 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $block) : ?>
+                <?php foreach ($dataProvider->getItems() as $block) : ?>
                     <?php /** @var Block $block */ ?>
                     <tr>
                         <td>

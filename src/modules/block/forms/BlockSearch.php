@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\block\forms;
 
+use app\components\DataProvider;
 use app\modules\block\models\Block;
 use yii\data\ActiveDataProvider;
 
@@ -16,11 +17,11 @@ class BlockSearch extends Block
         ];
     }
 
-    public function search(array $params, int $pageSize = 30): ActiveDataProvider
+    public function search(array $params, int $pageSize = 30): DataProvider
     {
         $query = self::find();
 
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => ['title' => SORT_ASC],
@@ -28,7 +29,7 @@ class BlockSearch extends Block
             'pagination' => [
                 'pageSize' => $pageSize,
             ]
-        ]);
+        ]));
 
         $this->load($params);
 

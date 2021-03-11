@@ -1,10 +1,10 @@
 <?php
 
+use app\components\DataProvider;
 use app\components\InlineWidgetsBehavior;
 use app\modules\blog\models\Category;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
@@ -12,7 +12,7 @@ use yii\web\View;
  * @var View|InlineWidgetsBehavior $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var Category $category
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Category> $dataProvider
  */
 
 $this->context->layout = 'index';

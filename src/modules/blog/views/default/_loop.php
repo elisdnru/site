@@ -1,16 +1,17 @@
 <?php
+
+use app\components\DataProvider;
 use app\components\DateFormatter;
 use app\modules\blog\models\Post;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
-/** @var ActiveDataProvider $dataProvider */
+/** @var DataProvider<Post> $dataProvider */
 ?>
 
 <div>
     <div class="items">
-        <?php foreach ($dataProvider->getModels() as $post) : ?>
+        <?php foreach ($dataProvider->getItems() as $post) : ?>
             <?php /** @var Post $post */ ?>
             <?php
             $links = [];

@@ -1,15 +1,16 @@
 <?php
+
+use app\components\DataProvider;
 use app\modules\blog\models\Tag;
 use app\components\PaginationFormatter;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
  * @var View $this
  * @var Tag $tag
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Tag> $dataProvider
  */
 
 $this->context->layout = 'index';

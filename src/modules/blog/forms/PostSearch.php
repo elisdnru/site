@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\forms;
 
+use app\components\DataProvider;
 use app\modules\blog\models\Post;
 use yii\data\ActiveDataProvider;
 
@@ -17,11 +18,11 @@ class PostSearch extends Post
         ];
     }
 
-    public function search(array $params, int $pageSize = 30): ActiveDataProvider
+    public function search(array $params, int $pageSize = 30): DataProvider
     {
         $query = self::find()->alias('t')->joinWith(['category', 'group']);
 
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => ['t.date' => SORT_DESC],
@@ -47,7 +48,7 @@ class PostSearch extends Post
             'pagination' => [
                 'pageSize' => $pageSize,
             ]
-        ]);
+        ]));
 
         $this->load($params);
 

@@ -1,9 +1,9 @@
 <?php
 
+use app\components\DataProvider;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
 
 /**
  * @var View $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Post> $dataProvider
  * @var Post $model
  */
 
@@ -58,7 +58,7 @@ $this->params['admin'] = [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item) : ?>
                     <?php /** @var Post $item */ ?>
                     <tr>
                         <td style="width:130px; text-align:center">

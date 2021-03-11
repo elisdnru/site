@@ -1,15 +1,15 @@
 <?php
 
 use app\assets\CommentsAsset;
+use app\components\DataProvider;
 use app\modules\blog\models\Comment;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
  * @var View $this
  * @var Comment $material
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Comment> $dataProvider
  */
 
 $this->title = 'Комментарии к записям';

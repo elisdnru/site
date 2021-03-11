@@ -118,15 +118,6 @@
       <code>$group</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="src/modules/block/views/admin/block/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$block</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="2">
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
-  </file>
   <file src="src/modules/blog/models/query/GroupQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Group[]|BatchQueryResult</code>
@@ -150,16 +141,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/blog/views/admin/category/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="3">
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/blog/views/admin/comment/index.php">
     <InvalidPropertyAssignmentValue occurrences="1">
@@ -189,37 +170,6 @@
       <code>$tag</code>
     </MixedAssignment>
   </file>
-  <file src="src/modules/blog/views/admin/post/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="5">
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/blog/views/admin/tag/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="1">
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/blog/views/default/_loop.php">
-    <MixedAssignment occurrences="1">
-      <code>$post</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/modules/blog/views/default/category.php">
-    <PossiblyFalseReference occurrences="2">
-      <code>getPage</code>
-      <code>getPage</code>
-    </PossiblyFalseReference>
-  </file>
   <file src="src/modules/blog/views/default/index.php">
     <MixedArgument occurrences="2">
       <code>$this-&gt;params['admin'] ?? []</code>
@@ -246,27 +196,12 @@
     <MixedPropertyAssignment occurrences="1">
       <code>$this-&gt;context</code>
     </MixedPropertyAssignment>
-    <PossiblyFalseReference occurrences="2">
-      <code>getPage</code>
-      <code>getPage</code>
-    </PossiblyFalseReference>
     <PossiblyNullArgument occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullPropertyFetch>
-  </file>
-  <file src="src/modules/blog/views/default/search.php">
-    <PossiblyFalseReference occurrences="1">
-      <code>getPage</code>
-    </PossiblyFalseReference>
-  </file>
-  <file src="src/modules/blog/views/default/tag.php">
-    <PossiblyFalseReference occurrences="2">
-      <code>getPage</code>
-      <code>getPage</code>
-    </PossiblyFalseReference>
   </file>
   <file src="src/modules/comment/models/Comment.php">
     <InvalidStringClass occurrences="1">
@@ -313,11 +248,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Comment|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/comment/views/admin/comment/_list.php">
-    <MixedAssignment occurrences="1">
-      <code>$data</code>
-    </MixedAssignment>
   </file>
   <file src="src/modules/comment/views/admin/comment/_view.php">
     <MixedArgument occurrences="1">
@@ -438,15 +368,6 @@
       <code>Landing|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/landing/views/admin/landing/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="2">
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
-  </file>
   <file src="src/modules/page/models/query/PageQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Page[]|BatchQueryResult</code>
@@ -458,15 +379,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Page|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/page/views/admin/page/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="2">
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/portfolio/models/query/WorkQuery.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -481,32 +393,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>Work|ActiveRecord|null</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="src/modules/portfolio/views/admin/category/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$item</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="3">
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
-  </file>
-  <file src="src/modules/portfolio/views/default/_loop.php">
-    <MixedAssignment occurrences="1">
-      <code>$work</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/modules/portfolio/views/default/category.php">
-    <PossiblyFalseReference occurrences="2">
-      <code>getPage</code>
-      <code>getPage</code>
-    </PossiblyFalseReference>
-  </file>
-  <file src="src/modules/portfolio/views/default/index.php">
-    <PossiblyFalseReference occurrences="1">
-      <code>getPage</code>
-    </PossiblyFalseReference>
   </file>
   <file src="src/modules/search/views/default/index.php">
     <MixedArgument occurrences="4">
@@ -524,16 +410,11 @@
       <code>$this-&gt;params['admin']</code>
       <code>$this-&gt;params['breadcrumbs']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="4">
-      <code>$model</code>
+    <MixedAssignment occurrences="3">
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </MixedAssignment>
-    <PossiblyFalseReference occurrences="2">
-      <code>getPage</code>
-      <code>getPage</code>
-    </PossiblyFalseReference>
     <UndefinedMagicMethod occurrences="3">
       <code>getImageThumbUrl</code>
       <code>getUrl</code>
@@ -589,18 +470,6 @@
     <MixedOperand occurrences="1">
       <code>$row['id']</code>
     </MixedOperand>
-  </file>
-  <file src="src/modules/user/views/admin/user/index.php">
-    <MixedAssignment occurrences="1">
-      <code>$user</code>
-    </MixedAssignment>
-    <PossiblyInvalidMethodCall occurrences="5">
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-      <code>link</code>
-    </PossiblyInvalidMethodCall>
   </file>
   <file src="src/modules/user/widgets/views/LoginForm.php">
     <RedundantConditionGivenDocblockType occurrences="1">

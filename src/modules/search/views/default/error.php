@@ -1,12 +1,14 @@
 <?php
+
+use app\components\DataProvider;
+use app\modules\search\models\Search;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Search> $dataProvider
  */
 
 $this->title = 'Поиск по сайту';

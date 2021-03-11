@@ -14,7 +14,6 @@ use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
@@ -22,7 +21,6 @@ use yii\web\View;
  * @var View|InlineWidgetsBehavior $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var Post $model
- * @var ActiveDataProvider $dataProvider
  */
 
 $this->context->layout = 'post';

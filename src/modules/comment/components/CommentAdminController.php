@@ -2,6 +2,7 @@
 
 namespace app\modules\comment\components;
 
+use app\components\DataProvider;
 use app\modules\comment\models\Comment;
 use BadMethodCallException;
 use app\components\AdminController;
@@ -40,7 +41,7 @@ abstract class CommentAdminController extends AdminController
             $material = null;
         }
 
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => ['date' => SORT_DESC],
@@ -48,7 +49,7 @@ abstract class CommentAdminController extends AdminController
             'pagination' => [
                 'pageSize' => self::COMMENTS_PER_PAGE,
             ]
-        ]);
+        ]));
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,

@@ -1,15 +1,17 @@
 <?php
+
+use app\components\DataProvider;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\components\PaginationFormatter;
+use app\modules\search\models\Search;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\web\View;
 
 /**
  * @var View $this
  * @var SearchForm $searchForm
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Search> $dataProvider
  */
 
 $this->context->layout = 'index';

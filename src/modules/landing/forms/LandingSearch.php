@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\landing\forms;
 
 use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\landing\models\Landing;
 
 class LandingSearch extends Landing
@@ -16,11 +17,11 @@ class LandingSearch extends Landing
         ];
     }
 
-    public function search(array $params, int $pageSize = 100): TreeActiveDataProvider
+    public function search(array $params, int $pageSize = 100): DataProvider
     {
         $query = Landing::find()->alias('t');
 
-        $dataProvider = new TreeActiveDataProvider([
+        $dataProvider = new DataProvider(new TreeActiveDataProvider([
             'childrenRelation' => 'children',
             'query' => $query,
             'sort' => [
@@ -30,7 +31,7 @@ class LandingSearch extends Landing
                 'pageSize' => $pageSize,
                 'pageParam' => 'page',
             ],
-        ]);
+        ]));
 
         $this->load($params);
 

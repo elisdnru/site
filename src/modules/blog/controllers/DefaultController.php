@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\components\DataProvider;
 use app\modules\blog\models\Category;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
@@ -104,9 +105,9 @@ class DefaultController extends Controller
             ->orderBy(['date' => SORT_DESC]);
     }
 
-    private function createProvider(ActiveQuery $query): ActiveDataProvider
+    private function createProvider(ActiveQuery $query): DataProvider
     {
-        return new ActiveDataProvider([
+        return new DataProvider(new ActiveDataProvider([
             'query' => $query->cache(0, new TagDependency(['tags' => ['blog']])),
             'pagination' => [
                 'defaultPageSize' => 10,
@@ -114,6 +115,6 @@ class DefaultController extends Controller
                 'validatePage' => false,
                 'forcePageParam' => false,
             ]
-        ]);
+        ]));
     }
 }

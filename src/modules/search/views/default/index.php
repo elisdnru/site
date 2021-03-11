@@ -1,19 +1,19 @@
 <?php
 
+use app\components\DataProvider;
 use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
 /**
  * @var View|InlineWidgetsBehavior $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Search> $dataProvider
  * @var string $query
  */
 
@@ -43,7 +43,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?= SearchFormWidget::widget() ?>
 
 <div class="items">
-    <?php foreach ($dataProvider->getModels() as $model) : ?>
+    <?php foreach ($dataProvider->getItems() as $model) : ?>
         <?php /** @var Search $model */ ?>
         <article class="entry list">
             <header>

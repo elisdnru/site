@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\forms;
 
+use app\components\DataProvider;
 use app\modules\user\models\User;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
@@ -19,11 +20,11 @@ class UserSearch extends User
         ];
     }
 
-    public function search(array $params, int $pageSize = 30): ActiveDataProvider
+    public function search(array $params, int $pageSize = 30): DataProvider
     {
         $query = self::find();
 
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => ['id' => SORT_DESC],
@@ -45,7 +46,7 @@ class UserSearch extends User
             'pagination' => [
                 'pageSize' => $pageSize,
             ]
-        ]);
+        ]));
 
         $this->load($params);
 

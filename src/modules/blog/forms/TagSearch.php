@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\forms;
 
+use app\components\DataProvider;
 use app\modules\blog\models\Tag;
 use yii\data\ActiveDataProvider;
 
@@ -14,11 +15,11 @@ class TagSearch extends Tag
         ];
     }
 
-    public function search(array $params, int $pageSize = 100): ActiveDataProvider
+    public function search(array $params, int $pageSize = 100): DataProvider
     {
         $query = Tag::find();
 
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => ['title' => SORT_ASC],
@@ -26,7 +27,7 @@ class TagSearch extends Tag
             'pagination' => [
                 'pageSize' => $pageSize,
             ],
-        ]);
+        ]));
 
         $this->load($params);
 

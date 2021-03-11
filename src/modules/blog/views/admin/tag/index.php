@@ -1,7 +1,7 @@
 <?php
 
+use app\components\DataProvider;
 use app\modules\blog\models\Tag;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -9,7 +9,7 @@ use yii\widgets\LinkPager;
 
 /**
  * @var View $this
- * @var ActiveDataProvider $dataProvider
+ * @var DataProvider<Tag> $dataProvider
  */
 
 $this->title = 'Метки записей';
@@ -40,7 +40,7 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getModels() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item) : ?>
                     <?php /** @var Tag $item */ ?>
                     <tr>
                         <td>

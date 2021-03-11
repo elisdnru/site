@@ -2,6 +2,7 @@
 
 namespace app\modules\search\controllers;
 
+use app\components\DataProvider;
 use app\modules\search\models\Search;
 use yii\web\Controller;
 use app\modules\search\forms\SearchForm;
@@ -25,13 +26,13 @@ class DefaultController extends Controller
                     ['like', 'text', $model->q]
                 ]);
 
-            $dataProvider = new ActiveDataProvider([
+            $dataProvider = new DataProvider(new ActiveDataProvider([
                 'query' => $query,
                 'pagination' => [
                     'defaultPageSize' => 10,
                     'forcePageParam' => false,
                 ]
-            ]);
+            ]));
 
             return $this->render('index', [
                 'dataProvider' => $dataProvider,
