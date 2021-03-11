@@ -11,6 +11,7 @@ use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\Session;
 use yii\web\User;
 
 class AjaxController extends Controller
@@ -81,16 +82,16 @@ class AjaxController extends Controller
         return null;
     }
 
-    public function actionLike(int $id): int
+    public function actionLike(int $id, Session $session): int
     {
         $model = $this->loadModel($id);
 
-        if (!$model->getLiked()) {
+        if (!$model->getLiked($session)) {
             $model->likes++;
-            $model->setLiked(true);
+            $model->setLiked(true, $session);
         } else {
             $model->likes--;
-            $model->setLiked(false);
+            $model->setLiked(false, $session);
         }
 
         if (!$model->save()) {

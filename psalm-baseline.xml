@@ -80,10 +80,6 @@
       <code>$a</code>
       <code>$a</code>
     </MixedAssignment>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>Yii::$app-&gt;session</code>
-      <code>Yii::$app-&gt;session</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/comment/models/query/CommentQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">

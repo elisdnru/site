@@ -6,13 +6,16 @@ use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Session;
 
 /**
  * @var int $indent
  * @var int $authorId
  * @var Comment $comment
  * @var User|null $user
+ * @var Session $session 
  */
+$session = Yii::$app->get('session');
 ?>
 <article class="comment<?= $authorId == $comment->user_id ? ' author' : '' ?>" id="comment_<?= $comment->id ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20 ?>px">
     <img class="userpic" src="<?= Html::encode($comment->getAvatarUrl(50, 50)) ?>" alt="">
@@ -29,7 +32,7 @@ use yii\helpers\Url;
 
         <span class="like">
             <span id="like-<?= $comment->id ?>"><?= $comment->likes ?></span>
-            <span class="ajax-like like-icon<?= $comment->getLiked() ? ' like-active' : '' ?>" data-load="like-<?= $comment->id ?>" data-url="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
+            <span class="ajax-like like-icon<?= $comment->getLiked($session) ? ' like-active' : '' ?>" data-load="like-<?= $comment->id ?>" data-url="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></span>
         </span>
 
         <h2 class="date enc-date" data-date="<?= DateFormatter::format($comment->date, true) ?>">&nbsp;</h2>

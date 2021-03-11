@@ -14,6 +14,7 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\mail\MailerInterface;
+use yii\web\Session;
 
 /**
  * @property int $id
@@ -235,16 +236,16 @@ class Comment extends ActiveRecord
         return $this->cachedAvatarUrl[$index];
     }
 
-    public function getLiked(): bool
+    public function getLiked(Session $session): bool
     {
-        $a = Yii::$app->session->get('comment');
+        $a = $session->get('comment');
 
         return isset($a['liked'][$this->id]) && $a['liked'][$this->id] === 1;
     }
 
-    public function setLiked(bool $value): void
+    public function setLiked(bool $value, Session $session): void
     {
-        $a = Yii::$app->session->get('comment');
+        $a = $session->get('comment');
 
         if ($value) {
             $a['liked'][$this->id] = 1;
@@ -254,6 +255,6 @@ class Comment extends ActiveRecord
             }
         }
 
-        Yii::$app->session->set('comment', $a);
+        $session->set('comment', $a);
     }
 }

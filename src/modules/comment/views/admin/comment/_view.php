@@ -5,8 +5,13 @@ use app\components\SocNetwork;
 use app\modules\comment\models\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Session;
 
-/** @var Comment $comment */
+/**
+ * @var Comment $comment
+ * @var Session $session
+ */
+$session = Yii::$app->get('session');
 
 $groupurl = Url::to(['index', 'id' => $comment->material_id]);
 $editurl = Url::to(['update', 'id' => $comment->id]);
@@ -29,7 +34,7 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $comment->id]);
 
         <span class="like">
             <span id="like-<?= $comment->id ?>"><?= $comment->likes ?></span>
-            <a rel="nofollow" class="ajax-load like-icon<?= $comment->getLiked() ? ' like-active' : '' ?>" data-load="like-<?= $comment->id ?>" href="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></a>
+            <a rel="nofollow" class="ajax-load like-icon<?= $comment->getLiked($session) ? ' like-active' : '' ?>" data-load="like-<?= $comment->id ?>" href="<?= Url::to(['/comment/ajax/like', 'id' => $comment->id]) ?>" title="Мне нравится"></a>
         </span>
 
         <h2 class="date"><?= $comment->date ?></h2>
