@@ -7,8 +7,6 @@ use app\components\Slugger;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\blog\models\query\PostQuery;
 use app\modules\comment\models\Material;
-use app\modules\search\models\Image;
-use app\modules\search\models\Material as SearchMaterial;
 use app\modules\user\models\User;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -48,7 +46,7 @@ use yii\helpers\Url;
  *
  * @mixin FileUploadBehavior
  */
-class Post extends ActiveRecord implements Material, SearchMaterial
+class Post extends ActiveRecord implements Material
 {
     private const IMAGE_WIDTH = 250;
     private const IMAGE_PATH = 'upload/images/blogs';
@@ -299,24 +297,5 @@ class Post extends ActiveRecord implements Material, SearchMaterial
     public function getCommentUrl(): string
     {
         return $this->getUrl();
-    }
-
-    public function getSearchTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function getSearchUrl(): string
-    {
-        return $this->getUrl();
-    }
-
-    public function getSearchImage(): ?Image
-    {
-        return !empty($this->image) ? new Image(
-            $this->image_width ?: 0,
-            $this->image_height ?: 0,
-            $this->getImageThumbUrl()
-        ) : null;
     }
 }

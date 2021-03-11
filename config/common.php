@@ -74,7 +74,6 @@ return [
         'partner' => ['class' => app\modules\partner\Module::class],
         'portfolio' => ['class' => app\modules\portfolio\Module::class],
         'products' => ['class' => app\modules\products\Module::class],
-        'search' => ['class' => app\modules\search\Module::class],
         'services' => ['class' => app\modules\services\Module::class],
         'sitemap' => ['class' => app\modules\sitemap\Module::class],
         'subscribe' => ['class' => app\modules\subscribe\Module::class],
