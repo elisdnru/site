@@ -3,11 +3,11 @@
 use app\components\DataProvider;
 use app\components\DateFormatter;
 use app\components\InlineWidgetsBehavior;
+use app\components\PaginationFormatter;
+use app\components\TextMarker;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\SearchFormWidget;
-use app\components\PaginationFormatter;
-use app\modules\search\components\SearchHighlighter;
 use app\modules\search\models\Search;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
@@ -54,7 +54,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <div class="entry list">
             <div class="header">
                 <div class="title">
-                    <a href="<?= $post->getUrl() ?>"><?= SearchHighlighter::getFragment(strip_tags($post->title), $searchForm->q) ?></a>
+                    <a href="<?= $post->getUrl() ?>"><?= TextMarker::markFragment(strip_tags($post->title), $searchForm->q) ?></a>
                 </div>
                 <!--noindex-->
                 <div class="info">
@@ -95,7 +95,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <!--/noindex-->
             </div>
             <div class="short">
-                <?= SearchHighlighter::getFragment(strip_tags($this->clearWidgets($post->text_purified)), $searchForm->q) ?>
+                <?= TextMarker::markFragment(strip_tags($this->clearWidgets($post->text_purified)), $searchForm->q) ?>
                 ...
             </div>
             <div class="clear"></div>

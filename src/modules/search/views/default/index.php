@@ -3,7 +3,7 @@
 use app\components\DataProvider;
 use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
-use app\modules\search\components\SearchHighlighter;
+use app\components\TextMarker;
 use app\modules\search\models\Search;
 use app\modules\search\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
@@ -48,7 +48,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <article class="entry list">
             <header>
                 <h2>
-                    <a href="<?= $model->material->getSearchUrl() ?>"><?= SearchHighlighter::getFragment(strip_tags($model->title), $query) ?></a>
+                    <a href="<?= $model->material->getSearchUrl() ?>"><?= TextMarker::markFragment(strip_tags($model->title), $query) ?></a>
                 </h2>
                 <?php if ($image = $model->material->getSearchImage()) : ?>
                     <?php
@@ -62,7 +62,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     </p>
                 <?php endif; ?>
             </header>
-            <div class="short"><?= SearchHighlighter::getFragment(strip_tags($this->clearWidgets($model->text)), $query) ?>
+            <div class="short"><?= TextMarker::markFragment(strip_tags($this->clearWidgets($model->text)), $query) ?>
                 ...
             </div>
             <div class="clear"></div>
