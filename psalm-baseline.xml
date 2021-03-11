@@ -358,10 +358,7 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/search/views/default/index.php">
-    <MixedArgument occurrences="4">
-      <code>$model-&gt;material-&gt;getImageThumbUrl()</code>
-      <code>$model-&gt;material-&gt;getUrl()</code>
-      <code>$model-&gt;material-&gt;getUrl()</code>
+    <MixedArgument occurrences="1">
       <code>$this-&gt;clearWidgets($model-&gt;text)</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
@@ -378,15 +375,6 @@
       <code>$this-&gt;params</code>
       <code>$this-&gt;params</code>
     </MixedAssignment>
-    <UndefinedMagicMethod occurrences="3">
-      <code>getImageThumbUrl</code>
-      <code>getUrl</code>
-      <code>getUrl</code>
-    </UndefinedMagicMethod>
-    <UndefinedMagicPropertyFetch occurrences="2">
-      <code>$model-&gt;material-&gt;image_height</code>
-      <code>$model-&gt;material-&gt;image_width</code>
-    </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/modules/ulogin/models/ULoginModel.php">
     <MissingPropertyType occurrences="9">

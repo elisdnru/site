@@ -48,17 +48,17 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <article class="entry list">
             <header>
                 <h2>
-                    <a href="<?= $model->material->getUrl() ?>"><?= SearchHighlighter::getFragment(strip_tags($model->title), $query) ?></a>
+                    <a href="<?= $model->material->getSearchUrl() ?>"><?= SearchHighlighter::getFragment(strip_tags($model->title), $query) ?></a>
                 </h2>
-                <?php if ($model->material->hasAttribute('image')) : ?>
+                <?php if ($image = $model->material->getSearchImage()) : ?>
                     <?php
                     $properties = array_filter([
-                        'width' => $model->material->image_width,
-                        'height' => $model->material->image_height,
+                        'width' => $image->width,
+                        'height' => $image->height,
                     ]);
                     ?>
                     <p class="thumb">
-                        <a href="<?= $model->material->getUrl() ?>"><?= Html::img($model->material->getImageThumbUrl(), $properties) ?></a>
+                        <a href="<?= $model->material->getSearchUrl() ?>"><?= Html::img($image->thumbUrl, $properties) ?></a>
                     </p>
                 <?php endif; ?>
             </header>

@@ -6,6 +6,8 @@ use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Slugger;
 use app\modules\page\models\query\PageQuery;
+use app\modules\search\models\Image;
+use app\modules\search\models\Material;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -32,7 +34,7 @@ use yii\helpers\Url;
  *
  * @mixin CategoryTreeBehavior
  */
-class Page extends ActiveRecord
+class Page extends ActiveRecord implements Material
 {
     public const INDEX_FOLLOW = 'index, follow';
     public const INDEX_NOFOLLOW = 'index, nofollow';
@@ -201,5 +203,20 @@ class Page extends ActiveRecord
         foreach ($this->children as $child) {
             $child->delete();
         }
+    }
+
+    public function getSearchTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function getSearchUrl(): string
+    {
+        return $this->getUrl();
+    }
+
+    public function getSearchImage(): ?Image
+    {
+        return null;
     }
 }
