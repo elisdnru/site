@@ -68,19 +68,6 @@
       <code>Post|ActiveRecord|null</code>
     </MixedInferredReturnType>
   </file>
-  <file src="src/modules/comment/models/Comment.php">
-    <MixedArrayAccess occurrences="2">
-      <code>$a['liked']</code>
-      <code>$a['liked']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$a['liked']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
-      <code>$a</code>
-      <code>$a</code>
-    </MixedAssignment>
-  </file>
   <file src="src/modules/comment/models/query/CommentQuery.php">
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>Comment[]|BatchQueryResult</code>

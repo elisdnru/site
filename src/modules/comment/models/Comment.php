@@ -236,25 +236,19 @@ class Comment extends ActiveRecord
         return $this->cachedAvatarUrl[$index];
     }
 
-    public function getLiked(Session $session): bool
+    public function toggleLike(Session $session): void
     {
-        $a = $session->get('comment');
-
-        return isset($a['liked'][$this->id]) && $a['liked'][$this->id] === 1;
+        if (!$this->getLiked($session)) {
+            $this->likes++;
+            $session->set('comment-like-' . $this->id, true);
+        } else {
+            $this->likes--;
+            $session->set('comment-like-' . $this->id, false);
+        }
     }
 
-    public function setLiked(bool $value, Session $session): void
+    public function getLiked(Session $session): bool
     {
-        $a = $session->get('comment');
-
-        if ($value) {
-            $a['liked'][$this->id] = 1;
-        } else {
-            if (isset($a['liked'][$this->id])) {
-                unset($a['liked'][$this->id]);
-            }
-        }
-
-        $session->set('comment', $a);
+        return $session->get('comment-like-' . $this->id) === true;
     }
 }

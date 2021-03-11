@@ -86,13 +86,7 @@ class AjaxController extends Controller
     {
         $model = $this->loadModel($id);
 
-        if (!$model->getLiked($session)) {
-            $model->likes++;
-            $model->setLiked(true, $session);
-        } else {
-            $model->likes--;
-            $model->setLiked(false, $session);
-        }
+        $model->toggleLike($session);
 
         if (!$model->save()) {
             throw new BadRequestHttpException('Ошибка');

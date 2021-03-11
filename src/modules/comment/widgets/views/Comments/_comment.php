@@ -13,7 +13,7 @@ use yii\web\Session;
  * @var int $authorId
  * @var Comment $comment
  * @var User|null $user
- * @var Session $session 
+ * @var Session $session
  */
 $session = Yii::$app->get('session');
 ?>
