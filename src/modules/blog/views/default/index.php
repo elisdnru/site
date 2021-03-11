@@ -1,14 +1,13 @@
 <?php
 
 use app\components\DataProvider;
-use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\blog\models\Post;
 use app\modules\user\models\Access;
 use yii\web\View;
 
 /**
- * @var View|InlineWidgetsBehavior $this
+ * @var View $this
  * @var DataProvider<Post> $dataProvider
  */
 

@@ -69,37 +69,15 @@
     </MixedInferredReturnType>
   </file>
   <file src="src/modules/blog/views/default/index.php">
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;params['admin'] ?? []</code>
-      <code>$this-&gt;render('_loop', ['dataProvider' =&gt; $dataProvider])</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['admin']</code>
-      <code>$this-&gt;params['breadcrumbs']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-      <code>$this-&gt;params</code>
-    </MixedAssignment>
-    <MixedPropertyAssignment occurrences="1">
-      <code>$this-&gt;context</code>
-    </MixedPropertyAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyFetch occurrences="1">
       <code>Yii::$app-&gt;controller-&gt;module-&gt;id</code>
     </PossiblyNullPropertyFetch>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$this-&gt;params</code>
+    </PropertyTypeCoercion>
   </file>
   <file src="src/modules/comment/models/Comment.php">
     <MixedArrayAccess occurrences="2">
