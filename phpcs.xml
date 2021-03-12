@@ -22,7 +22,6 @@
         <exclude-pattern>src/widgets/inline/views</exclude-pattern>
         <exclude-pattern>src/modules/*/views</exclude-pattern>
         <exclude-pattern>src/modules/*/widgets/views</exclude-pattern>
-        <exclude-pattern>tests/_support/_generated</exclude-pattern>
         <exclude-pattern>src/migrations</exclude-pattern>
         <exclude-pattern>src/modules/block/migrations</exclude-pattern>
         <exclude-pattern>src/modules/blog/migrations</exclude-pattern>
@@ -67,4 +66,5 @@
 
     <exclude-pattern>src/extensions/markdown/markdown/*</exclude-pattern>
     <exclude-pattern>src/extensions/markdown/TextHighlighter/*</exclude-pattern>
+    <exclude-pattern>tests/_support/_generated</exclude-pattern>
 </ruleset>
