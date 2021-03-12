@@ -1,6 +1,7 @@
 <?php
 
 use fishvision\migrate\controllers\MigrateController;
+use yii\console\ErrorHandler;
 use yii\helpers\ArrayHelper;
 
 return ArrayHelper::merge(
@@ -23,5 +24,10 @@ return ArrayHelper::merge(
                 ],
             ],
         ],
-    ]
+        'components' => [
+            'errorHandler' => [
+                'class' => ErrorHandler::class,
+            ],
+        ],
+    ],
 );
