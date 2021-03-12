@@ -65,6 +65,7 @@ services:
             SENTRY_DSN: ""
         volumes:
             - ./:/app
+        network_mode: service:nginx
     node-watch:
         image: node:14-alpine
         volumes:

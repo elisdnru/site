@@ -3,7 +3,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-             url: http://nginx:8081
+             url: http://localhost:8081
         - Yii2:
             part: [init, orm, fixtures]
             configFile: 'config/web-test.php'
