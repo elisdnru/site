@@ -21,6 +21,7 @@ services:
             cache_from:
                 - ${REGISTRY:-localhost}/dev-php-fpm:cache
         environment:
+            PHP_IDE_CONFIG: serverName=SITE
             APP_DEBUG: 1
             APP_ENV: dev
             COOKIE_SECRET: secret
