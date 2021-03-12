@@ -2,6 +2,7 @@
 
 namespace app\modules\page\models;
 
+use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Slugger;
@@ -69,8 +70,7 @@ class Page extends ActiveRecord
     {
         return [
             [['alias', 'title'], 'required'],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#',
-                'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', AliasValidator::class],
             [['alias', 'title', 'meta_title', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
             [['hidetitle', 'parent_id'], 'integer'],
             [['date', 'styles', 'text', 'meta_description', 'system'], 'safe'],

@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\models;
 
+use app\components\AliasValidator;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Slugger;
 use app\components\uploader\FileUploadBehavior;
@@ -79,8 +80,7 @@ class Post extends ActiveRecord implements Material
             [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
             [['title', 'alias', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
             ['tagsString', 'string', 'max' => '255'],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#',
-                'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', AliasValidator::class],
             ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
             ['group_id', 'default', 'value' => 0],
         ];

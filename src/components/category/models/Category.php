@@ -2,6 +2,7 @@
 
 namespace app\components\category\models;
 
+use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryBehavior;
 use app\components\Slugger;
 use yii\db\ActiveRecord;
@@ -36,8 +37,7 @@ abstract class Category extends ActiveRecord
     {
         return [
             [['alias', 'title'], 'required'],
-            ['alias', 'match', 'pattern' => '#^[a-zA-Z0-9_-]+$#',
-                'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', AliasValidator::class],
             ['sort', 'integer'],
             [['alias', 'title', 'meta_title'], 'string', 'max' => 255],
             [['text', 'meta_description'], 'string'],
