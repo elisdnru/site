@@ -176,7 +176,7 @@ class User extends ActiveRecord
         $this->updateAttributes(['confirm' => $this->confirm]);
 
         $mail = $mailer
-            ->compose(['html' => 'confirm'], ['code' => $this->confirm])
+            ->compose(['html' => '@app/modules/user/views/email/confirm'], ['code' => $this->confirm])
             ->setSubject('Подтверждение регистрации на сайте elisdn.ru')
             ->setTo($this->email);
         if (!$mail->send()) {
@@ -187,7 +187,7 @@ class User extends ActiveRecord
     public function sendRemind(string $password, MailerInterface $mailer): void
     {
         $mail = $mailer
-            ->compose(['html' => 'remind'], ['password' => $password])
+            ->compose(['html' => '@app/modules/user/views/email/remind'], ['password' => $password])
             ->setSubject('Восстановление пароля на сайте elisdn.ru')
             ->setTo($this->email);
         if (!$mail->send()) {

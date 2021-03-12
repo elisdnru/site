@@ -196,7 +196,7 @@ class Comment extends ActiveRecord
     {
         if ($this->email !== $current->email) {
             $mailer
-                ->compose(['html' => 'comment'], [
+                ->compose(['html' => '@app/modules/comment/views/email/comment'], [
                     'comment' => $this,
                     'current' => $current,
                 ])
