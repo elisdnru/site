@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c4bf046749b2fa6a9678e7215780b66",
+    "content-hash": "c7b3361469b34f59e226321cddfe7782",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -337,50 +337,6 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/master"
             },
             "time": "2020-06-29T00:56:53+00:00"
-        },
-        {
-            "name": "fishvision/yii2-migrate",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fishvision/yii2-migrate.git",
-                "reference": "9bf914bcbac5e71318079a50597e5d29bc42ac5a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fishvision/yii2-migrate/zipball/9bf914bcbac5e71318079a50597e5d29bc42ac5a",
-                "reference": "9bf914bcbac5e71318079a50597e5d29bc42ac5a",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "fishvision\\migrate\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Berriman",
-                    "email": "alexb@fishvision.com"
-                }
-            ],
-            "description": "Extended migration support",
-            "keywords": [
-                "extension",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/fishvision/yii2-migrate/issues",
-                "source": "https://github.com/fishvision/yii2-migrate/tree/master"
-            },
-            "time": "2017-06-08T01:59:47+00:00"
         },
         {
             "name": "guzzlehttp/promises",
