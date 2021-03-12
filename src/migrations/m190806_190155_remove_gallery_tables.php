@@ -10,8 +10,6 @@ class m190806_190155_remove_gallery_tables extends Migration
             $this->dropColumn('{{new}}', 'gallery_id');
         }
 
-        $this->dropColumn('{{blog_post}}', 'gallery_id');
-
         if ($this->getDb()->getTableSchema('{{gallery_photo}}')) {
             $this->dropTable('{{gallery_photo}}');
             $this->dropTable('{{gallery_category}}');
