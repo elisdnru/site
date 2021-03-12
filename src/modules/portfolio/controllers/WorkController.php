@@ -17,7 +17,10 @@ class WorkController extends Controller
         $model = $this->loadModel($id, $access);
 
         if ('/' . $request->getPathInfo() !== $model->getUrl()) {
-            return $this->redirect(Url::current(['alias' => $model->alias, 'category' => $model->category->getPath()]), 301);
+            return $this->redirect(Url::current([
+                'alias' => $model->alias,
+                'category' => $model->category->getPath()
+            ]), 301);
         }
 
         return $this->render('show', [

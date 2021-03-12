@@ -74,7 +74,9 @@ class CategoryController extends AdminController
 
         $count = Work::find()->category($model->id)->count();
         if ($count) {
-            throw new BadRequestHttpException('В данной группе есть записи. Удалите их или переместите в другие категории.');
+            throw new BadRequestHttpException(
+                'В данной группе есть записи. Удалите их или переместите в другие категории.'
+            );
         }
 
         $model->delete();

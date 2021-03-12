@@ -53,7 +53,8 @@ class InlineWidgetsBehavior extends Behavior
     {
         if (preg_match('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {
-                while (preg_match('#\{' . $this->widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->widgetToken . '\}#is', $text, $p)) {
+                $pattern = '#\{' . $this->widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->widgetToken . '\}#is';
+                while (preg_match($pattern, $text, $p)) {
                     $text = str_replace($p[0], $this->loadWidget($class, $p[2] ?? ''), $text);
                 }
             }

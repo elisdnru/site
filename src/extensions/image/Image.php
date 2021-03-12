@@ -371,7 +371,18 @@ class Image
         $newImage = imagecreatetruecolor($this->width, $this->height);
         $this->preserveTransparency($newImage);
 
-        imagecopyresampled($newImage, $this->image, 0, 0, $srcX, $srcY, $this->width, $this->height, $srcWidth, $srcHeight);
+        imagecopyresampled(
+            $newImage,
+            $this->image,
+            0,
+            0,
+            $srcX,
+            $srcY,
+            $this->width,
+            $this->height,
+            $srcWidth,
+            $srcHeight
+        );
 
         imagedestroy($this->image);
 
@@ -522,10 +533,26 @@ class Image
 
         $newImage = imagecreatetruecolor($toWidth, $toHeight);
 
-        $allocatedBackgroundColor = imagecolorallocate($newImage, $backgroundColor[0], $backgroundColor[1], $backgroundColor[2]);
+        $allocatedBackgroundColor = imagecolorallocate(
+            $newImage,
+            $backgroundColor[0],
+            $backgroundColor[1],
+            $backgroundColor[2]
+        );
         imagefill($newImage, 0, 0, $allocatedBackgroundColor);
 
-        imagecopyresampled($newImage, $this->image, $posX, $posY, 0, 0, $newWidth, $newHeight, $this->width, $this->height);
+        imagecopyresampled(
+            $newImage,
+            $this->image,
+            $posX,
+            $posY,
+            0,
+            0,
+            $newWidth,
+            $newHeight,
+            $this->width,
+            $this->height
+        );
 
         imagedestroy($this->image);
 

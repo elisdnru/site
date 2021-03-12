@@ -67,7 +67,8 @@ class CategoryTreeBehavior extends CategoryBehavior
     {
         if ($lastLink) {
             $breadcrumbs = [
-                Attribute::string($this->getModel(), $this->titleAttribute) => Attribute::string($this->getModel(), $this->urlAttribute)
+                Attribute::string($this->getModel(), $this->titleAttribute) =>
+                    Attribute::string($this->getModel(), $this->urlAttribute)
             ];
         } else {
             $breadcrumbs = [Attribute::string($this->getModel(), $this->titleAttribute)];
@@ -77,7 +78,8 @@ class CategoryTreeBehavior extends CategoryBehavior
         $i = 50;
 
         while ($i-- && $parent = Attribute::arOrNull($page, $this->parentRelation)) {
-            $breadcrumbs[Attribute::string($parent, $this->titleAttribute)] = Attribute::string($parent, $this->urlAttribute);
+            $breadcrumbs[Attribute::string($parent, $this->titleAttribute)] =
+                Attribute::string($parent, $this->urlAttribute);
             $page = $parent;
         }
         return array_reverse($breadcrumbs);

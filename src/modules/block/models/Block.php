@@ -22,7 +22,8 @@ class Block extends ActiveRecord
         return [
             [['alias', 'title'], 'required'],
             [['alias', 'title'], 'string', 'max' => 255],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#',
+                'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
             [['text', 'short'], 'safe'],
         ];

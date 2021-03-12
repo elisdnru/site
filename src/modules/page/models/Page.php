@@ -69,7 +69,8 @@ class Page extends ActiveRecord
     {
         return [
             [['alias', 'title'], 'required'],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#',
+                'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             [['alias', 'title', 'meta_title', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
             [['hidetitle', 'parent_id'], 'integer'],
             [['date', 'styles', 'text', 'meta_description', 'system'], 'safe'],
@@ -128,7 +129,8 @@ class Page extends ActiveRecord
                 'purifierOptions' => [
                     'Attr.AllowedRel' => ['nofollow'],
                     'HTML.SafeIframe' => true,
-                    'URI.SafeIframeRegexp' => '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
+                    'URI.SafeIframeRegexp' =>
+                        '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
                 ],
                 'processOnBeforeSave' => true,
             ],

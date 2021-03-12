@@ -39,7 +39,10 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
             $temp = $item;
             while (isset($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1])) {
-                $titles[] = Attribute::string($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1], $this->titleAttribute);
+                $titles[] = Attribute::string(
+                    $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1],
+                    $this->titleAttribute
+                );
                 $temp = $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1];
             }
 
@@ -70,7 +73,10 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
             $temp = $item;
             while (isset($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1])) {
-                $titles[] = Attribute::string($items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1], $this->titleAttribute);
+                $titles[] = Attribute::string(
+                    $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1],
+                    $this->titleAttribute
+                );
                 $temp = $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1];
             }
 
@@ -106,9 +112,17 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
     private function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
     {
         foreach ($items as $item) {
-            if (Attribute::intOrNull($item, $this->parentAttribute) === $parent && !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])) {
-                $result[Attribute::int($item, $this->primaryKeyAttribute)] = str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute);
-                $this->getTabListRecursive($items, $result, Attribute::int($item, $this->primaryKeyAttribute), $indent + 1);
+            if (Attribute::intOrNull($item, $this->parentAttribute) === $parent &&
+                !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])
+            ) {
+                $result[Attribute::int($item, $this->primaryKeyAttribute)] =
+                    str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute);
+                $this->getTabListRecursive(
+                    $items,
+                    $result,
+                    Attribute::int($item, $this->primaryKeyAttribute),
+                    $indent + 1
+                );
             }
         }
     }
@@ -144,8 +158,9 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         $resultArray = [];
         if (isset($items[$parent]) && $items[$parent]) {
             foreach ($items[$parent] as $item) {
-                $resultArray = $resultArray + [
-                        Attribute::string($item, $this->urlAttribute) => str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute)
+                $resultArray += [
+                        Attribute::string($item, $this->urlAttribute) =>
+                            str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute)
                     ] + $this->getUrlListRecursive($items, (int)$item->getPrimaryKey(), $indent + 1);
             }
         }

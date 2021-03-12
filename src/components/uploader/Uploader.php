@@ -142,7 +142,12 @@ class Uploader
             return false;
         }
 
-        if ($this->createThumb($requested->path, $requested->baseName, $requested->width, $requested->height) === null) {
+        if ($this->createThumb(
+            $requested->path,
+            $requested->baseName,
+            $requested->width,
+            $requested->height
+        ) === null) {
             return false;
         }
 
@@ -203,7 +208,11 @@ class Uploader
     private function parseFilename(string $fileName): ?Parsed
     {
         $result = null;
-        if (preg_match('|^(?P<path>' . $this->rootPath . '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)(\.webp)?$|', $fileName, $matches)) {
+
+        $pattern = '|^(?P<path>' . $this->rootPath .
+            '/[/\w]+)/(?P<name>\w+)_(?P<width>\d+)x?(?P<height>\d+)?\.(?P<ext>\w+)(\.webp)?$|';
+
+        if (preg_match($pattern, $fileName, $matches)) {
             $result = new Parsed();
             $result->path = $matches['path'];
             $result->fileName = $matches['name'];
@@ -212,6 +221,7 @@ class Uploader
             $result->extension = $matches['ext'];
             $result->baseName = $matches['name'] . '.' . $matches['ext'];
         }
+
         return $result;
     }
 

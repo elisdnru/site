@@ -38,7 +38,8 @@ class Landing extends ActiveRecord
     {
         return [
             [['alias', 'title'], 'required'],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#', 'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
+            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#',
+                'message' => 'Допустимы только латинские символы, цифры и знак подчёркивания'],
             [['alias', 'title'], 'string', 'max' => 255],
             [['parent_id'], 'integer'],
             [['text', 'system'], 'safe'],

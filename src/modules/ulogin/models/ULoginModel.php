@@ -102,7 +102,9 @@ class ULoginModel extends Model
         $user->role = Access::ROLE_USER;
         $user->lastname = $this->lastname;
         $user->firstname = $this->firstname;
-        $user->avatar = ($this->photo && !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $this->photo)) ? $this->photo : '';
+        $user->avatar = ($this->photo && !preg_match('@https?:\/\/ulogin\.ru\/img\/photo\.png@', $this->photo))
+            ? $this->photo
+            : '';
 
         if (!$user->save()) {
             return null;

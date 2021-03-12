@@ -174,7 +174,12 @@ class Work extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/portfolio/work/show', 'category' => $this->category->getPath(), 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+            $this->cachedUrl = Url::to([
+                '/portfolio/work/show',
+                'category' => $this->category->getPath(),
+                'id' => $this->getPrimaryKey(),
+                'alias' => $this->alias
+            ]);
         }
         return $this->cachedUrl;
     }

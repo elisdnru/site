@@ -49,7 +49,10 @@ class RegistrationController extends Controller
 
                 if ($user->save(false)) {
                     $user->sendCommit($mailer);
-                    $session->setFlash('success', 'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме');
+                    $session->setFlash(
+                        'success',
+                        'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме'
+                    );
                     return $this->refresh();
                 }
 

@@ -19,7 +19,9 @@ class TreeActiveDataProvider extends ActiveDataProvider
         $originQuery = $this->query;
 
         if (!$originQuery instanceof ActiveQuery) {
-            throw new InvalidConfigException('The "query" property must be an instance of a class that implements the ActiveQuery.');
+            throw new InvalidConfigException(
+                'The "query" property must be an instance of a class that implements the ActiveQuery.'
+            );
         }
 
         $query = clone $originQuery;

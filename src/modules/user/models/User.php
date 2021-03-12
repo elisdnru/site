@@ -150,7 +150,8 @@ class User extends ActiveRecord
             if (preg_match('|^https?://|', $this->avatar)) {
                 $this->cachedAvatarUrl = $this->avatar;
             } elseif ($this->avatar) {
-                $this->cachedAvatarUrl = '/' . Yii::$app->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
+                $this->cachedAvatarUrl =
+                    '/' . Yii::$app->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
             } else {
                 $this->cachedAvatarUrl = $this->getDefaultAvatarUrl($width);
             }

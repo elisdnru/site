@@ -181,7 +181,11 @@ class File
                     $filePath = $uploaded->tempName;
                     Yii::debug('File "' . $filePath . '" is identified as uploaded', 'ext.file');
                 } elseif ($pathOfAlias = Yii::getAlias($filePath)) {
-                    Yii::debug('The string supplied to ' . __METHOD__ . ' method - "' . $filePath . '" is identified as the alias to "' . $pathOfAlias . '"', 'ext.file');
+                    Yii::debug(
+                        'The string supplied to ' . __METHOD__ . ' method - "' .
+                            $filePath . '" is identified as the alias to "' . $pathOfAlias . '"',
+                        'ext.file'
+                    );
                     $filePath = $pathOfAlias;
                 }
             }
@@ -761,7 +765,9 @@ class File
                 }
             }
         }
-        $this->addLog('Unable to get filesystem object contents' . ($filter !== null ? ' *using supplied filter*' : ''));
+        $this->addLog(
+            'Unable to get filesystem object contents' . ($filter !== null ? ' *using supplied filter*' : '')
+        );
         return null;
     }
 
@@ -804,12 +810,17 @@ class File
                     }
 
                     if (is_dir($contents[$key]) && $recursive) {
-                        $descendants = array_merge($descendants, $this->dirContents($contents[$key], $recursive, $filter));
+                        $descendants = array_merge(
+                            $descendants,
+                            $this->dirContents($contents[$key], $recursive, $filter)
+                        );
                     }
                 }
             }
         } else {
-            throw new RuntimeException('Unable to get directory contents for "' . $directory . DIRECTORY_SEPARATOR . '"');
+            throw new RuntimeException(
+                'Unable to get directory contents for "' . $directory . DIRECTORY_SEPARATOR . '"'
+            );
         }
 
         return $descendants;
@@ -891,7 +902,11 @@ class File
     {
         if ($this->getIsFile()) {
             if ($this->getIsUploaded()) {
-                $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
+                $this->addLog(
+                    __METHOD__ . ' method is unavailable for uploaded files. ' .
+                        'Please copy/move uploaded file from temporary directory',
+                    'warning'
+                );
                 return null;
             }
 
@@ -919,7 +934,11 @@ class File
     {
         if ($this->getIsFile()) {
             if ($this->getIsUploaded()) {
-                $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
+                $this->addLog(
+                    __METHOD__ . ' method is unavailable for uploaded files. ' .
+                        'Please copy/move uploaded file from temporary directory',
+                    'warning'
+                );
                 return null;
             }
 
@@ -949,7 +968,11 @@ class File
     {
         if ($this->getIsFile()) {
             if ($this->getIsUploaded()) {
-                $this->addLog(__METHOD__ . ' method is unavailable for uploaded files. Please copy/move uploaded file from temporary directory', 'warning');
+                $this->addLog(
+                    __METHOD__ . ' method is unavailable for uploaded files. ' .
+                        'Please copy/move uploaded file from temporary directory',
+                    'warning'
+                );
                 return null;
             }
 
@@ -1298,7 +1321,9 @@ class File
                 }
 
                 if (function_exists('finfo_open')) {
-                    if (($info = @finfo_open(FILEINFO_MIME)) && ($result = finfo_file($info, $this->realpath)) !== false) {
+                    if (($info = @finfo_open(FILEINFO_MIME)) &&
+                        ($result = finfo_file($info, $this->realpath)) !== false
+                    ) {
                         return $this->mimeType = $result;
                     }
                 }
@@ -1329,7 +1354,10 @@ class File
     public function getMimeTypeByExtension(): ?string
     {
         if ($this->getIsFile()) {
-            Yii::debug('Trying to get MIME type for "' . $this->realpath . '" from extension "' . $this->extension . '"', 'ext.file');
+            Yii::debug(
+                'Trying to get MIME type for "' . $this->realpath . '" from extension "' . $this->extension . '"',
+                'ext.file'
+            );
             static $extensions;
             if ($extensions === null) {
                 $extensions = require Yii::getAlias(FileHelper::$mimeMagicFile);

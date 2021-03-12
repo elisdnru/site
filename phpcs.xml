@@ -17,10 +17,21 @@
     </rule>
 
     <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="1000"/>
-            <property name="absoluteLineLimit" value="1000"/>
-        </properties>
+        <exclude-pattern>src/views</exclude-pattern>
+        <exclude-pattern>src/widgets/views</exclude-pattern>
+        <exclude-pattern>src/widgets/inline/views</exclude-pattern>
+        <exclude-pattern>src/modules/*/views</exclude-pattern>
+        <exclude-pattern>src/modules/*/widgets/views</exclude-pattern>
+        <exclude-pattern>tests/_support/_generated</exclude-pattern>
+        <exclude-pattern>src/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/block/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/blog/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/comment/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/file/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/landing/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/page/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/portfolio/migrations</exclude-pattern>
+        <exclude-pattern>src/modules/user/migrations</exclude-pattern>
     </rule>
 
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
