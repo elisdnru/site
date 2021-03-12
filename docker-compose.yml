@@ -64,8 +64,7 @@ services:
             DEWORKER_API_URL: http://wiremock/api.deworker.pro
             SENTRY_DSN: ""
         volumes:
-            - .:/app
-        working_dir: /app
+            - ./:/app
     node-watch:
         image: node:14-alpine
         volumes:
