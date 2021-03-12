@@ -12,7 +12,6 @@ return ArrayHelper::merge(
                 'class' => MigrateController::class,
                 'migrationTable' => 'migrations',
                 'migrationPath' => [
-                    '@app/migrations',
                     '@app/modules/block/migrations',
                     '@app/modules/blog/migrations',
                     '@app/modules/comment/migrations',
