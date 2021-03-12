@@ -10,7 +10,8 @@ services:
         volumes:
             - ./:/app
         ports:
-            - "8080:80"
+            - "8080:8080"
+            - "8081:8081"
         depends_on:
             - php-fpm
     php-fpm:
@@ -101,13 +102,13 @@ services:
     mailer:
         image: mailhog/mailhog
         ports:
-            - "8081:8025"
+            - "8082:8025"
     wiremock:
         image: rodolpheche/wiremock:latest-alpine
         volumes:
             - ./wiremock:/home/wiremock
         ports:
-            - "8082:80"
+            - "8083:80"
         command:
             - '--port=80'
             - '--global-response-templating'
