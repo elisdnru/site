@@ -6,10 +6,8 @@ class m180806_105836_remove_language_tables extends Migration
 {
     public function safeUp(): bool
     {
-        if ($this->getDb()->getTableSchema('{{portfolio_work_lang}}')) {
-            $this->dropTable('{{portfolio_work_lang}}');
-            $this->dropTable('{{portfolio_category_lang}}');
-        }
+        $this->dropTable('{{portfolio_work_lang}}');
+        $this->dropTable('{{portfolio_category_lang}}');
         return true;
     }
 

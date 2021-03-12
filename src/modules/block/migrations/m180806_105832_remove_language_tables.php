@@ -6,9 +6,7 @@ class m180806_105832_remove_language_tables extends Migration
 {
     public function safeUp(): bool
     {
-        if ($this->getDb()->getTableSchema('{{block_lang}}')) {
-            $this->dropTable('{{block_lang}}');
-        }
+        $this->dropTable('{{block_lang}}');
         return true;
     }
 

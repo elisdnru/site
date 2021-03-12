@@ -6,14 +6,7 @@ class m180806_105834_remove_language_tables extends Migration
 {
     public function safeUp(): bool
     {
-        /**
-         * TODO: Remove after getTableSchema fixes
-         * @psalm-suppress DocblockTypeContradiction
-         * @psalm-suppress RedundantConditionGivenDocblockType
-         */
-        if ($this->getDb()->getTableSchema('{{comment}}')?->getColumn('lang_id')) {
-            $this->dropColumn('{{comment}}', 'lang_id');
-        }
+        $this->dropColumn('{{comment}}', 'lang_id');
         return true;
     }
 
