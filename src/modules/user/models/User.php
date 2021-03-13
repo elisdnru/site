@@ -162,7 +162,7 @@ class User extends ActiveRecord
 
     public function getDefaultAvatarUrl(int $width): string
     {
-        return Gravatar::url($this->email, $width, (Yii::$app->request->hostInfo ?: '') . '/images/noavatar.png');
+        return Gravatar::url($this->email, $width);
     }
 
     public function sendCommit(MailerInterface $mailer): void

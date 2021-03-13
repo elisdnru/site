@@ -13,7 +13,7 @@ class Gravatar
     public const DEFAULT_RETRO = 'retro';
     public const DEFAULT_BLANK = 'blank';
 
-    public static function url(?string $email, int $width = 0, string $default = self::DEFAULT_GRAVATAR): string
+    public static function url(?string $email, int $width = 0, string $default = self::DEFAULT_ABSTRACT): string
     {
         $id = md5(strtolower(trim($email ?: '')));
         $default = '?d=' . urlencode($default);
