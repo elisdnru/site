@@ -3,7 +3,7 @@ services:
     nginx:
         image: ${REGISTRY:-localhost}/dev-nginx:cache
         build:
-            context: ./docker
+            context: ./docker/development
             dockerfile: nginx.docker
             cache_from:
                 - ${REGISTRY:-localhost}/dev-nginx:cache
@@ -17,7 +17,7 @@ services:
     php-fpm:
         image: ${REGISTRY:-localhost}/dev-php-fpm:cache
         build:
-            context: ./docker
+            context: ./docker/development
             dockerfile: php-fpm.docker
             cache_from:
                 - ${REGISTRY:-localhost}/dev-php-fpm:cache
@@ -43,7 +43,7 @@ services:
     php-cli:
         image: ${REGISTRY:-localhost}/dev-php-cli:cache
         build:
-            context: ./docker
+            context: ./docker/development
             dockerfile: php-cli.docker
             cache_from:
                 - ${REGISTRY:-localhost}/dev-php-cli:cache
