@@ -17,6 +17,6 @@ class Gravatar
     {
         $id = md5(strtolower(trim($email ?: '')));
         $default = '?d=' . urlencode($default);
-        return '//www.gravatar.com/avatar/' . $id . $default . ($width ? '&s=' . $width : '');
+        return 'https://www.gravatar.com/avatar/' . $id . $default . ($width ? '&s=' . $width : '');
     }
 }

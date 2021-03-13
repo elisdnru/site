@@ -11,7 +11,7 @@
 
   const loadWidget = function () {
     const s = document.createElement('script')
-    s.src = '//ulogin.ru/js/ulogin.js'
+    s.src = 'https://ulogin.ru/js/ulogin.js'
     s.async = true
     document.querySelector('body').appendChild(s)
   }
