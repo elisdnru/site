@@ -91,9 +91,6 @@ site-test-generate:
 site-test:
 	docker-compose run --rm php-cli composer test run unit,integration,acceptance
 
-assets-build:
-	docker-compose run --rm node-cli npm run build
-
 push-dev-cache:
 	docker-compose push
 
