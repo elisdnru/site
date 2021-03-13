@@ -13,6 +13,7 @@ use Yii;
 use yii\base\Module;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\User as WebUser;
@@ -150,15 +151,15 @@ class FileController extends AdminController
     {
         $user = $this->loadUser();
 
-        if ($user && $user->role !== Access::ROLE_ADMIN) {
+        if ($user->role !== Access::ROLE_ADMIN) {
             return self::UPLOAD_PATH . '/users/' . $user->username;
         }
 
         return self::UPLOAD_PATH;
     }
 
-    private function loadUser(): ?User
+    private function loadUser(): User
     {
-        return User::findOne($this->user->id);
+        return User::findOne($this->user->id) ?: throw new ForbiddenHttpException();
     }
 }
