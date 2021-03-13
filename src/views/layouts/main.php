@@ -62,7 +62,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
             <?php else : ?>
                 <div class="name">Дмитрий Елисеев</div>
             <?php endif; ?>
-            <div class="slogan">Разработка сайтов и интернет-сервисов</div>
+            <div class="slogan">Про разработку сайтов и сервисов</div>
         </div>
         <?php if ($this->context->route !== 'home/default/index') :
             ?><!--/noindex--><?php
