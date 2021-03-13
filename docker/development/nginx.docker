@@ -1,7 +1,6 @@
 FROM nginx:1.17-alpine
 
-COPY ./nginx/redirects.conf /etc/nginx/redirects.conf
-COPY ./nginx/locations.conf /etc/nginx/locations.conf
+COPY ./nginx/snippets /etc/nginx/snippets
 COPY ./nginx/conf.d /etc/nginx/conf.d
 
 WORKDIR /app
