@@ -9,6 +9,7 @@ use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
 use app\components\module\routes\RoutesLoader;
+use app\components\psr\SimpleCacheAdapter;
 use app\components\uploader\Uploader;
 use app\extensions\file\File as FileExtension;
 use app\extensions\image\Image;
@@ -19,6 +20,15 @@ use app\widgets\inline\CountDown;
 use app\widgets\inline\MailTo;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
+use Http\Client\Curl\Client;
+use Laminas\Diactoros\RequestFactory;
+use Laminas\Diactoros\ResponseFactory;
+use Laminas\Diactoros\StreamFactory;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\SimpleCache\CacheInterface as SimpleCacheInterface;
 use yii\caching\CacheInterface;
 use yii\caching\DummyCache;
 use yii\caching\FileCache;
@@ -51,9 +61,6 @@ return [
     'language' => 'ru',
 
     'bootstrap' => [
-        app\components\psr\HttpFactoryProvider::class,
-        app\components\psr\HttpClientProvider::class,
-        app\components\psr\SimpleCacheProvider::class,
         app\components\module\Provider::class,
         app\modules\edu\components\Provider::class,
         RoutesLoader::class,
@@ -232,6 +239,11 @@ return [
             AdminDashboard::class => [],
             AdminMenu::class => [],
             AdminNotifications::class => [],
+            ClientInterface::class => Client::class,
+            ResponseFactoryInterface::class => ResponseFactory::class,
+            RequestFactoryInterface::class => RequestFactory::class,
+            StreamFactoryInterface::class => StreamFactory::class,
+            SimpleCacheInterface::class => SimpleCacheAdapter::class
         ],
     ],
     'params' => [
