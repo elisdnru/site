@@ -9,7 +9,7 @@ use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
 use app\components\module\routes\RoutesLoader;
-use app\components\psr\SimpleCacheAdapter;
+use app\components\SimpleCacheAdapter;
 use app\components\uploader\Uploader;
 use app\extensions\file\File as FileExtension;
 use app\extensions\image\Image;

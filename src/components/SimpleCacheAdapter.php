@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\components\psr;
+namespace app\components;
 
 use DateInterval;
 use DateTimeImmutable;
