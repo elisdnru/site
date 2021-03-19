@@ -172,12 +172,7 @@ class Post extends ActiveRecord implements Material
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
-                'purifierOptions' => [
-                    'Attr.AllowedRel' => ['nofollow'],
-                    'HTML.SafeIframe' => true,
-                    'URI.SafeIframeRegexp' =>
-                        '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
-                ],
+                'enablePurifier' => false,
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
