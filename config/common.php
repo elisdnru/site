@@ -102,7 +102,6 @@ return [
         'moduleAdminDashboard' => AdminDashboard::class,
         'moduleAdminMenu' => AdminMenu::class,
         'moduleAdminNotifications' => AdminNotifications::class,
-        'file' => FileExtension::class,
         'uploader' => Uploader::class,
     ],
 
