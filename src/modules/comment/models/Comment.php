@@ -8,7 +8,6 @@ use app\modules\comment\models\query\CommentQuery;
 use app\modules\user\models\User;
 use ReflectionClass;
 use ReflectionException;
-use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;

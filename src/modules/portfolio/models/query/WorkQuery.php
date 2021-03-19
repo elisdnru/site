@@ -6,7 +6,6 @@ namespace app\modules\portfolio\models\query;
 
 use app\modules\portfolio\models\Work;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 

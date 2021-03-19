@@ -6,7 +6,6 @@ namespace app\modules\blog\models\query;
 
 use app\modules\blog\models\Post;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 

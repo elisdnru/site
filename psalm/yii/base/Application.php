@@ -9,7 +9,6 @@ use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
 use app\components\uploader\Uploader;
-use app\extensions\file\File;
 use yii\web\User;
 
 /**
@@ -18,7 +17,6 @@ use yii\web\User;
  * @property AdminDashboard $moduleAdminDashboard
  * @property AdminMenu $moduleAdminMenu
  * @property AdminNotifications $moduleAdminNotifications
- * @property File $file
  * @property Uploader $uploader
  */
 class Application extends Module

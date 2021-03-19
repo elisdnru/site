@@ -4,7 +4,6 @@ namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryQueryBehavior;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 

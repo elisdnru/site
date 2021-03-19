@@ -7,7 +7,6 @@ namespace app\modules\page\models\query;
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use app\modules\page\models\Page;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 

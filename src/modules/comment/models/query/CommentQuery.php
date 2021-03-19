@@ -6,7 +6,6 @@ namespace app\modules\comment\models\query;
 
 use app\modules\comment\models\Comment;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 

@@ -7,7 +7,6 @@ namespace app\modules\blog\models\query;
 use app\components\category\behaviors\CategoryQueryBehavior;
 use app\modules\blog\models\Group;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 

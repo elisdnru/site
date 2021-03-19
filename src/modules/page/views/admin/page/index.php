@@ -1,6 +1,5 @@
 <?php
 
-use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
 use app\modules\page\models\Page;
 use yii\helpers\Html;

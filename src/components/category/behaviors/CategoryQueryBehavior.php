@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\components\category\behaviors;
 
 use app\components\category\Attribute;
-use app\components\category\models\Category;
 use app\components\category\models\TreeCategory;
 use yii\base\Behavior;
 use yii\db\ActiveQuery;
