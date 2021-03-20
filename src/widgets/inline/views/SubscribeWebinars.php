@@ -10,6 +10,13 @@
         <div class="row button">
             <button type="submit">Подписаться</button>
         </div>
+        <div class="clear"></div>
+        <div>
+            <label>
+                <input type="checkbox" required />
+                согласен с <a target="_blank" href="/privacy">политикой конфиденциальности</a>
+            </label>
+        </div>
     </form>
 </div>
 </div>
