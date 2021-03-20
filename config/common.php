@@ -20,6 +20,7 @@ use app\widgets\inline\CountDown;
 use app\widgets\inline\MailTo;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
+use app\widgets\inline\YouTube;
 use Http\Client\Curl\Client;
 use Laminas\Diactoros\RequestFactory;
 use Laminas\Diactoros\ResponseFactory;
@@ -194,6 +195,7 @@ return [
                         'lastPosts' => LastPostsWidget::class,
                         'block' => BlockWidget::class,
                         'countdown' => CountDown::class,
+                        'youtube' => YouTube::class,
                         'subscribe_webinars' => SubscribeWebinars::class,
                         'subscribe_news' => SubscribeNews::class,
                         'mailto' => MailTo::class,
