@@ -461,7 +461,7 @@ body {
     content: '';
     margin: 0;
     padding: 0;
-    height: 20px;
+    height: 19px;
     width: 100%;
     position: absolute;
     z-index: 5;
