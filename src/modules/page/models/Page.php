@@ -128,9 +128,6 @@ class Page extends ActiveRecord
                 'destinationAttribute' => 'text_purified',
                 'purifierOptions' => [
                     'Attr.AllowedRel' => ['nofollow'],
-                    'HTML.SafeIframe' => true,
-                    'URI.SafeIframeRegexp' =>
-                        '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
                 ],
                 'processOnBeforeSave' => true,
             ],

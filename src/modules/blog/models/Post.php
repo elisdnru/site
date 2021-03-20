@@ -172,7 +172,9 @@ class Post extends ActiveRecord implements Material
                 'sourceAttribute' => 'text',
                 'destinationAttribute' => 'text_purified',
                 'enableMarkdown' => true,
-                'enablePurifier' => false,
+                'purifierOptions' => [
+                    'Attr.AllowedRel' => ['nofollow'],
+                ],
                 'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [

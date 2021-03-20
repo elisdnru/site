@@ -63,7 +63,6 @@ END;
 <span class="php-hl-brackets">{</span>
     <span class="php-hl-reserved">public</span> <span class="php-hl-reserved">function</span> <span class="php-hl-identifier">process</span><span class="php-hl-brackets">(</span><span class="php-hl-var">\$var</span><span class="php-hl-brackets">)</span><span class="php-hl-code">: </span><span class="php-hl-identifier">void</span>
 <span class="php-hl-brackets">}</span></pre></div></div>
-
 END;
 
         $post->text = $source;
