@@ -12,6 +12,13 @@
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
 
+    <stubs>
+        <file name="./psalm/yii/base/Application.php"/>
+        <file name="./psalm/yii/base/Controller.php"/>
+        <file name="./psalm/yii/base/View.php"/>
+        <file name="./psalm/yii/di/Container.php"/>
+    </stubs>
+
     <projectFiles>
         <directory name="bin" />
         <directory name="config" />
@@ -24,13 +31,6 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
-
-    <stubs>
-        <file name="./psalm/yii/base/Application.php"/>
-        <file name="./psalm/yii/base/Controller.php"/>
-        <file name="./psalm/yii/base/View.php"/>
-        <file name="./psalm/yii/di/Container.php"/>
-    </stubs>
 
     <issueHandlers>
         <LessSpecificReturnType errorLevel="info" />
