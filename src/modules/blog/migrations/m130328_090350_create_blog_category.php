@@ -37,7 +37,16 @@ class m130328_090350_create_blog_category extends Migration
         $this->createIndex('lang_id', '{{blog_category_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{blog_category_lang}}', 'owner_id');
 
-        $this->addForeignKey('blog_category_lang_owner', '{{blog_category_lang}}', 'owner_id', '{{blog_category}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey(
+            'blog_category_lang_owner',
+            '{{blog_category_lang}}',
+            'owner_id',
+            '{{blog_category}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
         return true;
     }
 

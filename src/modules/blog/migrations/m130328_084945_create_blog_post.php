@@ -60,7 +60,16 @@ class m130328_084945_create_blog_post extends Migration
         $this->createIndex('lang_id', '{{blog_post_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{blog_post_lang}}', 'owner_id');
 
-        $this->addForeignKey('blog_post_lang_owner', '{{blog_post_lang}}', 'owner_id', '{{blog_post}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey(
+            'blog_post_lang_owner',
+            '{{blog_post_lang}}',
+            'owner_id',
+            '{{blog_post}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
         return true;
     }
 

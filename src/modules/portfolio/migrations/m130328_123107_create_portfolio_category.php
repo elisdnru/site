@@ -37,7 +37,16 @@ class m130328_123107_create_portfolio_category extends Migration
         $this->createIndex('lang_id', '{{portfolio_category_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{portfolio_category_lang}}', 'owner_id');
 
-        $this->addForeignKey('portfolio_category_lang_owner', '{{portfolio_category_lang}}', 'owner_id', '{{portfolio_category}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey(
+            'portfolio_category_lang_owner',
+            '{{portfolio_category_lang}}',
+            'owner_id',
+            '{{portfolio_category}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
         return true;
     }
 

@@ -51,7 +51,16 @@ class m130328_122419_create_portfolio_work extends Migration
         $this->createIndex('lang_id', '{{portfolio_work_lang}}', 'lang_id');
         $this->createIndex('owner_id', '{{portfolio_work_lang}}', 'owner_id');
 
-        $this->addForeignKey('portfolio_work_lang_owner', '{{portfolio_work_lang}}', 'owner_id', '{{portfolio_work}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey(
+            'portfolio_work_lang_owner',
+            '{{portfolio_work_lang}}',
+            'owner_id',
+            '{{portfolio_work}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
         return true;
     }
 

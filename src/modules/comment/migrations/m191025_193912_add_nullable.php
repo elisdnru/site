@@ -12,7 +12,9 @@ class m191025_193912_add_nullable extends Migration
         $this->update('comments', ['parent_id' => null], 'parent_id = 0');
         $this->update('comments', ['user_id' => null], 'user_id = 0');
 
-        $this->execute('DELETE FROM comments WHERE user_id IS NOT NULL AND user_id NOT IN (SELECT u.id FROM users AS u)');
+        $this->execute(
+            'DELETE FROM comments WHERE user_id IS NOT NULL AND user_id NOT IN (SELECT u.id FROM users AS u)'
+        );
 
         $this->addForeignKey('comments_user', 'comments', 'user_id', 'users', 'id');
         return true;
