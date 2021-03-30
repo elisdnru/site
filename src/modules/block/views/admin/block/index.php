@@ -47,7 +47,6 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $block) : ?>
-                    <?php /** @var Block $block */ ?>
                     <tr>
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]) ?>"><?= Html::encode($block->title) ?></a>

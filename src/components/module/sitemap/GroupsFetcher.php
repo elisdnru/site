@@ -25,7 +25,6 @@ class GroupsFetcher
         $sets = [];
 
         /**
-         * @var string $name
          * @var array $definition
          */
         foreach ($this->modules->definitions() as $name => $definition) {

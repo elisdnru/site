@@ -13,7 +13,6 @@ use yii\web\Session;
  */
 $session = Yii::$app->get('session');
 
-$groupurl = Url::to(['index', 'id' => $comment->material_id]);
 $editurl = Url::to(['update', 'id' => $comment->id]);
 $delUrl = Url::to(['delete', 'id' => $comment->id]);
 $publicurl = Url::to(['toggle', 'attribute' => 'public', 'id' => $comment->id]);

@@ -59,7 +59,6 @@ $this->params['admin'] = [
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $item) : ?>
-                    <?php /** @var Post $item */ ?>
                     <tr>
                         <td style="width:130px; text-align:center">
                             <?= Html::encode($item->date) ?>

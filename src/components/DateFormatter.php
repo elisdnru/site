@@ -11,8 +11,13 @@ class DateFormatter
         /** @var int $time */
         if (is_int($date)) {
             $time = $date;
-        } elseif (!$time = strtotime($date)) {
-            throw new InvalidArgumentException('Invalid Date');
+        }
+
+        if (is_string($date)) {
+            $time = strtotime($date);
+            if (!$time) {
+                throw new InvalidArgumentException('Invalid Date');
+            }
         }
 
         $months = [

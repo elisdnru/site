@@ -52,7 +52,6 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $item) : ?>
-                    <?php /** @var Landing $item */ ?>
                     <tr>
                         <td>
                             <?= str_repeat('&nbsp;', $item->indent * 4) ?>

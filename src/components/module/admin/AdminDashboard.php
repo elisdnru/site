@@ -21,8 +21,8 @@ class AdminDashboard
     {
         $modules = [];
 
-        foreach ($this->modules->definitions() as $key => $value) {
-            $module = $this->modules->load($key);
+        foreach (array_keys($this->modules->definitions()) as $name) {
+            $module = $this->modules->load($name);
             if ($module instanceof AdminDashboardItem && $this->access->isGranted($module->id)) {
                 $modules[$module->adminGroup()][$module->adminName()] = $module;
             }

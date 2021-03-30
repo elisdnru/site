@@ -43,7 +43,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div class="items">
     <?php foreach ($dataProvider->getItems() as $post) : ?>
-        <?php /** @var Post $post */ ?>
         <?php
         $links = [];
         foreach ($post->tags as $tag) {

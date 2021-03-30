@@ -87,7 +87,7 @@ class ULoginModel extends Model
             return new AuthIdentity($user->id);
         }
 
-        if ($user = User::findOne(['email' => $this->email])) {
+        if (User::findOne(['email' => $this->email])) {
             return null;
         }
 

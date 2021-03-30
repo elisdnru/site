@@ -56,7 +56,6 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $user) : ?>
-                    <?php /** @var User $user */ ?>
                     <tr>
                         <td style="width:50px">
                             <img src="<?= $user->getAvatarUrl(50, 50) ?>" width="50px" alt=""/>
