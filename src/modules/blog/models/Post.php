@@ -271,7 +271,7 @@ class Post extends ActiveRecord implements Material
         foreach ($newtags as $tagname) {
             $tag = Tag::findOrCreateByTitle($tagname);
 
-            $postTag = new PostTag;
+            $postTag = new PostTag();
             $postTag->post_id = $this->id;
             $postTag->tag_id = $tag->id;
             $postTag->save();

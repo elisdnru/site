@@ -1,4 +1,5 @@
 <?php
+
 use app\components\DateFormatter;
 use app\components\purifier\CommentPostFilter;
 use app\components\SocNetwork;

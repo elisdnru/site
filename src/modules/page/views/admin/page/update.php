@@ -1,4 +1,5 @@
 <?php
+
 use app\modules\page\models\Page;
 use yii\web\View;
 

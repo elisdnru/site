@@ -1,4 +1,5 @@
 <?php
+
 use app\widgets\Breadcrumbs;
 use app\widgets\Messages;
 use yii\web\View;

@@ -1,4 +1,5 @@
 <?php
+
 use app\components\DateFormatter;
 use app\modules\blog\models\Post;
 use yii\helpers\Html;

@@ -1,4 +1,5 @@
 <?php
+
 use app\modules\blog\forms\SearchForm;
 use yii\helpers\Html;
 use yii\helpers\Url;

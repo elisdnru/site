@@ -8,7 +8,7 @@
     <arg name="cache" value="var/.phpcs.json"/>
 
     <!-- inherit rules from: -->
-    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
         <properties>

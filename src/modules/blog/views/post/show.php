@@ -1,4 +1,5 @@
 <?php
+
 use app\assets\HighlightAsset;
 use app\components\InlineWidgetsBehavior;
 use app\components\Pluraliser;

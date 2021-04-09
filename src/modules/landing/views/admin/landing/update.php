@@ -1,4 +1,5 @@
 <?php
+
 use app\modules\landing\models\Landing;
 use yii\web\View;
 

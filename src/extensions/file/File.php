@@ -391,8 +391,10 @@ class File
     public function getIsEmpty(): bool
     {
         if (!isset($this->isEmpty)) {
-            if (($this->getIsFile() && $this->getSize(false) === 0) ||
-                (!$this->getIsFile() && count($this->dirContents($this->realpath)) === 0)) {
+            if (
+                ($this->getIsFile() && $this->getSize(false) === 0) ||
+                (!$this->getIsFile() && count($this->dirContents($this->realpath)) === 0)
+            ) {
                 $this->isEmpty = true;
             } else {
                 $this->isEmpty = false;
@@ -942,8 +944,10 @@ class File
                 return null;
             }
 
-            if ($this->getWriteable() && $filename !== false &&
-                $this->rename(str_replace($this->getFilename(), $filename, $this->getBasename()))) {
+            if (
+                $this->getWriteable() && $filename !== false &&
+                $this->rename(str_replace($this->getFilename(), $filename, $this->getBasename()))
+            ) {
                 return $this;
             }
 
@@ -1210,8 +1214,10 @@ class File
     public function delete($purge = true): bool
     {
         if ($this->getWriteable()) {
-            if (($this->getIsFile() && @unlink($this->realpath)) ||
-                (!$this->getIsFile() && ($purge ? $this->purge() : true) && rmdir($this->realpath))) {
+            if (
+                ($this->getIsFile() && @unlink($this->realpath)) ||
+                (!$this->getIsFile() && ($purge ? $this->purge() : true) && rmdir($this->realpath))
+            ) {
                 $this->exists = $this->readable = $this->writeable = false;
                 return true;
             }
@@ -1321,7 +1327,8 @@ class File
                 }
 
                 if (function_exists('finfo_open')) {
-                    if (($info = @finfo_open(FILEINFO_MIME)) &&
+                    if (
+                        ($info = @finfo_open(FILEINFO_MIME)) &&
                         ($result = finfo_file($info, $this->realpath)) !== false
                     ) {
                         return $this->mimeType = $result;

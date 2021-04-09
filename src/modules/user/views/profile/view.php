@@ -1,4 +1,5 @@
 <?php
+
 use app\components\SocNetwork;
 use app\modules\user\models\User;
 use app\widgets\Portlet;

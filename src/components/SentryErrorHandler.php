@@ -7,6 +7,7 @@ namespace app\components;
 use Throwable;
 use yii\web\ErrorHandler;
 use yii\web\HttpException;
+
 use function Sentry\captureException;
 
 class SentryErrorHandler extends ErrorHandler

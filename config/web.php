@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * web
+ */
+
 use app\components\SentryErrorHandler;
 use app\components\AuthIdentity;
 use yii\helpers\ArrayHelper;

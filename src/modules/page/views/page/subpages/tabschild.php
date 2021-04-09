@@ -1,4 +1,5 @@
 <?php
+
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
 use yii\web\View;

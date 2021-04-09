@@ -1,4 +1,5 @@
 <?php
+
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;

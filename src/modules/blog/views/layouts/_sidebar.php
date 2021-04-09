@@ -1,4 +1,5 @@
 <?php
+
 use app\widgets\Follow;
 use app\widgets\Portlet;
 use app\modules\block\widgets\BlockWidget;

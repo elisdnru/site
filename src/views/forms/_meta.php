@@ -1,4 +1,5 @@
 <?php
+
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
 

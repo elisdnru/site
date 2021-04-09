@@ -142,12 +142,14 @@ class Uploader
             return false;
         }
 
-        if ($this->createThumb(
-            $requested->path,
-            $requested->baseName,
-            $requested->width,
-            $requested->height
-        ) === null) {
+        if (
+            $this->createThumb(
+                $requested->path,
+                $requested->baseName,
+                $requested->width,
+                $requested->height
+            ) === null
+        ) {
             return false;
         }
 

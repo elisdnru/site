@@ -40,7 +40,7 @@ class CategorySearch extends Category
 
         $query->andFilterWhere([
             't.id' => $this->id,
-            't.sort'=> $this->sort,
+            't.sort' => $this->sort,
             't.parent_id' => $this->parent_id
         ]);
 

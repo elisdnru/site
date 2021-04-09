@@ -112,7 +112,8 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
     private function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
     {
         foreach ($items as $item) {
-            if (Attribute::intOrNull($item, $this->parentAttribute) === $parent &&
+            if (
+                Attribute::intOrNull($item, $this->parentAttribute) === $parent &&
                 !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])
             ) {
                 $result[Attribute::int($item, $this->primaryKeyAttribute)] =
