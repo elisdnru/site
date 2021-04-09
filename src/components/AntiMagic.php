@@ -25,12 +25,12 @@ trait AntiMagic
         return false;
     }
 
-    public function __unset(string $name)
+    public function __unset(string $name): void
     {
-        throw new InvalidCallException('Unsetting read-only property: ' . get_class($this) . '::' . $name);
+        throw new InvalidCallException('Unsetting unknown property: ' . get_class($this) . '::' . $name);
     }
 
-    public function __call(string $name, array $params)
+    public function __call(string $name, array $params): mixed
     {
         throw new UnknownMethodException('Calling unknown method: ' . get_class($this) . "::$name()");
     }
