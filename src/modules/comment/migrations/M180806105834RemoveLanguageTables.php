@@ -8,5 +8,15 @@ use yii\db\Migration;
 
 class M180806105834RemoveLanguageTables extends Migration
 {
+    public function safeUp(): bool
+    {
+        $this->dropColumn('{{comment}}', 'lang_id');
+        return true;
+    }
 
+    public function safeDown(): bool
+    {
+        echo "m180806_105834_remove_language_tables does not support migration down.\n";
+        return false;
+    }
 }

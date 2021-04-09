@@ -8,5 +8,15 @@ use yii\db\Migration;
 
 class M191017160126ChangeSalt extends Migration
 {
+    public function safeUp(): bool
+    {
+        $this->alterColumn('users', 'salt', 'varchar(255) DEFAULT NULL');
+        return true;
+    }
 
+    public function safeDown(): bool
+    {
+        $this->alterColumn('users', 'salt', 'varchar(255) NOT NULL');
+        return true;
+    }
 }

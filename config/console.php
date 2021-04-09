@@ -11,16 +11,6 @@ return ArrayHelper::merge(
             'migrate' => [
                 'class' => MigrateController::class,
                 'migrationTable' => 'migrations',
-                'migrationPath' => [
-                    '@app/modules/block/migrations/global',
-                    '@app/modules/blog/migrations/global',
-                    '@app/modules/comment/migrations/global',
-                    '@app/modules/file/migrations/global',
-                    '@app/modules/landing/migrations/global',
-                    '@app/modules/page/migrations/global',
-                    '@app/modules/portfolio/migrations/global',
-                    '@app/modules/user/migrations/global',
-                ],
                 'migrationNamespaces' => [
                     'app\modules\block\migrations',
                     'app\modules\blog\migrations',

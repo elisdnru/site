@@ -8,5 +8,15 @@ use yii\db\Migration;
 
 class M191010181651AddStyles extends Migration
 {
+    public function safeUp(): bool
+    {
+        $this->addColumn('blog_posts', 'styles', 'TEXT DEFAULT NULL');
+        return true;
+    }
 
+    public function safeDown(): bool
+    {
+        $this->dropColumn('blog_posts', 'styles');
+        return true;
+    }
 }

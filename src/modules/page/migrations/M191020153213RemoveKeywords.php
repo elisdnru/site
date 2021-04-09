@@ -8,5 +8,15 @@ use yii\db\Migration;
 
 class M191020153213RemoveKeywords extends Migration
 {
+    public function safeUp(): bool
+    {
+        $this->dropColumn('pages', 'keywords');
+        return true;
+    }
 
+    public function safeDown(): bool
+    {
+        $this->addColumn('pages', 'keywords', 'varchar(255) DEFAULT NULL');
+        return true;
+    }
 }

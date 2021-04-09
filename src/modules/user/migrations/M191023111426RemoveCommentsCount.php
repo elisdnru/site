@@ -8,5 +8,14 @@ use yii\db\Migration;
 
 class M191023111426RemoveCommentsCount extends Migration
 {
+    public function safeUp(): bool
+    {
+        $this->dropColumn('users', 'comments_count');
+        return true;
+    }
 
+    public function safeDown(): bool
+    {
+        return false;
+    }
 }
