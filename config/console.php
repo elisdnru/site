@@ -21,6 +21,16 @@ return ArrayHelper::merge(
                     '@app/modules/portfolio/migrations/global',
                     '@app/modules/user/migrations/global',
                 ],
+                'migrationNamespaces' => [
+                    'app\modules\block\migrations',
+                    'app\modules\blog\migrations',
+                    'app\modules\comment\migrations',
+                    'app\modules\file\migrations',
+                    'app\modules\landing\migrations',
+                    'app\modules\page\migrations',
+                    'app\modules\portfolio\migrations',
+                    'app\modules\user\migrations',
+                ],
             ],
         ],
         'components' => [
