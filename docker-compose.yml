@@ -12,8 +12,6 @@ services:
         ports:
             - "8080:8080"
             - "8081:8081"
-        depends_on:
-            - php-fpm
     php-fpm:
         image: ${REGISTRY:-localhost}/dev-php-fpm:cache
         build:
