@@ -5586,12 +5586,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "14f52bfb898ca5b11a0f75e2a299213db2606003"
+                "reference": "ef267f15fbe759580779eef9f1aa2b29e637f279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/14f52bfb898ca5b11a0f75e2a299213db2606003",
-                "reference": "14f52bfb898ca5b11a0f75e2a299213db2606003",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ef267f15fbe759580779eef9f1aa2b29e637f279",
+                "reference": "ef267f15fbe759580779eef9f1aa2b29e637f279",
                 "shasum": ""
             },
             "conflict": {
@@ -5678,7 +5678,7 @@
                 "friendsofsymfony/user-bundle": ">=1.2,<1.3.5",
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "fuel/core": "<1.8.1",
-                "getgrav/grav": "<1.7.11",
+                "getgrav/grav": "<=1.7.10",
                 "getkirby/cms": "<3.5.4",
                 "getkirby/panel": "<2.5.14",
                 "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
@@ -5946,7 +5946,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-08T21:03:32+00:00"
+            "time": "2021-06-09T23:02:53+00:00"
         },
         {
             "name": "sebastian/cli-parser",
