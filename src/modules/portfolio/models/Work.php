@@ -4,7 +4,6 @@ namespace app\modules\portfolio\models;
 
 use app\components\purifier\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
-use app\modules\portfolio\models\query\WorkQuery;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;

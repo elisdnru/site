@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\comment\models\query;
+namespace app\modules\comment\models;
 
 use app\modules\comment\models\Comment;
 use yii\db\ActiveQuery;

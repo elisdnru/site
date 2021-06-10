@@ -6,7 +6,6 @@ use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Slugger;
-use app\modules\page\models\query\PageQuery;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;

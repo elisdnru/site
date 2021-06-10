@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\landing\models\query;
+namespace app\modules\landing\models;
 
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use app\modules\landing\models\Landing;

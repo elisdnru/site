@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace app\modules\blog\models\query;
+namespace app\modules\page\models;
 
-use app\components\category\behaviors\CategoryQueryBehavior;
-use app\modules\blog\models\Group;
+use app\components\category\behaviors\CategoryTreeQueryBehavior;
+use app\modules\page\models\Page;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
 /**
- * @mixin CategoryQueryBehavior
+ * @mixin CategoryTreeQueryBehavior
  */
-class GroupQuery extends ActiveQuery
+class PageQuery extends ActiveQuery
 {
     public function behaviors(): array
     {
         return [
             'CategoryQueryBehavior' => [
-                'class' => CategoryQueryBehavior::class,
+                'class' => CategoryTreeQueryBehavior::class,
                 'titleAttribute' => 'title',
                 'aliasAttribute' => 'alias',
                 'defaultOrder' => ['title' => SORT_ASC],
@@ -29,7 +29,7 @@ class GroupQuery extends ActiveQuery
 
     /**
      * @param Connection|null $db
-     * @return Group[]
+     * @return Page[]
      */
     public function all($db = null): array
     {
@@ -40,7 +40,7 @@ class GroupQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Group[]|BatchQueryResult
+     * @return Page[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -50,10 +50,10 @@ class GroupQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Group|array|null
-     * @psalm-return Group|null
+     * @return Page|array|null
+     * @psalm-return Page|null
      */
-    public function one($db = null): array|Group|null
+    public function one($db = null): array|Page|null
     {
         return parent::one($db);
     }

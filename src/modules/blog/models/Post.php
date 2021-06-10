@@ -6,7 +6,6 @@ use app\components\AliasValidator;
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Slugger;
 use app\components\uploader\FileUploadBehavior;
-use app\modules\blog\models\query\PostQuery;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
 use yii\behaviors\TimestampBehavior;

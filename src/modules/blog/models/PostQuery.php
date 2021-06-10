@@ -2,28 +2,23 @@
 
 declare(strict_types=1);
 
-namespace app\modules\portfolio\models\query;
+namespace app\modules\blog\models;
 
-use app\modules\portfolio\models\Work;
+use app\modules\blog\models\Post;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
-class WorkQuery extends ActiveQuery
+class PostQuery extends ActiveQuery
 {
     public function published(): self
     {
-        return $this->andWhere(['public' => 1]);
-    }
-
-    public function category(int $id): self
-    {
-        return $this->andWhere(['category_id' => $id]);
+        return $this->andWhere('public = 1 AND date <= NOW()');
     }
 
     /**
      * @param Connection|null $db
-     * @return Work[]
+     * @return Post[]
      */
     public function all($db = null): array
     {
@@ -34,7 +29,7 @@ class WorkQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Work[]|BatchQueryResult
+     * @return Post[]|BatchQueryResult
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -44,10 +39,10 @@ class WorkQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Work|array|null
-     * @psalm-return Work|null
+     * @return Post|array|null
+     * @psalm-return Post|null
      */
-    public function one($db = null): array|Work|null
+    public function one($db = null): array|Post|null
     {
         return parent::one($db);
     }

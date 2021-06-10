@@ -4,7 +4,6 @@ namespace app\modules\comment\models;
 
 use app\components\purifier\PurifyTextBehavior;
 use app\components\Gravatar;
-use app\modules\comment\models\query\CommentQuery;
 use app\modules\user\models\User;
 use ReflectionClass;
 use ReflectionException;

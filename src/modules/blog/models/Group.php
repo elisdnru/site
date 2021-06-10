@@ -3,7 +3,6 @@
 namespace app\modules\blog\models;
 
 use app\components\category\behaviors\CategoryBehavior;
-use app\modules\blog\models\query\GroupQuery;
 use yii\db\ActiveRecord;
 
 /**

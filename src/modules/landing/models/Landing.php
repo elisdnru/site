@@ -4,7 +4,6 @@ namespace app\modules\landing\models;
 
 use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\modules\landing\models\query\LandingQuery;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;

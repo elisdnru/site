@@ -4,7 +4,7 @@ namespace app\modules\portfolio\controllers;
 
 use app\components\DataProvider;
 use yii\web\Controller;
-use app\modules\portfolio\models\query\WorkQuery;
+use app\modules\portfolio\models\WorkQuery;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use yii\caching\TagDependency;
