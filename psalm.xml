@@ -33,7 +33,6 @@
     </projectFiles>
 
     <issueHandlers>
-        <LessSpecificReturnType errorLevel="info" />
         <PropertyNotSetInConstructor errorLevel="info" />
 
         <InvalidScope>
