@@ -1,21 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 use yii\rbac\Item;
 
 return [
-
     'role_user' => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Пользователь',
         'ruleName' => null,
-        'data' => null
+        'data' => null,
     ],
 
     'permission_control' => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Пользователь панели управления',
         'ruleName' => null,
-        'data' => null
+        'data' => null,
     ],
 
     'permission_full' => [
@@ -25,10 +26,8 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
-
-    /* */
 
     'module_admin' => [
         'type' => Item::TYPE_PERMISSION,
@@ -37,7 +36,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_block' => [
@@ -47,7 +46,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_comment' => [
@@ -57,7 +56,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_file' => [
@@ -67,7 +66,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_page' => [
@@ -77,7 +76,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_landing' => [
@@ -87,7 +86,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_user' => [
@@ -97,7 +96,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_blog' => [
@@ -107,7 +106,7 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
 
     'module_portfolio' => [
@@ -117,10 +116,8 @@ return [
         'children' => [
             'permission_control',
         ],
-        'data' => null
+        'data' => null,
     ],
-
-    /* */
 
     'role_manager' => [
         'type' => Item::TYPE_ROLE,
@@ -133,7 +130,7 @@ return [
             'role_user',
         ],
         'ruleName' => null,
-        'data' => null
+        'data' => null,
     ],
 
     'role_admin' => [
@@ -153,6 +150,6 @@ return [
             'role_user',
         ],
         'ruleName' => null,
-        'data' => null
+        'data' => null,
     ],
 ];

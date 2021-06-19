@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\widgets\Breadcrumbs;
 use app\widgets\Messages;
@@ -14,16 +14,16 @@ use yii\web\View;
 
 <div class="main left-main">
 
-    <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= Messages::widget() ?>
+    <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]); ?>
+    <?= Messages::widget(); ?>
 
-    <?= $content ?>
+    <?= $content; ?>
 
 </div>
 
 <aside class="sidebar right-sidebar">
 
-    <?= $this->render('/layouts/_sidebar') ?>
+    <?= $this->render('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

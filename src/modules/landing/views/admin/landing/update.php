@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\landing\models\Landing;
 use yii\web\View;
@@ -7,7 +7,6 @@ use yii\web\View;
  * @var View $this
  * @var Landing $model
  */
-
 $this->title = 'Редактор лендингов';
 $this->params['breadcrumbs'] = [
     'Лендинги' => ['index'],
@@ -23,5 +22,5 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
 
 <h1>Редактирование лендинга</h1>
 
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model]); ?>
 

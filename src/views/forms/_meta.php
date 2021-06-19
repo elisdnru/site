@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
@@ -8,14 +8,14 @@ use yii\helpers\Html;
 
 <fieldset>
     <h4>Мета-информация</h4>
-    <div class="row<?= $model->hasErrors('meta_title') ? ' error' : '' ?>">
-        <?= Html::activeLabel($model, 'meta_title') ?><br />
-        <?= Html::activeTextInput($model, 'meta_title') ?><br />
-        <?= Html::error($model, 'meta_title', ['class' => 'error-message']) ?>
+    <div class="row<?= $model->hasErrors('meta_title') ? ' error' : ''; ?>">
+        <?= Html::activeLabel($model, 'meta_title'); ?><br />
+        <?= Html::activeTextInput($model, 'meta_title'); ?><br />
+        <?= Html::error($model, 'meta_title', ['class' => 'error-message']); ?>
     </div>
-    <div class="row<?= $model->hasErrors('meta_description') ? ' error' : '' ?>">
-        <?= Html::activeLabel($model, 'meta_description') ?><br />
-        <?= Html::activeTextarea($model, 'meta_description', ['rows' => 3, 'cols' => 80]) ?><br />
-        <?= Html::error($model, 'meta_description', ['class' => 'error-message']) ?>
+    <div class="row<?= $model->hasErrors('meta_description') ? ' error' : ''; ?>">
+        <?= Html::activeLabel($model, 'meta_description'); ?><br />
+        <?= Html::activeTextarea($model, 'meta_description', ['rows' => 3, 'cols' => 80]); ?><br />
+        <?= Html::error($model, 'meta_description', ['class' => 'error-message']); ?>
     </div>
 </fieldset>

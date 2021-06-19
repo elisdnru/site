@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'published' => [
         'id' => 1,

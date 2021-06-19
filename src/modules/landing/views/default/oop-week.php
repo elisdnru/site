@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use yii\helpers\Url;
 use yii\web\View;
@@ -6,18 +6,17 @@ use yii\web\View;
 /**
  * @var View $this
  */
-
 $this->title = 'Неделя ООП – Онлайн-интенсив по объектно-ориентированному программированию';
 ?>
 
-<?php $this->beginBlock('meta') ?>
+<?php $this->beginBlock('meta'); ?>
 <meta name="robots" content="index, nofollow">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&amp;subset=latin,cyrillic-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&amp;subset=latin,cyrillic-ext,cyrillic" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<?php $this->endBlock() ?>
+<?php $this->endBlock(); ?>
 
-<?php $this->beginBlock('styles') ?>
+<?php $this->beginBlock('styles'); ?>
 <style>
     body {
         background: #fff;
@@ -222,7 +221,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         text-decoration: underline;
     }
 </style>
-<?php $this->endBlock() ?>
+<?php $this->endBlock(); ?>
 
 <header class="hidden-xs">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
@@ -524,8 +523,8 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
             <script>document.write('mai' + 'l@eli' + 'sdn.ru')</script>
         </p>
         <p>
-            <a rel="nofollow" href="<?= Url::to(['/page/default/privacy']) ?>">Политика конфиденциальности</a> |
-            <a rel="nofollow" href="<?= Url::to(['/partner/default/index']) ?>">Партнёрская программа</a>
+            <a rel="nofollow" href="<?= Url::to(['/page/default/privacy']); ?>">Политика конфиденциальности</a> |
+            <a rel="nofollow" href="<?= Url::to(['/partner/default/index']); ?>">Партнёрская программа</a>
         </p>
     </div>
 </footer>

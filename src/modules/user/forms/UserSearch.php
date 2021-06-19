@@ -20,7 +20,7 @@ class UserSearch extends User
                 'id', 'username', 'email',
                 'create_datetime', 'last_modify_datetime', 'last_visit_datetime',
                 'active', 'identity', 'network',
-                'lastname', 'firstname', 'role'
+                'lastname', 'firstname', 'role',
             ], 'safe'],
         ];
     }
@@ -38,7 +38,7 @@ class UserSearch extends User
                     'username',
                     'email',
                     'fio' => [
-                        'asc' => ['lastname' => SORT_ASC, 'firstname' => SORT_ASC,],
+                        'asc' => ['lastname' => SORT_ASC, 'firstname' => SORT_ASC],
                         'desc' => ['lastname' => SORT_DESC, 'firstname' => SORT_DESC],
                     ],
                     'role',
@@ -50,7 +50,7 @@ class UserSearch extends User
             ],
             'pagination' => [
                 'pageSize' => $pageSize,
-            ]
+            ],
         ]));
 
         $this->load($params);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\acceptance\portfolio;
 
 use tests\AcceptanceTester;

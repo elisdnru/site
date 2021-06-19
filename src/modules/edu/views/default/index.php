@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
 use yii\helpers\Html;
@@ -13,7 +13,6 @@ use yii\web\View;
  *     thumbnail: string
  * }> $series
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'База знаний';
@@ -52,18 +51,18 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     <div class="edu-items-item">
                         <div class="edu-items-item-wrapper">
                             <div class="thumb-wrapper">
-                                <a href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']) ?>"
+                                <a href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']); ?>"
                                    class="thumb" target="_blank" rel="noopener">
-                                    <img src="<?= Html::encode($item['thumbnail']) ?>" alt="" />
+                                    <img src="<?= Html::encode($item['thumbnail']); ?>" alt="" />
                                 </a>
                             </div>
                             <div class="body">
                                 <div class="title">
                                     <a
-                                        href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']) ?>"
+                                        href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']); ?>"
                                         target="_blank" rel="noopener"
                                     >
-                                        <?= Html::encode($item['title']) ?>
+                                        <?= Html::encode($item['title']); ?>
                                     </a>
                                 </div>
                             </div>

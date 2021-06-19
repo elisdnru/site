@@ -21,9 +21,6 @@ class Item
 
     /**
      * Item constructor.
-     * @param string $url
-     * @param string|null $label
-     * @param Xml|null $xml
      * @param Item[] $children
      */
     public function __construct(string $url, ?string $label, ?Xml $xml, array $children)

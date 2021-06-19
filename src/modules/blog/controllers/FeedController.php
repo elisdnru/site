@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\models\Post;
-use yii\web\Controller;
 use DateTimeImmutable;
+use Laminas\Feed\Writer\Feed;
 use yii\helpers\Html;
+use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
-use Laminas\Feed\Writer\Feed;
 
 class FeedController extends Controller
 {

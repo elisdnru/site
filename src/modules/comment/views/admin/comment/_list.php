@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\DataProvider;
 use app\modules\comment\models\Comment;
@@ -13,8 +13,8 @@ use yii\widgets\LinkPager;
 
 <div class="items">
     <?php foreach ($dataProvider->getItems() as $comment) : ?>
-        <?= $this->render('@app/modules/comment/views/admin/comment/_view', ['comment' => $comment]) ?>
+        <?= $this->render('@app/modules/comment/views/admin/comment/_view', ['comment' => $comment]); ?>
     <?php endforeach; ?>
 </div>
 
-<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]) ?>
+<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]); ?>

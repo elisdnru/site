@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\module\admin;
 
 use app\components\module\Modules;
@@ -14,7 +16,6 @@ class AdminNotifications
     }
 
     /**
-     * @param string $module
      * @return array[]
      * @psalm-return array<array-key, array{label: string, url: string|array}>
      */

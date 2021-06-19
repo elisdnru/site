@@ -51,18 +51,18 @@ class Purifier
     {
         do {
             $id = bin2hex(random_bytes(5));
-        } while (array_key_exists($id, $this->fragments));
+        } while (\array_key_exists($id, $this->fragments));
         $this->fragments[$id] = $content;
         return $id;
     }
 
     private function resume(string $id): string
     {
-        if (array_key_exists($id, $this->fragments)) {
+        if (\array_key_exists($id, $this->fragments)) {
             $value = Html::encode($this->fragments[$id]);
             unset($this->fragments[$id]);
             return $value;
         }
-        return  '';
+        return '';
     }
 }

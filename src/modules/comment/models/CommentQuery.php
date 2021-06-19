@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\modules\comment\models;
 
-use app\modules\comment\models\Comment;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -64,7 +63,7 @@ class CommentQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Comment[]|BatchQueryResult
+     * @return BatchQueryResult|Comment[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -74,7 +73,7 @@ class CommentQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Comment|array|null
+     * @return array|Comment|null
      * @psalm-return Comment|null
      */
     public function one($db = null): array|Comment|null

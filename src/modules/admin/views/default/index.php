@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\module\admin\AdminDashboardItem;
 use app\widgets\IconMenu;
@@ -10,7 +10,6 @@ use yii\web\View;
  * @var Module[][] $groups
  * @psalm-var array<string, Module[]> $groups
  */
-
 $this->title = 'Панель управления';
 $this->params['breadcrumbs'] = [
     'Панель управления',
@@ -38,7 +37,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
         <ul class="adminlist">
             <li>
                 <ul>
-                    <?= IconMenu::widget(['items' => $notifications, 'iconsPath' => '/images/admin/']) ?>
+                    <?= IconMenu::widget(['items' => $notifications, 'iconsPath' => '/images/admin/']); ?>
                 </ul>
                 <div class="clear"></div>
             </li>
@@ -58,24 +57,24 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 
         <?php if ($has) : ?>
             <fieldset>
-                <h2><?= $group ?></h2>
+                <h2><?= $group; ?></h2>
                 <ul class="adminlist">
                     <?php
                     /**
-                     * @var Module|AdminDashboardItem $module
+                     * @var AdminDashboardItem|Module $module
                      * @psalm-var Module&AdminDashboardItem $module
                      */
                     foreach ($modules as $module) : ?>
                         <?php if (Yii::$app->moduleAdminMenu->menu($module->id)) : ?>
                             <li>
                                 <?php if ($module->adminName() !== $group) : ?>
-                                    <h3><?= $module->adminName() ?></h3>
+                                    <h3><?= $module->adminName(); ?></h3>
                                 <?php endif; ?>
                                 <ul>
                                     <?= IconMenu::widget([
                                         'items' => array_merge(Yii::$app->moduleAdminMenu->menu($module->id), Yii::$app->moduleAdminNotifications->notifications($module->id)),
-                                        'iconsPath' => '/images/admin/'
-                                    ]) ?>
+                                        'iconsPath' => '/images/admin/',
+                                    ]); ?>
                                 </ul>
                                 <div class="clear"></div>
                             </li>
@@ -93,7 +92,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
                 <ul>
                     <?= IconMenu::widget(['items' => [
                         ['label' => 'Очистить кэш', 'url' => ['/admin/cache/clear'], 'icon' => 'clear.png'],
-                    ], 'iconsPath' => '/images/admin/']) ?>
+                    ], 'iconsPath' => '/images/admin/']); ?>
                 </ul>
                 <div class="clear"></div>
             </li>

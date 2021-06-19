@@ -19,6 +19,6 @@ class CommentsAsset extends AssetBundle
     ];
 
     public $depends = [
-        MainAsset::class
+        MainAsset::class,
     ];
 }

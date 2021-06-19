@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\PortfolioAsset;
 use app\components\DataProvider;
@@ -19,7 +19,7 @@ $this->title = 'Портфолио' . PaginationFormatter::appendix($dataProvide
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Портфолио фрилансера Дмитрия Елисеева. Примеры работ по дизайну, вёрстке и программированию сайтов.'
+    'content' => 'Портфолио фрилансера Дмитрия Елисеева. Примеры работ по дизайну, вёрстке и программированию сайтов.',
 ]);
 
 $this->params['breadcrumbs'] = [
@@ -43,7 +43,7 @@ PortfolioAsset::register($this);
     <div class="subpages">
         <ul>
             <?php foreach ($categories as $category) : ?>
-                <li><a href="<?= $category->getUrl() ?>"><?= $category->title ?></a></li>
+                <li><a href="<?= $category->getUrl(); ?>"><?= $category->title; ?></a></li>
             <?php endforeach; ?>
         </ul>
         <div class="clear"></div>
@@ -59,4 +59,4 @@ PortfolioAsset::register($this);
     <h2>Работы 2008-2012 года:</h2>
 <?php endif; ?>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

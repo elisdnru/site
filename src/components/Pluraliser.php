@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 class Pluraliser
 {
     /**
      * Множественное число
-     * https://github.com/mbakirov/UHelpers/
-     * @param int $amount
+     * https://github.com/mbakirov/UHelpers/.
      * @param string[] $input array('товар', 'товара', 'товаров')
-     * @return string
      */
     public static function plural(int $amount, array $input): string
     {

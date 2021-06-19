@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\partner\controllers;
 
 use app\modules\partner\model\ItemsFetcher;

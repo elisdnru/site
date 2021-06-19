@@ -1,8 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
+use app\modules\block\widgets\BlockWidget;
 use app\widgets\Breadcrumbs;
 use app\widgets\Messages;
-use app\modules\block\widgets\BlockWidget;
 use yii\caching\TagDependency;
 use yii\web\View;
 
@@ -17,17 +17,17 @@ use yii\web\View;
 <div class="main left-main">
 
     <?php if ($this->beginCache('banner_blog_top', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-        <?= BlockWidget::widget(['id' => 'banner_blog_top']) ?>
+        <?= BlockWidget::widget(['id' => 'banner_blog_top']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
-    <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-    <?= Messages::widget() ?>
+    <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]); ?>
+    <?= Messages::widget(); ?>
 
-    <?= $content ?>
+    <?= $content; ?>
 
     <?php if ($this->beginCache('banner_blog_bottom', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-        <?= BlockWidget::widget(['id' => 'banner_blog_bottom']) ?>
+        <?= BlockWidget::widget(['id' => 'banner_blog_bottom']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
@@ -35,7 +35,7 @@ use yii\web\View;
 
 <aside class="sidebar right-sidebar">
 
-    <?= $this->render('/layouts/_sidebar') ?>
+    <?= $this->render('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

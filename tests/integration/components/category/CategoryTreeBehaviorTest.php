@@ -10,34 +10,14 @@ use Codeception\Test\Unit;
 use tests\IntegrationTester;
 use Yii;
 
-class CategoryTreeBehaviorTest extends Unit
+/**
+ * @internal
+ */
+final class CategoryTreeBehaviorTest extends Unit
 {
     protected IntegrationTester $tester;
 
     private TreeCategoryQuery $find;
-
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
-    protected function _before(): void
-    {
-        if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {
-            Yii::$app->db->createCommand()->createTable(TreeCategory::tableName(), [
-                'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
-                'sort' => 'smallint(3) NOT NULL',
-                'alias' => 'varchar(255) NOT NULL',
-                'title' => 'varchar(255) NOT NULL',
-                'parent_id' => 'int(11)',
-            ])->execute();
-        }
-
-        Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
-
-        $this->tester->haveFixtures([
-            'category' => TreeCategoryFixture::class,
-        ]);
-
-        $this->find = TreeCategory::find();
-    }
 
     public function testArray(): void
     {
@@ -385,10 +365,32 @@ class CategoryTreeBehaviorTest extends Unit
         self::assertEquals('First Root First Middle Child - First Root First Middle - First Root', $category->getFullTitle(true));
     }
 
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    protected function _before(): void
+    {
+        if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {
+            Yii::$app->db->createCommand()->createTable(TreeCategory::tableName(), [
+                'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
+                'sort' => 'smallint(3) NOT NULL',
+                'alias' => 'varchar(255) NOT NULL',
+                'title' => 'varchar(255) NOT NULL',
+                'parent_id' => 'int(11)',
+            ])->execute();
+        }
+
+        Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
+
+        $this->tester->haveFixtures([
+            'category' => TreeCategoryFixture::class,
+        ]);
+
+        $this->find = TreeCategory::find();
+    }
+
     private function getCategory(string $alias): TreeCategory
     {
-        $category = TreeCategory::findOne(['alias' => $alias]);
-        /** @var TreeCategory $category */
-        return $category;
+        /** @var TreeCategory */
+        return TreeCategory::findOne(['alias' => $alias]);
     }
 }

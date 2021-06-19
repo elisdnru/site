@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\page\controllers;
 
-use yii\web\Controller;
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 class PageController extends Controller

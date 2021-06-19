@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\models;
 
-use app\modules\portfolio\models\Work;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -34,7 +33,7 @@ class WorkQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Work[]|BatchQueryResult
+     * @return BatchQueryResult|Work[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -44,7 +43,7 @@ class WorkQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Work|array|null
+     * @return array|Work|null
      * @psalm-return Work|null
      */
     public function one($db = null): array|Work|null

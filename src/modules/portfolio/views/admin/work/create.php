@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\portfolio\models\Work;
 use yii\web\View;
@@ -7,7 +7,6 @@ use yii\web\View;
  * @var View $this
  * @var Work $model
  */
-
 $this->title = 'Редактор работы';
 $this->params['breadcrumbs'] = [
     'Портфолио' => ['index'],
@@ -20,4 +19,4 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfol
 
 <h1>Добавление работы</h1>
 
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model]); ?>

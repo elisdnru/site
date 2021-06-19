@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use yii\console\controllers\FixtureController;
 use yii\console\controllers\MigrateController;
 use yii\console\ErrorHandler;

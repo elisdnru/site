@@ -64,7 +64,10 @@ site-assets-build:
 
 site-lint:
 	docker-compose run --rm php-cli composer lint
-	docker-compose run --rm php-cli composer phpcs
+	docker-compose run --rm php-cli composer php-cs-fixer fix -- --dry-run --diff
+
+site-cs-fix:
+	docker-compose run --rm php-cli composer php-cs-fixer fix
 
 site-assets-lint:
 	docker-compose run --rm node-cli yarn eslint

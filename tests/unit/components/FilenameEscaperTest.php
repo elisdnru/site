@@ -7,7 +7,10 @@ namespace tests\unit\components;
 use app\components\FilenameEscaper;
 use Codeception\Test\Unit;
 
-class FilenameEscaperTest extends Unit
+/**
+ * @internal
+ */
+final class FilenameEscaperTest extends Unit
 {
     public function testThumbFileName(): void
     {

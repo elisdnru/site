@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog;
 
 use app\components\module\admin\AdminMenuProvider;
@@ -16,11 +18,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Url;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements
-    RoutesProvider,
-    AdminMenuProvider,
-    AdminNotificationsProvider,
-    SitemapProvider
+class Module extends Base implements RoutesProvider, AdminMenuProvider, AdminNotificationsProvider, SitemapProvider
 {
     public function adminGroup(): string
     {
@@ -100,7 +98,7 @@ class Module extends Base implements
                     'Официальный блог',
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []
-                )
+                ),
             ]),
 
             new Group('Записи в блоге', array_map(static function (Post $post): Item {
@@ -110,7 +108,7 @@ class Module extends Base implements
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []
                 );
-            }, $posts))
+            }, $posts)),
         ];
     }
 

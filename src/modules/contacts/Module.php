@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\contacts;
 
 use app\components\module\routes\RoutesProvider;
@@ -33,8 +35,8 @@ class Module extends Base implements RoutesProvider, SitemapProvider
                     'Контактные данные',
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []
-                )
-            ])
+                ),
+            ]),
         ];
     }
 

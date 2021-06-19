@@ -29,10 +29,10 @@
         "codeception/module-asserts": "^1.1",
         "codeception/module-phpbrowser": "^1.0",
         "codeception/module-yii2": "^1.1",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "overtrue/phplint": "^3.0",
         "psalm/plugin-phpunit": "^0.16.0",
         "roave/security-advisories": "dev-latest",
-        "squizlabs/php_codesniffer": "^3.3",
         "vimeo/psalm": "^4.0"
     },
     "replace": {
@@ -70,8 +70,7 @@
         "app": "php bin/app.php",
         "test": "codecept",
         "lint": "phplint",
-        "phpcs": "phpcs --standard=phpcs.xml",
-        "phpcbf": "phpcbf --standard=phpcs.xml",
+        "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php --allow-risky=yes",
         "psalm": "psalm --config=psalm.xml"
     }
 }

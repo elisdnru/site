@@ -9,7 +9,10 @@ use app\extensions\file\File;
 use app\extensions\image\Image;
 use Codeception\Test\Unit;
 
-class UploaderTest extends Unit
+/**
+ * @internal
+ */
+final class UploaderTest extends Unit
 {
     public function testThumbFileName(): void
     {

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
 use yii\helpers\Html;
@@ -12,7 +12,6 @@ use yii\web\View;
  * @psalm-var array{code?: int} $error
  * @var Exception $exception
  */
-
 $this->title = 'Ошибка';
 $this->params['breadcrumbs'] = [
     'Ошибка ' . ($error['code'] ?? ''),
@@ -23,11 +22,11 @@ $this->params['breadcrumbs'] = [
     $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => ['default/index']];
 } ?>
 
-<h2><?= $name ?></h2>
+<h2><?= $name; ?></h2>
 
 <?php if ($message) : ?>
     <div class="flash flash-error">
-        <?= nl2br(Html::encode($message)) ?>
+        <?= nl2br(Html::encode($message)); ?>
     </div>
 <?php endif; ?>
 

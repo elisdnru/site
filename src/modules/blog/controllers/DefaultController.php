@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers;
 
 use app\components\DataProvider;
-use app\modules\blog\models\Category;
 use app\modules\blog\forms\SearchForm;
+use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
-use yii\web\Controller;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
@@ -114,7 +116,7 @@ class DefaultController extends Controller
                 'pageParam' => 'page',
                 'validatePage' => false,
                 'forcePageParam' => false,
-            ]
+            ],
         ]));
     }
 }

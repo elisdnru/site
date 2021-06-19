@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\comment\models;
 
-use app\components\purifier\PurifyTextBehavior;
 use app\components\Gravatar;
+use app\components\purifier\PurifyTextBehavior;
 use app\modules\user\models\User;
 use ReflectionClass;
 use ReflectionException;
@@ -17,7 +19,7 @@ use yii\web\Session;
 /**
  * @property int $id
  * @property string $type
- * @property integer $material_id
+ * @property int $material_id
  * @property string $date
  * @property int $user_id
  * @property string|null $name
@@ -25,11 +27,11 @@ use yii\web\Session;
  * @property string|null $site
  * @property string $text
  * @property string $text_purified
- * @property integer $public
- * @property integer $moder
- * @property integer|null $parent_id
+ * @property int $public
+ * @property int $moder
+ * @property int|null $parent_id
  * @property Comment[] $children
- * @property integer $likes
+ * @property int $likes
  * @property User|null $user
  * @property Comment|null $parent
  * @property Material $material
@@ -38,20 +40,27 @@ class Comment extends ActiveRecord
 {
     public const TYPE_OF_COMMENT = null;
 
-    public static function tableName(): string
-    {
-        return 'comments';
-    }
+    private ?string $cachedUrl = null;
+
+    /**
+     * @var string[]
+     */
+    private array $cachedAvatarUrl = [];
 
     final public function __construct(array $config = [])
     {
         parent::__construct($config);
     }
 
+    public static function tableName(): string
+    {
+        return 'comments';
+    }
+
     /**
      * @param array $row
-     * @return static
      * @throws ReflectionException
+     * @return static
      */
     public static function instantiate($row): self
     {
@@ -66,9 +75,7 @@ class Comment extends ActiveRecord
 
     public function rules(): array
     {
-        $anon = static function (self $model): bool {
-            return !$model->user_id;
-        };
+        $anon = static fn (self $model): bool => !$model->user_id;
 
         return [
             [['text'], 'required'],
@@ -90,10 +97,10 @@ class Comment extends ActiveRecord
 
     public function fixedText(string $attribute): void
     {
-        $value = trim((string)$this->$attribute);
+        $value = trim((string)$this->{$attribute});
         $value = preg_replace('#\r\n#s', "\n", $value);
         $value = preg_replace('#([^\n])\n?<pre>#s', "$1\n\n<pre>", $value);
-        $this->$attribute = $value;
+        $this->{$attribute} = $value;
     }
 
     public function getParent(): ActiveQuery
@@ -138,9 +145,7 @@ class Comment extends ActiveRecord
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => null,
-                'value' => static function () {
-                    return new Expression('NOW()');
-                },
+                'value' => static fn () => new Expression('NOW()'),
             ],
             'PurifyText' => [
                 'class' => PurifyTextBehavior::class,
@@ -155,7 +160,7 @@ class Comment extends ActiveRecord
                     'Core.EscapeInvalidTags' => true,
                 ],
                 'processOnBeforeSave' => true,
-            ]
+            ],
         ];
     }
 
@@ -174,37 +179,12 @@ class Comment extends ActiveRecord
         return false;
     }
 
-    private function fillDefaultValues(): void
-    {
-        if ($this->user) {
-            $this->email = $this->user->email;
-            $this->name = trim($this->user->firstname . ' ' . $this->user->lastname);
-            $this->site = $this->user->site;
-        }
-    }
-
     public function sendNotifications(MailerInterface $mailer): void
     {
         if ($this->parent && $this->parent->email !== $this->email) {
             $this->parent->sendNotify($this, $mailer);
         }
     }
-
-    private function sendNotify(self $current, MailerInterface $mailer): void
-    {
-        if ($this->email !== $current->email) {
-            $mailer
-                ->compose(['html' => '@app/modules/comment/views/email/comment'], [
-                    'comment' => $this,
-                    'current' => $current,
-                ])
-                ->setSubject('Новый комментарий на сайте elisdn.ru')
-                ->setTo($this->email)
-                ->send();
-        }
-    }
-
-    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {
@@ -214,11 +194,6 @@ class Comment extends ActiveRecord
 
         return $this->cachedUrl;
     }
-
-    /**
-     * @var string[]
-     */
-    private array $cachedAvatarUrl = [];
 
     public function getAvatarUrl(int $width = User::IMAGE_WIDTH, int $height = User::IMAGE_HEIGHT): string
     {
@@ -237,10 +212,10 @@ class Comment extends ActiveRecord
     public function toggleLike(Session $session): void
     {
         if (!$this->getLiked($session)) {
-            $this->likes++;
+            ++$this->likes;
             $session->set('comment-like-' . $this->id, true);
         } else {
-            $this->likes--;
+            --$this->likes;
             $session->set('comment-like-' . $this->id, false);
         }
     }
@@ -248,5 +223,28 @@ class Comment extends ActiveRecord
     public function getLiked(Session $session): bool
     {
         return $session->get('comment-like-' . $this->id) === true;
+    }
+
+    private function fillDefaultValues(): void
+    {
+        if ($this->user) {
+            $this->email = $this->user->email;
+            $this->name = trim($this->user->firstname . ' ' . $this->user->lastname);
+            $this->site = $this->user->site;
+        }
+    }
+
+    private function sendNotify(self $current, MailerInterface $mailer): void
+    {
+        if ($this->email !== $current->email) {
+            $mailer
+                ->compose(['html' => '@app/modules/comment/views/email/comment'], [
+                    'comment' => $this,
+                    'current' => $current,
+                ])
+                ->setSubject('Новый комментарий на сайте elisdn.ru')
+                ->setTo($this->email)
+                ->send();
+        }
     }
 }

@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\block\models;
 
 use app\components\AliasValidator;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $alias
  * @property string $title
  * @property string $text

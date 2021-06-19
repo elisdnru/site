@@ -15,8 +15,6 @@ class Attribute
     }
 
     /**
-     * @param ActiveRecordInterface $model
-     * @param string $attribute
      * @return ActiveRecordInterface[]
      */
     public static function ars(ActiveRecordInterface $model, string $attribute): array

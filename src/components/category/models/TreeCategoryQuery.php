@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
@@ -37,7 +39,7 @@ class TreeCategoryQuery extends CategoryQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return TreeCategory[]|BatchQueryResult
+     * @return BatchQueryResult|TreeCategory[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -47,7 +49,7 @@ class TreeCategoryQuery extends CategoryQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return TreeCategory|array|null
+     * @return array|TreeCategory|null
      * @psalm-return TreeCategory|null
      */
     public function one($db = null): array|TreeCategory|null

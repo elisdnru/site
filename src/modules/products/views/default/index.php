@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
 use yii\helpers\Url;
@@ -9,7 +9,6 @@ use yii\web\View;
  * @var array $series
  * @var array $items
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Авторские продукты';
@@ -119,6 +118,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <hr />
 
-        <p style="margin-bottom: 0"><a href="<?= Url::to(['/partner/default/index']) ?>">Партнёрская программа</a></p>
+        <p style="margin-bottom: 0"><a href="<?= Url::to(['/partner/default/index']); ?>">Партнёрская программа</a></p>
     </div>
 </section>

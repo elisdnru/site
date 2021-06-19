@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
 use app\widgets\inline\MailTo;
@@ -9,7 +9,6 @@ use yii\web\View;
  * @var array $series
  * @var array $items
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Контактные данные';
@@ -58,6 +57,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <li><a href="https://www.facebook.com/eliseev.dn">Блог обо всём в FB</a></li>
             <li><a href="https://www.instagram.com/elisdn_live/">Блог обо всём в Instagram</a></li>
         </ul>
-        <p>Email: <span><?= MailTo::widget(['email' => 'mail@elisdn.ru']) ?></span></p>
+        <p>Email: <span><?= MailTo::widget(['email' => 'mail@elisdn.ru']); ?></span></p>
     </div>
 </section>

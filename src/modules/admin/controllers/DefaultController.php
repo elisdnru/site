@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\admin\controllers;
 
+use app\components\AdminController;
 use app\components\module\admin\AdminDashboard;
 use app\modules\user\models\Access;
-use app\components\AdminController;
 use app\modules\user\models\User;
 use yii\filters\AccessControl;
 use yii\web\User as WebUser;

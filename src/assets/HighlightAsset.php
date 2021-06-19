@@ -15,6 +15,6 @@ class HighlightAsset extends AssetBundle
     ];
 
     public $depends = [
-        MainAsset::class
+        MainAsset::class,
     ];
 }

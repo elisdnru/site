@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\uploader;
 
 use app\components\FilenameGenerator;
@@ -13,7 +15,6 @@ class Uploader
     public string $rootPath = 'upload';
     public string $emptyImage = '';
     /**
-     * @var array
      * @psalm-var array<array-key, array{0: string, 1: string[]}>
      */
     public array $allowedThumbnailResolutions = [];
@@ -168,7 +169,6 @@ class Uploader
          * @var Image $orig
          * @var Image $thumb
          */
-
         if ($orig = $this->image->load($fileName)) {
             if ($width && $height) {
                 $thumb = $orig->adaptiveThumb($width, $height);
@@ -233,7 +233,7 @@ class Uploader
 
         foreach ($this->allowedThumbnailResolutions as $rule) {
             if (mb_strpos($path, $rule[0], 0, 'UTF-8') === 0) {
-                if (in_array($resolution, $rule[1], true)) {
+                if (\in_array($resolution, $rule[1], true)) {
                     return true;
                 }
             }

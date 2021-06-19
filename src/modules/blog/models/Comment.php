@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\models;
 
 use app\modules\comment\models\Comment as BaseComment;

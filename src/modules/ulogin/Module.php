@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\ulogin;
 
 use app\components\module\routes\RoutesProvider;

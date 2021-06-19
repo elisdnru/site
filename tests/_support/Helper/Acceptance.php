@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\Helper;
 
 use Codeception\Module;
@@ -7,6 +9,8 @@ use GuzzleHttp\Client;
 
 class Acceptance extends Module
 {
+    private ?Client $client = null;
+
     public function dontHaveEmails(): void
     {
         $this->getMailerClient()->delete('/api/v1/messages');
@@ -21,13 +25,11 @@ class Acceptance extends Module
         $this->assertGreaterThan(0, $data['total']);
     }
 
-    private ?Client $client = null;
-
     private function getMailerClient(): Client
     {
         if ($this->client === null) {
             $this->client = new Client([
-                'base_uri' => 'http://mailer:8025'
+                'base_uri' => 'http://mailer:8025',
             ]);
         }
         return $this->client;

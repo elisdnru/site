@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\purifier;
 
 class CommentPostFilter
@@ -10,8 +12,6 @@ class CommentPostFilter
             return null;
         }
 
-        return preg_replace_callback('@(<p>.*?</p>)@s', static function (array $matches): string {
-            return nl2br((string)$matches[0]);
-        }, $text);
+        return preg_replace_callback('@(<p>.*?</p>)@s', static fn (array $matches): string => nl2br((string)$matches[0]), $text);
     }
 }

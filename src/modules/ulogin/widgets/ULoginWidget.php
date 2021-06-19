@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\ulogin\widgets;
 
 use yii\base\Widget;
@@ -14,7 +16,7 @@ class ULoginWidget extends Widget
         'providers' => 'vkontakte,twitter,facebook,google,yandex',
         'hidden' => 'other',
         'redirect' => '',
-        'logout_url' => '/logout'
+        'logout_url' => '/logout',
     ];
 
     public function run(): string

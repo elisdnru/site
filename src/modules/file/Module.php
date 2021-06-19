@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\file;
 
 use app\components\module\admin\AdminMenuProvider;

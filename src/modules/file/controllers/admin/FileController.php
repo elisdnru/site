@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\file\controllers\admin;
 
+use app\components\AdminController;
 use app\components\FilenameEscaper;
 use app\components\Slugger;
 use app\extensions\file\File;
 use app\modules\file\forms\RenameForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
-use app\components\AdminController;
 use Yii;
 use yii\base\Module;
 use yii\filters\VerbFilter;
@@ -39,7 +41,7 @@ class FileController extends AdminController
                 'actions' => [
                     'process' => ['post'],
                 ],
-            ]
+            ],
         ]);
     }
 
@@ -55,7 +57,7 @@ class FileController extends AdminController
         }
 
         if (!empty($_FILES)) {
-            for ($i = 1; $i <= self::UPLOAD_COUNT; $i++) {
+            for ($i = 1; $i <= self::UPLOAD_COUNT; ++$i) {
                 $index = 'file_' . $i;
                 if (isset($_FILES[$index])) {
                     $this->uploadFile($index, $currentPath, $fileHandler);
@@ -73,7 +75,7 @@ class FileController extends AdminController
         $dir = $fileHandler->set($root . '/' . $path);
 
         $items = array_map(
-            fn (string $path): File => $fileHandler->set($path),
+            static fn (string $path): File => $fileHandler->set($path),
             (array)$dir->getContents()
         );
 

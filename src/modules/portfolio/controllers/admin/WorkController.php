@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio\controllers\admin;
 
 use app\components\AdminController;
@@ -23,7 +25,7 @@ class WorkController extends AdminController
                 'actions' => [
                     'sort' => ['post'],
                 ],
-            ]
+            ],
         ]);
     }
 
@@ -90,7 +92,7 @@ class WorkController extends AdminController
             throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
-        $model->$attribute = $model->$attribute ? '0' : '1';
+        $model->{$attribute} = $model->{$attribute} ? '0' : '1';
         $model->save();
 
         if (!$request->getIsAjax()) {
@@ -133,7 +135,7 @@ class WorkController extends AdminController
                 if ($model->sort > $sort) {
                     $sort = $model->sort;
                 }
-                $count++;
+                ++$count;
             }
 
             if ($sort < $count) {
@@ -143,7 +145,7 @@ class WorkController extends AdminController
             foreach ($items as $id) {
                 $model = $this->loadModel((int)$id);
                 $model->sort = $sort;
-                $sort--;
+                --$sort;
                 $success = $success && $model->save();
             }
         }

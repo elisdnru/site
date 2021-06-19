@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\blog\models\Post;
 use yii\helpers\Html;
@@ -13,13 +13,13 @@ use yii\helpers\Html;
             <div class="entry last">
                 <?php if ($post->image) : ?>
                     <p class="thumb">
-                        <a href="<?= $post->getUrl() ?>"><?= Html::img($post->getImageThumbUrl(100, 100)) ?></a>
+                        <a href="<?= $post->getUrl(); ?>"><?= Html::img($post->getImageThumbUrl(100, 100)); ?></a>
                     </p><!--/noindex-->
                 <?php endif; ?>
-                <div class="title"><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a>
+                <div class="title"><a href="<?= $post->getUrl(); ?>"><?= Html::encode($post->title); ?></a>
                 </div>
                 <!--noindex-->
-                <div class="short"><?= trim($post->short_purified) ?></div><!--/noindex-->
+                <div class="short"><?= trim($post->short_purified); ?></div><!--/noindex-->
             </div>
         <?php endforeach; ?>
     </div>

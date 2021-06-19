@@ -1,8 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\Csrf;
-use app\widgets\Portlet;
 use app\modules\user\forms\RemindForm;
+use app\widgets\Portlet;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
@@ -26,16 +26,16 @@ $this->params['breadcrumbs'] = [
 
     <form action="?" method="post" id="remind-form">
 
-        <?= Csrf::hiddenInput() ?>
+        <?= Csrf::hiddenInput(); ?>
 
         <div class="row">
-            <?= Html::activeLabel($model, 'email') ?><br />
-            <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 30]) ?><br />
-            <?= Html::error($model, 'email', ['class' => 'error-message']) ?>
+            <?= Html::activeLabel($model, 'email'); ?><br />
+            <?= Html::activeTextInput($model, 'email', ['type' => 'email', 'size' => 30]); ?><br />
+            <?= Html::error($model, 'email', ['class' => 'error-message']); ?>
         </div>
 
         <div class="row buttons">
-            <?= Html::submitButton('Восстановить пароль') ?>
+            <?= Html::submitButton('Восстановить пароль'); ?>
         </div>
 
     </form>

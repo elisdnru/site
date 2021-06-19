@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\block\widgets;
 
 use app\modules\block\models\Block;

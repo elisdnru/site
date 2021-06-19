@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio\forms;
 
 use app\components\category\TreeActiveDataProvider;
@@ -41,7 +43,7 @@ class CategorySearch extends Category
         $query->andFilterWhere([
             't.id' => $this->id,
             't.sort' => $this->sort,
-            't.parent_id' => $this->parent_id
+            't.parent_id' => $this->parent_id,
         ]);
 
         $query->andFilterWhere(['like', 't.title', $this->title]);

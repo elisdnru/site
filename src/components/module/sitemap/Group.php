@@ -18,7 +18,6 @@ class Group
     public array $items;
 
     /**
-     * @param string $name
      * @param Item[] $items
      */
     public function __construct(string $name, array $items)

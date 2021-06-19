@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\CommentsAsset;
 use app\components\DataProvider;
@@ -12,7 +12,6 @@ use yii\web\View;
  * @var Material|null $material
  * @var DataProvider<Comment> $dataProvider
  */
-
 $this->title = 'Комментарии к записям';
 
 if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
@@ -31,11 +30,11 @@ CommentsAsset::register($this);
         'Панель управления' => ['/admin/index'],
         'Комментарии' => ['/comment/admin/comment/index'],
         'Комментарии к записям' => ['index'],
-        $material->getCommentTitle()
+        $material->getCommentTitle(),
     ];
     ?>
 
-    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->getCommentTitle()) ?>&raquo;</h1>
+    <h1>Комментарии к материалу &laquo;<?= Html::encode($material->getCommentTitle()); ?>&raquo;</h1>
 
 <?php else : ?>
     <?php
@@ -46,15 +45,15 @@ CommentsAsset::register($this);
     ?>
 
     <div style="float:right">
-        <?= Html::beginForm(['moderAll']) ?>
-        <?= Html::submitButton('Пометить все новые почтёнными') ?>
-        <?= Html::endForm() ?>
+        <?= Html::beginForm(['moderAll']); ?>
+        <?= Html::submitButton('Пометить все новые почтёнными'); ?>
+        <?= Html::endForm(); ?>
     </div>
 
     <h1>Комментарии к записям</h1>
 
 <?php endif; ?>
 
-<?= $this->render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' => $dataProvider]) ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_list', ['dataProvider' => $dataProvider]); ?>
 
 

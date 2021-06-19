@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\MainAsset;
 use app\modules\block\widgets\BlockWidget;
-use app\widgets\AdminBar;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use app\widgets\AdminBar;
 use app\widgets\Counters;
 use app\widgets\MainMenu;
 use yii\caching\TagDependency;
@@ -16,15 +16,14 @@ use yii\web\View;
  * @var View $this
  * @var string $content
  */
-
 MainAsset::register($this);
 
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language; ?>">
 <head>
     <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
@@ -33,17 +32,17 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB">
-    <?= Html::csrfMetaTags() ?>
+    <?= Html::csrfMetaTags(); ?>
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="Дмитрий Елисеев" href="https://feeds.feedburner.com/elisdn">
 
-    <?php $this->head() ?>
+    <?php $this->head(); ?>
 
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title); ?></title>
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?php $this->beginBody(); ?>
 
 <div class="page-wrapper">
 
@@ -69,11 +68,11 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         endif; ?>
 
         <div class="search">
-            <?= SearchFormWidget::widget() ?>
+            <?= SearchFormWidget::widget(); ?>
         </div>
 
         <nav class="main-nav">
-            <?= MainMenu::widget() ?>
+            <?= MainMenu::widget(); ?>
         </nav>
     </header>
 
@@ -81,13 +80,13 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <div class="admin-bar">
             <?= AdminBar::widget([
                 'links' => $this->params['admin'],
-            ]) ?>
+            ]); ?>
         </div>
     <?php endif; ?>
 
     <div class="page-content">
 
-        <?= $content ?>
+        <?= $content; ?>
 
         <div class="clear"></div>
     </div>
@@ -97,12 +96,12 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     <div class="content">
 
         <div class="counters">
-            <?= Counters::widget() ?>
+            <?= Counters::widget(); ?>
         </div>
 
         <!--noindex-->
         <div class="nav">
-            <?= MainMenu::widget(['id' => 'footer_nav_list']) ?>
+            <?= MainMenu::widget(['id' => 'footer_nav_list']); ?>
         </div>
         <!--/noindex-->
 
@@ -119,7 +118,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <?php endif; ?>
         <div class="info">
             <p>
-                © ИП Елисеев Дмитрий Николаевич, 2009-<?php echo date('Y') ?><br />
+                © ИП Елисеев Дмитрий Николаевич, 2009-<?= date('Y'); ?><br />
                 ОГРН: 309574636200019; ИНН: 570600870325<br />
                 <a rel="nofollow" href="/privacy">Политика конфиденциальности</a><br />
                 Email:
@@ -145,16 +144,16 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     </div>
 </footer>
 
-<!-- <?php echo sprintf('%0.3f', Yii::getLogger()->getElapsedTime()) ?>s. <?php echo round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB' ?> -->
+<!-- <?= sprintf('%0.3f', Yii::getLogger()->getElapsedTime()); ?>s. <?= round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB'; ?> -->
 
-<?php $this->endBody() ?>
+<?php $this->endBody(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-    <?= BlockWidget::widget(['id' => 'end']) ?>
+    <?= BlockWidget::widget(['id' => 'end']); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>
 

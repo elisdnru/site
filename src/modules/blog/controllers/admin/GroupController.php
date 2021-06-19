@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers\admin;
 
-use app\modules\blog\forms\GroupForm;
-use app\modules\blog\models\Post;
-use app\modules\blog\models\Group;
 use app\components\AdminController;
+use app\modules\blog\forms\GroupForm;
+use app\modules\blog\models\Group;
+use app\modules\blog\models\Post;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

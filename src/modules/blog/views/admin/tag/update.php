@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\blog\models\Tag;
 use yii\web\View;
@@ -7,7 +7,6 @@ use yii\web\View;
  * @var View $this
  * @var Tag $model
  */
-
 $this->title = 'Редактор метки блога';
 $this->params['breadcrumbs'] = [
     'Блоги' => ['/blog/admin/post'],
@@ -23,4 +22,4 @@ $this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/gr
 
 <h1>Редактирование метки блога</h1>
 
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model]); ?>

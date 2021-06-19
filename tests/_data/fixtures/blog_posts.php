@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'post_with_category' => [
         'id' => 1,

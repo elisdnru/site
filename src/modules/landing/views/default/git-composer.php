@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use yii\helpers\Url;
 use yii\web\View;
@@ -6,18 +6,17 @@ use yii\web\View;
 /**
  * @var View $this
  */
-
 $this->title = 'Git и Composer для начинающих';
 ?>
 
-<?php $this->beginBlock('meta') ?>
+<?php $this->beginBlock('meta'); ?>
 <meta name="robots" content="index, nofollow">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin,cyrillic-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700&amp;subset=latin,cyrillic-ext,cyrillic" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<?php $this->endBlock() ?>
+<?php $this->endBlock(); ?>
 
-<?php $this->beginBlock('styles') ?>
+<?php $this->beginBlock('styles'); ?>
 <style>
     body {
         font-family: arial, sans-serif;
@@ -148,7 +147,7 @@ $this->title = 'Git и Composer для начинающих';
         color: #666;
     }
 </style>
-<?php $this->endBlock() ?>
+<?php $this->endBlock(); ?>
 
 <section style="background: #e6e6e9">
     <div class="container">
@@ -496,8 +495,8 @@ $this->title = 'Git и Composer для начинающих';
             <script>document.write('mai' + 'l@eli' + 'sdn.ru');</script>
         </p>
         <p style="font-size: 13px">
-            <a rel="nofollow" href="<?= Url::to(['/page/default/privacy']) ?>">Политика конфиденциальности</a> |
-            <a rel="nofollow" href="<?= Url::to(['/partner/default/index']) ?>">Партнёрская программа</a>
+            <a rel="nofollow" href="<?= Url::to(['/page/default/privacy']); ?>">Политика конфиденциальности</a> |
+            <a rel="nofollow" href="<?= Url::to(['/partner/default/index']); ?>">Партнёрская программа</a>
         </p>
     </div>
 </footer>

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers\admin;
 
+use app\components\AdminController;
 use app\modules\blog\forms\CategorySearch;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
-use app\components\AdminController;
 use app\modules\user\models\Access;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;

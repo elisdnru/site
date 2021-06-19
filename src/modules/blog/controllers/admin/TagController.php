@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers\admin;
 
+use app\components\AdminController;
 use app\modules\blog\forms\TagSearch;
 use app\modules\blog\models\Tag;
-use app\components\AdminController;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\partner\model\Item;
 use app\modules\user\models\Access;
@@ -11,7 +11,6 @@ use yii\web\View;
  * @var array $series
  * @var Item[] $items
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Парнёрская программа';
@@ -64,7 +63,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <p>
             Приведённый вами посетитель вдальнейшем может либо приобрести любой продукт, либо подписаться на рассылку
             через форму в сайдбаре, через формы в некоторых постах в блоге или через
-            <a href="<?= Url::to(['/subscribe/default/index']) ?>">страницу подписки</a>.
+            <a href="<?= Url::to(['/subscribe/default/index']); ?>">страницу подписки</a>.
             В любом случае после подписки или покупки посетитель станет закреплён за вами по email
             и вам будет начисляться вознаграждение за все его покупки с этого email.
         </p>
@@ -87,13 +86,13 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <?php foreach ($items as $item) : ?>
                     <tr>
                         <td>
-                            <a href="<?= Html::encode($item->url) ?>"><?= Html::encode($item->title) ?></a>
+                            <a href="<?= Html::encode($item->url); ?>"><?= Html::encode($item->title); ?></a>
                         </td>
-                        <td style="text-align: right"><?= $item->price ?> руб</td>
-                        <td style="text-align: center"><?= $item->firstPercent ?>%</td>
-                        <td style="text-align: right"><?= $item->firstRoubles() ?> руб</td>
-                        <td style="text-align: center"><?= $item->secondPercent ?>%</td>
-                        <td style="text-align: right"><?= $item->secondRoubles() ?> руб</td>
+                        <td style="text-align: right"><?= $item->price; ?> руб</td>
+                        <td style="text-align: center"><?= $item->firstPercent; ?>%</td>
+                        <td style="text-align: right"><?= $item->firstRoubles(); ?> руб</td>
+                        <td style="text-align: center"><?= $item->secondPercent; ?>%</td>
+                        <td style="text-align: right"><?= $item->secondRoubles(); ?> руб</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -102,11 +101,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <p>
             Скрипт отслеживания размещён на всех страницах сайта, поэтому помимо перечисленных страниц вы можете
             ссылаться своими партнёрскими ссылками и на отдельные посты
-            в <a href="<?= Url::to(['/blog/default/index']) ?>">блоге</a> с приглашением или подведением итогов.
+            в <a href="<?= Url::to(['/blog/default/index']); ?>">блоге</a> с приглашением или подведением итогов.
         </p>
 
         <p>
-            Также удобно ссылаться на официальную <a href="<?= Url::to(['/products/default/index']) ?>">страницу продуктов</a>.
+            Также удобно ссылаться на официальную <a href="<?= Url::to(['/products/default/index']); ?>">страницу продуктов</a>.
         </p>
 
         <p>
@@ -120,7 +119,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             Партнёрское вознаграждение выплачивается через ЮMoney (Яндекс.Деньги)
             или переводом на банковскую карту (возможна комиссия). Оплата производится в первых числах следующего месяца,
             но вы можете попросить произвести выплату раньше, написав мне в
-            <a href="<?= Url::to(['/contacts/default/index']) ?>">обратную связь</a>.
+            <a href="<?= Url::to(['/contacts/default/index']); ?>">обратную связь</a>.
         </p>
 
         <p>

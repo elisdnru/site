@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use app\components\AuthManager;
 use app\components\ContentReplaceBehavior;
 use app\components\InlineWidgetsBehavior;
@@ -129,8 +131,7 @@ return [
                 'suffix' => '',
                 'rules' => [
                     '<module:\w+>/admin/<controller:\w+>' => '<module>/admin/<controller>/index',
-                    '<module:\w+>/admin/<controller:\w+>/<id:\d+>/<action:\w+>' =>
-                        '<module>/admin/<controller>/<action>',
+                    '<module:\w+>/admin/<controller:\w+>/<id:\d+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
                     '<module:\w+>/admin/<controller:\w+>/<action:\w+>' => '<module>/admin/<controller>/<action>',
                 ],
             ],
@@ -244,10 +245,10 @@ return [
             ResponseFactoryInterface::class => ResponseFactory::class,
             RequestFactoryInterface::class => RequestFactory::class,
             StreamFactoryInterface::class => StreamFactory::class,
-            SimpleCacheInterface::class => SimpleCacheAdapter::class
+            SimpleCacheInterface::class => SimpleCacheAdapter::class,
         ],
     ],
     'params' => [
-        'deworker_api_url' => env('DEWORKER_API_URL')
+        'deworker_api_url' => env('DEWORKER_API_URL'),
     ],
 ];

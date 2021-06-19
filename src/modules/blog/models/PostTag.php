@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\models;
 
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
- * @property integer $post_id
- * @property integer $tag_id
+ * @property int $id
+ * @property int $post_id
+ * @property int $tag_id
  */
 class PostTag extends ActiveRecord
 {

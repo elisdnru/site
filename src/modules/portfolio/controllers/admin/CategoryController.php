@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio\controllers\admin;
 
 use app\components\AdminController;

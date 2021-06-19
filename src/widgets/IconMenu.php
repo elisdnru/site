@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use yii\helpers\Html;
@@ -14,7 +16,6 @@ class IconMenu extends Menu
         /**
          * @psalm-var array{icon: string, label: string, url: array, linkOptions: array} $item
          */
-
         $icon = !empty($item['icon']) ? Html::img($this->iconsPath . $item['icon'], ['alt' => $item['label']]) : '';
         $options = $item['linkOptions'] ?? [];
 

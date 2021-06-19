@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
 use yii\web\View;
@@ -8,7 +10,6 @@ use yii\web\View;
  * @var View $this
  * @var Page $page
  */
-
 $this->title = $page->meta_title ?: $page->title;
 
 $this->registerMetaTag(['name' => 'description', 'content' => $page->meta_description]);

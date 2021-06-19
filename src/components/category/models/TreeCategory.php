@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
@@ -14,6 +16,8 @@ use yii\helpers\Url;
 abstract class TreeCategory extends Category
 {
     public int $indent = 0;
+
+    private ?string $cachedUrl = null;
 
     public static function find(): TreeCategoryQuery
     {
@@ -44,7 +48,7 @@ abstract class TreeCategory extends Category
     }
 
     /**
-     * @return CategoryQuery|ActiveQuery
+     * @return ActiveQuery|CategoryQuery
      * @psalm-return CategoryQuery
      */
     public function getParent(): CategoryQuery
@@ -54,7 +58,7 @@ abstract class TreeCategory extends Category
     }
 
     /**
-     * @return CategoryQuery|ActiveQuery
+     * @return ActiveQuery|CategoryQuery
      * @psalm-return CategoryQuery
      */
     public function getChildren(): CategoryQuery
@@ -64,8 +68,6 @@ abstract class TreeCategory extends Category
             ->alias('children')
             ->orderBy(['children.sort' => SORT_ASC, 'children.title' => SORT_ASC]);
     }
-
-    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\partner;
 
 use app\components\module\routes\RoutesProvider;

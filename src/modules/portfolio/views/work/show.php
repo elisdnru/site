@@ -1,27 +1,26 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\PortfolioAsset;
 use app\components\InlineWidgetsBehavior;
-use app\widgets\Share;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
+use app\widgets\Share;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var View|InlineWidgetsBehavior $this
+ * @var InlineWidgetsBehavior|View $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var Work $model
  */
-
 $this->context->layout = 'index';
 
 $this->title = $model->meta_title;
 $this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
 
 $this->params['breadcrumbs'] = [
-    'Портфолио' => ['/portfolio/default/index']
+    'Портфолио' => ['/portfolio/default/index'],
 ];
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
 $this->params['breadcrumbs'][] = $model->title;
@@ -47,7 +46,7 @@ PortfolioAsset::register($this);
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new TagDependency(['tags' => 'portfolio'])])) : ?>
         <header>
 
-            <h1><?= Html::encode($model->title) ?></h1>
+            <h1><?= Html::encode($model->title); ?></h1>
 
             <?php if ($model->image && $model->image_show) : ?>
                 <?php
@@ -63,19 +62,19 @@ PortfolioAsset::register($this);
                 ?>
 
                 <p class="thumb">
-                    <a href="<?= $model->getImageUrl() ?>"><?= Html::img($model->getImageThumbUrl(), $properties) ?></a>
+                    <a href="<?= $model->getImageUrl(); ?>"><?= Html::img($model->getImageThumbUrl(), $properties); ?></a>
                 </p>
 
             <?php endif; ?>
 
             <div class="info">
                 <div class="category">
-                    <span><a href="<?= $model->category->getUrl() ?>"><?= Html::encode($model->category->title) ?></a></span>
+                    <span><a href="<?= $model->category->getUrl(); ?>"><?= Html::encode($model->category->title); ?></a></span>
                 </div>
             </div>
 
             <div class="short">
-                <?= trim($model->short_purified) ?>
+                <?= trim($model->short_purified); ?>
             </div>
 
         </header>
@@ -85,7 +84,7 @@ PortfolioAsset::register($this);
     <div class="clear"></div>
 
     <div class="text">
-        <?= $this->decodeWidgets(trim($model->text_purified)) ?>
+        <?= $this->decodeWidgets(trim($model->text_purified)); ?>
     </div>
 
     <div class="clear"></div>
@@ -96,4 +95,4 @@ PortfolioAsset::register($this);
     'title' => $model->title,
     'description' => $model->meta_description,
     'image' => $model->getImageUrl(),
-]) ?>
+]); ?>

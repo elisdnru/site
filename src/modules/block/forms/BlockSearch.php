@@ -28,7 +28,7 @@ class BlockSearch extends Block
             ],
             'pagination' => [
                 'pageSize' => $pageSize,
-            ]
+            ],
         ]));
 
         $this->load($params);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use app\modules\user\models\User;
@@ -10,7 +12,7 @@ class AuthManager extends PhpManager
 {
     public function getAssignments($userId): array
     {
-        if (array_key_exists($userId, $this->assignments)) {
+        if (\array_key_exists($userId, $this->assignments)) {
             /** @var Assignment[] */
             return $this->assignments[$userId];
         }
@@ -23,8 +25,8 @@ class AuthManager extends PhpManager
             $user->role => new Assignment([
                 'userId' => $user->id,
                 'roleName' => $user->role,
-                'createdAt' => time()
-            ])
+                'createdAt' => time(),
+            ]),
         ];
     }
 }

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace app\modules\edu\components\api\client;
 
+use Laminas\Diactoros\Response\ArraySerializer;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\CacheInterface;
-use Laminas\Diactoros\Response\ArraySerializer;
 
 class Cached implements ClientInterface
 {
@@ -47,7 +47,7 @@ class Cached implements ClientInterface
 
     private static function isCacheNeeded(RequestInterface $request): bool
     {
-        return in_array($request->getMethod(), ['GET', 'HEAD', 'OPTIONS']);
+        return \in_array($request->getMethod(), ['GET', 'HEAD', 'OPTIONS'], true);
     }
 
     private static function cacheKey(RequestInterface $request): string

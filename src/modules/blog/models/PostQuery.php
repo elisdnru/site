@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
-use app\modules\blog\models\Post;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -29,7 +28,7 @@ class PostQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Post[]|BatchQueryResult
+     * @return BatchQueryResult|Post[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -39,7 +38,7 @@ class PostQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Post|array|null
+     * @return array|Post|null
      * @psalm-return Post|null
      */
     public function one($db = null): array|Post|null

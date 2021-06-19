@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\user\models;
 
 use app\components\Gravatar;
@@ -14,7 +16,7 @@ use yii\mail\MailerInterface;
 use yii\web\UploadedFile;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $username
  * @property string $password_hash
  * @property string|null $salt
@@ -26,7 +28,7 @@ use yii\web\UploadedFile;
  * @property string $create_datetime
  * @property string $last_modify_datetime
  * @property string|null $last_visit_datetime
- * @property integer $active
+ * @property int $active
  * @property string|UploadedFile|null $avatar
  * @property string $lastname
  * @property string $firstname
@@ -39,6 +41,8 @@ class User extends ActiveRecord
     public const IMAGE_HEIGHT = 100;
 
     public bool $del_avatar = false;
+
+    private ?string $cachedAvatarUrl = null;
 
     public static function tableName(): string
     {
@@ -79,9 +83,7 @@ class User extends ActiveRecord
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'create_datetime',
                 'updatedAtAttribute' => 'last_modify_datetime',
-                'value' => static function () {
-                    return new Expression('NOW()');
-                },
+                'value' => static fn () => new Expression('NOW()'),
             ],
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,
@@ -139,12 +141,10 @@ class User extends ActiveRecord
         return trim($this->lastname . ' ' . $this->firstname);
     }
 
-    private ?string $cachedAvatarUrl = null;
-
     public function getAvatarUrl(int $width = self::IMAGE_WIDTH, int $height = self::IMAGE_HEIGHT): string
     {
         if ($this->cachedAvatarUrl === null) {
-            if (!is_string($this->avatar)) {
+            if (!\is_string($this->avatar)) {
                 return $this->getDefaultAvatarUrl($width);
             }
             if (preg_match('|^https?://|', $this->avatar)) {

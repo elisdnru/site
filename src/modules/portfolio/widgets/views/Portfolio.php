@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\portfolio\models\Work;
 use yii\helpers\Html;
@@ -18,11 +18,11 @@ use yii\web\View;
         <ul>
             <?php foreach ($items as $item) : ?>
                 <li>
-                    <a rel="nofollow" href="<?= $item->getUrl() ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190) ?>')"><span><?= Html::encode($item->title) ?></span></span></a>
+                    <a rel="nofollow" href="<?= $item->getUrl(); ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190); ?>')"><span><?= Html::encode($item->title); ?></span></span></a>
                 </li>
             <?php endforeach; ?>
             <li class="more">
-                <a rel="nofollow" href="<?= Url::to(['/portfolio/default/index']) ?>">
+                <a rel="nofollow" href="<?= Url::to(['/portfolio/default/index']); ?>">
                     <span class="thumb"></span>
                 </a>
             </li>

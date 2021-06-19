@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\widgets\Messages;
 use yii\web\View;
@@ -7,21 +7,20 @@ use yii\web\View;
  * @var View $this
  * @var string $content
  */
-
 $this->beginContent('@app/views/layouts/main.php');
 ?>
 
 <div class="main left-main">
 
-    <?= Messages::widget() ?>
+    <?= Messages::widget(); ?>
 
-    <?= $content ?>
+    <?= $content; ?>
 
 </div>
 
 <aside class="sidebar right-sidebar">
 
-    <?= $this->render('/layouts/_sidebar') ?>
+    <?= $this->render('/layouts/_sidebar'); ?>
 
     <div class="clear bottom-marker"></div>
 </aside>

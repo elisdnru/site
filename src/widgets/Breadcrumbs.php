@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use yii\base\Widget;
@@ -25,16 +27,16 @@ class Breadcrumbs extends Widget
         $links = [];
         $definedLinks = ['Дмитрий Елисеев' => ['/home/default/index']] + $this->links;
         /**
-         * @var string|int $label
-         * @var string|array $url
+         * @var int|string $label
+         * @var array|string $url
          */
         foreach ($definedLinks as $label => $url) {
-            if (is_string($label)) {
+            if (\is_string($label)) {
                 $links[] = strtr($this->activeLinkTemplate, [
                     '{url}' => Url::to($url),
                     '{label}' => Html::encode($label),
                 ]);
-            } elseif (is_string($url)) {
+            } elseif (\is_string($url)) {
                 $links[] = str_replace('{label}', Html::encode($url), $this->inactiveLinkTemplate);
             }
         }

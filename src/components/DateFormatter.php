@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use InvalidArgumentException;
@@ -9,11 +11,11 @@ class DateFormatter
     public static function format(int|string $date, bool $showTime = false, bool $showMonth = true): string
     {
         /** @var int $time */
-        if (is_int($date)) {
+        if (\is_int($date)) {
             $time = $date;
         }
 
-        if (is_string($date)) {
+        if (\is_string($date)) {
             $time = strtotime($date);
             if (!$time) {
                 throw new InvalidArgumentException('Invalid Date');
@@ -24,7 +26,7 @@ class DateFormatter
             '', 'января', 'февраля', 'марта',
             'апреля', 'мая', 'июня',
             'июля', 'августа', 'сентября',
-            'октября', 'ноября', 'декабря'
+            'октября', 'ноября', 'декабря',
         ];
 
         if ($showMonth) {

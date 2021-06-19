@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\landing\models;
 
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
-use app\modules\landing\models\Landing;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -40,7 +39,7 @@ class LandingQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Landing[]|BatchQueryResult
+     * @return BatchQueryResult|Landing[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -50,7 +49,7 @@ class LandingQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Landing|array|null
+     * @return array|Landing|null
      * @psalm-return Landing|null
      */
     public function one($db = null): array|Landing|null

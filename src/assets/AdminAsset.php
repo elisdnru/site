@@ -15,6 +15,6 @@ class AdminAsset extends AssetBundle
     ];
 
     public $depends = [
-        MainAsset::class
+        MainAsset::class,
     ];
 }

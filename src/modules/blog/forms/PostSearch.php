@@ -43,11 +43,11 @@ class PostSearch extends Post
                         'desc' => ['group.title' => SORT_DESC],
                     ],
                     't.public',
-                ]
+                ],
             ],
             'pagination' => [
                 'pageSize' => $pageSize,
-            ]
+            ],
         ]));
 
         $this->load($params);

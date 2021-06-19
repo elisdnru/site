@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio;
 
 use app\components\module\admin\AdminMenuProvider;
@@ -74,7 +76,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
                     'Портфолио',
                     new Xml(Xml::MONTHLY, 0.5, null),
                     []
-                )
+                ),
             ]),
             new Group('Портфолио', array_map(static function (Work $work): Item {
                 return new Item(
@@ -83,7 +85,7 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
                     null,
                     []
                 );
-            }, $works))
+            }, $works)),
         ];
     }
 

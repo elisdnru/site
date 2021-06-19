@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\DataProvider;
 use app\components\DateFormatter;
@@ -20,18 +20,18 @@ use yii\widgets\LinkPager;
             ?>
             <div class="entry list">
                 <div class="header">
-                    <div class="title"><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a></div>
+                    <div class="title"><a href="<?= $post->getUrl(); ?>"><?= Html::encode($post->title); ?></a></div>
                     <!--noindex-->
                     <div class="info">
                         <div class="date">
-                            <span class="enc-date" data-date="<?= DateFormatter::format($post->date) ?>">&nbsp;</span>
+                            <span class="enc-date" data-date="<?= DateFormatter::format($post->date); ?>">&nbsp;</span>
                         </div>
                         <div class="category">
-                            <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
+                            <span><a href="<?= $post->category->getUrl(); ?>"><?= Html::encode($post->category->title); ?></a></span>
                         </div>
-                        <div class="tags"><span><?= implode(', ', $links) ?></span></div>
+                        <div class="tags"><span><?= implode(', ', $links); ?></span></div>
                         <div class="comments">
-                            <span><?= $post->getCommentsCount() ?></span>
+                            <span><?= $post->getCommentsCount(); ?></span>
                         </div>
                     </div>
                     <?php if ($post->image) : ?>
@@ -48,18 +48,18 @@ use yii\widgets\LinkPager;
                         }
                         ?>
                         <div class="thumb">
-                            <a href="<?= $post->getUrl() ?>">
+                            <a href="<?= $post->getUrl(); ?>">
                                 <picture>
-                                    <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
-                                    <source srcset="<?= $imageUrl ?>" type="image/jpeg">
-                                    <?= Html::img($imageUrl, $properties) ?>
+                                    <source srcset="<?= $imageUrl; ?>.webp" type="image/webp">
+                                    <source srcset="<?= $imageUrl; ?>" type="image/jpeg">
+                                    <?= Html::img($imageUrl, $properties); ?>
                                 </picture>
                             </a>
                         </div>
                     <?php endif; ?>
                     <!--/noindex-->
                 </div>
-                <div class="short"><?= trim($post->short_purified) ?></div>
+                <div class="short"><?= trim($post->short_purified); ?></div>
                 <div class="clear"></div>
             </div>
         <?php endforeach; ?>
@@ -67,6 +67,6 @@ use yii\widgets\LinkPager;
     <div class="pager">
         <?= LinkPager::widget([
             'pagination' => $dataProvider->getPagination(),
-        ]) ?>
+        ]); ?>
     </div>
 </div>

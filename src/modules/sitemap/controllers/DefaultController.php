@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\sitemap\controllers;
 
 use app\components\module\sitemap\GroupsFetcher;
-use yii\web\Controller;
 use app\modules\sitemap\components\Sitemap;
 use yii\base\Module;
 use yii\caching\CacheInterface;
 use yii\helpers\Url;
+use yii\web\Controller;
 use yii\web\Response;
 
 class DefaultController extends Controller

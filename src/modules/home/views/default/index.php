@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
@@ -10,7 +10,6 @@ use yii\web\View;
 /**
  * @var View $this
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Дмитрий Елисеев: Разработка сайтов и интернет-сервисов';
@@ -45,15 +44,15 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 </div>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-    <?= BlockWidget::widget(['id' => 'banner_index_top']) ?>
+    <?= BlockWidget::widget(['id' => 'banner_index_top']); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
-<h2 class="index">Новое в <a href="<?= Url::to(['/blog/default/index']) ?>">Блоге</a>:</h2>
+<h2 class="index">Новое в <a href="<?= Url::to(['/blog/default/index']); ?>">Блоге</a>:</h2>
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
-    <?= LastPostsWidget::widget(['tpl' => 'home', 'limit' => 10]) ?>
+    <?= LastPostsWidget::widget(['tpl' => 'home', 'limit' => 10]); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
 <div class="clear"></div>
-<p class="nomargin"><a href="<?= Url::to(['/blog/default/index', 'page' => 2]) ?>">Остальные записи &rarr;</a></p>
+<p class="nomargin"><a href="<?= Url::to(['/blog/default/index', 'page' => 2]); ?>">Остальные записи &rarr;</a></p>

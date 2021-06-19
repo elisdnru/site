@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\page\models;
 
 use app\components\AliasValidator;
@@ -11,7 +13,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $alias
  * @property string $date
  * @property string $title
@@ -54,6 +56,8 @@ class Page extends ActiveRecord
     ];
 
     public int $indent = 0;
+
+    private ?string $cachedUrl = null;
 
     public static function tableName(): string
     {
@@ -151,8 +155,6 @@ class Page extends ActiveRecord
         ];
     }
 
-    private ?string $cachedUrl = null;
-
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
@@ -163,13 +165,22 @@ class Page extends ActiveRecord
 
     public function isIndexed(): bool
     {
-        return in_array($this->robots, [self::INDEX_FOLLOW, self::INDEX_NOFOLLOW], true);
+        return \in_array($this->robots, [self::INDEX_FOLLOW, self::INDEX_NOFOLLOW], true);
     }
 
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {
             $this->fillDefaultValues();
+            return true;
+        }
+        return false;
+    }
+
+    public function beforeDelete(): bool
+    {
+        if (parent::beforeDelete()) {
+            $this->delChildPages();
             return true;
         }
         return false;
@@ -183,15 +194,6 @@ class Page extends ActiveRecord
         if (!$this->meta_title) {
             $this->meta_title = strip_tags($this->title);
         }
-    }
-
-    public function beforeDelete(): bool
-    {
-        if (parent::beforeDelete()) {
-            $this->delChildPages();
-            return true;
-        }
-        return false;
     }
 
     private function delChildPages(): void

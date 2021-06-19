@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\PortfolioAsset;
 use app\components\DataProvider;
@@ -12,7 +12,7 @@ use yii\helpers\Url;
 use yii\web\View;
 
 /**
- * @var View|InlineWidgetsBehavior $this
+ * @var InlineWidgetsBehavior|View $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var DataProvider<Work> $dataProvider
  * @var Category $category
@@ -44,20 +44,20 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 PortfolioAsset::register($this);
 ?>
 
-<h1><a rel="nofollow" href="<?= Url::to(['index']) ?>">Портфолио</a> &rarr;
+<h1><a rel="nofollow" href="<?= Url::to(['index']); ?>">Портфолио</a> &rarr;
     <?php foreach ($category->getBreadcrumbs() as $title => $url) : ?>
         <?php if (!is_numeric($title)) : ?>
-            <a rel="nofollow" href="<?= $url ?>"><?= Html::encode($title) ?></a> &rarr;
+            <a rel="nofollow" href="<?= $url; ?>"><?= Html::encode($title); ?></a> &rarr;
         <?php endif; ?>
     <?php endforeach; ?>
-    <?= Html::encode($category->title) ?>
+    <?= Html::encode($category->title); ?>
 </h1>
 
 <?php if ($subcategories) : ?>
     <div class="subpages">
         <ul>
             <?php foreach ($subcategories as $subcategory) : ?>
-                <li><a rel="nofollow" href="<?= $subcategory->getUrl() ?>"><?= $subcategory->title ?></a>
+                <li><a rel="nofollow" href="<?= $subcategory->getUrl(); ?>"><?= $subcategory->title; ?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -68,9 +68,9 @@ PortfolioAsset::register($this);
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->
 <?php endif; ?>
-<?= $this->decodeWidgets(trim($category->text)) ?>
+<?= $this->decodeWidgets(trim($category->text)); ?>
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--/noindex-->
 <?php endif; ?>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>

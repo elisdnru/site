@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\extensions\file\File;
 use yii\helpers\Html;
@@ -11,9 +11,8 @@ use yii\web\View;
  * @var string $htmlRoot
  * @var string $root
  * @var string $path
- * @var integer $uploadCount
+ * @var int $uploadCount
  */
-
 $this->title = 'Файловый менеджер';
 $this->params['breadcrumbs'] = [
     'Файловый менеджер',
@@ -33,13 +32,13 @@ $nav = '';
 ?>
 
 <h3>
-    <a href="<?= Url::to(['index']) ?>"><?= $htmlRoot ?></a>
+    <a href="<?= Url::to(['index']); ?>"><?= $htmlRoot; ?></a>
     <?php foreach ($folders as $folder) : ?>
         <?php $nav .= $nav ? '/' . $folder : $folder; ?>
 
         <?php if ($nav) :
             ?>/
-            <a href="<?= Url::to(['index', 'path' => $nav]) ?>"><?= $folder ?></a><?php
+            <a href="<?= Url::to(['index', 'path' => $nav]); ?>"><?= $folder; ?></a><?php
         endif; ?>
 
     <?php endforeach; ?>
@@ -64,36 +63,36 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
             <?php $renameUrl = Url::to(['rename', 'path' => $path, 'name' => $item->getBasename() ?: '']); ?>
 
             <?php if ($item->getIsDir()) : ?>
-                <tr id="item_<?= md5($item->getBasename() ?: '') ?>">
+                <tr id="item_<?= md5($item->getBasename() ?: ''); ?>">
                     <td>
-                        <a class="float-right" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
+                        <a class="float-right" href="<?= Html::encode($renameUrl); ?>"><?= $renameIcon; ?></a>
                         <img src="/images/admin/foldericon.jpg" alt="">
-                        <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . ($item->getBasename() ?: '')]) ?>"><?= $item->getBasename() ?></a>
+                        <a href="<?= Url::to(['index', 'path' => ($path ? $path . '/' : '') . ($item->getBasename() ?: '')]); ?>"><?= $item->getBasename(); ?></a>
                     </td>
                     <td></td>
                     <td style="text-align: center">
-                        <?= date('Y-m-d h:i:s', $item->getTimeModified() ?: 0) ?>
+                        <?= date('Y-m-d h:i:s', $item->getTimeModified() ?: 0); ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax-del" data-del="item_<?= md5($item->getBasename() ?: '') ?>" title="Удалить директорию &laquo;<?= $item->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax-del" data-del="item_<?= md5($item->getBasename() ?: ''); ?>" title="Удалить директорию &laquo;<?= $item->getBasename(); ?>&raquo;" href="<?= $delUrl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
             <?php else : ?>
-                <tr id="item-<?= md5($item->getBasename() ?: '') ?>">
+                <tr id="item-<?= md5($item->getBasename() ?: ''); ?>">
                     <td>
-                        <a class="float-right" href="<?= Html::encode($renameUrl) ?>"><?= $renameIcon ?></a>
+                        <a class="float-right" href="<?= Html::encode($renameUrl); ?>"><?= $renameIcon; ?></a>
                         <img src="/images/admin/fileicon.jpg">
-                        <a href="<?= $htmlRoot . '/' . ($path ? $path . '/' : '') . ($item->getBasename() ?: '') ?>"><?= $item->getBasename() ?></a>
+                        <a href="<?= $htmlRoot . '/' . ($path ? $path . '/' : '') . ($item->getBasename() ?: ''); ?>"><?= $item->getBasename(); ?></a>
                     </td>
                     <td style="text-align: center">
-                        <?= (string)$item->getSize() ?>
+                        <?= (string)$item->getSize(); ?>
                     </td>
                     <td style="text-align: center">
-                        <?= date('Y-m-d h:i:s', $item->getTimeModified() ?: 0) ?>
+                        <?= date('Y-m-d h:i:s', $item->getTimeModified() ?: 0); ?>
                     </td>
                     <td style="text-align: center">
-                        <a class="ajax-del" data-del="item-<?= md5($item->getBasename() ?: '') ?>" title="Удалить файл &laquo;<?= $item->getBasename() ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                        <a class="ajax-del" data-del="item-<?= md5($item->getBasename() ?: ''); ?>" title="Удалить файл &laquo;<?= $item->getBasename(); ?>&raquo;" href="<?= $delUrl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                     </td>
                 </tr>
 
@@ -107,26 +106,26 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 
 <hr />
 
-<?= Html::beginForm() ?>
+<?= Html::beginForm(); ?>
 
-<?= Html::textInput('folderName', '', ['size' => 30]) ?>
-<?= Html::submitButton('Создать директорию') ?>
+<?= Html::textInput('folderName', '', ['size' => 30]); ?>
+<?= Html::submitButton('Создать директорию'); ?>
 
-<?= Html::endForm() ?>
+<?= Html::endForm(); ?>
 
 <hr />
 
 <div class="upload-alternate">
     <?= Html::beginForm('', 'post', [
-        'enctype' => 'multipart/form-data'
-    ]) ?>
+        'enctype' => 'multipart/form-data',
+    ]); ?>
 
     <p>
-        <?php for ($i = 1; $i <= $uploadCount; $i++) : ?>
-            <?= Html::fileInput('file_' . $i) ?><br />
+        <?php for ($i = 1; $i <= $uploadCount; ++$i) : ?>
+            <?= Html::fileInput('file_' . $i); ?><br />
         <?php endfor; ?>
     </p>
-    <?= Html::submitButton('Загрузить файлы') ?>
+    <?= Html::submitButton('Загрузить файлы'); ?>
 
-    <?= Html::endForm() ?>
+    <?= Html::endForm(); ?>
 </div>

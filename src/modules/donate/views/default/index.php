@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
 use yii\web\View;
@@ -8,7 +8,6 @@ use yii\web\View;
  * @var array $series
  * @var array $items
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Поддержать проект';

@@ -88,11 +88,10 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
     public function getTabList(int $parent = null): array
     {
-
         $items = $this->getFullAssocData([
             $this->primaryKeyAttribute,
             $this->titleAttribute,
-            $this->parentAttribute
+            $this->parentAttribute,
         ], $parent);
 
         /** @var string[] $result */
@@ -101,31 +100,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         $this->getTabListRecursive($items, $result, $parent);
 
         return $result;
-    }
-
-    /**
-     * @param ActiveRecord[] $items
-     * @param string[] $result
-     * @param int|null $parent
-     * @param int $indent
-     */
-    private function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
-    {
-        foreach ($items as $item) {
-            if (
-                Attribute::intOrNull($item, $this->parentAttribute) === $parent &&
-                !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])
-            ) {
-                $result[Attribute::int($item, $this->primaryKeyAttribute)] =
-                    str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute);
-                $this->getTabListRecursive(
-                    $items,
-                    $result,
-                    Attribute::int($item, $this->primaryKeyAttribute),
-                    $indent + 1
-                );
-            }
-        }
     }
 
     public function getUrlList(int $parent = null): array
@@ -148,26 +122,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getUrlListRecursive($categories, $parent ?: 0);
     }
 
-    /**
-     * @param ActiveRecord[][] $items
-     * @param int $parent
-     * @param int $indent
-     * @return array|string[]
-     */
-    private function getUrlListRecursive(array $items, int $parent, int $indent = 0): array
-    {
-        $resultArray = [];
-        if (isset($items[$parent]) && $items[$parent]) {
-            foreach ($items[$parent] as $item) {
-                $resultArray += [
-                        Attribute::string($item, $this->urlAttribute) =>
-                            str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute)
-                    ] + $this->getUrlListRecursive($items, (int)$item->getPrimaryKey(), $indent + 1);
-            }
-        }
-        return $resultArray;
-    }
-
     public function getMenuList(string $path, int $sub = 0, int $parent = null): array
     {
         $query = $this->getQuery();
@@ -188,35 +142,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getMenuListRecursive($path, $categories, $parent ?: 0, $sub);
     }
 
-    /**
-     * @param string $path
-     * @param TreeCategory[][] $items
-     * @param int $parent
-     * @param int $sub
-     * @return array[]
-     */
-    private function getMenuListRecursive(string $path, array $items, int $parent, int $sub): array
-    {
-        $resultArray = [];
-        if (isset($items[$parent]) && $items[$parent]) {
-            foreach ($items[$parent] as $item) {
-                $id = (int)$item->getPrimaryKey();
-                $resultArray[$id] = [
-                        'id' => $id,
-                        'label' => Attribute::string($item, $this->titleAttribute),
-                        'url' => Attribute::string($item, $this->urlAttribute),
-                        'icon' => $this->iconAttribute !== null ? Attribute::string($item, $this->iconAttribute) : '',
-                        'active' => $item->isLinkActive($path),
-                    ] + (
-                        $sub
-                        ? ['items' => $this->getMenuListRecursive($path, $items, (int)$item->getPrimaryKey(), $sub - 1)]
-                        : []
-                    );
-            }
-        }
-        return $resultArray;
-    }
-
     public function findByPath(string $path): ?ActiveRecord
     {
         $chunks = explode('/', trim($path, '/'));
@@ -225,7 +150,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
         $query = $this->getQuery();
 
-        if (count($chunks) === 1) {
+        if (\count($chunks) === 1) {
             $query
                 ->andWhere([$this->aliasAttribute => $chunks[0]])
                 ->andWhere(['or', [$this->parentAttribute => null], [$this->parentAttribute => 0]]);
@@ -236,7 +161,7 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
             $parent = $query->limit(1)->one();
 
             if ($parent !== null) {
-                $chunks = array_slice($chunks, 1);
+                $chunks = \array_slice($chunks, 1);
                 foreach ($chunks as $alias) {
                     /** @var TreeCategory|null $model */
                     $model = $parent->getChildByAlias($alias, $this->getQuery());
@@ -269,8 +194,73 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
     /**
      * @param ActiveRecord[] $items
+     * @param string[] $result
+     */
+    private function getTabListRecursive(array &$items, array &$result, ?int $parent, int $indent = 0): void
+    {
+        foreach ($items as $item) {
+            if (
+                Attribute::intOrNull($item, $this->parentAttribute) === $parent &&
+                !isset($result[Attribute::int($item, $this->primaryKeyAttribute)])
+            ) {
+                $result[Attribute::int($item, $this->primaryKeyAttribute)] =
+                    str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute);
+                $this->getTabListRecursive(
+                    $items,
+                    $result,
+                    Attribute::int($item, $this->primaryKeyAttribute),
+                    $indent + 1
+                );
+            }
+        }
+    }
+
+    /**
+     * @param ActiveRecord[][] $items
+     * @return array|string[]
+     */
+    private function getUrlListRecursive(array $items, int $parent, int $indent = 0): array
+    {
+        $resultArray = [];
+        if (isset($items[$parent]) && $items[$parent]) {
+            foreach ($items[$parent] as $item) {
+                $resultArray += [
+                    Attribute::string($item, $this->urlAttribute) => str_repeat('-- ', $indent) . Attribute::string($item, $this->titleAttribute),
+                ] + $this->getUrlListRecursive($items, (int)$item->getPrimaryKey(), $indent + 1);
+            }
+        }
+        return $resultArray;
+    }
+
+    /**
+     * @param TreeCategory[][] $items
+     * @return array[]
+     */
+    private function getMenuListRecursive(string $path, array $items, int $parent, int $sub): array
+    {
+        $resultArray = [];
+        if (isset($items[$parent]) && $items[$parent]) {
+            foreach ($items[$parent] as $item) {
+                $id = (int)$item->getPrimaryKey();
+                $resultArray[$id] = [
+                    'id' => $id,
+                    'label' => Attribute::string($item, $this->titleAttribute),
+                    'url' => Attribute::string($item, $this->urlAttribute),
+                    'icon' => $this->iconAttribute !== null ? Attribute::string($item, $this->iconAttribute) : '',
+                    'active' => $item->isLinkActive($path),
+                ] + (
+                    $sub
+                        ? ['items' => $this->getMenuListRecursive($path, $items, (int)$item->getPrimaryKey(), $sub - 1)]
+                        : []
+                );
+            }
+        }
+        return $resultArray;
+    }
+
+    /**
+     * @param ActiveRecord[] $items
      * @param int[] $result
-     * @param int|null $parent
      */
     private function childrenArrayRecursive(array &$items, array &$result, ?int $parent): void
     {
@@ -284,7 +274,6 @@ class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
     /**
      * @param string[] $attributes
-     * @param int|null $parent
      * @return ActiveRecord[]
      */
     private function getFullAssocData(array $attributes, int $parent = null): array

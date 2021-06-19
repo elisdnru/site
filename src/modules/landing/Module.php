@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\landing;
 
 use app\components\module\admin\AdminMenuProvider;
@@ -94,9 +96,13 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
         ];
     }
 
+    public static function sitemapPriority(): int
+    {
+        return 98;
+    }
+
     /**
      * @param Landing[] $landings
-     * @param int|null $parent
      * @return Item[]
      */
     private static function itemRecursive(array $landings, ?int $parent): array
@@ -115,10 +121,5 @@ class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapP
         }
 
         return $items;
-    }
-
-    public static function sitemapPriority(): int
-    {
-        return 98;
     }
 }

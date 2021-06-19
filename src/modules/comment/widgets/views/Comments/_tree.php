@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
@@ -12,7 +12,6 @@ use yii\web\View;
  * @var int $authorId
  * @var User $user
  */
-
 ?>
 <?php if (isset($comments[$parent])) : ?>
     <?php foreach ($comments[$parent] as $comment) : ?>
@@ -21,7 +20,7 @@ use yii\web\View;
             'comment' => $comment,
             'authorId' => $authorId,
             'user' => $user,
-        ]) ?>
+        ]); ?>
 
         <?php if ($indent < 100 && array_key_exists($comment->id, $comments)) : ?>
             <?= $this->render('_tree', [
@@ -30,7 +29,7 @@ use yii\web\View;
                 'parent' => $comment->id,
                 'user' => $user,
                 'authorId' => $authorId,
-            ]) ?>
+            ]); ?>
         <?php endif; ?>
 
     <?php endforeach; ?>

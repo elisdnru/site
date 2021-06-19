@@ -31,7 +31,7 @@ class PasswordForm extends Model
                 'confirm',
                 'compare',
                 'compareAttribute' => 'password',
-                'message' => 'Пароли не совпадают.'
+                'message' => 'Пароли не совпадают.',
             ],
             [
                 'current',

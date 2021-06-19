@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\acceptance\blog\admin;
 
 use tests\AcceptanceTester;

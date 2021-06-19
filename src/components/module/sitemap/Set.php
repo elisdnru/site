@@ -17,7 +17,6 @@ class Set
 
     /**
      * @param Group[] $groups
-     * @param int $priority
      */
     public function __construct(array $groups, int $priority)
     {

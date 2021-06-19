@@ -25,8 +25,7 @@ class CategoryBehavior extends Behavior
 
     protected function getModel(): ActiveRecord
     {
-        $owner = $this->owner;
-        /** @var ActiveRecord $owner */
-        return $owner;
+        /** @var ActiveRecord */
+        return $this->owner;
     }
 }

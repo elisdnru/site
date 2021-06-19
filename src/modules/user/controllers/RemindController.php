@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\user\controllers;
 
-use yii\web\Controller;
 use app\modules\user\forms\RemindForm;
 use app\modules\user\models\User;
 use yii\mail\MailerInterface;
+use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;
@@ -35,7 +37,6 @@ class RemindController extends Controller
 
         return $this->render('remind', [
             'model' => $model,
-
         ]);
     }
 }

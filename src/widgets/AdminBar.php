@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use app\assets\AdminBarAsset;
@@ -25,7 +27,7 @@ class AdminBar extends Widget
         if ($this->user->can(Access::CONTROL)) {
             AdminBarAsset::register($this->view);
             return $this->render('AdminBar', [
-                'links' => $this->links
+                'links' => $this->links,
             ]);
         }
         return '';

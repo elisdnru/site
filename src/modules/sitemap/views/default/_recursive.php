@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\module\sitemap\Item;
 use yii\helpers\Html;
@@ -16,9 +16,9 @@ use yii\web\View;
             <?php if ($item->label || $item->children) : ?>
                 <li>
                     <?php if ($item->label) : ?>
-                        <a href="<?= $item->url ?>"><?= Html::encode($item->label) ?></a>
+                        <a href="<?= $item->url; ?>"><?= Html::encode($item->label); ?></a>
                     <?php endif; ?>
-                    <?= $this->render('_recursive', ['items' => $item->children, 'models' => [], 'parent' => 0]) ?>
+                    <?= $this->render('_recursive', ['items' => $item->children, 'models' => [], 'parent' => 0]); ?>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>

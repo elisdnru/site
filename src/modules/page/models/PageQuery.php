@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\page\models;
 
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
-use app\modules\page\models\Page;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -40,7 +39,7 @@ class PageQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Page[]|BatchQueryResult
+     * @return BatchQueryResult|Page[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -50,7 +49,7 @@ class PageQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Page|array|null
+     * @return array|Page|null
      * @psalm-return Page|null
      */
     public function one($db = null): array|Page|null

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\sitemap\components;
 
 use DateTimeImmutable;
@@ -17,7 +19,7 @@ class Sitemap
         $item = [
             'loc' => $loc,
             'changefreq' => $changeFreq,
-            'priority' => $priority
+            'priority' => $priority,
         ];
 
         if ($lastMod) {
@@ -37,11 +39,11 @@ class Sitemap
 
             /**
              * @var string $key
-             * @var string $value
+             * @var float|int|string $value
              */
             foreach ($item as $key => $value) {
                 $elem = $dom->createElement($key);
-                $elem->appendChild($dom->createTextNode($value));
+                $elem->appendChild($dom->createTextNode((string)$value));
                 $url->appendChild($elem);
             }
 

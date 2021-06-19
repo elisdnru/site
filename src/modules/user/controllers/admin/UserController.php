@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\user\controllers\admin;
 
+use app\components\AdminController;
 use app\modules\user\forms\admin\EditForm;
 use app\modules\user\forms\UserSearch;
-use app\components\AdminController;
 use app\modules\user\models\User;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

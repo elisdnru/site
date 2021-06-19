@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category;
 
 use LogicException;
@@ -58,8 +60,6 @@ class TreeActiveDataProvider extends ActiveDataProvider
 
     /**
      * @param ActiveRecordInterface[] $items
-     * @param int $indent
-     * @param int $foolproof
      * @return ActiveRecordInterface[]
      */
     protected function buildRecursive(array $items, int $indent = 0, int $foolproof = 20): array

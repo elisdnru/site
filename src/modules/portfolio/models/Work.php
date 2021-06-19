@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio\models;
 
 use app\components\purifier\PurifyTextBehavior;
@@ -37,6 +39,8 @@ class Work extends ActiveRecord
     public const IMAGE_PATH = 'upload/images/portfolio';
 
     public string|bool $delImage = false;
+
+    private ?string $cachedUrl = null;
 
     public static function tableName(): string
     {
@@ -130,16 +134,6 @@ class Work extends ActiveRecord
         return false;
     }
 
-    private function fillDefaultValues(): void
-    {
-        if (!$this->meta_title) {
-            $this->meta_title = strip_tags($this->title);
-        }
-        if (!$this->meta_description) {
-            $this->meta_description = strip_tags($this->short);
-        }
-    }
-
     public function afterSave($insert, $changedAttributes): void
     {
         if (!$this->sort) {
@@ -168,8 +162,6 @@ class Work extends ActiveRecord
         return self::find()->andWhere(['alias' => $alias])->one();
     }
 
-    private ?string $cachedUrl = null;
-
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
@@ -177,9 +169,19 @@ class Work extends ActiveRecord
                 '/portfolio/work/show',
                 'category' => $this->category->getPath(),
                 'id' => $this->getPrimaryKey(),
-                'alias' => $this->alias
+                'alias' => $this->alias,
             ]);
         }
         return $this->cachedUrl;
+    }
+
+    private function fillDefaultValues(): void
+    {
+        if (!$this->meta_title) {
+            $this->meta_title = strip_tags($this->title);
+        }
+        if (!$this->meta_description) {
+            $this->meta_description = strip_tags($this->short);
+        }
     }
 }

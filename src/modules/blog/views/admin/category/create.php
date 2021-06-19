@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\blog\models\Category;
 use yii\web\View;
@@ -7,7 +7,6 @@ use yii\web\View;
  * @var View $this
  * @var Category $model
  */
-
 $this->title = 'Редактор категории блога';
 $this->params['breadcrumbs'] = [
     'Блоги' => ['/blog/admin/post'],
@@ -22,4 +21,4 @@ $this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/gr
 
 <h1>Добавление категории блога</h1>
 
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model]); ?>

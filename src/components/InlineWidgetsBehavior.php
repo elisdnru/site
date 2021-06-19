@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use Exception;
@@ -34,8 +36,7 @@ class InlineWidgetsBehavior extends Behavior
         }
         $result = $this->clearAutoParagraphs($text);
         $result = $this->replaceBlocks($result);
-        $result = $this->processWidgets($result);
-        return $result;
+        return $this->processWidgets($result);
     }
 
     public function clearWidgets(?string $text): string
@@ -45,8 +46,7 @@ class InlineWidgetsBehavior extends Behavior
         }
         $result = $this->clearAutoParagraphs($text);
         $result = $this->replaceBlocks($result);
-        $result = $this->clearAllWidgets($result);
-        return $result;
+        return $this->clearAllWidgets($result);
     }
 
     private function processWidgets(string $text): string
@@ -71,22 +71,17 @@ class InlineWidgetsBehavior extends Behavior
     private function replaceBlocks(string $text): string
     {
         $text = str_replace($this->startBlock, '{' . $this->widgetToken . ':', $text);
-        $text = str_replace($this->endBlock, $this->widgetToken . '}', $text);
-        return $text;
+        return str_replace($this->endBlock, $this->widgetToken . '}', $text);
     }
 
     private function clearAutoParagraphs(string $output): string
     {
         $output = str_replace('<p>' . $this->startBlock, $this->startBlock, $output);
-        $output = str_replace($this->endBlock . '</p>', $this->endBlock, $output);
-        return $output;
+        return str_replace($this->endBlock . '</p>', $this->endBlock, $output);
     }
 
     /**
-     * @param string $widgetClass
      * @psalm-param class-string<Widget> $widgetClass
-     * @param string $attributes
-     * @return string
      * @throws Exception
      */
     private function loadWidget(string $widgetClass, string $attributes = ''): string

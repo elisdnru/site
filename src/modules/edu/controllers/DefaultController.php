@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\edu\controllers;
 
+use app\modules\edu\components\api\Api;
 use yii\base\Module;
 use yii\web\Controller;
-use app\modules\edu\components\api\Api;
 
 class DefaultController extends Controller
 {

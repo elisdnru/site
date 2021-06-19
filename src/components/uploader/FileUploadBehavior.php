@@ -53,6 +53,13 @@ class FileUploadBehavior extends Behavior
     private File $files;
     private Image $images;
 
+    private ?string $cachedImageUrl = null;
+
+    /**
+     * @var string[]
+     */
+    private array $cachedImageThumbUrl = [];
+
     public function __construct(Uploader $uploader, File $files, Image $images, array $config = [])
     {
         parent::__construct($config);
@@ -106,8 +113,6 @@ class FileUploadBehavior extends Behavior
         $this->deleteFile();
     }
 
-    private ?string $cachedImageUrl = null;
-
     public function getImageUrl(): string
     {
         if ($this->cachedImageUrl === null) {
@@ -116,11 +121,6 @@ class FileUploadBehavior extends Behavior
         }
         return $this->cachedImageUrl;
     }
-
-    /**
-     * @var string[]
-     */
-    private array $cachedImageThumbUrl = [];
 
     public function getImageThumbUrl(int $width = 0, int $height = 0): string
     {
@@ -142,6 +142,12 @@ class FileUploadBehavior extends Behavior
         return $this->cachedImageThumbUrl[$index];
     }
 
+    protected function getModel(): ActiveRecord
+    {
+        /** @var ActiveRecord */
+        return $this->owner;
+    }
+
     private function processImageSizes(): void
     {
         if ($this->imageWidthAttribute && $this->imageHeightAttribute) {
@@ -155,8 +161,8 @@ class FileUploadBehavior extends Behavior
 
                 $thumbName = $this->uploader->createThumbFileName($name, $width, $height);
 
-                if ($this->uploader->checkThumbExists($this->filePath . DIRECTORY_SEPARATOR . $thumbName)) {
-                    $file = $this->files->set($this->filePath . DIRECTORY_SEPARATOR . $thumbName);
+                if ($this->uploader->checkThumbExists($this->filePath . \DIRECTORY_SEPARATOR . $thumbName)) {
+                    $file = $this->files->set($this->filePath . \DIRECTORY_SEPARATOR . $thumbName);
                 } else {
                     $file = $this->uploader->createThumb(
                         $this->filePath,
@@ -181,7 +187,7 @@ class FileUploadBehavior extends Behavior
         /** @var string|UploadedFile $file */
         $file = $model->{$this->fileAttribute};
 
-        if (is_string($file) && preg_match('|^http://|', $file)) {
+        if (\is_string($file) && preg_match('|^http://|', $file)) {
             $this->deleteFile();
             if ($upload = $this->uploadByUrl($file)) {
                 $model->{$this->fileAttribute} = '';
@@ -227,12 +233,5 @@ class FileUploadBehavior extends Behavior
     private function uploadFile(UploadedFile $uploadedFile): ?File
     {
         return $this->uploader->upload($uploadedFile, $this->filePath);
-    }
-
-    protected function getModel(): ActiveRecord
-    {
-        /** @var ActiveRecord $owner */
-        $owner = $this->owner;
-        return $owner;
     }
 }

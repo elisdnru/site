@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'first-root' => [
         'id' => 1,

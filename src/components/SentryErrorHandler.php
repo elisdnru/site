@@ -7,7 +7,6 @@ namespace app\components;
 use Throwable;
 use yii\web\ErrorHandler;
 use yii\web\HttpException;
-
 use function Sentry\captureException;
 
 class SentryErrorHandler extends ErrorHandler
@@ -25,7 +24,7 @@ class SentryErrorHandler extends ErrorHandler
 
     private function reportException(Throwable $exception): void
     {
-        if ($exception instanceof HttpException && in_array($exception->statusCode, [404, 403], true)) {
+        if ($exception instanceof HttpException && \in_array($exception->statusCode, [404, 403], true)) {
             return;
         }
 

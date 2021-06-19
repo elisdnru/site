@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use app\modules\user\models\User;
@@ -10,9 +12,13 @@ class AuthIdentity implements IdentityInterface
 {
     private int $id;
 
+    public function __construct(int $id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * @param int|string $id
-     * @return self|null
      */
     public static function findIdentity($id): ?self
     {
@@ -26,17 +32,11 @@ class AuthIdentity implements IdentityInterface
     /**
      * @param mixed $token
      * @param mixed|null $type
-     * @return self|null
      * @throws NotSupportedException
      */
     public static function findIdentityByAccessToken($token, $type = null): ?self
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
-    }
-
-    public function __construct(int $id)
-    {
-        $this->id = $id;
     }
 
     public function getId(): int
@@ -51,7 +51,6 @@ class AuthIdentity implements IdentityInterface
 
     /**
      * @param string $authKey
-     * @return bool
      */
     public function validateAuthKey($authKey): bool
     {

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\blog\forms\GroupForm;
 use app\modules\blog\models\Group;
@@ -13,7 +13,6 @@ use yii\widgets\ActiveForm;
  * @var ActiveForm $form
  * @var GroupForm $itemForm
  */
-
 $this->title = 'Тематические группы записей';
 $this->params['breadcrumbs'] = [
     'Записи' => ['/blog/admin/post'],
@@ -27,7 +26,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 <h1>Тематические группы записей</h1>
 
 <div class="form">
-    <?= Html::beginForm() ?>
+    <?= Html::beginForm(); ?>
 
     <table class="grid">
         <tr>
@@ -40,12 +39,12 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
             $postsUrl = Url::to(['/blog/admin/post', 'Post[group_id]' => $item->id]);
 
             ?>
-            <tr id="item-<?= $item->id ?>">
-                <td><?= Html::activeTextInput($item, "[$item->id]title", ['style' => 'width:99%', 'maxlength' => 255]) ?></td>
-                <td style="text-align: center"><a href="<?= $postsUrl ?>">Записи</a></td>
+            <tr id="item-<?= $item->id; ?>">
+                <td><?= Html::activeTextInput($item, "[{$item->id}]title", ['style' => 'width:99%', 'maxlength' => 255]); ?></td>
+                <td style="text-align: center"><a href="<?= $postsUrl; ?>">Записи</a></td>
                 <td style="text-align: center">
                     <?php if ($item->getPostsCount() === 0) : ?>
-                        <a class="ajax-del" data-del="item-<?= $item->id ?>" title="Удалить группу &laquo;<?= Html::encode($item->title) ?>&raquo;" href="<?= $delUrl ?>">
+                        <a class="ajax-del" data-del="item-<?= $item->id; ?>" title="Удалить группу &laquo;<?= Html::encode($item->title); ?>&raquo;" href="<?= $delUrl; ?>">
                             <img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить">
                         </a>
                     <?php endif; ?>
@@ -55,15 +54,15 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
         <?php endforeach; ?>
     </table>
     <div class="row buttons">
-        <?= Html::submitButton('Сохранить') ?>
+        <?= Html::submitButton('Сохранить'); ?>
     </div>
-    <?= Html::endForm() ?>
+    <?= Html::endForm(); ?>
 </div><!-- form -->
 
 <br />
 <div class="form">
 
-    <?= Html::beginForm() ?>
+    <?= Html::beginForm(); ?>
 
     <table class="grid">
         <tr>
@@ -73,16 +72,16 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 
         <tr>
             <td>
-                <?= Html::activeTextInput($itemForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]) ?><br />
-                <?= Html::error($itemForm, 'title') ?>
+                <?= Html::activeTextInput($itemForm, 'title', ['style' => 'width:99%', 'maxlength' => 255]); ?><br />
+                <?= Html::error($itemForm, 'title'); ?>
             </td>
             <td></td>
         </tr>
     </table>
     <div class="row buttons">
-        <?= Html::submitButton('Добавить группу') ?>
+        <?= Html::submitButton('Добавить группу'); ?>
     </div>
 
-    <?= Html::endForm() ?>
+    <?= Html::endForm(); ?>
 
 </div><!-- form -->

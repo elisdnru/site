@@ -22,7 +22,6 @@ class Modules
     }
 
     /**
-     * @return array
      * @psalm-return ModuleDefinitions
      */
     public function definitions(): array

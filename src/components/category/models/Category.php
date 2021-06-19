@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category\models;
 
 use app\components\AliasValidator;
@@ -22,6 +24,8 @@ use yii\helpers\Url;
 abstract class Category extends ActiveRecord
 {
     public string $urlRoute = '';
+
+    private ?string $cachedUrl = null;
 
     public static function find(): CategoryQuery
     {
@@ -80,6 +84,15 @@ abstract class Category extends ActiveRecord
         return false;
     }
 
+    public function getUrl(): string
+    {
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to([$this->urlRoute, 'category' => $this->alias]);
+        }
+
+        return $this->cachedUrl;
+    }
+
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
@@ -91,16 +104,5 @@ abstract class Category extends ActiveRecord
         if (!$this->meta_description) {
             $this->meta_description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
         }
-    }
-
-    private ?string $cachedUrl = null;
-
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to([$this->urlRoute, 'category' => $this->alias]);
-        }
-
-        return $this->cachedUrl;
     }
 }

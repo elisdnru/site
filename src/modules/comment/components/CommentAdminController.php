@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\comment\components;
 
+use app\components\AdminController;
 use app\components\DataProvider;
 use app\modules\comment\models\Comment;
 use BadMethodCallException;
-use app\components\AdminController;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;
@@ -48,7 +50,7 @@ abstract class CommentAdminController extends AdminController
             ],
             'pagination' => [
                 'pageSize' => self::COMMENTS_PER_PAGE,
-            ]
+            ],
         ]));
 
         return $this->render('index', [
@@ -72,11 +74,11 @@ abstract class CommentAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        if (!in_array($attribute, ['public', 'moder'], true)) {
+        if (!\in_array($attribute, ['public', 'moder'], true)) {
             throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
-        $model->$attribute = $model->$attribute ? '0' : '1';
+        $model->{$attribute} = $model->{$attribute} ? '0' : '1';
         $model->save();
 
         if (!$request->getIsAjax()) {
@@ -158,7 +160,7 @@ abstract class CommentAdminController extends AdminController
     }
 
     /**
-     * @return string|Comment
+     * @return Comment|string
      * @psalm-return class-string<Comment>
      */
     protected function getModelName(): string

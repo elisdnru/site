@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\landing\controllers;
 
-use yii\web\Controller;
 use app\modules\landing\models\Landing;
 use yii\caching\TagDependency;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 class LandingController extends Controller

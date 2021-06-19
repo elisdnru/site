@@ -9,33 +9,14 @@ use Codeception\Test\Unit;
 use tests\IntegrationTester;
 use Yii;
 
-class CategoryBehaviorTest extends Unit
+/**
+ * @internal
+ */
+final class CategoryBehaviorTest extends Unit
 {
     protected IntegrationTester $tester;
 
     private CategoryQuery $query;
-
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
-    protected function _before(): void
-    {
-        if (!Yii::$app->db->getTableSchema(Category::tableName())) {
-            Yii::$app->db->createCommand()->createTable(Category::tableName(), [
-                'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
-                'sort' => 'smallint(3) NOT NULL',
-                'alias' => 'varchar(255) NOT NULL',
-                'title' => 'varchar(255) NOT NULL',
-            ])->execute();
-        }
-
-        Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
-
-        $this->tester->haveFixtures([
-            'category' => CategoryFixture::class
-        ]);
-
-        $this->query = Category::find();
-    }
 
     public function testArray(): void
     {
@@ -130,10 +111,31 @@ class CategoryBehaviorTest extends Unit
         self::assertFalse($category->isLinkActive('second'));
     }
 
+    // phpcs:disable
+    // PSR2.Method Declarations.Underscore
+    protected function _before(): void
+    {
+        if (!Yii::$app->db->getTableSchema(Category::tableName())) {
+            Yii::$app->db->createCommand()->createTable(Category::tableName(), [
+                'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
+                'sort' => 'smallint(3) NOT NULL',
+                'alias' => 'varchar(255) NOT NULL',
+                'title' => 'varchar(255) NOT NULL',
+            ])->execute();
+        }
+
+        Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
+
+        $this->tester->haveFixtures([
+            'category' => CategoryFixture::class,
+        ]);
+
+        $this->query = Category::find();
+    }
+
     private function getCategory(string $alias): Category
     {
-        $category = Category::findOne(['alias' => $alias]);
-        /** @var Category $category */
-        return $category;
+        /** @var Category */
+        return Category::findOne(['alias' => $alias]);
     }
 }

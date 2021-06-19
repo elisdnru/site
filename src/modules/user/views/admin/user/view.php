@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\SocNetwork;
 use app\modules\user\models\User;
@@ -11,7 +11,6 @@ use yii\web\View;
  * @var View $this
  * @var User $model
  */
-
 $this->title = 'Профиль пользователя ' . $model->username;
 $this->params['breadcrumbs'] = [
     'Пользователи' => ['index'],
@@ -26,23 +25,23 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 <?php Portlet::begin(['title' => 'Профиль пользователя']); ?>
 
 <div style="float:left; margin-bottom:10px">
-    <img src="<?= $model->getAvatarUrl() ?>" alt="" width="50">
+    <img src="<?= $model->getAvatarUrl(); ?>" alt="" width="50">
 </div>
 
 <div style="margin-left:60px;">
 
-    <?php if ($model->id == Yii::$app->user->id) : ?>
+    <?php if ($model->id === Yii::$app->user->id) : ?>
         <p style="float:right">
-            <a href="<?= Url::to(['/user/profile/edit']) ?>">Редактировать</a> |
-            <a href="<?= Url::to(['/user/default/logout']) ?>">Выход</a>
+            <a href="<?= Url::to(['/user/profile/edit']); ?>">Редактировать</a> |
+            <a href="<?= Url::to(['/user/default/logout']); ?>">Выход</a>
         </p>
     <?php endif; ?>
 
     <h3>
         <?php if ($model->network) : ?>
-            <a rel="nofollow" href="<?= $model->identity ?>"><?= SocNetwork::icon($model->network) ?></a>
+            <a rel="nofollow" href="<?= $model->identity; ?>"><?= SocNetwork::icon($model->network); ?></a>
         <?php endif; ?>
-        <?= Html::encode($model->getFio()) ?>
+        <?= Html::encode($model->getFio()); ?>
     </h3>
 </div>
 
@@ -52,19 +51,19 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
     <tbody>
         <tr>
             <th style="width:150px; text-align:left">Username</th>
-            <td><?= Html::encode($model->username) ?></td>
+            <td><?= Html::encode($model->username); ?></td>
         </tr>
         <tr>
             <th style="width:150px; text-align:left">Сайт</th>
             <td>
                 <?php if ($model->site) : ?>
-                    <?= Html::a(Html::encode($model->site), $model->site) ?>
+                    <?= Html::a(Html::encode($model->site), $model->site); ?>
                 <?php endif; ?>
             </td>
         </tr>
         <tr>
             <th style="width:150px; text-align:left">Комментариев</th>
-            <td><?= $model->getCommentsCount() ?></td>
+            <td><?= $model->getCommentsCount(); ?></td>
         </tr>
     </tbody>
 </table>

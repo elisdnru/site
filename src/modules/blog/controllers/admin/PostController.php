@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers\admin;
 
+use app\components\AdminController;
 use app\modules\blog\forms\PostSearch;
 use app\modules\blog\models\Post;
-use app\components\AdminController;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

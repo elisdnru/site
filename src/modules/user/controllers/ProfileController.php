@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\user\controllers;
 
-use yii\web\Controller;
 use app\modules\user\forms\PasswordForm;
 use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\User;
 use yii\filters\AccessControl;
+use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\Request;
 use yii\web\Response;

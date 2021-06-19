@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;

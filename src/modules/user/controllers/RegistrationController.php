@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\user\controllers;
 
 use app\components\MathCaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
-use yii\web\Controller;
 use app\modules\user\models\User;
 use yii\mail\MailerInterface;
+use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;

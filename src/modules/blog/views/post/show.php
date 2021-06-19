@@ -1,29 +1,28 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\HighlightAsset;
+use app\components\CSSMinimizer;
+use app\components\DateFormatter;
 use app\components\InlineWidgetsBehavior;
 use app\components\Pluraliser;
-use app\components\CSSMinimizer;
-use app\widgets\Share;
 use app\modules\block\widgets\BlockWidget;
-use app\modules\blog\models\Post;
 use app\modules\blog\models\Comment;
-use app\components\DateFormatter;
+use app\modules\blog\models\Post;
 use app\modules\blog\widgets\OtherPostsWidget;
 use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
+use app\widgets\Share;
 use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var View|InlineWidgetsBehavior $this
+ * @var InlineWidgetsBehavior|View $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var Post $model
  */
-
 $this->context->layout = 'post';
 
 $this->title = $model->meta_title;
@@ -31,7 +30,7 @@ $this->title = $model->meta_title;
 $this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
 
 $this->params['breadcrumbs'] = [
-    'Блог' => ['/blog']
+    'Блог' => ['/blog'],
 ];
 
 $host = Yii::$app->request->getHostInfo() ?: '';
@@ -74,11 +73,11 @@ HighlightAsset::register($this);
 
 <article class="entry">
     <header>
-        <h1><?= Html::encode($model->title) ?></h1>
+        <h1><?= Html::encode($model->title); ?></h1>
 
         <!--noindex-->
         <?php if ($this->beginCache('banner_post_before', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-            <?= BlockWidget::widget(['id' => 'banner_post_before']) ?>
+            <?= BlockWidget::widget(['id' => 'banner_post_before']); ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
         <!--/noindex-->
@@ -91,13 +90,13 @@ HighlightAsset::register($this);
                 'height' => $model->image_height,
             ]);
             ?>
-            <p class="thumb"><?= Html::img($model->getImageUrl(), $properties) ?></p>
+            <p class="thumb"><?= Html::img($model->getImageUrl(), $properties); ?></p>
         <?php endif; ?>
 
     </header>
 
     <div class="text">
-        <?= $this->decodeWidgets($model->text_purified) ?>
+        <?= $this->decodeWidgets($model->text_purified); ?>
     </div>
 
     <div class="clear"></div>
@@ -107,11 +106,11 @@ HighlightAsset::register($this);
 <aside>
 
     <?php if ($this->beginCache('banner_post_after', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-        <?= BlockWidget::widget(['id' => 'banner_post_after']) ?>
+        <?= BlockWidget::widget(['id' => 'banner_post_after']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
-    <?= SubscribeAfterPost::widget() ?>
+    <?= SubscribeAfterPost::widget(); ?>
 
     <!--noindex-->
     <?php
@@ -121,9 +120,9 @@ HighlightAsset::register($this);
     }
     ?>
     <p class="entry-date">
-        Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date) ?>">&nbsp;</span>
+        Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date); ?>">&nbsp;</span>
     </p>
-    <p class="entry-tags">Метки: <?= implode('', $links) ?></p>
+    <p class="entry-tags">Метки: <?= implode('', $links); ?></p>
     <div class="clear"></div>
     <!--/noindex-->
 
@@ -135,7 +134,7 @@ HighlightAsset::register($this);
         'title' => $model->title,
         'description' => $model->meta_description,
         'image' => $model->getImageUrl(),
-    ]) ?>
+    ]); ?>
 
     <div class="clear"></div>
 
@@ -143,7 +142,7 @@ HighlightAsset::register($this);
         <?= ThemePostsWidget::widget([
             'current' => $model->id,
             'group' => $model->group_id,
-        ]) ?>
+        ]); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
@@ -152,7 +151,7 @@ HighlightAsset::register($this);
             //'category'=>$model->category_id,
             'skip' => $model->id,
             'limit' => 2,
-        ]) ?>
+        ]); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
@@ -163,4 +162,4 @@ HighlightAsset::register($this);
     'authorId' => $model->author_id,
     'type' => Comment::TYPE_OF_COMMENT,
     'url' => $model->getUrl(),
-]) ?>
+]); ?>

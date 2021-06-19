@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
@@ -12,7 +12,6 @@ use yii\web\View;
  * @var CommentForm $form
  * @var User $user
  */
-
 $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [
     'Редактор комментария',
@@ -30,4 +29,4 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?= $this->render('_form', [
     'model' => $model,
     'form' => $form,
-]) ?>
+]); ?>

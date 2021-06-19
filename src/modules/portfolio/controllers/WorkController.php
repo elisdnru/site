@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio\controllers;
 
-use yii\web\Controller;
 use app\components\module\admin\AdminAccess;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Url;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
@@ -19,7 +21,7 @@ class WorkController extends Controller
         if ('/' . $request->getPathInfo() !== $model->getUrl()) {
             return $this->redirect(Url::current([
                 'alias' => $model->alias,
-                'category' => $model->category->getPath()
+                'category' => $model->category->getPath(),
             ]), 301);
         }
 

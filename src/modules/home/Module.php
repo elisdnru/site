@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\home;
 
 use app\components\module\routes\RoutesProvider;
@@ -34,8 +36,8 @@ class Module extends Base implements RoutesProvider, SitemapProvider
                     'Дмитрий Елисеев',
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []
-                )
-            ])
+                ),
+            ]),
         ];
     }
 

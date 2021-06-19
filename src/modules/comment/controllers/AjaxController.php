@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\comment\controllers;
 
 use app\components\module\admin\AdminAccess;
 use app\modules\comment\models\Comment;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
+use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

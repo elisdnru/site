@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\comment\widgets;
 
 use app\assets\CommentsAsset;
-use app\modules\comment\models\Comment;
 use app\modules\comment\forms\CommentForm;
+use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
 use ReflectionClass;
 use Yii;

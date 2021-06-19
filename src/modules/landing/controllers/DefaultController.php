@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\landing\controllers;
 
 use yii\web\Controller;

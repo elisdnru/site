@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\controllers;
 
 use app\components\module\admin\AdminAccess;
 use app\modules\blog\models\Post;
-use yii\web\Controller;
 use yii\helpers\Url;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

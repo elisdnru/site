@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\models;
 
 use yii\db\ActiveQuery;
@@ -7,12 +9,14 @@ use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $title
  * @property PostTag[] $postTags
  */
 class Tag extends ActiveRecord
 {
+    private ?string $cachedUrl = null;
+
     public static function tableName(): string
     {
         return 'blog_tags';
@@ -87,8 +91,6 @@ class Tag extends ActiveRecord
 
         return array_unique($postIds);
     }
-
-    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

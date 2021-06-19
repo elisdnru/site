@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\AdminAsset;
 use app\widgets\Breadcrumbs;
@@ -9,7 +9,6 @@ use yii\web\View;
  * @var View $this
  * @var string $content
  */
-
 AdminAsset::register($this);
 ?>
 
@@ -21,11 +20,11 @@ AdminAsset::register($this);
         'links' => array_filter(array_merge(
             $this->context->route === 'admin/default/index' ? [] : ['Панель управления' => ['/admin']],
             $this->params['breadcrumbs']
-        ))
-    ]) ?>
-    <?= Messages::widget() ?>
+        )),
+    ]); ?>
+    <?= Messages::widget(); ?>
 
-    <?= $content ?>
+    <?= $content; ?>
 
 </section>
 

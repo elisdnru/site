@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\admin\controllers;
 
-use app\modules\user\models\Access;
 use app\components\AdminController;
+use app\modules\user\models\Access;
 use yii\caching\CacheInterface;
 use yii\filters\AccessControl;
 use yii\web\Response;

@@ -20,11 +20,11 @@ use yii\helpers\Html;
         <?php foreach ($episodes as $episode) : ?>
             <li>
                 <?php if ($episode['public']) : ?>
-                    <a href="https://deworker.pro/edu/series/<?= Html::encode($slug . '/' . $episode['slug']) ?>" target="_blank">
-                        <?= Html::encode($episode['title']) ?>
+                    <a href="https://deworker.pro/edu/series/<?= Html::encode($slug . '/' . $episode['slug']); ?>" target="_blank">
+                        <?= Html::encode($episode['title']); ?>
                     </a>
                 <?php else : ?>
-                    Скоро: <?= Html::encode($episode['title']) ?>
+                    Скоро: <?= Html::encode($episode['title']); ?>
                 <?php endif; ?>
             </li>
         <?php endforeach; ?>

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\image\controllers;
 
-use yii\web\Controller;
 use app\components\uploader\Uploader;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;

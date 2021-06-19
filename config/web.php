@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * web
+ * web.
  */
 
-use app\components\SentryErrorHandler;
 use app\components\AuthIdentity;
+use app\components\SentryErrorHandler;
 use yii\helpers\ArrayHelper;
 use yii\web\Cookie;
 use yii\web\ErrorHandler;
@@ -19,7 +21,6 @@ use yii\web\User;
  *     HTTPS?: string
  * } $_SERVER
  */
-
 $isSecure =
     (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
     (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off');
@@ -32,7 +33,7 @@ return ArrayHelper::merge(
             'user' => User::class,
             'session' => Session::class,
             'errorHandler' => [
-                'class' => ErrorHandler::class
+                'class' => ErrorHandler::class,
             ],
         ],
 
@@ -50,7 +51,7 @@ return ArrayHelper::merge(
                     'csrfCookie' => [
                         'httpOnly' => true,
                         'secure' => $isSecure,
-                    ]
+                    ],
                 ],
                 Session::class => [
                     'class' => Session::class,

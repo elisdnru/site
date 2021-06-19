@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use yii\filters\AccessControl;
@@ -30,7 +32,7 @@ abstract class AdminController extends Controller
                 ],
             ],
             'cacheFlush' => [
-                'class' => CacheFlushBehavior::class
+                'class' => CacheFlushBehavior::class,
             ],
         ];
     }

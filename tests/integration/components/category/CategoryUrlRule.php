@@ -23,7 +23,7 @@ class CategoryUrlRule implements UrlRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function parseRequest($manager, $request): array|bool
     {

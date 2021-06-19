@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\DataProvider;
 use app\components\DateFormatter;
@@ -14,12 +14,11 @@ use yii\web\View;
 use yii\widgets\LinkPager;
 
 /**
- * @var View|InlineWidgetsBehavior $this
+ * @var InlineWidgetsBehavior|View $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var SearchForm $searchForm
  * @var DataProvider<Post> $dataProvider
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Поиск по записям' . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
@@ -39,7 +38,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <h1>Поиск в блоге</h1>
 
-<?= SearchFormWidget::widget() ?>
+<?= SearchFormWidget::widget(); ?>
 
 <div class="items">
     <?php foreach ($dataProvider->getItems() as $post) : ?>
@@ -52,19 +51,19 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <div class="entry list">
             <div class="header">
                 <div class="title">
-                    <a href="<?= $post->getUrl() ?>"><?= TextMarker::markFragment(strip_tags($post->title), $searchForm->q) ?></a>
+                    <a href="<?= $post->getUrl(); ?>"><?= TextMarker::markFragment(strip_tags($post->title), $searchForm->q); ?></a>
                 </div>
                 <!--noindex-->
                 <div class="info">
                     <div class="date">
-                        <span class="enc-date" data-date="<?= DateFormatter::format($post->date) ?>">&nbsp;</span>
+                        <span class="enc-date" data-date="<?= DateFormatter::format($post->date); ?>">&nbsp;</span>
                     </div>
                     <div class="category">
-                        <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
+                        <span><a href="<?= $post->category->getUrl(); ?>"><?= Html::encode($post->category->title); ?></a></span>
                     </div>
-                    <div class="tags"><span><?= implode(', ', $links) ?></span></div>
+                    <div class="tags"><span><?= implode(', ', $links); ?></span></div>
                     <div class="comments">
-                        <span><?= $post->getCommentsCount() ?></span>
+                        <span><?= $post->getCommentsCount(); ?></span>
                     </div>
                 </div>
                 <?php if ($post->image) : ?>
@@ -81,11 +80,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     }
                     ?>
                     <div class="thumb">
-                        <a href="<?= $post->getUrl() ?>">
+                        <a href="<?= $post->getUrl(); ?>">
                             <picture>
-                                <source srcset="<?= $imageUrl ?>.webp" type="image/webp">
-                                <source srcset="<?= $imageUrl ?>" type="image/jpeg">
-                                <?= Html::img($imageUrl, $properties) ?>
+                                <source srcset="<?= $imageUrl; ?>.webp" type="image/webp">
+                                <source srcset="<?= $imageUrl; ?>" type="image/jpeg">
+                                <?= Html::img($imageUrl, $properties); ?>
                             </picture>
                         </a>
                     </div>
@@ -93,7 +92,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <!--/noindex-->
             </div>
             <div class="short">
-                <?= TextMarker::markFragment(strip_tags($this->clearWidgets($post->text_purified)), $searchForm->q) ?>
+                <?= TextMarker::markFragment(strip_tags($this->clearWidgets($post->text_purified)), $searchForm->q); ?>
                 ...
             </div>
             <div class="clear"></div>
@@ -103,5 +102,5 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <div class="pager">
     <?= LinkPager::widget([
         'pagination' => $dataProvider->getPagination(),
-    ]) ?>
+    ]); ?>
 </div>

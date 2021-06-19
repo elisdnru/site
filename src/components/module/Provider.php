@@ -13,8 +13,6 @@ class Provider implements BootstrapInterface
     {
         $container = Yii::$container;
 
-        $container->setSingleton(Modules::class, static function () use ($app) {
-            return new Modules($app);
-        });
+        $container->setSingleton(Modules::class, static fn () => new Modules($app));
     }
 }

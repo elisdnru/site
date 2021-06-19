@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\Csrf;
 use app\modules\block\models\Block;
@@ -10,7 +10,6 @@ use yii\web\View;
  * @var string $path
  * @var Block $model
  */
-
 $this->title = 'Переименование';
 $this->params['breadcrumbs'] = [
     'Файлы' => ['index'],
@@ -27,18 +26,18 @@ $this->params['admin'][] = ['label' => 'Файлы', 'url' => ['index']];
 
     <form method="post">
 
-        <?= Csrf::hiddenInput() ?>
+        <?= Csrf::hiddenInput(); ?>
 
         <fieldset>
-            <div class="row<?= $model->hasErrors('name') ? ' error' : '' ?>">
-                <?= Html::activeLabel($model, 'name') ?><br />
-                <?= Html::activeTextInput($model, 'name', ['size' => 60, 'maxlength' => 255]) ?><br />
-                <?= Html::error($model, 'name', ['class' => 'error-message']) ?>
+            <div class="row<?= $model->hasErrors('name') ? ' error' : ''; ?>">
+                <?= Html::activeLabel($model, 'name'); ?><br />
+                <?= Html::activeTextInput($model, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
+                <?= Html::error($model, 'name', ['class' => 'error-message']); ?>
             </div>
         </fieldset>
 
         <div class="row buttons">
-            <?= Html::submitButton('Сохранить') ?>
+            <?= Html::submitButton('Сохранить'); ?>
         </div>
 
     </form>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\user\components;
 
 use yii\base\Exception;
@@ -19,7 +21,7 @@ class CurrentPasswordValidator extends Validator
     public function validateAttribute($model, $attribute): void
     {
         /** @var string $value */
-        $value = $model->$attribute;
+        $value = $model->{$attribute};
         $record = $this->loadModel($model);
 
         if (!$value) {
@@ -44,7 +46,7 @@ class CurrentPasswordValidator extends Validator
         }
 
         if (empty($this->className)) {
-            $this->className = get_class($model);
+            $this->className = \get_class($model);
         }
 
         /** @var ?ActiveRecord $record */

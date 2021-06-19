@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\page\components;
 
 use app\modules\page\models\Page;
@@ -24,7 +26,7 @@ class PageUrlRule implements UrlRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function parseRequest($manager, $request): array|bool
     {

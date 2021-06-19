@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
@@ -24,7 +24,7 @@ use yii\web\View;
             'parent' => 0,
             'user' => $user,
             'authorId' => $authorId,
-        ]) ?>
+        ]); ?>
     </div>
 
     <?php if (count($comments)) : ?>
@@ -34,6 +34,6 @@ use yii\web\View;
     <?= $this->render('_form', [
         'form' => $form,
         'user' => $user,
-    ]) ?>
+    ]); ?>
 
 </div>

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\assets\JqueryUiAsset;
 use app\modules\portfolio\models\Category;
@@ -15,7 +15,6 @@ use yii\widgets\LinkPager;
  * @var Work[] $works
  * @var Pagination $pages
  */
-
 $this->title = 'Работы портфолио';
 $this->params['breadcrumbs'] = [
     'Портфолио',
@@ -29,7 +28,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
 JqueryUiAsset::register($this);
 ?>
 
-<p class="float-right"><a href="<?= Url::to(['create', 'category' => $category]) ?>">Добавить</a>
+<p class="float-right"><a href="<?= Url::to(['create', 'category' => $category]); ?>">Добавить</a>
 </p>
 <h1>Портфолио</h1>
 
@@ -40,8 +39,8 @@ JqueryUiAsset::register($this);
     Раздел: <?= Html::dropDownList('category', (string)$category, Category::find()->getTabList(), [
         'prompt' => 'Все разделы',
         'onchange' => 'this.form.submit()',
-    ]) ?>
-    <?= Html::submitButton('Выбрать') ?>
+    ]); ?>
+    <?= Html::submitButton('Выбрать'); ?>
 </p>
 </form>
 
@@ -67,19 +66,19 @@ JqueryUiAsset::register($this);
         $togglePublic = Url::to(['toggle', 'id' => $item->id, 'param' => 'public']);
         ?>
 
-        <table id="item_<?= $item->id ?>" class="grid nomargin sortable">
-            <tr class="<?= $item->public ? '' : 'disable' ?>">
+        <table id="item_<?= $item->id; ?>" class="grid nomargin sortable">
+            <tr class="<?= $item->public ? '' : 'disable'; ?>">
                 <td width="50px" style="text-align: center">
                     <?php if ($item->image) : ?>
-                        <a href="<?= $editUrl ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50) ?>" alt="<?= $item->title ?>"></a>
+                        <a href="<?= $editUrl; ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50); ?>" alt="<?= $item->title; ?>"></a>
                     <?php endif; ?>
                 </td>
-                <td><a href="<?= $editUrl ?>"><?= $item->title ?></a></td>
+                <td><a href="<?= $editUrl; ?>"><?= $item->title; ?></a></td>
                 <td width="200px" style="text-align: center">
-                    <a href="<?= $editUrl ?>"><?= $item->category->title ?></a>
+                    <a href="<?= $editUrl; ?>"><?= $item->category->title; ?></a>
                 </td>
                 <td width="20px" style="text-align: center; padding: 0" title="Опубликовано">
-                    <a class="ajax-post" href="<?= $togglePublic ?>">
+                    <a class="ajax-post" href="<?= $togglePublic; ?>">
                         <?php if ($item->public) : ?>
                             <img src="/images/admin/yes.png" alt="">
                         <?php else : ?>
@@ -88,10 +87,10 @@ JqueryUiAsset::register($this);
                     </a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a href="<?= $editUrl ?>"><img src="/images/admin/edit.png" alt="" title="Править"></a>
+                    <a href="<?= $editUrl; ?>"><img src="/images/admin/edit.png" alt="" title="Править"></a>
                 </td>
                 <td width="20px" style="text-align: center">
-                    <a class="ajax-del" data-del="item_<?= $item->id ?>" title="Удалить материал &laquo;<?= $item->title ?>&raquo;" href="<?= $delUrl ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
+                    <a class="ajax-del" data-del="item_<?= $item->id; ?>" title="Удалить материал &laquo;<?= $item->title; ?>&raquo;" href="<?= $delUrl; ?>"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
                 </td>
             </tr>
         </table>
@@ -102,7 +101,7 @@ JqueryUiAsset::register($this);
 
 <?= LinkPager::widget([
     'pagination' => $pages,
-]) ?>
+]); ?>
 
 <style>
     .ui-state-highlight {
@@ -114,7 +113,7 @@ JqueryUiAsset::register($this);
 </style>
 
 <script>
-<?php ob_start() ?>
+<?php ob_start(); ?>
 
 jQuery(function($) {
     $(function () {
@@ -131,7 +130,7 @@ jQuery(function($) {
                 var items = listBlock.sortable('serialize');
                 $.ajax({
                     type: 'POST',
-                    url: '<?= Url::to(['sort']) ?>',
+                    url: '<?= Url::to(['sort']); ?>',
                     data: items + '&_csrf=' + token,
                     success: function () {
                         $('#saving').hide()

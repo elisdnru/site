@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\purifier;
 
 use BadMethodCallException;
@@ -99,7 +101,7 @@ class PurifyTextBehavior extends Behavior
     {
         $model = $this->getModel();
         $model->updateAttributes([
-            $this->destinationAttribute => $this->getDestination($model)
+            $this->destinationAttribute => $this->getDestination($model),
         ]);
     }
 

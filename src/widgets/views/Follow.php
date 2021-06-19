@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use yii\helpers\Html;
 
@@ -8,12 +8,12 @@ $providers = [
     ['name' => 'GitHub', 'class' => 'github', 'url' => 'https://github.com/ElisDN'],
     ['name' => 'ВКонтакте', 'class' => 'vkontakte', 'url' => 'https://vk.com/elisdnru'],
     ['name' => 'Facebook', 'class' => 'facebook', 'url' => 'https://www.facebook.com/elisdnru/'],
-]
+];
 ?>
 
 <div class="follow">
     <?php foreach ($providers as $provider) : ?>
-        <a rel="noopener" href="<?= Html::encode($provider['url']) ?>" title="<?= Html::encode($provider['name']) ?>"><span class="follow-<?= $provider['class'] ?>"></span></a>
+        <a rel="noopener" href="<?= Html::encode($provider['url']); ?>" title="<?= Html::encode($provider['name']); ?>"><span class="follow-<?= $provider['class']; ?>"></span></a>
     <?php endforeach; ?>
 </div>
 

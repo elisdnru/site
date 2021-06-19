@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\ulogin\controllers;
 
+use app\modules\ulogin\models\ULoginModel;
 use BadMethodCallException;
+use Yii;
 use yii\web\Application;
 use yii\web\Controller;
-use app\modules\ulogin\models\ULoginModel;
-use Yii;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;

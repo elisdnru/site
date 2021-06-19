@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\Csrf;
+use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\forms\LoginForm;
 use app\widgets\Portlet;
-use app\modules\ulogin\widgets\ULoginWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -14,11 +14,10 @@ use yii\widgets\ActiveForm;
  * @var ActiveForm $form
  * @var LoginForm $model
  */
-
 $this->context->layout = 'user';
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'] = [
-    'Вход на сайт'
+    'Вход на сайт',
 ];
 ?>
 
@@ -30,26 +29,26 @@ $this->params['breadcrumbs'] = [
 
     <form action="?" method="post" id="login-form">
 
-        <?= Csrf::hiddenInput() ?>
+        <?= Csrf::hiddenInput(); ?>
 
         <div class="row">
-            <?= Html::activeLabel($model, 'username') ?><br />
-            <?= Html::activeTextInput($model, 'username', ['size' => 30]) ?><br />
-            <?= Html::error($model, 'username', ['class' => 'error-message']) ?>
+            <?= Html::activeLabel($model, 'username'); ?><br />
+            <?= Html::activeTextInput($model, 'username', ['size' => 30]); ?><br />
+            <?= Html::error($model, 'username', ['class' => 'error-message']); ?>
         </div>
 
         <div class="row">
-            <?= Html::activeLabel($model, 'password') ?><br />
-            <?= Html::activePasswordInput($model, 'password', ['size' => 30]) ?><br />
-            <?= Html::error($model, 'password', ['class' => 'error-message']) ?>
+            <?= Html::activeLabel($model, 'password'); ?><br />
+            <?= Html::activePasswordInput($model, 'password', ['size' => 30]); ?><br />
+            <?= Html::error($model, 'password', ['class' => 'error-message']); ?>
         </div>
         <div class="row rememberMe" style="margin-bottom: 10px">
-            <?= Html::activeCheckbox($model, 'rememberMe') ?><br />
-            <?= Html::error($model, 'rememberMe', ['class' => 'error-message']) ?>
+            <?= Html::activeCheckbox($model, 'rememberMe'); ?><br />
+            <?= Html::error($model, 'rememberMe', ['class' => 'error-message']); ?>
         </div>
 
         <div class="row buttons">
-            <?= Html::submitButton('Вход в учётную запись') ?>
+            <?= Html::submitButton('Вход в учётную запись'); ?>
         </div>
 
     </form>
@@ -58,12 +57,12 @@ $this->params['breadcrumbs'] = [
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Регистрация и восстановление']); ?>
-<p style="margin:0;"><a href="<?= Url::to(['/user/registration/request']) ?>">Регистрация</a> |
-    <a href="<?= Url::to(['/user/remind/remind']) ?>">Забыли пароль?</a></p>
+<p style="margin:0;"><a href="<?= Url::to(['/user/registration/request']); ?>">Регистрация</a> |
+    <a href="<?= Url::to(['/user/remind/remind']); ?>">Забыли пароль?</a></p>
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>
 <?= ULoginWidget::widget([
-    'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::$app->request->getUrl(), '/')], true)]
-]) ?>
+    'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::$app->request->getUrl(), '/')], true)],
+]); ?>
 <?php Portlet::end(); ?>

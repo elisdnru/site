@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\modules\portfolio\models\Category;
 use yii\web\View;
@@ -7,7 +7,6 @@ use yii\web\View;
  * @var View $this
  * @var Category $model
  */
-
 $this->title = 'Редактор категории портфолио';
 $this->params['breadcrumbs'] = [
     'Портфолио' => ['/portfolio/admin/work/index'],
@@ -21,4 +20,4 @@ $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/adm
 
 <h1>Добавление категории портфолио</h1>
 
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model]); ?>

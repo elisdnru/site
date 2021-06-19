@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryQueryBehavior;
@@ -37,7 +39,7 @@ class CategoryQuery extends ActiveQuery
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param int $batchSize
      * @param Connection|null $db
-     * @return Category[]|BatchQueryResult
+     * @return BatchQueryResult|Category[]
      */
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
@@ -47,7 +49,7 @@ class CategoryQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return Category|array|null
+     * @return array|Category|null
      * @psalm-return Category|null
      */
     public function one($db = null): array|Category|null

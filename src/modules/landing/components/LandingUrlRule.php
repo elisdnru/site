@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\landing\components;
 
 use app\modules\landing\models\Landing;
@@ -24,7 +26,7 @@ class LandingUrlRule implements UrlRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function parseRequest($manager, $request): array|bool
     {

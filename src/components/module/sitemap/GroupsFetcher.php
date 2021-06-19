@@ -33,9 +33,7 @@ class GroupsFetcher
             }
         }
 
-        usort($sets, static function (Set $a, Set $b) {
-            return $b->priority <=> $a->priority;
-        });
+        usort($sets, static fn (Set $a, Set $b) => $b->priority <=> $a->priority);
 
         $groups = [];
 
@@ -58,8 +56,8 @@ class GroupsFetcher
 
     private function getGroupsSet(string $name, object|array $module): ?Set
     {
-        if (is_object($module)) {
-            $class = get_class($module);
+        if (\is_object($module)) {
+            $class = \get_class($module);
         } else {
             /** @psalm-var array{class: class-string<SitemapProvider>|null} $module */
             $class = $module['class'] ?? null;

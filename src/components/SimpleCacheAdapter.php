@@ -20,7 +20,7 @@ class SimpleCacheAdapter implements CacheInterface
 
     public function get($key, $default = null)
     {
-        /** @var mixed|false $result */
+        /** @var false|mixed $result */
         $result = $this->cache->get($key);
         return $result !== false ? $result : $default;
     }

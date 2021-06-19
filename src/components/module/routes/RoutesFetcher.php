@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\module\routes;
 
 use app\components\module\Modules;
@@ -18,9 +20,7 @@ class RoutesFetcher
     {
         $groups = $this->getGroups();
 
-        usort($groups, static function (Group $a, Group $b) {
-            return $b->priority <=> $a->priority;
-        });
+        usort($groups, static fn (Group $a, Group $b) => $b->priority <=> $a->priority);
 
         return array_merge(
             ...array_map(

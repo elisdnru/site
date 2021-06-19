@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\DateFormatter;
 use app\modules\blog\models\Post;
@@ -18,25 +18,25 @@ use yii\helpers\Html;
 
     <div class="entry list">
         <div class="header">
-            <div class="title"><a href="<?= $post->getUrl() ?>"><?= Html::encode($post->title) ?></a></div>
+            <div class="title"><a href="<?= $post->getUrl(); ?>"><?= Html::encode($post->title); ?></a></div>
             <!--noindex-->
             <div class="info">
                 <div class="date">
-                    <span class="enc-date" data-date="<?= DateFormatter::format($post->date) ?>">&nbsp;</span>
+                    <span class="enc-date" data-date="<?= DateFormatter::format($post->date); ?>">&nbsp;</span>
                 </div>
                 <div class="category">
-                    <span><a href="<?= $post->category->getUrl() ?>"><?= Html::encode($post->category->title) ?></a></span>
+                    <span><a href="<?= $post->category->getUrl(); ?>"><?= Html::encode($post->category->title); ?></a></span>
                 </div>
-                <div class="tags"><span><?= implode(', ', $links) ?></span></div>
+                <div class="tags"><span><?= implode(', ', $links); ?></span></div>
                 <div class="comments">
-                    <span><?= $post->getCommentsCount() ?></span>
+                    <span><?= $post->getCommentsCount(); ?></span>
                 </div>
             </div>
             <?php if ($post->image) : ?>
                 <?php $imageUrl = $post->getImageThumbUrl(250); ?>
                 <?php
                 $properties = [
-                    'data-src' => $imageUrl
+                    'data-src' => $imageUrl,
                 ];
                 if ($post->image_width) {
                     $properties['width'] = $post->image_width;
@@ -46,18 +46,18 @@ use yii\helpers\Html;
                 }
                 ?>
                 <div class="thumb">
-                    <a href="<?= $post->getUrl() ?>">
+                    <a href="<?= $post->getUrl(); ?>">
                         <picture>
-                            <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl ?>.webp" type="image/webp">
-                            <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl ?>" type="image/jpeg">
-                            <?= Html::img($imageUrl, $properties) ?>
+                            <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl; ?>.webp" type="image/webp">
+                            <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="image/jpeg">
+                            <?= Html::img($imageUrl, $properties); ?>
                         </picture>
                     </a>
                 </div>
             <?php endif; ?>
             <!--/noindex-->
         </div>
-        <div class="short"><?= trim($post->short_purified) ?></div>
+        <div class="short"><?= trim($post->short_purified); ?></div>
     </div>
 
 <?php endforeach; ?>

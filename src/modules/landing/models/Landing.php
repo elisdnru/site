@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\landing\models;
 
 use app\components\AliasValidator;
@@ -9,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $alias
  * @property string $title
  * @property string $text
@@ -23,6 +25,8 @@ use yii\helpers\Url;
 class Landing extends ActiveRecord
 {
     public int $indent = 0;
+
+    private ?string $cachedUrl = null;
 
     public static function tableName(): string
     {
@@ -81,8 +85,6 @@ class Landing extends ActiveRecord
             ],
         ];
     }
-
-    private ?string $cachedUrl = null;
 
     public function getUrl(): string
     {

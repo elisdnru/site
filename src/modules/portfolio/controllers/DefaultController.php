@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\portfolio\controllers;
 
 use app\components\DataProvider;
-use yii\web\Controller;
-use app\modules\portfolio\models\WorkQuery;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
+use app\modules\portfolio\models\WorkQuery;
 use yii\caching\TagDependency;
 use yii\data\ActiveDataProvider;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller

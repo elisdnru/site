@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\blog\models;
 
 use app\components\AliasValidator;
@@ -16,11 +18,11 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $date
  * @property string $update_date
  * @property string $category_id
- * @property integer $author_id
+ * @property int $author_id
  * @property string $alias
  * @property string $title
  * @property string $meta_title
@@ -34,9 +36,9 @@ use yii\helpers\Url;
  * @property int|null $image_width
  * @property int|null $image_height
  * @property string $image_alt
- * @property integer $image_show
- * @property integer $group_id
- * @property integer $public
+ * @property int $image_show
+ * @property int $group_id
+ * @property int $public
  *
  * @property User $author
  * @property Group|null $group
@@ -56,6 +58,8 @@ class Post extends ActiveRecord implements Material
     public string $newGroup = '';
 
     private ?string $tags_string = null;
+
+    private ?string $cachedUrl = null;
 
     public static function tableName(): string
     {
@@ -152,9 +156,7 @@ class Post extends ActiveRecord implements Material
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => 'update_date',
-                'value' => static function () {
-                    return new Expression('NOW()');
-                },
+                'value' => static fn () => new Expression('NOW()'),
             ],
             'PurifyShort' => [
                 'class' => PurifyTextBehavior::class,
@@ -210,6 +212,45 @@ class Post extends ActiveRecord implements Material
         return false;
     }
 
+    public function afterSave($insert, $changedAttributes): void
+    {
+        $this->updateTags();
+        parent::afterSave($insert, $changedAttributes);
+    }
+
+    public function getTagsString(): string
+    {
+        if ($this->tags_string === null) {
+            $list = ArrayHelper::map($this->tags, 'id', 'title');
+            $this->tags_string = implode(', ', $list);
+        }
+
+        return $this->tags_string;
+    }
+
+    public function setTagsString(?string $value): void
+    {
+        $this->tags_string = $value;
+    }
+
+    public function getUrl(): string
+    {
+        if ($this->cachedUrl === null) {
+            $this->cachedUrl = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+        }
+        return $this->cachedUrl;
+    }
+
+    public function getCommentTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function getCommentUrl(): string
+    {
+        return $this->getUrl();
+    }
+
     private function fillDefaultValues(): void
     {
         if (!$this->alias) {
@@ -238,27 +279,6 @@ class Post extends ActiveRecord implements Material
         }
     }
 
-    public function afterSave($insert, $changedAttributes): void
-    {
-        $this->updateTags();
-        parent::afterSave($insert, $changedAttributes);
-    }
-
-    public function getTagsString(): string
-    {
-        if ($this->tags_string === null) {
-            $list = ArrayHelper::map($this->tags, 'id', 'title');
-            $this->tags_string = implode(', ', $list);
-        }
-
-        return $this->tags_string;
-    }
-
-    public function setTagsString(?string $value): void
-    {
-        $this->tags_string = $value;
-    }
-
     private function updateTags(): void
     {
         $newtags = array_filter(array_unique(preg_split('/\s*,\s*/', $this->getTagsString())));
@@ -275,25 +295,5 @@ class Post extends ActiveRecord implements Material
             $postTag->tag_id = $tag->id;
             $postTag->save();
         }
-    }
-
-    private ?string $cachedUrl = null;
-
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
-        }
-        return $this->cachedUrl;
-    }
-
-    public function getCommentTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function getCommentUrl(): string
-    {
-        return $this->getUrl();
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category\behaviors;
 
 use app\components\category\Attribute;
@@ -36,7 +38,7 @@ class CategoryTreeBehavior extends CategoryBehavior
 
         $query->andWhere([
             $this->aliasAttribute => $alias,
-            $this->parentAttribute => (int)$this->getModel()->getPrimaryKey()
+            $this->parentAttribute => (int)$this->getModel()->getPrimaryKey(),
         ]);
 
         /** @var ActiveRecord|null */
@@ -60,15 +62,13 @@ class CategoryTreeBehavior extends CategoryBehavior
     }
 
     /**
-     * @param bool $lastLink
      * @return string[]
      */
     public function getBreadcrumbs(bool $lastLink = false): array
     {
         if ($lastLink) {
             $breadcrumbs = [
-                Attribute::string($this->getModel(), $this->titleAttribute) =>
-                    Attribute::string($this->getModel(), $this->urlAttribute)
+                Attribute::string($this->getModel(), $this->titleAttribute) => Attribute::string($this->getModel(), $this->urlAttribute),
             ];
         } else {
             $breadcrumbs = [Attribute::string($this->getModel(), $this->titleAttribute)];

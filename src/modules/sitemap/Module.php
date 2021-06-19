@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\sitemap;
 
 use app\components\module\routes\RoutesProvider;
@@ -14,7 +16,7 @@ class Module extends Base implements RoutesProvider
             [
                 'pattern' => 'sitemap.xml',
                 'route' => 'sitemap/default/xml',
-                'suffix' => ''
+                'suffix' => '',
             ],
         ];
     }

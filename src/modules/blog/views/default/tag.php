@@ -1,8 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 use app\components\DataProvider;
-use app\modules\blog\models\Tag;
 use app\components\PaginationFormatter;
+use app\modules\blog\models\Tag;
 use app\modules\user\models\Access;
 use yii\helpers\Html;
 use yii\web\View;
@@ -12,14 +12,13 @@ use yii\web\View;
  * @var Tag $tag
  * @var DataProvider<Tag> $dataProvider
  */
-
 $this->context->layout = 'index';
 
 $this->title = 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1);
 
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1)
+    'content' => 'Записи с меткой ' . $tag->title . PaginationFormatter::appendix($dataProvider->getPagination()->getPage() + 1),
 ]);
 
 $this->registerMetaTag(['name' => 'robots', 'content' => 'noindex, follow']);
@@ -37,6 +36,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 }
 ?>
 
-<h1>Записи с меткой &laquo;<?= Html::encode($tag->title) ?>&raquo;</h1>
+<h1>Записи с меткой &laquo;<?= Html::encode($tag->title); ?>&raquo;</h1>
 
-<?= $this->render('_loop', ['dataProvider' => $dataProvider]) ?>
+<?= $this->render('_loop', ['dataProvider' => $dataProvider]); ?>
