@@ -10,8 +10,6 @@ use yii\helpers\FileHelper;
 
 class EditCest
 {
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([

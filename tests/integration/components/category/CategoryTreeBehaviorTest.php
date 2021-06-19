@@ -365,8 +365,6 @@ final class CategoryTreeBehaviorTest extends Unit
         self::assertEquals('First Root First Middle Child - First Root First Middle - First Root', $category->getFullTitle(true));
     }
 
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     protected function _before(): void
     {
         if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {

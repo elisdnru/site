@@ -9,8 +9,6 @@ use tests\fixtures\user\UserFixture;
 
 class LogoutCest
 {
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([

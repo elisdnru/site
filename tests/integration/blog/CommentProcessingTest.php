@@ -66,8 +66,6 @@ final class CommentProcessingTest extends Unit
         self::assertEquals($expected, $comment->text_purified);
     }
 
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     protected function _before(): void
     {
         $this->tester->haveFixtures([

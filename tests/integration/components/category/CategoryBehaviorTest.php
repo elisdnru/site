@@ -111,8 +111,6 @@ final class CategoryBehaviorTest extends Unit
         self::assertFalse($category->isLinkActive('second'));
     }
 
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     protected function _before(): void
     {
         if (!Yii::$app->db->getTableSchema(Category::tableName())) {

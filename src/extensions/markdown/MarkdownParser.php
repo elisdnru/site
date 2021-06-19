@@ -7,9 +7,6 @@ use Text_Highlighter;
 use Text_Highlighter_Renderer_Html;
 use yii\helpers\Html;
 
-// phpcs:disable PSR1.Methods.CamelCapsMethodName
-// phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
-
 /**
  * MarkdownParser class file.
  *

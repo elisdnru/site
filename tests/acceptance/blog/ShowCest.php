@@ -13,8 +13,6 @@ use tests\fixtures\user\UserFixture;
 
 class ShowCest
 {
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([

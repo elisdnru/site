@@ -63,8 +63,6 @@ final class PostProcessingTest extends Unit
         self::assertEquals($expected, $post->text_purified);
     }
 
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     protected function _before(): void
     {
         $this->tester->haveFixtures([

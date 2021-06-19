@@ -12,8 +12,6 @@ use tests\fixtures\user\UserFixture;
 
 class HomeCest
 {
-    // phpcs:disable
-    // PSR2.Method Declarations.Underscore
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([
