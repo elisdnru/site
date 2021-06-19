@@ -5,7 +5,7 @@ restart: docker-down docker-up
 check: validate lint test
 validate: site-composer-validate
 lint: site-lint site-assets-lint site-analyze
-test: site-test
+test: site-test site-fixtures
 
 update-deps: site-composer-update site-assets-update restart
 
@@ -24,7 +24,7 @@ docker-pull:
 docker-build:
 	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
 
-site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-wait-db-test site-migrations-test site-test-generate site-assets-build
+site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-fixtures site-wait-db-test site-migrations-test site-test-generate site-assets-build
 
 site-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/*'
@@ -52,6 +52,9 @@ site-wait-db:
 
 site-migrations:
 	docker-compose run --rm php-cli composer app migrate -- --interactive=0
+
+site-fixtures:
+	docker-compose run --rm php-cli composer app fixture/load '*' -- --interactive=0
 
 site-wait-db-test:
 	docker-compose run --rm php-cli wait-for-it mysql-test:3306 -t 30

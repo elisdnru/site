@@ -1,5 +1,6 @@
 <?php
 
+use yii\console\controllers\FixtureController;
 use yii\console\controllers\MigrateController;
 use yii\console\ErrorHandler;
 use yii\helpers\ArrayHelper;
@@ -21,6 +22,10 @@ return ArrayHelper::merge(
                     'app\modules\portfolio\migrations',
                     'app\modules\user\migrations',
                 ],
+            ],
+            'fixture' => [
+                'class' => FixtureController::class,
+                'namespace' => 'app\fixtures',
             ],
         ],
         'components' => [
