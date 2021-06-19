@@ -24,7 +24,7 @@ docker-pull:
 docker-build:
 	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
 
-site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-fixtures site-wait-db-test site-migrations-test site-test-generate site-assets-build
+site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-fixtures site-test-generate site-assets-build
 
 site-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/*'
@@ -55,12 +55,6 @@ site-migrations:
 
 site-fixtures:
 	docker-compose run --rm php-cli composer app fixture/load '*' -- --interactive=0
-
-site-wait-db-test:
-	docker-compose run --rm php-cli wait-for-it mysql-test:3306 -t 30
-
-site-migrations-test:
-	docker-compose run --rm php-cli composer app-test migrate -- --interactive=0
 
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready

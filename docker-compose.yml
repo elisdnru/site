@@ -86,17 +86,6 @@ services:
             MYSQL_DATABASE: app
         ports:
             - "33061:3306"
-    mysql-test:
-        image: mariadb:10
-        volumes:
-            - mysql-test:/var/lib/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: secret
-            MYSQL_USER: test
-            MYSQL_PASSWORD: secret
-            MYSQL_DATABASE: test
-        ports:
-            - "33062:3306"
     mailer:
         image: mailhog/mailhog
         ports:
@@ -114,4 +103,3 @@ services:
 
 volumes:
     mysql:
-    mysql-test:
