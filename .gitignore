@@ -1,6 +1,5 @@
 .idea
 /vendor
-/volumes
 /node_modules
 /.env
 /.ready
