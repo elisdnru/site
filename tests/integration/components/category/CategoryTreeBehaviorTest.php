@@ -387,8 +387,8 @@ class CategoryTreeBehaviorTest extends Unit
 
     private function getCategory(string $alias): TreeCategory
     {
-        /** @var TreeCategory $category */
         $category = TreeCategory::findOne(['alias' => $alias]);
+        /** @var TreeCategory $category */
         return $category;
     }
 }

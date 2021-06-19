@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\category\behaviors;
 
 use app\components\category\Attribute;
@@ -23,8 +25,8 @@ class CategoryBehavior extends Behavior
 
     protected function getModel(): ActiveRecord
     {
-        /** @var ActiveRecord $owner */
         $owner = $this->owner;
+        /** @var ActiveRecord $owner */
         return $owner;
     }
 }

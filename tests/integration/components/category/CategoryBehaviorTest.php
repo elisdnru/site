@@ -132,8 +132,8 @@ class CategoryBehaviorTest extends Unit
 
     private function getCategory(string $alias): Category
     {
-        /** @var Category $category */
         $category = Category::findOne(['alias' => $alias]);
+        /** @var Category $category */
         return $category;
     }
 }
