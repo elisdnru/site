@@ -1,3 +1,4 @@
+const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
@@ -18,7 +19,7 @@ module.exports = {
     countdown: './assets/countdown.js',
   },
   output: {
-    path: __dirname + '/public/build',
+    path: path.join(__dirname, '/public/build'),
     filename: '[name].js',
   },
   module: {
