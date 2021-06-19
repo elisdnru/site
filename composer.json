@@ -68,7 +68,6 @@
     },
     "scripts": {
         "app": "php bin/app.php",
-        "app-test": "php bin/app-test.php",
         "test": "codecept",
         "lint": "phplint",
         "phpcs": "phpcs --standard=phpcs.xml",
