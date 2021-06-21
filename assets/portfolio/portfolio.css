@@ -115,20 +115,20 @@ p.portfolio-description {
   margin: 0 0 20px 0;
 }
 
-.entry.greed {
+.entry.grid {
   margin: 0 20px 10px 0;
   width: 212px;
   float: left;
 }
 
-.entry.greed .thumb {
+.entry.grid .thumb {
   float: none;
   margin: 0 0 10px 0;
   border-radius: 4px;
   padding: 6px;
 }
 
-.entry.greed .thumb a {
+.entry.grid .thumb a {
   display: block;
   position: relative;
   margin: 0;
@@ -139,7 +139,7 @@ p.portfolio-description {
   background-color: #fff;
 }
 
-.entry.greed .thumb a span {
+.entry.grid .thumb a span {
   display: block;
   position: absolute;
   left: 0;
@@ -152,12 +152,12 @@ p.portfolio-description {
   padding: 6px 0;
 }
 
-.entry.greed .thumb a:hover span {
+.entry.grid .thumb a:hover span {
   text-decoration: underline;
   opacity: 1;
 }
 
-.entry.greed .short p {
+.entry.grid .short p {
   font-family: arial, sans-serif;
   text-align: center;
   line-height: 1.1;
