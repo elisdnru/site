@@ -12,7 +12,7 @@ use yii\widgets\LinkPager;
  */
 ?>
 
-<div class = "greed-container">
+<div class="greed-container">
     <div class="items">
         <?php foreach ($dataProvider->getItems() as $work) : ?>
             <div class="entry greed">
@@ -21,6 +21,7 @@ use yii\widgets\LinkPager;
                 </p>
             </div>
         <?php endforeach; ?>
+        <div class="clear"></div>
     </div>
 </div>
 
