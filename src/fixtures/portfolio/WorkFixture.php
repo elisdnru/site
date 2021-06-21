@@ -10,5 +10,5 @@ use yii\test\ActiveFixture;
 class WorkFixture extends ActiveFixture
 {
     public $modelClass = Work::class;
-    public $dataFile = __DIR__ . '/work.php';
+    public $dataFile = __DIR__ . '/data/work.php';
 }

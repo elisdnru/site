@@ -11,7 +11,7 @@ use yii\test\ActiveFixture;
 class PostFixture extends ActiveFixture
 {
     public $modelClass = Post::class;
-    public $dataFile = __DIR__ . '/post.php';
+    public $dataFile = __DIR__ . '/data/post.php';
     public $depends = [
         CategoryFixture::class,
         GroupFixture::class,

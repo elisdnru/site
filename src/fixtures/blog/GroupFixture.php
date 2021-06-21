@@ -10,5 +10,5 @@ use yii\test\ActiveFixture;
 class GroupFixture extends ActiveFixture
 {
     public $modelClass = Group::class;
-    public $dataFile = __DIR__ . '/group.php';
+    public $dataFile = __DIR__ . '/data/group.php';
 }

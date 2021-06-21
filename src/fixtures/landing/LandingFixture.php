@@ -10,5 +10,5 @@ use yii\test\ActiveFixture;
 class LandingFixture extends ActiveFixture
 {
     public $modelClass = Landing::class;
-    public $dataFile = __DIR__ . '/landing.php';
+    public $dataFile = __DIR__ . '/data/landing.php';
 }

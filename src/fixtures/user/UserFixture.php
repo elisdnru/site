@@ -10,5 +10,5 @@ use yii\test\ActiveFixture;
 class UserFixture extends ActiveFixture
 {
     public $modelClass = User::class;
-    public $dataFile = __DIR__ . '/user.php';
+    public $dataFile = __DIR__ . '/data/user.php';
 }

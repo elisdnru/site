@@ -10,5 +10,5 @@ use yii\test\ActiveFixture;
 class PageFixture extends ActiveFixture
 {
     public $modelClass = Page::class;
-    public $dataFile = __DIR__ . '/page.php';
+    public $dataFile = __DIR__ . '/data/page.php';
 }

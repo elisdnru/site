@@ -12,7 +12,7 @@ use yii\test\ActiveFixture;
 class CommentFixture extends ActiveFixture
 {
     public $modelClass = Comment::class;
-    public $dataFile = __DIR__ . '/comment.php';
+    public $dataFile = __DIR__ . '/data/comment.php';
     public $depends = [
         PostFixture::class,
         UserFixture::class,

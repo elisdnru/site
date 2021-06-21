@@ -10,7 +10,7 @@ use yii\test\ActiveFixture;
 class PostTagFixture extends ActiveFixture
 {
     public $modelClass = PostTag::class;
-    public $dataFile = __DIR__ . '/post-tag.php';
+    public $dataFile = __DIR__ . '/data/post-tag.php';
     public $depends = [
         PostFixture::class,
         TagFixture::class,
