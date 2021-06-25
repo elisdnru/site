@@ -40,6 +40,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <p>ОГРНИП: 309574636200019 &nbsp; ИНН: 570600870325</p>
         <ul>
             <li><a href="https://www.fl.ru/users/elisdn/">Профиль на FL.ru</a></li>
+            <li><a href="https://www.weblancer.net/users/ElisDN/">Профиль на weblancer.net</a></li>
         </ul>
         <ul>
             <li><a href="https://vk.com/elisdn">Я в VK</a></li>
