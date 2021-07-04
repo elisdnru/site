@@ -70,13 +70,15 @@ class DefaultController extends Controller
 
         $form = new SearchForm();
 
-        if ($form->load($request->getQueryParams())) {
+        if ($form->load($request->getQueryParams()) && $form->validate()) {
             $query->andWhere([
                 'or',
                 ['like', 'title', $form->q],
                 ['like', 'text_purified', $form->q],
                 ['like', 'short_purified', $form->q],
             ]);
+        } else {
+            $query->andWhere('0=1');
         }
 
         return $this->render('search', [

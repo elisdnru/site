@@ -22,6 +22,33 @@ class SearchCest
         ]);
     }
 
+    public function start(AcceptanceTester $I): void
+    {
+        $I->amOnPage('blog/search');
+        $I->seeElement('.main .search-form');
+
+        $I->see('Поиск в блоге', 'h1');
+        $I->dontSeeInSource('<a href="/blog/1/post-1">1</a>');
+    }
+
+    public function startWithParams(AcceptanceTester $I): void
+    {
+        $I->amOnPage('blog/search?page=2');
+        $I->seeElement('.main .search-form');
+
+        $I->see('Поиск в блоге', 'h1');
+        $I->dontSeeInSource('<a href="/blog/1/post-1">1</a>');
+    }
+
+    public function empty(AcceptanceTester $I): void
+    {
+        $I->amOnPage('blog/search?q=');
+        $I->seeElement('.main .search-form');
+
+        $I->see('Поиск в блоге', 'h1');
+        $I->dontSeeInSource('<a href="/blog/1/post-1">1</a>');
+    }
+
     public function post(AcceptanceTester $I): void
     {
         $I->amOnPage('blog/search');

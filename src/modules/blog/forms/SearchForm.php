@@ -13,7 +13,7 @@ class SearchForm extends Model
     public function rules(): array
     {
         return [
-            ['q', 'safe'],
+            ['q', 'required'],
         ];
     }
 
