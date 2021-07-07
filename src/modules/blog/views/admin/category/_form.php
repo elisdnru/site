@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
 
             <div class="row<?= $model->hasErrors('parent_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'parent_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Category::find()->getTabList(), Category::find()->getAssocList($model->id)) : Category::find()->getTabList())); ?><br />
+                <?= Html::activeDropDownList($model, 'parent_id', $model->parent_id ? array_diff_key(Category::find()->getTabList(), Category::find()->getAssocList($model->id)) : Category::find()->getTabList(), ['prompt' => '']); ?><br />
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
 

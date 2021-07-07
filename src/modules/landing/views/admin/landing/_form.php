@@ -44,7 +44,7 @@ use yii\widgets\ActiveForm;
             <hr />
             <div class="row<?= $model->hasErrors('parent_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'parent_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'parent_id', [0 => ''] + ($model->parent_id ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($model->id)) : Landing::find()->getTabList())); ?><br />
+                <?= Html::activeDropDownList($model, 'parent_id', $model->parent_id ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($model->id)) : Landing::find()->getTabList(), ['prompt' => '']); ?><br />
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
         </fieldset>
