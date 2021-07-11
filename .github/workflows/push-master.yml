@@ -6,8 +6,8 @@ on:
             - master
 
 env:
-    REGISTRY: docker.pkg.github.com/elisdn/elisdn.ru
-    REGISTRY_HOST: docker.pkg.github.com
+    REGISTRY_HOST: ghcr.io
+    REGISTRY: ghcr.io/elisdnru/site
 
 jobs:
     build:
