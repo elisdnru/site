@@ -32,6 +32,8 @@ services:
             update_config:
                 parallelism: 1
                 delay: 10s
+            placement:
+                constraints: [node.role == manager]
     site-php-fpm:
         image: ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
         environment:
@@ -58,6 +60,8 @@ services:
             update_config:
                 parallelism: 1
                 delay: 10s
+            placement:
+                constraints: [node.role == manager]
     site-migration:
         image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
         environment:
@@ -86,6 +90,8 @@ services:
                 delay: 5s
                 max_attempts: 5
                 window: 120s
+            placement:
+                constraints: [node.role == manager]
 
 volumes:
     site-assets:
