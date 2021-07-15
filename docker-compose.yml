@@ -6,7 +6,6 @@ services:
             --providers.docker=true
             --providers.docker.exposedbydefault=false
             --entrypoints.http.address=:80
-            --entrypoints.test.address=:8081
         ports:
             - "80:80"
             - "8081:8081"
@@ -36,10 +35,6 @@ services:
             - traefik.http.routers.site.entrypoints=http
             - traefik.http.routers.site.service=site
             - traefik.http.services.site.loadbalancer.server.port=80
-            - traefik.http.routers.site-test.rule=Host(`localhost`)
-            - traefik.http.routers.site-test.entrypoints=test
-            - traefik.http.routers.site-test.service=site
-            - traefik.http.services.site-test.loadbalancer.server.port=8081
     site-php-fpm:
         image: ${REGISTRY:-localhost}/site-dev-php-fpm:cache
         build:
