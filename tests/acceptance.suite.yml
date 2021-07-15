@@ -6,6 +6,6 @@ modules:
              url: http://localhost:8081
         - Yii2:
             part: [init, orm, fixtures]
-            configFile: 'config/web-test.php'
+            configFile: 'config/web.php'
         - \tests\Helper\Acceptance
     step_decorators: ~

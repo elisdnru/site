@@ -5,6 +5,6 @@ modules:
         - Asserts
         - Yii2:
             part: [orm, email, fixtures]
-            configFile: 'config/web-test.php'
+            configFile: 'config/web.php'
         - \tests\Helper\Integration
     step_decorators: ~
