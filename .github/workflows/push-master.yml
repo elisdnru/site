@@ -8,6 +8,7 @@ on:
 env:
     REGISTRY_HOST: ghcr.io
     REGISTRY: ghcr.io/elisdnru/site
+    IMAGE_TAG: master-${{ github.run_number }}
 
 jobs:
     build:
@@ -59,6 +60,15 @@ jobs:
                     name: test-output
                     path: tests/_output
                 if: ${{ failure() }}
+
+            -   name: Build
+                run: make build
+
+            -   name: Push build cache images
+                run: make push-build-cache
+
+            -   name: Push
+                run: make push
 
             -   name: Install SSH key
                 uses: shimataro/ssh-key-action@v2

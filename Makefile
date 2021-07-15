@@ -94,6 +94,56 @@ site-test:
 push-dev-cache:
 	docker-compose push
 
+build:
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+    --cache-from ${REGISTRY}/site:cache \
+    --tag ${REGISTRY}/site:cache \
+	--tag ${REGISTRY}/site:${IMAGE_TAG} \
+	--file docker/production/nginx/Dockerfile .
+
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--target builder \
+	--cache-from ${REGISTRY}/site-php-fpm:cache-builder \
+	--tag ${REGISTRY}/site-php-fpm:cache-builder \
+	--file docker/production/php-fpm/Dockerfile .
+
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--cache-from ${REGISTRY}/site-php-fpm:cache-builder \
+	--cache-from ${REGISTRY}/site-php-fpm:cache \
+	--tag ${REGISTRY}/site-php-fpm:cache \
+	--tag ${REGISTRY}/site-php-fpm:${IMAGE_TAG} \
+	--file docker/production/php-fpm/Dockerfile .
+
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--target builder \
+	--cache-from ${REGISTRY}/site-php-cli:cache-builder \
+	--tag ${REGISTRY}/site-php-cli:cache-builder \
+	--file docker/production/php-cli/Dockerfile .
+
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--cache-from ${REGISTRY}/site-php-cli:cache-builder \
+	--cache-from ${REGISTRY}/site-php-cli:cache \
+	--tag ${REGISTRY}/site-php-cli:cache \
+	--tag ${REGISTRY}/site-php-cli:${IMAGE_TAG} \
+	--file docker/production/php-cli/Dockerfile .
+
+try-build:
+	REGISTRY=localhost IMAGE_TAG=0 make build
+
+push-build-cache:
+	docker push ${REGISTRY}/site:cache
+
+	docker push ${REGISTRY}/site-php-fpm:cache-builder
+	docker push ${REGISTRY}/site-php-fpm:cache
+
+	docker push ${REGISTRY}/site-php-cli:cache-builder
+	docker push ${REGISTRY}/site-php-cli:cache
+
+push:
+	docker push ${REGISTRY}/site:${IMAGE_TAG}
+	docker push ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
+	docker push ${REGISTRY}/site-php-cli:${IMAGE_TAG}
+
 deploy:
 	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && git fetch --force origin "master:remotes/origin/master"'
 	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && git reset --hard "${REVISION}"'
