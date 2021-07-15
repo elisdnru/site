@@ -19,7 +19,6 @@
         "php-http/curl-client": "^2.0",
         "psr/simple-cache": "^1.0",
         "sentry/sdk": "^3.0",
-        "symfony/dotenv": "^5.0",
         "webmozart/assert": "^1.9",
         "yiisoft/yii2": "^2.0",
         "yiisoft/yii2-swiftmailer": "^2.1"
