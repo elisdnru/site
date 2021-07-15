@@ -3,20 +3,20 @@ services:
     nginx:
         image: ${REGISTRY:-localhost}/dev-nginx:cache
         build:
-            context: ./docker/development
-            dockerfile: nginx/Dockerfile
+            context: ./docker
+            dockerfile: development/nginx/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/dev-nginx:cache
         volumes:
             - ./:/app
         ports:
-            - "8080:8080"
+            - "8080:80"
             - "8081:8081"
     php-fpm:
         image: ${REGISTRY:-localhost}/dev-php-fpm:cache
         build:
-            context: ./docker/development
-            dockerfile: php-fpm/Dockerfile
+            context: ./docker
+            dockerfile: development/php-fpm/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/dev-php-fpm:cache
         environment:
@@ -41,8 +41,8 @@ services:
     php-cli:
         image: ${REGISTRY:-localhost}/dev-php-cli:cache
         build:
-            context: ./docker/development
-            dockerfile: php-cli/Dockerfile
+            context: ./docker
+            dockerfile: development/php-cli/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/dev-php-cli:cache
         environment:

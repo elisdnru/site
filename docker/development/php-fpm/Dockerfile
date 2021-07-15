@@ -13,9 +13,10 @@ RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev f
         --with-freetype \
     && docker-php-ext-install pdo_mysql gd mcrypt xdebug
 
-COPY ./php/conf.d /usr/local/etc/php/conf.d
+COPY ./common/php/conf.d /usr/local/etc/php/conf.d
+COPY ./development/php/conf.d /usr/local/etc/php/conf.d
 
-COPY ./php/entrypoint.sh /usr/local/bin/docker-php-entrypoint
+COPY ./development/php/entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
 WORKDIR /app

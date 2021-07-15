@@ -13,11 +13,12 @@ RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev f
         --with-freetype \
     && docker-php-ext-install pdo_mysql gd mcrypt xdebug
 
-COPY ./php/conf.d /usr/local/etc/php/conf.d
+COPY ./common/php/conf.d /usr/local/etc/php/conf.d
+COPY ./development/php/conf.d /usr/local/etc/php/conf.d
 
 RUN apk add --no-cache wget unzip bash coreutils
 
-COPY ./php/wait-for-it.sh /usr/local/bin/wait-for-it
+COPY ./common/wait-for-it.sh /usr/local/bin/wait-for-it
 RUN chmod 555 /usr/local/bin/wait-for-it
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
