@@ -29,7 +29,7 @@ class Acceptance extends Module
     {
         if ($this->client === null) {
             $this->client = new Client([
-                'base_uri' => 'http://mailer:8025',
+                'base_uri' => 'http://site-mailer:8025',
             ]);
         }
         return $this->client;

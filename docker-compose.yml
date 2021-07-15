@@ -1,81 +1,81 @@
 version: '3.7'
 services:
-    nginx:
-        image: ${REGISTRY:-localhost}/dev-nginx:cache
+    site:
+        image: ${REGISTRY:-localhost}/site-dev:cache
         build:
             context: ./docker
             dockerfile: development/nginx/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/dev-nginx:cache
+                - ${REGISTRY:-localhost}/site-dev:cache
         volumes:
             - ./:/app
         ports:
             - "8080:80"
             - "8081:8081"
-    php-fpm:
-        image: ${REGISTRY:-localhost}/dev-php-fpm:cache
+    site-php-fpm:
+        image: ${REGISTRY:-localhost}/site-dev-php-fpm:cache
         build:
             context: ./docker
             dockerfile: development/php-fpm/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/dev-php-fpm:cache
+                - ${REGISTRY:-localhost}/site-dev-php-fpm:cache
         environment:
             PHP_IDE_CONFIG: serverName=SITE
             APP_DEBUG: 1
             APP_ENV: dev
             COOKIE_SECRET: secret
-            DB_HOST: mysql
+            DB_HOST: site-mysql
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD: secret
-            MAILER_HOST: mailer
+            MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USER: app
             MAILER_PASSWORD: secret
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
-            DEWORKER_API_URL: http://wiremock/api.deworker.pro
+            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
             SENTRY_DSN: ""
         volumes:
             - ./:/app
-    php-cli:
-        image: ${REGISTRY:-localhost}/dev-php-cli:cache
+    site-php-cli:
+        image: ${REGISTRY:-localhost}/site-dev-php-cli:cache
         build:
             context: ./docker
             dockerfile: development/php-cli/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/dev-php-cli:cache
+                - ${REGISTRY:-localhost}/site-dev-php-cli:cache
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
             COOKIE_SECRET: secret
-            DB_HOST: mysql
+            DB_HOST: site-mysql
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD: secret
-            MAILER_HOST: mailer
+            MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USER: app
             MAILER_PASSWORD: secret
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
-            DEWORKER_API_URL: http://wiremock/api.deworker.pro
+            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
             SENTRY_DSN: ""
         volumes:
             - ./:/app
-        network_mode: service:nginx
-    node-watch:
+        network_mode: service:site
+    site-node-watch:
         image: node:16-alpine
         volumes:
             - ./:/app
         working_dir: /app
         command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run watch"
-    node-cli:
+    site-node-cli:
         image: node:16-alpine
         volumes:
             - ./:/app
         working_dir: /app
-    mysql:
+    site-mysql:
         image: mariadb:10
         volumes:
             - mysql:/var/lib/mysql
@@ -86,11 +86,11 @@ services:
             MYSQL_DATABASE: app
         ports:
             - "33061:3306"
-    mailer:
+    site-mailer:
         image: mailhog/mailhog
         ports:
             - "8082:8025"
-    wiremock:
+    site-wiremock:
         image: rodolpheche/wiremock:latest-alpine
         volumes:
             - ./wiremock:/home/wiremock

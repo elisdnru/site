@@ -33,63 +33,63 @@ site-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload
 
 site-composer-install:
-	docker-compose run --rm php-cli composer install
+	docker-compose run --rm site-php-cli composer install
 
 site-composer-update:
-	docker-compose run --rm php-cli composer update
+	docker-compose run --rm site-php-cli composer update
 
 site-composer-validate:
-	docker-compose run --rm php-cli composer validate
+	docker-compose run --rm site-php-cli composer validate
 
 site-assets-install:
-	docker-compose run --rm node-cli yarn install
+	docker-compose run --rm site-node-cli yarn install
 
 site-assets-update:
-	docker-compose run --rm node-cli yarn upgrade
+	docker-compose run --rm site-node-cli yarn upgrade
 
 site-wait-db:
-	docker-compose run --rm php-cli wait-for-it mysql:3306 -t 30
+	docker-compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 
 site-migrations:
-	docker-compose run --rm php-cli composer app migrate -- --interactive=0
+	docker-compose run --rm site-php-cli composer app migrate -- --interactive=0
 
 site-fixtures:
-	docker-compose run --rm php-cli composer app fixture/load '*' -- --interactive=0
+	docker-compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
 
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 
 site-assets-build:
-	docker-compose run --rm node-cli yarn build
+	docker-compose run --rm site-node-cli yarn build
 
 site-lint:
-	docker-compose run --rm php-cli composer lint
-	docker-compose run --rm php-cli composer php-cs-fixer fix -- --dry-run --diff
+	docker-compose run --rm site-php-cli composer lint
+	docker-compose run --rm site-php-cli composer php-cs-fixer fix -- --dry-run --diff
 
 site-cs-fix:
-	docker-compose run --rm php-cli composer php-cs-fixer fix
+	docker-compose run --rm site-php-cli composer php-cs-fixer fix
 
 site-assets-lint:
-	docker-compose run --rm node-cli yarn eslint
-	docker-compose run --rm node-cli yarn stylelint
+	docker-compose run --rm site-node-cli yarn eslint
+	docker-compose run --rm site-node-cli yarn stylelint
 
 site-assets-eslint-fix:
-	docker-compose run --rm node-cli yarn eslint-fix
+	docker-compose run --rm site-node-cli yarn eslint-fix
 
 site-assets-pretty:
-	docker-compose run --rm node-cli yarn prettier
+	docker-compose run --rm site-node-cli yarn prettier
 
 site-analyze:
-	docker-compose run --rm php-cli composer psalm -- --no-diff
+	docker-compose run --rm site-php-cli composer psalm -- --no-diff
 
 site-analyze-diff:
-	docker-compose run --rm php-cli composer psalm
+	docker-compose run --rm site-php-cli composer psalm
 
 site-test-generate:
-	docker-compose run --rm php-cli composer test build
+	docker-compose run --rm site-php-cli composer test build
 
 site-test:
-	docker-compose run --rm php-cli composer test run unit,integration,acceptance
+	docker-compose run --rm site-php-cli composer test run unit,integration,acceptance
 
 push-dev-cache:
 	docker-compose push
