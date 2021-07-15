@@ -1,5 +1,22 @@
 version: '3.7'
 services:
+    traefik:
+        image: traefik:2.4
+        command:
+            --providers.docker=true
+            --providers.docker.exposedbydefault=false
+            --entrypoints.http.address=:80
+            --entrypoints.test.address=:8081
+        ports:
+            - "80:80"
+            - "8081:8081"
+        networks:
+            - traefik-public
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
     site:
         image: ${REGISTRY:-localhost}/site-dev:cache
         build:
@@ -7,11 +24,22 @@ services:
             dockerfile: development/nginx/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev:cache
+        networks:
+            - traefik-public
+            - default
         volumes:
             - ./:/app
-        ports:
-            - "8080:80"
-            - "8081:8081"
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site.rule=Host(`localhost`)
+            - traefik.http.routers.site.entrypoints=http
+            - traefik.http.routers.site.service=site
+            - traefik.http.services.site.loadbalancer.server.port=80
+            - traefik.http.routers.site-test.rule=Host(`localhost`)
+            - traefik.http.routers.site-test.entrypoints=test
+            - traefik.http.routers.site-test.service=site
+            - traefik.http.services.site-test.loadbalancer.server.port=8081
     site-php-fpm:
         image: ${REGISTRY:-localhost}/site-dev-php-fpm:cache
         build:
@@ -103,3 +131,7 @@ services:
 
 volumes:
     mysql:
+
+networks:
+    traefik-public:
+        name: traefik-public
