@@ -6,8 +6,8 @@ services:
             - traefik-public
             - default
         volumes:
-            - site-assets:/app/public/assets
-            - site-upload:/app/public/upload
+            - site-assets:/app/public/assets:ro
+            - site-upload:/app/public/upload:ro
         deploy:
             labels:
                 - traefik.enable=true
