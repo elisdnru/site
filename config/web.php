@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * web.
- */
-
 use app\components\AuthIdentity;
 use app\components\SentryErrorHandler;
 use yii\helpers\ArrayHelper;
@@ -15,15 +11,7 @@ use yii\web\Request;
 use yii\web\Session;
 use yii\web\User;
 
-/**
- * @psalm-var array{
- *     HTTP_X_FORWARDED_PROTO?: string,
- *     HTTPS?: string
- * } $_SERVER
- */
-$isSecure =
-    (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
-    (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off');
+$isSecure = env('APP_ENV', 'prod') === 'prod';
 
 return ArrayHelper::merge(
     require(__DIR__ . '/common.php'),

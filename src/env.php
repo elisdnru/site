@@ -2,13 +2,17 @@
 
 declare(strict_types=1);
 
-function env(string $name): string
+function env(string $name, ?string $default = null): string
 {
     $value = getenv($name);
 
-    if ($value === false) {
-        throw new RuntimeException('Undefined env ' . $name);
+    if ($value !== false) {
+        return $value;
     }
 
-    return $value;
+    if ($default !== null) {
+        return $default;
+    }
+
+    throw new RuntimeException('Undefined env ' . $name);
 }
