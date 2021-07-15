@@ -51,7 +51,7 @@ services:
             PHP_IDE_CONFIG: serverName=SITE
             APP_DEBUG: 1
             APP_ENV: dev
-            COOKIE_SECRET: secret
+            COOKIE_SECRET: test
             DB_HOST: site-mysql
             DB_NAME: app
             DB_USERNAME: app
@@ -76,7 +76,7 @@ services:
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
-            COOKIE_SECRET: secret
+            COOKIE_SECRET: test
             DB_HOST: site-mysql
             DB_NAME: app
             DB_USERNAME: app
