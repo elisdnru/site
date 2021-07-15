@@ -18,17 +18,18 @@ class RegistrationController extends Controller
 {
     /**
      * @psalm-suppress TypeDoesNotContainType
+     * @psalm-suppress RedundantCondition
      */
     public function actions(): array
     {
         return [
             'captcha1' => [
                 'class' => MathCaptchaAction::class,
-                'fixedVerifyCode' => YII_ENV_TEST ? '42' : null,
+                'fixedVerifyCode' => YII_ENV_PROD ? null : '42',
             ],
             'captcha2' => [
                 'class' => MathCaptchaAction::class,
-                'fixedVerifyCode' => YII_ENV_TEST ? '42' : null,
+                'fixedVerifyCode' => YII_ENV_PROD ? null : '42',
             ],
         ];
     }
