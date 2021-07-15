@@ -30,11 +30,11 @@ class FeedCest
 
         $I->seeInSource('<title>Дмитрий Елисеев</title>');
         $I->seeInSource('<description>ElisDN</description>');
-        $I->seeInSource('<copyright>Copyright ' . date('Y') . ' http://localhost:8081</copyright>');
+        $I->seeInSource('<copyright>Copyright ' . date('Y') . ' http://localhost</copyright>');
 
         $I->seeInSource('<title>Post 1</title>');
-        $I->seeInSource('<link>http://localhost:8081/blog/1/post-1</link>');
-        $I->seeInSource('<link>http://localhost:8081/blog/1/post-1</link>');
+        $I->seeInSource('<link>http://localhost/blog/1/post-1</link>');
+        $I->seeInSource('<link>http://localhost/blog/1/post-1</link>');
         $I->dontSeeInSource('<title>Post 2</title>');
     }
 }

@@ -14,13 +14,13 @@ class XmlCest
         $I->seeResponseCodeIs(200);
         $I->seeElement('urlset');
 
-        $I->see('http://localhost:8081/blog', 'loc');
-        $I->see('http://localhost:8081/products', 'loc');
-        $I->see('http://localhost:8081/portfolio', 'loc');
-        $I->see('http://localhost:8081/contacts', 'loc');
-        $I->see('http://localhost:8081/oop-week', 'loc');
-        $I->see('http://localhost:8081/yii2-shop', 'loc');
-        $I->see('http://localhost:8081/laravel-board', 'loc');
-        $I->see('http://localhost:8081/project-manager', 'loc');
+        $I->see('http://localhost/blog', 'loc');
+        $I->see('http://localhost/products', 'loc');
+        $I->see('http://localhost/portfolio', 'loc');
+        $I->see('http://localhost/contacts', 'loc');
+        $I->see('http://localhost/oop-week', 'loc');
+        $I->see('http://localhost/yii2-shop', 'loc');
+        $I->see('http://localhost/laravel-board', 'loc');
+        $I->see('http://localhost/project-manager', 'loc');
     }
 }

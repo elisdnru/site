@@ -14,6 +14,6 @@ class Yii2ShopCest
         $I->seeResponseCodeIs(200);
         $I->see('Мастер-класс по разработке интернет-магазина на Yii2 Framework', 'title');
         $I->seeInSource('<meta name="robots" content="index, nofollow">');
-        $I->seeInSource('<link href="http://localhost:8081/yii2-shop" rel="canonical">');
+        $I->seeInSource('<link href="http://localhost/yii2-shop" rel="canonical">');
     }
 }
