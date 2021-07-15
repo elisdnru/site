@@ -1,0 +1,90 @@
+version: '3.7'
+services:
+    site:
+        image: ${REGISTRY}/site:${IMAGE_TAG}
+        networks:
+            - traefik-public
+            - default
+        deploy:
+            labels:
+                - traefik.enable=true
+                - traefik.docker.network=traefik-public
+                - traefik.http.services.site.loadbalancer.server.port=80
+                - traefik.http.routers.site.rule=Host(`elisdn.ru`) || Host(`www.elisdn.ru`)
+                - traefik.http.middlewares.site-redirect.redirectregex.regex=^(https?://)www.elisdn.ru/(.*)$$
+                - traefik.http.middlewares.site-redirect.redirectregex.replacement=$${1}elisdn.ru$${2}
+                - traefik.http.middlewares.site-redirect.redirectregex.permanent=true
+                - traefik.http.routers.site.middlewares=site-redirect
+                - traefik.http.routers.site.entrypoints=https
+                - traefik.http.routers.site.service=site
+                - traefik.http.routers.site.tls=true
+                - traefik.http.routers.site.tls.certresolver=letsencrypt
+                - traefik.http.routers.site-http.rule=Host(`elisdn.ru`) || Host(`www.elisdn.ru`)
+                - traefik.http.middlewares.site-redirect-to-https.redirectscheme.scheme=https
+                - traefik.http.middlewares.site-redirect-to-https.redirectscheme.permanent=true
+                - traefik.http.routers.site-http.middlewares=site-redirect-to-https
+                - traefik.http.routers.site-http.entrypoints=http
+                - traefik.http.routers.site-http.service=site
+            replicas: 2
+            update_config:
+                parallelism: 1
+                delay: 10s
+    site-php-fpm:
+        image: ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
+        environment:
+            APP_DEBUG: 0
+            APP_ENV: prod
+            COOKIE_SECRET: ${COOKIE_SECRET}
+            DB_HOST: ${DB_HOST}
+            DB_NAME: ${DB_NAME}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            MAILER_HOST: ${MAILER_HOST}
+            MAILER_PORT: ${MAILER_PORT}
+            MAILER_USER: ${MAILER_USER}
+            MAILER_PASSWORD: ${MAILER_PASSWORD}
+            MAILER_ENCRYPTION: tcp
+            MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
+            DEWORKER_API_URL: https://api.deworker.pro
+            SENTRY_DSN: ${SENTRY_DSN}
+        volumes:
+            - site-upload:/app/public/upload
+        deploy:
+            replicas: 2
+            update_config:
+                parallelism: 1
+                delay: 10s
+    site-migration:
+        image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
+        environment:
+            APP_DEBUG: 0
+            APP_ENV: prod
+            COOKIE_SECRET: ${COOKIE_SECRET}
+            DB_HOST: ${DB_HOST}
+            DB_NAME: ${DB_NAME}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            MAILER_HOST: ${MAILER_HOST}
+            MAILER_PORT: ${MAILER_PORT}
+            MAILER_USER: ${MAILER_USER}
+            MAILER_PASSWORD: ${MAILER_PASSWORD}
+            MAILER_ENCRYPTION: tcp
+            MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
+            DEWORKER_API_URL: https://api.deworker.pro
+            SENTRY_DSN: ${SENTRY_DSN}
+        volumes:
+            - site-upload:/app/public/upload
+        command: sh -c 'wait-for-it ${DB_HOST}:3306 -t 60 && php bin/app.php migrate --interactive=0'
+        deploy:
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 5
+                window: 120s
+
+volumes:
+    site-upload:
+
+networks:
+    traefik-public:
+        external: true

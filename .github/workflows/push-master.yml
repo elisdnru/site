@@ -79,7 +79,17 @@ jobs:
             -   name: Deploy
                 run: make deploy
                 env:
+                    BUILD_NUMBER: ${{ github.run_number }}
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
-                    DIR: ${{ secrets.DEPLOY_PATH }}
-                    REVISION: ${{ github.sha }}
+                    COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
+                    DB_HOST: ${{ secrets.DB_HOST }}
+                    DB_NAME: ${{ secrets.DB_NAME }}
+                    DB_USERNAME: ${{ secrets.DB_USERNAME }}
+                    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+                    MAILER_HOST: ${{ secrets.MAILER_HOST }}
+                    MAILER_PORT: ${{ secrets.MAILER_PORT }}
+                    MAILER_USER: ${{ secrets.MAILER_USER }}
+                    MAILER_PASSWORD: ${{ secrets.MAILER_PASSWORD }}
+                    MAILER_FROM_EMAIL: ${{ secrets.MAILER_FROM_EMAIL }}
+                    SENTRY_DSN: ${{ secrets.SENTRY_DSN }}

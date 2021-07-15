@@ -145,8 +145,11 @@ push:
 	docker push ${REGISTRY}/site-php-cli:${IMAGE_TAG}
 
 deploy:
-	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && git fetch --force origin "master:remotes/origin/master"'
-	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && git reset --hard "${REVISION}"'
-	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && composer install --no-dev --optimize-autoloader'
-	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && php bin/app.php migrate --interactive=0'
-	ssh -o StrictHostKeyChecking=no ${HOST} -p ${PORT} 'cd ${DIR} && rm -rf var/fpm-fcgi/cache/*'
+	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'rm -rf site_${BUILD_NUMBER}'
+	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'mkdir site_${BUILD_NUMBER}'
+
+	envsubst < docker-compose-production.yml > docker-compose-production-env.yml
+	scp -o StrictHostKeyChecking=no -P ${PORT} docker-compose-production-env.yml deploy@${HOST}:site_${BUILD_NUMBER}/docker-compose.yml
+	rm -f docker-compose-production-env.yml
+
+	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'cd site_${BUILD_NUMBER} && docker stack deploy --compose-file docker-compose.yml site --with-registry-auth --prune'
