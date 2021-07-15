@@ -5,6 +5,9 @@ services:
         networks:
             - traefik-public
             - default
+        volumes:
+            - site-assets:/app/public/assets
+            - site-upload:/app/public/upload
         deploy:
             labels:
                 - traefik.enable=true
@@ -48,6 +51,7 @@ services:
             DEWORKER_API_URL: https://api.deworker.pro
             SENTRY_DSN: ${SENTRY_DSN}
         volumes:
+            - site-assets:/app/public/assets
             - site-upload:/app/public/upload
         deploy:
             replicas: 2
@@ -73,6 +77,7 @@ services:
             DEWORKER_API_URL: https://api.deworker.pro
             SENTRY_DSN: ${SENTRY_DSN}
         volumes:
+            - site-assets:/app/public/assets
             - site-upload:/app/public/upload
         command: sh -c 'wait-for-it ${DB_HOST}:3306 -t 60 && php bin/app.php migrate --interactive=0'
         deploy:
@@ -83,6 +88,7 @@ services:
                 window: 120s
 
 volumes:
+    site-assets:
     site-upload:
 
 networks:
