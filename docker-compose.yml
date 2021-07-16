@@ -101,7 +101,7 @@ services:
     site-mysql:
         image: mariadb:10
         volumes:
-            - mysql:/var/lib/mysql
+            - site-mysql:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_USER: app
@@ -125,7 +125,7 @@ services:
             - '--verbose'
 
 volumes:
-    mysql:
+    site-mysql:
 
 networks:
     traefik-public:
