@@ -19,7 +19,6 @@ services:
                 - traefik.http.middlewares.site-redirect.redirectregex.permanent=true
                 - traefik.http.routers.site.middlewares=site-redirect
                 - traefik.http.routers.site.entrypoints=https
-                - traefik.http.routers.site.service=site
                 - traefik.http.routers.site.tls=true
                 - traefik.http.routers.site.tls.certresolver=letsencrypt
             replicas: 2

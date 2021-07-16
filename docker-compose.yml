@@ -33,7 +33,6 @@ services:
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site.rule=Host(`localhost`)
             - traefik.http.routers.site.entrypoints=http
-            - traefik.http.routers.site.service=site
             - traefik.http.services.site.loadbalancer.server.port=80
     site-php-fpm:
         image: ${REGISTRY:-localhost}/site-dev-php-fpm:cache
