@@ -22,12 +22,6 @@ services:
                 - traefik.http.routers.site.service=site
                 - traefik.http.routers.site.tls=true
                 - traefik.http.routers.site.tls.certresolver=letsencrypt
-                - traefik.http.routers.site-http.rule=Host(`elisdn.ru`) || Host(`www.elisdn.ru`)
-                - traefik.http.middlewares.site-redirect-to-https.redirectscheme.scheme=https
-                - traefik.http.middlewares.site-redirect-to-https.redirectscheme.permanent=true
-                - traefik.http.routers.site-http.middlewares=site-redirect-to-https
-                - traefik.http.routers.site-http.entrypoints=http
-                - traefik.http.routers.site-http.service=site
             replicas: 2
             update_config:
                 parallelism: 1
