@@ -13,6 +13,8 @@ RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev f
         --with-freetype \
     && docker-php-ext-install pdo_mysql gd mcrypt xdebug
 
+RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
+
 COPY ./common/php/conf.d /usr/local/etc/php/conf.d
 COPY ./development/php/conf.d /usr/local/etc/php/conf.d
 
