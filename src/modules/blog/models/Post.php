@@ -82,10 +82,9 @@ class Post extends ActiveRecord implements Material
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
             [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
             [['title', 'alias', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
-            ['tagsString', 'string', 'max' => '255'],
+            ['tagsString', 'string'],
             ['alias', AliasValidator::class],
             ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
-            ['group_id', 'default', 'value' => 0],
         ];
     }
 
