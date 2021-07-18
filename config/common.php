@@ -38,7 +38,7 @@ use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
-use yii\log\Dispatcher;
+use yii\log\Dispatcher as Logger;
 use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
 use yii\swiftmailer\Mailer;
@@ -98,7 +98,7 @@ return [
         'mailer' => MailerInterface::class,
         'assetManager' => AssetManager::class,
         'authManager' => ManagerInterface::class,
-        'log' => Dispatcher::class,
+        'log' => Logger::class,
         'view' => View::class,
         'cache' => CacheInterface::class,
         'moduleAdminAccess' => AdminAccess::class,
@@ -161,8 +161,8 @@ return [
                 'ruleFile' => __DIR__ . '/rbac/rules.php',
                 'assignmentFile' => __DIR__ . '/rbac/assignments.php',
             ],
-            Dispatcher::class => [
-                'class' => Dispatcher::class,
+            Logger::class => [
+                'class' => Logger::class,
                 'traceLevel' => env('APP_DEBUG') ? 3 : 0,
             ],
             CacheInterface::class => !env('APP_DEBUG') ? [
