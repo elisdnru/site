@@ -142,16 +142,16 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
     </div>
 </footer>
 
-<!-- <?= sprintf('%0.3f', Yii::getLogger()->getElapsedTime()); ?>s. <?= round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB'; ?> -->
-
 <?php $this->endBody(); ?>
 
 <?= Counters::widget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?= BlockWidget::widget(['id' => 'end']); ?>
+
     <?php $this->endCache(); ?>
 <?php endif; ?>
+<!-- <?= sprintf('%0.3f', Yii::getLogger()->getElapsedTime()); ?>s. <?= round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB'; ?> -->
 
 </body>
 </html>
