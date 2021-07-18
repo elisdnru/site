@@ -35,6 +35,9 @@ return ArrayHelper::merge(
             'singletons' => [
                 Request::class => [
                     'class' => Request::class,
+                    'trustedHosts' => [
+                        '10.0.0.0/8',
+                    ],
                     'cookieValidationKey' => env('COOKIE_SECRET'),
                     'csrfCookie' => [
                         'httpOnly' => true,
