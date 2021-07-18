@@ -52,7 +52,7 @@ class DefaultController extends Controller
     public function actionTag(string $tag): Response|string
     {
         if (!$model = $this->loadTagModel($tag)) {
-            return $this->redirect(['index']);
+            return $this->redirect(['index'], 301);
         }
 
         $query = $this->getBlogQuery()
