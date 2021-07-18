@@ -22,8 +22,8 @@ class AuthIdentity implements IdentityInterface
      */
     public static function findIdentity($id): ?self
     {
-        $user = User::findOne($id);
-        if ($user && empty($user->confirm)) {
+        $user = User::findOne(['id' => (int)$id, 'active' => 1]);
+        if ($user !== null) {
             return new self($user->id);
         }
         return null;
