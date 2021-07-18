@@ -25,7 +25,7 @@ return ArrayHelper::merge(
                     'app\modules\user\migrations',
                 ],
             ],
-            'fixture' => getenv('APP_ENV') === 'dev' ? [
+            'fixture' => env('APP_ENV', 'prod') === 'dev' ? [
                 'class' => FixtureController::class,
                 'namespace' => 'app\fixtures',
             ] : false,
