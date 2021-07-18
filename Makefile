@@ -24,6 +24,9 @@ docker-pull:
 docker-build:
 	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
 
+push-dev-cache:
+	docker-compose push
+
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-fixtures site-test-generate site-assets-build
 
 site-clear:
@@ -90,9 +93,6 @@ site-test-generate:
 
 site-test:
 	docker-compose run --rm site-php-cli composer test run unit,integration,acceptance
-
-push-dev-cache:
-	docker-compose push
 
 build:
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
