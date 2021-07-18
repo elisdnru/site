@@ -34,16 +34,16 @@ gtag('config', 'UA-3647' + '7750-1');
 </script>
 
 <script>
-(function () {
+!function() {
     var t = document.createElement("script");
-    t.type = 'text/javascript';
-    t.async = true;
-    t.src = 'https://vk.com/js/api/openapi.js?168';
-    t.onload = function () {
-        VK.Retargeting.Init('VK-RTRG-515571-5cyiW');
-        VK.Retargeting.Hit()
+    t.type = "text/javascript";
+    t.async = !0;
+    t.src = "https://vk.com/js/api/openapi.js?169";
+    t.onload = function() {
+        VK.Retargeting.Init("VK-RTRG-515571-5cyiW");
+        VK.Retargeting.Hit();
     };
-    document.head.appendChild(t)
-})();
+    document.head.appendChild(t);
+}();
 </script>
 <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-515571-5cyiW" style="position:fixed; left:-999px;" alt=""/></noscript>
