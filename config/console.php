@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 return ArrayHelper::merge(
     require(__DIR__ . '/common.php'),
     [
-        'controllerMap' => [
+        'controllerMap' => array_filter([
             'migrate' => [
                 'class' => MigrateController::class,
                 'migrationTable' => 'migrations',
@@ -25,11 +25,11 @@ return ArrayHelper::merge(
                     'app\modules\user\migrations',
                 ],
             ],
-            'fixture' => [
+            'fixture' => getenv('APP_ENV') === 'dev' ? [
                 'class' => FixtureController::class,
                 'namespace' => 'app\fixtures',
-            ],
-        ],
+            ] : false,
+        ]),
         'components' => [
             'errorHandler' => [
                 'class' => ErrorHandler::class,
