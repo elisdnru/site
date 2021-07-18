@@ -43,10 +43,6 @@ _gaq.push(['_trackPageview']);
 </script>
 
 <script>
-(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=plhUXCWxYkaF/qlmUwYpFxoJuvC1rSUkMgO6hNlGX8VQOZPN8V6hnDR6ftdUkCPIXDsrr//qA*P0Fm0/Ww8meYxOx0uJgUaej2Xbg2c4tATTNuOdBnEIAqTmL*W7cPGPU0eEdbNdeg8EFUQWzMpr88hANhoO1lFTXC*7kXIezjM-'
-</script>
-
-<script>
 (function () {
     var t = document.createElement("script");
     t.type = 'text/javascript';
