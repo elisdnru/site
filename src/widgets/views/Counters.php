@@ -15,10 +15,10 @@ use yii\web\View;
     k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
 })(window, document, 'script', 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js', 'ym');
 ym(18406216, 'init', {
-    clickmap: false,
+    clickmap: true,
     trackLinks: true,
-    accurateTrackBounce: false,
-    webvisor: false
+    accurateTrackBounce: true,
+    webvisor: true
 });
 <?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
