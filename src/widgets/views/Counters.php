@@ -43,6 +43,7 @@ _gaq.push(['_trackPageview']);
 </script>
 
 <script>
+<?php ob_start(); ?>
 (function () {
     var t = document.createElement("script");
     t.type = 'text/javascript';
@@ -54,5 +55,6 @@ _gaq.push(['_trackPageview']);
     };
     document.head.appendChild(t)
 })();
+<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-515571-5cyiW" style="position:fixed; left:-999px;" alt=""/></noscript>
