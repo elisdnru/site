@@ -95,9 +95,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <footer class="page-footer">
     <div class="content">
 
-        <div class="counters">
-            <?= Counters::widget(); ?>
-        </div>
+        <div class="counters"></div>
 
         <!--noindex-->
         <div class="nav">
@@ -147,6 +145,8 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <!-- <?= sprintf('%0.3f', Yii::getLogger()->getElapsedTime()); ?>s. <?= round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB'; ?> -->
 
 <?php $this->endBody(); ?>
+
+<?= Counters::widget(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?= BlockWidget::widget(['id' => 'end']); ?>

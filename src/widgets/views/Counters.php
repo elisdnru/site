@@ -8,7 +8,6 @@ use yii\web\View;
 ?>
 
 <script>
-<?php ob_start(); ?>
 (function (m, e, t, r, i, k, a) {
     m[i] = m[i] || function () {(m[i].a = m[i].a || []).push(arguments)}
     m[i].l = 1 * new Date()
@@ -20,14 +19,12 @@ ym(18406216, 'init', {
     accurateTrackBounce: true,
     webvisor: true
 });
-<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 <noscript>
     <div><img src="https://mc.yandex.ru/watch/18406216" style="position:absolute; left:-9999px;" alt=""></div>
 </noscript>
 
 <script>
-<?php ob_start(); ?>
 var _gaq = _gaq || []
 _gaq.push(['_setAccount', 'UA-3647' + '7750-1'])
 _gaq.push(['_trackPageview']);
@@ -39,11 +36,9 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]
     s.parentNode.insertBefore(ga, s)
 })();
-<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 
 <script>
-<?php ob_start(); ?>
 (function () {
     var t = document.createElement("script");
     t.type = 'text/javascript';
@@ -55,6 +50,5 @@ _gaq.push(['_trackPageview']);
     };
     document.head.appendChild(t)
 })();
-<?php $this->registerJs(ob_get_clean(), View::POS_END); ?>
 </script>
 <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-515571-5cyiW" style="position:fixed; left:-999px;" alt=""/></noscript>
