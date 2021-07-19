@@ -85,10 +85,22 @@ services:
                 window: 120s
             placement:
                 constraints: [node.role == manager]
+    site-redis:
+        image: redis:6.2-alpine
+        volumes:
+            - site-redis:/data
+        command:
+            - 'redis-server'
+            - "--requirepass ${REDIS_PASSWORD}"
+        deploy:
+            placement:
+                constraints: [ node.labels.db == db ]
+            endpoint_mode: dnsrr
 
 volumes:
     site-assets:
     site-upload:
+    site-redis:
 
 networks:
     traefik-public:
