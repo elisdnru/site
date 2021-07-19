@@ -50,6 +50,8 @@ services:
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD: secret
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD: secret
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USER: app
@@ -75,6 +77,8 @@ services:
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD: secret
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD: secret
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USER: app

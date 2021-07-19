@@ -5,6 +5,7 @@ declare(strict_types=1);
 use app\components\AuthIdentity;
 use app\components\SentryErrorHandler;
 use yii\helpers\ArrayHelper;
+use yii\redis\Session as RedisSession;
 use yii\web\Cookie;
 use yii\web\ErrorHandler;
 use yii\web\Request;
@@ -45,7 +46,7 @@ return ArrayHelper::merge(
                     ],
                 ],
                 Session::class => [
-                    'class' => Session::class,
+                    'class' => RedisSession::class,
                     'cookieParams' => [
                         'httpOnly' => true,
                         'secure' => $isSecure,

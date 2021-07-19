@@ -21,6 +21,7 @@
         "sentry/sdk": "^3.0",
         "webmozart/assert": "^1.9",
         "yiisoft/yii2": "^2.0",
+        "yiisoft/yii2-redis": "^2.0",
         "yiisoft/yii2-swiftmailer": "^2.1"
     },
     "require-dev": {

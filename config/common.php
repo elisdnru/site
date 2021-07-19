@@ -41,6 +41,7 @@ use yii\helpers\FileHelper;
 use yii\log\Dispatcher as Logger;
 use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
+use yii\redis\Connection as RedisConnection;
 use yii\swiftmailer\Mailer;
 use yii\web\AssetManager;
 use yii\web\JqueryAsset;
@@ -106,6 +107,7 @@ return [
         'moduleAdminMenu' => AdminMenu::class,
         'moduleAdminNotifications' => AdminNotifications::class,
         'uploader' => Uploader::class,
+        'redis' => RedisConnection::class,
     ],
 
     'container' => [
@@ -143,6 +145,13 @@ return [
                 'tablePrefix' => '',
                 'charset' => 'utf8mb4',
                 'enableSchemaCache' => true,
+            ],
+            RedisConnection::class => [
+                'class' => RedisConnection::class,
+                'hostname' => env('REDIS_HOST'),
+                'port' => 6379,
+                'password' => env('REDIS_PASSWORD'),
+                'database' => 0,
             ],
             AssetManager::class => [
                 'class' => AssetManager::class,

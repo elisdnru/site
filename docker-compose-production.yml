@@ -37,6 +37,8 @@ services:
             DB_NAME: ${DB_NAME}
             DB_USERNAME: ${DB_USERNAME}
             DB_PASSWORD: ${DB_PASSWORD}
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
             MAILER_USER: ${MAILER_USER}
@@ -65,6 +67,8 @@ services:
             DB_NAME: ${DB_NAME}
             DB_USERNAME: ${DB_USERNAME}
             DB_PASSWORD: ${DB_PASSWORD}
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
             MAILER_USER: ${MAILER_USER}
