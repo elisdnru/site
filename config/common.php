@@ -34,6 +34,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 use Psr\SimpleCache\CacheInterface as SimpleCacheInterface;
 use yii\caching\CacheInterface;
 use yii\caching\DummyCache;
+use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
@@ -102,6 +103,7 @@ return [
         'log' => Logger::class,
         'view' => View::class,
         'cache' => CacheInterface::class,
+        'schema-cache' => 'schema-cache',
         'moduleAdminAccess' => AdminAccess::class,
         'moduleAdminDashboard' => AdminDashboard::class,
         'moduleAdminMenu' => AdminMenu::class,
@@ -145,6 +147,7 @@ return [
                 'tablePrefix' => '',
                 'charset' => 'utf8mb4',
                 'enableSchemaCache' => true,
+                'schemaCache' => 'schema-cache',
             ],
             RedisConnection::class => [
                 'class' => RedisConnection::class,
@@ -178,6 +181,11 @@ return [
                 'class' => RedisCache::class,
             ] : [
                 'class' => DummyCache::class,
+            ],
+            'schema-cache' => [
+                'class' => FileCache::class,
+                'dirMode' => 0777,
+                'fileMode' => 0666,
             ],
             MailerInterface::class => [
                 'class' => Mailer::class,
