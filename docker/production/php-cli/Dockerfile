@@ -3,13 +3,11 @@ FROM php:8.0-cli-alpine AS builder
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev git \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
     && docker-php-ext-configure mcrypt \
-    && git clone --depth 1 https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
-    && docker-php-ext-configure redis \
     && docker-php-ext-configure gd \
         --with-jpeg \
         --with-webp \
         --with-freetype \
-    && docker-php-ext-install pdo_mysql gd mcrypt redis opcache
+    && docker-php-ext-install pdo_mysql gd mcrypt opcache
 
 RUN apk add --no-cache unzip
 
