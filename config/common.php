@@ -34,13 +34,13 @@ use Psr\Http\Message\StreamFactoryInterface;
 use Psr\SimpleCache\CacheInterface as SimpleCacheInterface;
 use yii\caching\CacheInterface;
 use yii\caching\DummyCache;
-use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
 use yii\log\Dispatcher as Logger;
 use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
+use yii\redis\Cache as RedisCache;
 use yii\redis\Connection as RedisConnection;
 use yii\swiftmailer\Mailer;
 use yii\web\AssetManager;
@@ -175,9 +175,7 @@ return [
                 'traceLevel' => env('APP_DEBUG') ? 3 : 0,
             ],
             CacheInterface::class => !env('APP_DEBUG') ? [
-                'class' => FileCache::class,
-                'dirMode' => 0777,
-                'fileMode' => 0666,
+                'class' => RedisCache::class,
             ] : [
                 'class' => DummyCache::class,
             ],
