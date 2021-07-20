@@ -197,10 +197,12 @@ return [
             ] : [
                 'class' => DummyCache::class,
             ],
-            'schema-cache' => [
+            'schema-cache' => !env('APP_DEBUG', '') ? [
                 'class' => FileCache::class,
                 'dirMode' => 0777,
                 'fileMode' => 0666,
+            ] : [
+                'class' => DummyCache::class,
             ],
             MailerInterface::class => [
                 'class' => Mailer::class,
