@@ -3,11 +3,11 @@
 set -o errexit
 set -o pipefail
 
-BACKUP_FILE=site_${BACKUP_NAME}_$(date +%Y-%m-%d_%H-%M).tar.gz
+BACKUP_FILE=site_${BACKUP_NAME}_$(date +%Y-%m-%d_%H-%M).tar
 
 echo "Archive $BACKUP_FILE"
 
-tar -czpf /tmp/$BACKUP_FILE $TARGET
+tar -cpf /tmp/$BACKUP_FILE $TARGET
 
 echo "Upload to S3"
 
