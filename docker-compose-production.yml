@@ -143,6 +143,8 @@ services:
             replicas: 0
             restart_policy:
                 condition: none
+            placement:
+                constraints: [node.role == manager]
     site-redis:
         image: redis:6.2-alpine
         volumes:
