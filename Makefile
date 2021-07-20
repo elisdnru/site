@@ -102,26 +102,12 @@ build:
 	--file docker/production/nginx/Dockerfile .
 
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--target builder \
-	--cache-from ${REGISTRY}/site-php-fpm:cache-builder \
-	--tag ${REGISTRY}/site-php-fpm:cache-builder \
-	--file docker/production/php-fpm/Dockerfile .
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/site-php-fpm:cache-builder \
 	--cache-from ${REGISTRY}/site-php-fpm:cache \
 	--tag ${REGISTRY}/site-php-fpm:cache \
 	--tag ${REGISTRY}/site-php-fpm:${IMAGE_TAG} \
 	--file docker/production/php-fpm/Dockerfile .
 
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--target builder \
-	--cache-from ${REGISTRY}/site-php-cli:cache-builder \
-	--tag ${REGISTRY}/site-php-cli:cache-builder \
-	--file docker/production/php-cli/Dockerfile .
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/site-php-cli:cache-builder \
 	--cache-from ${REGISTRY}/site-php-cli:cache \
 	--tag ${REGISTRY}/site-php-cli:cache \
 	--tag ${REGISTRY}/site-php-cli:${IMAGE_TAG} \
@@ -133,10 +119,8 @@ try-build:
 push-build-cache:
 	docker push ${REGISTRY}/site:cache
 
-	docker push ${REGISTRY}/site-php-fpm:cache-builder
 	docker push ${REGISTRY}/site-php-fpm:cache
 
-	docker push ${REGISTRY}/site-php-cli:cache-builder
 	docker push ${REGISTRY}/site-php-cli:cache
 
 push:
