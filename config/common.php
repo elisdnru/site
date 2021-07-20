@@ -181,12 +181,6 @@ return [
                 'targets' => array_filter([
                     env('APP_ENV', 'prod') === 'prod' ? [
                         'class' => StreamTarget::class,
-                        'url' => 'php://stdout',
-                        'levels' => ['info', 'trace'],
-                        'logVars' => [],
-                    ] : false,
-                    env('APP_ENV', 'prod') === 'prod' ? [
-                        'class' => StreamTarget::class,
                         'url' => 'php://stderr',
                         'levels' => ['error', 'warning'],
                         'logVars' => [],
