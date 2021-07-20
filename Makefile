@@ -121,7 +121,7 @@ build:
 	--cache-from ${REGISTRY}/site-mysql-backup:cache \
 	--tag ${REGISTRY}/site-mysql-backup:cache \
 	--tag ${REGISTRY}/site-mysql-backup:${IMAGE_TAG} \
-	--file docker/common/backup/Dockerfile docker/common
+	--file docker/common/mysql-backup/Dockerfile docker/common
 
 try-build:
 	REGISTRY=localhost IMAGE_TAG=0 make build

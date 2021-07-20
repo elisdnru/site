@@ -115,7 +115,7 @@ services:
         image: ${REGISTRY:-localhost}/site-mysql-backup:cache
         build:
             context: ./docker/common
-            dockerfile: backup/Dockerfile
+            dockerfile: mysql-backup/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/site-mysql-backup:cache
         environment:
