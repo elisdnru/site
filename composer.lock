@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b80099d9e3b8d28b7a14edfc9310f492",
+    "content-hash": "12d7d99595e0f77bcfdcc51afb3685bf",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -135,6 +135,49 @@
                 }
             ],
             "time": "2020-10-02T12:38:20+00:00"
+        },
+        {
+            "name": "codemix/yii2-streamlog",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codemix/yii2-streamlog.git",
+                "reference": "1ed104f4bc4e961d1d08fb92d6854f01b1bd0b80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codemix/yii2-streamlog/zipball/1ed104f4bc4e961d1d08fb92d6854f01b1bd0b80",
+                "reference": "1ed104f4bc4e961d1d08fb92d6854f01b1bd0b80",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "codemix\\streamlog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Härtl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "A Yii 2 log target for streams in URL format",
+            "keywords": [
+                "log",
+                "stdout",
+                "stream",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/codemix/yii2-streamlog/issues",
+                "source": "https://github.com/codemix/yii2-streamlog/tree/1.3.1"
+            },
+            "time": "2020-03-26T13:23:28+00:00"
         },
         {
             "name": "doctrine/lexer",
