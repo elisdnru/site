@@ -138,7 +138,7 @@ services:
         deploy:
             labels:
                 - swarm.cronjob.enable=true
-                - swarm.cronjob.schedule=10 * * * *
+                - swarm.cronjob.schedule=30 0 * * *
                 - swarm.cronjob.skip-running=true
             replicas: 0
             restart_policy:
