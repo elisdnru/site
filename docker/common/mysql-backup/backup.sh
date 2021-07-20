@@ -7,7 +7,7 @@ DUMP_FILE=site_mysql_$(date +%Y-%m-%d_%H-%M).sql.gz
 
 echo "Dump $DUMP_FILE"
 
-mysqldump --host=$MYSQL_HOST --user=$MYSQL_USER --password=$MYSQL_PASSWORD $MYSQL_DB | gzip -9 > $DUMP_FILE
+mysqldump --host=$MYSQL_HOST --user=$MYSQL_USER --password=$MYSQL_PASSWORD --single-transaction $MYSQL_DB | gzip -9 > $DUMP_FILE
 
 echo "Upload to S3"
 
