@@ -122,9 +122,7 @@ try-build:
 
 push-build-cache:
 	docker push ${REGISTRY}/site:cache
-
 	docker push ${REGISTRY}/site-php-fpm:cache
-
 	docker push ${REGISTRY}/site-php-cli:cache
 
 push:
