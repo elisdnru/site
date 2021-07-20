@@ -51,7 +51,7 @@ class RegistrationController extends Controller
                 $user->role = Access::ROLE_USER;
 
                 if ($user->save(false)) {
-                    $user->sendCommit($mailer);
+                    $user->sendConfirm($mailer);
                     $session->setFlash(
                         'success',
                         'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме'

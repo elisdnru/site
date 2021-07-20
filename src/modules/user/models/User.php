@@ -165,7 +165,7 @@ class User extends ActiveRecord
         return Gravatar::url($this->email, $width);
     }
 
-    public function sendCommit(MailerInterface $mailer): void
+    public function sendConfirm(MailerInterface $mailer): void
     {
         if (!$this->id) {
             return;
