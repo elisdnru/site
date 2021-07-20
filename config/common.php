@@ -67,6 +67,7 @@ return [
     'language' => 'ru',
 
     'bootstrap' => [
+        'log',
         app\components\module\Provider::class,
         app\modules\edu\components\Provider::class,
         RoutesLoader::class,
@@ -177,20 +178,20 @@ return [
             Logger::class => [
                 'class' => Logger::class,
                 'traceLevel' => (bool)env('APP_DEBUG', '') ? 3 : 0,
-                'targets' => [
-                    [
+                'targets' => array_filter([
+                    env('APP_ENV', 'prod') === 'prod' ? [
                         'class' => StreamTarget::class,
                         'url' => 'php://stdout',
                         'levels' => ['info', 'trace'],
                         'logVars' => [],
-                    ],
-                    [
+                    ] : false,
+                    env('APP_ENV', 'prod') === 'prod' ? [
                         'class' => StreamTarget::class,
                         'url' => 'php://stderr',
                         'levels' => ['error', 'warning'],
                         'logVars' => [],
-                    ],
-                ],
+                    ] : false,
+                ]),
             ],
             CacheInterface::class => !env('APP_DEBUG', '') ? [
                 'class' => RedisCache::class,
