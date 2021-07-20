@@ -40,6 +40,7 @@ use yii\data\Pagination;
 use yii\db\Connection;
 use yii\helpers\FileHelper;
 use yii\log\Dispatcher as Logger;
+use yii\log\FileTarget;
 use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
 use yii\redis\Cache as RedisCache;
@@ -179,6 +180,11 @@ return [
                 'class' => Logger::class,
                 'traceLevel' => (bool)env('APP_DEBUG', '') ? 3 : 0,
                 'targets' => array_filter([
+                    env('APP_ENV', 'prod') !== 'prod' ? [
+                        'class' => FileTarget::class,
+                        'levels' => ['error', 'warning'],
+                        'logVars' => [],
+                    ] : false,
                     env('APP_ENV', 'prod') === 'prod' ? [
                         'class' => StreamTarget::class,
                         'url' => 'php://stderr',
