@@ -176,7 +176,7 @@ return [
             ],
             Logger::class => [
                 'class' => Logger::class,
-                'traceLevel' => env('APP_DEBUG') ? 3 : 0,
+                'traceLevel' => (bool)env('APP_DEBUG', '') ? 3 : 0,
                 'targets' => [
                     [
                         'class' => Target::class,
@@ -192,7 +192,7 @@ return [
                     ],
                 ],
             ],
-            CacheInterface::class => !env('APP_DEBUG') ? [
+            CacheInterface::class => !env('APP_DEBUG', '') ? [
                 'class' => RedisCache::class,
             ] : [
                 'class' => DummyCache::class,

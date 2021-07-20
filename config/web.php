@@ -65,7 +65,7 @@ return ArrayHelper::merge(
                 ErrorHandler::class => [
                     'class' => SentryErrorHandler::class,
                     'errorAction' => 'home/error/index',
-                    'sentryActive' => !(bool)env('APP_DEBUG'),
+                    'sentryActive' => !(bool)env('APP_DEBUG', ''),
                 ],
             ],
         ],
