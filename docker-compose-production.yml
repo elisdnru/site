@@ -89,6 +89,19 @@ services:
                 window: 120s
             placement:
                 constraints: [node.role == manager]
+    site-mysql:
+        image: mariadb:10
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+            MYSQL_USER: app
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: app
+        volumes:
+            - site-mysql:/var/lib/mysql
+        deploy:
+            placement:
+                constraints: [node.labels.db == db]
+            endpoint_mode: dnsrr
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         environment:
@@ -123,6 +136,7 @@ services:
             endpoint_mode: dnsrr
 
 volumes:
+    site-mysql:
     site-assets:
     site-upload:
     site-redis:
