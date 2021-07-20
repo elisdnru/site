@@ -27,7 +27,7 @@ docker-build:
 push-dev-cache:
 	docker-compose push
 
-site-init: site-permissions site-composer-install site-assets-install site-wait-db site-migrations site-fixtures site-test-generate site-assets-build
+site-init: site-permissions site-composer-install site-assets-install site-wait-db site-wait-redis site-migrations site-fixtures site-test-generate site-assets-build
 
 site-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/*'
@@ -53,11 +53,15 @@ site-assets-update:
 site-wait-db:
 	docker-compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 
+site-wait-redis:
+	docker-compose run --rm site-php-cli wait-for-it site-redis:6379 -t 30
+
 site-migrations:
 	docker-compose run --rm site-php-cli composer app migrate -- --interactive=0
 
 site-fixtures:
 	docker-compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
+	docker-compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
 
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
