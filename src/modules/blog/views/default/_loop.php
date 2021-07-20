@@ -3,6 +3,7 @@
 use app\components\DataProvider;
 use app\components\DateFormatter;
 use app\modules\blog\models\Post;
+use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
@@ -51,7 +52,7 @@ use yii\widgets\LinkPager;
                             <a href="<?= $post->getUrl(); ?>">
                                 <picture>
                                     <source srcset="<?= $imageUrl; ?>.webp" type="image/webp">
-                                    <source srcset="<?= $imageUrl; ?>" type="image/jpeg">
+                                    <source srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">
                                     <?= Html::img($imageUrl, $properties); ?>
                                 </picture>
                             </a>

@@ -2,6 +2,7 @@
 
 use app\components\DateFormatter;
 use app\modules\blog\models\Post;
+use yii\helpers\FileHelper;
 use yii\helpers\Html;
 
 /**
@@ -49,7 +50,7 @@ use yii\helpers\Html;
                     <a href="<?= $post->getUrl(); ?>">
                         <picture>
                             <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl; ?>.webp" type="image/webp">
-                            <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="image/jpeg">
+                            <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">
                             <?= Html::img($imageUrl, $properties); ?>
                         </picture>
                     </a>

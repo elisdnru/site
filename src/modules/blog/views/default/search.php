@@ -9,6 +9,7 @@ use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\LinkPager;
@@ -83,7 +84,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                         <a href="<?= $post->getUrl(); ?>">
                             <picture>
                                 <source srcset="<?= $imageUrl; ?>.webp" type="image/webp">
-                                <source srcset="<?= $imageUrl; ?>" type="image/jpeg">
+                                <source srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">
                                 <?= Html::img($imageUrl, $properties); ?>
                             </picture>
                         </a>
