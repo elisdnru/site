@@ -8,4 +8,5 @@ modules:
             part: [init, orm, fixtures]
             configFile: 'config/web.php'
         - \tests\Helper\Acceptance
+        - \tests\Module\Mailer
     step_decorators: ~
