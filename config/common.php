@@ -193,10 +193,8 @@ return [
                     ] : false,
                 ]),
             ],
-            CacheInterface::class => !env('APP_DEBUG', '') ? [
+            CacheInterface::class => [
                 'class' => RedisCache::class,
-            ] : [
-                'class' => DummyCache::class,
             ],
             'schema-cache' => !env('APP_DEBUG', '') ? [
                 'class' => FileCache::class,
