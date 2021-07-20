@@ -22,11 +22,17 @@ class AuthIdentity implements IdentityInterface
      */
     public static function findIdentity($id): ?self
     {
-        $user = User::findOne(['id' => (int)$id, 'active' => 1]);
-        if ($user !== null) {
-            return new self($user->id);
+        $user = User::findOne(['id' => (int)$id]);
+
+        if ($user === null) {
+            return null;
         }
-        return null;
+
+        if (!empty($user->confirm)) {
+            return null;
+        }
+
+        return new self($user->id);
     }
 
     /**
