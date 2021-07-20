@@ -98,7 +98,7 @@ services:
             - "--requirepass ${REDIS_PASSWORD}"
         deploy:
             placement:
-                constraints: [ node.labels.db == db ]
+                constraints: [node.labels.db == db]
             endpoint_mode: dnsrr
 
 volumes:
