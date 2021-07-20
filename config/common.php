@@ -34,7 +34,6 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\SimpleCache\CacheInterface as SimpleCacheInterface;
 use yii\caching\CacheInterface;
-use yii\caching\DummyCache;
 use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
@@ -196,12 +195,10 @@ return [
             CacheInterface::class => [
                 'class' => RedisCache::class,
             ],
-            'schema-cache' => !env('APP_DEBUG', '') ? [
+            'schema-cache' => [
                 'class' => FileCache::class,
                 'dirMode' => 0777,
                 'fileMode' => 0666,
-            ] : [
-                'class' => DummyCache::class,
             ],
             MailerInterface::class => [
                 'class' => Mailer::class,
