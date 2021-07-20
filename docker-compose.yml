@@ -111,6 +111,21 @@ services:
             MYSQL_DATABASE: app
         ports:
             - "33061:3306"
+    site-mysql-backup:
+        build:
+            context: ./docker/common
+            dockerfile: backup/Dockerfile
+        environment:
+            MYSQL_HOST: site-mysql
+            MYSQL_USER: app
+            MYSQL_PASSWORD: secret
+            MYSQL_DB: app
+            AWS_ACCESS_KEY_ID: app
+            AWS_SECRET_ACCESS_KEY: app_secret
+            AWS_DEFAULT_REGION: region
+            S3_ENDPOINT: http://site-storage:9000
+            S3_BUCKET: backup
+        command: sh -c 'wait-for-it site-mysql:3306 -t 20 && backup'
     site-redis:
         image: redis:6.2-alpine
         volumes:
@@ -122,6 +137,23 @@ services:
         image: mailhog/mailhog
         ports:
             - "8082:8025"
+    site-storage:
+        image: minio/minio
+        environment:
+            MINIO_ACCESS_KEY: app
+            MINIO_SECRET_KEY: app_secret
+        networks:
+            - traefik-public
+            - default
+        volumes:
+            - site-storage:/data
+        entrypoint: sh -c 'mkdir -p /data/backup && minio server /data --console-address ":80"'
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site-storage.rule=Host(`storage.localhost`)
+            - traefik.http.routers.site-storage.entrypoints=http
+            - traefik.http.services.site-storage.loadbalancer.server.port=80
     site-wiremock:
         image: rodolpheche/wiremock:latest-alpine
         volumes:
@@ -136,6 +168,7 @@ services:
 volumes:
     site-mysql:
     site-redis:
+    site-storage:
 
 networks:
     traefik-public:

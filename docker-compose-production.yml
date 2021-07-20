@@ -89,6 +89,27 @@ services:
                 window: 120s
             placement:
                 constraints: [node.role == manager]
+    site-mysql-backup:
+        image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
+        environment:
+            MYSQL_HOST: ${DB_HOST}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DB: ${DB_NAME}
+            AWS_ACCESS_KEY_ID: ${BACKUP_AWS_ACCESS_KEY_ID}
+            AWS_SECRET_ACCESS_KEY: ${BACKUP_AWS_SECRET_ACCESS_KEY}
+            AWS_DEFAULT_REGION: ${BACKUP_AWS_DEFAULT_REGION}
+            S3_ENDPOINT: ${BACKUP_S3_ENDPOINT}
+            S3_BUCKET: ${BACKUP_S3_BUCKET}
+        command: sh -c "wait-for-it ${DB_HOST}:3306 -t 60 && backup"
+        deploy:
+            labels:
+                - swarm.cronjob.enable=true
+                - swarm.cronjob.schedule=0 * * * *
+                - swarm.cronjob.skip-running=true
+            replicas: 0
+            restart_policy:
+                condition: none
     site-redis:
         image: redis:6.2-alpine
         volumes:

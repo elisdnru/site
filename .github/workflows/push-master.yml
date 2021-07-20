@@ -94,3 +94,8 @@ jobs:
                     MAILER_PASSWORD: ${{ secrets.MAILER_PASSWORD }}
                     MAILER_FROM_EMAIL: ${{ secrets.MAILER_FROM_EMAIL }}
                     SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+                    BACKUP_AWS_ACCESS_KEY_ID: ${{ secrets.BACKUP_AWS_ACCESS_KEY_ID }}
+                    BACKUP_AWS_SECRET_ACCESS_KEY: ${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}
+                    BACKUP_AWS_DEFAULT_REGION: ${{ secrets.BACKUP_AWS_DEFAULT_REGION }}
+                    BACKUP_S3_ENDPOINT: ${{ secrets.BACKUP_S3_ENDPOINT }}
+                    BACKUP_S3_BUCKET: ${{ secrets.BACKUP_S3_BUCKET }}
