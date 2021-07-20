@@ -123,6 +123,12 @@ build:
 	--tag ${REGISTRY}/site-mysql-backup:${IMAGE_TAG} \
 	--file docker/common/mysql-backup/Dockerfile docker/common
 
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--cache-from ${REGISTRY}/site-files-backup:cache \
+	--tag ${REGISTRY}/site-files-backup:cache \
+	--tag ${REGISTRY}/site-files-backup:${IMAGE_TAG} \
+	--file docker/common/files-backup/Dockerfile docker/common/files-backup
+
 try-build:
 	REGISTRY=localhost IMAGE_TAG=0 make build
 
@@ -131,12 +137,14 @@ push-build-cache:
 	docker push ${REGISTRY}/site-php-fpm:cache
 	docker push ${REGISTRY}/site-php-cli:cache
 	docker push ${REGISTRY}/site-mysql-backup:cache
+	docker push ${REGISTRY}/site-files-backup:cache
 
 push:
 	docker push ${REGISTRY}/site:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-php-cli:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
+	docker push ${REGISTRY}/site-files-backup:${IMAGE_TAG}
 
 deploy:
 	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'rm -rf site_${BUILD_NUMBER} && mkdir site_${BUILD_NUMBER}'

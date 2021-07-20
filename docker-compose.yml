@@ -129,6 +129,22 @@ services:
             S3_ENDPOINT: http://site-storage:9000
             S3_BUCKET: backup
         command: sh -c 'wait-for-it site-mysql:3306 -t 20 && backup'
+    site-upload-backup:
+        image: ${REGISTRY:-localhost}/site-files-backup:cache
+        build:
+            context: ./docker/common/files-backup
+            cache_from:
+                - ${REGISTRY:-localhost}/site-files-backup:cache
+        environment:
+            TARGET: /upload
+            BACKUP_NAME: upload
+            AWS_ACCESS_KEY_ID: app
+            AWS_SECRET_ACCESS_KEY: app_secret
+            AWS_DEFAULT_REGION: region
+            S3_ENDPOINT: http://site-storage:9000
+            S3_BUCKET: backup
+        volumes:
+            - ./public/upload:/upload:ro
     site-redis:
         image: redis:6.2-alpine
         volumes:

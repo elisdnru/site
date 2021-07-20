@@ -123,6 +123,26 @@ services:
             replicas: 0
             restart_policy:
                 condition: none
+    site-upload-backup:
+        image: ${REGISTRY}/site-files-backup:${IMAGE_TAG}
+        environment:
+            TARGET: /upload
+            BACKUP_NAME: upload
+            AWS_ACCESS_KEY_ID: ${BACKUP_AWS_ACCESS_KEY_ID}
+            AWS_SECRET_ACCESS_KEY: ${BACKUP_AWS_SECRET_ACCESS_KEY}
+            AWS_DEFAULT_REGION: ${BACKUP_AWS_DEFAULT_REGION}
+            S3_ENDPOINT: ${BACKUP_S3_ENDPOINT}
+            S3_BUCKET: ${BACKUP_S3_BUCKET}
+        volumes:
+            - site-upload:/upload:ro
+        deploy:
+            labels:
+                - swarm.cronjob.enable=true
+                - swarm.cronjob.schedule=10 * * * *
+                - swarm.cronjob.skip-running=true
+            replicas: 0
+            restart_policy:
+                condition: none
     site-redis:
         image: redis:6.2-alpine
         volumes:
