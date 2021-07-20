@@ -23,7 +23,7 @@ use app\widgets\inline\MailTo;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
 use app\widgets\inline\YouTube;
-use codemix\streamlog\Target;
+use codemix\streamlog\Target as StreamTarget;
 use Http\Client\Curl\Client;
 use Laminas\Diactoros\RequestFactory;
 use Laminas\Diactoros\ResponseFactory;
@@ -179,13 +179,13 @@ return [
                 'traceLevel' => (bool)env('APP_DEBUG', '') ? 3 : 0,
                 'targets' => [
                     [
-                        'class' => Target::class,
+                        'class' => StreamTarget::class,
                         'url' => 'php://stdout',
                         'levels' => ['info', 'trace'],
                         'logVars' => [],
                     ],
                     [
-                        'class' => Target::class,
+                        'class' => StreamTarget::class,
                         'url' => 'php://stderr',
                         'levels' => ['error', 'warning'],
                         'logVars' => [],
