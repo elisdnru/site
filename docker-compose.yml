@@ -95,7 +95,7 @@ services:
         volumes:
             - ./:/app
         working_dir: /app
-        command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run watch"
+        command: sh -c 'until [ -f .ready ] ; do sleep 1 ; done && npm run watch'
     site-node-cli:
         image: node:16-alpine
         volumes:

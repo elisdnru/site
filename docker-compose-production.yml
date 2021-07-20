@@ -80,7 +80,7 @@ services:
         volumes:
             - site-assets:/app/public/assets
             - site-upload:/app/public/upload
-        command: sh -c 'wait-for-it ${DB_HOST}:3306 -t 60 && php bin/app.php migrate --interactive=0'
+        command: "sh -c 'wait-for-it ${DB_HOST}:3306 -t 60 && php bin/app.php migrate --interactive=0'"
         deploy:
             restart_policy:
                 condition: on-failure
