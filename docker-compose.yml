@@ -112,9 +112,12 @@ services:
         ports:
             - "33061:3306"
     site-mysql-backup:
+        image: ${REGISTRY:-localhost}/site-mysql-backup:cache
         build:
             context: ./docker/common
             dockerfile: backup/Dockerfile
+            cache_from:
+                - ${REGISTRY:-localhost}/site-mysql-backup:cache
         environment:
             MYSQL_HOST: site-mysql
             MYSQL_USER: app
