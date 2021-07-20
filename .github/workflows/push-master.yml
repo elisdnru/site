@@ -83,8 +83,10 @@ jobs:
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
                     COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
+                    DB_HOST: ${{ secrets.DB_HOST }}
+                    DB_NAME: ${{ secrets.DB_NAME }}
+                    DB_USERNAME: ${{ secrets.DB_USERNAME }}
                     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-                    DB_ROOT_PASSWORD: ${{ secrets.DB_ROOT_PASSWORD }}
                     REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
                     MAILER_HOST: ${{ secrets.MAILER_HOST }}
                     MAILER_PORT: ${{ secrets.MAILER_PORT }}
