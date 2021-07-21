@@ -44,23 +44,29 @@ services:
             PHP_IDE_CONFIG: serverName=SITE
             APP_DEBUG: 1
             APP_ENV: dev
-            COOKIE_SECRET: test
+            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
             DB_NAME: app
             DB_USERNAME: app
-            DB_PASSWORD: secret
+            DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
-            REDIS_PASSWORD: secret
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USER: app
-            MAILER_PASSWORD: secret
+            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
-            SENTRY_DSN: ""
+            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         volumes:
             - ./:/app
+        secrets:
+            - cookie_secret
+            - db_password
+            - redis_password
+            - mailer_password
+            - sentry_dsn
     site-php-cli:
         image: ${REGISTRY:-localhost}/site-dev-php-cli:cache
         build:
@@ -71,23 +77,29 @@ services:
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
-            COOKIE_SECRET: test
+            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
             DB_NAME: app
             DB_USERNAME: app
-            DB_PASSWORD: secret
+            DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
-            REDIS_PASSWORD: secret
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USER: app
-            MAILER_PASSWORD: secret
+            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
-            SENTRY_DSN: ""
+            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         volumes:
             - ./:/app
+        secrets:
+            - cookie_secret
+            - db_password
+            - redis_password
+            - mailer_password
+            - sentry_dsn
         network_mode: service:site
     site-node-watch:
         image: node:16-alpine
@@ -105,10 +117,13 @@ services:
         volumes:
             - site-mysql:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
             MYSQL_USER: app
-            MYSQL_PASSWORD: secret
+            MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_DATABASE: app
+        secrets:
+            - db_root_password
+            - db_password
         ports:
             - "33061:3306"
     site-mysql-backup:
@@ -121,13 +136,16 @@ services:
         environment:
             MYSQL_HOST: site-mysql
             MYSQL_USER: app
-            MYSQL_PASSWORD: secret
+            MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_DB: app
             AWS_ACCESS_KEY_ID: app
-            AWS_SECRET_ACCESS_KEY: app_secret
+            AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
             S3_ENDPOINT: http://site-storage:9000
             S3_BUCKET: backup
+        secrets:
+            - db_password
+            - backup_aws_secret_access_key
         command: sh -c 'wait-for-it site-mysql:3306 -t 20 && backup'
     site-upload-backup:
         image: ${REGISTRY:-localhost}/site-dev-files-backup:cache
@@ -139,10 +157,12 @@ services:
             TARGET: /upload
             BACKUP_NAME: upload
             AWS_ACCESS_KEY_ID: app
-            AWS_SECRET_ACCESS_KEY: app_secret
+            AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
             S3_ENDPOINT: http://site-storage:9000
             S3_BUCKET: backup
+        secrets:
+            - backup_aws_secret_access_key
         volumes:
             - ./public/upload:/upload:ro
     site-redis:
@@ -152,7 +172,9 @@ services:
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-redis:cache
         environment:
-            REDIS_PASSWORD: secret
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+        secrets:
+            - redis_password
         volumes:
             - site-redis:/data
     site-mailer:
@@ -186,6 +208,22 @@ services:
             - '--port=80'
             - '--global-response-templating'
             - '--verbose'
+
+secrets:
+    cookie_secret:
+        file: ./docker/secrets/cookie_secret
+    db_root_password:
+        file: ./docker/secrets/db_root_password
+    db_password:
+        file: ./docker/secrets/db_password
+    redis_password:
+        file: ./docker/secrets/redis_password
+    mailer_password:
+        file: ./docker/secrets/mailer_password
+    sentry_dsn:
+        file: ./docker/secrets/sentry_dsn
+    backup_aws_secret_access_key:
+        file: ./docker/secrets/backup_aws_secret_access_key
 
 volumes:
     site-mysql:

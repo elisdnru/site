@@ -76,26 +76,37 @@ jobs:
                     key: ${{ secrets.SSH_KEY }}
                     known_hosts: ${{ secrets.DEPLOY_HOST }}
 
+            -   name: Secrets
+                run: |
+                    echo "${{ secrets.COOKIE_SECRET }}" > /tmp/cookie_secret
+                    echo "${{ secrets.DB_ROOT_PASSWORD }}" > /tmp/db_root_password
+                    echo "${{ secrets.DB_PASSWORD }}" > /tmp/db_password
+                    echo "${{ secrets.REDIS_PASSWORD }}" > /tmp/redis_password
+                    echo "${{ secrets.MAILER_PASSWORD }}" > /tmp/mailer_password
+                    echo "${{ secrets.SENTRY_DSN }}" > /tmp/sentry_dsn
+                    echo "${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}" > /tmp/backup_aws_secret_access_key
+
             -   name: Deploy
                 run: make deploy
                 env:
                     BUILD_NUMBER: ${{ github.run_number }}
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
-                    COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
+                    COOKIE_SECRET_FILE: /tmp/cookie_secret
                     DB_HOST: ${{ secrets.DB_HOST }}
                     DB_NAME: ${{ secrets.DB_NAME }}
                     DB_USERNAME: ${{ secrets.DB_USERNAME }}
-                    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-                    REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+                    DB_ROOT_PASSWORD_FILE: /tmp/db_root_password
+                    DB_PASSWORD_FILE: /tmp/db_password
+                    REDIS_PASSWORD_FILE: /tmp/redis_password
                     MAILER_HOST: ${{ secrets.MAILER_HOST }}
                     MAILER_PORT: ${{ secrets.MAILER_PORT }}
                     MAILER_USER: ${{ secrets.MAILER_USER }}
-                    MAILER_PASSWORD: ${{ secrets.MAILER_PASSWORD }}
+                    MAILER_PASSWORD_FILE: /tmp/mailer_password
                     MAILER_FROM_EMAIL: ${{ secrets.MAILER_FROM_EMAIL }}
-                    SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+                    SENTRY_DSN_FILE: /tmp/sentry_dsn
                     BACKUP_AWS_ACCESS_KEY_ID: ${{ secrets.BACKUP_AWS_ACCESS_KEY_ID }}
-                    BACKUP_AWS_SECRET_ACCESS_KEY: ${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}
+                    BACKUP_AWS_SECRET_ACCESS_KEY_FILE: /tmp/backup_aws_secret_access_key
                     BACKUP_AWS_DEFAULT_REGION: ${{ secrets.BACKUP_AWS_DEFAULT_REGION }}
                     BACKUP_S3_ENDPOINT: ${{ secrets.BACKUP_S3_ENDPOINT }}
                     BACKUP_S3_BUCKET: ${{ secrets.BACKUP_S3_BUCKET }}
