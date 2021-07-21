@@ -79,7 +79,6 @@ jobs:
             -   name: Secrets
                 run: |
                     echo "${{ secrets.COOKIE_SECRET }}" > /tmp/cookie_secret
-                    echo "${{ secrets.DB_ROOT_PASSWORD }}" > /tmp/db_root_password
                     echo "${{ secrets.DB_PASSWORD }}" > /tmp/db_password
                     echo "${{ secrets.REDIS_PASSWORD }}" > /tmp/redis_password
                     echo "${{ secrets.MAILER_PASSWORD }}" > /tmp/mailer_password
@@ -96,7 +95,6 @@ jobs:
                     DB_HOST: ${{ secrets.DB_HOST }}
                     DB_NAME: ${{ secrets.DB_NAME }}
                     DB_USERNAME: ${{ secrets.DB_USERNAME }}
-                    DB_ROOT_PASSWORD_FILE: /tmp/db_root_password
                     DB_PASSWORD_FILE: /tmp/db_password
                     REDIS_PASSWORD_FILE: /tmp/redis_password
                     MAILER_HOST: ${{ secrets.MAILER_HOST }}

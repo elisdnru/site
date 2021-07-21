@@ -163,7 +163,6 @@ deploy:
 
 	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'mkdir site_${BUILD_NUMBER}/secrets'
 	scp -o StrictHostKeyChecking=no -P ${PORT} ${COOKIE_SECRET_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/cookie_secret
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${DB_ROOT_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/db_root_password
 	scp -o StrictHostKeyChecking=no -P ${PORT} ${DB_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/db_password
 	scp -o StrictHostKeyChecking=no -P ${PORT} ${REDIS_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/redis_password
 	scp -o StrictHostKeyChecking=no -P ${PORT} ${MAILER_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/mailer_password

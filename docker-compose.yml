@@ -117,12 +117,11 @@ services:
         volumes:
             - site-mysql:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+            MYSQL_ROOT_PASSWORD: secret
             MYSQL_USER: app
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_DATABASE: app
         secrets:
-            - db_root_password
             - db_password
         ports:
             - "33061:3306"
@@ -212,8 +211,6 @@ services:
 secrets:
     cookie_secret:
         file: ./docker/secrets/cookie_secret
-    db_root_password:
-        file: ./docker/secrets/db_root_password
     db_password:
         file: ./docker/secrets/db_password
     redis_password:

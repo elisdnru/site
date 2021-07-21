@@ -165,8 +165,6 @@ services:
 secrets:
     cookie_secret:
         file: ./secrets/cookie_secret
-    db_root_password:
-        file: ./secrets/db_root_password
     db_password:
         file: ./secrets/db_password
     redis_password:
