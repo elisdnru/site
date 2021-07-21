@@ -100,8 +100,8 @@ site-test:
 
 build:
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-  --cache-from ${REGISTRY}/site:cache \
-  --tag ${REGISTRY}/site:cache \
+	--cache-from ${REGISTRY}/site:cache \
+	--tag ${REGISTRY}/site:cache \
 	--tag ${REGISTRY}/site:${IMAGE_TAG} \
 	--file docker/production/nginx/Dockerfile .
 
