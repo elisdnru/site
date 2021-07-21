@@ -112,12 +112,12 @@ services:
         ports:
             - "33061:3306"
     site-mysql-backup:
-        image: ${REGISTRY:-localhost}/site-mysql-backup:cache
+        image: ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
         build:
             context: ./docker/common
             dockerfile: mysql-backup/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/site-mysql-backup:cache
+                - ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
         environment:
             MYSQL_HOST: site-mysql
             MYSQL_USER: app
@@ -130,11 +130,11 @@ services:
             S3_BUCKET: backup
         command: sh -c 'wait-for-it site-mysql:3306 -t 20 && backup'
     site-upload-backup:
-        image: ${REGISTRY:-localhost}/site-files-backup:cache
+        image: ${REGISTRY:-localhost}/site-dev-files-backup:cache
         build:
             context: ./docker/common/files-backup
             cache_from:
-                - ${REGISTRY:-localhost}/site-files-backup:cache
+                - ${REGISTRY:-localhost}/site-dev-files-backup:cache
         environment:
             TARGET: /upload
             BACKUP_NAME: upload
