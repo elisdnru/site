@@ -159,8 +159,8 @@ services:
     site-storage:
         image: minio/minio
         environment:
-            MINIO_ACCESS_KEY: app
-            MINIO_SECRET_KEY: app_secret
+            MINIO_ROOT_USER: app
+            MINIO_ROOT_PASSWORD: app_secret
         networks:
             - traefik-public
             - default
