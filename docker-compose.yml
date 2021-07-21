@@ -146,12 +146,15 @@ services:
         volumes:
             - ./public/upload:/upload:ro
     site-redis:
-        image: redis:6.2-alpine
+        image: ${REGISTRY:-localhost}/site-dev-redis:cache
+        build:
+            context: ./docker/common/redis
+            cache_from:
+                - ${REGISTRY:-localhost}/site-dev-redis:cache
+        environment:
+            REDIS_PASSWORD: secret
         volumes:
             - site-redis:/data
-        command:
-            - 'redis-server'
-            - '--requirepass secret'
     site-mailer:
         image: mailhog/mailhog
         ports:

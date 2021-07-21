@@ -133,12 +133,11 @@ services:
             placement:
                 constraints: [ node.role == manager ]
     site-redis:
-        image: redis:6.2-alpine
+        image: ${REGISTRY}/site-redis:6.2
+        environment:
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
         volumes:
             - site-redis:/data
-        command:
-            - 'redis-server'
-            - "--requirepass ${REDIS_PASSWORD}"
         deploy:
             placement:
                 constraints: [ node.labels.db == db ]
