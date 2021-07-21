@@ -9,13 +9,11 @@ use yii\base\Component;
 class Container extends Component
 {
     /**
-     * @param string|Instance $class
+     * @template T
+     * @param class-string<T> $class
      * @param array $params
      * @param array $config
-     * @return object
-     * @template T
-     * @psalm-param class-string<T> $class
-     * @psalm-return T
+     * @return T
      */
     public function get($class, $params = [], $config = [])
     {

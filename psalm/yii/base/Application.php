@@ -22,7 +22,7 @@ use yii\web\User;
 class Application extends Module
 {
     /**
-     * @psalm-var array{
+     * @var array{
      *     deworker_api_url: string
      * }
      */
