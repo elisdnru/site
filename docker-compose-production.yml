@@ -43,7 +43,7 @@ services:
             MAILER_PORT: ${MAILER_PORT}
             MAILER_USER: ${MAILER_USER}
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
-            MAILER_ENCRYPTION: tcp
+            MAILER_ENCRYPTION: tls
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
             DEWORKER_API_URL: https://api.deworker.pro
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
@@ -79,7 +79,7 @@ services:
             MAILER_PORT: ${MAILER_PORT}
             MAILER_USER: ${MAILER_USER}
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
-            MAILER_ENCRYPTION: tcp
+            MAILER_ENCRYPTION: tls
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
             DEWORKER_API_URL: https://api.deworker.pro
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
