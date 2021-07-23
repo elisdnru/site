@@ -12,7 +12,7 @@ use yii\web\Request;
 use yii\web\Session;
 use yii\web\User;
 
-$isSecure = env('APP_ENV', 'prod') === 'prod';
+$isSecure = parse_url(env('APP_URL'), PHP_URL_SCHEME) === 'https';
 
 return ArrayHelper::merge(
     require(__DIR__ . '/common.php'),
