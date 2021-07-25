@@ -61,6 +61,9 @@ jobs:
                     path: tests/_output
                 if: ${{ failure() }}
 
+            -   name: Down
+                run: make down
+
             -   name: Build
                 run: make build
 
