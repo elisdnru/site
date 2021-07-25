@@ -63,6 +63,12 @@ site-fixtures:
 	docker-compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
 	docker-compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
 
+site-backup-mysql:
+	docker-compose run --rm site-mysql-backup
+
+site-backup-upload:
+	docker-compose run --rm site-upload-backup
+
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 

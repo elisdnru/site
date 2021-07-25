@@ -61,6 +61,12 @@ jobs:
                     path: tests/_output
                 if: ${{ failure() }}
 
+            -   name: Backup MySQL
+                run: make site-backup-mysql
+
+            -   name: Backup uploads
+                run: make site-backup-upload
+
             -   name: Down
                 run: make down
 
