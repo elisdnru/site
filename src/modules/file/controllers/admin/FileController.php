@@ -47,14 +47,17 @@ class FileController extends AdminController
 
     public function actionIndex(Request $request, File $fileHandler, string $path = ''): Response|string
     {
+        $path = FilenameEscaper::escape($path);
+
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
+
+        if (!file_exists($root)) {
+            $fileHandler->createDir(0754, $root);
+        }
+
         $htmlRoot = '/' . $this->getFileDir();
 
         $currentPath = $this->getFileDir() . ($path ? '/' . $path : '');
-
-        if (!file_exists($this->getFileDir() . '/' . $path)) {
-            $fileHandler->createDir(0754, $this->getFileDir() . '/' . $path);
-        }
 
         if (!empty($_FILES)) {
             for ($i = 1; $i <= self::UPLOAD_COUNT; ++$i) {

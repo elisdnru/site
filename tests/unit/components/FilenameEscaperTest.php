@@ -14,6 +14,6 @@ final class FilenameEscaperTest extends Unit
 {
     public function testThumbFileName(): void
     {
-        self::assertEquals('wro-ngф_айл.exe', FilenameEscaper::escape('../wro-ng/ф_айл.exe'));
+        self::assertEquals('_/wro-ng/ф_айл.exe', FilenameEscaper::escape('../wro-ng/ф_айл.exe'));
     }
 }

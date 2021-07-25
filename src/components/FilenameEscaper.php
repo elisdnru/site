@@ -8,6 +8,6 @@ class FilenameEscaper
 {
     public static function escape(string $name): string
     {
-        return Transliterator::translit(str_replace(['..', '~', '"', '"', '/', ':'], '', $name));
+        return Transliterator::translit(str_replace(['..', '~', '"', '\'', ':'], '_', $name));
     }
 }

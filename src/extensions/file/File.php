@@ -565,8 +565,10 @@ class File
         }
 
         if (is_int($this->owner) && function_exists('posix_getpwuid') && $getName === true) {
-            $this->owner = posix_getpwuid($this->owner);
-            $this->owner = $this->owner['name'];
+            $owner = posix_getpwuid($this->owner);
+            if ($owner) {
+                $this->owner = $owner['name'];
+            }
         }
 
         return $this->owner;
@@ -588,8 +590,10 @@ class File
         }
 
         if (is_int($this->group) && function_exists('posix_getgrgid') && $getName === true) {
-            $this->group = posix_getgrgid($this->group);
-            $this->group = $this->group['name'];
+            $group = posix_getgrgid($this->group);
+            if ($group) {
+                $this->group = $this->group['name'];
+            }
         }
 
         return $this->group;
