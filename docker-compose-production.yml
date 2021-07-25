@@ -17,7 +17,11 @@ services:
                 - traefik.http.middlewares.site-redirect.redirectregex.regex=^(https?://)www.elisdn.ru/(.*)$$
                 - traefik.http.middlewares.site-redirect.redirectregex.replacement=$${1}elisdn.ru$${2}
                 - traefik.http.middlewares.site-redirect.redirectregex.permanent=true
-                - traefik.http.routers.site.middlewares=site-redirect
+                - traefik.http.middlewares.site-secure.headers.frameDeny=true
+                - traefik.http.middlewares.site-secure.headers.sslRedirect=true
+                - traefik.http.middlewares.site-secure.headers.stsSeconds=31536000
+                - traefik.http.middlewares.site-secure.headers.contentSecurityPolicy=block-all-mixed-content
+                - traefik.http.routers.site.middlewares=site-redirect,site-secure
                 - traefik.http.routers.site.entrypoints=https
                 - traefik.http.routers.site.tls=true
                 - traefik.http.routers.site.tls.certresolver=letsencrypt
