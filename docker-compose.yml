@@ -135,6 +135,7 @@ services:
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
         environment:
+            BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
             MYSQL_USER: app
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
@@ -155,8 +156,8 @@ services:
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-files-backup:cache
         environment:
+            BACKUP_NAME: site-upload
             TARGET: /upload
-            BACKUP_NAME: upload
             AWS_ACCESS_KEY_ID: app
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
