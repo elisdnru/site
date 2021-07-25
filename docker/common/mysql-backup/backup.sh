@@ -4,11 +4,11 @@ set -o errexit
 set -o pipefail
 
 if [ -f "$MYSQL_PASSWORD_FILE" ]; then
-  MYSQL_PASSWORD=$(cat "$MYSQL_PASSWORD_FILE")
+  MYSQL_PASSWORD="$(cat "$MYSQL_PASSWORD_FILE")"
 fi
 
 if [ -f "$AWS_SECRET_ACCESS_KEY_FILE" ]; then
-  AWS_SECRET_ACCESS_KEY=$(cat "$AWS_SECRET_ACCESS_KEY_FILE")
+  AWS_SECRET_ACCESS_KEY="$(cat "$AWS_SECRET_ACCESS_KEY_FILE")"
 fi
 
 BACKUP_FILE="${BACKUP_NAME}_$(date +%Y-%m-%d_%H-%M).sql.gz"
