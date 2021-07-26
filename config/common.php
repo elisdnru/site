@@ -207,7 +207,7 @@ return [
                     'class' => Swift_SmtpTransport::class,
                     'host' => env('MAILER_HOST'),
                     'port' => env('MAILER_PORT'),
-                    'username' => env('MAILER_USER'),
+                    'username' => env('MAILER_USERNAME'),
                     'password' => env('MAILER_PASSWORD'),
                     'encryption' => env('MAILER_ENCRYPTION'),
                 ],

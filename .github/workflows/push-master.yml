@@ -108,7 +108,7 @@ jobs:
                     REDIS_PASSWORD_FILE: /tmp/redis_password
                     MAILER_HOST: ${{ secrets.MAILER_HOST }}
                     MAILER_PORT: ${{ secrets.MAILER_PORT }}
-                    MAILER_USER: ${{ secrets.MAILER_USER }}
+                    MAILER_USERNAME: ${{ secrets.MAILER_USERNAME }}
                     MAILER_PASSWORD_FILE: /tmp/mailer_password
                     MAILER_FROM_EMAIL: ${{ secrets.MAILER_FROM_EMAIL }}
                     SENTRY_DSN_FILE: /tmp/sentry_dsn

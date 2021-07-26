@@ -46,7 +46,7 @@ services:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
-            MAILER_USER: ${MAILER_USER}
+            MAILER_USERNAME: ${MAILER_USERNAME}
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_ENCRYPTION: tls
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
@@ -83,7 +83,7 @@ services:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
-            MAILER_USER: ${MAILER_USER}
+            MAILER_USERNAME: ${MAILER_USERNAME}
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_ENCRYPTION: tls
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}

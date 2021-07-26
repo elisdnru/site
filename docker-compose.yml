@@ -54,7 +54,7 @@ services:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
-            MAILER_USER: app
+            MAILER_USERNAME: app
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
@@ -88,7 +88,7 @@ services:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
-            MAILER_USER: app
+            MAILER_USERNAME: app
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
