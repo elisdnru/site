@@ -164,6 +164,10 @@ services:
             - redis_password
         volumes:
             - site-redis:/data
+        command:
+            - 'redis-server'
+            - '--maxmemory 32mb'
+            - '--maxmemory-policy allkeys-lru'
         deploy:
             placement:
                 constraints: [ node.labels.db == db ]
