@@ -11,7 +11,6 @@ use RuntimeException;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\mail\MailerInterface;
 use yii\web\UploadedFile;
 
@@ -83,7 +82,7 @@ class User extends ActiveRecord
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'create_datetime',
                 'updatedAtAttribute' => 'last_modify_datetime',
-                'value' => static fn () => new Expression('NOW()'),
+                'value' => static fn () => date('Y-m-d H:i:s'),
             ],
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,

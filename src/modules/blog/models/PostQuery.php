@@ -12,7 +12,11 @@ class PostQuery extends ActiveQuery
 {
     public function published(): self
     {
-        return $this->andWhere('public = 1 AND date <= NOW()');
+        return $this->andWhere([
+            'and',
+            ['public' => 1],
+            ['<=', 'date', date('Y-m-d H:i:s')],
+        ]);
     }
 
     /**

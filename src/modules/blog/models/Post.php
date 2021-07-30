@@ -13,7 +13,6 @@ use app\modules\user\models\User;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
@@ -155,7 +154,7 @@ class Post extends ActiveRecord implements Material
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => 'update_date',
-                'value' => static fn () => new Expression('NOW()'),
+                'value' => static fn () => date('Y-m-d H:i:s'),
             ],
             'PurifyShort' => [
                 'class' => PurifyTextBehavior::class,

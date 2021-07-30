@@ -12,7 +12,6 @@ use ReflectionException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\mail\MailerInterface;
 use yii\web\Session;
 
@@ -145,7 +144,7 @@ class Comment extends ActiveRecord
                 'class' => TimestampBehavior::class,
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => null,
-                'value' => static fn () => new Expression('NOW()'),
+                'value' => static fn () => date('Y-m-d H:i:s'),
             ],
             'PurifyText' => [
                 'class' => PurifyTextBehavior::class,
