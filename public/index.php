@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-if (getenv('SENTRY_DSN')) {
-    Sentry\init(['dsn' => getenv('SENTRY_DSN')]);
+if ($dsn = env('SENTRY_DSN')) {
+    Sentry\init(['dsn' => $dsn]);
 }
 
 require_once __DIR__ . '/../config/env.php';
