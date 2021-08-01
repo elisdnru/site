@@ -9,8 +9,7 @@
     "prettier": "prettier --write \"assets/**/*.(js|css)\""
   },
   "dependencies": {
-    "jquery": "^3.5.1",
-    "jquery-ui": "^1.12.1"
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",

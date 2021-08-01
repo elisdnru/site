@@ -7,7 +7,6 @@ namespace app\modules\portfolio\controllers\admin;
 use app\components\AdminController;
 use app\modules\portfolio\models\Work;
 use yii\data\Pagination;
-use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -16,18 +15,6 @@ use yii\web\Response;
 class WorkController extends AdminController
 {
     private const ITEMS_PER_PAGE = 50;
-
-    public function behaviors(): array
-    {
-        return array_merge(parent::behaviors(), [
-            [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'sort' => ['post'],
-                ],
-            ],
-        ]);
-    }
 
     public function actionIndex(Request $request): string
     {
@@ -117,43 +104,6 @@ class WorkController extends AdminController
         $model = $this->loadModel($id);
 
         return $this->redirect($model->getUrl());
-    }
-
-    public function actionSort(Request $request): ?Response
-    {
-        $success = true;
-
-        /** @var string[] $items */
-        $items = (array)$request->post('item');
-
-        if ($items) {
-            $sort = 0;
-            $count = 0;
-
-            foreach ($items as $id) {
-                $model = $this->loadModel((int)$id);
-                if ($model->sort > $sort) {
-                    $sort = $model->sort;
-                }
-                ++$count;
-            }
-
-            if ($sort < $count) {
-                $sort = $count;
-            }
-
-            foreach ($items as $id) {
-                $model = $this->loadModel((int)$id);
-                $model->sort = $sort;
-                --$sort;
-                $success = $success && $model->save();
-            }
-        }
-
-        if (!$request->getIsAjax()) {
-            return $this->redirect(['index']);
-        }
-        return null;
     }
 
     private function loadModel(int $id): Work

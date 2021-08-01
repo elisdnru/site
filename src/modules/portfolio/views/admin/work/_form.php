@@ -54,6 +54,12 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'date', ['class' => 'error-message']); ?>
             </div>
 
+            <div class="row<?= $model->hasErrors('sort') ? ' error' : ''; ?>">
+                <?= Html::activeLabel($model, 'sort'); ?><br />
+                <?= Html::activeTextInput($model, 'sort'); ?><br />
+                <?= Html::error($model, 'sort', ['class' => 'error-message']); ?>
+            </div>
+
             <div class="row">
                 <?= Html::activeCheckbox($model, 'public'); ?>
             </div>
