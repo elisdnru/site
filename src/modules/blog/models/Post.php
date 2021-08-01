@@ -219,6 +219,7 @@ class Post extends ActiveRecord implements Material
     public function getTagsString(): string
     {
         if ($this->tags_string === null) {
+            /** @var string[] $list */
             $list = ArrayHelper::map($this->tags, 'id', 'title');
             $this->tags_string = implode(', ', $list);
         }
