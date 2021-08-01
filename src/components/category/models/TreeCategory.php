@@ -27,7 +27,7 @@ abstract class TreeCategory extends Category
     public function rules(): array
     {
         return array_merge(self::staticRules(), [
-            ['parent_id', 'exist', 'targetClass' => static::class],
+            ['parent_id', 'exist', 'targetClass' => static::class, 'targetAttribute' => 'id'],
         ]);
     }
 

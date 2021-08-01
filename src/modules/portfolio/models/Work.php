@@ -57,7 +57,7 @@ class Work extends ActiveRecord
         return [
             [['date', 'category_id', 'alias', 'title'], 'required'],
             [['sort', 'public', 'image_show'], 'integer'],
-            ['category_id', 'exist', 'targetClass' => Category::class],
+            ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
             [['short', 'text', 'meta_description', 'delImage'], 'safe'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
             [['title', 'alias', 'meta_title'], 'string', 'max' => '255'],
