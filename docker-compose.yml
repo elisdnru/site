@@ -143,7 +143,7 @@ services:
             AWS_ACCESS_KEY_ID: app
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
-            S3_ENDPOINT: http://site-storage:9000
+            S3_ENDPOINT: http://site-backup-storage:9000
             S3_BUCKET: backup
         secrets:
             - db_password
@@ -161,7 +161,7 @@ services:
             AWS_ACCESS_KEY_ID: app
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
-            S3_ENDPOINT: http://site-storage:9000
+            S3_ENDPOINT: http://site-backup-storage:9000
             S3_BUCKET: backup
         secrets:
             - backup_aws_secret_access_key
@@ -187,7 +187,7 @@ services:
         image: mailhog/mailhog
         ports:
             - "8082:8025"
-    site-storage:
+    site-backup-storage:
         image: minio/minio
         environment:
             MINIO_ROOT_USER: app
@@ -198,14 +198,14 @@ services:
             - traefik-public
             - default
         volumes:
-            - site-storage:/data
+            - site-backup-storage:/data
         entrypoint: sh -c 'mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ":80"'
         labels:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
-            - traefik.http.routers.site-storage.rule=Host(`storage.localhost`)
-            - traefik.http.routers.site-storage.entrypoints=http
-            - traefik.http.services.site-storage.loadbalancer.server.port=80
+            - traefik.http.routers.site-backup-storage.rule=Host(`backup-storage.localhost`)
+            - traefik.http.routers.site-backup-storage.entrypoints=http
+            - traefik.http.services.site-backup-storage.loadbalancer.server.port=80
     site-wiremock:
         image: rodolpheche/wiremock:latest-alpine
         volumes:
@@ -234,7 +234,7 @@ secrets:
 volumes:
     site-mysql:
     site-redis:
-    site-storage:
+    site-backup-storage:
 
 networks:
     traefik-public:
