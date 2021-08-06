@@ -191,13 +191,15 @@ services:
         image: minio/minio
         environment:
             MINIO_ROOT_USER: app
-            MINIO_ROOT_PASSWORD: app_secret
+            MINIO_ROOT_PASSWORD_FILE: /run/secrets/backup_aws_secret_access_key
+        secrets:
+            - backup_aws_secret_access_key
         networks:
             - traefik-public
             - default
         volumes:
             - site-storage:/data
-        entrypoint: sh -c 'mkdir -p /data/backup && minio server /data --console-address ":80"'
+        entrypoint: sh -c 'mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ":80"'
         labels:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
