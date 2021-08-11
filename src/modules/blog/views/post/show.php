@@ -16,13 +16,17 @@ use app\widgets\Share;
 use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
+use yii\web\Request;
 use yii\web\View;
 
 /**
  * @var InlineWidgetsBehavior|View $this
  * @psalm-var View&InlineWidgetsBehavior $this
  * @var Post $model
+ * @var Request $request
  */
+$request = Yii::$app->request;
+
 $this->context->layout = 'post';
 
 $this->title = $model->meta_title;
@@ -33,7 +37,7 @@ $this->params['breadcrumbs'] = [
     'Блог' => ['/blog'],
 ];
 
-$host = Yii::$app->request->getHostInfo() ?: '';
+$host = $request->getHostInfo() ?: '';
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
 $this->registerMetaTag(['property' => 'og:meta_description', 'content' => $model->meta_description]);

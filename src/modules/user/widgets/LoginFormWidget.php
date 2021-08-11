@@ -6,7 +6,10 @@ namespace app\modules\user\widgets;
 
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
+use BadMethodCallException;
+use Yii;
 use yii\base\Widget;
+use yii\web\Request;
 use yii\web\User as WebUser;
 
 class LoginFormWidget extends Widget
@@ -30,9 +33,16 @@ class LoginFormWidget extends Widget
             $user = null;
         }
 
+        $request = Yii::$app->request;
+
+        if (!$request instanceof Request) {
+            throw new BadMethodCallException('Unable to use non-web request.');
+        }
+
         return $this->render('LoginForm', [
             'model' => $model,
             'user' => $user,
+            'request' => $request,
         ]);
     }
 }

@@ -6,10 +6,12 @@ use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Request;
 
 /**
  * @var User|null $user
  * @var LoginForm $model
+ * @var Request $request
  */
 ?>
 <?php if ($user !== null) : ?>
@@ -58,7 +60,7 @@ use yii\helpers\Url;
         <?= ULoginWidget::widget([
             'params' => [
                 'display' => 'small',
-                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim(Yii::$app->request->getUrl(), '/')], true),
+                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true),
             ],
         ]); ?>
     </div>

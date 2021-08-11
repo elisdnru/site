@@ -2,14 +2,18 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Request;
 
 /**
  * @var string $code
+ * @var Request $request
  */
+$request = Yii::$app->request;
+
 $confirmUrl = Url::to(['/user/registration/confirm', 'code' => $code], true);
 ?>
 
-<p>Здравствуйте! Кто-то указал ваш email при регистрации на сайте <?= Yii::$app->request->getHostInfo(); ?></p>
+<p>Здравствуйте! Кто-то указал ваш email при регистрации на сайте <?= $request->getHostInfo(); ?></p>
 
 <p>Если это сделали вы сами, то проследуйте по ссылке для подтверждения:</p>
 

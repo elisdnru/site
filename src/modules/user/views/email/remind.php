@@ -1,10 +1,15 @@
 <?php declare(strict_types=1);
 
 use yii\helpers\Html;
+use yii\web\Request;
 
-/** @var string $password */
+/**
+ * @var string $password
+ * @var Request $request
+ */
+$request = Yii::$app->request;
 ?>
-<p>Запрошен сброс пароля на сайте <?= Yii::$app->request->getHostInfo(); ?></p>
+<p>Запрошен сброс пароля на сайте <?= $request->getHostInfo(); ?></p>
 
 <p>Временный пароль: <b><?= Html::encode($password); ?></b></p>
 

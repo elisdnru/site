@@ -8,6 +8,7 @@ use app\assets\CommentsAsset;
 use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
+use BadMethodCallException;
 use ReflectionClass;
 use Yii;
 use yii\base\InvalidArgumentException;
@@ -15,6 +16,8 @@ use yii\base\Widget;
 use yii\helpers\Json;
 use yii\mail\MailerInterface;
 use yii\web\Cookie;
+use yii\web\Request;
+use yii\web\Response;
 use yii\web\Session;
 use yii\web\User as WebUser;
 
@@ -50,13 +53,25 @@ class CommentsWidget extends Widget
             throw new InvalidArgumentException('Empty type of comments.');
         }
 
+        $request = Yii::$app->request;
+
+        if (!$request instanceof Request) {
+            throw new BadMethodCallException('Unable to use non-web request.');
+        }
+
+        $response = Yii::$app->response;
+
+        if (!$response instanceof Response) {
+            throw new BadMethodCallException('Unable to use non-web response.');
+        }
+
         $form = new CommentForm();
 
         $user = User::findOne($this->webUser->id);
 
         if ($user === null) {
             $form->scenario = CommentForm::SCENARIO_ANONIM;
-            $form->attributes = $this->loadFormState();
+            $form->attributes = $this->loadFormState($request);
         }
 
         if ($form->load((array)Yii::$app->request->post()) && $form->validate()) {
@@ -64,7 +79,7 @@ class CommentsWidget extends Widget
                 'name' => $form->name,
                 'email' => $form->email,
                 'site' => $form->site,
-            ]);
+            ], $response);
 
             /** @psalm-var class-string<Comment> $className */
             $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
@@ -114,7 +129,7 @@ class CommentsWidget extends Widget
         ]);
     }
 
-    private function saveFormState(array $attributes): void
+    private function saveFormState(array $attributes, Response $response): void
     {
         try {
             $data = Json::encode($attributes);
@@ -130,12 +145,12 @@ class CommentsWidget extends Widget
             'expire' => time() + 3600 * 24 * 180,
         ]);
 
-        Yii::$app->response->cookies->add($cookie);
+        $response->cookies->add($cookie);
     }
 
-    private function loadFormState(): array
+    private function loadFormState(Request $request): array
     {
-        $value = (string)Yii::$app->request->cookies->getValue('comment_form_data');
+        $value = (string)$request->cookies->getValue('comment_form_data');
         try {
             return (array)Json::decode($value);
         } catch (InvalidArgumentException) {

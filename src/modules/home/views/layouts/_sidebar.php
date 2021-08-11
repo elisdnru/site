@@ -8,12 +8,15 @@ use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
 use yii\caching\TagDependency;
+use yii\web\Request;
 use yii\web\View;
 use yii\widgets\Menu;
 
 /**
  * @var View $this
+ * @var Request $request
  */
+$request = Yii::$app->request;
 ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
@@ -31,7 +34,7 @@ use yii\widgets\Menu;
 <?php endif; ?>
 
 <?php Portlet::begin(['title' => 'Разделы блога']); ?>
-<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::find()->cache(0, new TagDependency(['tags' => ['blog']]))->getMenuList(Yii::$app->request->getPathInfo(), 1000)]); ?>
+<?= Menu::widget(['id' => 'blog_categories', 'items' => Category::find()->cache(0, new TagDependency(['tags' => ['blog']]))->getMenuList($request->getPathInfo(), 1000)]); ?>
 <?php Portlet::end(); ?>
 
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>

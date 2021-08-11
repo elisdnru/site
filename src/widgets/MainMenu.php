@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
+use BadMethodCallException;
 use Yii;
+use yii\web\Request;
 use yii\widgets\Menu;
 
 class MainMenu extends Menu
@@ -13,12 +15,15 @@ class MainMenu extends Menu
     {
         parent::init();
 
-        $isActive = static function (string $base): callable {
-            return static function () use ($base): bool {
-                $path = Yii::$app->request->pathInfo;
-                return mb_strpos($path . '/', $base . '/', 0, 'UTF-8') === 0;
-            };
-        };
+        $request = Yii::$app->request;
+
+        if (!$request instanceof Request) {
+            throw new BadMethodCallException('Unable to use non-web request.');
+        }
+
+        $path = $request->getPathInfo();
+
+        $isActive = static fn (string $base): callable => static fn (): bool => mb_strpos($path . '/', $base . '/', 0, 'UTF-8') === 0;
 
         $this->items = [
             ['label' => 'ElisDN', 'url' => ['/home/default/index']],

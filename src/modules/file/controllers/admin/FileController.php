@@ -49,7 +49,7 @@ class FileController extends AdminController
     {
         $path = FilenameEscaper::escape($path);
 
-        $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
+        $root = ((string)Yii::getAlias('@webroot')) . '/' . $this->getFileDir();
 
         if (!file_exists($root)) {
             $fileHandler->createDir(0754, $root);
