@@ -6,7 +6,7 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
-class M181022130712RemoveAddress extends Migration
+final class M181022130712RemoveAddress extends Migration
 {
     public function safeUp(): bool
     {

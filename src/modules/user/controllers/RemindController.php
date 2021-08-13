@@ -12,7 +12,7 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;
 
-class RemindController extends Controller
+final class RemindController extends Controller
 {
     public function actionRemind(Request $request, Session $session, MailerInterface $mailer): Response|string
     {

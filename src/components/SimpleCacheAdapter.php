@@ -9,7 +9,7 @@ use DateTimeImmutable;
 use Psr\SimpleCache\CacheInterface;
 use yii\caching\CacheInterface as YiiCacheInterface;
 
-class SimpleCacheAdapter implements CacheInterface
+final class SimpleCacheAdapter implements CacheInterface
 {
     private YiiCacheInterface $cache;
 

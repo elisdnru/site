@@ -8,7 +8,7 @@ use app\modules\edu\components\api\Api;
 use yii\base\Module;
 use yii\web\Controller;
 
-class DefaultController extends Controller
+final class DefaultController extends Controller
 {
     private Api $api;
 

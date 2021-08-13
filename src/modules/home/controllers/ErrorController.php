@@ -7,7 +7,7 @@ namespace app\modules\home\controllers;
 use yii\web\Controller;
 use yii\web\ErrorAction;
 
-class ErrorController extends Controller
+final class ErrorController extends Controller
 {
     public function actions(): array
     {

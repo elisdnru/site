@@ -13,7 +13,7 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
-class UserController extends AdminController
+final class UserController extends AdminController
 {
     public function actionIndex(Request $request): string
     {

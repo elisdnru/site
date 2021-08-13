@@ -6,7 +6,7 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
-class Yii2ShopCest
+final class Yii2ShopCest
 {
     public function home(AcceptanceTester $I): void
     {

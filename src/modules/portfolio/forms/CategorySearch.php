@@ -9,7 +9,7 @@ use app\components\DataProvider;
 use app\modules\portfolio\models\Category;
 use yii\base\Model;
 
-class CategorySearch extends Model
+final class CategorySearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;

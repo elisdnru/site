@@ -8,7 +8,7 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Post;
 use yii\base\Widget;
 
-class OtherPostsWidget extends Widget
+final class OtherPostsWidget extends Widget
 {
     public string $tpl = 'OtherPosts';
     public string $title = '';

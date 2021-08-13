@@ -6,7 +6,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class HighlightAsset extends AssetBundle
+final class HighlightAsset extends AssetBundle
 {
     public $baseUrl = '/build';
 

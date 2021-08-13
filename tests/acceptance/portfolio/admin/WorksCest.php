@@ -9,7 +9,7 @@ use tests\fixtures\portfolio\CategoryFixture;
 use tests\fixtures\portfolio\WorkFixture;
 use tests\fixtures\user\UserFixture;
 
-class WorksCest
+final class WorksCest
 {
     public function _before(AcceptanceTester $I): void
     {

@@ -6,7 +6,7 @@ namespace tests;
 
 use Codeception\Actor;
 
-class AcceptanceTester extends Actor
+final class AcceptanceTester extends Actor
 {
     use _generated\AcceptanceTesterActions;
 

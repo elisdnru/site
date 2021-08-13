@@ -9,7 +9,7 @@ use app\components\DataProvider;
 use app\modules\page\models\Page;
 use yii\base\Model;
 
-class PageSearch extends Model
+final class PageSearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;

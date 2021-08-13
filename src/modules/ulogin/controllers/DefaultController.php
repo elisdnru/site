@@ -14,7 +14,7 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
-class DefaultController extends Controller
+final class DefaultController extends Controller
 {
     public $enableCsrfValidation = false;
 

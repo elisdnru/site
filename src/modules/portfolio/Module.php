@@ -16,7 +16,7 @@ use yii\caching\TagDependency;
 use yii\helpers\Url;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
+final class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
 {
     public function adminGroup(): string
     {

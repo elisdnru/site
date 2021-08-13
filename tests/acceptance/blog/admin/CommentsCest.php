@@ -11,7 +11,7 @@ use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
 
-class CommentsCest
+final class CommentsCest
 {
     public function _before(AcceptanceTester $I): void
     {

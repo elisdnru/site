@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-immutable
  */
-class Group
+final class Group
 {
     public string $name;
     /**

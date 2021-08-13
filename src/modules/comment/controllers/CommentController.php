@@ -15,7 +15,7 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
-class CommentController extends Controller
+final class CommentController extends Controller
 {
     public function actionUpdate(
         int $id,

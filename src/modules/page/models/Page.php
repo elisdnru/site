@@ -34,7 +34,7 @@ use yii\helpers\Url;
  *
  * @mixin CategoryTreeBehavior
  */
-class Page extends ActiveRecord
+final class Page extends ActiveRecord
 {
     public const INDEX_FOLLOW = 'index, follow';
     public const INDEX_NOFOLLOW = 'index, nofollow';
@@ -66,7 +66,7 @@ class Page extends ActiveRecord
 
     public static function find(): PageQuery
     {
-        return new PageQuery(static::class);
+        return new PageQuery(self::class);
     }
 
     public function rules(): array

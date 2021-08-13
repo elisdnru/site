@@ -6,7 +6,7 @@ namespace app\modules\page\migrations;
 
 use yii\db\Migration;
 
-class M191007111239InlinePageLayout extends Migration
+final class M191007111239InlinePageLayout extends Migration
 {
     public function safeUp(): bool
     {

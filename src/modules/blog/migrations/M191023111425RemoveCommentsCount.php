@@ -6,7 +6,7 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
-class M191023111425RemoveCommentsCount extends Migration
+final class M191023111425RemoveCommentsCount extends Migration
 {
     public function safeUp(): bool
     {

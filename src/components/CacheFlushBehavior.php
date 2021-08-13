@@ -10,7 +10,7 @@ use yii\caching\CacheInterface;
 use yii\caching\TagDependency;
 use yii\web\Controller;
 
-class CacheFlushBehavior extends Behavior
+final class CacheFlushBehavior extends Behavior
 {
     private CacheInterface $cache;
 

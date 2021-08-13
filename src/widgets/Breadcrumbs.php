@@ -8,7 +8,7 @@ use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-class Breadcrumbs extends Widget
+final class Breadcrumbs extends Widget
 {
     public string $tagName = 'div';
     public array $htmlOptions = ['class' => 'breadcrumbs'];

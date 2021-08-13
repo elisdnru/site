@@ -13,7 +13,7 @@ use yii\helpers\Url;
  * @property string $title
  * @property PostTag[] $postTags
  */
-class Tag extends ActiveRecord
+final class Tag extends ActiveRecord
 {
     private ?string $cachedUrl = null;
 

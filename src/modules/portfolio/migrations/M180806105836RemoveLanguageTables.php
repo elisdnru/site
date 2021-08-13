@@ -6,7 +6,7 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
-class M180806105836RemoveLanguageTables extends Migration
+final class M180806105836RemoveLanguageTables extends Migration
 {
     public function safeUp(): bool
     {

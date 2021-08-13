@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
  *
  * @mixin CategoryBehavior
  */
-class Group extends ActiveRecord
+final class Group extends ActiveRecord
 {
     public static function tableName(): string
     {
@@ -22,7 +22,7 @@ class Group extends ActiveRecord
 
     public static function find(): GroupQuery
     {
-        return new GroupQuery(static::class);
+        return new GroupQuery(self::class);
     }
 
     public function getPostsCount(): int

@@ -6,7 +6,7 @@ namespace app\modules\blog\forms;
 
 use yii\base\Model;
 
-class SearchForm extends Model
+final class SearchForm extends Model
 {
     public ?string $q = null;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class Pluraliser
+final class Pluraliser
 {
     /**
      * Множественное число

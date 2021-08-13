@@ -10,7 +10,7 @@ use Yii;
 use yii\base\Widget;
 use yii\web\Request;
 
-class Share extends Widget
+final class Share extends Widget
 {
     public string $url = '';
     public string $title = '';

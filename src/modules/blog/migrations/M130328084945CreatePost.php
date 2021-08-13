@@ -6,7 +6,7 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
-class M130328084945CreatePost extends Migration
+final class M130328084945CreatePost extends Migration
 {
     public function safeUp(): bool
     {

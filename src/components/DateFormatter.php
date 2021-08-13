@@ -6,7 +6,7 @@ namespace app\components;
 
 use InvalidArgumentException;
 
-class DateFormatter
+final class DateFormatter
 {
     public static function format(int|string $date, bool $showTime = false, bool $showMonth = true): string
     {

@@ -8,7 +8,7 @@ use InvalidArgumentException;
 use RuntimeException;
 use yii\base\Module;
 
-class ModuleClass
+final class ModuleClass
 {
     /**
      * @param array[]|Module[] $modules

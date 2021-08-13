@@ -6,7 +6,7 @@ namespace app\widgets\inline;
 
 use yii\base\Widget;
 
-class MailTo extends Widget
+final class MailTo extends Widget
 {
     public string $email = '';
 

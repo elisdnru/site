@@ -10,7 +10,7 @@ use app\extensions\image\Image;
 use RuntimeException;
 use yii\web\UploadedFile;
 
-class Uploader
+final class Uploader
 {
     public string $rootPath = 'upload';
     public string $emptyImage = '';

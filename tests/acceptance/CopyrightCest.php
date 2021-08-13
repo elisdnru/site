@@ -6,7 +6,7 @@ namespace tests\acceptance;
 
 use tests\AcceptanceTester;
 
-class CopyrightCest
+final class CopyrightCest
 {
     public function home(AcceptanceTester $I): void
     {

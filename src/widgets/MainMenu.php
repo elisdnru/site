@@ -9,7 +9,7 @@ use Yii;
 use yii\web\Request;
 use yii\widgets\Menu;
 
-class MainMenu extends Menu
+final class MainMenu extends Menu
 {
     public function init(): void
     {

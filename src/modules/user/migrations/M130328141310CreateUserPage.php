@@ -6,7 +6,7 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
-class M130328141310CreateUserPage extends Migration
+final class M130328141310CreateUserPage extends Migration
 {
     public function safeUp(): bool
     {

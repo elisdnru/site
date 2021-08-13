@@ -7,7 +7,7 @@ namespace tests\integration\components\category;
 use yii\base\InvalidArgumentException;
 use yii\web\UrlRuleInterface;
 
-class CategoryUrlRule implements UrlRuleInterface
+final class CategoryUrlRule implements UrlRuleInterface
 {
     public function createUrl($manager, $route, $params): bool|string
     {

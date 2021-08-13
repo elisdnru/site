@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-immutable
  */
-class Item
+final class Item
 {
     public string $url;
     public ?string $label;

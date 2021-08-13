@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\user\UserFixture;
 
-class GroupsCest
+final class GroupsCest
 {
     public function _before(AcceptanceTester $I): void
     {

@@ -6,7 +6,7 @@ namespace app\modules\comment\forms;
 
 use yii\base\Model;
 
-class CommentForm extends Model
+final class CommentForm extends Model
 {
     public const SCENARIO_ANONIM = 'anonim';
 

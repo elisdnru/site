@@ -6,7 +6,7 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
-class M191007115558RenameTables extends Migration
+final class M191007115558RenameTables extends Migration
 {
     public function safeUp(): bool
     {

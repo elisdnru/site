@@ -12,7 +12,7 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\User;
 
-class PostController extends AdminController
+final class PostController extends AdminController
 {
     public function actionIndex(Request $request): string
     {

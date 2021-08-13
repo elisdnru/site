@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
 use tests\fixtures\user\UserFixture;
 
-class CategoriesCest
+final class CategoriesCest
 {
     public function _before(AcceptanceTester $I): void
     {

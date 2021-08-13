@@ -8,7 +8,7 @@ use app\components\category\Attribute;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
-class CategoryTreeBehavior extends CategoryBehavior
+final class CategoryTreeBehavior extends CategoryBehavior
 {
     public string $titleAttribute = 'title';
     public string $parentAttribute = 'parent_id';

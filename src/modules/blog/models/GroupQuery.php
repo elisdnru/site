@@ -12,7 +12,7 @@ use yii\db\Connection;
 /**
  * @mixin CategoryQueryBehavior
  */
-class GroupQuery extends ActiveQuery
+final class GroupQuery extends ActiveQuery
 {
     public function behaviors(): array
     {

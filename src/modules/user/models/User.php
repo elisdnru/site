@@ -33,7 +33,7 @@ use yii\web\UploadedFile;
  * @property string $firstname
  * @property string|null $site
  */
-class User extends ActiveRecord
+final class User extends ActiveRecord
 {
     public const IMAGE_PATH = 'upload/images/users/avatars';
     public const IMAGE_WIDTH = 100;

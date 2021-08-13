@@ -6,7 +6,7 @@ namespace app\widgets\inline;
 
 use yii\base\Widget;
 
-class SubscribeWebinars extends Widget
+final class SubscribeWebinars extends Widget
 {
     public function run(): string
     {

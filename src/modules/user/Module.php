@@ -8,7 +8,7 @@ use app\components\module\admin\AdminMenuProvider;
 use app\components\module\routes\RoutesProvider;
 use yii\base\Module as Base;
 
-class Module extends Base implements RoutesProvider, AdminMenuProvider
+final class Module extends Base implements RoutesProvider, AdminMenuProvider
 {
     public function adminGroup(): string
     {

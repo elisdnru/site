@@ -10,7 +10,7 @@ use app\components\category\models\TreeCategory;
  * @property Category $parent
  * @property Category[] $children
  */
-class Category extends TreeCategory
+final class Category extends TreeCategory
 {
     public string $urlRoute = '/portfolio/default/category';
 

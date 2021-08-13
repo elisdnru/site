@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use yii\base\ErrorHandler;
 
-class Muted implements ClientInterface
+final class Muted implements ClientInterface
 {
     private ClientInterface $next;
     private ErrorHandler $handler;

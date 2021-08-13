@@ -6,7 +6,7 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
-class M191020153212RemoveKeywords extends Migration
+final class M191020153212RemoveKeywords extends Migration
 {
     public function safeUp(): bool
     {

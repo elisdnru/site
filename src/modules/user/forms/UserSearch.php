@@ -10,7 +10,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
 
-class UserSearch extends Model
+final class UserSearch extends Model
 {
     public ?string $id = null;
     public ?string $username = null;

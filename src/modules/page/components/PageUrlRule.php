@@ -8,7 +8,7 @@ use app\modules\page\models\Page;
 use yii\base\InvalidArgumentException;
 use yii\web\UrlRuleInterface;
 
-class PageUrlRule implements UrlRuleInterface
+final class PageUrlRule implements UrlRuleInterface
 {
     public int $cache = 0;
 

@@ -7,7 +7,7 @@ namespace app\components;
 use yii\base\ErrorException;
 use yii\validators\ImageValidator as YiiImageValidator;
 
-class ImageValidator extends YiiImageValidator
+final class ImageValidator extends YiiImageValidator
 {
     protected function validateImage($image): ?array
     {

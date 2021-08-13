@@ -8,7 +8,7 @@ use app\components\module\routes\RoutesProvider;
 use yii\base\Module as Base;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements RoutesProvider
+final class Module extends Base implements RoutesProvider
 {
     public static function routes(): array
     {

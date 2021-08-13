@@ -6,7 +6,7 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
-class ProjectManagerCest
+final class ProjectManagerCest
 {
     public function home(AcceptanceTester $I): void
     {

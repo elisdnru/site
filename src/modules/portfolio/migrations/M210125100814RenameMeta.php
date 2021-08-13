@@ -6,7 +6,7 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
-class M210125100814RenameMeta extends Migration
+final class M210125100814RenameMeta extends Migration
 {
     public function safeUp(): bool
     {

@@ -9,7 +9,7 @@ use app\modules\block\models\Block;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class BlockSearch extends Model
+final class BlockSearch extends Model
 {
     public ?string $id = null;
     public ?string $alias = null;

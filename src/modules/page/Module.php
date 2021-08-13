@@ -14,7 +14,7 @@ use app\modules\page\models\Page;
 use yii\base\Module as Base;
 use yii\caching\TagDependency;
 
-class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
+final class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
 {
     public function adminGroup(): string
     {

@@ -6,7 +6,7 @@ namespace app\modules\file\forms;
 
 use yii\base\Model;
 
-class RenameForm extends Model
+final class RenameForm extends Model
 {
     public string $name = '';
 

@@ -9,7 +9,7 @@ use yii\base\Behavior;
 use yii\base\Widget;
 use yii\caching\CacheInterface;
 
-class InlineWidgetsBehavior extends Behavior
+final class InlineWidgetsBehavior extends Behavior
 {
     public string $startBlock = '[{widget:';
     public string $endBlock = '}]';

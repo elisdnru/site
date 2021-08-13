@@ -6,7 +6,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class CommentsAsset extends AssetBundle
+final class CommentsAsset extends AssetBundle
 {
     public $baseUrl = '/build';
 

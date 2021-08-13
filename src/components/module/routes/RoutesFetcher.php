@@ -7,7 +7,7 @@ namespace app\components\module\routes;
 use app\components\module\Modules;
 use RuntimeException;
 
-class RoutesFetcher
+final class RoutesFetcher
 {
     private Modules $modules;
 

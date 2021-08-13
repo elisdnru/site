@@ -8,7 +8,7 @@ use app\modules\blog\models\Post;
 use yii\base\Widget;
 use yii\caching\TagDependency;
 
-class LastPostsWidget extends Widget
+final class LastPostsWidget extends Widget
 {
     public string $tpl = 'default';
     public string $class = '';

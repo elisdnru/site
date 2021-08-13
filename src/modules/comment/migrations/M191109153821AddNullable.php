@@ -6,7 +6,7 @@ namespace app\modules\comment\migrations;
 
 use yii\db\Migration;
 
-class M191109153821AddNullable extends Migration
+final class M191109153821AddNullable extends Migration
 {
     public function safeUp(): bool
     {

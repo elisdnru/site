@@ -8,7 +8,7 @@ use app\modules\landing\models\Landing;
 use yii\base\InvalidArgumentException;
 use yii\web\UrlRuleInterface;
 
-class LandingUrlRule implements UrlRuleInterface
+final class LandingUrlRule implements UrlRuleInterface
 {
     public int $cache = 0;
 

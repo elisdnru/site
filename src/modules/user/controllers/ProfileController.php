@@ -16,7 +16,7 @@ use yii\web\Session;
 use yii\web\UploadedFile;
 use yii\web\User as WebUser;
 
-class ProfileController extends Controller
+final class ProfileController extends Controller
 {
     public function behaviors(): array
     {

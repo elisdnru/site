@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 use yii\helpers\FileHelper;
 
-class EditCest
+final class EditCest
 {
     public function _before(AcceptanceTester $I): void
     {

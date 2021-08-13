@@ -7,7 +7,7 @@ namespace tests\acceptance;
 use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 
-class LogoutCest
+final class LogoutCest
 {
     public function _before(AcceptanceTester $I): void
     {

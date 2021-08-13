@@ -6,7 +6,7 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
-class M191007115557RenameTables extends Migration
+final class M191007115557RenameTables extends Migration
 {
     private const TABLES = [
         'portfolio_category' => 'portfolio_categories',

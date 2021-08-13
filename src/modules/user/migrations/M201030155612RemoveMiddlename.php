@@ -6,7 +6,7 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
-class M201030155612RemoveMiddlename extends Migration
+final class M201030155612RemoveMiddlename extends Migration
 {
     public function safeUp(): bool
     {

@@ -21,7 +21,7 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User as WebUser;
 
-class CommentsWidget extends Widget
+final class CommentsWidget extends Widget
 {
     public int $material_id = 0;
     public ?int $authorId = null;

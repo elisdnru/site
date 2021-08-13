@@ -9,7 +9,7 @@ use yii\caching\TagDependency;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-class LandingController extends Controller
+final class LandingController extends Controller
 {
     public function actionShow(string $path = 'index'): string
     {

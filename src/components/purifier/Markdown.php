@@ -6,7 +6,7 @@ namespace app\components\purifier;
 
 use app\extensions\markdown\MarkdownParser;
 
-class Markdown
+final class Markdown
 {
     public function transform(string $source): string
     {

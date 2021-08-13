@@ -9,7 +9,7 @@ use app\modules\user\models\User;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
-class ProfileForm extends Model
+final class ProfileForm extends Model
 {
     public string $lastname = '';
     public string $firstname = '';

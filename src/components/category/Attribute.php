@@ -6,7 +6,7 @@ namespace app\components\category;
 
 use yii\db\ActiveRecordInterface;
 
-class Attribute
+final class Attribute
 {
     public static function arOrNull(ActiveRecordInterface $model, string $attribute): ?ActiveRecordInterface
     {

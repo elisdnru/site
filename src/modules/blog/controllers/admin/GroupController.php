@@ -16,7 +16,7 @@ use yii\web\Response;
 /**
  * @method renderTableForm($params)
  */
-class GroupController extends AdminController
+final class GroupController extends AdminController
 {
     public function actionIndex(Request $request): string
     {

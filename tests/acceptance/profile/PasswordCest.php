@@ -7,7 +7,7 @@ namespace tests\acceptance\profile;
 use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 
-class PasswordCest
+final class PasswordCest
 {
     public function _before(AcceptanceTester $I): void
     {

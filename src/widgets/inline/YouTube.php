@@ -6,7 +6,7 @@ namespace app\widgets\inline;
 
 use yii\base\Widget;
 
-class YouTube extends Widget
+final class YouTube extends Widget
 {
     public string $id = '';
     public string $date = '';

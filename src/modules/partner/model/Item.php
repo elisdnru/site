@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\partner\model;
 
-class Item
+final class Item
 {
     public string $title;
     public string $url;

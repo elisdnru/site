@@ -8,7 +8,7 @@ use app\modules\user\models\Access;
 use yii\base\Widget;
 use yii\web\User;
 
-class Counters extends Widget
+final class Counters extends Widget
 {
     private User $user;
 

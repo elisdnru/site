@@ -7,7 +7,7 @@ namespace app\modules\sitemap\components;
 use DateTimeImmutable;
 use DOMDocument;
 
-class Sitemap
+final class Sitemap
 {
     /**
      * @var array[]

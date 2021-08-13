@@ -7,7 +7,7 @@ namespace app\modules\user\models;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class Access
+final class Access
 {
     public const CONTROL = 'permission_control';
     public const FULL = 'permission_full';

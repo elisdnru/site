@@ -12,7 +12,7 @@ use yii\base\Module;
  * @psalm-type ModuleDefinition = array{class?: string}
  * @psalm-type ModuleDefinitions = array<string, ModuleDefinition>
  */
-class Modules
+final class Modules
 {
     private Application $app;
 

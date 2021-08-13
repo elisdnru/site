@@ -8,7 +8,7 @@ use app\modules\blog\models\Post;
 use tests\fixtures\user\UserFixture;
 use yii\test\ActiveFixture;
 
-class PostFixture extends ActiveFixture
+final class PostFixture extends ActiveFixture
 {
     public $modelClass = Post::class;
     public $dataFile = __DIR__ . '/../../_data/fixtures/blog_posts.php';

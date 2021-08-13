@@ -10,7 +10,7 @@ use Yii;
 use yii\base\Widget;
 use yii\web\Request;
 
-class SearchFormWidget extends Widget
+final class SearchFormWidget extends Widget
 {
     public string $tpl = 'SearchForm';
 

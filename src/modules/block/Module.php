@@ -7,7 +7,7 @@ namespace app\modules\block;
 use app\components\module\admin\AdminMenuProvider;
 use yii\base\Module as Base;
 
-class Module extends Base implements AdminMenuProvider
+final class Module extends Base implements AdminMenuProvider
 {
     public function adminGroup(): string
     {

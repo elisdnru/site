@@ -6,7 +6,7 @@ namespace app\components;
 
 use yii\helpers\Inflector;
 
-class Transliterator
+final class Transliterator
 {
     public static function translit(string $string): string
     {

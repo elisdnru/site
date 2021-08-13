@@ -47,7 +47,7 @@ use yii\helpers\Url;
  *
  * @mixin FileUploadBehavior
  */
-class Post extends ActiveRecord implements Material
+final class Post extends ActiveRecord implements Material
 {
     private const IMAGE_WIDTH = 250;
     private const IMAGE_PATH = 'upload/images/blogs';
@@ -67,7 +67,7 @@ class Post extends ActiveRecord implements Material
 
     public static function find(): PostQuery
     {
-        return new PostQuery(static::class);
+        return new PostQuery(self::class);
     }
 
     public function rules(): array

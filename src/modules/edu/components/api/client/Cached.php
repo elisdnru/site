@@ -10,7 +10,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\CacheInterface;
 
-class Cached implements ClientInterface
+final class Cached implements ClientInterface
 {
     private ClientInterface $next;
     private CacheInterface $cache;

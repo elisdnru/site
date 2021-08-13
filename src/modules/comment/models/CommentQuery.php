@@ -8,7 +8,7 @@ use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
-class CommentQuery extends ActiveQuery
+final class CommentQuery extends ActiveQuery
 {
     public function init(): void
     {

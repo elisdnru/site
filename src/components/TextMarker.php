@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class TextMarker
+final class TextMarker
 {
     public static function markFragment(?string $text, ?string $needle, int $range = 200): string
     {

@@ -7,7 +7,7 @@ namespace tests\acceptance\user\admin;
 use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 
-class UsersCest
+final class UsersCest
 {
     public function _before(AcceptanceTester $I): void
     {

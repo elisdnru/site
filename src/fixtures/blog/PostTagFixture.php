@@ -7,7 +7,7 @@ namespace app\fixtures\blog;
 use app\modules\blog\models\PostTag;
 use yii\test\ActiveFixture;
 
-class PostTagFixture extends ActiveFixture
+final class PostTagFixture extends ActiveFixture
 {
     public $modelClass = PostTag::class;
     public $dataFile = __DIR__ . '/data/post-tag.php';

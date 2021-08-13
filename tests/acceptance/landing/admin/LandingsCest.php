@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\landing\LandingFixture;
 use tests\fixtures\user\UserFixture;
 
-class LandingsCest
+final class LandingsCest
 {
     public function _before(AcceptanceTester $I): void
     {

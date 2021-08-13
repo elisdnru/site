@@ -7,7 +7,7 @@ namespace app\widgets;
 use yii\base\Widget;
 use yii\helpers\Html;
 
-class Portlet extends Widget
+final class Portlet extends Widget
 {
     public array $htmlOptions = ['class' => 'portlet'];
     public ?string $url = null;

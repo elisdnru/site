@@ -6,7 +6,7 @@ namespace app\modules\comment\migrations;
 
 use yii\db\Migration;
 
-class M190914202714ChangeTypes extends Migration
+final class M190914202714ChangeTypes extends Migration
 {
     public function safeUp(): bool
     {

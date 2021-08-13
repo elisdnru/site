@@ -6,7 +6,7 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
-class M191007115552RenameTables extends Migration
+final class M191007115552RenameTables extends Migration
 {
     private const TABLES = [
         'blog_category' => 'blog_categories',

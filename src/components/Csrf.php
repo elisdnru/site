@@ -9,7 +9,7 @@ use Yii;
 use yii\helpers\Html;
 use yii\web\Request;
 
-class Csrf
+final class Csrf
 {
     public static function hiddenInput(): string
     {

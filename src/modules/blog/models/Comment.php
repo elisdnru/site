@@ -6,7 +6,7 @@ namespace app\modules\blog\models;
 
 use app\modules\comment\models\Comment as BaseComment;
 
-class Comment extends BaseComment
+final class Comment extends BaseComment
 {
     public const TYPE_OF_COMMENT = Post::class;
 

@@ -7,7 +7,7 @@ namespace app\widgets;
 use yii\helpers\Html;
 use yii\widgets\Menu;
 
-class IconMenu extends Menu
+final class IconMenu extends Menu
 {
     public string $iconsPath = '';
 

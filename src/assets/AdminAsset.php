@@ -6,7 +6,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class AdminAsset extends AssetBundle
+final class AdminAsset extends AssetBundle
 {
     public $baseUrl = '/build';
 

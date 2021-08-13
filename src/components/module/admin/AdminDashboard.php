@@ -6,7 +6,7 @@ namespace app\components\module\admin;
 
 use app\components\module\Modules;
 
-class AdminDashboard
+final class AdminDashboard
 {
     private AdminAccess $access;
     private Modules $modules;

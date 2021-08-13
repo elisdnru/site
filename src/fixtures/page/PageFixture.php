@@ -7,7 +7,7 @@ namespace app\fixtures\page;
 use app\modules\page\models\Page;
 use yii\test\ActiveFixture;
 
-class PageFixture extends ActiveFixture
+final class PageFixture extends ActiveFixture
 {
     public $modelClass = Page::class;
     public $dataFile = __DIR__ . '/data/page.php';

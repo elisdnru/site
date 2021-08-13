@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
  * @property string $title
  * @property string $text
  */
-class Block extends ActiveRecord
+final class Block extends ActiveRecord
 {
     public static function tableName(): string
     {

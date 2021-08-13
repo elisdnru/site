@@ -36,7 +36,7 @@ use yii\web\UploadedFile;
  * }
  * </pre>
  */
-class FileUploadBehavior extends Behavior
+final class FileUploadBehavior extends Behavior
 {
     public string $fileAttribute = 'file';
     public string $storageAttribute = 'file';

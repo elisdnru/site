@@ -6,7 +6,7 @@ namespace tests\acceptance;
 
 use tests\AcceptanceTester;
 
-class EduCest
+final class EduCest
 {
     public function index(AcceptanceTester $I): void
     {

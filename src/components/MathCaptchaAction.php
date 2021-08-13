@@ -6,7 +6,7 @@ namespace app\components;
 
 use yii\captcha\CaptchaAction;
 
-class MathCaptchaAction extends CaptchaAction
+final class MathCaptchaAction extends CaptchaAction
 {
     protected function generateVerifyCode(): string
     {

@@ -13,7 +13,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-class DefaultController extends Controller
+final class DefaultController extends Controller
 {
     private const PER_PAGE = 9;
 

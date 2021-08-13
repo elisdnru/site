@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
-class WorkController extends AdminController
+final class WorkController extends AdminController
 {
     private const ITEMS_PER_PAGE = 50;
 

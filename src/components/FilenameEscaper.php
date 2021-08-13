@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class FilenameEscaper
+final class FilenameEscaper
 {
     public static function escape(string $name): string
     {

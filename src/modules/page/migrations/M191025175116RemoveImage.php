@@ -6,7 +6,7 @@ namespace app\modules\page\migrations;
 
 use yii\db\Migration;
 
-class M191025175116RemoveImage extends Migration
+final class M191025175116RemoveImage extends Migration
 {
     public function safeUp(): bool
     {

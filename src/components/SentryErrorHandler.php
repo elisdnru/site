@@ -9,7 +9,7 @@ use yii\web\ErrorHandler;
 use yii\web\HttpException;
 use function Sentry\captureException;
 
-class SentryErrorHandler extends ErrorHandler
+final class SentryErrorHandler extends ErrorHandler
 {
     public bool $sentryActive = false;
 

@@ -10,7 +10,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\validators\Validator;
 
-class CurrentPasswordValidator extends Validator
+final class CurrentPasswordValidator extends Validator
 {
     public string $className = '';
     public string $validateMethod = 'validatePassword';

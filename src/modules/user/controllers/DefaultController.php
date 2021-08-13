@@ -12,7 +12,7 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\User as WebUser;
 
-class DefaultController extends Controller
+final class DefaultController extends Controller
 {
     public function actionLogin(Request $request, WebUser $webUser): Response|string
     {

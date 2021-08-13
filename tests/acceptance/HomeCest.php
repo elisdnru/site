@@ -6,7 +6,7 @@ namespace tests\acceptance;
 
 use tests\AcceptanceTester;
 
-class HomeCest
+final class HomeCest
 {
     public function success(AcceptanceTester $I): void
     {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class SocNetwork
+final class SocNetwork
 {
     public static function icon(string $network): string
     {

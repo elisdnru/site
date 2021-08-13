@@ -6,7 +6,7 @@ namespace app\modules\blog\forms;
 
 use yii\base\Model;
 
-class GroupForm extends Model
+final class GroupForm extends Model
 {
     public string $title = '';
 

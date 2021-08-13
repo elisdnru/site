@@ -6,7 +6,7 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
-class LaravelBoardCest
+final class LaravelBoardCest
 {
     public function home(AcceptanceTester $I): void
     {

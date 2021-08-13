@@ -6,7 +6,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class CountDownAsset extends AssetBundle
+final class CountDownAsset extends AssetBundle
 {
     public $baseUrl = '/build';
 

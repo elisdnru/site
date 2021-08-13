@@ -14,7 +14,7 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;
 
-class RegistrationController extends Controller
+final class RegistrationController extends Controller
 {
     /**
      * @psalm-suppress TypeDoesNotContainType

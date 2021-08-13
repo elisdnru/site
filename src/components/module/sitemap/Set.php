@@ -7,7 +7,7 @@ namespace app\components\module\sitemap;
 /**
  * @psalm-immutable
  */
-class Set
+final class Set
 {
     /**
      * @var Group[]

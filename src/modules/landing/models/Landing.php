@@ -22,7 +22,7 @@ use yii\helpers\Url;
  *
  * @mixin CategoryTreeBehavior
  */
-class Landing extends ActiveRecord
+final class Landing extends ActiveRecord
 {
     public int $indent = 0;
 
@@ -35,7 +35,7 @@ class Landing extends ActiveRecord
 
     public static function find(): LandingQuery
     {
-        return new LandingQuery(static::class);
+        return new LandingQuery(self::class);
     }
 
     public function rules(): array

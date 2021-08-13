@@ -6,7 +6,7 @@ namespace app\components;
 
 use yii\validators\RegularExpressionValidator;
 
-class AliasValidator extends RegularExpressionValidator
+final class AliasValidator extends RegularExpressionValidator
 {
     /**
      * {@inheritdoc}

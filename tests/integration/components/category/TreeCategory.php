@@ -6,7 +6,7 @@ namespace tests\integration\components\category;
 
 use app\components\category\models\TreeCategory as Base;
 
-class TreeCategory extends Base
+final class TreeCategory extends Base
 {
     public string $urlRoute = '/category';
 

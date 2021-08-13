@@ -7,7 +7,7 @@ namespace app\modules\edu\widgets;
 use app\modules\edu\components\api\Api;
 use yii\base\Widget;
 
-class SeriesEpisodes extends Widget
+final class SeriesEpisodes extends Widget
 {
     public string $slug = '';
 

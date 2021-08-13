@@ -12,7 +12,7 @@ use yii\base\Widget;
 use yii\web\Request;
 use yii\web\User as WebUser;
 
-class LoginFormWidget extends Widget
+final class LoginFormWidget extends Widget
 {
     private WebUser $user;
 

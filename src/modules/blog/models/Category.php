@@ -6,7 +6,7 @@ namespace app\modules\blog\models;
 
 use app\components\category\models\TreeCategory;
 
-class Category extends TreeCategory
+final class Category extends TreeCategory
 {
     public string $urlRoute = '/blog/default/category';
 

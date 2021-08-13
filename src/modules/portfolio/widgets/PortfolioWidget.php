@@ -8,7 +8,7 @@ use app\assets\PortfolioAsset;
 use app\modules\portfolio\models\Work;
 use yii\base\Widget;
 
-class PortfolioWidget extends Widget
+final class PortfolioWidget extends Widget
 {
     public int $limit = 4;
 

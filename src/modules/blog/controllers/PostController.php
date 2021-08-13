@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
-class PostController extends Controller
+final class PostController extends Controller
 {
     public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null): Response|string
     {

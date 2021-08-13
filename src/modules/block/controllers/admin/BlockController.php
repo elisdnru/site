@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
-class BlockController extends AdminController
+final class BlockController extends AdminController
 {
     public function actionIndex(Request $request): string
     {

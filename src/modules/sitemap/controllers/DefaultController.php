@@ -12,7 +12,7 @@ use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\Response;
 
-class DefaultController extends Controller
+final class DefaultController extends Controller
 {
     private GroupsFetcher $fetcher;
 

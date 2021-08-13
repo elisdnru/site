@@ -11,7 +11,7 @@ use app\components\module\sitemap\SitemapProvider;
 use yii\base\Module as Base;
 use yii\helpers\Url;
 
-class Module extends Base implements RoutesProvider, SitemapProvider
+final class Module extends Base implements RoutesProvider, SitemapProvider
 {
     public static function routes(): array
     {

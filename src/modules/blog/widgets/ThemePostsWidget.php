@@ -7,7 +7,7 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\models\Post;
 use yii\base\Widget;
 
-class ThemePostsWidget extends Widget
+final class ThemePostsWidget extends Widget
 {
     public string $tpl = 'ThemePosts';
     public int $current = 0;

@@ -9,7 +9,7 @@ use app\modules\blog\models\Post;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class PostSearch extends Model
+final class PostSearch extends Model
 {
     public ?string $id = null;
     public ?string $date = null;

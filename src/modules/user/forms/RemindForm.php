@@ -6,7 +6,7 @@ namespace app\modules\user\forms;
 
 use yii\base\Model;
 
-class RemindForm extends Model
+final class RemindForm extends Model
 {
     public string $email = '';
 

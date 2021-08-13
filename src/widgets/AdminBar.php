@@ -9,7 +9,7 @@ use app\modules\user\models\Access;
 use yii\base\Widget;
 use yii\web\User;
 
-class AdminBar extends Widget
+final class AdminBar extends Widget
 {
     public string $title = '';
     public array $links = [];

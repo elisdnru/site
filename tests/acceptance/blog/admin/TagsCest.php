@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\TagFixture;
 use tests\fixtures\user\UserFixture;
 
-class TagsCest
+final class TagsCest
 {
     public function _before(AcceptanceTester $I): void
     {

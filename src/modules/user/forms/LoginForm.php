@@ -9,7 +9,7 @@ use app\modules\user\models\User;
 use yii\base\Model;
 use yii\web\User as WebUser;
 
-class LoginForm extends Model
+final class LoginForm extends Model
 {
     public string $username = '';
     public string $password = '';

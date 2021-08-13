@@ -6,7 +6,7 @@ namespace app\widgets\inline;
 
 use yii\base\Widget;
 
-class CountDown extends Widget
+final class CountDown extends Widget
 {
     public string $title = '';
     public string $date = '';

@@ -8,7 +8,7 @@ use Yii;
 use yii\base\BootstrapInterface;
 use yii\web\UrlManager;
 
-class RoutesLoader implements BootstrapInterface
+final class RoutesLoader implements BootstrapInterface
 {
     public function bootstrap($app): void
     {

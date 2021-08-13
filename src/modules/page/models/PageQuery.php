@@ -12,7 +12,7 @@ use yii\db\Connection;
 /**
  * @mixin CategoryTreeQueryBehavior
  */
-class PageQuery extends ActiveQuery
+final class PageQuery extends ActiveQuery
 {
     public function behaviors(): array
     {

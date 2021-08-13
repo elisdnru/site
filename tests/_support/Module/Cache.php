@@ -8,7 +8,7 @@ use Codeception\Module;
 use Codeception\TestInterface;
 use Yii;
 
-class Cache extends Module
+final class Cache extends Module
 {
     public function _before(TestInterface $test): void
     {

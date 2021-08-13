@@ -10,7 +10,7 @@ use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
 
-class SubscribeNewsCest
+final class SubscribeNewsCest
 {
     public function _before(AcceptanceTester $I): void
     {

@@ -9,7 +9,7 @@ use app\components\DataProvider;
 use app\modules\landing\models\Landing;
 use yii\base\Model;
 
-class LandingSearch extends Model
+final class LandingSearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;

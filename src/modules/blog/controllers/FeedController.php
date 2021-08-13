@@ -12,7 +12,7 @@ use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
 
-class FeedController extends Controller
+final class FeedController extends Controller
 {
     public function actionIndex(Request $request, Response $response): Response
     {

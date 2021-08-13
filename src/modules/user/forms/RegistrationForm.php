@@ -8,7 +8,7 @@ use app\modules\user\components\UsernameValidator;
 use app\modules\user\models\User;
 use yii\base\Model;
 
-class RegistrationForm extends Model
+final class RegistrationForm extends Model
 {
     public string $username = '';
     public string $email = '';

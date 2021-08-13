@@ -7,7 +7,7 @@ namespace app\modules\ulogin;
 use app\components\module\routes\RoutesProvider;
 use yii\base\Module as Base;
 
-class Module extends Base implements RoutesProvider
+final class Module extends Base implements RoutesProvider
 {
     public static function routes(): array
     {

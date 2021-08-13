@@ -10,7 +10,7 @@ use app\modules\comment\components\CommentAdminController;
 use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
-class CommentController extends CommentAdminController
+final class CommentController extends CommentAdminController
 {
     protected function loadMaterialModel(int $id): ActiveRecord
     {

@@ -33,7 +33,7 @@ use yii\helpers\Url;
  *
  * @mixin FileUploadBehavior
  */
-class Work extends ActiveRecord
+final class Work extends ActiveRecord
 {
     public const IMAGE_WIDTH = 250;
     public const IMAGE_PATH = 'upload/images/portfolio';

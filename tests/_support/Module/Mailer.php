@@ -7,7 +7,7 @@ namespace tests\Module;
 use Codeception\Module;
 use GuzzleHttp\Client;
 
-class Mailer extends Module
+final class Mailer extends Module
 {
     private ?Client $client = null;
 

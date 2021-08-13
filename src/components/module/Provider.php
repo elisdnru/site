@@ -7,7 +7,7 @@ namespace app\components\module;
 use Yii;
 use yii\base\BootstrapInterface;
 
-class Provider implements BootstrapInterface
+final class Provider implements BootstrapInterface
 {
     public function bootstrap($app): void
     {

@@ -8,7 +8,7 @@ use app\modules\user\components\CurrentPasswordValidator;
 use app\modules\user\models\User;
 use yii\base\Model;
 
-class PasswordForm extends Model
+final class PasswordForm extends Model
 {
     public int $id = 0;
     public string $current = '';

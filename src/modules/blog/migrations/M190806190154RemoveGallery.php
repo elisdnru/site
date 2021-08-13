@@ -6,7 +6,7 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
-class M190806190154RemoveGallery extends Migration
+final class M190806190154RemoveGallery extends Migration
 {
     public function safeUp(): bool
     {

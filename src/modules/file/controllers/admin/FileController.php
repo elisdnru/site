@@ -20,7 +20,7 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\User as WebUser;
 
-class FileController extends AdminController
+final class FileController extends AdminController
 {
     private const UPLOAD_COUNT = 7;
     private const UPLOAD_PATH = 'upload/media';

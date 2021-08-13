@@ -9,7 +9,7 @@ use app\modules\blog\models\Tag;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class TagSearch extends Model
+final class TagSearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;

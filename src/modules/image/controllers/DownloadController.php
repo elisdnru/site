@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
-class DownloadController extends Controller
+final class DownloadController extends Controller
 {
     public function actionThumb(Request $request, Uploader $uploader): Response
     {

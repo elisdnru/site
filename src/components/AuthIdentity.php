@@ -8,7 +8,7 @@ use app\modules\user\models\User;
 use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 
-class AuthIdentity implements IdentityInterface
+final class AuthIdentity implements IdentityInterface
 {
     private int $id;
 

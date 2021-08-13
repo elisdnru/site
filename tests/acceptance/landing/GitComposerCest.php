@@ -6,7 +6,7 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
-class GitComposerCest
+final class GitComposerCest
 {
     public function home(AcceptanceTester $I): void
     {

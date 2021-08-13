@@ -7,7 +7,7 @@ namespace app\widgets;
 use yii\base\Widget;
 use yii\web\Session;
 
-class Messages extends Widget
+final class Messages extends Widget
 {
     private Session $session;
 

@@ -6,7 +6,7 @@ namespace app\modules\ulogin\widgets;
 
 use yii\base\Widget;
 
-class ULoginWidget extends Widget
+final class ULoginWidget extends Widget
 {
     private static bool $once = false;
 

@@ -16,7 +16,7 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
-class AjaxController extends Controller
+final class AjaxController extends Controller
 {
     public function behaviors(): array
     {

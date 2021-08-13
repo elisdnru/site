@@ -11,7 +11,7 @@ use app\modules\user\models\User;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
-class EditForm extends Model
+final class EditForm extends Model
 {
     public int $id = 0;
     public string $username = '';

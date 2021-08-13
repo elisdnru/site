@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
 use tests\fixtures\blog\PostFixture;
 
-class DateCest
+final class DateCest
 {
     public function _before(AcceptanceTester $I): void
     {

@@ -8,7 +8,7 @@ use app\modules\partner\model\ItemsFetcher;
 use yii\base\Module;
 use yii\web\Controller;
 
-class DefaultController extends Controller
+final class DefaultController extends Controller
 {
     private ItemsFetcher $items;
 

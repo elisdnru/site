@@ -7,7 +7,7 @@ namespace app\assets;
 use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
 
-class ETimerAsset extends AssetBundle
+final class ETimerAsset extends AssetBundle
 {
     public $baseUrl = 'https://e-timer.ru';
 

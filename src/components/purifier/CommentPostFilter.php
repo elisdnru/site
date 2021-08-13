@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\purifier;
 
-class CommentPostFilter
+final class CommentPostFilter
 {
     public static function fixMarkup(?string $text): ?string
     {

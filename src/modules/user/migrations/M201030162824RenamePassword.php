@@ -6,7 +6,7 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
-class M201030162824RenamePassword extends Migration
+final class M201030162824RenamePassword extends Migration
 {
     public function safeUp(): bool
     {

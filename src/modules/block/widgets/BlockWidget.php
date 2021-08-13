@@ -8,7 +8,7 @@ use app\modules\block\models\Block;
 use yii\base\Widget;
 use yii\caching\TagDependency;
 
-class BlockWidget extends Widget
+final class BlockWidget extends Widget
 {
     public string $title = 'default';
     public string $tpl = 'default';

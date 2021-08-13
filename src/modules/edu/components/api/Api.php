@@ -7,7 +7,7 @@ namespace app\modules\edu\components\api;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 
-class Api
+final class Api
 {
     private ClientInterface $client;
     private RequestFactoryInterface $factory;

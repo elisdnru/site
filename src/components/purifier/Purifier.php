@@ -7,7 +7,7 @@ namespace app\components\purifier;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 
-class Purifier
+final class Purifier
 {
     /**
      * @var string[]

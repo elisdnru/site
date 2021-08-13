@@ -8,7 +8,7 @@ use BadMethodCallException;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 
-class PurifyTextBehavior extends Behavior
+final class PurifyTextBehavior extends Behavior
 {
     public string $sourceAttribute = 'text';
     public string $destinationAttribute = 'purified_text';

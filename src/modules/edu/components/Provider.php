@@ -15,7 +15,7 @@ use Yii;
 use yii\base\BootstrapInterface;
 use yii\di\Container;
 
-class Provider implements BootstrapInterface
+final class Provider implements BootstrapInterface
 {
     public function bootstrap($app): void
     {

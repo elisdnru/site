@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class PaginationFormatter
+final class PaginationFormatter
 {
     public static function appendix(int $page): string
     {

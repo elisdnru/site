@@ -10,7 +10,7 @@ use app\modules\comment\models\Comment;
 use yii\base\Module as Base;
 use yii\web\GroupUrlRule;
 
-class Module extends Base implements RoutesProvider, AdminNotificationsProvider
+final class Module extends Base implements RoutesProvider, AdminNotificationsProvider
 {
     public function adminGroup(): string
     {

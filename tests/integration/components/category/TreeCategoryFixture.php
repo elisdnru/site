@@ -6,7 +6,7 @@ namespace tests\integration\components\category;
 
 use yii\test\ActiveFixture;
 
-class TreeCategoryFixture extends ActiveFixture
+final class TreeCategoryFixture extends ActiveFixture
 {
     public $modelClass = TreeCategory::class;
     public $dataFile = __DIR__ . '/_data/test_tree_categories.php';

@@ -9,7 +9,7 @@ use app\fixtures\user\UserFixture;
 use app\modules\blog\models\Comment;
 use yii\test\ActiveFixture;
 
-class CommentFixture extends ActiveFixture
+final class CommentFixture extends ActiveFixture
 {
     public $modelClass = Comment::class;
     public $dataFile = __DIR__ . '/data/comment.php';

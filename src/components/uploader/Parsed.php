@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\uploader;
 
-class Parsed
+final class Parsed
 {
     public string $path = '';
     public string $fileName = '';

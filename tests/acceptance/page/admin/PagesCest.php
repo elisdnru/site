@@ -8,7 +8,7 @@ use tests\AcceptanceTester;
 use tests\fixtures\page\PageFixture;
 use tests\fixtures\user\UserFixture;
 
-class PagesCest
+final class PagesCest
 {
     public function _before(AcceptanceTester $I): void
     {

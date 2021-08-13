@@ -8,7 +8,7 @@ use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
 
-class WorkQuery extends ActiveQuery
+final class WorkQuery extends ActiveQuery
 {
     public function published(): self
     {

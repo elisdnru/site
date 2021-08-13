@@ -7,7 +7,7 @@ namespace app\modules\user\migrations;
 use yii\db\Migration;
 use yii\db\Query;
 
-class M191007135558RehashPasswords extends Migration
+final class M191007135558RehashPasswords extends Migration
 {
     public function safeUp(): bool
     {

@@ -6,7 +6,7 @@ namespace app\modules\products\controllers;
 
 use yii\web\Controller;
 
-class PartnerController extends Controller
+final class PartnerController extends Controller
 {
     public function actionIndex(): string
     {

@@ -7,7 +7,7 @@ namespace tests\acceptance;
 use tests\AcceptanceTester;
 use tests\fixtures\page\PageFixture;
 
-class PageCest
+final class PageCest
 {
     public function _before(AcceptanceTester $I): void
     {

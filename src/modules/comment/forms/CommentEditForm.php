@@ -7,7 +7,7 @@ namespace app\modules\comment\forms;
 use app\modules\comment\models\Comment;
 use yii\base\Model;
 
-class CommentEditForm extends Model
+final class CommentEditForm extends Model
 {
     public string $text;
 

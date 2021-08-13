@@ -7,7 +7,7 @@ namespace app\components\module\routes;
 /**
  * @psalm-immutable
  */
-class Group
+final class Group
 {
     public array $rules;
     public int $priority;

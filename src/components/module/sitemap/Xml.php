@@ -7,7 +7,7 @@ namespace app\components\module\sitemap;
 use DateTimeImmutable;
 use Webmozart\Assert\Assert;
 
-class Xml
+final class Xml
 {
     public const ALWAYS = 'always';
     public const HOURLY = 'hourly';

@@ -6,7 +6,7 @@ namespace tests\acceptance\sitemap;
 
 use tests\AcceptanceTester;
 
-class HtmlCest
+final class HtmlCest
 {
     public function success(AcceptanceTester $I): void
     {

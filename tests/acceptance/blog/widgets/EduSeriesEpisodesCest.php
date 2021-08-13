@@ -10,7 +10,7 @@ use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
 
-class EduSeriesEpisodesCest
+final class EduSeriesEpisodesCest
 {
     public function _before(AcceptanceTester $I): void
     {

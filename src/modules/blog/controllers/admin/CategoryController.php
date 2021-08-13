@@ -16,7 +16,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
-class CategoryController extends AdminController
+final class CategoryController extends AdminController
 {
     public function behaviors(): array
     {

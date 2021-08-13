@@ -6,7 +6,7 @@ namespace app\modules\block\migrations;
 
 use yii\db\Migration;
 
-class M130328093402CreateBlock extends Migration
+final class M130328093402CreateBlock extends Migration
 {
     public function safeUp(): bool
     {

@@ -6,7 +6,7 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
-class OopWeekCest
+final class OopWeekCest
 {
     public function home(AcceptanceTester $I): void
     {

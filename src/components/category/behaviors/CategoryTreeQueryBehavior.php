@@ -9,7 +9,7 @@ use app\components\category\models\TreeCategory;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
-class CategoryTreeQueryBehavior extends CategoryQueryBehavior
+final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 {
     public string $parentAttribute = 'parent_id';
 

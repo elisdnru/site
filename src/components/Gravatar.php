@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
-class Gravatar
+final class Gravatar
 {
     public static function url(?string $email, int $width): string
     {
