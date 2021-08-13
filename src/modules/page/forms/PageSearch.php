@@ -7,9 +7,17 @@ namespace app\modules\page\forms;
 use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
 use app\modules\page\models\Page;
+use yii\base\Model;
 
-class PageSearch extends Page
+class PageSearch extends Model
 {
+    public ?string $id = null;
+    public ?string $title = null;
+    public ?string $alias = null;
+    public ?string $text = null;
+    public ?string $parent_id = null;
+    public ?string $system = null;
+
     public function rules(): array
     {
         return [

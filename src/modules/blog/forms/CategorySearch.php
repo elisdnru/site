@@ -7,9 +7,17 @@ namespace app\modules\blog\forms;
 use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
 use app\modules\blog\models\Category;
+use yii\base\Model;
 
-class CategorySearch extends Category
+class CategorySearch extends Model
 {
+    public ?string $id = null;
+    public ?string $title = null;
+    public ?string $alias = null;
+    public ?string $link = null;
+    public ?string $sort = null;
+    public ?string $parent_id = null;
+
     public function rules(): array
     {
         return [

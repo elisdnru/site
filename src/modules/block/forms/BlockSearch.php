@@ -6,10 +6,16 @@ namespace app\modules\block\forms;
 
 use app\components\DataProvider;
 use app\modules\block\models\Block;
+use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class BlockSearch extends Block
+class BlockSearch extends Model
 {
+    public ?string $id = null;
+    public ?string $alias = null;
+    public ?string $title = null;
+    public ?string $text = null;
+
     public function rules(): array
     {
         return [
@@ -19,7 +25,7 @@ class BlockSearch extends Block
 
     public function search(array $params, int $pageSize = 30): DataProvider
     {
-        $query = self::find();
+        $query = Block::find();
 
         $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,

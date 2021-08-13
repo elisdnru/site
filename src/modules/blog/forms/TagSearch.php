@@ -6,10 +6,14 @@ namespace app\modules\blog\forms;
 
 use app\components\DataProvider;
 use app\modules\blog\models\Tag;
+use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class TagSearch extends Tag
+class TagSearch extends Model
 {
+    public ?string $id = null;
+    public ?string $title = null;
+
     public function rules(): array
     {
         return [

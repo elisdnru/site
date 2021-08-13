@@ -7,13 +7,20 @@ namespace app\modules\portfolio\forms;
 use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
 use app\modules\portfolio\models\Category;
+use yii\base\Model;
 
-class CategorySearch extends Category
+class CategorySearch extends Model
 {
+    public ?string $id = null;
+    public ?string $title = null;
+    public ?string $alias = null;
+    public ?string $sort = null;
+    public ?string $parent_id = null;
+
     public function rules(): array
     {
         return [
-            [['id', 'title', 'alias', 'link', 'sort', 'parent_id'], 'safe'],
+            [['id', 'title', 'alias', 'sort', 'parent_id'], 'safe'],
         ];
     }
 

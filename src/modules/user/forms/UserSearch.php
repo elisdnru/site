@@ -6,28 +6,29 @@ namespace app\modules\user\forms;
 
 use app\components\DataProvider;
 use app\modules\user\models\User;
+use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
 
-class UserSearch extends User
+class UserSearch extends Model
 {
+    public ?string $id = null;
+    public ?string $username = null;
+    public ?string $email = null;
+    public ?string $create_datetime = null;
     public ?string $fio = null;
+    public ?string $role = null;
 
     public function rules(): array
     {
         return [
-            [[
-                'id', 'username', 'email',
-                'create_datetime', 'last_modify_datetime', 'last_visit_datetime',
-                'active', 'identity', 'network',
-                'lastname', 'firstname', 'role',
-            ], 'safe'],
+            [['id', 'username', 'email', 'create_datetime', 'fio', 'role'], 'safe'],
         ];
     }
 
     public function search(array $params, int $pageSize = 30): DataProvider
     {
-        $query = self::find();
+        $query = User::find();
 
         $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,

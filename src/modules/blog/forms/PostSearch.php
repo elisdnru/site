@@ -6,21 +6,32 @@ namespace app\modules\blog\forms;
 
 use app\components\DataProvider;
 use app\modules\blog\models\Post;
+use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class PostSearch extends Post
+class PostSearch extends Model
 {
+    public ?string $id = null;
+    public ?string $date = null;
+    public ?string $update_date = null;
+    public ?string $category_id = null;
+    public ?string $group_id = null;
+    public ?string $author_id = null;
+    public ?string $title = null;
+    public ?string $alias = null;
+    public ?string $public = null;
+
     public function rules(): array
     {
         return [
-            [['id', 'date', 'category_id', 'author_id', 'title'], 'safe'],
+            [['id', 'date', 'update_date', 'category_id', 'group_id', 'author_id', 'title', 'alias'], 'safe'],
             [['meta_title', 'meta_description', 'image_alt', 'text', 'public'], 'safe'],
         ];
     }
 
     public function search(array $params, int $pageSize = 30): DataProvider
     {
-        $query = self::find()->alias('t')->joinWith(['category', 'group']);
+        $query = Post::find()->alias('t')->joinWith(['category', 'group']);
 
         $dataProvider = new DataProvider(new ActiveDataProvider([
             'query' => $query,
