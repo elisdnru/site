@@ -127,7 +127,7 @@ final class User extends ActiveRecord
 
     public function hashPassword(string $password): string
     {
-        return (string)password_hash($password, PASSWORD_DEFAULT);
+        return password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function oldHashPassword(string $password): string
