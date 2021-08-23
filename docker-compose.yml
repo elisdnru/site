@@ -185,8 +185,15 @@ services:
             - '--maxmemory-policy allkeys-lru'
     site-mailer:
         image: mailhog/mailhog
-        ports:
-            - "8082:8025"
+        networks:
+            - traefik-public
+            - default
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site-mailer.rule=Host(`mailer.localhost`)
+            - traefik.http.routers.site-mailer.entrypoints=http
+            - traefik.http.services.site-mailer.loadbalancer.server.port=80
     site-backup-storage:
         image: minio/minio
         environment:
