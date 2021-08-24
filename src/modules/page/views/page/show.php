@@ -6,8 +6,7 @@ use app\modules\page\models\Page;
 use yii\web\View;
 
 /**
- * @var InlineWidgetsBehavior|View $this
- * @psalm-var View&InlineWidgetsBehavior $this
+ * @var View&InlineWidgetsBehavior $this
  * @var Page $page
  * @var string $subpages_layout
  */
