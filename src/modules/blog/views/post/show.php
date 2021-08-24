@@ -20,8 +20,7 @@ use yii\web\Request;
 use yii\web\View;
 
 /**
- * @var InlineWidgetsBehavior|View $this
- * @psalm-var View&InlineWidgetsBehavior $this
+ * @var View&InlineWidgetsBehavior $this
  * @var Post $model
  * @var Request $request
  */
