@@ -15,8 +15,7 @@ use yii\web\View;
 use yii\widgets\LinkPager;
 
 /**
- * @var InlineWidgetsBehavior|View $this
- * @psalm-var View&InlineWidgetsBehavior $this
+ * @var View&InlineWidgetsBehavior $this
  * @var SearchForm $searchForm
  * @var DataProvider<Post> $dataProvider
  */

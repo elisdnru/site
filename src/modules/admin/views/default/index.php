@@ -61,8 +61,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
                 <ul class="adminlist">
                     <?php
                     /**
-                     * @var AdminDashboardItem|Module $module
-                     * @psalm-var Module&AdminDashboardItem $module
+                     * @var Module&AdminDashboardItem $module
                      */
                     foreach ($modules as $module) : ?>
                         <?php if (Yii::$app->moduleAdminMenu->menu($module->id)) : ?>

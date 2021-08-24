@@ -12,8 +12,7 @@ use yii\helpers\Url;
 use yii\web\View;
 
 /**
- * @var InlineWidgetsBehavior|View $this
- * @psalm-var View&InlineWidgetsBehavior $this
+ * @var View&InlineWidgetsBehavior $this
  * @var DataProvider<Work> $dataProvider
  * @var Category $category
  * @var Category[] $subcategories

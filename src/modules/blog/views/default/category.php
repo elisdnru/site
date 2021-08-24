@@ -9,8 +9,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var InlineWidgetsBehavior|View $this
- * @psalm-var View&InlineWidgetsBehavior $this
+ * @var View&InlineWidgetsBehavior $this
  * @var Category $category
  * @var DataProvider<Category> $dataProvider
  */

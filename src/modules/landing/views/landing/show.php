@@ -7,8 +7,7 @@ use app\modules\landing\models\Landing;
 use yii\web\View;
 
 /**
- * @var InlineWidgetsBehavior|View $this
- * @psalm-var View&InlineWidgetsBehavior $this
+ * @var View&InlineWidgetsBehavior $this
  * @var Landing $landing
  */
 echo $this->decodeWidgets($landing->text);
