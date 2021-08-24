@@ -7,8 +7,6 @@ namespace app\components;
 final class Pluraliser
 {
     /**
-     * Множественное число
-     * https://github.com/mbakirov/UHelpers/.
      * @param string[] $input array('товар', 'товара', 'товаров')
      */
     public static function plural(int $amount, array $input): string
