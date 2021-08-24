@@ -17,6 +17,9 @@ jobs:
         steps:
             -   uses: actions/checkout@v2
 
+            -   name: Chmod
+                run: chmod 777 .
+
             -   name: Cache vendors
                 uses: actions/cache@v2
                 with:

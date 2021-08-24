@@ -23,6 +23,8 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --quiet
 
+RUN addgroup -g 1000 app && adduser -u 1000 -G app -s /bin/sh -D app
+
 WORKDIR /app
 
 COPY ./composer.json ./composer.lock ./
@@ -31,3 +33,7 @@ RUN composer install --no-dev --prefer-dist --no-progress --optimize-autoloader 
     && rm -rf /root/.composer/cache
 
 COPY ./ ./
+
+RUN chown -R app:app ./var ./public/assets
+
+USER app

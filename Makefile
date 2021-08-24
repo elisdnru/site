@@ -30,10 +30,11 @@ push-dev-cache:
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-wait-redis site-migrations site-fixtures site-test-generate site-assets-build
 
 site-clear:
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/*'
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/* tests/_support/_generated/*'
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf vendor var/.p*'
 
 site-permissions:
-	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload
+	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload tests/_output tests/_support/_generated
 
 site-composer-install:
 	docker-compose run --rm site-php-cli composer install
