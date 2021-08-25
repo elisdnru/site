@@ -31,7 +31,6 @@ site-init: site-permissions site-composer-install site-assets-install site-wait-
 
 site-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/* tests/_support/_generated/*'
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf vendor var/.p*'
 
 site-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload tests/_output tests/_support/_generated

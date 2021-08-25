@@ -17,9 +17,6 @@ jobs:
         steps:
             -   uses: actions/checkout@v2
 
-            -   name: Chmod
-                run: chmod 777 .
-
             -   name: Cache vendors
                 uses: actions/cache@v2
                 with:
@@ -38,6 +35,9 @@ jobs:
                     login-server: ${{ env.REGISTRY_HOST }}
                     username: ElisDN
                     password: ${{ github.token }}
+
+            -   name: Permissions
+                run: mkdir -p vendor && sudo chown -R 1000:1000 vendor
 
             -   name: Init
                 run: make init
