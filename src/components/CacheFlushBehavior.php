@@ -27,11 +27,7 @@ final class CacheFlushBehavior extends Behavior
 
     public function beforeAction(ActionEvent $event): void
     {
-        $module = $event->action->controller->module;
-
-        if ($module !== null) {
-            $tag = $module->id;
-            TagDependency::invalidate($this->cache, $tag);
-        }
+        $tag = $event->action->controller->module->id;
+        TagDependency::invalidate($this->cache, $tag);
     }
 }

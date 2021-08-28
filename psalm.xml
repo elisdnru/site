@@ -13,7 +13,6 @@
 
     <stubs>
         <file name="psalm/yii/base/Application.php"/>
-        <file name="psalm/yii/base/Controller.php"/>
         <file name="psalm/yii/base/View.php"/>
         <file name="psalm/yii/di/Container.php"/>
     </stubs>
