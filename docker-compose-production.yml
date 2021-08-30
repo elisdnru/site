@@ -27,6 +27,7 @@ services:
                 delay: 10s
             placement:
                 constraints: [ node.role == manager ]
+
     site-php-fpm:
         image: ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
         environment:
@@ -64,6 +65,7 @@ services:
                 delay: 10s
             placement:
                 constraints: [ node.role == manager ]
+
     site-migration:
         image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
         environment:
@@ -103,6 +105,7 @@ services:
                 window: 120s
             placement:
                 constraints: [ node.role == manager ]
+
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         environment:
@@ -128,6 +131,7 @@ services:
             replicas: 0
             restart_policy:
                 condition: none
+
     site-upload-backup:
         image: ${REGISTRY}/site-files-backup:${IMAGE_TAG}
         environment:
@@ -152,6 +156,7 @@ services:
                 condition: none
             placement:
                 constraints: [ node.role == manager ]
+
     site-redis:
         image: ${REGISTRY}/site-redis:6.2
         environment:
