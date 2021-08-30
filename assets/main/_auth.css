@@ -1,0 +1,72 @@
+.auth {
+  margin-right: -4px;
+  margin-bottom: -4px;
+}
+
+.auth span {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url('auth.png');
+  cursor: pointer;
+}
+
+.auth.small span {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  background-size: cover;
+}
+
+.auth span.auth-vk {
+  background-position-y: -2px;
+}
+
+.auth span.auth-mr {
+  background-position-y: -70px;
+}
+
+.auth span.auth-fb {
+  background-position-y: -104px;
+}
+
+.auth span.auth-tw {
+  background-position-y: -138px;
+}
+
+.auth span.auth-gl {
+  background-position-y: -172px;
+}
+
+.auth span.auth-ya {
+  background-position-y: -206px;
+}
+
+.auth.small span.auth-vk {
+  background-position-y: -1px;
+}
+
+.auth.small span.auth-mr {
+  background-position-y: -35px;
+}
+
+.auth.small span.auth-fb {
+  background-position-y: -52px;
+}
+
+.auth.small span.auth-tw {
+  background-position-y: -69px;
+}
+
+.auth.small span.auth-gl {
+  background-position-y: -86px;
+}
+
+.auth.small span.auth-ya {
+  background-position-y: -103px;
+}

@@ -4,6 +4,7 @@ use app\components\SocNetwork;
 use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
+use app\modules\user\widgets\OAuthWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\Request;
@@ -57,12 +58,19 @@ use yii\web\Request;
     <?= Html::endForm(); ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
-        <?= ULoginWidget::widget([
-            'params' => [
+        <?php if (Yii::$app->features->isActive('OAUTH')) : ?>
+            <?= OAuthWidget::widget([
                 'display' => 'small',
-                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true),
-            ],
-        ]); ?>
+                'return' => Yii::$app->request->getUrl(),
+            ]); ?>
+        <?php else: ?>
+            <?= ULoginWidget::widget([
+                'params' => [
+                    'display' => 'small',
+                    'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true),
+                ],
+            ]); ?>
+        <?php endif; ?>
     </div>
 
 <?php endif; ?>

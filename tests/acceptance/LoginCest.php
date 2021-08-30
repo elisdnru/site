@@ -16,6 +16,26 @@ final class LoginCest
         ]);
     }
 
+    public function guestUlogin(AcceptanceTester $I): void
+    {
+        $I->dontHaveFeature('OAUTH');
+        $I->amOnPage('login');
+        $I->see('Вход в аккаунт', 'h1');
+        $I->seeElement('#login-form');
+        $I->seeElement('#uLogin');
+        $I->dontSeeElement('.auth');
+    }
+
+    public function guestOauth(AcceptanceTester $I): void
+    {
+        $I->haveFeature('OAUTH');
+        $I->amOnPage('login');
+        $I->see('Вход в аккаунт', 'h1');
+        $I->seeElement('#login-form');
+        $I->dontSeeElement('#uLogin');
+        $I->seeElement('.auth');
+    }
+
     public function user(AcceptanceTester $I): void
     {
         $I->amOnPage('login');

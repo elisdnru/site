@@ -4,6 +4,7 @@ use app\components\Csrf;
 use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\models\User;
+use app\modules\user\widgets\OAuthWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
@@ -39,11 +40,19 @@ use yii\widgets\ActiveForm;
 
         <?php else : ?>
             <div style="margin-bottom: 10px">
-                <div style="float: right; margin-right: -10px">
-                    <?= ULoginWidget::widget([
-                        'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments', 'display' => 'panel'],
-                    ]); ?>
-                </div>
+                <?php if (Yii::$app->features->isActive('OAUTH')) : ?>
+                    <div style="float: right">
+                        <?= OAuthWidget::widget([
+                            'return' => Yii::$app->request->getUrl(),
+                        ]); ?>
+                    </div>
+                <?php else: ?>
+                    <div style="float: right; margin-right: -10px">
+                        <?= ULoginWidget::widget([
+                            'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments', 'display' => 'panel'],
+                        ]); ?>
+                    </div>
+                <?php endif; ?>
                 <a href="<?= Url::to(['/user/default/login']); ?>">Войти</a> |
                 <a href="<?= Url::to(['/user/registration/request']); ?>">Завести аккаунт</a> |
                 <span style="color: #666">Войти через</span>

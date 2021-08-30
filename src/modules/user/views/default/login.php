@@ -3,6 +3,7 @@
 use app\components\Csrf;
 use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\forms\LoginForm;
+use app\modules\user\widgets\OAuthWidget;
 use app\widgets\Portlet;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -66,7 +67,13 @@ $this->params['breadcrumbs'] = [
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>
-<?= ULoginWidget::widget([
-    'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true)],
-]); ?>
+<?php if (Yii::$app->features->isActive('OAUTH')) : ?>
+    <?= OAuthWidget::widget([
+        'return' => Yii::$app->request->getUrl(),
+    ]); ?>
+<?php else: ?>
+    <?= ULoginWidget::widget([
+        'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true)],
+    ]); ?>
+<?php endif; ?>
 <?php Portlet::end(); ?>
