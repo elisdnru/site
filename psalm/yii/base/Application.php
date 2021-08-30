@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yii\base;
 
+use app\components\feature\FeatureToggle;
 use app\components\module\admin\AdminAccess;
 use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
@@ -18,12 +19,14 @@ use yii\web\User;
  * @property AdminMenu $moduleAdminMenu
  * @property AdminNotifications $moduleAdminNotifications
  * @property Uploader $uploader
+ * @property FeatureToggle $features
  */
 class Application extends Module
 {
     /**
      * @var array{
-     *     deworker_api_url: string
+     *     deworker_api_url: string,
+     *     features: array<string, bool>,
      * }
      */
     public $params = [];

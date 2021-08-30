@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use app\components\AuthManager;
 use app\components\ContentReplaceBehavior;
+use app\components\feature\FeatureToggle;
 use app\components\InlineWidgetsBehavior;
 use app\components\MathCaptchaAction;
 use app\components\module\admin\AdminAccess;
@@ -112,6 +113,7 @@ return [
         'moduleAdminNotifications' => AdminNotifications::class,
         'uploader' => Uploader::class,
         'redis' => RedisConnection::class,
+        'features' => FeatureToggle::class,
     ],
 
     'container' => [
@@ -273,6 +275,12 @@ return [
             RequestFactoryInterface::class => RequestFactory::class,
             StreamFactoryInterface::class => StreamFactory::class,
             SimpleCacheInterface::class => SimpleCacheAdapter::class,
+            FeatureToggle::class => [
+                ['class' => FeatureToggle::class],
+                [[
+                    'OAUTH' => false,
+                ]],
+            ],
         ],
     ],
     'params' => [

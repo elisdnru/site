@@ -10,6 +10,18 @@ final class AcceptanceTester extends Actor
 {
     use _generated\AcceptanceTesterActions;
 
+    public function haveFeature(string $name): void
+    {
+        $I = $this;
+        $I->setCookie('features', $name);
+    }
+
+    public function dontHaveFeature(string $name): void
+    {
+        $I = $this;
+        $I->setCookie('features', '!' . $name);
+    }
+
     public function amLoggedInByAdmin(): void
     {
         $I = $this;

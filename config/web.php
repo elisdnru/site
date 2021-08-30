@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use app\components\AuthIdentity;
+use app\components\feature\FeaturesNegotiator;
 use app\components\SentryErrorHandler;
 use yii\helpers\ArrayHelper;
 use yii\redis\Session as RedisSession;
@@ -69,5 +70,6 @@ return ArrayHelper::merge(
                 ],
             ],
         ],
+        'as featureNegotiator' => FeaturesNegotiator::class,
     ]
 );
