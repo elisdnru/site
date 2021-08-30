@@ -25,8 +25,7 @@ class Application extends Module
 {
     /**
      * @var array{
-     *     deworker_api_url: string,
-     *     features: array<string, bool>,
+     *     deworker_api_url: string
      * }
      */
     public $params = [];
