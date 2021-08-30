@@ -132,7 +132,7 @@ services:
         secrets:
             - db_password
         ports:
-            - "33061:3306"
+            - "3306:3306"
 
     site-mysql-backup:
         image: ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
