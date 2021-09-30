@@ -3,7 +3,6 @@
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
-use app\modules\blog\widgets\UpdatedPostsWidget;
 use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
@@ -47,13 +46,6 @@ $request = Yii::$app->request;
 <?php Portlet::begin(['title' => 'Профиль']); ?>
 <?= LoginFormWidget::widget(); ?>
 <?php Portlet::end(); ?>
-
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
-    <?php Portlet::begin(['title' => 'Недавно обновившиеся записи']); ?>
-    <?= UpdatedPostsWidget::widget(['limit' => 10]); ?>
-    <?php Portlet::end(); ?>
-    <?php $this->endCache(); ?>
-<?php endif; ?>
 
 <?php if ($this->beginCache('banner_sidebar_second', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?= BlockWidget::widget(['id' => 'banner_sidebar_second']); ?>
