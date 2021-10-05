@@ -49,7 +49,6 @@ final class PageQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Page|null
      * @psalm-return Page|null
      */
     public function one($db = null): array|Page|null

@@ -49,7 +49,6 @@ class CategoryQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Category|null
      * @psalm-return Category|null
      */
     public function one($db = null): array|Category|null

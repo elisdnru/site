@@ -73,7 +73,6 @@ final class CommentQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Comment|null
      * @psalm-return Comment|null
      */
     public function one($db = null): array|Comment|null

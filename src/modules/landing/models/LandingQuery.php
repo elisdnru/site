@@ -49,7 +49,6 @@ final class LandingQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Landing|null
      * @psalm-return Landing|null
      */
     public function one($db = null): array|Landing|null

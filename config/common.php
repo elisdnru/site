@@ -126,8 +126,8 @@ return [
                 'validatePage' => false,
             ],
             MathCaptchaAction::class => [
-                'backColor' => 0xffffff,
-                'foreColor' => 0xa00090,
+                'backColor' => 0xFFFFFF,
+                'foreColor' => 0xA00090,
             ],
         ],
         'singletons' => [

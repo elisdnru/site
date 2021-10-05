@@ -43,7 +43,6 @@ final class WorkQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Work|null
      * @psalm-return Work|null
      */
     public function one($db = null): array|Work|null

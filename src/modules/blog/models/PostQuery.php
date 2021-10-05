@@ -42,7 +42,6 @@ final class PostQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Post|null
      * @psalm-return Post|null
      */
     public function one($db = null): array|Post|null

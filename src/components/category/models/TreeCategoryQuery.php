@@ -49,7 +49,6 @@ final class TreeCategoryQuery extends CategoryQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|TreeCategory|null
      * @psalm-return TreeCategory|null
      */
     public function one($db = null): array|TreeCategory|null

@@ -49,7 +49,6 @@ final class GroupQuery extends ActiveQuery
     /**
      * @psalm-suppress ImplementedReturnTypeMismatch
      * @param Connection|null $db
-     * @return array|Group|null
      * @psalm-return Group|null
      */
     public function one($db = null): array|Group|null
