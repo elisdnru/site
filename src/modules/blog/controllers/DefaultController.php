@@ -56,7 +56,7 @@ final class DefaultController extends Controller
         }
 
         $query = $this->getBlogQuery()
-            ->andWhere(['id' => $model->getPostIds()]);
+            ->joinWith('postTags pt', false)->andWhere(['pt.tag_id' => $model->id]);
 
         return $this->render('tag', [
             'dataProvider' => $this->createProvider($query),

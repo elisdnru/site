@@ -83,15 +83,6 @@ final class Tag extends ActiveRecord
         return $tag;
     }
 
-    public function getPostIds(): array
-    {
-        $postIds = self::getDb()
-            ->createCommand('SELECT post_id FROM blog_post_tags WHERE tag_id=:tag', [':tag' => $this->id])
-            ->queryColumn();
-
-        return array_unique($postIds);
-    }
-
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
