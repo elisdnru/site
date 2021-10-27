@@ -92,7 +92,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <!--/noindex-->
             </div>
             <div class="short">
-                <?= TextMarker::markFragment(strip_tags($this->clearWidgets($post->text_purified)), $searchForm->q); ?>
+                <?= TextMarker::markFragment(strip_tags($this->decodeWidgets($post->text_purified)), $searchForm->q); ?>
                 ...
             </div>
             <div class="clear"></div>

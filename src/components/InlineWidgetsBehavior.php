@@ -39,16 +39,6 @@ final class InlineWidgetsBehavior extends Behavior
         return $this->processWidgets($result);
     }
 
-    public function clearWidgets(?string $text): string
-    {
-        if ($text === null) {
-            return '';
-        }
-        $result = $this->clearAutoParagraphs($text);
-        $result = $this->replaceBlocks($result);
-        return $this->clearAllWidgets($result);
-    }
-
     private function processWidgets(string $text): string
     {
         if (preg_match('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', $text)) {
@@ -61,11 +51,6 @@ final class InlineWidgetsBehavior extends Behavior
             return $text;
         }
         return $text;
-    }
-
-    private function clearAllWidgets(string $text): string
-    {
-        return preg_replace('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', '', $text);
     }
 
     private function replaceBlocks(string $text): string
