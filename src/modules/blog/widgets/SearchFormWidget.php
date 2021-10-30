@@ -12,8 +12,6 @@ use yii\web\Request;
 
 final class SearchFormWidget extends Widget
 {
-    public string $tpl = 'SearchForm';
-
     public function run(): string
     {
         $form = new SearchForm();
@@ -26,7 +24,7 @@ final class SearchFormWidget extends Widget
 
         $form->load($request->getQueryParams());
 
-        return $this->render($this->tpl, [
+        return $this->render('SearchForm', [
             'form' => $form,
         ]);
     }

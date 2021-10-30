@@ -10,11 +10,15 @@ use yii\caching\TagDependency;
 
 final class TagCloudWidget extends Widget
 {
-    public string $tpl = 'TagCloud';
-
     public function run(): string
     {
-        $tags = Tag::find()->cache(0, new TagDependency(['tags' => ['blog']]))->orderBy(['title' => SORT_ASC])->all();
-        return $this->render($this->tpl, ['tags' => $tags]);
+        $tags = Tag::find()
+            ->cache(0, new TagDependency(['tags' => ['blog']]))
+            ->orderBy(['title' => SORT_ASC])
+            ->all();
+
+        return $this->render('TagCloud', [
+            'tags' => $tags,
+        ]);
     }
 }

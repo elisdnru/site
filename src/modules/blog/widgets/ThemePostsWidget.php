@@ -9,7 +9,6 @@ use yii\base\Widget;
 
 final class ThemePostsWidget extends Widget
 {
-    public string $tpl = 'ThemePosts';
     public int $current = 0;
     public ?int $group = null;
 
@@ -21,7 +20,7 @@ final class ThemePostsWidget extends Widget
 
         $posts = Post::findAll(['group_id' => $this->group]);
 
-        return $this->render($this->tpl, [
+        return $this->render('ThemePosts', [
             'posts' => $posts,
             'current' => $this->current,
         ]);
