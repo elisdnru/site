@@ -38,6 +38,7 @@ use yii\helpers\Url;
  * @property int $image_show
  * @property int $group_id
  * @property int $public
+ * @property int $promoted
  *
  * @property User $author
  * @property Group|null $group
@@ -77,7 +78,7 @@ final class Post extends ActiveRecord implements Material
             ['author_id', 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
             ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
             ['group_id', 'exist', 'targetClass' => Group::class, 'targetAttribute' => 'id'],
-            [['public', 'image_show'], 'integer'],
+            [['public', 'image_show', 'promoted'], 'integer'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
             [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
             [['title', 'alias', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
@@ -144,6 +145,7 @@ final class Post extends ActiveRecord implements Material
             'group_id' => 'Выберите тематическую группу',
             'newGroup' => '...или введите имя новой',
             'public' => 'Опубликовано',
+            'promoted' => 'Продвигать',
         ];
     }
 

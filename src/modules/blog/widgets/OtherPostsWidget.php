@@ -13,19 +13,35 @@ final class OtherPostsWidget extends Widget
 
     public function run(): string
     {
-        $prev = Post::find()->published()
+        $promoted = Post::find()
+            ->published()
+            ->select('id')
+            ->andWhere(['!=', 'id', $this->current])
+            ->andWhere(['promoted' => true])
+            ->column();
+
+        $prev = Post::find()
+            ->published()
+            ->select('id')
             ->andWhere(['<', 'id', $this->current])
+            ->andWhere(['not in', 'id', $promoted])
             ->orderBy(['id' => SORT_DESC])
-            ->limit(2)
-            ->all();
+            ->limit(1)
+            ->column();
 
-        $next = array_reverse(Post::find()->published()
+        $next = array_reverse(Post::find()
+            ->published()
+            ->select('id')
             ->andWhere(['>', 'id', $this->current])
+            ->andWhere(['not in', 'id', $promoted])
             ->orderBy(['id' => SORT_ASC])
-            ->limit(2)
-            ->all());
+            ->limit(1)
+            ->column());
 
-        $posts = array_merge($next, $prev);
+        $posts = Post::find()
+            ->orderBy(['id' => SORT_DESC])
+            ->andWhere(['id' => array_merge($prev, $promoted, $next)])
+            ->all();
 
         return $this->render('OtherPosts', [
             'posts' => $posts,

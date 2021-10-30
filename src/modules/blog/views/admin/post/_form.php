@@ -61,6 +61,10 @@ use yii\widgets\ActiveForm;
             <div class="row">
                 <?= Html::activeCheckbox($model, 'public'); ?>
             </div>
+
+            <div class="row">
+                <?= Html::activeCheckbox($model, 'promoted'); ?>
+            </div>
         </fieldset>
 
         <fieldset>
