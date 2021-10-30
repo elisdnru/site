@@ -18,7 +18,11 @@ final class ThemePostsWidget extends Widget
             return '';
         }
 
-        $posts = Post::findAll(['group_id' => $this->group]);
+        $posts = Post::find()
+            ->published()
+            ->andWhere(['group_id' => $this->group])
+            ->orderBy(['date' => SORT_ASC])
+            ->all();
 
         return $this->render('ThemePosts', [
             'posts' => $posts,
