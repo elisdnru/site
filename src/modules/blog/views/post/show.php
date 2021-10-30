@@ -151,8 +151,7 @@ HighlightAsset::register($this);
 
     <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
         <?= OtherPostsWidget::widget([
-            'skip' => $model->id,
-            'limit' => 2,
+            'current' => $model->id,
         ]); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>

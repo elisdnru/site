@@ -9,29 +9,23 @@ use yii\base\Widget;
 
 final class OtherPostsWidget extends Widget
 {
-    public int $skip = 0;
-    public int $limit = 5;
+    public int $current = 0;
 
     public function run(): string
     {
-        $query = Post::find()->published()->limit($this->limit);
+        $prev = Post::find()->published()
+            ->andWhere(['<', 'id', $this->current])
+            ->orderBy(['id' => SORT_DESC])
+            ->limit(2)
+            ->all();
 
-        if ($this->skip) {
-            $prevQuery = (clone $query)
-                ->andWhere(['<', 'id', $this->skip])
-                ->orderBy(['id' => SORT_DESC]);
+        $next = array_reverse(Post::find()->published()
+            ->andWhere(['>', 'id', $this->current])
+            ->orderBy(['id' => SORT_ASC])
+            ->limit(2)
+            ->all());
 
-            $nextQuery = (clone $query)
-                ->andWhere(['>', 'id', $this->skip])
-                ->orderBy(['id' => SORT_ASC]);
-
-            $posts = array_merge(
-                array_reverse($nextQuery->all()),
-                $prevQuery->all()
-            );
-        } else {
-            $posts = $query->all();
-        }
+        $posts = array_merge($next, $prev);
 
         return $this->render('OtherPosts', [
             'posts' => $posts,
