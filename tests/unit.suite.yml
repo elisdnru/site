@@ -1,5 +1,6 @@
 suite_namespace: tests\unit
 actor: UnitTester
+bootstrap: _bootstrap.php
 modules:
     enabled:
         - Asserts
