@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
 use app\components\DataProvider;
-use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\blog\models\Category;
 use app\modules\user\models\Access;
+use app\widgets\Shortcodes;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var View&InlineWidgetsBehavior $this
+ * @var View $this
  * @var Category $category
  * @var DataProvider<Category> $dataProvider
  */
@@ -41,7 +41,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->
 <?php endif; ?>
-<?= $this->decodeWidgets(trim($category->text)); ?>
+
+<?php Shortcodes::begin(); ?>
+<?= $category->text; ?>
+<?php Shortcodes::end(); ?>
+
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--/noindex-->
 <?php endif; ?>

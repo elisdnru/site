@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
 use app\assets\PortfolioAsset;
-use app\components\InlineWidgetsBehavior;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use app\widgets\Share;
+use app\widgets\Shortcodes;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
- * @var View&InlineWidgetsBehavior $this
+ * @var View $this
  * @var Work $model
  */
 $this->context->layout = 'index';
@@ -83,7 +83,9 @@ PortfolioAsset::register($this);
     <div class="clear"></div>
 
     <div class="text">
-        <?= $this->decodeWidgets(trim($model->text_purified)); ?>
+        <?php Shortcodes::begin(); ?>
+        <?= $model->text_purified; ?>
+        <?php Shortcodes::end(); ?>
     </div>
 
     <div class="clear"></div>

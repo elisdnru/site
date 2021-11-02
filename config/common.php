@@ -5,7 +5,6 @@ declare(strict_types=1);
 use app\components\AuthManager;
 use app\components\ContentReplaceBehavior;
 use app\components\feature\FeatureToggle;
-use app\components\InlineWidgetsBehavior;
 use app\components\MathCaptchaAction;
 use app\components\module\admin\AdminAccess;
 use app\components\module\admin\AdminDashboard;
@@ -14,6 +13,7 @@ use app\components\module\admin\AdminNotifications;
 use app\components\module\routes\RoutesLoader;
 use app\components\SimpleCacheAdapter;
 use app\components\uploader\Uploader;
+use app\components\WidgetShortcodes;
 use app\extensions\file\File as FileExtension;
 use app\extensions\image\Image;
 use app\modules\block\widgets\BlockWidget;
@@ -38,6 +38,7 @@ use yii\caching\CacheInterface;
 use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
+use yii\di\Instance;
 use yii\helpers\FileHelper;
 use yii\log\Dispatcher as Logger;
 use yii\log\FileTarget;
@@ -219,9 +220,18 @@ return [
             ],
             View::class => [
                 'class' => View::class,
-                'as InlineWidgetsBehavior' => [
-                    'class' => InlineWidgetsBehavior::class,
-                    'widgets' => [
+                'as Replace' => [
+                    'class' => ContentReplaceBehavior::class,
+                    'replaces' => [
+                        'http://www.elisdn.ru' => 'https://elisdn.ru',
+                    ],
+                ],
+            ],
+            WidgetShortcodes::class => [
+                ['class' => WidgetShortcodes::class],
+                [
+                    Instance::of(CacheInterface::class),
+                    [
                         'lastPosts' => LastPostsWidget::class,
                         'block' => BlockWidget::class,
                         'countdown' => CountDown::class,
@@ -230,12 +240,6 @@ return [
                         'subscribe_news' => SubscribeNews::class,
                         'mailto' => MailTo::class,
                         'deworker-series-episodes' => SeriesEpisodes::class,
-                    ],
-                ],
-                'as Replace' => [
-                    'class' => ContentReplaceBehavior::class,
-                    'replaces' => [
-                        'http://www.elisdn.ru' => 'https://elisdn.ru',
                     ],
                 ],
             ],

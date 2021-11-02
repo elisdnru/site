@@ -5,31 +5,32 @@ declare(strict_types=1);
 namespace app\components;
 
 use Exception;
-use yii\base\Behavior;
 use yii\base\Widget;
 use yii\caching\CacheInterface;
 
-final class InlineWidgetsBehavior extends Behavior
+final class WidgetShortcodes
 {
-    public string $startBlock = '[{widget:';
-    public string $endBlock = '}]';
-    /**
-     * @var string[]
-     * @psalm-var array<string, class-string<Widget>>
-     */
-    public array $widgets = [];
+    private const START_BLOCK = '[{widget:';
+    private const END_BLOCK = '}]';
 
+    /**
+     * @var array<string, class-string<Widget>>
+     */
+    private array $widgets;
     private CacheInterface $cache;
     private string $widgetToken;
 
-    public function __construct(CacheInterface $cache, array $config = [])
+    /**
+     * @param array<string, class-string<Widget>> $widgets
+     */
+    public function __construct(CacheInterface $cache, array $widgets)
     {
-        parent::__construct($config);
         $this->cache = $cache;
+        $this->widgets = $widgets;
         $this->widgetToken = md5(microtime());
     }
 
-    public function decodeWidgets(?string $text): string
+    public function process(?string $text): string
     {
         if ($text === null) {
             return '';
@@ -55,18 +56,18 @@ final class InlineWidgetsBehavior extends Behavior
 
     private function replaceBlocks(string $text): string
     {
-        $text = str_replace($this->startBlock, '{' . $this->widgetToken . ':', $text);
-        return str_replace($this->endBlock, $this->widgetToken . '}', $text);
+        $text = str_replace(self::START_BLOCK, '{' . $this->widgetToken . ':', $text);
+        return str_replace(self::END_BLOCK, $this->widgetToken . '}', $text);
     }
 
     private function clearAutoParagraphs(string $output): string
     {
-        $output = str_replace('<p>' . $this->startBlock, $this->startBlock, $output);
-        return str_replace($this->endBlock . '</p>', $this->endBlock, $output);
+        $output = str_replace('<p>' . self::START_BLOCK, self::START_BLOCK, $output);
+        return str_replace(self::END_BLOCK . '</p>', self::END_BLOCK, $output);
     }
 
     /**
-     * @psalm-param class-string<Widget> $widgetClass
+     * @param class-string<Widget> $widgetClass
      * @throws Exception
      */
     private function loadWidget(string $widgetClass, string $attributes = ''): string

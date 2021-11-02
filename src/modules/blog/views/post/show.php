@@ -3,7 +3,6 @@
 use app\assets\HighlightAsset;
 use app\components\CSSMinimizer;
 use app\components\DateFormatter;
-use app\components\InlineWidgetsBehavior;
 use app\components\Pluraliser;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Comment;
@@ -13,6 +12,7 @@ use app\modules\blog\widgets\ThemePostsWidget;
 use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use app\widgets\Share;
+use app\widgets\Shortcodes;
 use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
@@ -20,7 +20,7 @@ use yii\web\Request;
 use yii\web\View;
 
 /**
- * @var View&InlineWidgetsBehavior $this
+ * @var View $this
  * @var Post $model
  * @var Request $request
  */
@@ -99,7 +99,9 @@ HighlightAsset::register($this);
     </header>
 
     <div class="text">
-        <?= $this->decodeWidgets($model->text_purified); ?>
+        <?php Shortcodes::begin(); ?>
+        <?= $model->text_purified; ?>
+        <?php Shortcodes::end(); ?>
     </div>
 
     <div class="clear"></div>

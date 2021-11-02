@@ -2,17 +2,17 @@
 
 use app\assets\PortfolioAsset;
 use app\components\DataProvider;
-use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
+use app\widgets\Shortcodes;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
 /**
- * @var View&InlineWidgetsBehavior $this
+ * @var View $this
  * @var DataProvider<Work> $dataProvider
  * @var Category $category
  * @var Category[] $subcategories
@@ -67,7 +67,11 @@ PortfolioAsset::register($this);
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--noindex-->
 <?php endif; ?>
-<?= $this->decodeWidgets(trim($category->text)); ?>
+
+<?php Shortcodes::begin(); ?>
+<?= $category->text; ?>
+<?php Shortcodes::end(); ?>
+
 <?php if (Yii::$app->request->get('page', 1) > 1) : ?>
     <!--/noindex-->
 <?php endif; ?>

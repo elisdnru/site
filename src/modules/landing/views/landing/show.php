@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use app\components\InlineWidgetsBehavior;
 use app\modules\landing\models\Landing;
+use app\widgets\Shortcodes;
 use yii\web\View;
 
 /**
- * @var View&InlineWidgetsBehavior $this
+ * @var View $this
  * @var Landing $landing
  */
-echo $this->decodeWidgets($landing->text);
+Shortcodes::begin(); ?><?= $landing->text; ?><?php Shortcodes::end(); ?>

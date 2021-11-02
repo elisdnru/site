@@ -2,20 +2,20 @@
 
 use app\components\DataProvider;
 use app\components\DateFormatter;
-use app\components\InlineWidgetsBehavior;
 use app\components\PaginationFormatter;
 use app\components\TextMarker;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use app\widgets\Shortcodes;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
 /**
- * @var View&InlineWidgetsBehavior $this
+ * @var View $this
  * @var SearchForm $searchForm
  * @var DataProvider<Post> $dataProvider
  */
@@ -92,7 +92,12 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 <!--/noindex-->
             </div>
             <div class="short">
-                <?= TextMarker::markFragment(strip_tags($this->decodeWidgets($post->text_purified)), $searchForm->q); ?>
+                <?php ob_start(); ?>
+                <?php Shortcodes::begin(); ?>
+                <?= $post->text_purified; ?>
+                <?php Shortcodes::end(); ?>
+                <?php $text = ob_get_clean(); ?>
+                <?= TextMarker::markFragment(strip_tags($text), $searchForm->q); ?>
                 ...
             </div>
             <div class="clear"></div>
