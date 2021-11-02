@@ -13,13 +13,13 @@ final class WidgetShortcodes
     private const END_BLOCK = '}]';
 
     /**
-     * @var array<string, class-string<Widget>>
+     * @var array<string, string>
      */
     private array $widgets;
     private CacheInterface $cache;
 
     /**
-     * @param array<string, class-string<Widget>> $widgets
+     * @param array<string, string> $widgets
      */
     public function __construct(array $widgets, CacheInterface $cache)
     {
@@ -27,15 +27,13 @@ final class WidgetShortcodes
         $this->cache = $cache;
     }
 
-    public function process(?string $text): string
+    public function process(?string $text): ?string
     {
         if ($text === null) {
-            return '';
+            return null;
         }
-        $token = md5(microtime());
-        $result = $this->trimParagraphs($text);
-        $result = $this->replaceBlocks($result, $token);
-        return $this->processWidgets($result, $token);
+
+        return $this->processWidgets($this->trimParagraphs($text));
     }
 
     private function trimParagraphs(string $text): string
@@ -46,45 +44,41 @@ final class WidgetShortcodes
         ]);
     }
 
-    private function replaceBlocks(string $text, string $token): string
+    private function processWidgets(string $text): string
     {
-        return strtr($text, [
-            self::START_BLOCK => '{' . $token . ':',
-            self::END_BLOCK => $token . '}',
-        ]);
-    }
-
-    private function processWidgets(string $text, string $token): string
-    {
-        if (preg_match('|\{' . $token . ':.+?' . $token . '\}|is', $text)) {
-            foreach ($this->widgets as $alias => $class) {
-                $pattern = '#\{' . $token . ':' . $alias . '(\|([^}]*)?)?' . $token . '\}#is';
-                while (preg_match($pattern, $text, $p)) {
-                    $text = str_replace($p[0], $this->loadWidget($class, $p[2] ?? ''), $text);
-                }
-            }
+        if (!str_contains($text, self::START_BLOCK)) {
             return $text;
         }
-        return $text;
+
+        $result = $text;
+        foreach ($this->widgets as $alias => $class) {
+            $pattern = '#' . preg_quote(self::START_BLOCK, '|') . $alias . '(\|(.*))?' . preg_quote(self::END_BLOCK, '#') . '#sU';
+
+            while (preg_match($pattern, $result, $p)) {
+                $attributes = $this->parseAttributes($p[2] ?? '');
+                $result = str_replace($p[0], $this->renderWidget($class, $attributes), $result);
+            }
+        }
+
+        return $result;
     }
 
-    /**
-     * @param class-string<Widget> $widgetClass
-     */
-    private function loadWidget(string $widgetClass, string $attributes = ''): string
+    private function renderWidget(string $class, array $attributes): string
     {
-        $attrs = $this->parseAttributes($attributes);
-        $cache = $this->extractCacheExpireTime($attrs);
+        [$cacheDuration, $restAttributes] = $this->extractCacheDuration($attributes);
+        $cacheKey = $this->generateCacheKey($class, $restAttributes);
 
-        $index = 'widget_' . $widgetClass . '_' . json_encode($attrs, JSON_THROW_ON_ERROR);
+        if ($cacheDuration && $cachedHtml = (string)$this->cache->get($cacheKey)) {
+            return $cachedHtml;
+        }
 
-        if ($cache && $cachedHtml = (string)$this->cache->get($index)) {
-            $html = $cachedHtml;
-        } else {
-            ob_start();
-            echo $widgetClass::widget($attrs);
-            $html = trim(ob_get_clean());
-            $this->cache->set($index, $html, $cache);
+        ob_start();
+        /** @var class-string<Widget> $class */
+        echo $class::widget($restAttributes);
+        $html = trim(ob_get_clean());
+
+        if ($cacheDuration) {
+            $this->cache->set($cacheKey, $html, $cacheDuration);
         }
 
         return $html;
@@ -108,14 +102,21 @@ final class WidgetShortcodes
         return $attrs;
     }
 
-    private function extractCacheExpireTime(array &$attrs): int
+    /**
+     * @return array{int, array}
+     */
+    private function extractCacheDuration(array $attributes): array
     {
         $cache = 0;
-        /** @var array{cache?: string} $attrs */
-        if (isset($attrs['cache'])) {
-            $cache = (int)$attrs['cache'];
-            unset($attrs['cache']);
+        /** @var array{cache?: string} $attributes */
+        if (isset($attributes['cache'])) {
+            $cache = (int)$attributes['cache'];
         }
-        return $cache;
+        return [$cache, array_diff_key($attributes, ['cache' => 0])];
+    }
+
+    private function generateCacheKey(string $class, array $attributes): string
+    {
+        return 'widget_' . $class . '_' . json_encode($attributes, JSON_THROW_ON_ERROR);
     }
 }

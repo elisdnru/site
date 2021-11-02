@@ -25,6 +25,6 @@ final class Shortcodes extends Widget
 
     public function run(): string
     {
-        return $this->shortcodes->process(ob_get_clean());
+        return $this->shortcodes->process(ob_get_clean()) ?? '';
     }
 }
