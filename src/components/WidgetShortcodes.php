@@ -76,7 +76,7 @@ final class WidgetShortcodes
         $attrs = $this->parseAttributes($attributes);
         $cache = $this->extractCacheExpireTime($attrs);
 
-        $index = 'widget_' . $widgetClass . '_' . serialize($attrs);
+        $index = 'widget_' . $widgetClass . '_' . json_encode($attrs, JSON_THROW_ON_ERROR);
 
         if ($cache && $cachedHtml = (string)$this->cache->get($index)) {
             $html = $cachedHtml;
