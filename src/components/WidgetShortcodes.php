@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\components;
 
-use Exception;
 use yii\base\Widget;
 use yii\caching\CacheInterface;
 
@@ -18,16 +17,14 @@ final class WidgetShortcodes
      */
     private array $widgets;
     private CacheInterface $cache;
-    private string $widgetToken;
 
     /**
      * @param array<string, class-string<Widget>> $widgets
      */
-    public function __construct(CacheInterface $cache, array $widgets)
+    public function __construct(array $widgets, CacheInterface $cache)
     {
-        $this->cache = $cache;
         $this->widgets = $widgets;
-        $this->widgetToken = md5(microtime());
+        $this->cache = $cache;
     }
 
     public function process(?string $text): string
@@ -35,16 +32,33 @@ final class WidgetShortcodes
         if ($text === null) {
             return '';
         }
-        $result = $this->clearAutoParagraphs($text);
-        $result = $this->replaceBlocks($result);
-        return $this->processWidgets($result);
+        $token = md5(microtime());
+        $result = $this->trimParagraphs($text);
+        $result = $this->replaceBlocks($result, $token);
+        return $this->processWidgets($result, $token);
     }
 
-    private function processWidgets(string $text): string
+    private function trimParagraphs(string $text): string
     {
-        if (preg_match('|\{' . $this->widgetToken . ':.+?' . $this->widgetToken . '\}|is', $text)) {
+        return strtr($text, [
+            '<p>' . self::START_BLOCK => self::START_BLOCK,
+            self::END_BLOCK . '</p>' => self::END_BLOCK,
+        ]);
+    }
+
+    private function replaceBlocks(string $text, string $token): string
+    {
+        return strtr($text, [
+            self::START_BLOCK => '{' . $token . ':',
+            self::END_BLOCK => $token . '}',
+        ]);
+    }
+
+    private function processWidgets(string $text, string $token): string
+    {
+        if (preg_match('|\{' . $token . ':.+?' . $token . '\}|is', $text)) {
             foreach ($this->widgets as $alias => $class) {
-                $pattern = '#\{' . $this->widgetToken . ':' . $alias . '(\|([^}]*)?)?' . $this->widgetToken . '\}#is';
+                $pattern = '#\{' . $token . ':' . $alias . '(\|([^}]*)?)?' . $token . '\}#is';
                 while (preg_match($pattern, $text, $p)) {
                     $text = str_replace($p[0], $this->loadWidget($class, $p[2] ?? ''), $text);
                 }
@@ -54,21 +68,8 @@ final class WidgetShortcodes
         return $text;
     }
 
-    private function replaceBlocks(string $text): string
-    {
-        $text = str_replace(self::START_BLOCK, '{' . $this->widgetToken . ':', $text);
-        return str_replace(self::END_BLOCK, $this->widgetToken . '}', $text);
-    }
-
-    private function clearAutoParagraphs(string $output): string
-    {
-        $output = str_replace('<p>' . self::START_BLOCK, self::START_BLOCK, $output);
-        return str_replace(self::END_BLOCK . '</p>', self::END_BLOCK, $output);
-    }
-
     /**
      * @param class-string<Widget> $widgetClass
-     * @throws Exception
      */
     private function loadWidget(string $widgetClass, string $attributes = ''): string
     {

@@ -230,7 +230,6 @@ return [
             WidgetShortcodes::class => [
                 ['class' => WidgetShortcodes::class],
                 [
-                    Instance::of(CacheInterface::class),
                     [
                         'lastPosts' => LastPostsWidget::class,
                         'block' => BlockWidget::class,
@@ -241,6 +240,7 @@ return [
                         'mailto' => MailTo::class,
                         'deworker-series-episodes' => SeriesEpisodes::class,
                     ],
+                    Instance::of(CacheInterface::class),
                 ],
             ],
             Image::class => [],
