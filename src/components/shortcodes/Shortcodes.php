@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace app\widgets;
+namespace app\components\shortcodes;
 
-use app\components\WidgetShortcodes;
 use yii\base\Widget;
 
 final class Shortcodes extends Widget
 {
-    private WidgetShortcodes $shortcodes;
+    private ShortcodesProcessor $shortcodes;
 
-    public function __construct(WidgetShortcodes $shortcodes, array $config = [])
+    public function __construct(ShortcodesProcessor $shortcodes, array $config = [])
     {
         parent::__construct($config);
         $this->shortcodes = $shortcodes;

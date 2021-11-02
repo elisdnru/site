@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
 use app\assets\PortfolioAsset;
+use app\components\shortcodes\Shortcodes;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use app\widgets\Share;
-use app\widgets\Shortcodes;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\web\View;

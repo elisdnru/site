@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace app\components;
+namespace app\components\shortcodes;
 
-use yii\base\Widget;
 use yii\caching\CacheInterface;
+use function strtr;
 
-final class WidgetShortcodes
+final class ShortcodesProcessor
 {
     private const START_BLOCK = '[{widget:';
     private const END_BLOCK = '}]';
@@ -16,14 +16,16 @@ final class WidgetShortcodes
      * @var array<string, string>
      */
     private array $widgets;
+    private WidgetRenderer $renderer;
     private CacheInterface $cache;
 
     /**
      * @param array<string, string> $widgets
      */
-    public function __construct(array $widgets, CacheInterface $cache)
+    public function __construct(array $widgets, WidgetRenderer $renderer, CacheInterface $cache)
     {
         $this->widgets = $widgets;
+        $this->renderer = $renderer;
         $this->cache = $cache;
     }
 
@@ -72,10 +74,7 @@ final class WidgetShortcodes
             return $cachedHtml;
         }
 
-        ob_start();
-        /** @var class-string<Widget> $class */
-        echo $class::widget($restAttributes);
-        $html = trim(ob_get_clean());
+        $html = $this->renderer->render($class, $restAttributes);
 
         if ($cacheDuration) {
             $this->cache->set($cacheKey, $html, $cacheDuration);

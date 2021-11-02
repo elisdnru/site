@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
+use app\components\shortcodes\Shortcodes;
 use app\modules\landing\models\Landing;
-use app\widgets\Shortcodes;
 use yii\web\View;
 
 /**

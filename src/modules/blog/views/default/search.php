@@ -3,12 +3,12 @@
 use app\components\DataProvider;
 use app\components\DateFormatter;
 use app\components\PaginationFormatter;
+use app\components\shortcodes\Shortcodes;
 use app\components\TextMarker;
 use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
-use app\widgets\Shortcodes;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\web\View;

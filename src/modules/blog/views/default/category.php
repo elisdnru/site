@@ -2,9 +2,9 @@
 
 use app\components\DataProvider;
 use app\components\PaginationFormatter;
+use app\components\shortcodes\Shortcodes;
 use app\modules\blog\models\Category;
 use app\modules\user\models\Access;
-use app\widgets\Shortcodes;
 use yii\helpers\Html;
 use yii\web\View;
 

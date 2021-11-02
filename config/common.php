@@ -11,9 +11,10 @@ use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
 use app\components\module\routes\RoutesLoader;
+use app\components\shortcodes\ShortcodesProcessor;
+use app\components\shortcodes\WidgetRenderer;
 use app\components\SimpleCacheAdapter;
 use app\components\uploader\Uploader;
-use app\components\WidgetShortcodes;
 use app\extensions\file\File as FileExtension;
 use app\extensions\image\Image;
 use app\modules\block\widgets\BlockWidget;
@@ -227,8 +228,8 @@ return [
                     ],
                 ],
             ],
-            WidgetShortcodes::class => [
-                ['class' => WidgetShortcodes::class],
+            ShortcodesProcessor::class => [
+                ['class' => ShortcodesProcessor::class],
                 [
                     [
                         'lastPosts' => LastPostsWidget::class,
@@ -240,6 +241,7 @@ return [
                         'mailto' => MailTo::class,
                         'deworker-series-episodes' => SeriesEpisodes::class,
                     ],
+                    Instance::of(WidgetRenderer::class),
                     Instance::of(CacheInterface::class),
                 ],
             ],

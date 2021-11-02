@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
 use app\components\CSSMinimizer;
+use app\components\shortcodes\Shortcodes;
 use app\modules\page\models\Page;
-use app\widgets\Shortcodes;
 use yii\web\View;
 
 /**
