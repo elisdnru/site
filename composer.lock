@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfacbd9be623d8ce9a3b9abd14787337",
+    "content-hash": "7749cb1b4934f03fc356c3be3f42c4f9",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -4176,6 +4176,59 @@
                 }
             ],
             "time": "2021-07-31T17:03:58+00:00"
+        },
+        {
+            "name": "dg/bypass-finals",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dg/bypass-finals.git",
+                "reference": "495f5bc762e7bf30a13ed8253f44bb3a701767bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dg/bypass-finals/zipball/495f5bc762e7bf30a13ed8253f44bb3a701767bb",
+                "reference": "495f5bc762e7bf30a13ed8253f44bb3a701767bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "nette/tester": "^2.3",
+                "phpstan/phpstan": "^0.12"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                }
+            ],
+            "description": "Removes final keyword from source code on-the-fly and allows mocking of final methods and classes",
+            "keywords": [
+                "finals",
+                "mocking",
+                "phpunit",
+                "testing",
+                "unit"
+            ],
+            "support": {
+                "issues": "https://github.com/dg/bypass-finals/issues",
+                "source": "https://github.com/dg/bypass-finals/tree/v1.3.1"
+            },
+            "time": "2021-04-09T10:42:55+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
