@@ -56,7 +56,7 @@ final class SimpleCacheAdapter implements CacheInterface
         $res = true;
         /** @var string $key */
         foreach ($keys as $key) {
-            $res = $res || $this->cache->delete($key);
+            $res = $this->cache->delete($key) || $res;
         }
         return $res;
     }
