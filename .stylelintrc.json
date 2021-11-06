@@ -3,6 +3,8 @@
   "plugins": ["stylelint-prettier"],
   "rules": {
     "prettier/prettier": true,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "property-no-vendor-prefix": null,
+    "shorthand-property-no-redundant-values": null
   }
 }

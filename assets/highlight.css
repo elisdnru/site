@@ -1,63 +1,81 @@
 .php-hl-default {
   color: black;
 }
+
 .php-hl-code {
   color: gray;
 }
+
 .php-hl-brackets {
   color: olive;
 }
+
 .php-hl-comment {
   color: #808080;
   font-style: italic;
 }
+
 .php-hl-quotes {
   color: red;
 }
+
 .php-hl-string {
   color: red;
 }
+
 .php-hl-identifier {
   color: green;
 }
+
 .php-hl-builtin {
   color: teal;
 }
+
 .php-hl-reserved {
   color: black;
   font-weight: bold;
 }
+
 .php-hl-inlinedoc {
   color: blue;
 }
+
 .php-hl-var {
   color: blue;
 }
+
 .php-hl-url {
   color: blue;
 }
+
 .php-hl-special {
   color: navy;
 }
+
 .php-hl-number {
   color: maroon;
 }
+
 .php-hl-inlinetags {
   color: blue;
 }
+
 .php-hl-main {
   font-family: 'Courier New', Courier, monospace;
   font-weight: normal;
   font-size: 12px;
 }
+
 ol.php-hl-main pre {
   margin: 0;
   padding: 0;
 }
+
 .php-hl-gutter {
   background-color: #999;
   color: white;
 }
+
 .php-hl-table {
   font-family: courier, monospace;
   font-size: 12px;
@@ -67,57 +85,74 @@ ol.php-hl-main pre {
 .xml-hl-default {
   color: black;
 }
+
 .xml-hl-code {
   color: gray;
 }
+
 .xml-hl-brackets {
   color: olive;
 }
+
 .xml-hl-comment {
   color: #808080;
   font-style: italic;
 }
+
 .xml-hl-quotes {
   color: red;
 }
+
 .xml-hl-string {
   color: red;
 }
+
 .xml-hl-identifier {
   color: blue;
 }
+
 .xml-hl-builtin {
   color: teal;
 }
+
 .xml-hl-reserved {
   color: green;
 }
+
 .xml-hl-inlinedoc {
   color: blue;
 }
+
 .xml-hl-var {
   color: #000020;
 }
+
 .xml-hl-url {
   color: blue;
 }
+
 .xml-hl-special {
   color: navy;
 }
+
 .xml-hl-number {
   color: maroon;
 }
+
 .xml-hl-inlinetags {
   color: blue;
 }
+
 .xml-hl-main {
   font-family: 'Courier New', Courier, monospace;
   font-weight: normal;
 }
+
 .xml-hl-gutter {
   background-color: #999;
   color: white;
 }
+
 .xml-hl-table {
   font-family: courier, monospace;
   font-size: 12px;
@@ -127,57 +162,74 @@ ol.php-hl-main pre {
 .html-hl-default {
   color: black;
 }
+
 .html-hl-code {
   color: gray;
 }
+
 .html-hl-brackets {
   color: olive;
 }
+
 .html-hl-comment {
   color: #808080;
   font-style: italic;
 }
+
 .html-hl-quotes {
   color: red;
 }
+
 .html-hl-string {
   color: red;
 }
+
 .html-hl-identifier {
   color: blue;
 }
+
 .html-hl-builtin {
   color: teal;
 }
+
 .html-hl-reserved {
   color: green;
 }
+
 .html-hl-inlinedoc {
   color: blue;
 }
+
 .html-hl-var {
   color: #000020;
 }
+
 .html-hl-url {
   color: blue;
 }
+
 .html-hl-special {
   color: navy;
 }
+
 .html-hl-number {
   color: maroon;
 }
+
 .html-hl-inlinetags {
   color: blue;
 }
+
 .html-hl-main {
   font-family: 'Courier New', Courier, monospace;
   font-weight: normal;
 }
+
 .html-hl-gutter {
   background-color: #999;
   color: white;
 }
+
 .html-hl-table {
   font-family: courier, monospace;
   font-size: 12px;
@@ -187,57 +239,74 @@ ol.php-hl-main pre {
 .css-hl-default {
   color: black;
 }
+
 .css-hl-code {
   color: gray;
 }
+
 .css-hl-brackets {
   color: olive;
 }
+
 .css-hl-comment {
   color: #808080;
   font-style: italic;
 }
+
 .css-hl-quotes {
   color: red;
 }
+
 .css-hl-string {
   color: red;
 }
+
 .css-hl-identifier {
   color: blue;
 }
+
 .css-hl-builtin {
   color: teal;
 }
+
 .css-hl-reserved {
   color: green;
 }
+
 .css-hl-inlinedoc {
   color: blue;
 }
+
 .css-hl-var {
   color: #000020;
 }
+
 .css-hl-url {
   color: blue;
 }
+
 .css-hl-special {
   color: navy;
 }
+
 .css-hl-number {
   color: maroon;
 }
+
 .css-hl-inlinetags {
   color: blue;
 }
+
 .css-hl-main {
   font-family: 'Courier New', Courier, monospace;
   font-weight: normal;
 }
+
 .css-hl-gutter {
   background-color: #999;
   color: white;
 }
+
 .css-hl-table {
   font-family: courier, monospace;
   font-size: 12px;
@@ -247,57 +316,74 @@ ol.php-hl-main pre {
 .javascript-hl-default {
   color: black;
 }
+
 .javascript-hl-code {
   color: gray;
 }
+
 .javascript-hl-brackets {
   color: olive;
 }
+
 .javascript-hl-comment {
   color: #808080;
   font-style: italic;
 }
+
 .javascript-hl-quotes {
   color: red;
 }
+
 .javascript-hl-string {
   color: red;
 }
+
 .javascript-hl-identifier {
   color: blue;
 }
+
 .javascript-hl-builtin {
   color: teal;
 }
+
 .javascript-hl-reserved {
   color: green;
 }
+
 .javascript-hl-inlinedoc {
   color: blue;
 }
+
 .javascript-hl-var {
   color: #000020;
 }
+
 .javascript-hl-url {
   color: blue;
 }
+
 .javascript-hl-special {
   color: navy;
 }
+
 .javascript-hl-number {
   color: maroon;
 }
+
 .javascript-hl-inlinetags {
   color: blue;
 }
+
 .javascript-hl-main {
   font-family: 'Courier New', Courier, monospace;
   font-weight: normal;
 }
+
 .javascript-hl-gutter {
   background-color: #999;
   color: white;
 }
+
 .javascript-hl-table {
   font-family: courier, monospace;
   font-size: 12px;
@@ -307,57 +393,74 @@ ol.php-hl-main pre {
 .sql-hl-default {
   color: black;
 }
+
 .sql-hl-code {
   color: gray;
 }
+
 .sql-hl-brackets {
   color: olive;
 }
+
 .sql-hl-comment {
   color: #808080;
   font-style: italic;
 }
+
 .sql-hl-quotes {
   color: red;
 }
+
 .sql-hl-string {
   color: red;
 }
+
 .sql-hl-identifier {
   color: blue;
 }
+
 .sql-hl-builtin {
   color: teal;
 }
+
 .sql-hl-reserved {
   color: green;
 }
+
 .sql-hl-inlinedoc {
   color: blue;
 }
+
 .sql-hl-var {
   color: #000020;
 }
+
 .sql-hl-url {
   color: blue;
 }
+
 .sql-hl-special {
   color: navy;
 }
+
 .sql-hl-number {
   color: maroon;
 }
+
 .sql-hl-inlinetags {
   color: blue;
 }
+
 .sql-hl-main {
   font-family: 'Courier New', Courier, monospace;
   font-weight: normal;
 }
+
 .sql-hl-gutter {
   background-color: #999;
   color: white;
 }
+
 .sql-hl-table {
   font-family: courier, monospace;
   font-size: 12px;

@@ -137,7 +137,7 @@ body {
   left: 0;
   top: 0;
   background: #fff;
-  opacity: 0.2;
+  opacity: 20%;
 }
 
 .main-nav > ul > li.important::before {
@@ -318,11 +318,11 @@ body {
 
 .page-footer .counters img {
   margin: 0 0 4px 0;
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 .page-footer .counters img:hover {
-  opacity: 1;
+  opacity: 100%;
 }
 
 .page-footer .system-nav {
@@ -403,7 +403,7 @@ body {
     left: 0;
     top: 0;
     background: #fff;
-    opacity: 0.3;
+    opacity: 30%;
   }
 
   .main-nav ul li {
@@ -468,7 +468,7 @@ body {
     left: 0;
     top: 0;
     background: #fff;
-    opacity: 0.2;
+    opacity: 20%;
   }
 }
 

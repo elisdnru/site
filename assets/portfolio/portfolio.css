@@ -90,7 +90,7 @@
   bottom: 0;
   width: 190px;
   background: #fff;
-  opacity: 0.8;
+  opacity: 80%;
   color: #000;
   text-align: center;
   padding: 10px 0;
@@ -146,7 +146,7 @@ p.portfolio-description {
   bottom: 0;
   width: 100%;
   background: #fff;
-  opacity: 0.8;
+  opacity: 80%;
   color: #000;
   text-align: center;
   padding: 6px 0;
@@ -154,7 +154,7 @@ p.portfolio-description {
 
 .entry.grid .thumb a:hover span {
   text-decoration: underline;
-  opacity: 1;
+  opacity: 100%;
 }
 
 .entry.grid .short p {
