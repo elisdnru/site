@@ -7,7 +7,6 @@ namespace app\components\uploader;
 use app\components\FilenameGenerator;
 use app\extensions\file\File;
 use app\extensions\image\Image;
-use RuntimeException;
 use yii\web\UploadedFile;
 
 final class Uploader
@@ -178,13 +177,9 @@ final class Uploader
 
             $targetName = $path . '/' . $this->createThumbFileName($baseName, $width, $height);
 
-            if (!$thumb->save($targetName, false, 100)) {
-                throw new RuntimeException('Unable to save ' . $targetName);
-            }
+            $thumb->save($targetName, false, 100);
+            $thumb->save($targetName . '.webp', Image::IMG_WEBP, 100);
 
-            if (!$thumb->save($targetName . '.webp', Image::IMG_WEBP, 100)) {
-                throw new RuntimeException('Unable to save ' . $targetName . 'webp');
-            }
             return $thumb;
         }
 

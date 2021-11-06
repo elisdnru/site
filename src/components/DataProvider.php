@@ -40,7 +40,7 @@ final class DataProvider
 
     public function getSort(): Sort
     {
-        return $this->origin->getSort() ?: new Sort();
+        return $this->origin->getSort();
     }
 
     public function getPagination(): Pagination
