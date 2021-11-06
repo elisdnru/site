@@ -99,7 +99,7 @@ div.form .error-message {
   font-size: 0.9em;
 }
 
-div.form .errorSummary {
+div.form .error-summary {
   border: 2px solid #c00;
   padding: 7px;
   margin: 0 0 20px 0;
@@ -107,12 +107,12 @@ div.form .errorSummary {
   font-size: 0.9em;
 }
 
-div.form .errorSummary p {
+div.form .error-summary p {
   margin: 0;
   padding: 5px;
 }
 
-div.form .errorSummary ul {
+div.form .error-summary ul {
   margin: 0;
   padding: 0 0 0 20px;
 }

@@ -34,7 +34,7 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
 
         <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-        <?= Html::errorSummary($model, ['class' => 'errorSummary']); ?>
+        <?= Html::errorSummary($model, ['class' => 'error-summary']); ?>
 
         <fieldset>
             <h4>Аккаунт</h4>

@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
         <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
 
-        <?= Html::errorSummary($model, ['class' => 'errorSummary']); ?>
+        <?= Html::errorSummary($model, ['class' => 'error-summary']); ?>
 
         <div class="row buttons">
             <?= Html::submitButton('Сохранить'); ?>
