@@ -20,7 +20,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 ?>
 <h1>Панель управления</h1>
 
-<div class="controlPanel">
+<div class="control-panel">
 
     <?php
     $notifications = [];

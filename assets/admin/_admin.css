@@ -93,7 +93,7 @@ table.grid a {
   color: #333;
 }
 
-.main.admin .controlPanel fieldset {
+.main.admin .control-panel fieldset {
   border: 1px solid #ccc;
   background: #fff;
   padding: 8px 8px 0 8px;
@@ -101,7 +101,7 @@ table.grid a {
   border-radius: 5px;
 }
 
-.main.admin .controlPanel fieldset h2 {
+.main.admin .control-panel fieldset h2 {
   margin: -8px -8px 10px -8px;
   padding: 5px 8px;
   background: #505050;
@@ -113,16 +113,16 @@ table.grid a {
   border-radius: 5px 5px 0 0;
 }
 
-.main.admin .controlPanel ul.adminlist {
+.main.admin .control-panel ul.adminlist {
   list-style: none !important;
   margin: 0 !important;
 }
 
-.main.admin .controlPanel ul.adminlist li {
+.main.admin .control-panel ul.adminlist li {
   margin: 0 0 8px 0 !important;
 }
 
-.main.admin .controlPanel ul.adminlist li h3 {
+.main.admin .control-panel ul.adminlist li h3 {
   padding: 6px 8px 0 8px;
   font-size: 14px;
   font-weight: normal;
@@ -133,7 +133,7 @@ table.grid a {
   border-radius: 5px 5px 0 0;
 }
 
-.main.admin .controlPanel ul.adminlist li ul {
+.main.admin .control-panel ul.adminlist li ul {
   clear: both;
   list-style: none !important;
   margin: 0 !important;
@@ -142,13 +142,13 @@ table.grid a {
   background: linear-gradient(#eee, #e6e6e6);
 }
 
-.main.admin .controlPanel ul.adminlist li ul::after {
+.main.admin .control-panel ul.adminlist li ul::after {
   content: '';
   display: block;
   clear: both;
 }
 
-.main.admin .controlPanel ul.adminlist li ul li {
+.main.admin .control-panel ul.adminlist li ul li {
   float: left;
   margin: 0 0 8px 8px !important;
   padding: 6px 14px !important;
@@ -158,17 +158,17 @@ table.grid a {
   background: linear-gradient(#fff, #eee) !important;
 }
 
-.main.admin .controlPanel ul.adminlist li ul li a {
+.main.admin .control-panel ul.adminlist li ul li a {
   color: #222;
   text-decoration: none;
 }
 
-.main.admin .controlPanel ul.adminlist li ul li a:hover {
+.main.admin .control-panel ul.adminlist li ul li a:hover {
   color: #b7131c;
   text-decoration: underline;
 }
 
-.main.admin .controlPanel ul.adminlist li ul li img {
+.main.admin .control-panel ul.adminlist li ul li img {
   display: inline;
   vertical-align: middle;
   margin: 0 6px 0 0;
