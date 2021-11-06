@@ -174,63 +174,6 @@ table.grid a {
   margin: 0 6px 0 0;
 }
 
-.main.admin ul.yiiPager {
-  margin: 30px 0 20px 0;
-  padding: 0;
-  line-height: 100%;
-  text-align: center;
-  font-size: 0;
-}
-
-.main.admin ul.yiiPager li {
-  display: inline-block;
-  font-size: 13px;
-}
-
-.main.admin ul.yiiPager a:link,
-.main.admin ul.yiiPager a:visited {
-  color: #333;
-  text-decoration: underline;
-}
-
-.main.admin ul.yiiPager .page a {
-  font-weight: normal;
-  border: none;
-  padding: 5px 10px;
-  color: #333;
-  text-decoration: underline;
-}
-
-.main.admin ul.yiiPager .page a:hover {
-  background: #09c;
-  color: #fff;
-}
-
-.main.admin ul.yiiPager .selected a {
-  background: #b7131c !important;
-  color: #fff;
-  font-weight: normal;
-  text-decoration: none;
-  cursor: default;
-}
-
-.main.admin ul.yiiPager .hidden a {
-  visibility: hidden;
-}
-
-.main.admin ul.yiiPager .previous {
-  float: left;
-}
-
-.main.admin ul.yiiPager .next {
-  float: right;
-}
-
-.main.admin ul.yiiPager .first,
-.main.admin ul.yiiPager .last {
-  display: none;
-}
-
 .main.admin fieldset {
   border: 1px solid #ccc;
   background: #eee;
