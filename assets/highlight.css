@@ -363,17 +363,3 @@ ol.php-hl-main pre {
   font-size: 12px;
   border: solid 1px #505050;
 }
-
-.source .copycode {
-  text-align: right;
-  float: right;
-}
-
-.source .copycode a {
-  cursor: pointer;
-  color: blue;
-}
-
-.source .copycode_hover a {
-  color: red;
-}
