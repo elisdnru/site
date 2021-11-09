@@ -3,6 +3,7 @@
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
+use app\modules\edu\widgets\LastEpisodes;
 use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
@@ -47,4 +48,10 @@ $request = Yii::$app->request;
 <?php if ($this->beginCache('banner_sidebar_second', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
     <?= BlockWidget::widget(['id' => 'banner_sidebar_second']); ?>
     <?php $this->endCache(); ?>
-<?php endif;
+<?php endif; ?>
+
+<div class="portlet">
+    <div class="portlet-title">Свежие скринкасты</div>
+</div>
+
+<?= LastEpisodes::widget(['limit' => 6]); ?>
