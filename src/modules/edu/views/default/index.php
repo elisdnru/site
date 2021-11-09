@@ -115,7 +115,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                             </div>
                             <div class="body">
                                 <div class="series">
-                                    <a href="/edu/series/<?= Html::encode($item['series']['slug']); ?>" target="_blank" rel="noopener">
+                                    <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']); ?>" target="_blank" rel="noopener">
                                         <?= Html::encode($item['series']['title']); ?>
                                     </a>
                                 </div>
