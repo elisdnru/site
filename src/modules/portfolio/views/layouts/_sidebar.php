@@ -15,12 +15,9 @@ use yii\widgets\Menu;
 $request = Yii::$app->request;
 ?>
 
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-    <?php Portlet::begin(['title' => 'Также я здесь']); ?>
-    <?= Follow::widget(); ?>
-    <?php Portlet::end(); ?>
-    <?php $this->endCache(); ?>
-<?php endif; ?>
+<?php Portlet::begin(['title' => 'Также я здесь']); ?>
+<?= Follow::widget(); ?>
+<?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Разделы портфолио']); ?>
 <?= Menu::widget(['id' => 'portfolio_categories', 'items' => Category::find()->cache(0, new TagDependency(['tags' => ['portfolio']]))->getMenuList($request->getPathInfo(), 1000)]); ?>

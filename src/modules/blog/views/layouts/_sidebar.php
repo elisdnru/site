@@ -19,12 +19,9 @@ $request = Yii::$app->request;
 ?>
 
 <!--noindex-->
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-    <?php Portlet::begin(['title' => 'Также я здесь']); ?>
-    <?= Follow::widget(); ?>
-    <?php Portlet::end(); ?>
-    <?php $this->endCache(); ?>
-<?php endif; ?>
+<?php Portlet::begin(['title' => 'Также я здесь']); ?>
+<?= Follow::widget(); ?>
+<?php Portlet::end(); ?>
 <!--/noindex-->
 
 <?php if ($this->beginCache('banner_sidebar', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
