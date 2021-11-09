@@ -3,7 +3,7 @@
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
-use app\modules\edu\widgets\FreeEpisodes;
+use app\modules\edu\widgets\LastEpisodes;
 use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
@@ -62,4 +62,8 @@ $request = Yii::$app->request;
     <?php $this->endCache(); ?>
 <?php endif; ?>
 
-<?= FreeEpisodes::widget(['limit' => 5]); ?>
+<div class="portlet">
+    <div class="portlet-title">Свежие скринкасты</div>
+</div>
+
+<?= LastEpisodes::widget(['limit' => 6]); ?>

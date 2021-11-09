@@ -7,9 +7,9 @@ namespace app\modules\edu\widgets;
 use app\modules\edu\components\api\Api;
 use yii\base\Widget;
 
-final class FreeEpisodes extends Widget
+final class LastEpisodes extends Widget
 {
-    public int $limit = 5;
+    public int $limit = 6;
     private Api $api;
 
     public function __construct(Api $api, array $config = [])
@@ -20,9 +20,9 @@ final class FreeEpisodes extends Widget
 
     public function run(): string
     {
-        $episodes = $this->api->get('/edge/edu/free?limit=' . $this->limit);
+        $episodes = $this->api->get('/edge/edu/last?limit=' . $this->limit);
 
-        return $this->render('free-episodes', [
+        return $this->render('last-episodes', [
             'episodes' => $episodes,
         ]);
     }

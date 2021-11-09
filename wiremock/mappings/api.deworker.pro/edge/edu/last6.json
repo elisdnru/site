@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "url": "/api.deworker.pro/edge/edu/last?limit=9"
+        "url": "/api.deworker.pro/edge/edu/last?limit=6"
     },
     "response": {
         "status": 200,
@@ -53,7 +53,7 @@
                     "thumbnail": "https://277215.selcdn.ru/static/edu/series/http-framework/001-definition/7151147e-df49-48fb-9993-7dda6e4323ae.jpg",
                     "duration": 1752,
                     "public": true,
-                    "free": false,
+                    "free": true,
                     "updated": false
                 }
             },
@@ -106,57 +106,6 @@
                     "public": true,
                     "free": true,
                     "updated": true
-                }
-            },
-            {
-                "series": {
-                    "slug": "http-basics",
-                    "title": "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435 HTTP \u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043a\u043e\u0432"
-                },
-                "episode": {
-                    "slug": "http-lifecycle",
-                    "index": 1,
-                    "title": "\u0416\u0438\u0437\u043d\u0435\u043d\u043d\u044b\u0439 \u0446\u0438\u043a\u043b HTTP-\u0437\u0430\u043f\u0440\u043e\u0441\u0430",
-                    "short": "\u041a\u0442\u043e \u0442\u0430\u043a\u0438\u0435 \u0441\u0435\u0440\u0432\u0435\u0440 \u0438 \u043a\u043b\u0438\u0435\u043d\u0442 \u0438 \u043a\u0430\u043a \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u0430\u043f\u0440\u043e\u0441 \u0438 \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044f \u043e\u0442\u0432\u0435\u0442 \u043f\u0440\u0438 HTTP-\u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0438.",
-                    "thumbnail": "https://277215.selcdn.ru/static/edu/series/http-basics/http-lifecycle/c784f6b4-f3e6-4421-8858-bc2f83757be2.jpg",
-                    "duration": 1705,
-                    "public": true,
-                    "free": true,
-                    "updated": true
-                }
-            },
-            {
-                "series": {
-                    "slug": "interactive-site",
-                    "title": "\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0430\u0443\u043a\u0446\u0438\u043e\u043d\u0430 \u043d\u0430 Slim \u0438 React"
-                },
-                "episode": {
-                    "slug": "hosts-traefik",
-                    "index": 61,
-                    "title": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0445\u043e\u0441\u0442\u0430\u043c\u0438 \u0438 Traefik",
-                    "short": "\u0414\u0435\u043a\u043b\u0430\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0435 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u043e\u043c\u0435\u043d\u043d\u044b\u043c\u0438 \u0438\u043c\u0435\u043d\u0430\u043c\u0438 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e Traefik. \u0410\u0432\u0442\u043e\u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 Let\u0027s Encrypt \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0432. \u0414\u0435\u043f\u043b\u043e\u0439 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u0438\u0445 \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u0432 \u0432 \u043e\u0434\u0438\u043d \u043a\u043b\u0430\u0441\u0442\u0435\u0440.",
-                    "thumbnail": "https://277215.selcdn.ru/static/edu/series/interactive-site/061-hosts-traefik/df913412-0987-4856-8e62-93aff8cfff19.jpg",
-                    "duration": 3175,
-                    "public": true,
-                    "free": false,
-                    "updated": false
-                }
-            },
-            {
-                "series": {
-                    "slug": "interactive-site",
-                    "title": "\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0430\u0443\u043a\u0446\u0438\u043e\u043d\u0430 \u043d\u0430 Slim \u0438 React"
-                },
-                "episode": {
-                    "slug": "db-backup",
-                    "index": 60,
-                    "title": "\u0420\u0435\u043f\u043b\u0438\u043a\u0430\u0446\u0438\u044f \u0438 \u0431\u044d\u043a\u0430\u043f \u0411\u0414 \u0432 S3",
-                    "short": "\u0417\u0430\u043f\u0443\u0441\u043a \u0411\u0414 \u0432 Docker \u0438 \u0431\u0435\u0437 \u043d\u0435\u0433\u043e. \u0421\u043f\u043e\u0441\u043e\u0431\u044b \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438 \u0440\u0435\u043f\u043b\u0438\u043a\u0430\u0446\u0438\u0438. \u041d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0441\u043a\u0440\u0438\u043f\u0442\u0430 \u0440\u0435\u0437\u0435\u0440\u0432\u043d\u043e\u0433\u043e \u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0431\u0430\u0437\u044b \u0434\u0430\u043d\u043d\u044b\u0445 PostgreSQL \u0441 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u043e\u0439 \u0432 S3-\u0441\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0435 \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435.",
-                    "thumbnail": "https://277215.selcdn.ru/static/edu/series/interactive-site/060-db-backup/56912132-eb67-437c-909f-f3f8c4b48cba.jpg",
-                    "duration": 3597,
-                    "public": true,
-                    "free": false,
-                    "updated": false
                 }
             }
         ]
