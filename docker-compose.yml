@@ -239,9 +239,9 @@ services:
         labels:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
-            - traefik.http.routers.site-backup-storage.rule=Host(`wiremock.localhost`)
-            - traefik.http.routers.site-backup-storage.entrypoints=http
-            - traefik.http.services.site-backup-storage.loadbalancer.server.port=80
+            - traefik.http.routers.site-wiremock.rule=Host(`wiremock.localhost`)
+            - traefik.http.routers.site-wiremock.entrypoints=http
+            - traefik.http.services.site-wiremock.loadbalancer.server.port=80
 
 secrets:
     cookie_secret:
