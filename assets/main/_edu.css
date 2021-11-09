@@ -206,6 +206,9 @@
   font-size: 0.85rem;
   color: #222;
   margin-bottom: 0;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .edu-items
