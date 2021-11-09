@@ -31,6 +31,7 @@ final class ShowCest
         $I->see('Post 1', 'h1');
         $I->see('Title 1', 'title');
         $I->seeInSource('<p>Post Content</p>');
+        $I->seeLink('Структура HTTP-запроса и ответа', 'https://deworker.pro/edu/series/http-basics/methods-and-statuses');
     }
 
     public function draft(AcceptanceTester $I): void

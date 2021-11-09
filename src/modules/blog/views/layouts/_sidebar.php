@@ -3,6 +3,7 @@
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
+use app\modules\edu\widgets\FreeEpisodes;
 use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
@@ -60,3 +61,5 @@ $request = Yii::$app->request;
     <?= BlockWidget::widget(['id' => 'banner_sidebar_second']); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>
+
+<?= FreeEpisodes::widget(['limit' => 5]); ?>
