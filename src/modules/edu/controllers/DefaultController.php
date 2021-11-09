@@ -21,9 +21,11 @@ final class DefaultController extends Controller
     public function actionIndex(): string
     {
         $series = $this->api->get('/edge/edu/series');
+        $episodes = $this->api->get('/edge/edu/last?limit=9');
 
         return $this->render('index', [
             'series' => $series,
+            'episodes' => $episodes,
         ]);
     }
 }

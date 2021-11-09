@@ -16,6 +16,20 @@ use yii\web\View;
  *         active: int
  *     }
  * }> $series
+ * @var array $episodes
+ * @psalm-var array<array-key, array{
+ *     series: array{
+ *         slug: string,
+ *         title: string
+ *     },
+ *     episode: array{
+ *         slug: string,
+ *         title: string,
+ *         short: string,
+ *         thumbnail: string,
+ *         free: bool
+ *     }
+ * }> $episodes
  */
 $this->context->layout = 'index';
 
@@ -71,6 +85,51 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                                     >
                                         <?= Html::encode($item['title']); ?>
                                     </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <br />
+
+        <h2>Свежие эпизоды</h2>
+
+        <br />
+
+        <div class="edu-items">
+            <div class="edu-items-wrapper">
+                <?php foreach ($episodes as $item) : ?>
+                    <div class="edu-items-item">
+                        <div class="edu-items-item-wrapper">
+                            <div class="thumb-wrapper">
+                                <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']); ?>/<?= Html::encode($item['episode']['slug']); ?>"
+                                   class="thumb" target="_blank" rel="noopener">
+                                    <img src="<?= Html::encode($item['episode']['thumbnail']); ?>" alt="" />
+                                </a>
+                                <?php if ($item['episode']['free']) : ?>
+                                    <span class="badges"><span class="badge free">Free</span></span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="body">
+                                <div class="series">
+                                    <a href="/edu/series/<?= Html::encode($item['series']['slug']); ?>" target="_blank" rel="noopener">
+                                        <?= Html::encode($item['series']['title']); ?>
+                                    </a>
+                                </div>
+                                <div class="title">
+                                    <span class="index">62&nbsp;</span>
+                                    <a
+                                        href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']); ?>/<?= Html::encode($item['episode']['slug']); ?>"
+                                        target="_blank" rel="noopener"
+                                    >
+                                        <?= Html::encode($item['episode']['title']); ?>
+                                    </a>
+                                </div>
+                                <div class="description">
+                                    <?= Html::encode($item['episode']['short']); ?>
                                 </div>
                             </div>
                         </div>
