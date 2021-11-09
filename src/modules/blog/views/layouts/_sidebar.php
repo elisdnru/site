@@ -20,7 +20,7 @@ $request = Yii::$app->request;
 
 <!--noindex-->
 <?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
-    <?php Portlet::begin(['title' => 'Также я здесь', 'htmlOptions' => ['class' => 'portlet portlet-fixed']]); ?>
+    <?php Portlet::begin(['title' => 'Также я здесь']); ?>
     <?= Follow::widget(); ?>
     <?php Portlet::end(); ?>
     <?php $this->endCache(); ?>
