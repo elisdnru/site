@@ -8,7 +8,6 @@
 .portlet-title {
   position: relative;
   padding: 6px 10px;
-  border-bottom: #ddd 1px solid;
   font-family: verdana, arial, sans-serif;
   font-size: 13px;
   color: #333;
@@ -18,6 +17,7 @@
 }
 
 .portlet-content {
+  border-top: #ddd 1px solid;
   padding: 15px 10px 10px 10px;
 }
 
