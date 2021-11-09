@@ -10,7 +10,11 @@ use yii\web\View;
  * @psalm-var array<array-key, array{
  *     slug: string,
  *     title: string,
- *     thumbnail: string
+ *     thumbnail: string,
+ *     episodes: array{
+ *         total: int,
+ *         active: int
+ *     }
  * }> $series
  */
 $this->context->layout = 'index';
@@ -55,6 +59,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                                    class="thumb" target="_blank" rel="noopener">
                                     <img src="<?= Html::encode($item['thumbnail']); ?>" alt="" />
                                 </a>
+                                <span class="count" title="Готово эпизодов">
+                                    <?= $item['episodes']['active']; ?> из <?= $item['episodes']['total']; ?>
+                                </span>
                             </div>
                             <div class="body">
                                 <div class="title">

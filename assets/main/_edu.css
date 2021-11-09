@@ -63,6 +63,24 @@
   border-radius: 4px 4px 0 0;
 }
 
+.edu-items
+  .edu-items-wrapper
+  .edu-items-item
+  .edu-items-item-wrapper
+  .thumb-wrapper
+  .count {
+  position: absolute;
+  right: 9px;
+  bottom: 8px;
+  display: inline-block;
+  line-height: 1;
+  padding: 3px 4px;
+  font-size: .75rem;
+  background: #fff;
+  color: #000;
+  border-radius: 3px;
+}
+
 .edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .body {
   padding: 13px;
 }
