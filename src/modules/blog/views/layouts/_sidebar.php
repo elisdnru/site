@@ -3,7 +3,7 @@
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Category;
 use app\modules\blog\widgets\TagCloudWidget;
-use app\modules\edu\widgets\LastEpisodes;
+use app\modules\edu\widgets\PromotedEpisodes;
 use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
@@ -66,4 +66,4 @@ $request = Yii::$app->request;
     <div class="portlet-title">Свежие скринкасты</div>
 </div>
 
-<?= LastEpisodes::widget(['limit' => 6]); ?>
+<?= PromotedEpisodes::widget(['limit' => 6]); ?>

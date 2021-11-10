@@ -29,7 +29,7 @@ final class HomeCest
         $I->see('Блог', 'h1');
         $I->seeLink('Post 1', '/blog/1/post-1');
         $I->dontSeeLink('Post 2');
-        $I->seeLink('Структура HTTP-запроса и ответа', 'https://deworker.pro/edu/series/http-basics/methods-and-statuses');
+        $I->seeLink('Философия CI, CD и CD', 'https://deworker.pro/edu/series/interactive-site/ci-cd-philosophy');
     }
 
     public function page(AcceptanceTester $I): void
