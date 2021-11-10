@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
+use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\web\View;
 
@@ -71,7 +72,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                             <div class="thumb-wrapper">
                                 <a href="https://deworker.pro/edu/series/<?= Html::encode($item['slug']); ?>"
                                    class="thumb" target="_blank" rel="noopener">
-                                    <img src="<?= Html::encode($item['thumbnail']); ?>" alt="" />
+                                    <?php $imageUrl = $item['thumbnail']; ?>
+                                    <picture>
+                                        <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">
+                                        <img src="/images/lazy/blank.jpg" data-src="<?= Html::encode($imageUrl); ?>" alt="" />
+                                    </picture>
                                 </a>
                                 <span class="count" title="Готово эпизодов">
                                     <?= $item['episodes']['active']; ?> из <?= $item['episodes']['total']; ?>
@@ -107,7 +112,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                             <div class="thumb-wrapper">
                                 <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']); ?>/<?= Html::encode($item['episode']['slug']); ?>"
                                    class="thumb" target="_blank" rel="noopener">
-                                    <img src="<?= Html::encode($item['episode']['thumbnail']); ?>" alt="" />
+                                    <?php $imageUrl = $item['episode']['thumbnail']; ?>
+                                    <picture>
+                                        <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">
+                                        <img src="/images/lazy/blank.jpg" data-src="<?= Html::encode($imageUrl); ?>" alt="" />
+                                    </picture>
                                 </a>
                                 <?php if ($item['episode']['free']) : ?>
                                     <span class="badges"><span class="badge free">Free</span></span>

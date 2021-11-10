@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use yii\helpers\FileHelper;
 use yii\helpers\Html;
 
 /**
@@ -31,7 +32,11 @@ use yii\helpers\Html;
                         <div class="thumb-wrapper">
                             <a href="https://deworker.pro/edu/series/<?= Html::encode($item['series']['slug']); ?>/<?= Html::encode($item['episode']['slug']); ?>"
                                class="thumb" target="_blank" rel="noopener">
-                                <img src="<?= Html::encode($item['episode']['thumbnail']); ?>" alt="" />
+                                <?php $imageUrl = $item['episode']['thumbnail']; ?>
+                                <picture>
+                                    <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">
+                                    <img src="/images/lazy/blank.jpg" data-src="<?= Html::encode($imageUrl); ?>" alt="" />
+                                </picture>
                                 <svg class="play" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                      viewBox="0 0 58 58" xml:space="preserve">
                                     <circle cx="29" cy="29" r="29"/>
