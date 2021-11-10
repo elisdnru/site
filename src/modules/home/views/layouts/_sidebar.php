@@ -51,7 +51,7 @@ $request = Yii::$app->request;
 <?php endif; ?>
 
 <div class="portlet">
-    <div class="portlet-title">Свежие скринкасты</div>
+    <div class="portlet-title">Скринкасты</div>
 </div>
 
 <?= PromotedEpisodes::widget(['limit' => 6]); ?>
