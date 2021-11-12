@@ -109,6 +109,7 @@ services:
 
     site-node-watch:
         image: node:16-alpine
+        user: "1000:1000"
         volumes:
             - ./:/app
         working_dir: /app
@@ -116,6 +117,7 @@ services:
 
     site-node-cli:
         image: node:16-alpine
+        user: "1000:1000"
         volumes:
             - ./:/app
         working_dir: /app
