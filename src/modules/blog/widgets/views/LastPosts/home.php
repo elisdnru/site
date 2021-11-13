@@ -28,7 +28,9 @@ use yii\helpers\Html;
                 <div class="category">
                     <span><a href="<?= $post->category->getUrl(); ?>"><?= Html::encode($post->category->title); ?></a></span>
                 </div>
-                <div class="tags"><span><?= implode(', ', $links); ?></span></div>
+                <?php if ($links) : ?>
+                    <div class="tags"><span><?= implode(', ', $links); ?></span></div>
+                <?php endif; ?>
                 <div class="comments">
                     <span><?= $post->getCommentsCount(); ?></span>
                 </div>

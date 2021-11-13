@@ -127,7 +127,9 @@ HighlightAsset::register($this);
     <p class="entry-date">
         Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date); ?>">&nbsp;</span>
     </p>
-    <p class="entry-tags">Метки: <?= implode('', $links); ?></p>
+    <?php if ($links) : ?>
+        <p class="entry-tags">Метки: <?= implode('', $links); ?></p>
+    <?php endif; ?>
     <div class="clear"></div>
     <!--/noindex-->
 
