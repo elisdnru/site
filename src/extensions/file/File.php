@@ -592,7 +592,7 @@ class File
         if (is_int($this->group) && function_exists('posix_getgrgid') && $getName === true) {
             $group = posix_getgrgid($this->group);
             if ($group) {
-                $this->group = $this->group['name'];
+                $this->group = $group['name'];
             }
         }
 
