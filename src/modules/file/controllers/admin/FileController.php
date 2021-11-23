@@ -134,10 +134,8 @@ final class FileController extends AdminController
         ]);
     }
 
-    private function uploadFile(string $field, string $currentPath, File $fileHandler): bool
+    private function uploadFile(string $field, string $currentPath, File $fileHandler): void
     {
-        $success = false;
-
         $uploaded = $fileHandler->set($field, true);
 
         $slug = Slugger::slug($uploaded->getFilename() ?: '');
@@ -145,11 +143,7 @@ final class FileController extends AdminController
 
         $file = $currentPath . '/' . $slug . '.' . $extension;
 
-        if (!$uploaded->move($file)) {
-            $success = true;
-        }
-
-        return $success;
+        $uploaded->move($file);
     }
 
     private function getFileDir(): string
