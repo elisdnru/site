@@ -1,6 +1,6 @@
 FROM php:8.0-cli-alpine
 
-ENV XDEBUG_VERSION 3.0.3
+ENV XDEBUG_VERSION 3.1.1
 
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev git \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
