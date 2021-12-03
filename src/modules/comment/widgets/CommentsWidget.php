@@ -96,7 +96,7 @@ final class CommentsWidget extends Widget
 
             if ($comment->save()) {
                 $comment->sendNotifications($this->mailer);
-                $this->session->setFlash('success', 'Ваш коментарий добавлен');
+                $this->session->setFlash('success', 'Ваш комментарий добавлен');
                 Yii::$app->controller->redirect($comment->getUrl());
                 Yii::$app->end();
                 return '';

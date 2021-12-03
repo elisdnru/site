@@ -37,7 +37,7 @@ final class SendCest
         $I->fillField('CommentForm[yqe1]', '1');
         $I->click('Отправить комментарий', '#comment-form');
 
-        $I->see('Ваш коментарий добавлен', '.flash-success');
+        $I->see('Ваш комментарий добавлен', '.flash-success');
         $I->seeInSource('<p>New Comment</p>');
         $I->seeEmailSentTo('author@app.test');
     }
@@ -64,6 +64,6 @@ final class SendCest
         $I->fillField('CommentForm[yqe1]', '1');
         $I->click('Отправить комментарий', '#comment-form');
 
-        $I->see('Ваш коментарий добавлен', '.flash-success');
+        $I->see('Ваш комментарий добавлен', '.flash-success');
     }
 }

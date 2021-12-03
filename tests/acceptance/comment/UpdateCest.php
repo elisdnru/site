@@ -41,7 +41,7 @@ final class UpdateCest
         $I->fillField('CommentEditForm[text]', 'Updated Comment');
         $I->click('Сохранить комментарий', '#comment-form');
 
-        $I->see('Ваш коментарий сохранён', '.flash-success');
+        $I->see('Ваш комментарий сохранён', '.flash-success');
         $I->seeInSource('<p>Updated Comment</p>');
     }
 
