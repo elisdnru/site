@@ -76,7 +76,7 @@
   top: calc(50% - 25px);
   width: 50px;
   height: 50px;
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .edu-items
@@ -97,7 +97,7 @@
   .thumb-wrapper
   .thumb:hover
   .play {
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 .edu-items
