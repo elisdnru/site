@@ -12,6 +12,6 @@ final class CommentPostFilter
             return null;
         }
 
-        return preg_replace_callback('@(<p>.*?</p>)@s', static fn (array $matches): string => nl2br((string)$matches[0]), $text);
+        return preg_replace_callback('@(<p>.*?</p>)@s', static fn (array $matches): string => nl2br($matches[0]), $text);
     }
 }
