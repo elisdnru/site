@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\models;
 
+use BadMethodCallException;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -17,7 +18,13 @@ final class Access
 
     public static function getRoles(): array
     {
-        return ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description');
+        $authManager = Yii::$app->authManager;
+
+        if ($authManager === null) {
+            throw new BadMethodCallException('Auth manager is not set.');
+        }
+
+        return ArrayHelper::map($authManager->getRoles(), 'name', 'description');
     }
 
     public static function getRoleName(?string $role): string
