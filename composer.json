@@ -37,6 +37,9 @@
         "roave/security-advisories": "dev-latest",
         "vimeo/psalm": "^4.0"
     },
+    "conflict": {
+        "friendsofphp/php-cs-fixer": "v3.5.0"
+    },
     "replace": {
         "bower-asset/jquery":"*",
         "bower-asset/inputmask":"*",

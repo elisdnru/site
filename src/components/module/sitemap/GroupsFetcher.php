@@ -57,7 +57,7 @@ final class GroupsFetcher
     private function getGroupsSet(string $name, object|array $module): ?Set
     {
         if (\is_object($module)) {
-            $class = \get_class($module);
+            $class = $module::class;
         } else {
             /** @psalm-var array{class: class-string<SitemapProvider>|null} $module */
             $class = $module['class'] ?? null;

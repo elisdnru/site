@@ -21,7 +21,7 @@ final class ModuleClass
             throw new InvalidArgumentException('Cannot detect module ' . $name);
         }
         if (\is_object($module)) {
-            return \get_class($module);
+            return $module::class;
         }
         $class = $module['class'] ?? '';
         if ($class === '') {

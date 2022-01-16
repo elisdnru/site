@@ -46,7 +46,7 @@ final class CurrentPasswordValidator extends Validator
         }
 
         if (empty($this->className)) {
-            $this->className = \get_class($model);
+            $this->className = $model::class;
         }
 
         /** @var ?ActiveRecord $record */
