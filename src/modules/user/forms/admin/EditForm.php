@@ -58,7 +58,8 @@ final class EditForm extends Model
                 'filter' => ['!=', 'id', $this->id],
             ],
             ['site', 'url'],
-            ['avatar', ImageValidator::class],
+            // TODO: remove checkExtensionByMimeType after https://github.com/yiisoft/yii2/pull/19246 release
+            ['avatar', ImageValidator::class, 'checkExtensionByMimeType' => false],
             ['del_avatar', 'safe'],
             ['role', 'in', 'range' => array_keys(Access::getRoles())],
         ];
