@@ -23,15 +23,6 @@ $providers = [
             ]),
     ],
     [
-        'name' => 'Facebook',
-        'class' => 'fb',
-        'url' => 'https://www.facebook.com/sharer/sharer.php?' .
-            http_build_query([
-                'u' => $url,
-                't' => $title,
-            ]),
-    ],
-    [
         'name' => 'Twitter',
         'class' => 'tw',
         'url' => 'http://twitter.com/share?' .

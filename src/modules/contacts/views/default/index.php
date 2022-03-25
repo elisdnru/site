@@ -44,20 +44,21 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         </ul>
         <ul>
             <li><a href="https://vk.com/elisdn">Я в VK</a></li>
-            <li><a href="https://www.facebook.com/eliseev.dn">Я в FB</a></li>
+            <li><a href="https://www.facebook.com/eliseev.dn">Я в FB</a> *</li>
             <li><a href="https://twitter.com/elisdnru">Я в Twitter</a></li>
             <li><a href="https://t.me/elisdn">Я в Telegram</a></li>
         </ul>
         <ul>
             <li><a href="https://vk.com/elisdnru">Паблик сайта в VK</a></li>
-            <li><a href="https://www.facebook.com/elisdnru/">Паблик сайта в FB</a></li>
+            <li><a href="https://www.facebook.com/elisdnru/">Паблик сайта в FB</a> *</li>
             <li><a href="https://t.me/elisdnru">Канал сайта в Telegram</a></li>
         </ul>
         <ul>
             <li><a href="https://vk.com/elisdn_live">Блог обо всём в VK</a></li>
-            <li><a href="https://www.facebook.com/eliseev.dn">Блог обо всём в FB</a></li>
-            <li><a href="https://www.instagram.com/elisdn_live/">Блог обо всём в Instagram</a></li>
+            <li><a href="https://www.facebook.com/eliseev.dn">Блог обо всём в FB</a> *</li>
+            <li><a href="https://www.instagram.com/elisdn_live/">Блог обо всём в Instagram</a> *</li>
         </ul>
         <p>Email: <span><?= MailTo::widget(['email' => 'mail@elisdn.ru']); ?></span></p>
+        <p>* Компания Meta признана в России экстремистской организацией</p>
     </div>
 </section>
