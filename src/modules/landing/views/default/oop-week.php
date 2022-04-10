@@ -494,7 +494,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         <div class="row">
             <div class="col-sm-8 col-md-offset-2">
                 <div class="price-item">
-                    <div style="margin-bottom: 30px; padding: 0 20px">
+                    <div style="margin-bottom: 20px; padding: 0 20px">
                         <p style="margin-bottom: 0; text-align: center">
                             Здесь Вы можете приобрести записи интенсива с исходными кодами
                             и списком дополнительной литературы.
