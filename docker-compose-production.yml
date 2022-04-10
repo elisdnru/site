@@ -106,6 +106,48 @@ services:
             placement:
                 constraints: [ node.role == manager ]
 
+    site-cache-flush:
+        image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
+        environment:
+            APP_DEBUG: 0
+            APP_ENV: prod
+            APP_URL: https://elisdn.ru
+            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            DB_HOST: ${DB_HOST}
+            DB_NAME: ${DB_NAME}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD_FILE: /run/secrets/db_password
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            MAILER_HOST: ${MAILER_HOST}
+            MAILER_PORT: ${MAILER_PORT}
+            MAILER_USERNAME: ${MAILER_USERNAME}
+            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_ENCRYPTION: tls
+            MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
+            DEWORKER_API_URL: https://api.deworker.pro
+            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
+        secrets:
+            - cookie_secret
+            - db_password
+            - redis_password
+            - mailer_password
+            - sentry_dsn
+        volumes:
+            - site-assets:/app/public/assets
+            - site-upload:/app/public/upload
+        command: sh -c "wait-for-it site-redis:6379 -t 60 && php bin/app.php cache/flush cache --interactive=0"
+        deploy:
+            update_config:
+                delay: 40s
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 5
+                window: 120s
+            placement:
+                constraints: [ node.role == manager ]
+
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         environment:
