@@ -7,7 +7,7 @@ on:
 
 env:
     REGISTRY_HOST: ghcr.io
-    REGISTRY: ghcr.io/elisdnru/site
+    REGISTRY: ghcr.io/${{ github.repository }}
     IMAGE_TAG: master-${{ github.run_number }}
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
                 uses: azure/docker-login@v1
                 with:
                     login-server: ${{ env.REGISTRY_HOST }}
-                    username: ElisDN
+                    username: ${{ github.actor }}
                     password: ${{ github.token }}
 
             -   name: Permissions
