@@ -478,6 +478,16 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
     </div>
 </section>
 
+<section style="background: #f3f3f3">
+    <div class="container">
+        <h2>Ответы на вопросы</h2>
+        <p style="text-align: center">После интенсива провели большой стрим с ответами на дополнительные вопросы по материалу:</p>
+    </div>
+    <div style="max-width: 1280px; margin: 20px auto 10px auto;">
+        <iframe width="100%" height="720" src="//www.youtube.com/embed/8RdJ3G-OZoc?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+</section>
+
 <section>
     <div class="container" id="price">
         <h2>Оформление заказа</h2>
