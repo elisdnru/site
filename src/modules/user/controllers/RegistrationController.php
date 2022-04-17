@@ -25,11 +25,11 @@ final class RegistrationController extends Controller
         return [
             'captcha1' => [
                 'class' => MathCaptchaAction::class,
-                'fixedVerifyCode' => YII_ENV_PROD ? null : '42',
+                'fixedVerifyCode' => env('APP_CAPTCHA_CODE', '') ?: null,
             ],
             'captcha2' => [
                 'class' => MathCaptchaAction::class,
-                'fixedVerifyCode' => YII_ENV_PROD ? null : '42',
+                'fixedVerifyCode' => env('APP_CAPTCHA_CODE', '') ?: null,
             ],
         ];
     }

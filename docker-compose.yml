@@ -47,6 +47,7 @@ services:
             APP_DEBUG: 1
             APP_ENV: dev
             APP_URL: http://localhost
+            APP_CAPTCHA_CODE: 42
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
             DB_NAME: app
