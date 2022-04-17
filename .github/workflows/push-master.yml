@@ -55,14 +55,7 @@ jobs:
                 run: make site-analyze
 
             -   name: Test
-                run: make site-test
-
-            -   name: Archive test output
-                uses: actions/upload-artifact@v1
-                with:
-                    name: test-output
-                    path: tests/_output
-                if: ${{ failure() }}
+                run: make site-test-unit-integration
 
             -   name: Backup MySQL
                 run: make site-backup-mysql
@@ -78,6 +71,28 @@ jobs:
 
             -   name: Push build cache images
                 run: make push-build-cache
+
+            -   name: Testing Build
+                run: make testing-build
+
+            -   name: Testing Push build cache
+                run: make testing-push-build-cache
+
+            -   name: Testing Init
+                run: make testing-init
+
+            -   name: Testing E2E
+                run: make testing-e2e
+
+            -   name: Archive test output
+                uses: actions/upload-artifact@v1
+                with:
+                    name: test-output
+                    path: tests/_output
+                if: ${{ failure() }}
+
+            -   name: Testing Down
+                run: make try-testing-down-clear
 
             -   name: Push
                 run: make push

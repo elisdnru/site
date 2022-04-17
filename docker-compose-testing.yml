@@ -1,0 +1,194 @@
+version: '3.9'
+services:
+    traefik:
+        image: traefik:2.4
+        command:
+            --providers.docker=true
+            --providers.docker.exposedbydefault=false
+            --entrypoints.http.address=:80
+        ports:
+            - "80:80"
+        networks:
+            - traefik-public
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+
+    site:
+        image: ${REGISTRY}/site:${IMAGE_TAG}
+        networks:
+            - traefik-public
+            - default
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site.rule=Host(`localhost`)
+            - traefik.http.routers.site.entrypoints=http
+            - traefik.http.services.site.loadbalancer.server.port=80
+
+    site-php-fpm:
+        image: ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
+        environment:
+            PHP_IDE_CONFIG: serverName=SITE
+            APP_DEBUG: 0
+            APP_ENV: prod
+            APP_URL: http://localhost
+            APP_CAPTCHA_CODE: 42
+            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            DB_HOST: site-mysql
+            DB_NAME: app
+            DB_USERNAME: app
+            DB_PASSWORD_FILE: /run/secrets/db_password
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            MAILER_HOST: site-mailer
+            MAILER_PORT: 1025
+            MAILER_USERNAME: app
+            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_ENCRYPTION: tcp
+            MAILER_FROM_EMAIL: mail@app.test
+            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
+            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
+        secrets:
+            - cookie_secret
+            - db_password
+            - redis_password
+            - mailer_password
+            - sentry_dsn
+
+    site-php-cli:
+        image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
+        environment:
+            APP_DEBUG: 0
+            APP_ENV: prod
+            APP_URL: http://localhost
+            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            DB_HOST: site-mysql
+            DB_NAME: app
+            DB_USERNAME: app
+            DB_PASSWORD_FILE: /run/secrets/db_password
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            MAILER_HOST: site-mailer
+            MAILER_PORT: 1025
+            MAILER_USERNAME: app
+            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_ENCRYPTION: tcp
+            MAILER_FROM_EMAIL: mail@app.test
+            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
+            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
+        secrets:
+            - cookie_secret
+            - db_password
+            - redis_password
+            - mailer_password
+            - sentry_dsn
+        network_mode: service:site
+
+    testing-site-php-cli:
+        image: ${REGISTRY}/site-testing-php-cli:${IMAGE_TAG}
+        environment:
+            APP_DEBUG: 1
+            APP_ENV: dev
+            APP_URL: http://localhost
+            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            DB_HOST: site-mysql
+            DB_NAME: app
+            DB_USERNAME: app
+            DB_PASSWORD_FILE: /run/secrets/db_password
+            REDIS_HOST: site-redis
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            MAILER_HOST: site-mailer
+            MAILER_PORT: 1025
+            MAILER_USERNAME: app
+            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_ENCRYPTION: tcp
+            MAILER_FROM_EMAIL: mail@app.test
+            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
+            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
+        volumes:
+            - ./tests/_output:/app/tests/_output
+        secrets:
+            - cookie_secret
+            - db_password
+            - redis_password
+            - mailer_password
+            - sentry_dsn
+        network_mode: service:site
+
+    site-mysql:
+        image: mariadb:10
+        volumes:
+            - site-mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: app
+            MYSQL_PASSWORD_FILE: /run/secrets/db_password
+            MYSQL_DATABASE: app
+        secrets:
+            - db_password
+
+    site-redis:
+        image: ${REGISTRY}/site-redis:6.2
+        environment:
+            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+        secrets:
+            - redis_password
+        volumes:
+            - site-redis:/data
+        command:
+            - 'redis-server'
+            - '--maxmemory 32mb'
+            - '--maxmemory-policy allkeys-lru'
+
+    site-mailer:
+        image: mailhog/mailhog
+        networks:
+            - traefik-public
+            - default
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site-mailer.rule=Host(`mailer.localhost`)
+            - traefik.http.routers.site-mailer.entrypoints=http
+            - traefik.http.services.site-mailer.loadbalancer.server.port=80
+
+    site-wiremock:
+        image: rodolpheche/wiremock:latest-alpine
+        networks:
+            - traefik-public
+            - default
+        volumes:
+            - ./wiremock:/home/wiremock
+        command:
+            - '--port=80'
+            - '--global-response-templating'
+            - '--verbose'
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site-wiremock.rule=Host(`wiremock.localhost`)
+            - traefik.http.routers.site-wiremock.entrypoints=http
+            - traefik.http.services.site-wiremock.loadbalancer.server.port=80
+
+secrets:
+    cookie_secret:
+        file: ./docker/secrets/cookie_secret
+    db_password:
+        file: ./docker/secrets/db_password
+    redis_password:
+        file: ./docker/secrets/redis_password
+    mailer_password:
+        file: ./docker/secrets/mailer_password
+    sentry_dsn:
+        file: ./docker/secrets/sentry_dsn
+
+volumes:
+    site-mysql:
+    site-redis:
+
+networks:
+    traefik-public:
+        name: traefik-public

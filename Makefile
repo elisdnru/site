@@ -104,6 +104,9 @@ site-test-generate:
 site-test:
 	docker-compose run --rm site-php-cli composer test run unit,integration,acceptance
 
+site-test-unit-integration:
+	docker-compose run --rm site-php-cli composer test run unit,integration
+
 build:
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
 	--cache-from ${REGISTRY}/site:cache \
@@ -159,6 +162,44 @@ push:
 	docker push ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-files-backup:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-redis:6.2
+
+testing-build: testing-build-site-testing-php-cli
+
+testing-build-site-testing-php-cli:
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--cache-from ${REGISTRY}/site-testing-php-cli:cache \
+	--tag ${REGISTRY}/site-testing-php-cli:cache \
+	--tag ${REGISTRY}/site-testing-php-cli:${IMAGE_TAG} \
+	--file docker/testing/php-cli/Dockerfile .
+
+testing-push-build-cache:
+	docker push ${REGISTRY}/site-testing-php-cli:cache
+
+testing-init:
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml up -d
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm site-php-cli wait-for-it site-mysql:3306 -t 60
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm site-php-cli php bin/app.php migrate --interactive=0
+	sleep 10
+
+testing-e2e:
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm testing-site-php-cli composer test run acceptance
+
+testing-down-clear:
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml down -v --remove-orphans
+
+try-testing: try-build try-testing-build try-testing-init try-testing-e2e try-testing-down-clear
+
+try-testing-build:
+	REGISTRY=localhost IMAGE_TAG=0 make testing-build
+
+try-testing-init:
+	REGISTRY=localhost IMAGE_TAG=0 make testing-init
+
+try-testing-e2e:
+	REGISTRY=localhost IMAGE_TAG=0 make testing-e2e
+
+try-testing-down-clear:
+	REGISTRY=localhost IMAGE_TAG=0 make testing-down-clear
 
 deploy:
 	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'rm -rf site_${BUILD_NUMBER} && mkdir site_${BUILD_NUMBER}'
