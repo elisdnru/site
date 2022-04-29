@@ -23,8 +23,6 @@ RUN apk add --no-cache wget unzip bash coreutils
 COPY ./common/wait-for-it.sh /usr/local/bin/wait-for-it
 RUN chmod 555 /usr/local/bin/wait-for-it
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --quiet
 
 RUN addgroup -g 1000 app && adduser -u 1000 -G app -s /bin/sh -D app
