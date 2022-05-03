@@ -43,6 +43,7 @@ use yii\di\Instance;
 use yii\helpers\FileHelper;
 use yii\log\Dispatcher;
 use yii\log\FileTarget;
+use yii\log\Logger;
 use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
 use yii\redis\Cache as RedisCache;
@@ -196,6 +197,7 @@ return [
                     ] : false,
                 ]),
             ],
+            Logger::class => [],
             CacheInterface::class => [
                 'class' => RedisCache::class,
             ],
