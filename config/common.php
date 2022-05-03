@@ -41,7 +41,7 @@ use yii\data\Pagination;
 use yii\db\Connection;
 use yii\di\Instance;
 use yii\helpers\FileHelper;
-use yii\log\Dispatcher as Logger;
+use yii\log\Dispatcher;
 use yii\log\FileTarget;
 use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
@@ -105,7 +105,7 @@ return [
         'mailer' => MailerInterface::class,
         'assetManager' => AssetManager::class,
         'authManager' => ManagerInterface::class,
-        'log' => Logger::class,
+        'log' => Dispatcher::class,
         'view' => View::class,
         'cache' => CacheInterface::class,
         'schema-cache' => 'schema-cache',
@@ -179,8 +179,8 @@ return [
                 'ruleFile' => __DIR__ . '/rbac/rules.php',
                 'assignmentFile' => __DIR__ . '/rbac/assignments.php',
             ],
-            Logger::class => [
-                'class' => Logger::class,
+            Dispatcher::class => [
+                'class' => Dispatcher::class,
                 'traceLevel' => (bool)env('APP_DEBUG', '') ? 3 : 0,
                 'targets' => array_filter([
                     env('APP_ENV', 'prod') !== 'prod' ? [
