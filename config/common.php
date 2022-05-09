@@ -131,6 +131,7 @@ return [
             MathCaptchaAction::class => [
                 'backColor' => 0xFFFFFF,
                 'foreColor' => 0xA00090,
+                'fixedVerifyCode' => env('APP_CAPTCHA_CODE', '') ?: null,
             ],
         ],
         'singletons' => [

@@ -23,14 +23,8 @@ final class RegistrationController extends Controller
     public function actions(): array
     {
         return [
-            'captcha1' => [
-                'class' => MathCaptchaAction::class,
-                'fixedVerifyCode' => env('APP_CAPTCHA_CODE', '') ?: null,
-            ],
-            'captcha2' => [
-                'class' => MathCaptchaAction::class,
-                'fixedVerifyCode' => env('APP_CAPTCHA_CODE', '') ?: null,
-            ],
+            'captcha1' => MathCaptchaAction::class,
+            'captcha2' => MathCaptchaAction::class,
         ];
     }
 
