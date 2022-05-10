@@ -35,9 +35,9 @@ services:
             APP_ENV: prod
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
-            DB_HOST: ${DB_HOST}
-            DB_NAME: ${DB_NAME}
-            DB_USERNAME: ${DB_USERNAME}
+            DB_HOST: site-mysql
+            DB_NAME: app
+            DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
@@ -73,9 +73,9 @@ services:
             APP_ENV: prod
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
-            DB_HOST: ${DB_HOST}
-            DB_NAME: ${DB_NAME}
-            DB_USERNAME: ${DB_USERNAME}
+            DB_HOST: site-mysql
+            DB_NAME: app
+            DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
@@ -96,7 +96,7 @@ services:
         volumes:
             - site-assets:/app/public/assets
             - site-upload:/app/public/upload
-        command: sh -c "wait-for-it ${DB_HOST}:3306 -t 60 && php bin/app.php migrate --interactive=0"
+        command: sh -c "wait-for-it site-mysql:3306 -t 60 && php bin/app.php migrate --interactive=0"
         deploy:
             restart_policy:
                 condition: on-failure
@@ -113,9 +113,9 @@ services:
             APP_ENV: prod
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
-            DB_HOST: ${DB_HOST}
-            DB_NAME: ${DB_NAME}
-            DB_USERNAME: ${DB_USERNAME}
+            DB_HOST: site-mysql
+            DB_NAME: app
+            DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
@@ -169,7 +169,7 @@ services:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         environment:
             BACKUP_NAME: site-mysql
-            MYSQL_HOST: ${DB_HOST}
+            MYSQL_HOST: site-mysql
             MYSQL_USER: ${DB_USERNAME}
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_DB: ${DB_NAME}
@@ -181,7 +181,7 @@ services:
         secrets:
             - db_password
             - backup_aws_secret_access_key
-        command: sh -c "wait-for-it ${DB_HOST}:3306 -t 60 && backup"
+        command: sh -c "wait-for-it site-mysql:3306 -t 60 && backup"
         deploy:
             labels:
                 - swarm.cronjob.enable=true

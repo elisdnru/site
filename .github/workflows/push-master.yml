@@ -127,9 +127,6 @@ jobs:
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
                     COOKIE_SECRET_FILE: /tmp/cookie_secret
-                    DB_HOST: ${{ secrets.DB_HOST }}
-                    DB_NAME: ${{ secrets.DB_NAME }}
-                    DB_USERNAME: ${{ secrets.DB_USERNAME }}
                     DB_ROOT_PASSWORD_FILE: /tmp/db_root_password
                     DB_PASSWORD_FILE: /tmp/db_password
                     REDIS_PASSWORD_FILE: /tmp/redis_password
