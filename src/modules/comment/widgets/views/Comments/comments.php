@@ -3,6 +3,7 @@
 use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
+use yii\web\Session;
 use yii\web\View;
 
 /**
@@ -11,6 +12,7 @@ use yii\web\View;
  * @var User $user
  * @var CommentForm $form
  * @var int $authorId
+ * @var Session $session
  */
 ?>
 <div id="comments">
@@ -24,6 +26,7 @@ use yii\web\View;
             'parent' => 0,
             'user' => $user,
             'authorId' => $authorId,
+            'session' => $session,
         ]); ?>
     </div>
 

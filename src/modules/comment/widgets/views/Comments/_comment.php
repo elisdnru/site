@@ -16,7 +16,6 @@ use yii\web\Session;
  * @var User|null $user
  * @var Session $session
  */
-$session = Yii::$app->get('session');
 ?>
 <article class="comment<?= $authorId === $comment->user_id ? ' author' : ''; ?>" id="comment_<?= $comment->id; ?>" style="margin-left:<?= $indent < 8 ? $indent * 20 : 8 * 20; ?>px">
     <img class="userpic" src="<?= Html::encode($comment->getAvatarUrl(50, 50)); ?>" alt="">

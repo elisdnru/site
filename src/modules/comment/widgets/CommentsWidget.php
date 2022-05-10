@@ -126,6 +126,7 @@ final class CommentsWidget extends Widget
             'material_id' => $this->material_id,
             'type' => $this->type,
             'authorId' => $this->authorId,
+            'session' => $this->session,
         ]);
     }
 

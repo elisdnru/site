@@ -2,6 +2,7 @@
 
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
+use yii\web\Session;
 use yii\web\View;
 
 /**
@@ -11,6 +12,7 @@ use yii\web\View;
  * @var int $indent
  * @var int $authorId
  * @var User $user
+ * @var Session $session
  */
 ?>
 <?php if (isset($comments[$parent])) : ?>
@@ -20,6 +22,7 @@ use yii\web\View;
             'comment' => $comment,
             'authorId' => $authorId,
             'user' => $user,
+            'session' => $session,
         ]); ?>
 
         <?php if ($indent < 100 && array_key_exists($comment->id, $comments)) : ?>
@@ -29,6 +32,7 @@ use yii\web\View;
                 'parent' => $comment->id,
                 'user' => $user,
                 'authorId' => $authorId,
+                'session' => $session,
             ]); ?>
         <?php endif; ?>
 
