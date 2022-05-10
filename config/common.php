@@ -40,7 +40,6 @@ use yii\caching\FileCache;
 use yii\data\Pagination;
 use yii\db\Connection;
 use yii\di\Instance;
-use yii\helpers\FileHelper;
 use yii\log\Dispatcher;
 use yii\log\FileTarget;
 use yii\log\Logger;
@@ -55,17 +54,11 @@ use yii\web\UrlManager;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
-$runtime = dirname(__DIR__) . '/var/' . PHP_SAPI;
-
-if (!is_dir($runtime)) {
-    FileHelper::createDirectory($runtime, 0777);
-}
-
 return [
     'id' => 'app',
     'basePath' => dirname(__DIR__) . '/src',
     'vendorPath' => dirname(__DIR__) . '/vendor',
-    'runtimePath' => $runtime,
+    'runtimePath' => dirname(__DIR__) . '/var/' . PHP_SAPI,
     'name' => 'Site',
     'sourceLanguage' => 'en',
     'language' => 'ru',
