@@ -148,6 +148,23 @@ services:
             placement:
                 constraints: [ node.role == manager ]
 
+    site-mysql:
+        image: mariadb:10
+        environment:
+            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+            MYSQL_USER: app
+            MYSQL_PASSWORD_FILE: /run/secrets/db_password
+            MYSQL_DATABASE: app
+        secrets:
+            - db_root_password
+            - db_password
+        volumes:
+            - site-mysql:/var/lib/mysql
+        deploy:
+            placement:
+                constraints: [ node.labels.db == db ]
+            endpoint_mode: dnsrr
+
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         environment:
@@ -221,6 +238,8 @@ secrets:
         file: ./secrets/cookie_secret
     db_password:
         file: ./secrets/db_password
+    db_root_password:
+        file: ./secrets/db_root_password
     redis_password:
         file: ./secrets/redis_password
     mailer_password:
@@ -233,6 +252,7 @@ secrets:
 volumes:
     site-assets:
     site-upload:
+    site-mysql:
     site-redis:
 
 networks:
