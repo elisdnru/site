@@ -206,7 +206,7 @@ services:
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site-mailer.rule=Host(`mailer.localhost`)
             - traefik.http.routers.site-mailer.entrypoints=http
-            - traefik.http.services.site-mailer.loadbalancer.server.port=80
+            - traefik.http.services.site-mailer.loadbalancer.server.port=8025
 
     site-backup-storage:
         image: minio/minio
