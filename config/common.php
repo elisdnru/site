@@ -197,8 +197,6 @@ return [
             ],
             'schema-cache' => [
                 'class' => FileCache::class,
-                'dirMode' => 0777,
-                'fileMode' => 0666,
             ],
             MailerInterface::class => [
                 'class' => Mailer::class,
