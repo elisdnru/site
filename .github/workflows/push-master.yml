@@ -37,7 +37,7 @@ jobs:
                     password: ${{ github.token }}
 
             -   name: Permissions
-                run: mkdir -p node_modules vendor && sudo chown -R 1000:1000 node_modules vendor public/build
+                run: mkdir -p node_modules vendor public/build && sudo chown -R 1000:1000 node_modules vendor public/build
 
             -   name: Init
                 run: make init

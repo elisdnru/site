@@ -1,3 +1,13 @@
+FROM node:17-alpine as builder
+
+WORKDIR /app
+
+COPY ./package.json ./yarn.lock ./
+RUN yarn install && yarn cache clean
+
+COPY ./ ./
+RUN yarn build
+
 FROM php:8.1-fpm-alpine
 
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev git \
@@ -28,6 +38,7 @@ COPY ./composer.json ./composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-progress --optimize-autoloader \
     && rm -rf /root/.composer/cache
 
+COPY --from=builder /app/public/build ./public/build
 COPY ./ ./
 
 RUN chown www-data:www-data ./var -R

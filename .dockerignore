@@ -6,4 +6,5 @@
 /var/*
 /tests/_output/*
 /public/assets/*
+/public/build/*
 /public/upload/*

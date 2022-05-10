@@ -30,10 +30,10 @@ push-dev-cache:
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-wait-redis site-migrations site-fixtures site-test-generate site-assets-build
 
 site-clear:
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* tests/_output/* tests/_support/_generated/*'
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* public/build/* tests/_output/* tests/_support/_generated/*'
 
 site-permissions:
-	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 var public/assets public/upload tests/_output tests/_support/_generated
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'mkdir -p public/build && chmod 777 var public/assets public/build public/upload tests/_output tests/_support/_generated'
 
 site-composer-install:
 	docker-compose run --rm site-php-cli composer install
@@ -109,12 +109,26 @@ site-test-unit-integration:
 
 build:
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--target builder \
+	--cache-from ${REGISTRY}/site:cache-builder \
+	--tag ${REGISTRY}/site:cache-builder \
+	--file docker/production/nginx/Dockerfile .
+
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--cache-from ${REGISTRY}/site:cache-builder \
 	--cache-from ${REGISTRY}/site:cache \
 	--tag ${REGISTRY}/site:cache \
 	--tag ${REGISTRY}/site:${IMAGE_TAG} \
 	--file docker/production/nginx/Dockerfile .
 
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--target builder \
+	--cache-from ${REGISTRY}/site-php-fpm:cache-builder \
+	--tag ${REGISTRY}/site-php-fpm:cache-builder \
+	--file docker/production/php-fpm/Dockerfile .
+
+	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
+	--cache-from ${REGISTRY}/site-php-fpm:cache-builder \
 	--cache-from ${REGISTRY}/site-php-fpm:cache \
 	--tag ${REGISTRY}/site-php-fpm:cache \
 	--tag ${REGISTRY}/site-php-fpm:${IMAGE_TAG} \
@@ -148,7 +162,9 @@ try-build:
 	REGISTRY=localhost IMAGE_TAG=0 make build
 
 push-build-cache:
+	docker push ${REGISTRY}/site:cache-builder
 	docker push ${REGISTRY}/site:cache
+	docker push ${REGISTRY}/site-php-fpm:cache-builder
 	docker push ${REGISTRY}/site-php-fpm:cache
 	docker push ${REGISTRY}/site-php-cli:cache
 	docker push ${REGISTRY}/site-mysql-backup:cache
