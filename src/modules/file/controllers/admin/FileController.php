@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
 use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 use yii\web\UploadedFile;
@@ -49,6 +50,10 @@ final class FileController extends AdminController
         }
 
         $currentPath = $root . ($path ? '/' . $path : '');
+
+        if (!file_exists($currentPath)) {
+            throw new NotFoundHttpException();
+        }
 
         $uploadForm = new UploadForm();
 
