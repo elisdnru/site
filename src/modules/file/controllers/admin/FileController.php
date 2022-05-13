@@ -92,10 +92,12 @@ final class FileController extends AdminController
         ]);
     }
 
-    public function actionDelete(string $name, Request $request, File $fileHandler): ?Response
+    public function actionDelete(string $path, string $name, Request $request, File $fileHandler): ?Response
     {
+        $path = FilenameEscaper::escapeFile($path);
         $name = FilenameEscaper::escapeFile($name);
-        $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
+
+        $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
 
         if (!$file->delete()) {
             throw new BadRequestHttpException('Ошибка удаления');

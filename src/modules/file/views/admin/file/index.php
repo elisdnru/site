@@ -63,7 +63,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 
     <?php if ($items) : ?>
         <?php foreach ($items as $item) : ?>
-            <?php $delUrl = Url::to(['delete', 'name' => ($path ? $path . '/' : '') . ($item->getBasename() ?: '')]); ?>
+            <?php $delUrl = Url::to(['delete', 'path' => $path, 'name' => $item->getBasename() ?: '']); ?>
             <?php $renameUrl = Url::to(['rename', 'path' => $path, 'name' => $item->getBasename() ?: '']); ?>
 
             <?php if ($item->getIsDir()) : ?>
