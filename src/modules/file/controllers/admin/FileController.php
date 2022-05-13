@@ -9,29 +9,16 @@ use app\components\FilenameEscaper;
 use app\components\Slugger;
 use app\extensions\file\File;
 use app\modules\file\forms\RenameForm;
-use app\modules\user\models\Access;
-use app\modules\user\models\User;
 use Yii;
-use yii\base\Module;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
-use yii\web\ForbiddenHttpException;
 use yii\web\Request;
 use yii\web\Response;
-use yii\web\User as WebUser;
 
 final class FileController extends AdminController
 {
     private const UPLOAD_COUNT = 7;
     private const UPLOAD_PATH = 'upload/media';
-
-    private WebUser $user;
-
-    public function __construct(string $id, Module $module, WebUser $user, array $config = [])
-    {
-        parent::__construct($id, $module, $config);
-        $this->user = $user;
-    }
 
     public function behaviors(): array
     {
@@ -148,17 +135,6 @@ final class FileController extends AdminController
 
     private function getFileDir(): string
     {
-        $user = $this->loadUser();
-
-        if ($user->role !== Access::ROLE_ADMIN) {
-            return self::UPLOAD_PATH . '/users/' . $user->username;
-        }
-
         return self::UPLOAD_PATH;
-    }
-
-    private function loadUser(): User
-    {
-        return User::findOne($this->user->id) ?: throw new ForbiddenHttpException();
     }
 }
