@@ -97,7 +97,7 @@ final class FileController extends AdminController
         $path = FilenameEscaper::escapeFile($path);
         $name = FilenameEscaper::escapeFile($name);
 
-        $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
+        $file = $fileHandler->set($this->getFileDir() . ($path ? '/' . $path : '') . '/' . $name, true);
 
         if (!$file->delete()) {
             throw new BadRequestHttpException('Ошибка удаления');
@@ -106,6 +106,7 @@ final class FileController extends AdminController
         if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
+
         return null;
     }
 
@@ -118,11 +119,11 @@ final class FileController extends AdminController
         $form->name = $name;
 
         if ($form->load((array)$request->post()) && $form->validate()) {
-            $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
+            $file = $fileHandler->set($this->getFileDir() . ($path ? '/' . $path : '') . '/' . $name, true);
 
             $to = FilenameEscaper::escapeFile($form->name);
 
-            if (!$file->rename($this->getFileDir() . '/' . $path . '/' . $to)) {
+            if (!$file->rename($this->getFileDir() . '/' . ($path ? '/' . $path : '') . '/' . $to)) {
                 throw new BadRequestHttpException('Ошибка переименования');
             }
 
