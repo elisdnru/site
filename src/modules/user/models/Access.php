@@ -29,14 +29,11 @@ final class Access
 
     public static function getRoleName(?string $role): string
     {
-        switch ($role) {
-            case self::ROLE_USER:
-                return 'Пользователь';
-            case self::ROLE_MANAGER:
-                return 'Контент-менеджер';
-            case self::ROLE_ADMIN:
-                return 'Администратор';
-        }
-        return '';
+        return match ($role) {
+            self::ROLE_USER => 'Пользователь',
+            self::ROLE_MANAGER => 'Контент-менеджер',
+            self::ROLE_ADMIN => 'Администратор',
+            default => '',
+        };
     }
 }

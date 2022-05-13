@@ -14,20 +14,14 @@ final class Pluraliser
         $l2 = substr((string)$amount, -2);
         $l1 = substr((string)$amount, -1);
 
-        if ($l2 > 10 && $l2 < 20) {
+        if ((int)$l2 > 10 && (int)$l2 < 20) {
             return $input[2];
         }
 
-        switch ($l1) {
-            case 1:
-                return $input[0];
-            case 2:
-            case 3:
-            case 4:
-                return $input[1];
-            case 0:
-            default:
-                return $input[2];
-        }
+        return match ($l1) {
+            '1' => $input[0],
+            '2', '3', '4' => $input[1],
+            default => $input[2],
+        };
     }
 }
