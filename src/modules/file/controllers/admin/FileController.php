@@ -111,13 +111,13 @@ final class FileController extends AdminController
 
     public function actionRename(string $path, string $name, Request $request, File $fileHandler): Response|string
     {
+        $path = FilenameEscaper::escapePath($path);
+        $name = FilenameEscaper::escapeFile($name);
+
         $form = new RenameForm();
         $form->name = $name;
 
         if ($form->load((array)$request->post()) && $form->validate()) {
-            $path = FilenameEscaper::escapePath($path);
-            $name = FilenameEscaper::escapeFile($name);
-
             $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
 
             $to = FilenameEscaper::escapeFile($form->name);
