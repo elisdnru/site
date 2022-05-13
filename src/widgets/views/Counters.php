@@ -35,7 +35,7 @@ gtag('config', 'UA-3647' + '7750-1');
 
 <script>
 !function() {
-    var t = document.createElement("script");
+    const t = document.createElement("script");
     t.type = "text/javascript";
     t.async = !0;
     t.src = "https://vk.com/js/api/openapi.js?169";

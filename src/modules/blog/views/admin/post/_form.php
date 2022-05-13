@@ -164,13 +164,13 @@ use yii\widgets\ActiveForm;
         <?php ob_start(); ?>
 
         (function () {
-            var tagsInput = document.querySelector('#post-tagsstring');
-            var tagsVariants = document.querySelectorAll('#tags-variants li');
+            const tagsInput = document.querySelector('#post-tagsstring');
+            const tagsVariants = document.querySelectorAll('#tags-variants li');
 
             function highlightActive () {
-                var tags = tagsInput.value.split(', ');
+                const tags = tagsInput.value.split(', ');
                 tagsVariants.forEach(function (variant) {
-                    var thisTag = variant.querySelector('.tag').innerHTML;
+                    const thisTag = variant.querySelector('.tag').innerHTML;
                     if (tags.indexOf(thisTag) !== -1) {
                         variant.classList.add('active');
                     } else {
@@ -183,12 +183,12 @@ use yii\widgets\ActiveForm;
 
             tagsVariants.forEach(function (variant) {
                 variant.querySelector('.tag').addEventListener('click', function (e) {
-                    var tags = tagsInput.value.split(', ');
+                    const tags = tagsInput.value.split(", ");
                     if (!tags[0]) {
                         tags.splice(0, 1);
                     }
-                    var newTag = e.target.innerHTML;
-                    var index = tags.indexOf(newTag);
+                    const newTag = e.target.innerHTML;
+                    const index = tags.indexOf(newTag);
                     if (index === -1) {
                         tags[tags.length] = newTag;
                     } else {

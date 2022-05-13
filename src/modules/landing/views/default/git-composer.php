@@ -504,7 +504,7 @@ $this->title = 'Git и Composer для начинающих';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
 $(document).on('click', 'a', function() {
-    var href = $(this).attr('href');
+    const href = $(this).attr('href');
     if (href.indexOf('#') === 0) {
         $('html, body').animate({scrollTop: $(href).position().top }, 800);
         return false;
