@@ -12,7 +12,7 @@ use Codeception\Test\Unit;
  */
 final class FilenameEscaperTest extends Unit
 {
-    public function testThumbFileName(): void
+    public function testEscape(): void
     {
         self::assertEquals('_/wro-ng/ф_айл.exe', FilenameEscaper::escape('../wro-ng/ф_айл.exe'));
     }
