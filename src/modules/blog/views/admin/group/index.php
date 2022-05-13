@@ -40,7 +40,7 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 
             ?>
             <tr id="item-<?= $item->id; ?>">
-                <td><?= Html::activeTextInput($item, "[{$item->id}]title", ['style' => 'width:99%', 'maxlength' => 255]); ?></td>
+                <td><?= Html::activeTextInput($item, '[' . $item->id . ']title', ['style' => 'width:99%', 'maxlength' => 255]); ?></td>
                 <td style="text-align: center"><a href="<?= $postsUrl; ?>">Записи</a></td>
                 <td style="text-align: center">
                     <?php if ($item->getPostsCount() === 0) : ?>
