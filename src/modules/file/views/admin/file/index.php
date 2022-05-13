@@ -108,32 +108,32 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 
 </table>
 
-<hr />
-
 <div class="form">
     <form action="" method="post">
         <?= Csrf::hiddenInput(); ?>
-        <div class="row<?= $directoryForm->hasErrors('name') ? ' error' : ''; ?>">
-            <?= Html::activeTextInput($directoryForm, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
-            <?= Html::error($directoryForm, 'name', ['class' => 'error-message']); ?>
-        </div>
-        <div class="row buttons">
-            <?= Html::submitButton('Создать директорию'); ?>
-        </div>
+        <fieldset>
+            <div class="row<?= $directoryForm->hasErrors('name') ? ' error' : ''; ?>">
+                <?= Html::activeTextInput($directoryForm, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
+                <?= Html::error($directoryForm, 'name', ['class' => 'error-message']); ?>
+            </div>
+            <div class="row buttons">
+                <?= Html::submitButton('Создать директорию'); ?>
+            </div>
+        </fieldset>
     </form>
 </div>
-
-<hr />
 
 <div class="form">
     <form action="" method="post" enctype="multipart/form-data">
         <?= Csrf::hiddenInput(); ?>
-        <div class="row<?= $uploadForm->hasErrors('files') ? ' error' : ''; ?>">
-            <?= Html::activeFileInput($uploadForm, 'files'); ?><br />
-            <?= Html::error($uploadForm, 'files', ['class' => 'error-message']); ?>
-        </div>
-        <div class="row buttons">
-            <?= Html::submitButton('Загрузить файлы'); ?>
-        </div>
+        <fieldset>
+            <div class="row<?= $uploadForm->hasErrors('files') ? ' error' : ''; ?>">
+                <?= Html::activeFileInput($uploadForm, 'files'); ?><br />
+                <?= Html::error($uploadForm, 'files', ['class' => 'error-message']); ?>
+            </div>
+            <div class="row buttons">
+                <?= Html::submitButton('Загрузить файлы'); ?>
+            </div>
+        </fieldset>
     </form>
 </div>
