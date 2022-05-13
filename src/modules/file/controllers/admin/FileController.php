@@ -10,12 +10,14 @@ use app\components\Slugger;
 use app\extensions\file\File;
 use app\modules\file\forms\DirectoryForm;
 use app\modules\file\forms\RenameForm;
+use app\modules\file\forms\UploadForm;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\helpers\FileHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\UploadedFile;
 
 final class FileController extends AdminController
 {
@@ -48,14 +50,18 @@ final class FileController extends AdminController
 
         $currentPath = $this->getFileDir() . ($path ? '/' . $path : '');
 
-        if (!empty($_FILES)) {
-            for ($i = 1; $i <= self::UPLOAD_COUNT; ++$i) {
-                $index = 'file_' . $i;
-                if (isset($_FILES[$index])) {
-                    $this->uploadFile($index, $currentPath, $fileHandler);
+        $uploadForm = new UploadForm();
+
+        if ($uploadForm->load((array)$request->post())) {
+            $uploadForm->files = UploadedFile::getInstances($uploadForm, 'files');
+            if ($uploadForm->validate()) {
+                foreach ($uploadForm->files as $file) {
+                    $slug = Slugger::slug($file->baseName ?: '');
+                    $extension = $file->extension ?: '';
+                    $file->saveAs($currentPath . '/' . $slug . ($extension ? '.' . $extension : ''));
                 }
+                return $this->refresh();
             }
-            return $this->refresh();
         }
 
         $directoryForm = new DirectoryForm();
@@ -77,7 +83,7 @@ final class FileController extends AdminController
             'path' => $path,
             'items' => $items,
             'directoryForm' => $directoryForm,
-            'uploadCount' => self::UPLOAD_COUNT,
+            'uploadForm' => $uploadForm,
         ]);
     }
 
@@ -122,18 +128,6 @@ final class FileController extends AdminController
             'model' => $form,
             'path' => $path,
         ]);
-    }
-
-    private function uploadFile(string $field, string $currentPath, File $fileHandler): void
-    {
-        $uploaded = $fileHandler->set($field, true);
-
-        $slug = Slugger::slug($uploaded->getFilename() ?: '');
-        $extension = $uploaded->getExtension() ?: '';
-
-        $file = $currentPath . '/' . $slug . '.' . $extension;
-
-        $uploaded->move($file);
     }
 
     private function getFileDir(): string

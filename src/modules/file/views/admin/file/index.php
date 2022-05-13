@@ -3,6 +3,7 @@
 use app\components\Csrf;
 use app\extensions\file\File;
 use app\modules\file\forms\DirectoryForm;
+use app\modules\file\forms\UploadForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -13,8 +14,8 @@ use yii\web\View;
  * @var string $htmlRoot
  * @var string $root
  * @var string $path
- * @var int $uploadCount
  * @var DirectoryForm $directoryForm
+ * @var UploadForm $uploadForm
  */
 $this->title = 'Файловый менеджер';
 $this->params['breadcrumbs'] = [
@@ -110,37 +111,29 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 <hr />
 
 <div class="form">
-
     <form action="?" method="post">
-
         <?= Csrf::hiddenInput(); ?>
-
         <div class="row<?= $directoryForm->hasErrors('name') ? ' error' : ''; ?>">
             <?= Html::activeTextInput($directoryForm, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
             <?= Html::error($directoryForm, 'name', ['class' => 'error-message']); ?>
         </div>
-
         <div class="row buttons">
             <?= Html::submitButton('Создать директорию'); ?>
         </div>
-
     </form>
-
-</div><!-- form -->
+</div>
 
 <hr />
 
-<div class="upload-alternate">
-    <?= Html::beginForm('', 'post', [
-        'enctype' => 'multipart/form-data',
-    ]); ?>
-
-    <p>
-        <?php for ($i = 1; $i <= $uploadCount; ++$i) : ?>
-            <?= Html::fileInput('file_' . $i); ?><br />
-        <?php endfor; ?>
-    </p>
-    <?= Html::submitButton('Загрузить файлы'); ?>
-
-    <?= Html::endForm(); ?>
+<div class="form">
+    <form action="?" method="post" enctype="multipart/form-data">
+        <?= Csrf::hiddenInput(); ?>
+        <div class="row<?= $uploadForm->hasErrors('files') ? ' error' : ''; ?>">
+            <?= Html::activeFileInput($uploadForm, 'files'); ?><br />
+            <?= Html::error($uploadForm, 'files', ['class' => 'error-message']); ?>
+        </div>
+        <div class="row buttons">
+            <?= Html::submitButton('Загрузить файлы'); ?>
+        </div>
+    </form>
 </div>
