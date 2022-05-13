@@ -32,6 +32,7 @@ final class FileController extends AdminController
                 'class' => VerbFilter::class,
                 'actions' => [
                     'process' => ['post'],
+                    'delete' => ['post'],
                 ],
             ],
         ]);
