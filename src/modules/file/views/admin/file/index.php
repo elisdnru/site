@@ -111,7 +111,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 <hr />
 
 <div class="form">
-    <form action="?" method="post">
+    <form action="" method="post">
         <?= Csrf::hiddenInput(); ?>
         <div class="row<?= $directoryForm->hasErrors('name') ? ' error' : ''; ?>">
             <?= Html::activeTextInput($directoryForm, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
@@ -126,7 +126,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 <hr />
 
 <div class="form">
-    <form action="?" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <?= Csrf::hiddenInput(); ?>
         <div class="row<?= $uploadForm->hasErrors('files') ? ' error' : ''; ?>">
             <?= Html::activeFileInput($uploadForm, 'files'); ?><br />
