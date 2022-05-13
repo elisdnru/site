@@ -24,9 +24,6 @@ final class GroupsFetcher
         /** @var Set[] $sets */
         $sets = [];
 
-        /**
-         * @var array $definition
-         */
         foreach ($this->modules->definitions() as $name => $definition) {
             if (($set = $this->getGroupsSet($name, $definition)) !== null) {
                 $sets[] = $set;

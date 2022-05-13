@@ -97,8 +97,8 @@ class Comment extends ActiveRecord
     public function fixedText(string $attribute): void
     {
         $value = trim((string)$this->{$attribute});
-        $value = preg_replace('#\r\n#s', "\n", $value);
-        $value = preg_replace('#([^\n])\n?<pre>#s', "$1\n\n<pre>", $value);
+        $value = preg_replace('#\r\n#', "\n", $value);
+        $value = preg_replace('#([^\n])\n?<pre>#', "$1\n\n<pre>", $value);
         $this->{$attribute} = $value;
     }
 
