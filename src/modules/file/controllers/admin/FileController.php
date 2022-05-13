@@ -22,7 +22,6 @@ use yii\web\UploadedFile;
 
 final class FileController extends AdminController
 {
-    private const UPLOAD_COUNT = 7;
     private const UPLOAD_PATH = 'upload/media';
 
     public function behaviors(): array
