@@ -12,8 +12,13 @@ use Codeception\Test\Unit;
  */
 final class FilenameEscaperTest extends Unit
 {
-    public function testEscape(): void
+    public function testEscapeFile(): void
     {
-        self::assertEquals('_/wro-ng/f_ajl.exe', FilenameEscaper::escape('../wro-ng/ф_айл.exe'));
+        self::assertEquals('w_._.r._.o-ng_f_ajl.exe', FilenameEscaper::escapeFile('../w/./...r.' . "\t" . '.o-ng/ф_айл.exe'));
+    }
+
+    public function testEscapePath(): void
+    {
+        self::assertEquals('w.r._.o-ng/f_ajl.exe', FilenameEscaper::escapePath('./../w...r.' . "\t" . '.o-ng/ф_айл.exe/./'));
     }
 }

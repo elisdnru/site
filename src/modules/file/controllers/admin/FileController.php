@@ -6,7 +6,6 @@ namespace app\modules\file\controllers\admin;
 
 use app\components\AdminController;
 use app\components\FilenameEscaper;
-use app\components\Slugger;
 use app\extensions\file\File;
 use app\modules\file\forms\DirectoryForm;
 use app\modules\file\forms\RenameForm;
@@ -41,7 +40,7 @@ final class FileController extends AdminController
 
     public function actionIndex(Request $request, File $fileHandler, string $path = ''): Response|string
     {
-        $path = FilenameEscaper::escape($path);
+        $path = FilenameEscaper::escapePath($path);
 
         $root = ((string)Yii::getAlias('@webroot')) . '/' . $this->getFileDir();
 
@@ -61,9 +60,7 @@ final class FileController extends AdminController
             $uploadForm->files = UploadedFile::getInstances($uploadForm, 'files');
             if ($uploadForm->validate()) {
                 foreach ($uploadForm->files as $file) {
-                    $slug = Slugger::slug($file->baseName ?: '');
-                    $extension = $file->extension ?: '';
-                    $file->saveAs($currentPath . '/' . $slug . ($extension ? '.' . $extension : ''));
+                    $file->saveAs($currentPath . '/' . FilenameEscaper::escapeFile($file->name));
                 }
                 return $this->refresh();
             }
@@ -97,7 +94,7 @@ final class FileController extends AdminController
 
     public function actionDelete(string $name, Request $request, File $fileHandler): ?Response
     {
-        $name = FilenameEscaper::escape($name);
+        $name = FilenameEscaper::escapeFile($name);
         $file = $fileHandler->set($this->getFileDir() . '/' . $name, true);
 
         if (!$file->delete()) {
@@ -116,12 +113,12 @@ final class FileController extends AdminController
         $form->name = $name;
 
         if ($form->load((array)$request->post()) && $form->validate()) {
-            $path = FilenameEscaper::escape($path);
-            $name = FilenameEscaper::escape($name);
+            $path = FilenameEscaper::escapePath($path);
+            $name = FilenameEscaper::escapeFile($name);
 
             $file = $fileHandler->set($this->getFileDir() . '/' . $path . '/' . $name, true);
 
-            $to = FilenameEscaper::escape($form->name);
+            $to = FilenameEscaper::escapeFile($form->name);
 
             if (!$file->rename($this->getFileDir() . '/' . $path . '/' . $to)) {
                 throw new BadRequestHttpException('Ошибка переименования');
