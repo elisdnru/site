@@ -13,6 +13,7 @@ use app\modules\file\forms\RenameForm;
 use app\modules\file\forms\UploadForm;
 use Yii;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Request;
@@ -70,11 +71,12 @@ final class FileController extends AdminController
             FileHelper::createDirectory($currentPath . '/' . $directoryForm->name, 0754);
         }
 
-        $dir = $fileHandler->set($root . '/' . $path);
-
         $items = array_map(
             static fn (string $path): File => $fileHandler->set($path),
-            (array)$dir->getContents()
+            ArrayHelper::merge(
+                FileHelper::findDirectories($root . '/' . $path, ['recursive' => false]),
+                FileHelper::findFiles($root . '/' . $path, ['recursive' => false])
+            )
         );
 
         return $this->render('index', [
