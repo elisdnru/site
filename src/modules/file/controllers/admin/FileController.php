@@ -8,9 +8,11 @@ use app\components\AdminController;
 use app\components\FilenameEscaper;
 use app\components\Slugger;
 use app\extensions\file\File;
+use app\modules\file\forms\DirectoryForm;
 use app\modules\file\forms\RenameForm;
 use Yii;
 use yii\filters\VerbFilter;
+use yii\helpers\FileHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Request;
 use yii\web\Response;
@@ -39,7 +41,7 @@ final class FileController extends AdminController
         $root = ((string)Yii::getAlias('@webroot')) . '/' . $this->getFileDir();
 
         if (!file_exists($root)) {
-            $fileHandler->createDir(0754, $root);
+            FileHelper::createDirectory($root, 0754);
         }
 
         $htmlRoot = '/' . $this->getFileDir();
@@ -56,10 +58,10 @@ final class FileController extends AdminController
             return $this->refresh();
         }
 
-        if ($folderName = (string)$request->getBodyParam('folderName')) {
-            if (preg_match('|^[\\w-]+$|i', $folderName, $t)) {
-                $fileHandler->createDir(0754, $this->getFileDir() . '/' . ($path ? $path . '/' : '') . $folderName);
-            }
+        $directoryForm = new DirectoryForm();
+
+        if ($directoryForm->load((array)$request->post()) && $directoryForm->validate()) {
+            FileHelper::createDirectory($currentPath . '/' . $directoryForm->name, 0754);
         }
 
         $dir = $fileHandler->set($root . '/' . $path);
@@ -74,6 +76,7 @@ final class FileController extends AdminController
             'root' => $root,
             'path' => $path,
             'items' => $items,
+            'directoryForm' => $directoryForm,
             'uploadCount' => self::UPLOAD_COUNT,
         ]);
     }

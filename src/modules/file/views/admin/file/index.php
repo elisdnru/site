@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
+use app\components\Csrf;
 use app\extensions\file\File;
+use app\modules\file\forms\DirectoryForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
@@ -12,6 +14,7 @@ use yii\web\View;
  * @var string $root
  * @var string $path
  * @var int $uploadCount
+ * @var DirectoryForm $directoryForm
  */
 $this->title = 'Файловый менеджер';
 $this->params['breadcrumbs'] = [
@@ -106,12 +109,24 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
 
 <hr />
 
-<?= Html::beginForm(); ?>
+<div class="form">
 
-<?= Html::textInput('folderName', '', ['size' => 30]); ?>
-<?= Html::submitButton('Создать директорию'); ?>
+    <form action="?" method="post">
 
-<?= Html::endForm(); ?>
+        <?= Csrf::hiddenInput(); ?>
+
+        <div class="row<?= $directoryForm->hasErrors('name') ? ' error' : ''; ?>">
+            <?= Html::activeTextInput($directoryForm, 'name', ['size' => 60, 'maxlength' => 255]); ?><br />
+            <?= Html::error($directoryForm, 'name', ['class' => 'error-message']); ?>
+        </div>
+
+        <div class="row buttons">
+            <?= Html::submitButton('Создать директорию'); ?>
+        </div>
+
+    </form>
+
+</div><!-- form -->
 
 <hr />
 
