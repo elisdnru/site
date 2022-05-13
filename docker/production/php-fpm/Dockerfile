@@ -10,14 +10,14 @@ RUN yarn build
 
 FROM php:8.1-fpm-alpine
 
-RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev git \
+RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
     && docker-php-ext-configure mcrypt \
     && docker-php-ext-configure gd \
         --with-jpeg \
         --with-webp \
         --with-freetype \
-    && docker-php-ext-install pdo_mysql gd mcrypt opcache
+    && docker-php-ext-install pdo_mysql gd mcrypt intl opcache
 
 RUN apk add --no-cache fcgi unzip
 
