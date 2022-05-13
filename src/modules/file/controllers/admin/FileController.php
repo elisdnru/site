@@ -48,9 +48,7 @@ final class FileController extends AdminController
             FileHelper::createDirectory($root, 0754);
         }
 
-        $htmlRoot = '/' . $this->getFileDir();
-
-        $currentPath = $this->getFileDir() . ($path ? '/' . $path : '');
+        $currentPath = $root . ($path ? '/' . $path : '');
 
         $uploadForm = new UploadForm();
 
@@ -79,6 +77,8 @@ final class FileController extends AdminController
                 FileHelper::findFiles($root . '/' . $path, ['recursive' => false])
             )
         );
+
+        $htmlRoot = '/' . $this->getFileDir();
 
         return $this->render('index', [
             'htmlRoot' => $htmlRoot,
