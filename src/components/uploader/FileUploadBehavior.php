@@ -47,7 +47,6 @@ final class FileUploadBehavior extends Behavior
     public int $defaultThumbHeight = 0;
     public string $imageWidthAttribute = '';
     public string $imageHeightAttribute = '';
-    public bool $enableWatermark = false;
 
     private Uploader $uploader;
     private File $files;
