@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-use app\components\purifier\PurifierWidget;
 use app\modules\blog\models\Post;
 use app\widgets\Portlet;
 use yii\helpers\Html;
@@ -20,9 +19,7 @@ use yii\helpers\Html;
             <div class="title"><a href="<?= $post->getUrl(); ?>"><?= Html::encode($post->title); ?></a></div>
             <!--noindex-->
             <div class="short">
-                <?php PurifierWidget::begin(); ?>
-                <?= $post->short; ?>
-                <?php PurifierWidget::end(); ?>
+                <p><?= strip_tags($post->short); ?></p>
             </div><!--/noindex-->
         </div>
     <?php endforeach; ?>
