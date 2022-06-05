@@ -77,7 +77,7 @@ return [
         'update_date' => '2016-12-11 12:34',
         'category_id' => 1,
         'author_id' => 2,
-        'alias' => 'post-with-edu-series-episodes',
+        'alias' => 'post-with-comments',
         'title' => 'Пост с комментариями',
         'short' => <<<'TEXT'
             <p>Провели ленивый импровизированный стрим на общеполезные темы.
