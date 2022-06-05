@@ -6,7 +6,6 @@ namespace app\components\category\models;
 
 use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryBehavior;
-use app\components\Slugger;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
@@ -75,15 +74,6 @@ abstract class Category extends ActiveRecord
         ];
     }
 
-    public function beforeSave($insert): bool
-    {
-        if (parent::beforeSave($insert)) {
-            $this->fillDefaultValues();
-            return true;
-        }
-        return false;
-    }
-
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
@@ -91,18 +81,5 @@ abstract class Category extends ActiveRecord
         }
 
         return $this->cachedUrl;
-    }
-
-    private function fillDefaultValues(): void
-    {
-        if (!$this->alias) {
-            $this->alias = Slugger::slug($this->title);
-        }
-        if (!$this->meta_title) {
-            $this->meta_title = strip_tags($this->title);
-        }
-        if (!$this->meta_description) {
-            $this->meta_description = mb_substr(strip_tags($this->text), 0, 255, 'UTF-8');
-        }
     }
 }

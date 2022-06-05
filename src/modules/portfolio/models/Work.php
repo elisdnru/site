@@ -117,15 +117,6 @@ final class Work extends ActiveRecord
         ];
     }
 
-    public function beforeSave($insert): bool
-    {
-        if (parent::beforeSave($insert)) {
-            $this->fillDefaultValues();
-            return true;
-        }
-        return false;
-    }
-
     public function afterSave($insert, $changedAttributes): void
     {
         if (!$this->sort) {
@@ -165,15 +156,5 @@ final class Work extends ActiveRecord
             ]);
         }
         return $this->cachedUrl;
-    }
-
-    private function fillDefaultValues(): void
-    {
-        if (!$this->meta_title) {
-            $this->meta_title = strip_tags($this->title);
-        }
-        if (!$this->meta_description) {
-            $this->meta_description = strip_tags($this->short);
-        }
     }
 }

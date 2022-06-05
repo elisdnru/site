@@ -7,7 +7,6 @@ namespace app\modules\page\models;
 use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
-use app\components\Slugger;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -168,15 +167,6 @@ final class Page extends ActiveRecord
         return \in_array($this->robots, [self::INDEX_FOLLOW, self::INDEX_NOFOLLOW], true);
     }
 
-    public function beforeSave($insert): bool
-    {
-        if (parent::beforeSave($insert)) {
-            $this->fillDefaultValues();
-            return true;
-        }
-        return false;
-    }
-
     public function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {
@@ -184,16 +174,6 @@ final class Page extends ActiveRecord
             return true;
         }
         return false;
-    }
-
-    private function fillDefaultValues(): void
-    {
-        if (!$this->alias) {
-            $this->alias = Slugger::slug($this->title);
-        }
-        if (!$this->meta_title) {
-            $this->meta_title = strip_tags($this->title);
-        }
     }
 
     private function delChildPages(): void

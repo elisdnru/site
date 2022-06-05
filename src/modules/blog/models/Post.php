@@ -6,7 +6,6 @@ namespace app\modules\blog\models;
 
 use app\components\AliasValidator;
 use app\components\purifier\PurifyTextBehavior;
-use app\components\Slugger;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
@@ -197,7 +196,6 @@ final class Post extends ActiveRecord implements Material
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {
-            $this->fillDefaultValues();
             $this->processThematicGroup();
             return true;
         }
@@ -242,22 +240,6 @@ final class Post extends ActiveRecord implements Material
     public function getCommentUrl(): string
     {
         return $this->getUrl();
-    }
-
-    private function fillDefaultValues(): void
-    {
-        if (!$this->alias) {
-            $this->alias = Slugger::slug($this->title);
-        }
-        if (!$this->meta_title) {
-            $this->meta_title = strip_tags($this->title);
-        }
-        if (!$this->meta_description) {
-            $this->meta_description = strip_tags($this->short);
-        }
-        if (!$this->image_alt) {
-            $this->image_alt = $this->title;
-        }
     }
 
     private function processThematicGroup(): void
