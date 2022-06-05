@@ -8,7 +8,6 @@ use app\components\Gravatar;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
 use RuntimeException;
-use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\mail\MailerInterface;
@@ -32,11 +31,11 @@ use yii\web\UploadedFile;
  * @property string $lastname
  * @property string $firstname
  * @property string|null $site
+ *
+ * @mixin FileUploadBehavior
  */
 final class User extends ActiveRecord
 {
-    public const IMAGE_PATH = 'upload/images/users/avatars';
-
     public bool $del_avatar = false;
 
     private ?string $cachedAvatarUrl = null;
@@ -87,7 +86,7 @@ final class User extends ActiveRecord
                 'fileAttribute' => 'avatar',
                 'storageAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
-                'filePath' => self::IMAGE_PATH,
+                'filePath' => 'upload/images/users/avatars',
             ],
         ];
     }
@@ -146,8 +145,7 @@ final class User extends ActiveRecord
             if (preg_match('|^https?://|', $this->avatar)) {
                 $this->cachedAvatarUrl = $this->avatar;
             } elseif ($this->avatar) {
-                $this->cachedAvatarUrl =
-                    '/' . Yii::$app->uploader->getThumbUrl(self::IMAGE_PATH, $this->avatar, $width, $height);
+                $this->cachedAvatarUrl = $this->getImageThumbUrl($width, $height);
             } else {
                 $this->cachedAvatarUrl = $this->getDefaultAvatarUrl($width);
             }

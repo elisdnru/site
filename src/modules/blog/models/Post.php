@@ -48,8 +48,6 @@ use yii\helpers\Url;
  */
 final class Post extends ActiveRecord implements Material
 {
-    private const IMAGE_PATH = 'upload/images/blogs';
-
     public string $delImage = '';
 
     public string $newGroup = '';
@@ -180,7 +178,7 @@ final class Post extends ActiveRecord implements Material
                 'fileAttribute' => 'image',
                 'storageAttribute' => 'image',
                 'deleteAttribute' => 'delImage',
-                'filePath' => self::IMAGE_PATH,
+                'filePath' => 'upload/images/blogs',
             ],
         ];
     }

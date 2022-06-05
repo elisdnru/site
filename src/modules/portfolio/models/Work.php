@@ -33,8 +33,6 @@ use yii\helpers\Url;
  */
 final class Work extends ActiveRecord
 {
-    public const IMAGE_PATH = 'upload/images/portfolio';
-
     public string|bool $delImage = false;
 
     private ?string $cachedUrl = null;
@@ -114,7 +112,7 @@ final class Work extends ActiveRecord
                 'fileAttribute' => 'image',
                 'storageAttribute' => 'image',
                 'deleteAttribute' => 'delImage',
-                'filePath' => self::IMAGE_PATH,
+                'filePath' => 'upload/images/portfolio',
             ],
         ];
     }
