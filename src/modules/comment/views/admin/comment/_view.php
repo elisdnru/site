@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
 
-use app\components\purifier\CommentPostFilter;
+use app\components\purifier\PurifierWidget;
 use app\components\SocNetwork;
+use app\modules\comment\components\CommentPostFilterWidget;
 use app\modules\comment\models\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -55,7 +56,20 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $comment->id]);
     </header>
 
     <div class="text">
-        <?= CommentPostFilter::fixMarkup($comment->text_purified); ?>
+        <?php CommentPostFilterWidget::begin(); ?>
+        <?php PurifierWidget::begin([
+            'encodePreContent' => true,
+            'purifierOptions' => [
+                'AutoFormat.AutoParagraph' => true,
+                'HTML.Allowed' => 'p,ul,li,b,i,a[href],pre',
+                'AutoFormat.Linkify' => true,
+                'HTML.Nofollow' => true,
+                'Core.EscapeInvalidTags' => true,
+            ],
+        ]); ?>
+        <?= $comment->text; ?>
+        <?php PurifierWidget::end(); ?>
+        <?php CommentPostFilterWidget::end(); ?>
         <p>
             <a href="<?= $comment->getUrl(); ?>"><?= Html::encode($comment->material->getCommentTitle()); ?></a>
         </p>

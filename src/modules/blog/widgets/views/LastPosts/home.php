@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\components\DateFormatter;
+use app\components\purifier\PurifierWidget;
 use app\modules\blog\models\Post;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
@@ -56,7 +57,11 @@ use yii\helpers\Html;
             <?php endif; ?>
             <!--/noindex-->
         </div>
-        <div class="short"><?= trim($post->short_purified); ?></div>
+        <div class="short">
+            <?php PurifierWidget::begin(); ?>
+            <?= $post->short; ?>
+            <?php PurifierWidget::end(); ?>
+        </div>
     </div>
 
 <?php endforeach; ?>

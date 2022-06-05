@@ -47,7 +47,7 @@ final class FeedController extends Controller
                     'style' => 'display:block; float:left; margin:0 10px 10px 0',
                 ]), $link);
             }
-            $description .= $model->short_purified;
+            $description .= '<p>' . strip_tags($model->short) . '</p>';
             $description .= Html::tag('p', Html::a('Читать далее &rarr;', $link, ['rel' => 'nofollow']));
 
             $item->setDescription($description);

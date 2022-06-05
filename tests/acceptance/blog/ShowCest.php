@@ -60,5 +60,36 @@ final class ShowCest
         $I->see('Post With Comments', 'h1');
         $I->seeInSource('<p>Public Comment</p>');
         $I->dontSeeInSource('<p>Draft Comment</p>');
+        $I->seeInSource(
+            <<<'END'
+                <p>Lorem ipsum dolor sit amet.</p>
+
+                <p>XSS</p>
+
+                <pre>
+                &lt;p&gt;Code&lt;/p&gt;
+                &lt;script&gt;alert(&#039;XSS&#039;);&lt;/script&gt;
+                </pre>
+
+                <p>&lt;script&gt;alert('XSS');&lt;/script&gt;</p>
+                END
+        );
+    }
+
+    public function markdown(AcceptanceTester $I): void
+    {
+        $I->amOnPage('blog/15/post-markdown');
+        $I->seeResponseCodeIs(200);
+        $I->see('Post With Markdown', 'h1');
+        $I->seeInSource(
+            <<<'END'
+                <p>Lorem ipsum <code>dolor</code> sit amet.</p>
+
+                <div class="hl-code"><div class="php-hl-main"><pre><span class="php-hl-reserved">interface</span> <span class="php-hl-identifier">A</span> <span class="php-hl-reserved">extends</span> <span class="php-hl-identifier">B</span>
+                <span class="php-hl-brackets">{</span>
+                    <span class="php-hl-reserved">public</span> <span class="php-hl-reserved">function</span> <span class="php-hl-identifier">process</span><span class="php-hl-brackets">(</span><span class="php-hl-var">$var</span><span class="php-hl-brackets">)</span><span class="php-hl-code">: </span><span class="php-hl-identifier">void</span>
+                <span class="php-hl-brackets">}</span></pre></div></div>
+                END
+        );
     }
 }

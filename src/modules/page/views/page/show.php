@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\components\CSSMinimizer;
+use app\components\purifier\PurifierWidget;
 use app\components\shortcodes\Shortcodes;
 use app\modules\page\models\Page;
 use yii\web\View;
@@ -15,7 +16,11 @@ if ($page->styles) {
 }
 ?>
 <?php if ($page->layout === 'blank') :
-    ?><?php Shortcodes::begin(); ?><?= $page->text_purified; ?><?php Shortcodes::end(); ?><?php
+    ?><?php Shortcodes::begin();
+    ?><?php PurifierWidget::begin();
+    ?><?= $page->text;
+    ?><?php PurifierWidget::end();
+    ?><?php Shortcodes::end(); ?><?php
 else : ?>
     <section>
         <header>
@@ -25,7 +30,9 @@ else : ?>
 
         <div class="text">
             <?php Shortcodes::begin(); ?>
-            <?= $page->text_purified; ?>
+            <?php PurifierWidget::begin(); ?>
+            <?= $page->text; ?>
+            <?php PurifierWidget::end(); ?>
             <?php Shortcodes::end(); ?>
         </div>
     </section>

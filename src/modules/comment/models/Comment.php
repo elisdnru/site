@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\comment\models;
 
 use app\components\Gravatar;
-use app\components\purifier\PurifyTextBehavior;
 use app\modules\user\models\User;
 use ReflectionClass;
 use ReflectionException;
@@ -25,7 +24,6 @@ use yii\web\Session;
  * @property string $email
  * @property string|null $site
  * @property string $text
- * @property string $text_purified
  * @property int $public
  * @property int $moder
  * @property int|null $parent_id
@@ -145,20 +143,6 @@ class Comment extends ActiveRecord
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => null,
                 'value' => static fn () => date('Y-m-d H:i:s'),
-            ],
-            'PurifyText' => [
-                'class' => PurifyTextBehavior::class,
-                'sourceAttribute' => 'text',
-                'destinationAttribute' => 'text_purified',
-                'encodePreContent' => true,
-                'purifierOptions' => [
-                    'AutoFormat.AutoParagraph' => true,
-                    'HTML.Allowed' => 'p,ul,li,b,i,a[href],pre',
-                    'AutoFormat.Linkify' => true,
-                    'HTML.Nofollow' => true,
-                    'Core.EscapeInvalidTags' => true,
-                ],
-                'processOnBeforeSave' => true,
             ],
         ];
     }

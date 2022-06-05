@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\assets\PortfolioAsset;
+use app\components\purifier\PurifierWidget;
 use app\components\shortcodes\Shortcodes;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
@@ -68,7 +69,9 @@ PortfolioAsset::register($this);
             </div>
 
             <div class="short">
-                <?= trim($model->short_purified); ?>
+                <?php PurifierWidget::begin(); ?>
+                <?= $model->short; ?>
+                <?php PurifierWidget::end(); ?>
             </div>
 
         </header>
@@ -79,7 +82,9 @@ PortfolioAsset::register($this);
 
     <div class="text">
         <?php Shortcodes::begin(); ?>
-        <?= $model->text_purified; ?>
+        <?php PurifierWidget::begin(); ?>
+        <?= $model->text; ?>
+        <?php PurifierWidget::end(); ?>
         <?php Shortcodes::end(); ?>
     </div>
 

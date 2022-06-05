@@ -2,6 +2,7 @@
 
 use app\components\DataProvider;
 use app\components\DateFormatter;
+use app\components\purifier\PurifierWidget;
 use app\modules\blog\models\Post;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
@@ -58,7 +59,11 @@ use yii\widgets\LinkPager;
                     <?php endif; ?>
                     <!--/noindex-->
                 </div>
-                <div class="short"><?= trim($post->short_purified); ?></div>
+                <div class="short">
+                    <?php PurifierWidget::begin(); ?>
+                    <?= $post->short; ?>
+                    <?php PurifierWidget::end(); ?>
+                </div>
                 <div class="clear"></div>
             </div>
         <?php endforeach; ?>

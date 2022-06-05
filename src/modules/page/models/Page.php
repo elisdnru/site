@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\page\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\components\purifier\PurifyTextBehavior;
 use app\components\SlugValidator;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -22,7 +21,6 @@ use yii\helpers\Url;
  * @property string $robots
  * @property string $styles
  * @property string $text
- * @property string $text_purified
  * @property string $layout
  * @property string $subpages_layout
  * @property int $parent_id
@@ -123,15 +121,6 @@ final class Page extends ActiveRecord
                 'slugAttribute' => 'slug',
                 'parentAttribute' => 'parent_id',
                 'parentRelation' => 'parent',
-            ],
-            'PurifyText' => [
-                'class' => PurifyTextBehavior::class,
-                'sourceAttribute' => 'text',
-                'destinationAttribute' => 'text_purified',
-                'purifierOptions' => [
-                    'Attr.AllowedRel' => ['nofollow'],
-                ],
-                'processOnBeforeSave' => true,
             ],
         ];
     }

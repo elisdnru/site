@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\components\purifier;
 
 use yii\helpers\Html;
-use yii\helpers\HtmlPurifier;
+use yii\helpers\HtmlPurifier as Origin;
 
 final class Purifier
 {
@@ -22,7 +22,7 @@ final class Purifier
             $text = $this->storePreContents($text);
         }
 
-        $text = HtmlPurifier::process(trim($text), $options);
+        $text = Origin::process(trim($text), $options);
 
         if ($encodePreContent) {
             $text = $this->resumePreContents($text);

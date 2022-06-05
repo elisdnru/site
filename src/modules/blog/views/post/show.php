@@ -4,6 +4,8 @@ use app\assets\HighlightAsset;
 use app\components\CSSMinimizer;
 use app\components\DateFormatter;
 use app\components\Pluraliser;
+use app\components\purifier\MarkdownWidget;
+use app\components\purifier\PurifierWidget;
 use app\components\shortcodes\Shortcodes;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\models\Comment;
@@ -100,7 +102,14 @@ HighlightAsset::register($this);
 
     <div class="text">
         <?php Shortcodes::begin(); ?>
-        <?= $model->text_purified; ?>
+        <?php if ($this->beginCache('post-text-' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
+            <?php PurifierWidget::begin(); ?>
+            <?php MarkdownWidget::begin(); ?>
+            <?= $model->text; ?>
+            <?php MarkdownWidget::end(); ?>
+            <?php PurifierWidget::end(); ?>
+            <?php $this->endCache(); ?>
+        <?php endif; ?>
         <?php Shortcodes::end(); ?>
     </div>
 

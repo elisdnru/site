@@ -11,8 +11,7 @@ return [
         'name' => 'User',
         'email' => 'user@app.test',
         'site' => '',
-        'text' => 'Comment',
-        'text_purified' => '<p>Public Comment</p>',
+        'text' => 'Public Comment',
         'date' => '2019-10-24 09:53:19',
         'parent_id' => null,
         'public' => 1,
@@ -28,7 +27,6 @@ return [
         'email' => 'user@app.test',
         'site' => '',
         'text' => 'Draft Comment',
-        'text_purified' => '<p>Draft Comment</p>',
         'date' => '2019-10-24 09:53:19',
         'parent_id' => null,
         'public' => 0,
@@ -44,7 +42,6 @@ return [
         'email' => 'admin@app.test',
         'site' => '',
         'text' => 'Admin Comment',
-        'text_purified' => '<p>Admin Comment</p>',
         'date' => '2019-10-24 09:53:19',
         'parent_id' => null,
         'public' => 1,
@@ -60,7 +57,32 @@ return [
         'email' => 'author@app.test',
         'site' => '',
         'text' => 'User Comment',
-        'text_purified' => '<p>User Comment</p>',
+        'date' => '2019-10-24 09:53:19',
+        'parent_id' => null,
+        'public' => 1,
+        'moder' => 0,
+        'likes' => 0,
+    ],
+    [
+        'id' => 5,
+        'type' => 'app\\modules\\bl' . 'og\\models\\Post',
+        'material_id' => 6,
+        'user_id' => 2,
+        'name' => 'User',
+        'email' => 'author@app.test',
+        'site' => '',
+        'text' => <<<'END'
+            Lorem ipsum dolor sit amet.
+
+            <p onclick="script()">XSS</p>
+
+            <pre>
+            <p>Code</p>
+            <script>alert('XSS');</script>
+            </pre>
+
+            <script>alert('XSS');</script>
+            END,
         'date' => '2019-10-24 09:53:19',
         'parent_id' => null,
         'public' => 1,

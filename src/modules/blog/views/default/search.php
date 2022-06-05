@@ -3,6 +3,8 @@
 use app\components\DataProvider;
 use app\components\DateFormatter;
 use app\components\PaginationFormatter;
+use app\components\purifier\MarkdownWidget;
+use app\components\purifier\PurifierWidget;
 use app\components\shortcodes\Shortcodes;
 use app\components\TextMarker;
 use app\modules\blog\forms\SearchForm;
@@ -90,7 +92,11 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <div class="short">
                 <?php ob_start(); ?>
                 <?php Shortcodes::begin(); ?>
-                <?= $post->text_purified; ?>
+                <?php PurifierWidget::begin(); ?>
+                <?php MarkdownWidget::begin(); ?>
+                <?= $post->text; ?>
+                <?php MarkdownWidget::end(); ?>
+                <?php PurifierWidget::end(); ?>
                 <?php Shortcodes::end(); ?>
                 <?php $text = ob_get_clean(); ?>
                 <?= TextMarker::markFragment(strip_tags($text), $searchForm->q); ?>

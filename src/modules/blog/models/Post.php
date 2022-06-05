@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
-use app\components\purifier\PurifyTextBehavior;
 use app\components\SlugValidator;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Material;
@@ -27,9 +26,7 @@ use yii\helpers\Url;
  * @property string $meta_description
  * @property string $styles
  * @property string $short
- * @property string $short_purified
  * @property string $text
- * @property string $text_purified
  * @property string $image
  * @property string $image_alt
  * @property int $image_show
@@ -151,26 +148,6 @@ final class Post extends ActiveRecord implements Material
                 'createdAtAttribute' => 'date',
                 'updatedAtAttribute' => 'update_date',
                 'value' => static fn () => date('Y-m-d H:i:s'),
-            ],
-            'PurifyShort' => [
-                'class' => PurifyTextBehavior::class,
-                'sourceAttribute' => 'short',
-                'destinationAttribute' => 'short_purified',
-                'purifierOptions' => [
-                    'Attr.AllowedRel' => ['nofollow'],
-                    'HTML.Nofollow' => true,
-                ],
-                'processOnBeforeSave' => true,
-            ],
-            'PurifyText' => [
-                'class' => PurifyTextBehavior::class,
-                'sourceAttribute' => 'text',
-                'destinationAttribute' => 'text_purified',
-                'enableMarkdown' => true,
-                'purifierOptions' => [
-                    'Attr.AllowedRel' => ['nofollow'],
-                ],
-                'processOnBeforeSave' => true,
             ],
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,

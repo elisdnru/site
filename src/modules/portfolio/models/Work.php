@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\models;
 
-use app\components\purifier\PurifyTextBehavior;
 use app\components\uploader\FileUploadBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -20,9 +19,7 @@ use yii\helpers\Url;
  * @property string $meta_title
  * @property string $meta_description
  * @property string $short
- * @property string $short_purified
  * @property string $text
- * @property string $text_purified
  * @property string $image
  * @property int $image_show
  * @property int $public
@@ -89,24 +86,6 @@ final class Work extends ActiveRecord
     public function behaviors(): array
     {
         return [
-            'PurifyShort' => [
-                'class' => PurifyTextBehavior::class,
-                'sourceAttribute' => 'short',
-                'destinationAttribute' => 'short_purified',
-                'purifierOptions' => [
-                    'Attr.AllowedRel' => ['nofollow'],
-                ],
-                'processOnBeforeSave' => true,
-            ],
-            'PurifyText' => [
-                'class' => PurifyTextBehavior::class,
-                'sourceAttribute' => 'text',
-                'destinationAttribute' => 'text_purified',
-                'purifierOptions' => [
-                    'Attr.AllowedRel' => ['nofollow'],
-                ],
-                'processOnBeforeSave' => true,
-            ],
             'ImageUpload' => [
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
