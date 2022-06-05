@@ -18,7 +18,7 @@ use yii\web\View;
         <ul>
             <?php foreach ($items as $item) : ?>
                 <li>
-                    <a rel="nofollow" href="<?= $item->getUrl(); ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190); ?>')"><span><?= Html::encode($item->title); ?></span></span></a>
+                    <a rel="nofollow" href="<?= $item->getUrl(); ?>"><span class="thumb" style="background-image: url('<?= $item->getImageThumbUrl(190, 0); ?>')"><span><?= Html::encode($item->title); ?></span></span></a>
                 </li>
             <?php endforeach; ?>
             <li class="more">

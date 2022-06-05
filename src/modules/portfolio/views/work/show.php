@@ -51,17 +51,12 @@ PortfolioAsset::register($this);
                 <?php
                 $properties = [
                     'alt' => $model->title,
+                    'width' => 250,
                 ];
-                if ($model->image_width) {
-                    $properties['width'] = $model->image_width;
-                }
-                if ($model->image_height) {
-                    $properties['height'] = $model->image_height;
-                }
                 ?>
 
                 <p class="thumb">
-                    <a href="<?= $model->getImageUrl(); ?>"><?= Html::img($model->getImageThumbUrl(), $properties); ?></a>
+                    <a href="<?= $model->getImageUrl(); ?>"><?= Html::img($model->getImageThumbUrl(250, 0), $properties); ?></a>
                 </p>
 
             <?php endif; ?>

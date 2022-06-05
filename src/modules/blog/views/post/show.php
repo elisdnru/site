@@ -89,8 +89,8 @@ HighlightAsset::register($this);
             <?php
             $properties = array_filter([
                 'alt' => $model->image_alt,
-                'width' => $model->image_width,
-                'height' => $model->image_height,
+                'width' => 250,
+                'height' => 180,
             ]);
             ?>
             <p class="thumb"><?= Html::img($model->getImageUrl(), $properties); ?></p>

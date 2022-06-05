@@ -67,17 +67,13 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     </div>
                 </div>
                 <?php if ($post->image) : ?>
-                    <?php $imageUrl = $post->getImageThumbUrl(250); ?>
+                    <?php $imageUrl = $post->getImageThumbUrl(250, 0); ?>
                     <?php
                     $properties = [
                         'alt' => $post->image_alt,
+                        'width' => 250,
+                        'height' => 180,
                     ];
-                    if ($post->image_width) {
-                        $properties['width'] = $post->image_width;
-                    }
-                    if ($post->image_height) {
-                        $properties['height'] = $post->image_height;
-                    }
                     ?>
                     <div class="thumb">
                         <a href="<?= $post->getUrl(); ?>">

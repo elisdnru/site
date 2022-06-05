@@ -32,8 +32,6 @@ use yii\helpers\Url;
  * @property string $text
  * @property string $text_purified
  * @property string $image
- * @property int|null $image_width
- * @property int|null $image_height
  * @property string $image_alt
  * @property int $image_show
  * @property int $group_id
@@ -50,7 +48,6 @@ use yii\helpers\Url;
  */
 final class Post extends ActiveRecord implements Material
 {
-    private const IMAGE_WIDTH = 250;
     private const IMAGE_PATH = 'upload/images/blogs';
 
     public string $delImage = '';
@@ -184,9 +181,6 @@ final class Post extends ActiveRecord implements Material
                 'storageAttribute' => 'image',
                 'deleteAttribute' => 'delImage',
                 'filePath' => self::IMAGE_PATH,
-                'defaultThumbWidth' => self::IMAGE_WIDTH,
-                'imageWidthAttribute' => 'image_width',
-                'imageHeightAttribute' => 'image_height',
             ],
         ];
     }

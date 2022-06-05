@@ -194,7 +194,7 @@ class Comment extends ActiveRecord
         return $this->cachedUrl;
     }
 
-    public function getAvatarUrl(int $width = User::IMAGE_WIDTH, int $height = User::IMAGE_HEIGHT): string
+    public function getAvatarUrl(int $width = 100, int $height = 100): string
     {
         $index = $width . 'x' . $height;
 

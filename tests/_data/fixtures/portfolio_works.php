@@ -18,8 +18,6 @@ return [
         'meta_description' => '',
         'public' => 1,
         'image' => '',
-        'image_width' => 0,
-        'image_height' => 0,
         'image_show' => 1,
     ],
     'draft' => [
@@ -37,8 +35,6 @@ return [
         'meta_description' => '',
         'public' => 0,
         'image' => '',
-        'image_width' => 0,
-        'image_height' => 0,
         'image_show' => 1,
     ],
 ];

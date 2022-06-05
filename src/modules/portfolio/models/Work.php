@@ -24,8 +24,6 @@ use yii\helpers\Url;
  * @property string $text
  * @property string $text_purified
  * @property string $image
- * @property int $image_width
- * @property int $image_height
  * @property int $image_show
  * @property int $public
  *
@@ -35,7 +33,6 @@ use yii\helpers\Url;
  */
 final class Work extends ActiveRecord
 {
-    public const IMAGE_WIDTH = 250;
     public const IMAGE_PATH = 'upload/images/portfolio';
 
     public string|bool $delImage = false;
@@ -118,9 +115,6 @@ final class Work extends ActiveRecord
                 'storageAttribute' => 'image',
                 'deleteAttribute' => 'delImage',
                 'filePath' => self::IMAGE_PATH,
-                'defaultThumbWidth' => self::IMAGE_WIDTH,
-                'imageWidthAttribute' => 'image_width',
-                'imageHeightAttribute' => 'image_height',
             ],
         ];
     }

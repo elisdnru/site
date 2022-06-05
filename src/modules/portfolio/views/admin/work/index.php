@@ -67,7 +67,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
             <tr class="<?= $item->public ? '' : 'disable'; ?>">
                 <td width="50px" style="text-align: center">
                     <?php if ($item->image) : ?>
-                        <a href="<?= $editUrl; ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50); ?>" alt="<?= $item->title; ?>"></a>
+                        <a href="<?= $editUrl; ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50, 0); ?>" alt="<?= $item->title; ?>"></a>
                     <?php endif; ?>
                 </td>
                 <td style="text-align: center"><?= $item->sort; ?></td>

@@ -36,8 +36,6 @@ use yii\web\UploadedFile;
 final class User extends ActiveRecord
 {
     public const IMAGE_PATH = 'upload/images/users/avatars';
-    public const IMAGE_WIDTH = 100;
-    public const IMAGE_HEIGHT = 100;
 
     public bool $del_avatar = false;
 
@@ -90,7 +88,6 @@ final class User extends ActiveRecord
                 'storageAttribute' => 'avatar',
                 'deleteAttribute' => 'del_avatar',
                 'filePath' => self::IMAGE_PATH,
-                'defaultThumbWidth' => self::IMAGE_WIDTH,
             ],
         ];
     }
@@ -140,7 +137,7 @@ final class User extends ActiveRecord
         return trim($this->lastname . ' ' . $this->firstname);
     }
 
-    public function getAvatarUrl(int $width = self::IMAGE_WIDTH, int $height = self::IMAGE_HEIGHT): string
+    public function getAvatarUrl(int $width = 100, int $height = 100): string
     {
         if ($this->cachedAvatarUrl === null) {
             if (!\is_string($this->avatar)) {

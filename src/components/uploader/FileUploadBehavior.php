@@ -43,14 +43,8 @@ final class FileUploadBehavior extends Behavior
     public string $deleteAttribute = 'delFile';
     public array $fileTypes = ['jpg', 'jpeg', 'gif', 'png'];
     public string $filePath = '';
-    public int $defaultThumbWidth = 200;
-    public int $defaultThumbHeight = 0;
-    public string $imageWidthAttribute = '';
-    public string $imageHeightAttribute = '';
 
     private Uploader $uploader;
-    private File $files;
-    private Image $images;
 
     private ?string $cachedImageUrl = null;
 
@@ -59,12 +53,10 @@ final class FileUploadBehavior extends Behavior
      */
     private array $cachedImageThumbUrl = [];
 
-    public function __construct(Uploader $uploader, File $files, Image $images, array $config = [])
+    public function __construct(Uploader $uploader, array $config = [])
     {
         parent::__construct($config);
         $this->uploader = $uploader;
-        $this->files = $files;
-        $this->images = $images;
     }
 
     public function attach($owner): void
@@ -102,7 +94,6 @@ final class FileUploadBehavior extends Behavior
         }
 
         $this->loadFile();
-        $this->processImageSizes();
 
         if (empty($model->{$this->storageAttribute}) && !empty($model->getOldAttribute($this->storageAttribute))) {
             $model->{$this->storageAttribute} = $model->getOldAttribute($this->storageAttribute);
@@ -123,15 +114,8 @@ final class FileUploadBehavior extends Behavior
         return $this->cachedImageUrl;
     }
 
-    public function getImageThumbUrl(int $width = 0, int $height = 0): string
+    public function getImageThumbUrl(int $width, int $height): string
     {
-        if (!$width) {
-            $width = $this->defaultThumbWidth;
-        }
-        if (!$height) {
-            $height = $this->defaultThumbHeight;
-        }
-
         $index = $width . 'x' . $height;
 
         if (!isset($this->cachedImageThumbUrl[$index])) {
@@ -147,38 +131,6 @@ final class FileUploadBehavior extends Behavior
     {
         /** @var ActiveRecord */
         return $this->owner;
-    }
-
-    private function processImageSizes(): void
-    {
-        if ($this->imageWidthAttribute && $this->imageHeightAttribute) {
-            $model = $this->getModel();
-
-            $name = (string)$model->{$this->storageAttribute};
-
-            if ($name) {
-                $width = $this->defaultThumbWidth;
-                $height = $this->defaultThumbHeight;
-
-                $thumbName = $this->uploader->createThumbFileName($name, $width, $height);
-
-                if ($this->uploader->checkThumbExists($this->filePath . \DIRECTORY_SEPARATOR . $thumbName)) {
-                    $file = $this->files->set($this->filePath . \DIRECTORY_SEPARATOR . $thumbName);
-                } else {
-                    $file = $this->uploader->createThumb(
-                        $this->filePath,
-                        $name,
-                        $width,
-                        $height
-                    );
-                }
-
-                if ($file !== null && ($image = $this->images->load($file->getRealPath()))) {
-                    $model->{$this->imageWidthAttribute} = $image->getWidth();
-                    $model->{$this->imageHeightAttribute} = $image->getHeight();
-                }
-            }
-        }
     }
 
     private function loadFile(): void

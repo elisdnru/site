@@ -18,8 +18,6 @@ return [
         'meta_description' => 'Вариант редизайна',
         'public' => 1,
         'image' => '8262c348e9a7ace2535f606b63b7b5b3.jpg',
-        'image_width' => 250,
-        'image_height' => 550,
         'image_show' => 1,
     ],
 ];

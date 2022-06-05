@@ -17,7 +17,7 @@ use yii\widgets\LinkPager;
         <?php foreach ($dataProvider->getItems() as $work) : ?>
             <div class="entry grid">
                 <p class="thumb">
-                    <a href="<?= $work->getUrl(); ?>" style="background-image: url('<?= $work->getImageThumbUrl(198); ?>')"><span><?= Html::encode($work->title); ?></span></a>
+                    <a href="<?= $work->getUrl(); ?>" style="background-image: url('<?= $work->getImageThumbUrl(198, 0); ?>')"><span><?= Html::encode($work->title); ?></span></a>
                 </p>
             </div>
         <?php endforeach; ?>

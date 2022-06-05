@@ -36,7 +36,7 @@ final class FeedController extends Controller
             $item = $feed->createEntry();
 
             $link = $host . $model->getUrl();
-            $image = $host . $model->getImageThumbUrl();
+            $image = $host . $model->getImageThumbUrl(250, 0);
 
             $item->setTitle($model->title);
 
