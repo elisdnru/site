@@ -23,7 +23,7 @@ final class BlockWidget extends Widget
         /** @var Block|null $block */
         $block = Block::find()
             ->cache(0, new TagDependency(['tags' => 'block']))
-            ->andWhere(['alias' => $this->id])
+            ->andWhere(['slug' => $this->id])
             ->limit(1)
             ->one();
 

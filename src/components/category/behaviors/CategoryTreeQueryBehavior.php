@@ -52,10 +52,10 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
-    public function getAliasList(int $parent = null): array
+    public function getSlugList(int $parent = null): array
     {
         $items = $this->getFullAssocData([
-            $this->aliasAttribute,
+            $this->slugAttribute,
             $this->titleAttribute,
             $this->parentAttribute,
         ], $parent);
@@ -80,7 +80,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
                 $temp = $items[Attribute::intOrNull($temp, $this->parentAttribute) ?: -1];
             }
 
-            $result[Attribute::string($item, $this->aliasAttribute)] = implode(' - ', array_reverse($titles));
+            $result[Attribute::string($item, $this->slugAttribute)] = implode(' - ', array_reverse($titles));
         }
 
         return $result;
@@ -152,19 +152,19 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
 
         if (\count($chunks) === 1) {
             $query
-                ->andWhere([$this->aliasAttribute => $chunks[0]])
+                ->andWhere([$this->slugAttribute => $chunks[0]])
                 ->andWhere(['or', [$this->parentAttribute => null], [$this->parentAttribute => 0]]);
             $model = $query->limit(1)->one();
         } else {
-            $query->andWhere([$this->aliasAttribute => $chunks[0]]);
+            $query->andWhere([$this->slugAttribute => $chunks[0]]);
             /** @var TreeCategory|null $parent */
             $parent = $query->limit(1)->one();
 
             if ($parent !== null) {
                 $chunks = \array_slice($chunks, 1);
-                foreach ($chunks as $alias) {
+                foreach ($chunks as $slug) {
                     /** @var TreeCategory|null $model */
-                    $model = $parent->getChildByAlias($alias, $this->getQuery());
+                    $model = $parent->getChildBySlug($slug, $this->getQuery());
                     if ($model === null) {
                         return null;
                     }

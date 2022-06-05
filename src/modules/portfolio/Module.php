@@ -44,7 +44,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
                 'class' => GroupUrlRule::class,
                 'prefix' => 'portfolio',
                 'rules' => [
-                    '<category:[\w_\/-]+>/<id:[\d]+>/<alias:.+>' => 'work/show',
+                    '<category:[\w_\/-]+>/<id:[\d]+>/<slug:.+>' => 'work/show',
                     '<category:[\w_\/-]+>/<id:[\d]+>' => 'work/show',
                     '<id:[\d]+>' => 'work/show',
                     '<category:[\w_\/-]+>/page-<page:\d+>' => 'default/category',

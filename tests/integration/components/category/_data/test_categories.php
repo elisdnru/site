@@ -6,19 +6,19 @@ return [
     [
         'id' => 1,
         'sort' => 1,
-        'alias' => 'first',
+        'slug' => 'first',
         'title' => 'First',
     ],
     [
         'id' => 2,
         'sort' => 2,
-        'alias' => 'second',
+        'slug' => 'second',
         'title' => 'Second',
     ],
     [
         'id' => 3,
         'sort' => 3,
-        'alias' => 'third',
+        'slug' => 'third',
         'title' => 'Third',
     ],
 ];

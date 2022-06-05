@@ -64,7 +64,7 @@ final class CategoryTreeBehaviorTest extends Unit
         ], $this->find->getAssocList(1));
     }
 
-    public function testAliasList(): void
+    public function testSlugList(): void
     {
         self::assertEquals([
             'first-root' => 'First Root',
@@ -73,17 +73,17 @@ final class CategoryTreeBehaviorTest extends Unit
             'first-root-first-middle' => 'First Root - First Root First Middle',
             'first-middle-child' => 'First Root - First Root First Middle - First Root First Middle Child',
             'first-root-second-middle' => 'First Root - First Root Second Middle',
-        ], $this->find->getAliasList());
+        ], $this->find->getSlugList());
     }
 
-    public function testAliasListParent(): void
+    public function testSlugListParent(): void
     {
         self::assertEquals([
             'first-root' => 'First Root',
             'first-root-first-middle' => 'First Root - First Root First Middle',
             'first-middle-child' => 'First Root - First Root First Middle - First Root First Middle Child',
             'first-root-second-middle' => 'First Root - First Root Second Middle',
-        ], $this->find->getAliasList(1));
+        ], $this->find->getSlugList(1));
     }
 
     public function testTabList(): void
@@ -230,19 +230,19 @@ final class CategoryTreeBehaviorTest extends Unit
         ], $this->find->getMenuList('first-root/first-root-first-middle', 1, 1));
     }
 
-    public function testFindByAliasSuccess(): void
+    public function testFindBySlugSuccess(): void
     {
         /** @var TreeCategory|null $category */
-        $category = $this->find->findByAlias('first-middle-child');
+        $category = $this->find->findBySlug('first-middle-child');
 
         self::assertNotNull($category);
-        self::assertEquals('first-middle-child', $category->alias);
+        self::assertEquals('first-middle-child', $category->slug);
     }
 
-    public function testFindByAliasNotFound(): void
+    public function testFindBySlugNotFound(): void
     {
         /** @var TreeCategory|null $category */
-        $category = $this->find->findByAlias('unknown');
+        $category = $this->find->findBySlug('unknown');
 
         self::assertNull($category);
     }
@@ -253,7 +253,7 @@ final class CategoryTreeBehaviorTest extends Unit
         $category = $this->find->findByPath('first-root/first-root-first-middle/first-middle-child');
 
         self::assertNotNull($category);
-        self::assertEquals('first-middle-child', $category->alias);
+        self::assertEquals('first-middle-child', $category->slug);
     }
 
     public function testFindByPathNotFound(): void
@@ -371,7 +371,7 @@ final class CategoryTreeBehaviorTest extends Unit
             Yii::$app->db->createCommand()->createTable(TreeCategory::tableName(), [
                 'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
                 'sort' => 'smallint(3) NOT NULL',
-                'alias' => 'varchar(255) NOT NULL',
+                'slug' => 'varchar(255) NOT NULL',
                 'title' => 'varchar(255) NOT NULL',
                 'parent_id' => 'int(11)',
             ])->execute();
@@ -386,9 +386,9 @@ final class CategoryTreeBehaviorTest extends Unit
         $this->find = TreeCategory::find();
     }
 
-    private function getCategory(string $alias): TreeCategory
+    private function getCategory(string $slug): TreeCategory
     {
         /** @var TreeCategory */
-        return TreeCategory::findOne(['alias' => $alias]);
+        return TreeCategory::findOne(['slug' => $slug]);
     }
 }

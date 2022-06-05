@@ -6,7 +6,7 @@ return [
     [
         'id' => 1,
         'sort' => 1,
-        'alias' => 'design',
+        'slug' => 'design',
         'title' => 'Дизайн сайтов',
         'text' => '<p>Здесь представлены дизайн-макеты сайтов.</p>',
         'parent_id' => null,
@@ -16,7 +16,7 @@ return [
     [
         'id' => 2,
         'sort' => 2,
-        'alias' => 'sites',
+        'slug' => 'sites',
         'title' => 'Сайт «под ключ»',
         'text' => '<p>Сайты, полностью разработанные автором.</p>',
         'parent_id' => null,

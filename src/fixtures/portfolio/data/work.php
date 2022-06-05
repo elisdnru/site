@@ -8,7 +8,7 @@ return [
         'sort' => 1,
         'date' => '2012-09-10 11:27:47',
         'category_id' => 1,
-        'alias' => 'pretext',
+        'slug' => 'pretext',
         'title' => 'Pretext',
         'short' => '<p>Вариант редизайна сайта издательства Pretext</p>',
         'short_purified' => '<p>Вариант редизайна сайта издательства Pretext</p>',

@@ -15,7 +15,7 @@ use yii\helpers\Url;
  * @property int $sort
  * @property string $date
  * @property string $category_id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $meta_title
  * @property string $meta_description
@@ -50,14 +50,14 @@ final class Work extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['date', 'category_id', 'alias', 'title'], 'required'],
+            [['date', 'category_id', 'slug', 'title'], 'required'],
             [['sort', 'public', 'image_show'], 'integer'],
             ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
             [['short', 'text', 'meta_description', 'delImage'], 'safe'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['title', 'alias', 'meta_title'], 'string', 'max' => '255'],
-            ['alias', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#s'],
-            ['alias', 'unique'],
+            [['title', 'slug', 'meta_title'], 'string', 'max' => '255'],
+            ['slug', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#s'],
+            ['slug', 'unique'],
         ];
     }
 
@@ -74,7 +74,7 @@ final class Work extends ActiveRecord
             'date' => 'Дата',
             'category_id' => 'Раздел',
             'title' => 'Заголовок',
-            'alias' => 'URL транслитом',
+            'slug' => 'URL транслитом',
             'meta_title' => 'Заголовок страницы',
             'meta_description' => 'Описание',
             'short' => 'Превью',
@@ -139,10 +139,10 @@ final class Work extends ActiveRecord
             ->indexBy('id')->column();
     }
 
-    public static function findByAlias(string $alias): ?self
+    public static function findBySlug(string $slug): ?self
     {
         /** @var self */
-        return self::find()->andWhere(['alias' => $alias])->one();
+        return self::find()->andWhere(['slug' => $slug])->one();
     }
 
     public function getUrl(): string
@@ -152,7 +152,7 @@ final class Work extends ActiveRecord
                 '/portfolio/work/show',
                 'category' => $this->category->getPath(),
                 'id' => $this->getPrimaryKey(),
-                'alias' => $this->alias,
+                'slug' => $this->slug,
             ]);
         }
         return $this->cachedUrl;

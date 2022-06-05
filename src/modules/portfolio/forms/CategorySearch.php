@@ -13,14 +13,14 @@ final class CategorySearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;
-    public ?string $alias = null;
+    public ?string $slug = null;
     public ?string $sort = null;
     public ?string $parent_id = null;
 
     public function rules(): array
     {
         return [
-            [['id', 'title', 'alias', 'sort', 'parent_id'], 'safe'],
+            [['id', 'title', 'slug', 'sort', 'parent_id'], 'safe'],
         ];
     }
 
@@ -54,7 +54,7 @@ final class CategorySearch extends Model
         ]);
 
         $query->andFilterWhere(['like', 't.title', $this->title]);
-        $query->andFilterWhere(['like', 't.alias', $this->alias]);
+        $query->andFilterWhere(['like', 't.slug', $this->slug]);
 
         return $dataProvider;
     }

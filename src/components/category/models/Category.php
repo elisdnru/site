@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace app\components\category\models;
 
-use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryBehavior;
+use app\components\SlugValidator;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
  * @property int $id
  * @property int $sort
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $text
  * @property string $meta_title
@@ -39,10 +39,10 @@ abstract class Category extends ActiveRecord
     public static function staticRules(): array
     {
         return [
-            [['alias', 'title'], 'required'],
-            ['alias', AliasValidator::class],
+            [['slug', 'title'], 'required'],
+            ['slug', SlugValidator::class],
             ['sort', 'integer'],
-            [['alias', 'title', 'meta_title'], 'string', 'max' => 255],
+            [['slug', 'title', 'meta_title'], 'string', 'max' => 255],
             [['text', 'meta_description'], 'string'],
         ];
     }
@@ -57,7 +57,7 @@ abstract class Category extends ActiveRecord
         return [
             'id' => 'ID',
             'sort' => 'Позиция',
-            'alias' => 'URL транслитом',
+            'slug' => 'URL транслитом',
             'title' => 'Наименование',
             'text' => 'Текст',
             'meta_title' => 'Заголовок окна',
@@ -77,7 +77,7 @@ abstract class Category extends ActiveRecord
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to([$this->urlRoute, 'category' => $this->alias]);
+            $this->cachedUrl = Url::to([$this->urlRoute, 'category' => $this->slug]);
         }
 
         return $this->cachedUrl;

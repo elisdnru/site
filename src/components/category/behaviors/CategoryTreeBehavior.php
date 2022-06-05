@@ -17,27 +17,27 @@ final class CategoryTreeBehavior extends CategoryBehavior
 
     public function getPath(string $separator = '/'): string
     {
-        $uri = [Attribute::string($this->getModel(), $this->aliasAttribute)];
+        $uri = [Attribute::string($this->getModel(), $this->slugAttribute)];
 
         $category = $this->getModel();
 
         $i = 10;
 
         while ($i-- && $parent = Attribute::arOrNull($category, $this->parentRelation)) {
-            $uri[] = Attribute::string($parent, $this->aliasAttribute);
+            $uri[] = Attribute::string($parent, $this->slugAttribute);
             $category = $parent;
         }
         return implode($separator, array_reverse($uri));
     }
 
-    public function getChildByAlias(string $alias, ActiveQuery $query = null): ?ActiveRecord
+    public function getChildBySlug(string $slug, ActiveQuery $query = null): ?ActiveRecord
     {
         if ($query === null) {
             $query = $this->getModel()::find();
         }
 
         $query->andWhere([
-            $this->aliasAttribute => $alias,
+            $this->slugAttribute => $slug,
             $this->parentAttribute => (int)$this->getModel()->getPrimaryKey(),
         ]);
 

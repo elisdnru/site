@@ -12,14 +12,14 @@ use yii\data\ActiveDataProvider;
 final class BlockSearch extends Model
 {
     public ?string $id = null;
-    public ?string $alias = null;
+    public ?string $slug = null;
     public ?string $title = null;
     public ?string $text = null;
 
     public function rules(): array
     {
         return [
-            [['id', 'alias', 'title', 'text'], 'safe'],
+            [['id', 'slug', 'title', 'text'], 'safe'],
         ];
     }
 
@@ -49,7 +49,7 @@ final class BlockSearch extends Model
         ]);
 
         $query
-            ->andFilterWhere(['like', 'alias', $this->alias])
+            ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'text', $this->text]);
 

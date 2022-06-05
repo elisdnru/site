@@ -10,12 +10,12 @@ use yii\db\ActiveRecord;
 
 class CategoryBehavior extends Behavior
 {
-    public string $aliasAttribute = 'alias';
+    public string $slugAttribute = 'slug';
 
     public function isLinkActive(string $path): bool
     {
-        $alias = Attribute::string($this->getModel(), $this->aliasAttribute);
-        return mb_strpos($path, $alias, 0, 'UTF-8') === 0;
+        $slug = Attribute::string($this->getModel(), $this->slugAttribute);
+        return mb_strpos($path, $slug, 0, 'UTF-8') === 0;
     }
 
     public function getUrl(): string

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
-use app\components\AliasValidator;
 use app\components\purifier\PurifyTextBehavior;
+use app\components\SlugValidator;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
@@ -21,7 +21,7 @@ use yii\helpers\Url;
  * @property string $update_date
  * @property string $category_id
  * @property int $author_id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $meta_title
  * @property string $meta_description
@@ -68,17 +68,17 @@ final class Post extends ActiveRecord implements Material
     public function rules(): array
     {
         return [
-            [['category_id', 'alias', 'title'], 'required'],
+            [['category_id', 'slug', 'title'], 'required'],
             ['author_id', 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
             ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
             ['group_id', 'exist', 'targetClass' => Group::class, 'targetAttribute' => 'id'],
             [['public', 'image_show', 'promoted'], 'integer'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
             [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
-            [['title', 'alias', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
+            [['title', 'slug', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
             ['tagsString', 'string'],
-            ['alias', AliasValidator::class],
-            ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
+            ['slug', SlugValidator::class],
+            ['slug', 'unique', 'message' => 'Такой {attribute} уже используется'],
         ];
     }
 
@@ -126,7 +126,7 @@ final class Post extends ActiveRecord implements Material
             'category_id' => 'Раздел',
             'author_id' => 'Автор',
             'title' => 'Заголовок',
-            'alias' => 'URL транслитом',
+            'slug' => 'URL транслитом',
             'meta_title' => 'Заголовок страницы',
             'meta_description' => 'Описание',
             'styles' => 'CSS стили',
@@ -227,7 +227,7 @@ final class Post extends ActiveRecord implements Material
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'alias' => $this->alias]);
+            $this->cachedUrl = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'slug' => $this->slug]);
         }
         return $this->cachedUrl;
     }

@@ -6,7 +6,7 @@ return [
     'parent' => [
         'id' => 1,
         'parent_id' => null,
-        'alias' => 'course',
+        'slug' => 'course',
         'title' => 'Course',
         'text' => '<p>Course Content</p>',
         'system' => 0,
@@ -14,7 +14,7 @@ return [
     'child' => [
         'id' => 2,
         'parent_id' => 1,
-        'alias' => 'success',
+        'slug' => 'success',
         'title' => 'Success',
         'text' => '<p>Success Content</p>',
         'system' => 1,

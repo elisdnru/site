@@ -53,8 +53,8 @@ final class ShortcodesProcessor
         }
 
         $result = $text;
-        foreach ($this->widgets as $alias => $class) {
-            $pattern = '#' . preg_quote(self::START_BLOCK, '|') . $alias . '(\|(.*))?' . preg_quote(self::END_BLOCK, '#') . '#sU';
+        foreach ($this->widgets as $slug => $class) {
+            $pattern = '#' . preg_quote(self::START_BLOCK, '|') . $slug . '(\|(.*))?' . preg_quote(self::END_BLOCK, '#') . '#sU';
 
             while (preg_match($pattern, $result, $p)) {
                 $attributes = $this->parseAttributes($p[2] ?? '');

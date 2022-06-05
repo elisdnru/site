@@ -63,7 +63,7 @@ insensitive). Allowed subelements are:
 
     * <default>: Default color group.
           - innerGroup="...": color group name. Required.
-    
+
     * <region>: Region definition
           - name="...": Region name. Required.
           - innerGroup="...": Default color group of region contents. Required.
@@ -89,7 +89,7 @@ insensitive). Allowed subelements are:
           - <onlyin> Only allow this region within certain regions. May be
             used multiple times.
                 - block="..." Name of parent region
-    
+
     * <block>: Block definition
           - name="...": Block name. Required.
           - innerGroup="...": color group of block contents. Optional. If not
@@ -125,7 +125,7 @@ insensitive). Allowed subelements are:
                     <onlyin region="property"/>
                     <partGroup index="1" innerGroup="string" />
                 </block>
-  
+
     * <keywords>: Keyword group definition. Keyword groups are useful when you
       want to highlight some words that match a condition for a block with a
       different color. Keywords are defined with literal match, not regular
@@ -144,10 +144,10 @@ insensitive). Allowed subelements are:
                 - match="..." The keyword. Note: this is not a regular
                   expression, but literal match (possibly case insensitive).
 
-Note that for BC reasons element partClass is alias for partGroup, and
-attributes innerClass and  delimClass  are aliases of innerGroup and
+Note that for BC reasons element partClass is slug for partGroup, and
+attributes innerClass and  delimClass  are sluges of innerGroup and
 delimGroup, respectively.
-    
+
 
 Conditions
 ----------
@@ -158,7 +158,7 @@ keywords matching Java standard classes. Finding a match in this list can take
 much time. For that reason, corresponding keyword group is declared with
 "ifdef" attribute :
 
-  <keywords name="builtin" inherits="identifier" innerClass="builtin" 
+  <keywords name="builtin" inherits="identifier" innerClass="builtin"
             case="yes" ifdef="java.builtins">
 	<keyword match="AbstractAction" />
 	<keyword match="AbstractBorder" />
@@ -184,7 +184,7 @@ element of "defines" option:
 "ifndef" attribute has reverse meaning.
 
 Currently, "ifdef" and "ifndef" attributes are only supported for <keywords>
-tag. 
+tag.
 
 
 
@@ -321,7 +321,7 @@ There are 3 special CSS classes:
     hl-table - applies to whole table
 
 HTML renderer accepts following options (each being optional):
-    
+
     * numbers - line numbering style.
         0 - no numbering (default)
         HL_NUMBERS_LI - use <ol></ol> for line numbering
@@ -331,7 +331,7 @@ HTML renderer accepts following options (each being optional):
     * tabsize - tabulation size. Defaults to 4
 
     Example:
-        
+
         require_once 'Text/Highlighter/Renderer/Html.php';
         $options = array(
             'numbers' => HL_NUMBERS_LI,

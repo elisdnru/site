@@ -14,12 +14,12 @@ use yii\web\Response;
 
 final class PostController extends Controller
 {
-    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null): Response|string
+    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $slug = null): Response|string
     {
         $model = $this->loadModel($id, $access);
 
         if ('/' . $request->getPathInfo() !== $model->getUrl()) {
-            return $this->redirect(Url::current(['alias' => $model->alias]), 301);
+            return $this->redirect(Url::current(['slug' => $model->slug]), 301);
         }
 
         return $this->render('show', [

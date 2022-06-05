@@ -13,7 +13,7 @@ final class LandingSearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;
-    public ?string $alias = null;
+    public ?string $slug = null;
     public ?string $text = null;
     public ?string $parent_id = null;
     public ?string $system = null;
@@ -21,7 +21,7 @@ final class LandingSearch extends Model
     public function rules(): array
     {
         return [
-            [['id', 'title', 'alias', 'text', 'parent_id', 'system'], 'safe'],
+            [['id', 'title', 'slug', 'text', 'parent_id', 'system'], 'safe'],
         ];
     }
 
@@ -55,7 +55,7 @@ final class LandingSearch extends Model
         ]);
 
         $query->andFilterWhere(['like', 't.title', $this->title]);
-        $query->andFilterWhere(['like', 't.alias', $this->alias]);
+        $query->andFilterWhere(['like', 't.slug', $this->slug]);
         $query->andFilterWhere(['like', 't.text', $this->text]);
 
         return $dataProvider;

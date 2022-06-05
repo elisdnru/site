@@ -485,7 +485,7 @@ class Text_Highlighter_Generator extends XML_Parser
      */
     function xmltag_Default($xp, $elem, $attribs)
     {
-        $this->_aliasAttributes($attribs);
+        $this->_slugAttributes($attribs);
         if (!isset($attribs['innerGroup']) || $attribs['innerGroup'] === '') {
             $this->_error(TEXT_HIGHLIGHTER_EMPTY_OR_MISSING, 'innerGroup');
         }
@@ -500,7 +500,7 @@ class Text_Highlighter_Generator extends XML_Parser
      */
     function xmltag_Region($xp, $elem, $attribs)
     {
-        $this->_aliasAttributes($attribs);
+        $this->_slugAttributes($attribs);
         if (!isset($attribs['name']) || $attribs['name'] === '') {
             $this->_error(TEXT_HIGHLIGHTER_EMPTY_OR_MISSING, 'region name');
         }
@@ -542,7 +542,7 @@ class Text_Highlighter_Generator extends XML_Parser
      */
     function xmltag_Block($xp, $elem, $attribs)
     {
-        $this->_aliasAttributes($attribs);
+        $this->_slugAttributes($attribs);
         if (!isset($attribs['name']) || $attribs['name'] === '') {
             $this->_error(TEXT_HIGHLIGHTER_EMPTY_OR_MISSING, 'block name');
         }
@@ -603,7 +603,7 @@ class Text_Highlighter_Generator extends XML_Parser
      */
     function xmltag_PartGroup($xp, $elem, $attribs)
     {
-        $this->_aliasAttributes($attribs);
+        $this->_slugAttributes($attribs);
         if (!isset($attribs['innerGroup']) || $attribs['innerGroup'] === '') {
             $this->_error(TEXT_HIGHLIGHTER_EMPTY_OR_MISSING, 'innerGroup');
         }
@@ -629,7 +629,7 @@ class Text_Highlighter_Generator extends XML_Parser
      */
     function xmltag_Keywords($xp, $elem, $attribs)
     {
-        $this->_aliasAttributes($attribs);
+        $this->_slugAttributes($attribs);
         if (!isset($attribs['name']) || $attribs['name'] === '') {
             $this->_error(TEXT_HIGHLIGHTER_EMPTY_OR_MISSING, 'keyword group name');
         }
@@ -782,14 +782,14 @@ class Text_Highlighter_Generator extends XML_Parser
     }
 
     // }}}
-    // {{{ _aliasAttributes
+    // {{{ _slugAttributes
 
     /**
      * BC trick
      *
      * @param array $attrs attributes
      */
-    function _aliasAttributes(&$attrs)
+    function _slugAttributes(&$attrs)
     {
         if (isset($attrs['innerClass']) && !isset($attrs['innerGroup'])) {
             $attrs['innerGroup'] = $attrs['innerClass'];

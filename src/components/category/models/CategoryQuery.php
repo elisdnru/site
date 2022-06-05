@@ -20,7 +20,7 @@ class CategoryQuery extends ActiveQuery
             'CategoryQueryBehavior' => [
                 'class' => CategoryQueryBehavior::class,
                 'titleAttribute' => 'title',
-                'aliasAttribute' => 'alias',
+                'slugAttribute' => 'slug',
                 'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
             ],
         ];

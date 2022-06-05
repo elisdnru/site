@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace app\modules\landing\models;
 
-use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryTreeBehavior;
+use app\components\SlugValidator;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
  * @property int $id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $text
  * @property int|null $parent_id
@@ -41,9 +41,9 @@ final class Landing extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['alias', 'title'], 'required'],
-            ['alias', AliasValidator::class],
-            [['alias', 'title'], 'string', 'max' => 255],
+            [['slug', 'title'], 'required'],
+            ['slug', SlugValidator::class],
+            [['slug', 'title'], 'string', 'max' => 255],
             [['parent_id'], 'integer'],
             [['text', 'system'], 'safe'],
         ];
@@ -65,7 +65,7 @@ final class Landing extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'alias' => 'URL транслитом',
+            'slug' => 'URL транслитом',
             'title' => 'Заголовок',
             'system' => 'Системный',
             'text' => 'Текст',
@@ -79,7 +79,7 @@ final class Landing extends ActiveRecord
             'CategoryBehavior' => [
                 'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
-                'aliasAttribute' => 'alias',
+                'slugAttribute' => 'slug',
                 'parentAttribute' => 'parent_id',
                 'parentRelation' => 'parent',
             ],

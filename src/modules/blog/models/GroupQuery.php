@@ -20,7 +20,7 @@ final class GroupQuery extends ActiveQuery
             'CategoryQueryBehavior' => [
                 'class' => CategoryQueryBehavior::class,
                 'titleAttribute' => 'title',
-                'aliasAttribute' => 'alias',
+                'slugAttribute' => 'slug',
                 'defaultOrder' => ['title' => SORT_ASC],
             ],
         ];

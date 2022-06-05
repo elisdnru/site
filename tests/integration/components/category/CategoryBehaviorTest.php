@@ -36,13 +36,13 @@ final class CategoryBehaviorTest extends Unit
         ], $this->query->getAssocList());
     }
 
-    public function testAliasList(): void
+    public function testSlugList(): void
     {
         self::assertEquals([
             'first' => 'First',
             'second' => 'Second',
             'third' => 'Third',
-        ], $this->query->getAliasList());
+        ], $this->query->getSlugList());
     }
 
     public function testUrlList(): void
@@ -81,18 +81,18 @@ final class CategoryBehaviorTest extends Unit
         ], $this->query->getMenuList('second'));
     }
 
-    public function testFindByAliasSuccess(): void
+    public function testFindBySlugSuccess(): void
     {
         /** @var Category|null $category */
-        $category = $this->query->findByAlias('first');
+        $category = $this->query->findBySlug('first');
 
         self::assertNotNull($category);
-        self::assertEquals('first', $category->alias);
+        self::assertEquals('first', $category->slug);
     }
 
-    public function testFindByAliasNotFound(): void
+    public function testFindBySlugNotFound(): void
     {
-        $category = $this->query->findByAlias('unknown');
+        $category = $this->query->findBySlug('unknown');
 
         self::assertNull($category);
     }
@@ -117,7 +117,7 @@ final class CategoryBehaviorTest extends Unit
             Yii::$app->db->createCommand()->createTable(Category::tableName(), [
                 'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
                 'sort' => 'smallint(3) NOT NULL',
-                'alias' => 'varchar(255) NOT NULL',
+                'slug' => 'varchar(255) NOT NULL',
                 'title' => 'varchar(255) NOT NULL',
             ])->execute();
         }
@@ -131,9 +131,9 @@ final class CategoryBehaviorTest extends Unit
         $this->query = Category::find();
     }
 
-    private function getCategory(string $alias): Category
+    private function getCategory(string $slug): Category
     {
         /** @var Category */
-        return Category::findOne(['alias' => $alias]);
+        return Category::findOne(['slug' => $slug]);
     }
 }

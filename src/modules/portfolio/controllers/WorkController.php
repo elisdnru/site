@@ -14,13 +14,13 @@ use yii\web\Response;
 
 final class WorkController extends Controller
 {
-    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $alias = null): Response|string
+    public function actionShow(int $id, Request $request, AdminAccess $access, ?string $slug = null): Response|string
     {
         $model = $this->loadModel($id, $access);
 
         if ('/' . $request->getPathInfo() !== $model->getUrl()) {
             return $this->redirect(Url::current([
-                'alias' => $model->alias,
+                'slug' => $model->slug,
                 'category' => $model->category->getPath(),
             ]), 301);
         }

@@ -67,7 +67,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
                     'tag/<tag:[\w-]+>' => 'default/tag',
                     'date/<date:[\w-]+>/page-<page:\d+>' => 'default/date',
                     'date/<date:[\w-]+>' => 'default/date',
-                    '<id:[\d]+>/<alias:.+>' => 'post/show',
+                    '<id:[\d]+>/<slug:.+>' => 'post/show',
                     '<id:[\d]+>' => 'post/show',
                     '<category:[\w_\/-]+>/page-<page:\d+>' => 'default/category',
                     'page-<page:\d+>' => 'default/index',

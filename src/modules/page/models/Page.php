@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace app\modules\page\models;
 
-use app\components\AliasValidator;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\purifier\PurifyTextBehavior;
+use app\components\SlugValidator;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
  * @property int $id
- * @property string $alias
+ * @property string $slug
  * @property string $date
  * @property string $title
  * @property string $hidetitle
@@ -71,9 +71,9 @@ final class Page extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['alias', 'title'], 'required'],
-            ['alias', AliasValidator::class],
-            [['alias', 'title', 'meta_title', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
+            [['slug', 'title'], 'required'],
+            ['slug', SlugValidator::class],
+            [['slug', 'title', 'meta_title', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
             [['hidetitle', 'parent_id'], 'integer'],
             [['date', 'styles', 'text', 'meta_description', 'system'], 'safe'],
         ];
@@ -100,7 +100,7 @@ final class Page extends ActiveRecord
             'layout_item_id' => 'Шаблон страницы новости',
             'layout_item_content_id' => 'Шаблон контента новости',
             'subpages_layout' => 'Вид списка дочерних страниц',
-            'alias' => 'URL транслитом',
+            'slug' => 'URL транслитом',
             'date' => 'Дата создания',
             'title' => 'Заголовок',
             'hidetitle' => 'Скрыть заголовок',
@@ -120,7 +120,7 @@ final class Page extends ActiveRecord
             'CategoryBehavior' => [
                 'class' => CategoryTreeBehavior::class,
                 'titleAttribute' => 'title',
-                'aliasAttribute' => 'alias',
+                'slugAttribute' => 'slug',
                 'parentAttribute' => 'parent_id',
                 'parentRelation' => 'parent',
             ],

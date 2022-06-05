@@ -36,10 +36,10 @@ use yii\widgets\ActiveForm;
                 <?= Html::error($model, 'title', ['class' => 'error-message']); ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('alias') ? ' error' : ''; ?>">
-                <?= Html::activeLabel($model, 'alias'); ?><br />
-                <?= Html::activeTextInput($model, 'alias'); ?><br />
-                <?= Html::error($model, 'alias', ['class' => 'error-message']); ?>
+            <div class="row<?= $model->hasErrors('slug') ? ' error' : ''; ?>">
+                <?= Html::activeLabel($model, 'slug'); ?><br />
+                <?= Html::activeTextInput($model, 'slug'); ?><br />
+                <?= Html::error($model, 'slug', ['class' => 'error-message']); ?>
             </div>
 
             <div class="row<?= $model->hasErrors('category_id') ? ' error' : ''; ?>">

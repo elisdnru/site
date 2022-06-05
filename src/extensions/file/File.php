@@ -161,7 +161,7 @@ class File
      * {@link getRealPath}), all the other property getting methods should use
      * that real path.
      * Uploaded files are supported through {@link CUploadedFile} Yii class.
-     * Path aliases are supported through {@link getPathOfAlias} Yii method.
+     * Path sluges are supported through {@link getPathOfSlug} Yii method.
      *
      * @param string $filePath Path to the file specified by user, if not set
      * exception is raised
@@ -180,13 +180,13 @@ class File
                 if ($uploaded) {
                     $filePath = $uploaded->tempName;
                     Yii::debug('File "' . $filePath . '" is identified as uploaded', 'ext.file');
-                } elseif ($pathOfAlias = Yii::getAlias($filePath)) {
+                } elseif ($pathOfSlug = Yii::getSlug($filePath)) {
                     Yii::debug(
                         'The string supplied to ' . __METHOD__ . ' method - "' .
-                            $filePath . '" is identified as the alias to "' . $pathOfAlias . '"',
+                            $filePath . '" is identified as the slug to "' . $pathOfSlug . '"',
                         'ext.file'
                     );
-                    $filePath = $pathOfAlias;
+                    $filePath = $pathOfSlug;
                 }
             }
 
@@ -1161,7 +1161,7 @@ class File
     }
 
     /**
-     * Alias for {@link rename}
+     * Slug for {@link rename}
      * @param $fileDest
      * @return mixed
      */
@@ -1291,7 +1291,7 @@ class File
     }
 
     /**
-     * Alias for {@link send}
+     * Slug for {@link send}
      * @param bool $fakeName
      * @param bool $serverHandled
      * @return bool
@@ -1371,7 +1371,7 @@ class File
             );
             static $extensions;
             if ($extensions === null) {
-                $extensions = require Yii::getAlias(FileHelper::$mimeMagicFile);
+                $extensions = require Yii::getSlug(FileHelper::$mimeMagicFile);
             }
 
             $ext = strtolower($this->extension);

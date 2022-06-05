@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace app\modules\block\models;
 
-use app\components\AliasValidator;
+use app\components\SlugValidator;
 use yii\db\ActiveRecord;
 
 /**
  * @property int $id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $text
  */
@@ -23,10 +23,10 @@ final class Block extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['alias', 'title'], 'required'],
-            [['alias', 'title'], 'string', 'max' => 255],
-            ['alias', AliasValidator::class],
-            ['alias', 'unique', 'message' => 'Такой {attribute} уже используется'],
+            [['slug', 'title'], 'required'],
+            [['slug', 'title'], 'string', 'max' => 255],
+            ['slug', SlugValidator::class],
+            ['slug', 'unique', 'message' => 'Такой {attribute} уже используется'],
             [['text', 'short'], 'safe'],
         ];
     }
@@ -35,7 +35,7 @@ final class Block extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'alias' => 'Псевдоним',
+            'slug' => 'Псевдоним',
             'title' => 'Наименование',
             'text' => 'Содержимое',
         ];

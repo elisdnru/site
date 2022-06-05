@@ -475,7 +475,7 @@ class  Text_Highlighter_RUBY extends Text_Highlighter
                     8 => -1,
                     9 =>
                         array(
-                            'reserved' => '/^(__FILE__|require|and|def|end|in|or|self|unless|__LINE__|begin|defined?|ensure|module|redo|super|until|BEGIN|break|do|false|next|rescue|then|when|END|case|else|for|nil|retry|true|while|alias|module_function|private|public|protected|attr_reader|attr_writer|attr_accessor|class|elsif|if|not|return|undef|yield)$/',
+                            'reserved' => '/^(__FILE__|require|and|def|end|in|or|self|unless|__LINE__|begin|defined?|ensure|module|redo|super|until|BEGIN|break|do|false|next|rescue|then|when|END|case|else|for|nil|retry|true|while|slug|module_function|private|public|protected|attr_reader|attr_writer|attr_accessor|class|elsif|if|not|return|undef|yield)$/',
                         ),
                     10 =>
                         array(),
@@ -528,7 +528,7 @@ class  Text_Highlighter_RUBY extends Text_Highlighter
                     8 => -1,
                     9 =>
                         array(
-                            'reserved' => '/^(__FILE__|require|and|def|end|in|or|self|unless|__LINE__|begin|defined?|ensure|module|redo|super|until|BEGIN|break|do|false|next|rescue|then|when|END|case|else|for|nil|retry|true|while|alias|module_function|private|public|protected|attr_reader|attr_writer|attr_accessor|class|elsif|if|not|return|undef|yield)$/',
+                            'reserved' => '/^(__FILE__|require|and|def|end|in|or|self|unless|__LINE__|begin|defined?|ensure|module|redo|super|until|BEGIN|break|do|false|next|rescue|then|when|END|case|else|for|nil|retry|true|while|slug|module_function|private|public|protected|attr_reader|attr_writer|attr_accessor|class|elsif|if|not|return|undef|yield)$/',
                         ),
                     10 =>
                         array(),
@@ -559,7 +559,7 @@ class  Text_Highlighter_RUBY extends Text_Highlighter
                     8 => -1,
                     9 =>
                         array(
-                            'reserved' => '/^(__FILE__|require|and|def|end|in|or|self|unless|__LINE__|begin|defined?|ensure|module|redo|super|until|BEGIN|break|do|false|next|rescue|then|when|END|case|else|for|nil|retry|true|while|alias|module_function|private|public|protected|attr_reader|attr_writer|attr_accessor|class|elsif|if|not|return|undef|yield)$/',
+                            'reserved' => '/^(__FILE__|require|and|def|end|in|or|self|unless|__LINE__|begin|defined?|ensure|module|redo|super|until|BEGIN|break|do|false|next|rescue|then|when|END|case|else|for|nil|retry|true|while|slug|module_function|private|public|protected|attr_reader|attr_writer|attr_accessor|class|elsif|if|not|return|undef|yield)$/',
                         ),
                     10 =>
                         array(),

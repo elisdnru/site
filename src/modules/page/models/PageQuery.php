@@ -20,7 +20,7 @@ final class PageQuery extends ActiveQuery
             'CategoryQueryBehavior' => [
                 'class' => CategoryTreeQueryBehavior::class,
                 'titleAttribute' => 'title',
-                'aliasAttribute' => 'alias',
+                'slugAttribute' => 'slug',
                 'defaultOrder' => ['title' => SORT_ASC],
             ],
         ];

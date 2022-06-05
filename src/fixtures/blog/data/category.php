@@ -6,7 +6,7 @@ return [
     [
         'id' => 1,
         'sort' => 1,
-        'alias' => 'programming',
+        'slug' => 'programming',
         'title' => 'Программирование',
         'text' => '',
         'parent_id' => null,
@@ -16,7 +16,7 @@ return [
     [
         'id' => 2,
         'sort' => 2,
-        'alias' => 'actions',
+        'slug' => 'actions',
         'title' => 'События и акции',
         'text' => '',
         'parent_id' => null,

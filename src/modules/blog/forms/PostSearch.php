@@ -18,13 +18,13 @@ final class PostSearch extends Model
     public ?string $group_id = null;
     public ?string $author_id = null;
     public ?string $title = null;
-    public ?string $alias = null;
+    public ?string $slug = null;
     public ?string $public = null;
 
     public function rules(): array
     {
         return [
-            [['id', 'date', 'update_date', 'category_id', 'group_id', 'author_id', 'title', 'alias'], 'safe'],
+            [['id', 'date', 'update_date', 'category_id', 'group_id', 'author_id', 'title', 'slug'], 'safe'],
             [['meta_title', 'meta_description', 'image_alt', 'text', 'public'], 'safe'],
         ];
     }
@@ -77,7 +77,7 @@ final class PostSearch extends Model
         ]);
 
         $query
-            ->andFilterWhere(['like', 'alias', $this->alias])
+            ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'date', $this->date])
             ->andFilterWhere(['like', 'update_date', $this->update_date]);

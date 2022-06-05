@@ -20,7 +20,7 @@ final class TreeCategoryQuery extends CategoryQuery
             'CategoryQueryBehavior' => [
                 'class' => CategoryTreeQueryBehavior::class,
                 'titleAttribute' => 'title',
-                'aliasAttribute' => 'alias',
+                'slugAttribute' => 'slug',
                 'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
             ],
         ];

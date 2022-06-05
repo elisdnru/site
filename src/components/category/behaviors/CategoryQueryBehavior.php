@@ -14,7 +14,7 @@ class CategoryQueryBehavior extends Behavior
 {
     public string $primaryKeyAttribute = 'id';
     public string $titleAttribute = 'title';
-    public string $aliasAttribute = 'alias';
+    public string $slugAttribute = 'slug';
     public string $urlAttribute = 'url';
     public ?string $iconAttribute = null;
     public array $defaultOrder = [];
@@ -34,20 +34,20 @@ class CategoryQueryBehavior extends Behavior
             ->column();
     }
 
-    public function getAliasList(): array
+    public function getSlugList(): array
     {
         $rows = $this->getQuery()
-            ->select([$this->titleAttribute, $this->aliasAttribute, $this->primaryKeyAttribute])
+            ->select([$this->titleAttribute, $this->slugAttribute, $this->primaryKeyAttribute])
             ->indexBy($this->primaryKeyAttribute)
             ->asArray()
             ->all();
 
-        return array_column($rows, $this->titleAttribute, $this->aliasAttribute);
+        return array_column($rows, $this->titleAttribute, $this->slugAttribute);
     }
 
     public function getUrlList(): array
     {
-        $items = $this->getQuery()->indexBy($this->aliasAttribute)->all();
+        $items = $this->getQuery()->indexBy($this->slugAttribute)->all();
 
         $result = [];
         foreach ($items as $item) {
@@ -59,7 +59,7 @@ class CategoryQueryBehavior extends Behavior
     public function getMenuList(string $path): array
     {
         /** @var TreeCategory[] $items */
-        $items = $this->getQuery()->indexBy($this->aliasAttribute)->all();
+        $items = $this->getQuery()->indexBy($this->slugAttribute)->all();
 
         $result = [];
         foreach ($items as $item) {
@@ -75,10 +75,10 @@ class CategoryQueryBehavior extends Behavior
         return $result;
     }
 
-    public function findByAlias(string $alias): ?ActiveRecord
+    public function findBySlug(string $slug): ?ActiveRecord
     {
         /** @var ActiveRecord|null */
-        return $this->getQuery()->andWhere([$this->aliasAttribute => $alias])->limit(1)->one();
+        return $this->getQuery()->andWhere([$this->slugAttribute => $slug])->limit(1)->one();
     }
 
     protected function getQuery(): ActiveQuery

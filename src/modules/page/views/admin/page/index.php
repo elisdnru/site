@@ -34,14 +34,14 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
             <thead>
                 <tr>
                     <th><?= $dataProvider->getSort()->link('title', ['class' => 'sort-link', 'label' => 'Заголовок']); ?></th>
-                    <th><?= $dataProvider->getSort()->link('alias', ['class' => 'sort-link', 'label' => 'Псевдоним']); ?></th>
+                    <th><?= $dataProvider->getSort()->link('slug', ['class' => 'sort-link', 'label' => 'Псевдоним']); ?></th>
                     <th></th>
                     <th></th>
                     <th></th>
                 </tr>
                 <tr class="filters">
                     <td><?= Html::activeTextInput($model, 'title'); ?></td>
-                    <td><?= Html::activeTextInput($model, 'alias'); ?></td>
+                    <td><?= Html::activeTextInput($model, 'slug'); ?></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -54,7 +54,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
                             <?= str_repeat('&nbsp;', $item->indent * 4); ?>
                             <a href="<?= Url::to(['update', 'id' => $item->id]); ?>"><?= Html::encode($item->title); ?></a>
                         </td>
-                        <td><?= Html::encode($item->alias); ?></td>
+                        <td><?= Html::encode($item->slug); ?></td>
                         <td class="button-column">
                             <a href="<?= $item->getUrl(); ?>"><span class="icon view"></span></a>
                         </td>

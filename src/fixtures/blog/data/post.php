@@ -9,7 +9,7 @@ return [
         'update_date' => '2016-12-11 12:34',
         'category_id' => 1,
         'author_id' => 2,
-        'alias' => 'post-with-edu-series-episodes',
+        'slug' => 'post-with-edu-series-episodes',
         'title' => 'Пост с эпизодами',
         'short' => <<<'TEXT'
             <p>Провели ленивый импровизированный стрим на общеполезные темы.
@@ -43,7 +43,7 @@ return [
         'update_date' => '2016-12-11 12:34',
         'category_id' => 1,
         'author_id' => 2,
-        'alias' => 'post-with-youtube',
+        'slug' => 'post-with-youtube',
         'title' => 'Пост с Youtube видео',
         'short' => <<<'TEXT'
             <p>Провели ленивый импровизированный стрим на общеполезные темы.
@@ -77,7 +77,7 @@ return [
         'update_date' => '2016-12-11 12:34',
         'category_id' => 1,
         'author_id' => 2,
-        'alias' => 'post-with-comments',
+        'slug' => 'post-with-comments',
         'title' => 'Пост с комментариями',
         'short' => <<<'TEXT'
             <p>Провели ленивый импровизированный стрим на общеполезные темы.

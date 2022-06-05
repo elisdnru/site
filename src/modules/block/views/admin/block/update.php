@@ -21,7 +21,7 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
 <h1>Редактирование блока</h1>
 
 <p class="note">Код для вставки этого блока на страницу:
-    <b>[{widget:block|id=<?= Html::encode($model->alias); ?>}]</b>
+    <b>[{widget:block|id=<?= Html::encode($model->slug); ?>}]</b>
 </p>
 
 <?= $this->render('_form', ['model' => $model]); ?>
