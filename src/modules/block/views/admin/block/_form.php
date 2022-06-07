@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
 use app\components\Csrf;
-use app\modules\block\models\Block;
+use app\modules\block\forms\admin\BlockForm;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
  * @var View $this
- * @var Block $model
+ * @var BlockForm $model
  * @var ActiveForm $form
  */
 ?>

@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-use app\modules\block\models\Block;
+use app\modules\block\forms\admin\BlockForm;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Block $model
+ * @var BlockForm $model
  */
 ?>
 <?php

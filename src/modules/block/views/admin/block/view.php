@@ -6,18 +6,18 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var Block $model
+ * @var Block $block
  */
-$this->title = 'Блок ' . $model->title;
+$this->title = 'Блок ' . $block->title;
 $this->params['breadcrumbs'] = [
     'Блоки' => ['index'],
-    $model->title,
+    $block->title,
 ];
 
-$this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $model->id]];
+$this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $block->id]];
 $this->params['admin'][] = ['label' => 'Блоки', 'url' => ['index']];
 ?>
 
-<h1>Просмотр блока &laquo;<?= Html::encode($model->title); ?>&raquo;</h1>
+<h1>Просмотр блока &laquo;<?= Html::encode($block->title); ?>&raquo;</h1>
 
-<?= $model->text; ?>
+<?= $block->text; ?>
