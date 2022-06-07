@@ -150,6 +150,7 @@ class Comment extends ActiveRecord
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {
+            $this->fillDefaultValues();
             if (!$this->type) {
                 $this->type = static::TYPE_OF_COMMENT;
             }
