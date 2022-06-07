@@ -32,30 +32,27 @@ final class RegistrationController extends Controller
     {
         $model = new RegistrationForm();
 
-        if ($post = (array)$request->getBodyParam('RegistrationForm')) {
-            $model->attributes = $post;
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $user = new User();
+            $user->username = $model->username;
+            $user->email = $model->email;
+            $user->password_hash = $user->hashPassword($model->password);
+            $user->lastname = $model->lastname;
+            $user->firstname = $model->firstname;
+            $user->role = Access::ROLE_USER;
 
-            if ($model->validate()) {
-                $user = new User();
-                $user->username = $model->username;
-                $user->email = $model->email;
-                $user->password_hash = $user->hashPassword($model->password);
-                $user->lastname = $model->lastname;
-                $user->firstname = $model->firstname;
-                $user->role = Access::ROLE_USER;
-
-                if ($user->save(false)) {
-                    $user->sendConfirm($mailer);
-                    $session->setFlash(
-                        'success',
-                        'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме'
-                    );
-                    return $this->refresh();
-                }
-
-                $session->setFlash('error', 'Пользователь не добавлен');
+            if ($user->save()) {
+                $user->sendConfirm($mailer);
+                $session->setFlash(
+                    'success',
+                    'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме'
+                );
+                return $this->refresh();
             }
+
+            $session->setFlash('error', 'Пользователь не добавлен');
         }
+
         return $this->render('request', ['model' => $model]);
     }
 
