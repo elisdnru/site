@@ -32,8 +32,6 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['view', 'id
 
         <?= Csrf::hiddenInput(); ?>
 
-        <p class="note">Поля, помеченные звёздочкой <span class="required">*</span> обязательны для заполнения.</p>
-
         <?= Html::errorSummary($model, ['class' => 'error-summary']); ?>
 
         <fieldset>
