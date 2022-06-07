@@ -6,6 +6,7 @@ namespace app\modules\comment\components;
 
 use app\components\AdminController;
 use app\components\DataProvider;
+use app\modules\comment\forms\admin\CommentUpdateForm;
 use app\modules\comment\models\Comment;
 use BadMethodCallException;
 use yii\data\ActiveDataProvider;
@@ -61,25 +62,37 @@ abstract class CommentAdminController extends AdminController
 
     public function actionUpdate(int $id, Request $request): Response|string
     {
-        $model = $this->loadModel($id);
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $comment = $this->loadModel($id);
+        $model = new CommentUpdateForm($comment);
+
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $comment->date = $model->date;
+            $comment->name = $model->name;
+            $comment->email = $model->email;
+            $comment->site = $model->site;
+            $comment->text = $model->text;
+            $comment->parent_id = $model->parent_id ? (int)$model->parent_id : null;
+            if ($comment->save()) {
+                return $this->redirect(['view', 'id' => $comment->id]);
+            }
         }
+
         return $this->render('update', [
+            'comment' => $comment,
             'model' => $model,
         ]);
     }
 
     public function actionToggle(int $id, string $attribute, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
+        $comment = $this->loadModel($id);
 
         if (!\in_array($attribute, ['public', 'moder'], true)) {
             throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
-        $model->{$attribute} = $model->{$attribute} ? '0' : '1';
-        $model->save();
+        $comment->{$attribute} = $comment->{$attribute} ? '0' : '1';
+        $comment->save();
 
         if (!$request->getIsAjax()) {
             return $this->redirect($request->getReferrer() ?: ['index']);
@@ -89,21 +102,21 @@ abstract class CommentAdminController extends AdminController
 
     public function actionView(int $id): string
     {
-        $model = $this->loadModel($id);
+        $comment = $this->loadModel($id);
         return $this->render('view', [
-            'model' => $model,
+            'comment' => $comment,
         ]);
     }
 
     public function actionDelete(int $id, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
+        $comment = $this->loadModel($id);
 
-        if ($model->children) {
-            $model->public = 0;
-            $success = $model->save(false);
+        if ($comment->children) {
+            $comment->public = 0;
+            $success = $comment->save(false);
         } else {
-            $success = $model->delete();
+            $success = $comment->delete();
         }
 
         if (!$success) {
@@ -118,11 +131,11 @@ abstract class CommentAdminController extends AdminController
 
     public function actionModer(int $id, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
+        $comment = $this->loadModel($id);
 
-        $model->moder = $model->moder ? 0 : 1;
+        $comment->moder = $comment->moder ? 0 : 1;
 
-        if (!$model->save()) {
+        if (!$comment->save()) {
             throw new BadRequestHttpException('Error');
         }
 

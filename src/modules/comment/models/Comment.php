@@ -70,36 +70,6 @@ class Comment extends ActiveRecord
         return new $class();
     }
 
-    public function rules(): array
-    {
-        $anon = static fn (self $model): bool => !$model->user_id;
-
-        return [
-            [['text'], 'required'],
-            [['parent_id'], 'integer'],
-
-            ['name', 'required', 'message' => 'Представьтесь', 'when' => $anon],
-            ['name', 'string', 'max' => 255, 'when' => $anon],
-
-            ['email', 'required', 'message' => 'Введите Email', 'when' => $anon],
-            ['email', 'string', 'max' => 255, 'when' => $anon],
-            ['email', 'email', 'when' => $anon],
-
-            ['site', 'url', 'when' => $anon],
-            ['site', 'string', 'max' => 255, 'when' => $anon],
-
-            ['text', 'fixedText'],
-        ];
-    }
-
-    public function fixedText(string $attribute): void
-    {
-        $value = trim((string)$this->{$attribute});
-        $value = preg_replace('#\r\n#', "\n", $value);
-        $value = preg_replace('#([^\n])\n?<pre>#', "$1\n\n<pre>", $value);
-        $this->{$attribute} = $value;
-    }
-
     public function getParent(): ActiveQuery
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);
@@ -150,7 +120,6 @@ class Comment extends ActiveRecord
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {
-            $this->fillDefaultValues();
             if (!$this->type) {
                 $this->type = static::TYPE_OF_COMMENT;
             }
@@ -206,15 +175,6 @@ class Comment extends ActiveRecord
     public function getLiked(Session $session): bool
     {
         return $session->get('comment-like-' . $this->id) === true;
-    }
-
-    private function fillDefaultValues(): void
-    {
-        if ($this->user) {
-            $this->email = $this->user->email;
-            $this->name = trim($this->user->firstname . ' ' . $this->user->lastname);
-            $this->site = $this->user->site;
-        }
     }
 
     private function sendNotify(self $current, MailerInterface $mailer): void

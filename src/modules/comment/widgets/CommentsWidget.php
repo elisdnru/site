@@ -85,13 +85,22 @@ final class CommentsWidget extends Widget
             $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
 
             $comment = new $className();
-            $comment->attributes = $form->attributes;
             $comment->material_id = $this->material_id;
             $comment->public = 1;
             $comment->moder = 0;
+            $comment->parent_id = $form->parent_id ? (int)$form->parent_id : null;
+
+            $comment->text = $form->text;
 
             if ($user !== null) {
                 $comment->user_id = $user->id;
+                $comment->email = $user->email;
+                $comment->name = trim($user->firstname . ' ' . $user->lastname);
+                $comment->site = $user->site;
+            } else {
+                $comment->name = $form->name;
+                $comment->email = (string)$form->email;
+                $comment->site = $form->site;
             }
 
             if ($comment->save()) {

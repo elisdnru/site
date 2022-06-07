@@ -6,7 +6,7 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var Comment $model
+ * @var Comment $comment
  */
 $this->title = 'Комментарий';
 $this->params['breadcrumbs'] = [
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'] = [
     'Комментарий',
 ];
 
-$this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $model->id]];
+$this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['update', 'id' => $comment->id]];
 $this->params['admin'][] = ['label' => 'Комментарии', 'url' => ['index']];
 
 CommentsAsset::register($this);
@@ -22,4 +22,4 @@ CommentsAsset::register($this);
 
 <h1>Просмотр комментария</h1>
 
-<?= $this->render('@app/modules/comment/views/admin/comment/_view', ['comment' => $model]); ?>
+<?= $this->render('@app/modules/comment/views/admin/comment/_view', ['comment' => $comment]); ?>

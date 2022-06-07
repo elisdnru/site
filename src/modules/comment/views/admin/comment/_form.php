@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\components\Csrf;
+use app\modules\comment\forms\admin\CommentUpdateForm;
 use app\modules\comment\models\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -8,7 +9,8 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var Comment $model
+ * @var Comment $comment
+ * @var CommentUpdateForm $model
  */
 ?>
 
@@ -37,9 +39,9 @@ use yii\web\View;
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
 
-            <?php if ($model->user) : ?>
+            <?php if ($comment->user) : ?>
                 <p class="nomargin">
-                    <a href="<?= Url::to(['/user/admin/user/update', 'id' => $model->user_id]); ?>"><?= $model->user->getFio(); ?></a>
+                    <a href="<?= Url::to(['/user/admin/user/update', 'id' => $comment->user_id]); ?>"><?= $comment->user->getFio(); ?></a>
                 </p>
             <?php else : ?>
                 <div class="row<?= $model->hasErrors('name') ? ' error' : ''; ?>">
