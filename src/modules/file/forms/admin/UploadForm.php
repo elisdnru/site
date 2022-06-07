@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\file\forms;
+namespace app\modules\file\forms\admin;
 
 use yii\base\Model;
 use yii\web\UploadedFile;

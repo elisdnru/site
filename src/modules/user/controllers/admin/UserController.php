@@ -6,7 +6,7 @@ namespace app\modules\user\controllers\admin;
 
 use app\components\AdminController;
 use app\modules\user\forms\admin\EditForm;
-use app\modules\user\forms\UserSearch;
+use app\modules\user\forms\admin\UserSearch;
 use app\modules\user\models\User;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

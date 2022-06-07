@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\blog\forms\PostSearch;
+use app\modules\blog\forms\admin\PostSearch;
 use app\modules\blog\models\Post;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

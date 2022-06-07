@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace app\modules\portfolio\forms;
+namespace app\modules\blog\forms\admin;
 
 use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
-use app\modules\portfolio\models\Category;
+use app\modules\blog\models\Category;
 use yii\base\Model;
 
 final class CategorySearch extends Model
@@ -14,13 +14,14 @@ final class CategorySearch extends Model
     public ?string $id = null;
     public ?string $title = null;
     public ?string $slug = null;
+    public ?string $link = null;
     public ?string $sort = null;
     public ?string $parent_id = null;
 
     public function rules(): array
     {
         return [
-            [['id', 'title', 'slug', 'sort', 'parent_id'], 'safe'],
+            [['id', 'title', 'slug', 'link', 'sort', 'parent_id'], 'safe'],
         ];
     }
 

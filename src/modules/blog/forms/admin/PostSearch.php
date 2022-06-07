@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\blog\forms;
+namespace app\modules\blog\forms\admin;
 
 use app\components\DataProvider;
 use app\modules\blog\models\Post;

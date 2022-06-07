@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\block\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\block\forms\BlockSearch;
+use app\modules\block\forms\admin\BlockSearch;
 use app\modules\block\models\Block;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

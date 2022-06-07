@@ -2,8 +2,8 @@
 
 use app\components\Csrf;
 use app\extensions\file\File;
-use app\modules\file\forms\DirectoryForm;
-use app\modules\file\forms\UploadForm;
+use app\modules\file\forms\admin\DirectoryForm;
+use app\modules\file\forms\admin\UploadForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;

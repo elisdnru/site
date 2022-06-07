@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\portfolio\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\portfolio\forms\CategorySearch;
+use app\modules\portfolio\forms\admin\CategorySearch;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;

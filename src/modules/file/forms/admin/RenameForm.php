@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace app\modules\file\forms;
+namespace app\modules\file\forms\admin;
 
 use yii\base\Model;
 
-final class DirectoryForm extends Model
+final class RenameForm extends Model
 {
     public string $name = '';
 
@@ -14,14 +14,14 @@ final class DirectoryForm extends Model
     {
         return [
             ['name', 'required'],
-            ['name', 'match', 'pattern' => '|^[\w-]+$|i'],
+            ['name', 'string'],
         ];
     }
 
     public function attributeLabels(): array
     {
         return [
-            'name' => 'Директория',
+            'name' => 'Имя',
         ];
     }
 }

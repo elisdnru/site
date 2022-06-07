@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\block\forms;
+namespace app\modules\block\forms\admin;
 
 use app\components\DataProvider;
 use app\modules\block\models\Block;

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\components\DataProvider;
-use app\modules\block\forms\BlockSearch;
+use app\modules\block\forms\admin\BlockSearch;
 use app\modules\block\models\Block;
 use yii\helpers\Html;
 use yii\helpers\Url;

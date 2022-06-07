@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\blog\forms\GroupForm;
+use app\modules\blog\forms\admin\GroupForm;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
 use yii\web\BadRequestHttpException;

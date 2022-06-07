@@ -2,38 +2,37 @@
 
 declare(strict_types=1);
 
-namespace app\modules\page\forms;
+namespace app\modules\portfolio\forms\admin;
 
 use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
-use app\modules\page\models\Page;
+use app\modules\portfolio\models\Category;
 use yii\base\Model;
 
-final class PageSearch extends Model
+final class CategorySearch extends Model
 {
     public ?string $id = null;
     public ?string $title = null;
     public ?string $slug = null;
-    public ?string $text = null;
+    public ?string $sort = null;
     public ?string $parent_id = null;
-    public ?string $system = null;
 
     public function rules(): array
     {
         return [
-            [['id', 'title', 'slug', 'text', 'parent_id', 'system'], 'safe'],
+            [['id', 'title', 'slug', 'sort', 'parent_id'], 'safe'],
         ];
     }
 
-    public function search(array $params, int $pageSize = 100): DataProvider
+    public function search(array $params, int $pageSize = 10): DataProvider
     {
-        $query = Page::find()->alias('t');
+        $query = Category::find()->alias('t');
 
         $dataProvider = new DataProvider(new TreeActiveDataProvider([
             'childrenRelation' => 'children',
             'query' => $query,
             'sort' => [
-                'defaultOrder' => ['title' => SORT_ASC],
+                'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
             ],
             'pagination' => [
                 'pageSize' => $pageSize,
@@ -50,13 +49,12 @@ final class PageSearch extends Model
 
         $query->andFilterWhere([
             't.id' => $this->id,
+            't.sort' => $this->sort,
             't.parent_id' => $this->parent_id,
-            't.system' => $this->system,
         ]);
 
         $query->andFilterWhere(['like', 't.title', $this->title]);
         $query->andFilterWhere(['like', 't.slug', $this->slug]);
-        $query->andFilterWhere(['like', 't.text', $this->text]);
 
         return $dataProvider;
     }

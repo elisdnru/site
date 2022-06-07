@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\landing\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\landing\forms\LandingSearch;
+use app\modules\landing\forms\admin\LandingSearch;
 use app\modules\landing\models\Landing;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

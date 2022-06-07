@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\blog\forms\TagSearch;
+use app\modules\blog\forms\admin\TagSearch;
 use app\modules\blog\models\Tag;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use app\modules\blog\forms\GroupForm;
+use app\modules\blog\forms\admin\GroupForm;
 use app\modules\blog\models\Group;
 use yii\helpers\Html;
 use yii\helpers\Url;

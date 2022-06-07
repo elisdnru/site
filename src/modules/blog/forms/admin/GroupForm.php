@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\blog\forms;
+namespace app\modules\blog\forms\admin;
 
 use yii\base\Model;
 

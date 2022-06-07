@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\modules\user\forms;
+namespace app\modules\user\forms\admin;
 
 use app\components\DataProvider;
 use app\modules\user\models\User;
