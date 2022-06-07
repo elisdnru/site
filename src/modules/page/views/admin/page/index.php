@@ -49,7 +49,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $item) : ?>
-                    <tr>
+                    <tr id="item-<?= $item->id; ?>">
                         <td>
                             <?= str_repeat('&nbsp;', $item->indent * 4); ?>
                             <a href="<?= Url::to(['update', 'id' => $item->id]); ?>"><?= Html::encode($item->title); ?></a>
@@ -62,7 +62,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
                             <a href="<?= Url::to(['update', 'id' => $item->id]); ?>"><span class="icon edit"></span></a>
                         </td>
                         <td class="button-column">
-                            <a href="<?= Url::to(['delete', 'id' => $item->id]); ?>" class="ajax-del"><span class="icon delete"></span></a>
+                            <a href="<?= Url::to(['delete', 'id' => $item->id]); ?>" class="ajax-del" data-del="item-<?= $item->id; ?>"><span class="icon delete"></span></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

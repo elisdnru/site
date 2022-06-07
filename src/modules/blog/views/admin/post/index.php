@@ -58,7 +58,7 @@ $this->params['admin'] = [
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $item) : ?>
-                    <tr>
+                    <tr id="item-<?= $item->id; ?>">
                         <td style="width:130px; text-align:center">
                             <?= Html::encode($item->date); ?>
                         </td>
@@ -76,7 +76,7 @@ $this->params['admin'] = [
                         </td>
                         <td class="button-column"><a href="<?= Url::to(['view', 'id' => $item->id]); ?>"><span class="icon view"></span></a></td>
                         <td class="button-column"><a href="<?= Url::to(['update', 'id' => $item->id]); ?>"><span class="icon edit"></span></a></td>
-                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $item->id]); ?>" class="ajax-del"><span class="icon delete"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $item->id]); ?>" class="ajax-del" data-del="item-<?= $item->id; ?>"><span class="icon delete"></span></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

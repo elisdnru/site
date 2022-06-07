@@ -46,14 +46,14 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $block) : ?>
-                    <tr>
+                    <tr id="item-<?= $block->id; ?>">
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]); ?>"><?= Html::encode($block->title); ?></a>
                         </td>
                         <td>[{widget:block|id=<?= Html::encode($block->slug); ?>}]</td>
                         <td class="button-column"><a href="<?= Url::to(['view', 'id' => $block->id]); ?>"><span class="icon view"></span></a></td>
                         <td class="button-column"><a href="<?= Url::to(['update', 'id' => $block->id]); ?>"><span class="icon edit"></span></a></td>
-                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $block->id]); ?>" class="ajax-del"><span class="icon delete"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $block->id]); ?>" class="ajax-del" data-del="item-<?= $block->id; ?>"><span class="icon delete"></span></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

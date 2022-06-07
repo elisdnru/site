@@ -49,7 +49,7 @@ import getCSRFToken from '../csrf'
         return response
       })
       .then(function () {
-        document.querySelector('#' + link.dataset.del).style.display = 'none'
+        document.querySelector('#' + link.dataset.del).remove()
       })
       .catch(function (error) {
         alert(error.message)

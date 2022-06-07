@@ -55,7 +55,7 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
             </thead>
             <tbody>
                 <?php foreach ($dataProvider->getItems() as $user) : ?>
-                    <tr>
+                    <tr id="item-<?= $user->id; ?>">
                         <td style="width:50px">
                             <img src="<?= $user->getAvatarUrl(50, 50); ?>" width="50px" alt=""/>
                         </td>
@@ -83,7 +83,7 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
                         </td>
                         <td class="button-column"><a href="<?= Url::to(['view', 'id' => $user->id]); ?>"><span class="icon view"></span></a></td>
                         <td class="button-column"><a href="<?= Url::to(['update', 'id' => $user->id]); ?>"><span class="icon edit"></span></a></td>
-                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $user->id]); ?>" class="ajax-del"><span class="icon delete"></span></a></td>
+                        <td class="button-column"><a href="<?= Url::to(['delete', 'id' => $user->id]); ?>" class="ajax-del" data-del="item-<?= $user->id; ?>"><span class="icon delete"></span></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
