@@ -36,6 +36,7 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
                     <th>Частота</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

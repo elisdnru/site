@@ -23,10 +23,6 @@ use yii\widgets\ActiveForm;
 
         <?= Html::errorSummary($model, ['class' => 'error-summary']); ?>
 
-        <div class="row buttons">
-            <?= Html::submitButton('Сохранить'); ?>
-        </div>
-
         <fieldset>
             <div class="row<?= $model->hasErrors('title') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'title'); ?><br />

@@ -1,11 +1,13 @@
 <?php declare(strict_types=1);
 
+use app\modules\blog\forms\admin\TagForm;
 use app\modules\blog\models\Tag;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Tag $model
+ * @var TagForm $model
+ * @var Tag $tag
  */
 $this->title = 'Редактор метки блога';
 $this->params['breadcrumbs'] = [

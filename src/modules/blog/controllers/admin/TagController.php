@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\controllers\admin;
 
 use app\components\AdminController;
+use app\modules\blog\forms\admin\TagForm;
 use app\modules\blog\forms\admin\TagSearch;
 use app\modules\blog\models\Tag;
 use yii\web\NotFoundHttpException;
@@ -26,10 +27,14 @@ final class TagController extends AdminController
 
     public function actionCreate(Request $request): Response|string
     {
-        $model = new Tag();
+        $model = new TagForm();
 
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $tag = new Tag();
+            $tag->title = $model->title;
+            if ($tag->save()) {
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('create', [
@@ -39,31 +44,31 @@ final class TagController extends AdminController
 
     public function actionUpdate(int $id, Request $request): Response|string
     {
-        $model = $this->loadModel($id);
+        $tag = $this->loadModel($id);
+        $model = new TagForm($tag);
 
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $tag->title = $model->title;
+            if ($tag->save()) {
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', [
+            'tag' => $tag,
             'model' => $model,
         ]);
     }
 
     public function actionDelete(int $id, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
-        $model->delete();
+        $tag = $this->loadModel($id);
+        $tag->delete();
 
         if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
         }
         return null;
-    }
-
-    public function actionView(): Response
-    {
-        return $this->redirect(['index']);
     }
 
     private function loadModel(int $id): Tag

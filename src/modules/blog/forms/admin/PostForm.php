@@ -107,8 +107,7 @@ final class PostForm extends Model
      */
     public function getAvailableTagsList(): array
     {
-        /** @var array<int, string> */
-        return ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title');
+        return Tag::getAssocList();
     }
 
     public function getAvailableCategoriesList(): array

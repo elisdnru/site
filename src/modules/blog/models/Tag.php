@@ -6,6 +6,7 @@ namespace app\modules\blog\models;
 
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 /**
@@ -20,16 +21,6 @@ final class Tag extends ActiveRecord
     public static function tableName(): string
     {
         return 'blog_tags';
-    }
-
-    public function rules(): array
-    {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
-        return [
-            ['title', 'required'],
-            ['title', 'string', 'max' => 255],
-        ];
     }
 
     public function getFrequency(): int
@@ -62,14 +53,13 @@ final class Tag extends ActiveRecord
         return false;
     }
 
-    public function getAssocList(): array
+    /**
+     * @return array<int, string>
+     */
+    public static function getAssocList(): array
     {
-        $items = self::findAll(['order' => 'title']);
-        $result = [];
-        foreach ($items as $item) {
-            $result[$item->id] = $item->title;
-        }
-        return $result;
+        /** @var array<int, string> */
+        return ArrayHelper::map(self::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title');
     }
 
     public static function findOrCreateByTitle(string $title): self
