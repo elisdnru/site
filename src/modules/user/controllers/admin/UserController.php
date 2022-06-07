@@ -29,7 +29,7 @@ final class UserController extends AdminController
     {
         $user = $this->loadModel($id);
 
-        $form = EditForm::fromUser($user);
+        $form = new EditForm($user);
 
         if ($form->load((array)$request->post())) {
             $form->avatar = UploadedFile::getInstance($form, 'avatar');

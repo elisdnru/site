@@ -23,17 +23,17 @@ final class EditForm extends Model
     public string $del_avatar = '';
     public string $role = '';
 
-    public static function fromUser(User $user): self
+    public function __construct(User $user, array $config = [])
     {
-        $form = new self();
-        $form->id = $user->id;
-        $form->username = $user->username;
-        $form->email = $user->email;
-        $form->firstname = $user->firstname;
-        $form->lastname = $user->lastname;
-        $form->site = $user->site;
-        $form->role = $user->role;
-        return $form;
+        parent::__construct($config);
+
+        $this->id = $user->id;
+        $this->username = $user->username;
+        $this->email = $user->email;
+        $this->firstname = $user->firstname;
+        $this->lastname = $user->lastname;
+        $this->site = $user->site;
+        $this->role = $user->role;
     }
 
     public function rules(): array

@@ -15,11 +15,11 @@ final class PasswordForm extends Model
     public string $password = '';
     public string $confirm = '';
 
-    public static function fromUser(User $user): self
+    public function __construct(User $user, array $config = [])
     {
-        $form = new self();
-        $form->id = $user->id;
-        return $form;
+        parent::__construct($config);
+
+        $this->id = $user->id;
     }
 
     public function rules(): array

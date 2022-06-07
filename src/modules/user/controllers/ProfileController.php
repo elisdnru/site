@@ -37,7 +37,7 @@ final class ProfileController extends Controller
     {
         $user = $this->loadModel((int)$webUser->id);
 
-        $form = ProfileForm::fromUser($user);
+        $form = new ProfileForm($user);
 
         if ($form->load((array)$request->post())) {
             $form->avatar = UploadedFile::getInstance($form, 'avatar');
@@ -68,7 +68,7 @@ final class ProfileController extends Controller
     {
         $user = $this->loadModel((int)$webUser->id);
 
-        $form = PasswordForm::fromUser($user);
+        $form = new PasswordForm($user);
 
         if ($form->load((array)$request->post()) && $form->validate()) {
             $user->password_hash = $user->hashPassword($form->password);

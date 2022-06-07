@@ -17,13 +17,13 @@ final class ProfileForm extends Model
     public ?UploadedFile $avatar = null;
     public string $del_avatar = '';
 
-    public static function fromUser(User $user): self
+    public function __construct(User $user, array $config = [])
     {
-        $form = new self();
-        $form->firstname = $user->firstname;
-        $form->lastname = $user->lastname;
-        $form->site = $user->site;
-        return $form;
+        parent::__construct($config);
+
+        $this->firstname = $user->firstname;
+        $this->lastname = $user->lastname;
+        $this->site = $user->site;
     }
 
     public function rules(): array
