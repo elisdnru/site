@@ -4,35 +4,35 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
-use app\components\SlugValidator;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
+use BadMethodCallException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 /**
  * @property int $id
  * @property string $date
  * @property string $update_date
- * @property string $category_id
+ * @property int $category_id
  * @property int $author_id
  * @property string $slug
  * @property string $title
  * @property string $meta_title
  * @property string $meta_description
- * @property string $styles
+ * @property string|null $styles
  * @property string $short
  * @property string $text
- * @property string $image
+ * @property string|UploadedFile|null $image
  * @property string $image_alt
- * @property int $image_show
- * @property int $group_id
- * @property int $public
- * @property int $promoted
+ * @property bool $image_show
+ * @property int|null $group_id
+ * @property bool $public
+ * @property bool $promoted
  *
  * @property User $author
  * @property Group|null $group
@@ -44,11 +44,7 @@ use yii\helpers\Url;
  */
 final class Post extends ActiveRecord implements Material
 {
-    public string $delImage = '';
-
-    public string $newGroup = '';
-
-    private ?string $tags_string = null;
+    public bool|null $del_image = null;
 
     private ?string $cachedUrl = null;
 
@@ -62,21 +58,25 @@ final class Post extends ActiveRecord implements Material
         return new PostQuery(self::class);
     }
 
-    public function rules(): array
+    /**
+     * @param Tag[] $tags
+     */
+    public function assignTags(array $tags): void
     {
-        return [
-            [['category_id', 'slug', 'title'], 'required'],
-            ['author_id', 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
-            ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
-            ['group_id', 'exist', 'targetClass' => Group::class, 'targetAttribute' => 'id'],
-            [['public', 'image_show', 'promoted'], 'integer'],
-            ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
-            [['title', 'slug', 'newGroup', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
-            ['tagsString', 'string'],
-            ['slug', SlugValidator::class],
-            ['slug', 'unique', 'message' => 'Такой {attribute} уже используется'],
-        ];
+        if (empty($this->id)) {
+            throw new BadMethodCallException('Unable to assign tags.');
+        }
+
+        foreach ($this->postTags as $postTag) {
+            $postTag->delete();
+        }
+
+        foreach ($tags as $tag) {
+            $postTag = new PostTag();
+            $postTag->post_id = $this->id;
+            $postTag->tag_id = $tag->id;
+            $postTag->save();
+        }
     }
 
     public function getPostTags(): ActiveQuery
@@ -114,32 +114,6 @@ final class Post extends ActiveRecord implements Material
         return (int)Comment::find()->material($this->id)->published()->unread()->count();
     }
 
-    public function attributeLabels(): array
-    {
-        return [
-            'id' => 'ID',
-            'date' => 'Дата создания',
-            'update_date' => 'Дата обновления',
-            'category_id' => 'Раздел',
-            'author_id' => 'Автор',
-            'title' => 'Заголовок',
-            'slug' => 'URL транслитом',
-            'meta_title' => 'Заголовок страницы',
-            'meta_description' => 'Описание',
-            'styles' => 'CSS стили',
-            'short' => 'Превью',
-            'text' => 'Текст',
-            'image' => 'Картинка для статьи',
-            'delImage' => 'Удалить изображение',
-            'image_alt' => 'Описание изображения (по умолчанию как заголовок)',
-            'image_show' => 'Отображать при открытии новости',
-            'group_id' => 'Выберите тематическую группу',
-            'newGroup' => '...или введите имя новой',
-            'public' => 'Опубликовано',
-            'promoted' => 'Продвигать',
-        ];
-    }
-
     public function behaviors(): array
     {
         return [
@@ -153,7 +127,7 @@ final class Post extends ActiveRecord implements Material
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'storageAttribute' => 'image',
-                'deleteAttribute' => 'delImage',
+                'deleteAttribute' => 'del_image',
                 'filePath' => 'upload/images/blogs',
             ],
         ];
@@ -168,37 +142,6 @@ final class Post extends ActiveRecord implements Material
             return true;
         }
         return false;
-    }
-
-    public function beforeSave($insert): bool
-    {
-        if (parent::beforeSave($insert)) {
-            $this->processThematicGroup();
-            return true;
-        }
-        return false;
-    }
-
-    public function afterSave($insert, $changedAttributes): void
-    {
-        $this->updateTags();
-        parent::afterSave($insert, $changedAttributes);
-    }
-
-    public function getTagsString(): string
-    {
-        if ($this->tags_string === null) {
-            /** @var string[] $list */
-            $list = ArrayHelper::map($this->tags, 'id', 'title');
-            $this->tags_string = implode(', ', $list);
-        }
-
-        return $this->tags_string;
-    }
-
-    public function setTagsString(?string $value): void
-    {
-        $this->tags_string = $value;
     }
 
     public function getUrl(): string
@@ -217,35 +160,5 @@ final class Post extends ActiveRecord implements Material
     public function getCommentUrl(): string
     {
         return $this->getUrl();
-    }
-
-    private function processThematicGroup(): void
-    {
-        if ($this->newGroup) {
-            $group = new Group();
-            $group->title = $this->newGroup;
-            if ($group->save()) {
-                $this->group_id = $group->id;
-                $this->newGroup = '';
-            }
-        }
-    }
-
-    private function updateTags(): void
-    {
-        $newtags = array_filter(array_unique(preg_split('/\s*,\s*/', $this->getTagsString())));
-
-        foreach ($this->postTags as $postTag) {
-            $postTag->delete();
-        }
-
-        foreach ($newtags as $tagname) {
-            $tag = Tag::findOrCreateByTitle($tagname);
-
-            $postTag = new PostTag();
-            $postTag->post_id = $this->id;
-            $postTag->tag_id = $tag->id;
-            $postTag->save();
-        }
     }
 }

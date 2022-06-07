@@ -1,18 +1,16 @@
 <?php declare(strict_types=1);
 
 use app\components\Csrf;
-use app\modules\blog\models\Category;
-use app\modules\blog\models\Group;
+use app\modules\blog\forms\admin\PostForm;
 use app\modules\blog\models\Post;
-use app\modules\blog\models\Tag;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
  * @var View $this
- * @var Post $model
+ * @var PostForm $model
+ * @var Post|null $post
  * @var ActiveForm $form
  */
 ?>
@@ -48,7 +46,7 @@ use yii\widgets\ActiveForm;
 
             <div class="row<?= $model->hasErrors('category_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'category_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'category_id', Category::find()->getTabList()); ?><br />
+                <?= Html::activeDropDownList($model, 'category_id', $model->getAvailableCategoriesList()); ?><br />
                 <?= Html::error($model, 'category_id', ['class' => 'error-message']); ?>
             </div>
 
@@ -70,12 +68,12 @@ use yii\widgets\ActiveForm;
         <fieldset>
             <h4>Изображение</h4>
 
-            <?php if ($model->image) : ?>
+            <?php if ($post !== null && $post->image) : ?>
                 <div class="image">
-                    <a target="_blank" href="<?= $model->getImageUrl(); ?>"><img src="<?= $model->getImageThumbUrl(250, 0); ?>" alt=""></a>
+                    <a target="_blank" href="<?= $post->getImageUrl(); ?>"><img src="<?= $post->getImageThumbUrl(250, 0); ?>" alt=""></a>
                 </div>
                 <div class="row">
-                    <?= Html::activeCheckbox($model, 'delImage'); ?>
+                    <?= Html::activeCheckbox($model, 'del_image'); ?>
                 </div>
             <?php endif; ?>
 
@@ -101,14 +99,14 @@ use yii\widgets\ActiveForm;
 
             <div class="row<?= $model->hasErrors('group_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'group_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'group_id', Group::find()->getAssocList(), ['prompt' => '']); ?><br />
+                <?= Html::activeDropDownList($model, 'group_id', $model->getAvailableGroupsList(), ['prompt' => '']); ?><br />
                 <?= Html::error($model, 'group_id', ['class' => 'error-message']); ?>
             </div>
 
-            <div class="row<?= $model->hasErrors('newGroup') ? ' error' : ''; ?>">
-                <?= Html::activeLabel($model, 'newGroup'); ?><br />
-                <?= Html::activeTextInput($model, 'newGroup', ['size' => 60, 'maxlength' => 255]); ?><br />
-                <?= Html::error($model, 'newGroup', ['class' => 'error-message']); ?>
+            <div class="row<?= $model->hasErrors('new_group') ? ' error' : ''; ?>">
+                <?= Html::activeLabel($model, 'new_group'); ?><br />
+                <?= Html::activeTextInput($model, 'new_group', ['size' => 60, 'maxlength' => 255]); ?><br />
+                <?= Html::error($model, 'new_group', ['class' => 'error-message']); ?>
             </div>
         </fieldset>
 
@@ -139,21 +137,16 @@ use yii\widgets\ActiveForm;
         <fieldset>
             <h4>Метки</h4>
 
-            <div class="row<?= $model->hasErrors('tagsString') ? ' error' : ''; ?>">
-                <?= Html::activeLabel($model, 'tagsString'); ?><br />
-                <?= Html::activeTextInput($model, 'tagsString', ['size' => 60, 'maxlength' => 255]); ?><br />
-                <?= Html::error($model, 'tagsString', ['class' => 'error-message']); ?>
+            <div class="row<?= $model->hasErrors('tags') ? ' error' : ''; ?>">
+                <?= Html::activeLabel($model, 'tags'); ?><br />
+                <?= Html::activeTextInput($model, 'tags', ['size' => 60, 'maxlength' => 255]); ?><br />
+                <?= Html::error($model, 'tags', ['class' => 'error-message']); ?>
             </div>
             <div class="row">
                 <ul class="tags-list" id="tags-variants">
-                    <?php
-                    /**
-                     * @var int $id
-                     * @var string $tag
-                     */
-                    foreach (ArrayHelper::map(Tag::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title') as $id => $tag) : ?>
+                    <?php foreach ($model->getAvailableTagsList() as $id => $name) : ?>
                         <li id="tag-<?= $id; ?>">
-                            <a class="tag" href="#"><?= Html::encode($tag); ?></a>
+                            <a class="tag" href="#"><?= Html::encode($name); ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -164,7 +157,7 @@ use yii\widgets\ActiveForm;
         <?php ob_start(); ?>
 
         (function () {
-            const tagsInput = document.querySelector('#post-tagsstring');
+            const tagsInput = document.querySelector('#postform-tags');
             const tagsVariants = document.querySelectorAll('#tags-variants li');
 
             function highlightActive () {

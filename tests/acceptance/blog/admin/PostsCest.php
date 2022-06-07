@@ -54,7 +54,7 @@ final class PostsCest
 
         $I->seeElement('#post-form');
 
-        $I->fillField('Post[text]', 'New Text');
+        $I->fillField('PostForm[text]', 'New Text');
         $I->click('Сохранить', '#post-form');
 
         $I->seeInSource('<p>New Text</p>');
