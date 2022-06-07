@@ -30,6 +30,22 @@ final class Group extends ActiveRecord
         return (int)Post::find()->andWhere(['group_id' => $this->id])->count();
     }
 
+    public function rules(): array
+    {
+        return [
+            ['title', 'required'],
+            ['title', 'string', 'max' => 255],
+        ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [
+            'id' => 'ID',
+            'title' => 'Наименование группы',
+        ];
+    }
+
     public function behaviors(): array
     {
         return [
