@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-use app\modules\landing\models\Landing;
+use app\modules\landing\forms\admin\LandingForm;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Landing $model
+ * @var LandingForm $model
  */
 $this->title = 'Редактор лендингов';
 $this->params['breadcrumbs'] = [
@@ -21,5 +21,5 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
 
 <h1>Добавление лендинга</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model, 'landing' => null]); ?>
 

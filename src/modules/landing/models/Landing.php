@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\landing\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\components\SlugValidator;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -16,7 +15,7 @@ use yii\helpers\Url;
  * @property string $title
  * @property string $text
  * @property int|null $parent_id
- * @property int $system
+ * @property bool|int $system
  *
  * @property Landing[] $children
  *
@@ -36,17 +35,6 @@ final class Landing extends ActiveRecord
     public static function find(): LandingQuery
     {
         return new LandingQuery(self::class);
-    }
-
-    public function rules(): array
-    {
-        return [
-            [['slug', 'title'], 'required'],
-            ['slug', SlugValidator::class],
-            [['slug', 'title'], 'string', 'max' => 255],
-            [['parent_id'], 'integer'],
-            [['text', 'system'], 'safe'],
-        ];
     }
 
     public function getChildren(): ActiveQuery
@@ -92,17 +80,6 @@ final class Landing extends ActiveRecord
             $this->cachedUrl = Url::to(['/landing/landing/show', 'path' => $this->getPath()]);
         }
         return $this->cachedUrl;
-    }
-
-    public function beforeSave($insert): bool
-    {
-        if (parent::beforeSave($insert)) {
-            if (!$this->parent_id) {
-                $this->parent_id = null;
-            }
-            return true;
-        }
-        return false;
     }
 
     public function beforeDelete(): bool

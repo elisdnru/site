@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\landing\controllers\admin;
 
 use app\components\AdminController;
+use app\modules\landing\forms\admin\LandingForm;
 use app\modules\landing\forms\admin\LandingSearch;
 use app\modules\landing\models\Landing;
 use yii\web\NotFoundHttpException;
@@ -26,11 +27,24 @@ final class LandingController extends AdminController
 
     public function actionCreate(Request $request): Response|string
     {
-        $model = new Landing();
-        $model->parent_id = $request->get('parent');
+        /** @var string|null $parent */
+        $parent = $request->get('parent');
 
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->id]);
+        $model = new LandingForm();
+        $model->parent_id = $parent ? (int)$parent : null;
+
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $landing = new Landing();
+
+            $landing->slug = $model->slug;
+            $landing->title = $model->title;
+            $landing->text = $model->text;
+            $landing->parent_id = $model->parent_id;
+            $landing->system = (bool)$model->system;
+
+            if ($landing->save()) {
+                return $this->redirect(['update', 'id' => $landing->id]);
+            }
         }
 
         return $this->render('create', [
@@ -40,21 +54,31 @@ final class LandingController extends AdminController
 
     public function actionUpdate(int $id, Request $request): Response|string
     {
-        $model = $this->loadModel($id);
+        $landing = $this->loadModel($id);
+        $model = new LandingForm($landing);
 
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->id]);
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $landing->slug = $model->slug;
+            $landing->title = $model->title;
+            $landing->text = $model->text;
+            $landing->parent_id = $model->parent_id ? (int)$model->parent_id : null;
+            $landing->system = (bool)$model->system;
+
+            if ($landing->save()) {
+                return $this->redirect(['update', 'id' => $landing->id]);
+            }
         }
 
         return $this->render('update', [
+            'landing' => $landing,
             'model' => $model,
         ]);
     }
 
     public function actionDelete(int $id, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
-        $model->delete();
+        $landing = $this->loadModel($id);
+        $landing->delete();
 
         if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
@@ -64,9 +88,9 @@ final class LandingController extends AdminController
 
     public function actionView(int $id): Response
     {
-        $model = $this->loadModel($id);
+        $landing = $this->loadModel($id);
 
-        return $this->redirect($model->getUrl());
+        return $this->redirect($landing->getUrl());
     }
 
     private function loadModel(int $id): Landing

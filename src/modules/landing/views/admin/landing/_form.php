@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
 use app\components\Csrf;
+use app\modules\landing\forms\admin\LandingForm;
 use app\modules\landing\models\Landing;
 use yii\helpers\Html;
 use yii\web\View;
-use yii\widgets\ActiveForm;
 
 /**
  * @var View $this
- * @var Landing $model
- * @var ActiveForm $form
+ * @var Landing|null $landing
+ * @var LandingForm $model
  */
 ?>
 
@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
             <hr />
             <div class="row<?= $model->hasErrors('parent_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'parent_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'parent_id', $model->parent_id ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($model->id)) : Landing::find()->getTabList(), ['prompt' => '']); ?><br />
+                <?= Html::activeDropDownList($model, 'parent_id', $landing && $landing->parent_id ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($landing->id)) : Landing::find()->getTabList(), ['prompt' => '']); ?><br />
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
         </fieldset>
