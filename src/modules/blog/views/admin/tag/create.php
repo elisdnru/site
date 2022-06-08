@@ -20,6 +20,6 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/ad
 $this->params['admin'][] = ['label' => 'Группы', 'url' => ['/blog/admin/group/index']];
 ?>
 
-<h1>Добавление категории блога</h1>
+<h1>Добавление метки блога</h1>
 
 <?= $this->render('_form', ['model' => $model]); ?>
