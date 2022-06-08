@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\components\Csrf;
+use app\modules\page\forms\admin\PageForm;
 use app\modules\page\models\Page;
 use yii\helpers\Html;
 use yii\web\View;
@@ -8,7 +9,8 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var View $this
- * @var Page $model
+ * @var Page|null $page
+ * @var PageForm $model
  * @var ActiveForm $form
  */
 ?>
@@ -47,7 +49,7 @@ use yii\widgets\ActiveForm;
 
             <div class="row<?= $model->hasErrors('parent_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'parent_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'parent_id', $model->parent_id ? array_diff_key(Page::find()->getTabList(), Page::find()->getAssocList($model->id)) : Page::find()->getTabList(), ['prompt' => '']); ?><br />
+                <?= Html::activeDropDownList($model, 'parent_id', $model->getAvailableParentList(), ['prompt' => '']); ?><br />
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
         </fieldset>
@@ -57,13 +59,13 @@ use yii\widgets\ActiveForm;
 
             <div class="row<?= $model->hasErrors('layout') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'layout'); ?><br />
-                <?= Html::activeDropDownList($model, 'layout', Page::LAYOUTS); ?><br />
+                <?= Html::activeDropDownList($model, 'layout', $model->getAvailableLayoutList()); ?><br />
                 <?= Html::error($model, 'layout', ['class' => 'error-message']); ?>
             </div>
 
             <div class="row<?= $model->hasErrors('subpages_layout') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'subpages_layout'); ?><br />
-                <?= Html::activeDropDownList($model, 'subpages_layout', Page::SUBPAGES_LAYOUTS); ?><br />
+                <?= Html::activeDropDownList($model, 'subpages_layout', $model->getAvailableSubPagesLayoutList()); ?><br />
                 <?= Html::error($model, 'subpages_layout', ['class' => 'error-message']); ?>
             </div>
         </fieldset>

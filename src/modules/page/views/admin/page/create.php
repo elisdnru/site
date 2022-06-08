@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-use app\modules\page\models\Page;
+use app\modules\page\forms\admin\PageForm;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Page $model
+ * @var PageForm $model
  */
 $this->title = 'Редактор страниц';
 $this->params['breadcrumbs'] = [
@@ -18,5 +18,4 @@ $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['index']];
 
 <h1>Добавление страницы</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
-
+<?= $this->render('_form', ['model' => $model, 'page' => null]); ?>

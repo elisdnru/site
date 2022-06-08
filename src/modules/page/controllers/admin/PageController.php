@@ -7,6 +7,7 @@ namespace app\modules\page\controllers\admin;
 use app\components\AdminController;
 use app\components\category\TreeActiveDataProvider;
 use app\components\DataProvider;
+use app\modules\page\forms\admin\PageForm;
 use app\modules\page\models\Page;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -32,12 +33,19 @@ final class PageController extends AdminController
 
     public function actionCreate(Request $request): Response|string
     {
-        $model = new Page();
-        $model->date = date('Y-m-d');
-        $model->parent_id = $request->get('parent', 0);
+        /** @var string|null $parent */
+        $parent = $request->get('parent');
 
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $model = new PageForm();
+        $model->parent_id = $parent ? (int)$parent : null;
+
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $page = new Page();
+            $page->date = date('Y-m-d');
+            $this->fillPage($page, $model);
+            if ($page->save()) {
+                return $this->redirect(['update', 'id' => $page->id]);
+            }
         }
 
         return $this->render('create', [
@@ -47,21 +55,26 @@ final class PageController extends AdminController
 
     public function actionUpdate(int $id, Request $request): Response|string
     {
-        $model = $this->loadModel($id);
+        $page = $this->loadModel($id);
+        $model = new PageForm($page);
 
-        if ($model->load((array)$request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $this->fillPage($page, $model);
+            if ($page->save()) {
+                return $this->redirect(['update', 'id' => $page->id]);
+            }
         }
 
         return $this->render('update', [
+            'page' => $page,
             'model' => $model,
         ]);
     }
 
     public function actionDelete(int $id, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
-        $model->delete();
+        $page = $this->loadModel($id);
+        $page->delete();
 
         if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
@@ -71,9 +84,9 @@ final class PageController extends AdminController
 
     public function actionView(int $id): Response
     {
-        $model = $this->loadModel($id);
+        $page = $this->loadModel($id);
 
-        return $this->redirect($model->getUrl());
+        return $this->redirect($page->getUrl());
     }
 
     private function loadModel(int $id): Page
@@ -83,5 +96,21 @@ final class PageController extends AdminController
             throw new NotFoundHttpException();
         }
         return $model;
+    }
+
+    private function fillPage(Page $page, PageForm $model): void
+    {
+        $page->slug = $model->slug;
+        $page->title = $model->title;
+        $page->hidetitle = (bool)$model->hidetitle;
+        $page->meta_title = $model->meta_title;
+        $page->meta_description = $model->meta_description;
+        $page->robots = $model->robots;
+        $page->styles = $model->styles;
+        $page->text = $model->text;
+        $page->layout = $model->layout;
+        $page->subpages_layout = $model->subpages_layout;
+        $page->parent_id = $model->parent_id ? (int)$model->parent_id : null;
+        $page->system = (bool)$model->system;
     }
 }

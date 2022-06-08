@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\page\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
-use app\components\SlugValidator;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
@@ -15,7 +14,7 @@ use yii\helpers\Url;
  * @property string $slug
  * @property string $date
  * @property string $title
- * @property string $hidetitle
+ * @property bool $hidetitle
  * @property string $meta_title
  * @property string $meta_description
  * @property string $robots
@@ -23,8 +22,8 @@ use yii\helpers\Url;
  * @property string $text
  * @property string $layout
  * @property string $subpages_layout
- * @property int $parent_id
- * @property string $system
+ * @property int|null $parent_id
+ * @property bool $system
  *
  * @property Page[] $children
  * @property Page|null $parent
@@ -66,17 +65,6 @@ final class Page extends ActiveRecord
         return new PageQuery(self::class);
     }
 
-    public function rules(): array
-    {
-        return [
-            [['slug', 'title'], 'required'],
-            ['slug', SlugValidator::class],
-            [['slug', 'title', 'meta_title', 'robots', 'layout', 'subpages_layout'], 'string', 'max' => 255],
-            [['hidetitle', 'parent_id'], 'integer'],
-            [['date', 'styles', 'text', 'meta_description', 'system'], 'safe'],
-        ];
-    }
-
     public function getChildren(): ActiveQuery
     {
         return $this->hasMany(self::class, ['parent_id' => 'id'])
@@ -87,29 +75,6 @@ final class Page extends ActiveRecord
     public function getParent(): ActiveQuery
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);
-    }
-
-    public function attributeLabels(): array
-    {
-        return [
-            'id' => 'ID',
-            'layout' => 'Шаблон страницы',
-            'layout_list_id' => 'Шаблон списка новостей',
-            'layout_item_id' => 'Шаблон страницы новости',
-            'layout_item_content_id' => 'Шаблон контента новости',
-            'subpages_layout' => 'Вид списка дочерних страниц',
-            'slug' => 'URL транслитом',
-            'date' => 'Дата создания',
-            'title' => 'Заголовок',
-            'hidetitle' => 'Скрыть заголовок',
-            'meta_title' => 'Заголовок окна',
-            'meta_description' => 'Описание',
-            'robots' => 'Индексация (robots)',
-            'system' => 'Системная',
-            'styles' => 'CSS стили',
-            'text' => 'Текст',
-            'parent_id' => 'Родительская страница',
-        ];
     }
 
     public function behaviors(): array
