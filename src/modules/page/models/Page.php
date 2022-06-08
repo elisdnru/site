@@ -12,7 +12,6 @@ use yii\helpers\Url;
 /**
  * @property int $id
  * @property string $slug
- * @property string $date
  * @property string $title
  * @property bool $hidetitle
  * @property string $meta_title
@@ -88,14 +87,6 @@ final class Page extends ActiveRecord
                 'parentRelation' => 'parent',
             ],
         ];
-    }
-
-    public function afterFind(): void
-    {
-        if ($this->date === '0000-00-00') {
-            $this->date = date('Y-m-d');
-        }
-        parent::afterFind();
     }
 
     public static function robotsList(): array

@@ -5,7 +5,6 @@ declare(strict_types=1);
 return [
     [
         'id' => 1,
-        'date' => '2016-12-11 12:34',
         'parent_id' => null,
         'slug' => 'info',
         'title' => 'Info',
@@ -21,7 +20,6 @@ return [
     ],
     [
         'id' => 2,
-        'date' => '2016-12-11 12:34',
         'parent_id' => 1,
         'slug' => 'about',
         'title' => 'About',

@@ -41,7 +41,6 @@ final class PageController extends AdminController
 
         if ($model->load((array)$request->post()) && $model->validate()) {
             $page = new Page();
-            $page->date = date('Y-m-d');
             $this->fillPage($page, $model);
             if ($page->save()) {
                 return $this->redirect(['update', 'id' => $page->id]);
