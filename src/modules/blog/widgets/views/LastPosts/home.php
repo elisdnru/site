@@ -4,6 +4,7 @@ use app\components\DateFormatter;
 use app\modules\blog\models\Post;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * @var Post[] $posts
@@ -13,7 +14,7 @@ use yii\helpers\Html;
     <?php
     $links = [];
     foreach ($post->tags as $tag) {
-        $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
+        $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
 

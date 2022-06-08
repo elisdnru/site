@@ -44,7 +44,7 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
                         </td>
                         <td style="width:130px; text-align:center"><?= $tag->getFrequency(); ?></td>
                         <td class="button-column">
-                            <a href="<?= $tag->getUrl(); ?>"><span class="icon view"></span></a>
+                            <a href="<?= Url::to(['/blog/default/tag', 'tag' => $tag->title]); ?>"><span class="icon view"></span></a>
                         </td>
                         <td class="button-column">
                             <a href="<?= Url::to(['update', 'id' => $tag->id]); ?>"><span class="icon edit"></span></a>

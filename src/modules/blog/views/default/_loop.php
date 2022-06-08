@@ -5,6 +5,7 @@ use app\components\DateFormatter;
 use app\modules\blog\models\Post;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 /** @var DataProvider<Post> $dataProvider */
@@ -16,7 +17,7 @@ use yii\widgets\LinkPager;
             <?php
             $links = [];
             foreach ($post->tags as $tag) {
-                $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
+                $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
             }
             ?>
             <div class="entry list">

@@ -2,6 +2,7 @@
 
 use app\modules\blog\models\Tag;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * @var Tag[] $tags
@@ -18,7 +19,7 @@ use yii\helpers\Html;
             $size = 16;
         }
         ?>
-        <a href="<?= Html::encode($tag->getUrl()); ?>" style="font-size: <?= $size; ?>pt"><?= Html::encode($tag->title); ?></a>
+        <a href="<?= Url::to(['/blog/default/tag', 'tag' => $tag->title]); ?>" style="font-size: <?= $size; ?>pt"><?= Html::encode($tag->title); ?></a>
     <?php endforeach; ?>
 </div>
 

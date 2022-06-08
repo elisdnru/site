@@ -13,6 +13,7 @@ use app\modules\blog\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
@@ -47,7 +48,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <?php
         $links = [];
         foreach ($post->tags as $tag) {
-            $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
+            $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
         }
         ?>
         <div class="entry list">

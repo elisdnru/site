@@ -7,7 +7,6 @@ namespace app\modules\blog\models;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 
 /**
  * @property int $id
@@ -16,8 +15,6 @@ use yii\helpers\Url;
  */
 final class Tag extends ActiveRecord
 {
-    private ?string $cachedUrl = null;
-
     public static function tableName(): string
     {
         return 'blog_tags';
@@ -71,14 +68,5 @@ final class Tag extends ActiveRecord
             $tag->save();
         }
         return $tag;
-    }
-
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/blog/default/tag', 'tag' => $this->title]);
-        }
-
-        return $this->cachedUrl;
     }
 }

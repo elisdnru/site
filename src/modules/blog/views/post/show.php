@@ -18,6 +18,7 @@ use app\widgets\Share;
 use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\Request;
 use yii\web\View;
 
@@ -130,7 +131,7 @@ HighlightAsset::register($this);
     <?php
     $links = [];
     foreach ($model->tags as $tag) {
-        $links[] = '<a href="' . Html::encode($tag->getUrl()) . '">' . Html::encode($tag->title) . '</a>';
+        $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
     }
     ?>
     <p class="entry-date">
