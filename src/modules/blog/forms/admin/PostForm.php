@@ -71,11 +71,12 @@ final class PostForm extends Model
             ['group_id', 'exist', 'targetClass' => Group::class, 'targetAttribute' => 'id'],
             [['public', 'image_show', 'promoted'], 'integer'],
             ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['styles', 'short', 'text', 'meta_description', 'delImage'], 'safe'],
+            [['styles', 'short', 'text', 'meta_description', 'del_image'], 'safe'],
             [['title', 'slug', 'new_group', 'image_alt', 'meta_title'], 'string', 'max' => '255'],
             ['tags', 'string'],
             ['slug', SlugValidator::class],
             ['slug', 'unique', 'targetClass' => Post::class, 'filter' => ['!=', 'id', $this->id]],
+            ['image', 'image']
         ];
     }
 
@@ -92,7 +93,7 @@ final class PostForm extends Model
             'short' => 'Превью',
             'text' => 'Текст',
             'image' => 'Картинка для статьи',
-            'delImage' => 'Удалить изображение',
+            'del_image' => 'Удалить изображение',
             'image_alt' => 'Описание изображения',
             'image_show' => 'Отображать при открытии новости',
             'group_id' => 'Выберите тематическую группу',

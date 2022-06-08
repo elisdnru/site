@@ -19,7 +19,7 @@ use yii\web\UploadedFile;
  * is created and/or updated.
  * You may specify an active record model to use this behavior like so:
  * <pre>
- * public $delImage; // field for "Delete image" checkbox
+ * public $del_image; // field for "Delete image" checkbox
  *
  * public function behaviors(): array
  * {
@@ -28,7 +28,7 @@ use yii\web\UploadedFile;
  *             'class'=> FileUploadBehavior::class,
  *             'fileAttribute' => 'image',
  *             'storageAttribute' => 'image',
- *             'deleteAttribute' => 'delImage',
+ *             'deleteAttribute' => 'del_image',
  *             'fileTypes' => ['jpg', 'jpeg', 'gif', 'png'],
  *             'filePath' => 'upload/images',
  *         ]
