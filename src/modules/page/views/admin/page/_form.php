@@ -9,7 +9,6 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var View $this
- * @var Page|null $page
  * @var PageForm $model
  * @var ActiveForm $form
  */

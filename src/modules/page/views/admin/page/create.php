@@ -18,4 +18,4 @@ $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['index']];
 
 <h1>Добавление страницы</h1>
 
-<?= $this->render('_form', ['model' => $model, 'page' => null]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>

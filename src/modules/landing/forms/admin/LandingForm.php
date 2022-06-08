@@ -16,6 +16,8 @@ final class LandingForm extends Model
     public string|int|null $parent_id = null;
     public string $system = '';
 
+    private ?Landing $landing = null;
+
     public function __construct(?Landing $landing = null, array $config = [])
     {
         parent::__construct($config);
@@ -26,6 +28,8 @@ final class LandingForm extends Model
             $this->text = $landing->text;
             $this->parent_id = $landing->parent_id;
             $this->system = (string)$landing->system;
+
+            $this->landing = $landing;
         }
     }
 
@@ -50,5 +54,12 @@ final class LandingForm extends Model
             'text' => 'Текст',
             'parent_id' => 'Родительский лендинг',
         ];
+    }
+
+    public function getAvailableParentList(): array
+    {
+        return $this->landing && $this->landing->parent_id
+            ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($this->landing->id))
+            : Landing::find()->getTabList();
     }
 }

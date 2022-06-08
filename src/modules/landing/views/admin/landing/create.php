@@ -21,5 +21,5 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
 
 <h1>Добавление лендинга</h1>
 
-<?= $this->render('_form', ['model' => $model, 'landing' => null]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>
 

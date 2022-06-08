@@ -21,4 +21,4 @@ $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $page->getUr
 
 <h1>Редактирование страницы</h1>
 
-<?= $this->render('_form', ['model' => $model, 'page' => $page]); ?>
+<?= $this->render('_form', ['model' => $model]); ?>

@@ -2,13 +2,11 @@
 
 use app\components\Csrf;
 use app\modules\landing\forms\admin\LandingForm;
-use app\modules\landing\models\Landing;
 use yii\helpers\Html;
 use yii\web\View;
 
 /**
  * @var View $this
- * @var Landing|null $landing
  * @var LandingForm $model
  */
 ?>
@@ -42,7 +40,7 @@ use yii\web\View;
             <hr />
             <div class="row<?= $model->hasErrors('parent_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'parent_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'parent_id', $landing && $landing->parent_id ? array_diff_key(Landing::find()->getTabList(), Landing::find()->getAssocList($landing->id)) : Landing::find()->getTabList(), ['prompt' => '']); ?><br />
+                <?= Html::activeDropDownList($model, 'parent_id', $model->getAvailableParentList(), ['prompt' => '']); ?><br />
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
         </fieldset>
