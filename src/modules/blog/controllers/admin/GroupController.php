@@ -13,66 +13,65 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
-/**
- * @method renderTableForm($params)
- */
 final class GroupController extends AdminController
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(): string
     {
-        /** @psalm-var Group[] $items */
-        $items = Group::find()->orderBy(['title' => SORT_ASC])->all();
+        $groups = Group::find()->orderBy(['title' => SORT_ASC])->all();
 
-        /** @var array[] $post */
-        if ($post = (array)$request->post('Group')) {
-            $valid = true;
+        return $this->render('index', [
+            'groups' => $groups,
+        ]);
+    }
 
-            foreach ($items as $item) {
-                if (isset($post[$item->id])) {
-                    $item->attributes = $post[$item->id];
-                }
-                $valid = $item->validate() && $valid;
-            }
+    public function actionCreate(Request $request): Response|string
+    {
+        $model = new GroupForm();
 
-            if ($valid) {
-                foreach ($items as $item) {
-                    if (isset($post[$item->id])) {
-                        $item->attributes = $post[$item->id];
-                        $item->save();
-                    }
-                }
-
-                $items = Group::find()->orderBy(['title' => SORT_ASC])->all();
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $group = new Group();
+            $group->title = $model->title;
+            if ($group->save()) {
+                return $this->redirect(['index']);
             }
         }
 
-        $form = new GroupForm();
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 
-        if ($form->load((array)$request->post()) && $form->validate()) {
-            $model = new Group();
-            $model->attributes = $form->attributes;
+    public function actionUpdate(int $id, Request $request): Response|string
+    {
+        $group = $this->loadModel($id);
+        $model = new GroupForm($group);
 
-            if ($model->save()) {
-                $this->refresh();
+        if ($model->load((array)$request->post()) && $model->validate()) {
+            $group->title = $model->title;
+            if ($group->save()) {
+                return $this->redirect(['index']);
             }
         }
 
-        return $this->render('index', ['itemForm' => $form, 'items' => $items]);
+        return $this->render('update', [
+            'group' => $group,
+            'model' => $model,
+        ]);
     }
 
     public function actionDelete(int $id, Request $request): ?Response
     {
-        $model = $this->loadModel($id);
+        $group = $this->loadModel($id);
 
-        $count = Post::find()->andWhere(['group_id' => $model->id])->count();
+        $count = Post::find()->andWhere(['group_id' => $group->id])->count();
 
         if ($count) {
             throw new BadRequestHttpException(
-                'В данной группе есть новости. Удалите их или переместите в другие группы.'
+                'В данной группе есть записи. Удалите их или переместите в другие категории.'
             );
         }
 
-        $model->delete();
+        $group->delete();
 
         if (!$request->getIsAjax()) {
             return $this->redirect(['index']);
@@ -83,6 +82,7 @@ final class GroupController extends AdminController
     private function loadModel(int $id): Group
     {
         $model = Group::findOne($id);
+
         if ($model === null) {
             throw new NotFoundHttpException();
         }
