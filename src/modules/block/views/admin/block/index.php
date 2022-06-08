@@ -1,17 +1,13 @@
 <?php declare(strict_types=1);
 
-use app\components\DataProvider;
-use app\modules\block\forms\admin\BlockSearch;
 use app\modules\block\models\Block;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
-use yii\widgets\LinkPager;
 
 /**
  * @var View $this
- * @var DataProvider<Block> $dataProvider
- * @var BlockSearch $model
+ * @var Block[] $blocks
  */
 $this->title = 'Блоки';
 $this->params['breadcrumbs'] = [
@@ -25,27 +21,19 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
 <h1>HTML-Блоки</h1>
 
 <div class="grid-view">
-    <div class="summary"><?= $dataProvider->getCount(); ?> из <?= $dataProvider->getTotalCount(); ?></div>
     <form action="?" method="get">
         <table class="items">
             <thead>
                 <tr>
-                    <th><?= $dataProvider->getSort()->link('title', ['class' => 'sort-link', 'label' => 'Наименование']); ?></th>
-                    <th><?= $dataProvider->getSort()->link('slug', ['class' => 'sort-link', 'label' => 'Код для вставки']); ?></th>
+                    <th>Наименование</th>
+                    <th>Код для вставки</th>
                     <th></th>
                     <th></th>
                     <th></th>
-                </tr>
-                <tr class="filters">
-                    <td><?= Html::activeTextInput($model, 'title'); ?></td>
-                    <td><?= Html::activeTextInput($model, 'slug'); ?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getItems() as $block) : ?>
+                <?php foreach ($blocks as $block) : ?>
                     <tr id="item-<?= $block->id; ?>">
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]); ?>"><?= Html::encode($block->title); ?></a>
@@ -61,5 +49,3 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
         <button type="submit" style="visibility: hidden"></button>
     </form>
 </div>
-
-<?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]); ?>

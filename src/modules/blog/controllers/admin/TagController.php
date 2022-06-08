@@ -6,7 +6,6 @@ namespace app\modules\blog\controllers\admin;
 
 use app\components\AdminController;
 use app\modules\blog\forms\admin\TagForm;
-use app\modules\blog\forms\admin\TagSearch;
 use app\modules\blog\models\Tag;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -14,14 +13,12 @@ use yii\web\Response;
 
 final class TagController extends AdminController
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(): string
     {
-        $model = new TagSearch();
-        $dataProvider = $model->search($request->queryParams);
+        $tags = Tag::find()->orderBy(['title' => SORT_ASC])->all();
 
         return $this->render('index', [
-            'model' => $model,
-            'dataProvider' => $dataProvider,
+            'tags' => $tags,
         ]);
     }
 

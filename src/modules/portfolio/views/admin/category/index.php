@@ -25,7 +25,6 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
 <h1>Категории работ</h1>
 
 <div class="grid-view">
-    <div class="summary"><?= $dataProvider->getCount(); ?> из <?= $dataProvider->getTotalCount(); ?></div>
     <form action="?" method="get">
         <table class="items">
             <thead>
@@ -35,13 +34,6 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
                     <th><?= $dataProvider->getSort()->link('slug', ['class' => 'sort-link', 'label' => 'Псевдоним']); ?></th>
                     <th></th>
                     <th></th>
-                </tr>
-                <tr class="filters">
-                    <td><?= Html::activeTextInput($model, 'sort'); ?></td>
-                    <td><?= Html::activeTextInput($model, 'title'); ?></td>
-                    <td><?= Html::activeTextInput($model, 'slug'); ?></td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </thead>
             <tbody>

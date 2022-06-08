@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace app\modules\page\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\page\forms\admin\PageSearch;
+use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\page\models\Page;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -13,13 +14,18 @@ use yii\web\Response;
 
 final class PageController extends AdminController
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(): string
     {
-        $model = new PageSearch();
-        $dataProvider = $model->search($request->queryParams);
+        $dataProvider = new DataProvider(new TreeActiveDataProvider([
+            'childrenRelation' => 'children',
+            'query' => Page::find(),
+            'sort' => [
+                'defaultOrder' => ['title' => SORT_ASC],
+            ],
+            'pagination' => false,
+        ]));
 
         return $this->render('index', [
-            'model' => $model,
             'dataProvider' => $dataProvider,
         ]);
     }

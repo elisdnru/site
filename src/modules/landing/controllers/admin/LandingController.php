@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace app\modules\landing\controllers\admin;
 
 use app\components\AdminController;
+use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\landing\forms\admin\LandingForm;
-use app\modules\landing\forms\admin\LandingSearch;
 use app\modules\landing\models\Landing;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -14,13 +15,18 @@ use yii\web\Response;
 
 final class LandingController extends AdminController
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(): string
     {
-        $model = new LandingSearch();
-        $dataProvider = $model->search($request->queryParams);
+        $dataProvider = new DataProvider(new TreeActiveDataProvider([
+            'childrenRelation' => 'children',
+            'query' => Landing::find(),
+            'sort' => [
+                'defaultOrder' => ['title' => SORT_ASC],
+            ],
+            'pagination' => false,
+        ]));
 
         return $this->render('index', [
-            'model' => $model,
             'dataProvider' => $dataProvider,
         ]);
     }

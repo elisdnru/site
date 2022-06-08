@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace app\modules\portfolio\controllers\admin;
 
 use app\components\AdminController;
-use app\modules\portfolio\forms\admin\CategorySearch;
+use app\components\category\TreeActiveDataProvider;
+use app\components\DataProvider;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
@@ -33,13 +34,18 @@ final class CategoryController extends AdminController
         ]);
     }
 
-    public function actionIndex(Request $request): string
+    public function actionIndex(): string
     {
-        $model = new CategorySearch();
-        $dataProvider = $model->search($request->queryParams);
+        $dataProvider = new DataProvider(new TreeActiveDataProvider([
+            'childrenRelation' => 'children',
+            'query' => Category::find(),
+            'sort' => [
+                'defaultOrder' => ['sort' => SORT_ASC, 'title' => SORT_ASC],
+            ],
+            'pagination' => false,
+        ]));
 
         return $this->render('index', [
-            'model' => $model,
             'dataProvider' => $dataProvider,
         ]);
     }

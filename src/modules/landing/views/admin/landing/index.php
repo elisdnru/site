@@ -9,7 +9,6 @@ use yii\widgets\LinkPager;
 
 /**
  * @var View $this
- * @var Landing $model
  * @var DataProvider<Landing> $dataProvider
  */
 $this->title = 'Лендинги';
@@ -30,7 +29,6 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
 <h1>Лендинги</h1>
 
 <div class="grid-view">
-    <div class="summary"><?= $dataProvider->getCount(); ?> из <?= $dataProvider->getTotalCount(); ?></div>
     <form action="?" method="get">
         <table class="items">
             <thead>
@@ -40,13 +38,6 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
                     <th></th>
                     <th></th>
                     <th></th>
-                </tr>
-                <tr class="filters">
-                    <td><?= Html::activeTextInput($model, 'title'); ?></td>
-                    <td><?= Html::activeTextInput($model, 'slug'); ?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </thead>
             <tbody>

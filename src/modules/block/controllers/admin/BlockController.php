@@ -6,7 +6,6 @@ namespace app\modules\block\controllers\admin;
 
 use app\components\AdminController;
 use app\modules\block\forms\admin\BlockForm;
-use app\modules\block\forms\admin\BlockSearch;
 use app\modules\block\models\Block;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -14,13 +13,12 @@ use yii\web\Response;
 
 final class BlockController extends AdminController
 {
-    public function actionIndex(Request $request): string
+    public function actionIndex(): string
     {
-        $model = new BlockSearch();
-        $dataProvider = $model->search($request->queryParams);
+        $blocks = Block::find()->orderBy(['title' => SORT_ASC])->all();
+
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'model' => $model,
+            'blocks' => $blocks,
         ]);
     }
 
