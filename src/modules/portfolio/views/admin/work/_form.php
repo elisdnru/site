@@ -1,16 +1,15 @@
 <?php declare(strict_types=1);
 
 use app\components\Csrf;
-use app\modules\portfolio\models\Category;
+use app\modules\portfolio\forms\admin\WorkForm;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Html;
 use yii\web\View;
-use yii\widgets\ActiveForm;
 
 /**
  * @var View $this
- * @var Work $model
- * @var ActiveForm $form
+ * @var Work|null $work
+ * @var WorkForm $model
  */
 ?>
 
@@ -42,7 +41,7 @@ use yii\widgets\ActiveForm;
 
             <div class="row<?= $model->hasErrors('category_id') ? ' error' : ''; ?>">
                 <?= Html::activeLabel($model, 'category_id'); ?><br />
-                <?= Html::activeDropDownList($model, 'category_id', Category::find()->getTabList()); ?><br />
+                <?= Html::activeDropDownList($model, 'category_id', $model->getAvailableCategoryList()); ?><br />
                 <?= Html::error($model, 'category_id', ['class' => 'error-message']); ?>
             </div>
 
@@ -66,12 +65,12 @@ use yii\widgets\ActiveForm;
         <fieldset>
             <h4>Изображение</h4>
 
-            <?php if ($model->image) : ?>
+            <?php if ($work && $work->image) : ?>
                 <div class="image">
-                    <a target="_blank" href="<?= $model->getImageUrl(); ?>"><img src="<?= $model->getImageThumbUrl(250, 0); ?>" alt=""></a>
+                    <a target="_blank" href="<?= $work->getImageUrl(); ?>"><img src="<?= $work->getImageThumbUrl(250, 0); ?>" alt=""></a>
                 </div>
                 <div class="row">
-                    <?= Html::activeCheckbox($model, 'delImage'); ?>
+                    <?= Html::activeCheckbox($model, 'del_image'); ?>
                 </div>
             <?php endif; ?>
 

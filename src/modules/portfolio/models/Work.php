@@ -8,21 +8,22 @@ use app\components\uploader\FileUploadBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 /**
  * @property int $id
  * @property int $sort
  * @property string $date
- * @property string $category_id
+ * @property int $category_id
  * @property string $slug
  * @property string $title
  * @property string $meta_title
  * @property string $meta_description
  * @property string $short
  * @property string $text
- * @property string $image
- * @property int $image_show
- * @property int $public
+ * @property string|UploadedFile|null $image
+ * @property bool $image_show
+ * @property bool $public
  *
  * @property Category $category
  *
@@ -30,7 +31,7 @@ use yii\helpers\Url;
  */
 final class Work extends ActiveRecord
 {
-    public string|bool $delImage = false;
+    public string|bool $del_image = false;
 
     private ?string $cachedUrl = null;
 
@@ -44,43 +45,9 @@ final class Work extends ActiveRecord
         return new WorkQuery(self::class);
     }
 
-    public function rules(): array
-    {
-        return [
-            [['date', 'category_id', 'slug', 'title'], 'required'],
-            [['sort', 'public', 'image_show'], 'integer'],
-            ['category_id', 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
-            [['short', 'text', 'meta_description', 'delImage'], 'safe'],
-            ['date', 'date', 'format' => 'php:Y-m-d H:i:s'],
-            [['title', 'slug', 'meta_title'], 'string', 'max' => '255'],
-            ['slug', 'match', 'pattern' => '#^\w[a-zA-Z0-9_-]+$#s'],
-            ['slug', 'unique'],
-        ];
-    }
-
     public function getCategory(): ActiveQuery
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
-    }
-
-    public function attributeLabels(): array
-    {
-        return [
-            'id' => 'ID',
-            'sort' => 'Порядок',
-            'date' => 'Дата',
-            'category_id' => 'Раздел',
-            'title' => 'Заголовок',
-            'slug' => 'URL транслитом',
-            'meta_title' => 'Заголовок страницы',
-            'meta_description' => 'Описание',
-            'short' => 'Превью',
-            'text' => 'Текст',
-            'image' => 'Картинка для статьи',
-            'delImage' => 'Удалить изображение',
-            'image_show' => 'Отображать при открытии',
-            'public' => 'Опубликовано',
-        ];
     }
 
     public function behaviors(): array
@@ -90,18 +57,10 @@ final class Work extends ActiveRecord
                 'class' => FileUploadBehavior::class,
                 'fileAttribute' => 'image',
                 'storageAttribute' => 'image',
-                'deleteAttribute' => 'delImage',
+                'deleteAttribute' => 'del_image',
                 'filePath' => 'upload/images/portfolio',
             ],
         ];
-    }
-
-    public function afterSave($insert, $changedAttributes): void
-    {
-        if (!$this->sort) {
-            $this->updateAttributes(['sort' => $this->sort = $this->id]);
-        }
-        parent::afterSave($insert, $changedAttributes);
     }
 
     public function getAssocList(bool $onlyPublic = false): array
@@ -116,12 +75,6 @@ final class Work extends ActiveRecord
             ->orderBy(['date' => SORT_DESC])
             ->select(['title', 'id'])
             ->indexBy('id')->column();
-    }
-
-    public static function findBySlug(string $slug): ?self
-    {
-        /** @var self */
-        return self::find()->andWhere(['slug' => $slug])->one();
     }
 
     public function getUrl(): string

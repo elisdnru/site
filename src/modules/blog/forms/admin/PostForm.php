@@ -76,7 +76,7 @@ final class PostForm extends Model
             ['tags', 'string'],
             ['slug', SlugValidator::class],
             ['slug', 'unique', 'targetClass' => Post::class, 'filter' => ['!=', 'id', $this->id]],
-            ['image', 'image']
+            ['image', 'image'],
         ];
     }
 

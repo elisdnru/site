@@ -19,4 +19,4 @@ $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfol
 
 <h1>Добавление работы</h1>
 
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model, 'work' => null]); ?>
