@@ -58,15 +58,4 @@ final class Tag extends ActiveRecord
         /** @var array<int, string> */
         return ArrayHelper::map(self::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title');
     }
-
-    public static function findOrCreateByTitle(string $title): self
-    {
-        $tag = self::findOne(['title' => $title]);
-        if (!$tag) {
-            $tag = new self();
-            $tag->title = $title;
-            $tag->save();
-        }
-        return $tag;
-    }
 }

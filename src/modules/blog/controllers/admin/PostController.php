@@ -133,7 +133,15 @@ final class PostController extends AdminController
 
         $post->assignTags(
             array_map(
-                static fn (string $name): Tag => Tag::findOrCreateByTitle($name),
+                static function (string $title): Tag {
+                    $tag = Tag::findOne(['title' => $title]);
+                    if (!$tag) {
+                        $tag = new Tag();
+                        $tag->title = $title;
+                        $tag->save();
+                    }
+                    return $tag;
+                },
                 $model->getTagsArray()
             )
         );
