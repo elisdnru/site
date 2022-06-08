@@ -46,8 +46,6 @@ final class Post extends ActiveRecord implements Material
 {
     public bool|null $del_image = null;
 
-    private ?string $cachedUrl = null;
-
     public static function tableName(): string
     {
         return 'blog_posts';
@@ -144,14 +142,6 @@ final class Post extends ActiveRecord implements Material
         return false;
     }
 
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/blog/post/show', 'id' => $this->getPrimaryKey(), 'slug' => $this->slug]);
-        }
-        return $this->cachedUrl;
-    }
-
     public function getCommentTitle(): string
     {
         return $this->title;
@@ -159,6 +149,6 @@ final class Post extends ActiveRecord implements Material
 
     public function getCommentUrl(): string
     {
-        return $this->getUrl();
+        return Url::to(['/blog/post/show', 'id' => $this->id, 'slug' => $this->slug]);
     }
 }

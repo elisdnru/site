@@ -7,7 +7,6 @@ namespace app\modules\portfolio\models;
 use app\components\uploader\FileUploadBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\helpers\Url;
 use yii\web\UploadedFile;
 
 /**
@@ -32,8 +31,6 @@ use yii\web\UploadedFile;
 final class Work extends ActiveRecord
 {
     public string|bool $del_image = false;
-
-    private ?string $cachedUrl = null;
 
     public static function tableName(): string
     {
@@ -75,18 +72,5 @@ final class Work extends ActiveRecord
             ->orderBy(['date' => SORT_DESC])
             ->select(['title', 'id'])
             ->indexBy('id')->column();
-    }
-
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to([
-                '/portfolio/work/show',
-                'category' => $this->category->getPath(),
-                'id' => $this->getPrimaryKey(),
-                'slug' => $this->slug,
-            ]);
-        }
-        return $this->cachedUrl;
     }
 }

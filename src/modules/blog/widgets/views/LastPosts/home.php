@@ -16,11 +16,12 @@ use yii\helpers\Url;
     foreach ($post->tags as $tag) {
         $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
     }
+    $url = Url::to(['/blog/post/show', 'id' => $post->id, 'slug' => $post->slug]);
     ?>
 
     <div class="entry list">
         <div class="header">
-            <div class="title"><a href="<?= $post->getUrl(); ?>"><?= Html::encode($post->title); ?></a></div>
+            <div class="title"><a href="<?= $url; ?>"><?= Html::encode($post->title); ?></a></div>
             <!--noindex-->
             <div class="info">
                 <div class="date">
@@ -46,7 +47,7 @@ use yii\helpers\Url;
                 ];
                 ?>
                 <div class="thumb">
-                    <a href="<?= $post->getUrl(); ?>">
+                    <a href="<?= $url; ?>">
                         <picture>
                             <source srcset="/images/lazy/blank.webp" data-srcset="<?= $imageUrl; ?>.webp" type="image/webp">
                             <source srcset="/images/lazy/blank.jpg" data-srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">

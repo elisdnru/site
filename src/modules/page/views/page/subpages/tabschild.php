@@ -2,6 +2,7 @@
 
 use app\modules\page\models\Page;
 use yii\caching\TagDependency;
+use yii\helpers\Url;
 use yii\web\View;
 
 /**
@@ -18,7 +19,7 @@ use yii\web\View;
         <div class="subpages">
             <ul>
                 <?php foreach ($page->children as $child) : ?>
-                    <li><a href="<?= $child->getUrl(); ?>"><?= $child->title; ?></a></li>
+                    <li><a href="<?= Url::to(['/page/page/show', 'path' => $child->getPath()]); ?>"><?= $child->title; ?></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>

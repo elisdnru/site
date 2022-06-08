@@ -84,7 +84,7 @@ final class PostController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        return $this->redirect($model->getUrl());
+        return $this->redirect(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug]);
     }
 
     private function loadModel(int $id): Post

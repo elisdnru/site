@@ -18,7 +18,9 @@ final class PostController extends Controller
     {
         $model = $this->loadModel($id, $access);
 
-        if ('/' . $request->getPathInfo() !== $model->getUrl()) {
+        $path = Url::to(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug]);
+
+        if ('/' . $request->getPathInfo() !== $path) {
             return $this->redirect(Url::current(['slug' => $model->slug]), 301);
         }
 

@@ -96,7 +96,7 @@ final class LandingController extends AdminController
     {
         $landing = $this->loadModel($id);
 
-        return $this->redirect($landing->getUrl());
+        return $this->redirect(['/landing/landing/show', 'path' => $landing->getPath()]);
     }
 
     private function loadModel(int $id): Landing

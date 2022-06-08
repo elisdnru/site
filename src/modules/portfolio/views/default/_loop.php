@@ -3,6 +3,7 @@
 use app\components\DataProvider;
 use app\modules\portfolio\models\Work;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
@@ -17,7 +18,14 @@ use yii\widgets\LinkPager;
         <?php foreach ($dataProvider->getItems() as $work) : ?>
             <div class="entry grid">
                 <p class="thumb">
-                    <a href="<?= $work->getUrl(); ?>" style="background-image: url('<?= $work->getImageThumbUrl(198, 0); ?>')"><span><?= Html::encode($work->title); ?></span></a>
+                    <a href="<?= Url::to([
+                        '/portfolio/work/show',
+                        'category' => $work->category->getPath(),
+                        'id' => $work->id,
+                        'slug' => $work->slug,
+                    ]); ?>" style="background-image: url('<?= $work->getImageThumbUrl(198, 0); ?>')">
+                        <span><?= Html::encode($work->title); ?></span>
+                    </a>
                 </p>
             </div>
         <?php endforeach; ?>

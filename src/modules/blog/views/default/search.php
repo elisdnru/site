@@ -50,11 +50,12 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         foreach ($post->tags as $tag) {
             $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
         }
+        $url = Url::to(['/blog/post/show', 'id' => $post->id, 'slug' => $post->slug]);
         ?>
         <div class="entry list">
             <div class="header">
                 <div class="title">
-                    <a href="<?= $post->getUrl(); ?>"><?= TextMarker::markFragment(strip_tags($post->title), $searchForm->q); ?></a>
+                    <a href="<?= $url; ?>"><?= TextMarker::markFragment(strip_tags($post->title), $searchForm->q); ?></a>
                 </div>
                 <!--noindex-->
                 <div class="info">
@@ -79,7 +80,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                     ];
                     ?>
                     <div class="thumb">
-                        <a href="<?= $post->getUrl(); ?>">
+                        <a href="<?= $url; ?>">
                             <picture>
                                 <source srcset="<?= $imageUrl; ?>.webp" type="image/webp">
                                 <source srcset="<?= $imageUrl; ?>" type="<?= FileHelper::getMimeTypeByExtension($imageUrl); ?>">

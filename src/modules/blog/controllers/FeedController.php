@@ -8,6 +8,7 @@ use app\modules\blog\models\Post;
 use DateTimeImmutable;
 use Laminas\Feed\Writer\Feed;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
@@ -35,7 +36,7 @@ final class FeedController extends Controller
         foreach ($posts as $model) {
             $item = $feed->createEntry();
 
-            $link = $host . $model->getUrl();
+            $link = $host . Url::to(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug]);
             $image = $host . $model->getImageThumbUrl(250, 0);
 
             $item->setTitle($model->title);

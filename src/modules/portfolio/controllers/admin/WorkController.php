@@ -123,7 +123,12 @@ final class WorkController extends AdminController
     {
         $work = $this->loadModel($id);
 
-        return $this->redirect($work->getUrl());
+        return $this->redirect([
+            '/portfolio/work/show',
+            'category' => $work->category->getPath(),
+            'id' => $work->id,
+            'slug' => $work->slug,
+        ]);
     }
 
     private function loadModel(int $id): Work

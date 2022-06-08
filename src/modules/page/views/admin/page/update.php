@@ -16,7 +16,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['index']];
-$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $page->getUrl()];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['/page/page/show', 'path' => $page->getPath()]];
 ?>
 
 <h1>Редактирование страницы</h1>

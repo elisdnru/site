@@ -15,7 +15,12 @@ $this->params['breadcrumbs'] = [
     'Редактор',
 ];
 
-$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $work->getUrl()];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => [
+    '/portfolio/work/show',
+    'category' => $work->category->getPath(),
+    'id' => $work->id,
+    'slug' => $work->slug,
+]];
 $this->params['admin'][] = ['label' => 'Работы', 'url' => ['index']];
 $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
 ?>

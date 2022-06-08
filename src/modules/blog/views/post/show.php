@@ -43,7 +43,7 @@ $host = $request->getHostInfo() ?: '';
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
 $this->registerMetaTag(['property' => 'og:meta_description', 'content' => $model->meta_description]);
-$this->registerMetaTag(['property' => 'og:url', 'content' => $host . $model->getUrl()]);
+$this->registerMetaTag(['property' => 'og:url', 'content' => $host . Url::to(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug])]);
 
 if ($model->image) {
     $this->registerMetaTag(['property' => 'og:image', 'content' => $host . $model->getImageUrl()]);
@@ -176,5 +176,5 @@ HighlightAsset::register($this);
     'material_id' => $model->id,
     'authorId' => $model->author_id,
     'type' => Comment::TYPE_OF_COMMENT,
-    'url' => $model->getUrl(),
+    'url' => Url::to(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug]),
 ]); ?>

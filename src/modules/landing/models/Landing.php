@@ -7,7 +7,6 @@ namespace app\modules\landing\models;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\helpers\Url;
 
 /**
  * @property int $id
@@ -24,8 +23,6 @@ use yii\helpers\Url;
 final class Landing extends ActiveRecord
 {
     public int $indent = 0;
-
-    private ?string $cachedUrl = null;
 
     public static function tableName(): string
     {
@@ -72,14 +69,6 @@ final class Landing extends ActiveRecord
                 'parentRelation' => 'parent',
             ],
         ];
-    }
-
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/landing/landing/show', 'path' => $this->getPath()]);
-        }
-        return $this->cachedUrl;
     }
 
     public function beforeDelete(): bool

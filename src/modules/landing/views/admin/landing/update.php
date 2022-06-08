@@ -16,7 +16,7 @@ $this->params['breadcrumbs'] = [
 ];
 
 $this->params['admin'][] = ['label' => 'Лендинги', 'url' => ['index']];
-$this->params['admin'][] = ['label' => 'Просмотр', 'url' => $landing->getUrl()];
+$this->params['admin'][] = ['label' => 'Просмотр', 'url' => ['/landing/landing/show', 'path' => $landing->getPath()]];
 if (Yii::$app->moduleAdminAccess->isGranted('page')) {
     $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
 }

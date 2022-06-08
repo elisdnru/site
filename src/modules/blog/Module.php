@@ -103,7 +103,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
 
             new Group('Записи в блоге', array_map(static function (Post $post): Item {
                 return new Item(
-                    $post->getUrl(),
+                    Url::to(['/blog/post/show', 'id' => $post->id, 'slug' => $post->slug]),
                     $post->title,
                     new Xml(Xml::WEEKLY, 0.5, null),
                     []

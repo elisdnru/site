@@ -80,7 +80,12 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
             ]),
             new Group('Портфолио', array_map(static function (Work $work): Item {
                 return new Item(
-                    $work->getUrl(),
+                    Url::to([
+                        '/portfolio/work/show',
+                        'category' => $work->category->getPath(),
+                        'id' => $work->id,
+                        'slug' => $work->slug,
+                    ]),
                     $work->title,
                     null,
                     []

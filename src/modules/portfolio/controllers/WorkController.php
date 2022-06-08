@@ -18,7 +18,14 @@ final class WorkController extends Controller
     {
         $model = $this->loadModel($id, $access);
 
-        if ('/' . $request->getPathInfo() !== $model->getUrl()) {
+        $path = Url::to([
+            '/portfolio/work/show',
+            'category' => $model->category->getPath(),
+            'id' => $model->id,
+            'slug' => $model->slug,
+        ]);
+
+        if ('/' . $request->getPathInfo() !== $path) {
             return $this->redirect(Url::current([
                 'slug' => $model->slug,
                 'category' => $model->category->getPath(),

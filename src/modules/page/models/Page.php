@@ -7,7 +7,6 @@ namespace app\modules\page\models;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\helpers\Url;
 
 /**
  * @property int $id
@@ -52,8 +51,6 @@ final class Page extends ActiveRecord
 
     public int $indent = 0;
 
-    private ?string $cachedUrl = null;
-
     public static function tableName(): string
     {
         return 'pages';
@@ -97,14 +94,6 @@ final class Page extends ActiveRecord
             self::NOINDEX_FOLLOW => self::NOINDEX_FOLLOW,
             self::NOINDEX_NOFOLLOW => self::NOINDEX_NOFOLLOW,
         ];
-    }
-
-    public function getUrl(): string
-    {
-        if ($this->cachedUrl === null) {
-            $this->cachedUrl = Url::to(['/page/page/show', 'path' => $this->getPath()]);
-        }
-        return $this->cachedUrl;
     }
 
     public function isIndexed(): bool

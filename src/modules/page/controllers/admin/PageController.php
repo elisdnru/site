@@ -85,7 +85,7 @@ final class PageController extends AdminController
     {
         $page = $this->loadModel($id);
 
-        return $this->redirect($page->getUrl());
+        return $this->redirect(['/page/page/show', 'path' => $page->getPath()]);
     }
 
     private function loadModel(int $id): Page

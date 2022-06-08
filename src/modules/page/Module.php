@@ -13,6 +13,7 @@ use app\components\module\sitemap\Xml;
 use app\modules\page\models\Page;
 use yii\base\Module as Base;
 use yii\caching\TagDependency;
+use yii\helpers\Url;
 
 final class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
 {
@@ -91,7 +92,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
         foreach ($pages as $page) {
             if ($page->parent_id === $parent) {
                 $items[] = new Item(
-                    $page->getUrl(),
+                    Url::to(['/page/page/show', 'path' => $page->getPath()]),
                     $page->title,
                     $page->isIndexed() ? new Xml(Xml::WEEKLY, 0.5, null) : null,
                     self::itemRecursive($pages, $page->id)

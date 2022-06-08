@@ -3,6 +3,7 @@
 use app\modules\blog\models\Post;
 use app\widgets\Portlet;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var Post[] $posts */
 ?>
@@ -16,7 +17,7 @@ use yii\helpers\Html;
                 <p class="thumb"><?= Html::img($post->getImageThumbUrl(100, 100)); ?></p>
             <?php endif; ?>
 
-            <div class="title"><a href="<?= $post->getUrl(); ?>"><?= Html::encode($post->title); ?></a></div>
+            <div class="title"><a href="<?= Url::to(['/blog/post/show', 'id' => $post->id, 'slug' => $post->slug]); ?>"><?= Html::encode($post->title); ?></a></div>
             <!--noindex-->
             <div class="short">
                 <p><?= strip_tags($post->short); ?></p>
