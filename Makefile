@@ -62,6 +62,9 @@ site-migrations:
 site-fixtures:
 	docker-compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
 	docker-compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf public/upload/* && cp -rf demo/upload/* public/upload'
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type d -exec chmod 777 {} \;'
+	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type f -exec chmod 666 {} \;'
 
 site-backup-mysql:
 	docker-compose run --rm site-mysql-backup
