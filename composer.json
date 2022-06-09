@@ -11,6 +11,7 @@
         "ext-fileinfo": "^8.1",
         "ext-gd": "^8.1",
         "ext-iconv": "^8.1",
+        "ext-mbstring": "^8.1",
         "ext-posix": "^8.1",
         "ext-xml": "^8.1",
         "codemix/yii2-streamlog": "^1.3",
