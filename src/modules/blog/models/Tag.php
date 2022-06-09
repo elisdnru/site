@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
+use app\components\ForceActiveRecordErrors;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
@@ -15,6 +16,8 @@ use yii\helpers\ArrayHelper;
  */
 final class Tag extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     public static function tableName(): string
     {
         return 'blog_tags';

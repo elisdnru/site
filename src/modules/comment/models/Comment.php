@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\comment\models;
 
+use app\components\ForceActiveRecordErrors;
 use app\components\Gravatar;
 use app\modules\user\models\User;
 use LogicException;
@@ -34,6 +35,8 @@ use yii\web\Session;
  */
 final class Comment extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     private ?string $cachedUrl = null;
 
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
+use app\components\ForceActiveRecordErrors;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
 use app\modules\comment\models\Material;
@@ -45,6 +46,8 @@ use yii\web\UploadedFile;
  */
 final class Post extends ActiveRecord implements Material
 {
+    use ForceActiveRecordErrors;
+
     public bool|null $del_image = null;
 
     public static function tableName(): string

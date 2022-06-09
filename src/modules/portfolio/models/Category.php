@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\portfolio\models;
 
 use app\components\category\models\TreeCategory;
+use app\components\ForceActiveRecordErrors;
 
 /**
  * @property Category $parent
@@ -12,6 +13,8 @@ use app\components\category\models\TreeCategory;
  */
 final class Category extends TreeCategory
 {
+    use ForceActiveRecordErrors;
+
     public string $urlRoute = '/portfolio/default/category';
 
     public static function tableName(): string

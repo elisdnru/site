@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\models;
 
+use app\components\ForceActiveRecordErrors;
 use app\components\Gravatar;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
@@ -36,6 +37,8 @@ use yii\web\UploadedFile;
  */
 final class User extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     public bool $del_avatar = false;
 
     private ?string $cachedAvatarUrl = null;

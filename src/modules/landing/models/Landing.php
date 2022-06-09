@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\landing\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
+use app\components\ForceActiveRecordErrors;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -22,6 +23,8 @@ use yii\db\ActiveRecord;
  */
 final class Landing extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     public int $indent = 0;
 
     public static function tableName(): string

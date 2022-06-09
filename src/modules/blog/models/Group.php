@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\models;
 
 use app\components\category\behaviors\CategoryBehavior;
+use app\components\ForceActiveRecordErrors;
 use yii\db\ActiveRecord;
 
 /**
@@ -15,6 +16,8 @@ use yii\db\ActiveRecord;
  */
 final class Group extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     public static function tableName(): string
     {
         return 'blog_post_groups';

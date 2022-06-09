@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\page\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
+use app\components\ForceActiveRecordErrors;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -30,6 +31,8 @@ use yii\db\ActiveRecord;
  */
 final class Page extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     public const INDEX_FOLLOW = 'index, follow';
     public const INDEX_NOFOLLOW = 'index, nofollow';
     public const NOINDEX_FOLLOW = 'noindex, follow';

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\models;
 
+use app\components\ForceActiveRecordErrors;
 use app\components\uploader\FileUploadBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -30,6 +31,8 @@ use yii\web\UploadedFile;
  */
 final class Work extends ActiveRecord
 {
+    use ForceActiveRecordErrors;
+
     public string|bool $del_image = false;
 
     public static function tableName(): string
