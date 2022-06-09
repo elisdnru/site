@@ -9,21 +9,21 @@ services:
         ports:
             - "80:80"
         networks:
-            - traefik-public
+            - testing_traefik-public
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:ro
         labels:
             - traefik.enable=true
-            - traefik.docker.network=traefik-public
+            - traefik.docker.network=testing_traefik-public
 
     site:
         image: ${REGISTRY}/site:${IMAGE_TAG}
         networks:
-            - traefik-public
+            - testing_traefik-public
             - default
         labels:
             - traefik.enable=true
-            - traefik.docker.network=traefik-public
+            - traefik.docker.network=testing_traefik-public
             - traefik.http.routers.site.rule=Host(`localhost`)
             - traefik.http.routers.site.entrypoints=http
             - traefik.http.services.site.loadbalancer.server.port=80
@@ -147,11 +147,11 @@ services:
     site-mailer:
         image: mailhog/mailhog
         networks:
-            - traefik-public
+            - testing_traefik-public
             - default
         labels:
             - traefik.enable=true
-            - traefik.docker.network=traefik-public
+            - traefik.docker.network=testing_traefik-public
             - traefik.http.routers.site-mailer.rule=Host(`mailer.localhost`)
             - traefik.http.routers.site-mailer.entrypoints=http
             - traefik.http.services.site-mailer.loadbalancer.server.port=80
@@ -159,7 +159,7 @@ services:
     site-wiremock:
         image: rodolpheche/wiremock:latest-alpine
         networks:
-            - traefik-public
+            - testing_traefik-public
             - default
         volumes:
             - ./wiremock:/home/wiremock
@@ -169,7 +169,7 @@ services:
             - '--verbose'
         labels:
             - traefik.enable=true
-            - traefik.docker.network=traefik-public
+            - traefik.docker.network=testing_traefik-public
             - traefik.http.routers.site-wiremock.rule=Host(`wiremock.localhost`)
             - traefik.http.routers.site-wiremock.entrypoints=http
             - traefik.http.services.site-wiremock.loadbalancer.server.port=80
@@ -193,5 +193,5 @@ volumes:
     site-redis:
 
 networks:
-    traefik-public:
-        name: traefik-public
+    testing_traefik-public:
+        name: testing_traefik-public
