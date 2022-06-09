@@ -30,10 +30,9 @@ final class CommentController extends Controller
 
         if ($form->load((array)$request->post()) && $form->validate()) {
             $model->text = $form->text;
-            if ($model->save()) {
-                $session->setFlash('success', 'Ваш комментарий сохранён');
-                return $this->redirect($model->getUrl());
-            }
+            $model->save();
+            $session->setFlash('success', 'Ваш комментарий сохранён');
+            return $this->redirect($model->getUrl());
         }
 
         return $this->render('update', [

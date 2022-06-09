@@ -100,13 +100,14 @@ final class CommentsWidget extends Widget
                 $comment->site = $form->site;
             }
 
-            if ($comment->save()) {
-                $comment->sendNotifications($this->mailer);
-                $this->session->setFlash('success', 'Ваш комментарий добавлен');
-                Yii::$app->controller->redirect($comment->getUrl());
-                Yii::$app->end();
-                return '';
-            }
+            $comment->save();
+            $comment->sendNotifications($this->mailer);
+
+            $this->session->setFlash('success', 'Ваш комментарий добавлен');
+            Yii::$app->controller->redirect($comment->getUrl());
+            Yii::$app->end();
+
+            return '';
         }
 
         /** @psalm-var Comment[] $items */

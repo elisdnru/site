@@ -72,9 +72,8 @@ abstract class CommentAdminController extends AdminController
             $comment->site = $model->site;
             $comment->text = $model->text;
             $comment->parent_id = $model->parent_id ? (int)$model->parent_id : null;
-            if ($comment->save()) {
-                return $this->redirect(['view', 'id' => $comment->id]);
-            }
+            $comment->save();
+            return $this->redirect(['view', 'id' => $comment->id]);
         }
 
         return $this->render('update', [
@@ -114,13 +113,9 @@ abstract class CommentAdminController extends AdminController
 
         if ($comment->children) {
             $comment->public = 0;
-            $success = $comment->save(false);
+            $comment->save();
         } else {
-            $success = $comment->delete();
-        }
-
-        if (!$success) {
-            throw new BadRequestHttpException('Error');
+            $comment->delete();
         }
 
         if (!$request->getIsAjax()) {
@@ -134,10 +129,7 @@ abstract class CommentAdminController extends AdminController
         $comment = $this->loadModel($id);
 
         $comment->moder = $comment->moder ? 0 : 1;
-
-        if (!$comment->save()) {
-            throw new BadRequestHttpException('Error');
-        }
+        $comment->save();
 
         if (!$request->getIsAjax()) {
             return $this->redirect(['index']);

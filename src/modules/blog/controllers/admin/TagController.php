@@ -29,9 +29,8 @@ final class TagController extends AdminController
         if ($model->load((array)$request->post()) && $model->validate()) {
             $tag = new Tag();
             $tag->title = $model->title;
-            if ($tag->save()) {
-                return $this->redirect(['index']);
-            }
+            $tag->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -46,9 +45,8 @@ final class TagController extends AdminController
 
         if ($model->load((array)$request->post()) && $model->validate()) {
             $tag->title = $model->title;
-            if ($tag->save()) {
-                return $this->redirect(['index']);
-            }
+            $tag->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

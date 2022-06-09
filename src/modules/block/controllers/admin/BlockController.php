@@ -30,9 +30,8 @@ final class BlockController extends AdminController
             $block->slug = $model->slug;
             $block->title = $model->title;
             $block->text = $model->text;
-            if ($block->save()) {
-                return $this->redirect(['view', 'id' => $block->id]);
-            }
+            $block->save();
+            return $this->redirect(['view', 'id' => $block->id]);
         }
         return $this->render('create', [
             'model' => $model,
@@ -47,9 +46,8 @@ final class BlockController extends AdminController
             $block->slug = $model->slug;
             $block->title = $model->title;
             $block->text = $model->text;
-            if ($block->save()) {
-                return $this->redirect(['view', 'id' => $block->id]);
-            }
+            $block->save();
+            return $this->redirect(['view', 'id' => $block->id]);
         }
         return $this->render('update', [
             'block' => $block,

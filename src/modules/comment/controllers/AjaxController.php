@@ -7,7 +7,6 @@ namespace app\modules\comment\controllers;
 use app\components\module\admin\AdminAccess;
 use app\modules\comment\models\Comment;
 use yii\filters\VerbFilter;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
@@ -45,13 +44,9 @@ final class AjaxController extends Controller
 
         if ($model->children) {
             $model->public = 0;
-            $success = $model->save(false);
+            $model->save();
         } else {
-            $success = $model->delete();
-        }
-
-        if (!$success) {
-            throw new BadRequestHttpException('Ошибка удаления');
+            $model->delete();
         }
 
         if (!$request->getIsAjax()) {
@@ -74,9 +69,7 @@ final class AjaxController extends Controller
 
         $model->public = $model->public ? 0 : 1;
 
-        if (!$model->save()) {
-            throw new BadRequestHttpException('Ошибка');
-        }
+        $model->save();
 
         if (!$request->getIsAjax()) {
             return $this->redirect($request->getReferrer() ?: '/');
@@ -90,9 +83,7 @@ final class AjaxController extends Controller
 
         $model->toggleLike($session);
 
-        if (!$model->save()) {
-            throw new BadRequestHttpException('Ошибка');
-        }
+        $model->save();
 
         return $model->likes;
     }

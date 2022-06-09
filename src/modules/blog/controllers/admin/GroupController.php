@@ -31,9 +31,8 @@ final class GroupController extends AdminController
         if ($model->load((array)$request->post()) && $model->validate()) {
             $group = new Group();
             $group->title = $model->title;
-            if ($group->save()) {
-                return $this->redirect(['index']);
-            }
+            $group->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -48,9 +47,8 @@ final class GroupController extends AdminController
 
         if ($model->load((array)$request->post()) && $model->validate()) {
             $group->title = $model->title;
-            if ($group->save()) {
-                return $this->redirect(['index']);
-            }
+            $group->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

@@ -42,9 +42,8 @@ final class PageController extends AdminController
         if ($model->load((array)$request->post()) && $model->validate()) {
             $page = new Page();
             $this->fillPage($page, $model);
-            if ($page->save()) {
-                return $this->redirect(['update', 'id' => $page->id]);
-            }
+            $page->save();
+            return $this->redirect(['update', 'id' => $page->id]);
         }
 
         return $this->render('create', [
@@ -59,9 +58,8 @@ final class PageController extends AdminController
 
         if ($model->load((array)$request->post()) && $model->validate()) {
             $this->fillPage($page, $model);
-            if ($page->save()) {
-                return $this->redirect(['update', 'id' => $page->id]);
-            }
+            $page->save();
+            return $this->redirect(['update', 'id' => $page->id]);
         }
 
         return $this->render('update', [

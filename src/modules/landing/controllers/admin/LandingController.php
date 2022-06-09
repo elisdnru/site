@@ -48,9 +48,8 @@ final class LandingController extends AdminController
             $landing->parent_id = $model->parent_id;
             $landing->system = (bool)$model->system;
 
-            if ($landing->save()) {
-                return $this->redirect(['update', 'id' => $landing->id]);
-            }
+            $landing->save();
+            return $this->redirect(['update', 'id' => $landing->id]);
         }
 
         return $this->render('create', [
@@ -70,9 +69,8 @@ final class LandingController extends AdminController
             $landing->parent_id = $model->parent_id ? (int)$model->parent_id : null;
             $landing->system = (bool)$model->system;
 
-            if ($landing->save()) {
-                return $this->redirect(['update', 'id' => $landing->id]);
-            }
+            $landing->save();
+            return $this->redirect(['update', 'id' => $landing->id]);
         }
 
         return $this->render('update', [

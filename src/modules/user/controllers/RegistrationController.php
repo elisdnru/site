@@ -41,16 +41,14 @@ final class RegistrationController extends Controller
             $user->firstname = $model->firstname;
             $user->role = Access::ROLE_USER;
 
-            if ($user->save()) {
-                $user->sendConfirm($mailer);
-                $session->setFlash(
-                    'success',
-                    'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме'
-                );
-                return $this->refresh();
-            }
+            $user->save();
+            $user->sendConfirm($mailer);
+            $session->setFlash(
+                'success',
+                'Подтвердите регистрацию, проследовав по ссылке в отправленном Вам письме'
+            );
 
-            $session->setFlash('error', 'Пользователь не добавлен');
+            return $this->refresh();
         }
 
         return $this->render('request', ['model' => $model]);
@@ -62,14 +60,11 @@ final class RegistrationController extends Controller
 
         if ($user) {
             $user->confirm = '';
-            if ($user->save()) {
-                $session->setFlash('success', 'Регистрация подтверждена');
-                return $this->redirect(['default/login']);
-            }
-            $session->setFlash('error', 'Ошибка');
-        } else {
-            $session->setFlash('error', 'Запись о подтверждении не найдена');
+            $user->save();
+            $session->setFlash('success', 'Регистрация подтверждена');
+            return $this->redirect(['default/login']);
         }
+        $session->setFlash('error', 'Запись о подтверждении не найдена');
 
         return $this->render('confirm');
     }

@@ -49,12 +49,9 @@ final class ProfileController extends Controller
                     $user->avatar = $form->avatar;
                 }
                 $user->del_avatar = (bool)$form->del_avatar;
-                if ($user->save()) {
-                    $session->setFlash('success', 'Профиль сохранён.');
-                    return $this->redirect(['view', 'id' => $user->id]);
-                }
-                $form->addErrors($user->getErrors());
-                $user->refresh();
+                $user->save();
+                $session->setFlash('success', 'Профиль сохранён.');
+                return $this->redirect(['view', 'id' => $user->id]);
             }
         }
 
@@ -72,10 +69,9 @@ final class ProfileController extends Controller
 
         if ($form->load((array)$request->post()) && $form->validate()) {
             $user->password_hash = $user->hashPassword($form->password);
-            if ($user->save(false)) {
-                $session->setFlash('success', 'Пароль сохранён.');
-                return $this->redirect(['view', 'id' => $user->id]);
-            }
+            $user->save();
+            $session->setFlash('success', 'Пароль сохранён.');
+            return $this->redirect(['view', 'id' => $user->id]);
         }
 
         return $this->render('password', [

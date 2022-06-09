@@ -25,14 +25,13 @@ final class RemindController extends Controller
                 $password = mb_substr(md5(microtime()), 0, 10, 'UTF-8');
                 $user->password_hash = $user->hashPassword($password);
 
-                if ($user->save()) {
-                    $user->sendRemind($password, $mailer);
-                    $session->setFlash('success', 'Новые параметры отправлены на Email');
-                    return $this->redirect(['default/login']);
-                }
-            } else {
-                $session->setFlash('error', 'Пользователь не найден');
+                $user->save();
+                $user->sendRemind($password, $mailer);
+                $session->setFlash('success', 'Новые параметры отправлены на Email');
+                return $this->redirect(['default/login']);
             }
+
+            $session->setFlash('error', 'Пользователь не найден');
         }
 
         return $this->render('remind', [

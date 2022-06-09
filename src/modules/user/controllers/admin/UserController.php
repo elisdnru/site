@@ -44,10 +44,8 @@ final class UserController extends AdminController
                     $user->avatar = $form->avatar;
                 }
                 $user->del_avatar = (bool)$form->del_avatar;
-                if ($user->save()) {
-                    return $this->redirect(['view', 'id' => $user->id]);
-                }
-                $form->addErrors($user->getErrors());
+                $user->save();
+                return $this->redirect(['view', 'id' => $user->id]);
             }
         }
         return $this->render('update', [
