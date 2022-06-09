@@ -6,8 +6,6 @@ services:
             --providers.docker=true
             --providers.docker.exposedbydefault=false
             --entrypoints.http.address=:80
-        ports:
-            - "80:80"
         networks:
             - testing_traefik-public
         volumes:
