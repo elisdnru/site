@@ -19,7 +19,7 @@ make init
 
 Open `http://localhost` in your browser.
 
-In the end stop the project:
+After all stop the project:
 
 ```
 make down
@@ -39,7 +39,7 @@ Try to build production images locally:
 make try-build
 ```
 
-Or try to build and test production images in testing environment:
+Or try to build and test production images locally in testing environment:
 
 ```
 make try-testing
