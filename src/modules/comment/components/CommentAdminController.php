@@ -36,10 +36,10 @@ abstract class CommentAdminController extends AdminController
 
     public function actionIndex(int $id = 0): string
     {
-        $query = $this->getModelName()::find();
+        $query = Comment::find();
 
         if ($id && $material = $this->loadMaterialModel($id)) {
-            $query->material($id);
+            $query->type($this->getType())->material($id);
         } else {
             $material = null;
         }
@@ -147,7 +147,7 @@ abstract class CommentAdminController extends AdminController
 
     public function actionModerAll(Request $request): ?Response
     {
-        foreach ($this->getModelName()::find()->unread()->each() as $item) {
+        foreach (Comment::find()->type($this->getType())->unread()->each() as $item) {
             $item->moder = 1;
             $item->save();
         }
@@ -160,7 +160,7 @@ abstract class CommentAdminController extends AdminController
 
     public function loadModel(int $id): Comment
     {
-        $model = $this->getModelName()::findOne($id);
+        $model = Comment::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException();
         }
@@ -173,11 +173,11 @@ abstract class CommentAdminController extends AdminController
     }
 
     /**
-     * @return Comment|string
-     * @psalm-return class-string<Comment>
+     * @return ActiveRecord|string
+     * @psalm-return class-string<ActiveRecord>
      */
-    protected function getModelName(): string
+    protected function getType(): ?string
     {
-        return Comment::class;
+        return null;
     }
 }

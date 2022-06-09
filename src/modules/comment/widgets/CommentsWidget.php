@@ -9,7 +9,6 @@ use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
 use BadMethodCallException;
-use ReflectionClass;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\base\Widget;
@@ -81,10 +80,8 @@ final class CommentsWidget extends Widget
                 'site' => $form->site,
             ], $response);
 
-            /** @psalm-var class-string<Comment> $className */
-            $className = (new ReflectionClass($this->type))->getNamespaceName() . '\Comment';
-
-            $comment = new $className();
+            $comment = new Comment();
+            $comment->type = $this->type;
             $comment->material_id = $this->material_id;
             $comment->public = 1;
             $comment->moder = 0;

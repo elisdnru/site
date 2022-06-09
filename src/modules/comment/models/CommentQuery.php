@@ -10,21 +10,6 @@ use yii\db\Connection;
 
 final class CommentQuery extends ActiveQuery
 {
-    public function init(): void
-    {
-        /**
-         * @var Comment $class
-         * @psalm-var class-string<Comment> $class
-         */
-        $class = $this->modelClass;
-
-        if ($class::TYPE_OF_COMMENT) {
-            $this->type((string)$class::TYPE_OF_COMMENT);
-        }
-
-        parent::init();
-    }
-
     public function published(): self
     {
         return $this->andWhere(['public' => 1]);
@@ -35,7 +20,7 @@ final class CommentQuery extends ActiveQuery
         return $this->andWhere(['material_id' => $id]);
     }
 
-    public function type(string $type): self
+    public function type(?string $type): self
     {
         return $this->andWhere(['type' => $type]);
     }

@@ -11,8 +11,8 @@ use app\components\module\sitemap\Group;
 use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
 use app\components\module\sitemap\Xml;
-use app\modules\blog\models\Comment;
 use app\modules\blog\models\Post;
+use app\modules\comment\models\Comment;
 use yii\base\Module as Base;
 use yii\caching\TagDependency;
 use yii\helpers\Url;
@@ -43,7 +43,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
 
     public static function adminNotifications(): array
     {
-        $comments = Comment::find()->unread()->count();
+        $comments = Comment::find()->type(Post::class)->unread()->count();
 
         return [
             [

@@ -6,8 +6,7 @@ namespace app\modules\comment\models;
 
 use app\components\Gravatar;
 use app\modules\user\models\User;
-use ReflectionClass;
-use ReflectionException;
+use LogicException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -33,10 +32,8 @@ use yii\web\Session;
  * @property Comment|null $parent
  * @property Material $material
  */
-class Comment extends ActiveRecord
+final class Comment extends ActiveRecord
 {
-    public const TYPE_OF_COMMENT = null;
-
     private ?string $cachedUrl = null;
 
     /**
@@ -44,7 +41,7 @@ class Comment extends ActiveRecord
      */
     private array $cachedAvatarUrl = [];
 
-    final public function __construct(array $config = [])
+    public function __construct(array $config = [])
     {
         parent::__construct($config);
     }
@@ -52,22 +49,6 @@ class Comment extends ActiveRecord
     public static function tableName(): string
     {
         return 'comments';
-    }
-
-    /**
-     * @param array $row
-     * @throws ReflectionException
-     * @return static
-     */
-    public static function instantiate($row): self
-    {
-        /**
-         * @var self $class
-         * @psalm-var array{type: class-string<static>} $row
-         * @psalm-var class-string<static> $class
-         */
-        $class = (new ReflectionClass($row['type']))->getNamespaceName() . '\Comment';
-        return new $class();
     }
 
     public function getParent(): ActiveQuery
@@ -83,6 +64,11 @@ class Comment extends ActiveRecord
     public function getUser(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    public function getMaterial(): ActiveQuery
+    {
+        return $this->hasOne($this->type, ['id' => 'material_id']);
     }
 
     public function attributeLabels(): array
@@ -121,10 +107,7 @@ class Comment extends ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if (!$this->type) {
-                $this->type = static::TYPE_OF_COMMENT;
-            }
-            if (!$this->type) {
-                return false;
+                throw new LogicException('Unable to save comment without type.');
             }
             return true;
         }

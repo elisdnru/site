@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tests\fixtures\blog;
 
-use app\modules\blog\models\Comment;
+use app\modules\comment\models\Comment;
 use tests\fixtures\user\UserFixture;
 use yii\test\ActiveFixture;
 

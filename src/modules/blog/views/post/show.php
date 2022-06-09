@@ -8,7 +8,6 @@ use app\components\purifier\MarkdownWidget;
 use app\components\purifier\PurifierWidget;
 use app\components\shortcodes\Shortcodes;
 use app\modules\block\widgets\BlockWidget;
-use app\modules\blog\models\Comment;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\OtherPostsWidget;
 use app\modules\blog\widgets\ThemePostsWidget;
@@ -175,6 +174,6 @@ HighlightAsset::register($this);
 <?= CommentsWidget::widget([
     'material_id' => $model->id,
     'authorId' => $model->author_id,
-    'type' => Comment::TYPE_OF_COMMENT,
+    'type' => Post::class,
     'url' => Url::to(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug]),
 ]); ?>

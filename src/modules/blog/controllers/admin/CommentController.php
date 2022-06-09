@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\modules\blog\controllers\admin;
 
-use app\modules\blog\models\Comment;
 use app\modules\blog\models\Post;
 use app\modules\comment\components\CommentAdminController;
 use yii\db\ActiveRecord;
@@ -21,8 +20,8 @@ final class CommentController extends CommentAdminController
         return $model;
     }
 
-    protected function getModelName(): string
+    protected function getType(): ?string
     {
-        return Comment::class;
+        return Post::class;
     }
 }

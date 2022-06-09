@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\models;
 
 use app\components\uploader\FileUploadBehavior;
+use app\modules\comment\models\Comment;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
 use BadMethodCallException;
@@ -104,12 +105,12 @@ final class Post extends ActiveRecord implements Material
 
     public function getCommentsCount(): int
     {
-        return (int)Comment::find()->material($this->id)->published()->count();
+        return (int)Comment::find()->type(self::class)->material($this->id)->published()->count();
     }
 
     public function getCommentsNewCount(): int
     {
-        return (int)Comment::find()->material($this->id)->published()->unread()->count();
+        return (int)Comment::find()->type(self::class)->material($this->id)->published()->unread()->count();
     }
 
     public function behaviors(): array
