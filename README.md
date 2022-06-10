@@ -17,7 +17,7 @@ Run in Linux, MacOS or Windows WSL terminal:
 make init
 ```
 
-Open `http://localhost` in your browser.
+Open `http://localhost` in your browser and log in as `admin@app.test` and `password`.
 
 After all stop the project:
 
