@@ -1,5 +1,6 @@
 /.git
 /.idea
+/demo
 /vendor
 /node_modules
 /.ready
