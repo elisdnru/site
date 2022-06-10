@@ -249,19 +249,19 @@ services:
 
 secrets:
     cookie_secret:
-        file: ./docker/secrets/cookie_secret
+        file: ./secrets/cookie_secret
     db_password:
-        file: ./docker/secrets/db_password
+        file: ./secrets/db_password
     db_root_password:
-        file: ./docker/secrets/db_root_password
+        file: ./secrets/db_root_password
     redis_password:
-        file: ./docker/secrets/redis_password
+        file: ./secrets/redis_password
     mailer_password:
-        file: ./docker/secrets/mailer_password
+        file: ./secrets/mailer_password
     sentry_dsn:
-        file: ./docker/secrets/sentry_dsn
+        file: ./secrets/sentry_dsn
     backup_aws_secret_access_key:
-        file: ./docker/secrets/backup_aws_secret_access_key
+        file: ./secrets/backup_aws_secret_access_key
 
 volumes:
     site-mysql:
