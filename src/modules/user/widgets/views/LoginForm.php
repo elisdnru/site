@@ -15,7 +15,10 @@ use yii\web\Request;
  * @var Request $request
  */
 ?>
-<?php if ($user !== null) : ?>
+<?php
+// TODO: Rollback to alternative syntax after https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/6484
+?>
+<?php if ($user !== null) { ?>
     <div style="float:left;">
         <a href="<?= Url::to(['/user/profile/view']); ?>">
             <img src="<?= $user->getAvatarUrl(); ?>" alt="" width="50">
@@ -40,7 +43,7 @@ use yii\web\Request;
         <div class="clear"></div>
     </div>
 
-<?php else : ?>
+<?php } else { ?>
     <?= Html::beginForm(['/user/default/login']); ?>
     <div class="login-form">
 
@@ -73,4 +76,4 @@ use yii\web\Request;
         <?php endif; ?>
     </div>
 
-<?php endif; ?>
+<?php } ?>

@@ -62,7 +62,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
             $delUrl = Url::to(['delete', 'id' => $item->id]);
 
             $togglePublic = Url::to(['toggle', 'id' => $item->id, 'param' => 'public']);
-        ?>
+            ?>
 
             <tr class="<?= $item->public ? '' : 'disable'; ?>">
                 <td width="50px" style="text-align: center">

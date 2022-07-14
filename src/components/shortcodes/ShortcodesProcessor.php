@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\components\shortcodes;
 
 use yii\caching\CacheInterface;
+
 use function strtr;
 
 final class ShortcodesProcessor

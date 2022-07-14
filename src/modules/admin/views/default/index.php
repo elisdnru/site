@@ -24,14 +24,14 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 
     <?php
     $notifications = [];
-    foreach ($groups as $modules) {
-        foreach ($modules as $module) {
-            foreach (Yii::$app->moduleAdminNotifications->notifications($module->id) as $notification) {
-                $notifications[] = $notification;
-            }
+foreach ($groups as $modules) {
+    foreach ($modules as $module) {
+        foreach (Yii::$app->moduleAdminNotifications->notifications($module->id) as $notification) {
+            $notifications[] = $notification;
         }
     }
-    ?>
+}
+?>
     <fieldset>
         <h2>Уведомления</h2>
         <ul class="adminlist">
@@ -46,7 +46,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
 
     <?php foreach ($groups as $group => $modules) : ?>
         <?php
-        $has = false;
+    $has = false;
         foreach ($modules as $module) {
             if (Yii::$app->moduleAdminMenu->menu($module->id)) {
                 $has = true;

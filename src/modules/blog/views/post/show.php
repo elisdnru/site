@@ -129,10 +129,10 @@ HighlightAsset::register($this);
     <!--noindex-->
     <?php
     $links = [];
-    foreach ($model->tags as $tag) {
-        $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
-    }
-    ?>
+foreach ($model->tags as $tag) {
+    $links[] = '<a href="' . Url::to(['/blog/default/tag', 'tag' => $tag->title]) . '">' . Html::encode($tag->title) . '</a>';
+}
+?>
     <p class="entry-date">
         Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date); ?>">&nbsp;</span>
     </p>
