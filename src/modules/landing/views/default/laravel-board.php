@@ -148,7 +148,7 @@ $this->title = 'Мастер-класс по разработке доски о�
 
         .price-text {
             font: bold 24px 'Roboto Slab', serif;
-            margin: 10px 0 0 0;
+            margin: 10px 0;
         }
 
         .price-text span {
@@ -164,8 +164,8 @@ $this->title = 'Мастер-класс по разработке доски о�
             vertical-align: top;
             color: #FFF;
             padding: 11px 28px 14px;
-            margin: 33px 0 29px 0;
-            font: bold 24px 'Roboto Slab', serif;
+            margin: 10px 0;
+            font: bold 18px 'Roboto Slab', serif;
         }
 
         .price-button a {
@@ -503,20 +503,15 @@ $this->title = 'Мастер-класс по разработке доски о�
         <div class="row">
             <div class="col-sm-8 col-md-offset-2">
                 <div class="price-item">
-                    <p style="margin-bottom: 20px; text-align: center">Выберите удобный для Вас пакет участия</p>
+                    <p style="margin-bottom: 20px; text-align: center">Подключайтесь к нам:</p>
                     <div class="block">
                         <p>Вы получите доступ к записям и дополнительным материалам.</p>
                         <p>Если возникнут проблемы с оплатой, не найдёте подходящего способа, <b style="color: #ba0000">захотите оплатить как юрлицо</b> или есть другой вопрос,<br />то напишите на почту <b><script>document.write('mai' + 'l@eli' + 'sdn.ru');</script></b> или <a target="_blank" style="text-decoration: underline" href="/contacts">в обратную связь</a>.</p>
-                        <p>Принимаются и международные карты. При оплате картой вспомните, не установливали ли Вы в онлайн-банке лимиты на сумму платежа.</p>
                         <p>Если Вы юрлицо, то пришлите свои реквизиты, число участников и их email-ы.</p>
                     </div>
-                    <p>Сразу приобрести полностью</p>
-                    <div class="price-text">все <span>8</span> тем за <span>8800</span> руб:</div>
-                    <div class="price-button"><a href="//products.elisdn.ru/order/laravel-board/" target="_blank">Приобрести записи</a></div>
-                    <p>или внести предоплату</p>
-                    <div class="price-text">первые <span>4</span> темы за <span>4400</span> руб:</div>
-                    <div class="price-button"><a href="//products.elisdn.ru/order/laravel-board-prepay/" target="_blank">Внести предоплату</a></div>
-                    <p style="text-align: center; font-size: 14px">Если у вас есть скидка постоянного участника<br />(пришла на электронную почту, если Вы не отписывались),<br />то введите код купона в открывшуюся форму оплаты.</p>
+                    <div class="price-text"><span>8</span> тем за <span>8800</span> руб:</div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/laravel-board/" target="_blank">Оплатить в России</a></div>
+                    <div class="price-button"><a href="https://knowperfectly.com/ru/course/payment/2046-master-klass-po-razrabotke-sayta-obyavleniy-na-laravel" target="_blank">Оплатить из-за границы</a></div>
                     <p style="text-align: center; font-size: 14px">Если Вас что-то не устроит в ходе участия или Вы просто передумаете,<br />то я верну весь ваш платёж.</p>
                 </div>
             </div>
