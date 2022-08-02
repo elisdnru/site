@@ -512,7 +512,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
                         <a href="https://products.elisdn.ru/order/oop-week-3-a/" target="_blank">Оплатить в России</a>
                     </div>
                     <div class="price-button">
-                        <a href="https://knowperfectly.com/ru/course/2044-intensiv-nedelya-oop" target="_blank">Оплатить из-за границы</a>
+                        <a href="https://knowperfectly.com/ru/course/payment/2044-intensiv-nedelya-oop" target="_blank">Оплатить из-за границы</a>
                     </div>
                 </div>
             </div>
