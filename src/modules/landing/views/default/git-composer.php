@@ -483,11 +483,11 @@ $this->title = 'Git и Composer для начинающих';
     <div class="container">
         <p>
             Принимаем
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/qiwi.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/qiwi.png" />
             и другие...
         </p>
         <p style="font-size: 13px">

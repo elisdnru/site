@@ -484,7 +484,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         <p style="text-align: center">После интенсива провели большой стрим с ответами на дополнительные вопросы по материалу:</p>
     </div>
     <div style="max-width: 1280px; margin: 20px auto 10px auto;">
-        <iframe width="100%" height="720" src="//www.youtube.com/embed/8RdJ3G-OZoc?rel=0" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="720" src="https://www.youtube.com/embed/8RdJ3G-OZoc?rel=0" frameborder="0" allowfullscreen></iframe>
     </div>
 </section>
 
@@ -519,12 +519,12 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         </div>
         <p style="color: #aaa; text-align: center">
             Принимаем
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/alfabank-white.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/sberbank.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/alfabank-white.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/sberbank.png" />
             и другие...
         </p>
     </div>

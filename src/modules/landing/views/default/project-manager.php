@@ -237,11 +237,11 @@ $this->title = 'Мастер-класс по разработке менедже
         <div class="block">
             <p>Если устали читать теорию и хотите применять Symfony Framework на практике, то приходите к нам на полноценный многодневный мастер-класс:<p>
             <div style="max-width: 886px; margin: 20px auto 10px auto;">
-                <iframe width="100%" height="498" src="//www.youtube.com/embed/HZ_HC-hUUpo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="498" src="https://www.youtube.com/embed/HZ_HC-hUUpo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
             </div>
             <p>Все ваши предложения по его проведению мы обсудили в стриме:<p>
             <div style="max-width: 886px; margin: 20px auto 10px auto;">
-                <iframe width="100%" height="498" src="//www.youtube.com/embed/GYUTtMv4alg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="498" src="https://www.youtube.com/embed/GYUTtMv4alg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
             </div>
             <p></p>
         </div>
@@ -359,7 +359,7 @@ $this->title = 'Мастер-класс по разработке менедже
         <p>В мастер-классе мы разработали удобный менеджер проектов, который позволяет вести проекты компании, ставить задачи, назначать исполнителей, управлять ролями сотрудников, следить за выполнением и расписанием. Вы сможете взять код себе и доработать под свои задачи:</p>
     </div>
     <div style="max-width: 1280px; margin: 20px auto 10px auto;">
-        <iframe width="100%" height="720" src="//www.youtube.com/embed/j2hvBhxTSuQ?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="720" src="https://www.youtube.com/embed/j2hvBhxTSuQ?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
     </div>
 </section>
 
@@ -404,12 +404,12 @@ $this->title = 'Мастер-класс по разработке менедже
         </div>
         <p style="color: #aaa; text-align: center">
             Принимаем
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/alfabank-white.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
-            <img alt="" src="//elisdn.justclick.ru/media/content/elisdn/payicons/sberbank.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/alfabank-white.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
+            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/sberbank.png" />
             и другие...
         </p>
     </div>
