@@ -853,16 +853,16 @@
         },
         {
             "name": "laminas/laminas-feed",
-            "version": "2.18.1",
+            "version": "2.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-feed.git",
-                "reference": "f2b852e88996fb9ffeaa862398505ce06afdbcc0"
+                "reference": "a57fdb9df42950d5b7f052509fbdab0d081c6b6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/f2b852e88996fb9ffeaa862398505ce06afdbcc0",
-                "reference": "f2b852e88996fb9ffeaa862398505ce06afdbcc0",
+                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/a57fdb9df42950d5b7f052509fbdab0d081c6b6d",
+                "reference": "a57fdb9df42950d5b7f052509fbdab0d081c6b6d",
                 "shasum": ""
             },
             "require": {
@@ -929,7 +929,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-07-19T09:20:28+00:00"
+            "time": "2022-08-08T17:02:35+00:00"
         },
         {
             "name": "laminas/laminas-servicemanager",
@@ -6167,12 +6167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "83594c26a26f66af6e5322b9011b2e243a5509e8"
+                "reference": "8b99cfd0a6224d0fc7b223603210d48e36a79966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/83594c26a26f66af6e5322b9011b2e243a5509e8",
-                "reference": "83594c26a26f66af6e5322b9011b2e243a5509e8",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/8b99cfd0a6224d0fc7b223603210d48e36a79966",
+                "reference": "8b99cfd0a6224d0fc7b223603210d48e36a79966",
                 "shasum": ""
             },
             "conflict": {
@@ -6290,6 +6290,7 @@
                 "flarum/sticky": ">=0.1-beta.14,<=0.1-beta.15",
                 "flarum/tags": "<=0.1-beta.13",
                 "fluidtypo3/vhs": "<5.1.1",
+                "fof/byobu": ">=0.3-beta.2,<1.1.7",
                 "fof/upload": "<1.2.3",
                 "fooman/tcpdf": "<6.2.22",
                 "forkcms/forkcms": "<5.11.1",
@@ -6674,7 +6675,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-29T23:04:14+00:00"
+            "time": "2022-08-06T06:06:57+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -8740,16 +8741,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "v4.25.0",
+            "version": "4.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "d7cd84c4ebca74ba3419b9601f81d177bcbe2aac"
+                "reference": "6998fabb2bf528b65777bf9941920888d23c03ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/d7cd84c4ebca74ba3419b9601f81d177bcbe2aac",
-                "reference": "d7cd84c4ebca74ba3419b9601f81d177bcbe2aac",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/6998fabb2bf528b65777bf9941920888d23c03ac",
+                "reference": "6998fabb2bf528b65777bf9941920888d23c03ac",
                 "shasum": ""
             },
             "require": {
@@ -8841,9 +8842,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vimeo/psalm/issues",
-                "source": "https://github.com/vimeo/psalm/tree/v4.25.0"
+                "source": "https://github.com/vimeo/psalm/tree/4.26.0"
             },
-            "time": "2022-07-25T17:04:37+00:00"
+            "time": "2022-07-31T13:10:26+00:00"
         },
         {
             "name": "webmozart/path-util",
