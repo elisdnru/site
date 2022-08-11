@@ -153,7 +153,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
 
     .price-text {
         font: bold 24px 'Roboto Slab', serif;
-        margin: 10px 0 20px 0;
+        margin: 10px 0 0 0;
     }
 
     .price-text span {
@@ -169,8 +169,8 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         vertical-align: top;
         color: #FFF;
         padding: 11px 28px 14px;
-        margin: 10px 0;
-        font: bold 18px 'Roboto Slab', serif;
+        margin: 33px 0 29px 0;
+        font: bold 24px 'Roboto Slab', serif;
     }
 
     .price-button a {
@@ -509,10 +509,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
                     </div>
                     <div class="price-text"><span>6</span> дней по <span>5</span> часов за <span>5950</span> руб</div>
                     <div class="price-button">
-                        <a href="https://products.elisdn.ru/order/oop-week-3-a/" target="_blank">Оплатить в России</a>
-                    </div>
-                    <div class="price-button">
-                        <a href="https://knowperfectly.com/ru/course/payment/2044-intensiv-nedelya-oop" target="_blank">Оплатить из-за границы</a>
+                        <a href="https://products.elisdn.ru/order/oop-week-3-a/" target="_blank">Приобрести записи</a>
                     </div>
                 </div>
             </div>

@@ -124,7 +124,7 @@ $this->title = 'Мастер-класс по разработке интерне
             border: 2px solid #eee;
             border-radius: 2px;
             margin: 20px 0 30px 0;
-            padding: 20px 0 30px 0;
+            padding: 20px 0 10px 0;
             text-align: center;
         }
 
@@ -149,7 +149,7 @@ $this->title = 'Мастер-класс по разработке интерне
 
         .price-text {
             font: bold 24px 'Roboto Slab', serif;
-            margin: 10px 0;
+            margin: 10px 0 0 0;
         }
 
         .price-text span {
@@ -165,8 +165,8 @@ $this->title = 'Мастер-класс по разработке интерне
             vertical-align: top;
             color: #FFF;
             padding: 11px 28px 14px;
-            margin: 10px 0;
-            font: bold 18px 'Roboto Slab', serif;
+            margin: 33px 0 29px 0;
+            font: bold 24px 'Roboto Slab', serif;
         }
 
         .price-button a {
@@ -553,9 +553,12 @@ $this->title = 'Мастер-класс по разработке интерне
                         <p>Если возникнут проблемы с оплатой, не найдёте подходящего способа, <b style="color: #ba0000">захотите оплатить как юрлицо</b> или есть другой вопрос,<br />то напишите на почту <b><script>document.write('mai' + 'l@eli' + 'sdn.ru');</script></b> или <a target="_blank" style="text-decoration: underline" href="/contacts">в обратную связь</a>.</p>
                     </div>
                     <p>Приобрести записи:</p>
-                    <div class="price-text"><span>11</span> дней за <span>9950</span> руб:</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/yii2-shop/" target="_blank">Оплатить в России</a></div>
-                    <div class="price-button"><a href="https://knowperfectly.com/ru/course/payment/2045-master-klass-po-razrabotke-magazina-na-yii2" target="_blank">Оплатить из-за границы</a></div>
+                    <div class="price-text">все <span>11</span> дней за <span>9950</span> руб:</div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/yii2-shop/" target="_blank">Приобрести все записи</a></div>
+                    <div class="price-text">пробные <span>5</span> дней за <span>4975</span> руб:</div>
+                    <p style="margin: 0; text-align: center; font-size: 13px; color: #999">Если Вам не понравятся пробные уроки, то я верну платёж</p>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/yii2-shop-prepay/" target="_blank">Приобрести первую половину</a></div>
+                    <p style="text-align: center; font-size: 14px">Если у вас есть скидка, то введите купон в открывшуюся форму оплаты.</p>
                 </div>
             </div>
         </div>

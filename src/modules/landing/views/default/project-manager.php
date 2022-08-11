@@ -164,8 +164,8 @@ $this->title = 'Мастер-класс по разработке менедже
             vertical-align: top;
             color: #FFF;
             padding: 11px 28px 14px;
-            margin: 10px 0;
-            font: bold 18px 'Roboto Slab', serif;
+            margin: 33px 0 29px 0;
+            font: bold 24px 'Roboto Slab', serif;
         }
 
         .price-button a {
@@ -384,21 +384,21 @@ $this->title = 'Мастер-класс по разработке менедже
                     </div>
                     <div class="block">
                         <p>Если возникнут проблемы с оплатой, не найдёте подходящего способа, <b style="color: #ba0000">захотите оплатить как юрлицо</b> или есть другой вопрос,<br />то напишите на почту <b><script>document.write('mai' + 'l@eli' + 'sdn.ru');</script></b> или <a target="_blank" style="text-decoration: underline" href="/contacts">в обратную связь</a>.</p>
+                        <p>Принимаются и международные карты. При оплате картой вспомните, не установливали ли Вы в онлайн-банке лимиты на сумму платежа.</p>
                         <p>Если Вы юрлицо, то пришлите свои реквизиты, число участников и их email-ы. После прихода средств они получат доступы к записям и догонят остальных.</p>
                     </div>
 
                     <p>Приобрести в рассрочку:</p>
                     <div class="price-text"><span>1</span> вводный + <span>4</span> платных урока</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/product-manager-part-1/" target="_blank">Приобрести первую треть в России</a></div>
-                    <br />
-                    <br />
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/product-manager-part-1/" target="_blank">Приобрести первую треть</a></div>
+
                     <p>или приобрести целиком:</p>
                     <div class="price-text"><span>1</span> вводный + <span>14</span> платных уроков</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/product-manager/" target="_blank">Оплатить в России</a></div>
-                    <div class="price-button"><a href="https://knowperfectly.com/ru/course/payment/2048-master-klass-po-razrabotke-menedzhera-proektov" target="_blank">Оплатить из-за границы</a></div>
-                    <br />
-                    <br />
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/product-manager/" target="_blank">Приобрести все записи</a></div>
+
                     <p style="text-align: center; font-size: 14px; margin-bottom: 30px"><a href="/blog/130/enterprise-frameworks" target="_blank" style="text-decoration: underline">Посмотреть запись первого урока</a></p>
+
+                    <p style="text-align: center; font-size: 14px">Если Вас что-то не устроит в начале просмотра,<br />то я верну ваш платёж.</p>
                 </div>
             </div>
         </div>

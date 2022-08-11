@@ -122,8 +122,8 @@ $this->title = 'Git и Composer для начинающих';
         vertical-align: top;
         color: #FFF;
         padding: 11px 28px 14px;
-        margin: 10px 0;
-        font: bold 18px 'Roboto Slab', serif;
+        margin: 30px 0 45px 0;
+        font: bold 24px 'Roboto Slab', serif;
     }
 
     .price-button a {
@@ -467,9 +467,8 @@ $this->title = 'Git и Composer для начинающих';
 
                 <p style="font-size: 13px; text-align: center">Полная гарантия возврата средств:<br />если Вас что-то не устроит в начале просмотра<br />или Вы просто передумаете, то я верну ваш платёж.</p>
 
-                <div style="width: 380px; margin: 0 auto 20px auto; text-align: center; padding: 20px 0; background: #eeeeff; border: 2px dashed #aabace; border-radius: 20px">
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/gitcomposer-record/" target="_blank">Оплатить в России</a></div>
-                    <div class="price-button"><a href="https://knowperfectly.com/ru/course/payment/2043-praktikum-po-git-i-composer" target="_blank">Оплатить из-за границы</a></div>
+                <div style="width: 380px; margin: 0 auto 20px auto; text-align: center; padding: 10px 0 0 0; background: #eeeeff; border: 2px dashed #aabace; border-radius: 20px">
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/gitcomposer-record/" target="_blank">Приобрести записи</a></div>
                 </div>
 
                 <p style="font-size: 13px; text-align: center">Если есть какие-нибудь вопросы по практикуму,<br />по оплате или его формату и любые другие, то пишите<br />сразу мне по адресу <script>document.write('<b>mai' + 'l@eli' + 'sdn.ru</b>');</script><br />Заранее спасибо!</p>
