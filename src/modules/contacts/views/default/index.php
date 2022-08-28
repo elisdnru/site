@@ -43,6 +43,9 @@ if (Yii::$app->user->can(Access::CONTROL)) {
             <li><a href="https://www.weblancer.net/users/ElisDN/">Профиль на weblancer.net</a></li>
         </ul>
         <ul>
+            <li><a href="https://github.com/ElisDN">Профиль на GitHub</a></li>
+        </ul>
+        <ul>
             <li><a href="https://vk.com/elisdn">Я в VK</a></li>
             <li><a href="https://www.facebook.com/eliseev.dn">Я в FB</a> *</li>
             <li><a href="https://twitter.com/elisdnru">Я в Twitter</a></li>
