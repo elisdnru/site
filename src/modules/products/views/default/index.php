@@ -118,6 +118,16 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <hr />
 
+        <h2>Донаты:</h2>
+
+        <ul class="products-cards">
+            <li>
+                <a href="/donate" target="_blank">Просто задонатить любую сумму</a>
+            </li>
+        </ul>
+
+        <hr />
+
         <p style="margin-bottom: 0"><a href="<?= Url::to(['/partner/default/index']); ?>">Партнёрская программа</a></p>
     </div>
 </section>
