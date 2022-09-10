@@ -13,8 +13,8 @@ trait ForceActiveRecordErrors
     /**
      * @param bool $runValidation
      * @param array|null $attributes
-     * @throws Exception
      * @return bool
+     * @throws Exception
      */
     public function insert($runValidation = true, $attributes = null)
     {
@@ -28,8 +28,8 @@ trait ForceActiveRecordErrors
     /**
      * @param bool $runValidation
      * @param array|null $attributeNames
-     * @throws StaleObjectException
      * @return false|int
+     * @throws StaleObjectException
      */
     public function update($runValidation = true, $attributeNames = null)
     {
@@ -41,8 +41,8 @@ trait ForceActiveRecordErrors
     }
 
     /**
-     * @throws StaleObjectException
      * @return false|int
+     * @throws StaleObjectException
      */
     public function delete()
     {
