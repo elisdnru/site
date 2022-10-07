@@ -170,7 +170,7 @@ services:
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
-            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_USER: app
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_DB: ${DB_NAME}
             AWS_ACCESS_KEY_ID: ${BACKUP_AWS_ACCESS_KEY_ID}
