@@ -33,7 +33,7 @@ final class FeaturesNegotiator extends Behavior
             return;
         }
 
-        $features = preg_split('/\s*,\s*/', (string)($_COOKIE['features'] ?? ''));
+        $features = preg_split('/\s*,\s*/', $_COOKIE['features'] ?? '');
 
         foreach ($features as $name) {
             if (str_starts_with($name, '!')) {

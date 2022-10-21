@@ -20,12 +20,15 @@ final class WorkController extends AdminController
 
     public function actionIndex(Request $request): string
     {
-        $category = (int)$request->get('category');
+        $category = $request->get('category');
 
         $query = Work::find();
 
         if ($category) {
-            $query->category($category);
+            if (!\is_string($category)) {
+                throw new BadRequestHttpException();
+            }
+            $query->category((int)$category);
         }
 
         $pages = new Pagination([

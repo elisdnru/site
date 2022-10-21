@@ -50,7 +50,7 @@ PortfolioAsset::register($this);
     </div>
 <?php endif; ?>
 
-<?php if ((int)Yii::$app->request->get('page', 1) === 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) === '1') : ?>
     <p class="portfolio-description">
         <span>В 2013-14 году все услуги<br />предоставлялись совместно со студией</span>
         <img src="/images/webdoka.jpg" alt="" />
