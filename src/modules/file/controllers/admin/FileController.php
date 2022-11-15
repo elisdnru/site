@@ -68,7 +68,7 @@ final class FileController extends AdminController
         $directoryForm = new DirectoryForm();
 
         if ($directoryForm->load((array)$request->post()) && $directoryForm->validate()) {
-            FileHelper::createDirectory($currentPath . '/' . $directoryForm->name, 0754);
+            FileHelper::createDirectory($currentPath . '/' . $directoryForm->name, 0755);
         }
 
         $items = array_map(
