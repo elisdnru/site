@@ -9,7 +9,7 @@ class View extends Component implements DynamicContentAwareInterface
     /**
      * @var array{
      *     breadcrumbs: array<array-key, array|string>,
-     *     admin: array<array-key, array{label: string, url: string|array}>
+     *     admin: array<array-key, array{label: string, url: string|array, icon?: string}>
      * }
      */
     public $params = [];

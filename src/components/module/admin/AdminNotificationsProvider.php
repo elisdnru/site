@@ -8,7 +8,7 @@ interface AdminNotificationsProvider extends AdminDashboardItem
 {
     /**
      * @return array[]
-     * @psalm-return array<array-key, array{label: string, url: string|array}>
+     * @psalm-return array<array-key, array{label: string, url: string|array, icon?: string}>
      */
     public static function adminNotifications(): array;
 }

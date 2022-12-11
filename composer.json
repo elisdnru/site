@@ -35,7 +35,7 @@
         "overtrue/phplint": "^5.3",
         "psalm/plugin-phpunit": "^0.18.3",
         "roave/security-advisories": "dev-latest",
-        "vimeo/psalm": "^4.0"
+        "vimeo/psalm": "^5.1"
     },
     "conflict": {
         "friendsofphp/php-cs-fixer": "v3.5.0"
