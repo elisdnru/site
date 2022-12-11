@@ -47,7 +47,7 @@ use yii\mail\MailerInterface;
 use yii\rbac\ManagerInterface;
 use yii\redis\Cache as RedisCache;
 use yii\redis\Connection as RedisConnection;
-use yii\swiftmailer\Mailer;
+use yii\symfonymailer\Mailer;
 use yii\web\AssetManager;
 use yii\web\JqueryAsset;
 use yii\web\UrlManager;
@@ -202,12 +202,11 @@ return [
                 'class' => Mailer::class,
                 'viewPath' => '@app/views/email',
                 'transport' => [
-                    'class' => Swift_SmtpTransport::class,
+                    'scheme' => 'smtp',
                     'host' => env('MAILER_HOST'),
-                    'port' => env('MAILER_PORT'),
+                    'port' => (int)env('MAILER_PORT'),
                     'username' => env('MAILER_USERNAME'),
                     'password' => env('MAILER_PASSWORD'),
-                    'encryption' => env('MAILER_ENCRYPTION'),
                 ],
                 'messageConfig' => [
                     'from' => env('MAILER_FROM_EMAIL'),

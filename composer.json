@@ -23,7 +23,7 @@
         "webmozart/assert": "^1.9",
         "yiisoft/yii2": "^2.0",
         "yiisoft/yii2-redis": "^2.0",
-        "yiisoft/yii2-swiftmailer": "^2.1"
+        "yiisoft/yii2-symfonymailer": "^3.0"
     },
     "require-dev": {
         "codeception/codeception": "^5.0",
