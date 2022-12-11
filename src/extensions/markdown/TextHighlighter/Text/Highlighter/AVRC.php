@@ -36,6 +36,7 @@
  * @version    Release: 0.7.0
  * @link       http://pear.php.net/package/Text_Highlighter
  */
+#[AllowDynamicProperties]
 class  Text_Highlighter_AVRC extends Text_Highlighter
 {
     var $_language = 'avrc';

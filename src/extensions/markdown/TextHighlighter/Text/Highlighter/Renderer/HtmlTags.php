@@ -64,6 +64,7 @@ require_once dirname(__FILE__) . '/../Renderer/Array.php';
  * @version    Release: 0.5.0
  * @link       http://pear.php.net/package/Text_Highlighter
  */
+#[AllowDynamicProperties]
 class Text_Highlighter_Renderer_HtmlTags extends Text_Highlighter_Renderer_Array
 {
 

@@ -1,8 +1,9 @@
-FROM php:8.1-cli-alpine
+FROM php:8.2-cli-alpine
 
-ENV XDEBUG_VERSION 3.1.6
+ENV XDEBUG_VERSION 3.2.0
 
-RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git \
+# TODO: Remove linux-headers after Alpine fix
+RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git linux-headers \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
     && docker-php-ext-configure mcrypt \
     && git clone -b $XDEBUG_VERSION --depth 1 https://github.com/xdebug/xdebug.git /usr/src/php/ext/xdebug \
@@ -11,7 +12,8 @@ RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev f
         --with-jpeg \
         --with-webp \
         --with-freetype \
-    && docker-php-ext-install pdo_mysql gd mcrypt intl xdebug
+    && docker-php-ext-install pdo_mysql gd mcrypt intl xdebug \
+    && apk del git linux-headers
 
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 

@@ -64,6 +64,7 @@ define('TEXT_HIGHLIGHTER_FILE_READ', 12);
  * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
+#[AllowDynamicProperties]
 class Text_Highlighter_Generator extends XML_Parser
 {
     // {{{ properties

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01d4397e9de2ca7a40a09877ac884492",
+    "content-hash": "e1c638ef06fda0c8cc596d797d38d81a",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -3102,16 +3102,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.47",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "8ecf57895d9c4b29cf9658ffe57af5f3d0e25254"
+                "reference": "a859669013c3ff1175e5037688740dfa692135ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/8ecf57895d9c4b29cf9658ffe57af5f3d0e25254",
-                "reference": "8ecf57895d9c4b29cf9658ffe57af5f3d0e25254",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/a859669013c3ff1175e5037688740dfa692135ea",
+                "reference": "a859669013c3ff1175e5037688740dfa692135ea",
                 "shasum": ""
             },
             "require": {
@@ -3128,6 +3128,7 @@
                 "php": ">=5.4.0",
                 "yiisoft/yii2-composer": "~2.0.4"
             },
+            "default-branch": true,
             "bin": [
                 "yii"
             ],
@@ -3220,7 +3221,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-18T16:21:58+00:00"
+            "time": "2022-12-10T09:35:48+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -5356,26 +5357,26 @@
         },
         {
             "name": "overtrue/phplint",
-            "version": "5.3.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/phplint.git",
-                "reference": "42ddcab45454e0cf3f1522340fc22f3875c4c74f"
+                "reference": "540dff330004054776a5873b081b170dc32f9e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/phplint/zipball/42ddcab45454e0cf3f1522340fc22f3875c4c74f",
-                "reference": "42ddcab45454e0cf3f1522340fc22f3875c4c74f",
+                "url": "https://api.github.com/repos/overtrue/phplint/zipball/540dff330004054776a5873b081b170dc32f9e17",
+                "reference": "540dff330004054776a5873b081b170dc32f9e17",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "n98/junit-xml": "1.1.0",
-                "php": "^8.1",
+                "php": "^8.2",
                 "symfony/console": "^5.0 || ^6.0",
-                "symfony/finder": "^6.0",
-                "symfony/process": "^6.0",
-                "symfony/yaml": "^6.0"
+                "symfony/finder": "^5.0 || ^6.0",
+                "symfony/process": "^5.0 || ^6.0",
+                "symfony/yaml": "^5.0 || ^6.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
@@ -5419,7 +5420,7 @@
             ],
             "support": {
                 "issues": "https://github.com/overtrue/phplint/issues",
-                "source": "https://github.com/overtrue/phplint/tree/5.3.0"
+                "source": "https://github.com/overtrue/phplint/tree/6.0.0"
             },
             "funding": [
                 {
@@ -5427,7 +5428,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-07-12T07:42:45+00:00"
+            "time": "2022-09-24T14:49:33+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8940,21 +8941,22 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "yiisoft/yii2": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1",
-        "ext-pdo": "^8.1",
-        "ext-curl": "^8.1",
+        "php": "^8.2",
+        "ext-pdo": "^8.2",
+        "ext-curl": "^8.2",
         "ext-dom": "20031129",
-        "ext-fileinfo": "^8.1",
-        "ext-gd": "^8.1",
-        "ext-iconv": "^8.1",
-        "ext-mbstring": "^8.1",
-        "ext-posix": "^8.1",
-        "ext-xml": "^8.1"
+        "ext-fileinfo": "^8.2",
+        "ext-gd": "^8.2",
+        "ext-iconv": "^8.2",
+        "ext-mbstring": "^8.2",
+        "ext-posix": "^8.2",
+        "ext-xml": "^8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

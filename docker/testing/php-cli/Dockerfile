@@ -1,4 +1,4 @@
-FROM php:8.1-cli-alpine
+FROM php:8.2-cli-alpine
 
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev git \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \

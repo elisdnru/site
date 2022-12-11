@@ -32,6 +32,7 @@
  * @link       http://pear.php.net/package/Text_Highlighter
  * @abstract
  */
+#[AllowDynamicProperties]
 class Text_Highlighter_Renderer
 {
     /**

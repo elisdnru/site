@@ -96,6 +96,8 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
+            # TODO: Remove after installing CS Fixer for PHP 8.2
+            PHP_CS_FIXER_IGNORE_ENV: 1
         volumes:
             - ./:/app
         secrets:

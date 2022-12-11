@@ -130,6 +130,7 @@ if (!defined('HL_NUMBERS_UL')) {
  * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
+#[AllowDynamicProperties]
 class Text_Highlighter_Renderer_Html extends Text_Highlighter_Renderer_Array
 {
 

@@ -33,6 +33,7 @@
  * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
+#[AllowDynamicProperties]
 class  Text_Highlighter_SQL extends Text_Highlighter
 {
     var $_language = 'sql';

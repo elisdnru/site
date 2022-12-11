@@ -48,6 +48,7 @@ define('HL_CONSOLE_DEFCOLOR', "\033[0m");
  * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
+#[AllowDynamicProperties]
 class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
 {
 
