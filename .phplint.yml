@@ -6,3 +6,5 @@ extensions:
 exclude:
     - vendor
     - var
+    - public/assets
+    - public/upload

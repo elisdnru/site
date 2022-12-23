@@ -10,7 +10,6 @@ return
                 ->in([
                     __DIR__ . '/bin',
                     __DIR__ . '/config',
-                    __DIR__ . '/public',
                     __DIR__ . '/src',
                     __DIR__ . '/tests',
                 ])
@@ -21,6 +20,7 @@ return
                     '_support/_generated',
                 ])
                 ->append([
+                    __DIR__ . '/public/index.php',
                     __FILE__,
                 ])
         )
