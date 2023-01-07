@@ -67,7 +67,7 @@ $this->params['breadcrumbs'] = [
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>
-<?php if (Yii::$app->features->isActive('OAUTH')) : ?>
+<?php if (Yii::$app->features->isActive('OAUTH')): ?>
     <?= OAuthWidget::widget([
         'return' => Yii::$app->request->getUrl(),
     ]); ?>

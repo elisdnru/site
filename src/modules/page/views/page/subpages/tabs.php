@@ -11,19 +11,19 @@ use yii\web\View;
  * @var Page $page
  */
 ?>
-<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])) : ?>
-    <?php if ($page->parent) : ?>
-        <?php if (!$page->hidetitle) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabs_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])): ?>
+    <?php if ($page->parent): ?>
+        <?php if (!$page->hidetitle): ?>
             <h1><?= Html::a($page->parent->title, ['/page/page/show', 'path' => $page->parent->getPath()]); ?></h1>
         <?php endif; ?>
 
         <div class="subpages">
             <ul>
-                <?php foreach ($page->parent->children as $child) : ?>
+                <?php foreach ($page->parent->children as $child): ?>
                     <?php $url = Url::to(['/page/page/show', 'path' => $child->getPath()]); ?>
-                    <?php if (Yii::$app->request->getPathInfo() === $url) : ?>
+                    <?php if (Yii::$app->request->getPathInfo() === $url): ?>
                         <li class="active"><a href="<?= $url; ?>"><?= $child->title; ?></a></li>
-                    <?php else : ?>
+                    <?php else: ?>
                         <li><a href="<?= $url; ?>"><?= $child->title; ?></a></li>
                     <?php endif; ?>
                 <?php endforeach; ?>
@@ -31,22 +31,22 @@ use yii\web\View;
             <div class="clear"></div>
         </div>
 
-    <?php elseif ($page->children) : ?>
-        <?php if (!$page->hidetitle) : ?>
+    <?php elseif ($page->children): ?>
+        <?php if (!$page->hidetitle): ?>
             <h1><?= $page->title; ?></h1>
         <?php endif; ?>
 
         <div class="subpages">
             <ul>
-                <?php foreach ($page->children as $child) : ?>
+                <?php foreach ($page->children as $child): ?>
                     <li><a href="<?= Url::to(['/page/page/show', 'path' => $child->getPath()]); ?>"><?= $child->title; ?></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>
         </div>
 
-    <?php else : ?>
-        <?php if (!$page->hidetitle) : ?>
+    <?php else: ?>
+        <?php if (!$page->hidetitle): ?>
             <h1><?= $page->title; ?></h1>
         <?php endif; ?>
 

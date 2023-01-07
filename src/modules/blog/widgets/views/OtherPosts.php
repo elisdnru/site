@@ -6,14 +6,14 @@ use yii\helpers\Url;
 
 /** @var Post[] $posts */
 ?>
-<?php if (count($posts)) : ?>
+<?php if (count($posts)): ?>
     <div class="block-title">Другие статьи</div>
     <div style="margin: 20px 0">
 
-        <?php foreach ($posts as $post) : ?>
+        <?php foreach ($posts as $post): ?>
             <?php $url = Url::to(['/blog/post/show', 'id' => $post->id, 'slug' => $post->slug]); ?>
             <div class="entry last">
-                <?php if ($post->image) : ?>
+                <?php if ($post->image): ?>
                     <p class="thumb">
                         <a href="<?= $url; ?>"><?= Html::img($post->getImageThumbUrl(100, 100)); ?></a>
                     </p><!--/noindex-->

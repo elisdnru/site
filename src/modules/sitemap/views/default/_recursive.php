@@ -10,12 +10,12 @@ use yii\web\View;
  */
 ?>
 
-<?php if ($items) : ?>
+<?php if ($items): ?>
     <ul>
-        <?php foreach ($items as $item) : ?>
-            <?php if ($item->label || $item->children) : ?>
+        <?php foreach ($items as $item): ?>
+            <?php if ($item->label || $item->children): ?>
                 <li>
-                    <?php if ($item->label) : ?>
+                    <?php if ($item->label): ?>
                         <a href="<?= $item->url; ?>"><?= Html::encode($item->label); ?></a>
                     <?php endif; ?>
                     <?= $this->render('_recursive', ['items' => $item->children, 'models' => [], 'parent' => 0]); ?>

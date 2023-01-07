@@ -66,7 +66,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <div class="edu-items">
             <div class="edu-items-wrapper">
-                <?php foreach ($series as $item) : ?>
+                <?php foreach ($series as $item): ?>
                     <div class="edu-items-item">
                         <div class="edu-items-item-wrapper">
                             <div class="thumb-wrapper">
@@ -106,7 +106,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
         <div class="edu-items">
             <div class="edu-items-wrapper">
-                <?php foreach ($episodes as $item) : ?>
+                <?php foreach ($episodes as $item): ?>
                     <div class="edu-items-item">
                         <div class="edu-items-item-wrapper">
                             <div class="thumb-wrapper">
@@ -118,7 +118,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                                         <img src="/images/lazy/blank.jpg" data-src="<?= Html::encode($imageUrl); ?>" alt="" />
                                     </picture>
                                 </a>
-                                <?php if ($item['episode']['free']) : ?>
+                                <?php if ($item['episode']['free']): ?>
                                     <span class="badges"><span class="badge free">Free</span></span>
                                 <?php endif; ?>
                             </div>

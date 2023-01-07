@@ -37,7 +37,7 @@ $this->params['admin'][] = ['label' => 'Добавить категорию', 'u
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getItems() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item): ?>
                     <tr id="item-<?= $item->id; ?>">
                         <td style="width:50px; text-align:center">
                             <?= $item->sort; ?>

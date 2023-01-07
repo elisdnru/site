@@ -66,7 +66,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
 
             <tr class="<?= $item->public ? '' : 'disable'; ?>">
                 <td width="50px" style="text-align: center">
-                    <?php if ($item->image) : ?>
+                    <?php if ($item->image): ?>
                         <a href="<?= $editUrl; ?>"><img style="width:50px;" src="<?= $item->getImageThumbUrl(50, 0); ?>" alt="<?= $item->title; ?>"></a>
                     <?php endif; ?>
                 </td>
@@ -77,9 +77,9 @@ if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
                 </td>
                 <td width="20px" style="text-align: center; padding: 0" title="Опубликовано">
                     <a class="ajax-post" href="<?= $togglePublic; ?>">
-                        <?php if ($item->public) : ?>
+                        <?php if ($item->public): ?>
                             <img src="/images/admin/yes.png" alt="">
-                        <?php else : ?>
+                        <?php else: ?>
                             <img src="/images/admin/no.png" alt="">
                         <?php endif; ?>
                     </a>

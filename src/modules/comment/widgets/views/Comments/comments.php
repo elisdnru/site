@@ -30,7 +30,7 @@ use yii\web\View;
         ]); ?>
     </div>
 
-    <?php if (count($comments)) : ?>
+    <?php if (count($comments)): ?>
         <p class="reply-comment"><a href="#comment-form">Оставить комментарий</a></p>
     <?php endif; ?>
 

@@ -30,7 +30,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div class="sitemap">
 
-    <?php foreach ($groups as $group) : ?>
+    <?php foreach ($groups as $group): ?>
         <h2><?= Html::encode($group->name); ?></h2>
         <?= $this->render('_recursive', ['items' => $group->items, 'models' => [], 'parent' => 0]); ?>
     <?php endforeach; ?>

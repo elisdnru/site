@@ -30,7 +30,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 
 <div style="margin-left:60px;">
 
-    <?php if ($model->id === Yii::$app->user->id) : ?>
+    <?php if ($model->id === Yii::$app->user->id): ?>
         <p style="float:right">
             <a href="<?= Url::to(['/user/profile/edit']); ?>">Редактировать</a> |
             <a href="<?= Url::to(['/user/default/logout']); ?>">Выход</a>
@@ -38,7 +38,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
     <?php endif; ?>
 
     <h3>
-        <?php if ($model->network) : ?>
+        <?php if ($model->network): ?>
             <a rel="nofollow" href="<?= $model->identity; ?>"><?= SocNetwork::icon($model->network); ?></a>
         <?php endif; ?>
         <?= Html::encode($model->getFio()); ?>
@@ -56,7 +56,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
         <tr>
             <th style="width:150px; text-align:left">Сайт</th>
             <td>
-                <?php if ($model->site) : ?>
+                <?php if ($model->site): ?>
                     <?= Html::a(Html::encode($model->site), $model->site); ?>
                 <?php endif; ?>
             </td>

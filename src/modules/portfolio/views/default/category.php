@@ -44,18 +44,18 @@ PortfolioAsset::register($this);
 ?>
 
 <h1><a rel="nofollow" href="<?= Url::to(['index']); ?>">Портфолио</a> &rarr;
-    <?php foreach ($category->getBreadcrumbs() as $title => $url) : ?>
-        <?php if (!is_numeric($title)) : ?>
+    <?php foreach ($category->getBreadcrumbs() as $title => $url): ?>
+        <?php if (!is_numeric($title)): ?>
             <a rel="nofollow" href="<?= $url; ?>"><?= Html::encode($title); ?></a> &rarr;
         <?php endif; ?>
     <?php endforeach; ?>
     <?= Html::encode($category->title); ?>
 </h1>
 
-<?php if ($subcategories) : ?>
+<?php if ($subcategories): ?>
     <div class="subpages">
         <ul>
-            <?php foreach ($subcategories as $subcategory) : ?>
+            <?php foreach ($subcategories as $subcategory): ?>
                 <li><a rel="nofollow" href="<?= $subcategory->getUrl(); ?>"><?= $subcategory->title; ?></a>
                 </li>
             <?php endforeach; ?>
@@ -64,7 +64,7 @@ PortfolioAsset::register($this);
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1): ?>
     <!--noindex-->
 <?php endif; ?>
 
@@ -72,7 +72,7 @@ PortfolioAsset::register($this);
 <?= $category->text; ?>
 <?php Shortcodes::end(); ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1): ?>
     <!--/noindex-->
 <?php endif; ?>
 

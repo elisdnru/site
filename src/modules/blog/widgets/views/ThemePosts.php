@@ -10,10 +10,10 @@ use yii\helpers\Url;
 ?>
 <div class="block-title">Материалы по теме</div>
 <ul style="list-style: none; margin-left: 0">
-    <?php foreach ($posts as $item) : ?>
-        <?php if ($item->id !== $current) : ?>
+    <?php foreach ($posts as $item): ?>
+        <?php if ($item->id !== $current): ?>
             <li><a href="<?= Url::to(['/blog/post/show', 'id' => $item->id, 'slug' => $item->slug]); ?>"><?= $item->title; ?></a></li>
-        <?php else : ?>
+        <?php else: ?>
             <li><?= $item->title; ?></li>
         <?php endif; ?>
     <?php endforeach; ?>

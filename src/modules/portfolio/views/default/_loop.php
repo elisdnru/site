@@ -15,7 +15,7 @@ use yii\widgets\LinkPager;
 
 <div class="grid-container">
     <div class="items">
-        <?php foreach ($dataProvider->getItems() as $work) : ?>
+        <?php foreach ($dataProvider->getItems() as $work): ?>
             <div class="entry grid">
                 <p class="thumb">
                     <a href="<?= Url::to([

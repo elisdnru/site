@@ -72,7 +72,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 HighlightAsset::register($this);
 ?>
 
-<?php if (!$model->public) : ?>
+<?php if (!$model->public): ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
 <?php endif; ?>
 
@@ -81,13 +81,13 @@ HighlightAsset::register($this);
         <h1><?= Html::encode($model->title); ?></h1>
 
         <!--noindex-->
-        <?php if ($this->beginCache('banner_post_before', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+        <?php if ($this->beginCache('banner_post_before', ['dependency' => new TagDependency(['tags' => 'block'])])): ?>
             <?= BlockWidget::widget(['id' => 'banner_post_before']); ?>
             <?php $this->endCache(); ?>
         <?php endif; ?>
         <!--/noindex-->
 
-        <?php if ($model->image && $model->image_show) : ?>
+        <?php if ($model->image && $model->image_show): ?>
             <?php
             $properties = array_filter([
                 'alt' => $model->image_alt,
@@ -102,7 +102,7 @@ HighlightAsset::register($this);
 
     <div class="text">
         <?php Shortcodes::begin(); ?>
-        <?php if ($this->beginCache('post-text-' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
+        <?php if ($this->beginCache('post-text-' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])): ?>
             <?php PurifierWidget::begin(); ?>
             <?php MarkdownWidget::begin(); ?>
             <?= $model->text; ?>
@@ -119,7 +119,7 @@ HighlightAsset::register($this);
 
 <aside>
 
-    <?php if ($this->beginCache('banner_post_after', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+    <?php if ($this->beginCache('banner_post_after', ['dependency' => new TagDependency(['tags' => 'block'])])): ?>
         <?= BlockWidget::widget(['id' => 'banner_post_after']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
@@ -136,7 +136,7 @@ foreach ($model->tags as $tag) {
     <p class="entry-date">
         Дата: <span class="enc-date" data-date="<?= DateFormatter::format($model->date); ?>">&nbsp;</span>
     </p>
-    <?php if ($links) : ?>
+    <?php if ($links): ?>
         <p class="entry-tags">Метки: <?= implode('', $links); ?></p>
     <?php endif; ?>
     <div class="clear"></div>
@@ -154,7 +154,7 @@ foreach ($model->tags as $tag) {
 
     <div class="clear"></div>
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])): ?>
         <?= ThemePostsWidget::widget([
             'current' => $model->id,
             'group' => $model->group_id,
@@ -162,7 +162,7 @@ foreach ($model->tags as $tag) {
         <?php $this->endCache(); ?>
     <?php endif; ?>
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])) : ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_other_' . $model->id, ['dependency' => new TagDependency(['tags' => 'blog'])])): ?>
         <?= OtherPostsWidget::widget([
             'current' => $model->id,
         ]); ?>

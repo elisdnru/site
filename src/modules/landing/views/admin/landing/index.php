@@ -41,7 +41,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('page')) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getItems() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item): ?>
                     <tr id="item-<?= $item->id; ?>">
                         <td>
                             <?= str_repeat('&nbsp;', $item->indent * 4); ?>

@@ -37,18 +37,18 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 PortfolioAsset::register($this);
 ?>
 
-<?php if (!$model->public) : ?>
+<?php if (!$model->public): ?>
     <div class="flash-error">Внимание! Новость скрыта от публикации!</div>
 <?php endif; ?>
 
 <article class="entry">
 
-    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new TagDependency(['tags' => 'portfolio'])])) : ?>
+    <?php if ($this->beginCache(__FILE__ . __LINE__ . '_post_' . $model->id, ['dependency' => new TagDependency(['tags' => 'portfolio'])])): ?>
         <header>
 
             <h1><?= Html::encode($model->title); ?></h1>
 
-            <?php if ($model->image && $model->image_show) : ?>
+            <?php if ($model->image && $model->image_show): ?>
                 <?php
                 $properties = [
                     'alt' => $model->title,

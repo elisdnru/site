@@ -15,15 +15,15 @@ use yii\helpers\Html;
  */
 ?>
 
-<?php if ($episodes) : ?>
+<?php if ($episodes): ?>
     <ol class="series-episodes">
-        <?php foreach ($episodes as $episode) : ?>
+        <?php foreach ($episodes as $episode): ?>
             <li>
-                <?php if ($episode['public']) : ?>
+                <?php if ($episode['public']): ?>
                     <a href="https://deworker.pro/edu/series/<?= Html::encode($slug . '/' . $episode['slug']); ?>" target="_blank">
                         <?= Html::encode($episode['title']); ?>
                     </a>
-                <?php else : ?>
+                <?php else: ?>
                     Скоро: <?= Html::encode($episode['title']); ?>
                 <?php endif; ?>
             </li>

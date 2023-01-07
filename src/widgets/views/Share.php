@@ -35,7 +35,7 @@ $providers = [
 ?>
 
 <div id="share" class="share">
-    <?php foreach ($providers as $provider) : ?>
+    <?php foreach ($providers as $provider): ?>
         <a rel="nofollow noopener" href="<?= Html::encode($provider['url']); ?>"><span class="share-<?= $provider['class']; ?>"></span></a>
     <?php endforeach; ?>
 </div>

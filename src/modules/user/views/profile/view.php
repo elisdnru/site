@@ -30,7 +30,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div style="margin-left:60px;">
 
-    <?php if ($user->id === Yii::$app->user->id) : ?>
+    <?php if ($user->id === Yii::$app->user->id): ?>
         <p style="float:right">
             <a href="<?= Url::to(['edit']); ?>">Редактировать</a> |
             <a href="<?= Url::to(['password']); ?>">Сменить пароль</a> |
@@ -39,7 +39,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <?php endif; ?>
 
     <h3>
-        <?php if ($user->network) : ?>
+        <?php if ($user->network): ?>
             <a rel="nofollow" href="<?= $user->identity; ?>"><?= SocNetwork::icon($user->network); ?></a>
         <?php endif; ?>
         <?= Html::encode($user->getFio()); ?>
@@ -57,7 +57,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
         <tr>
             <th style="width:150px; text-align:left">Сайт</th>
             <td>
-                <?php if ($user->site) : ?>
+                <?php if ($user->site): ?>
                     <?= Html::a(Html::encode($user->site), $user->site); ?>
                 <?php endif; ?>
             </td>

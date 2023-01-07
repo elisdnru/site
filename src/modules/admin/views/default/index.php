@@ -44,7 +44,7 @@ foreach ($groups as $modules) {
         </ul>
     </fieldset>
 
-    <?php foreach ($groups as $group => $modules) : ?>
+    <?php foreach ($groups as $group => $modules): ?>
         <?php
     $has = false;
         foreach ($modules as $module) {
@@ -55,7 +55,7 @@ foreach ($groups as $modules) {
         }
         ?>
 
-        <?php if ($has) : ?>
+        <?php if ($has): ?>
             <fieldset>
                 <h2><?= $group; ?></h2>
                 <ul class="adminlist">
@@ -63,10 +63,10 @@ foreach ($groups as $modules) {
                     /**
                      * @var AdminDashboardItem&Module $module
                      */
-                    foreach ($modules as $module) : ?>
-                        <?php if (Yii::$app->moduleAdminMenu->menu($module->id)) : ?>
+                    foreach ($modules as $module): ?>
+                        <?php if (Yii::$app->moduleAdminMenu->menu($module->id)): ?>
                             <li>
-                                <?php if ($module->adminName() !== $group) : ?>
+                                <?php if ($module->adminName() !== $group): ?>
                                     <h3><?= $module->adminName(); ?></h3>
                                 <?php endif; ?>
                                 <ul>

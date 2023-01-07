@@ -37,7 +37,7 @@ $this->params['admin'][] = ['label' => 'Добавить метку', 'url' => [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($tags as $tag) : ?>
+                <?php foreach ($tags as $tag): ?>
                     <tr id="item-<?= $tag->id; ?>">
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $tag->id]); ?>"><?= Html::encode($tag->title); ?></a>

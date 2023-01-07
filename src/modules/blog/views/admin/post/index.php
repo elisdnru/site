@@ -57,7 +57,7 @@ $this->params['admin'] = [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getItems() as $item) : ?>
+                <?php foreach ($dataProvider->getItems() as $item): ?>
                     <tr id="item-<?= $item->id; ?>">
                         <td style="width:130px; text-align:center">
                             <?= Html::encode($item->date); ?>
@@ -68,9 +68,9 @@ $this->params['admin'] = [
                         <td><?= Html::encode($item->category->getFullTitle()); ?></td>
                         <td><?= $item->group ? Html::encode($item->group->title) : ''; ?></td>
                         <td style="width:30px; text-align:center">
-                            <?php if ($item->public) : ?>
+                            <?php if ($item->public): ?>
                                 <img src="/images/admin/yes.png" alt="">
-                            <?php else : ?>
+                            <?php else: ?>
                                 <img src="/images/admin/no.png" alt="">
                             <?php endif; ?>
                         </td>

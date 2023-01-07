@@ -21,7 +21,7 @@ if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
 CommentsAsset::register($this);
 ?>
 
-<?php if ($material !== null) : ?>
+<?php if ($material !== null): ?>
     <?php
     $this->params['breadcrumbs'] = [
         'Панель управления' => ['/admin/index'],
@@ -32,7 +32,7 @@ CommentsAsset::register($this);
 
     <h1>Комментарии к материалу &laquo;<?= Html::encode($material->getCommentTitle()); ?>&raquo;</h1>
 
-<?php else : ?>
+<?php else: ?>
     <?php
     $this->params['breadcrumbs'] = [
         'Комментарии',

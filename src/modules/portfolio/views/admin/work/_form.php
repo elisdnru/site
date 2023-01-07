@@ -65,7 +65,7 @@ use yii\web\View;
         <fieldset>
             <h4>Изображение</h4>
 
-            <?php if ($work && $work->image) : ?>
+            <?php if ($work && $work->image): ?>
                 <div class="image">
                     <a target="_blank" href="<?= $work->getImageUrl(); ?>"><img src="<?= $work->getImageThumbUrl(250, 0); ?>" alt=""></a>
                 </div>

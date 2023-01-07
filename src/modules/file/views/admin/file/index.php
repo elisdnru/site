@@ -37,7 +37,7 @@ $nav = '';
 
 <h3>
     <a href="<?= Url::to(['index']); ?>"><?= $htmlRoot; ?></a>
-    <?php foreach ($folders as $folder) : ?>
+    <?php foreach ($folders as $folder): ?>
         <?php $nav .= $nav ? '/' . $folder : $folder; ?>
 
         <?php if ($nav) :
@@ -61,12 +61,12 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
         <th style="width:16px"></th>
     </tr>
 
-    <?php if ($items) : ?>
-        <?php foreach ($items as $item) : ?>
+    <?php if ($items): ?>
+        <?php foreach ($items as $item): ?>
             <?php $delUrl = Url::to(['delete', 'path' => $path, 'name' => $item->getBasename() ?: '']); ?>
             <?php $renameUrl = Url::to(['rename', 'path' => $path, 'name' => $item->getBasename() ?: '']); ?>
 
-            <?php if ($item->getIsDir()) : ?>
+            <?php if ($item->getIsDir()): ?>
                 <tr id="item_<?= md5($item->getBasename() ?: ''); ?>">
                     <td>
                         <a class="float-right" href="<?= Html::encode($renameUrl); ?>"><?= $renameIcon; ?></a>
@@ -82,7 +82,7 @@ $renameIcon = Html::img('/images/admin/code.png', ['title' => 'Переимен�
                     </td>
                 </tr>
 
-            <?php else : ?>
+            <?php else: ?>
                 <tr id="item-<?= md5($item->getBasename() ?: ''); ?>">
                     <td>
                         <a class="float-right" href="<?= Html::encode($renameUrl); ?>"><?= $renameIcon; ?></a>

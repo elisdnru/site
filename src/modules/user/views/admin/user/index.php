@@ -54,7 +54,7 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($dataProvider->getItems() as $user) : ?>
+                <?php foreach ($dataProvider->getItems() as $user): ?>
                     <tr id="item-<?= $user->id; ?>">
                         <td style="width:50px">
                             <img src="<?= $user->getAvatarUrl(50, 50); ?>" width="50px" alt=""/>
@@ -72,9 +72,9 @@ $this->params['admin'][] = ['label' => 'Панель управления', 'url
                             <?= Html::encode(Access::getRoleName($user->role)); ?>
                         </td>
                         <td>
-                            <?php if (!$user->confirm) : ?>
+                            <?php if (!$user->confirm): ?>
                                 <img title="Активен" style="width:16px; height:16px;" src="/images/admin/yes.png" alt="">
-                            <?php else : ?>
+                            <?php else: ?>
                                 <img title="Ожидает" style="width:16px; height:16px;" src="/images/admin/message.png" alt="">
                             <?php endif; ?>
                         </td>

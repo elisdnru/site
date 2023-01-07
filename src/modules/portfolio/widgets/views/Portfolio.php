@@ -16,7 +16,7 @@ use yii\web\View;
     <div class="carousel-link carousel-next-link"></div>
     <div class="portfolio-slider">
         <ul>
-            <?php foreach ($items as $item) : ?>
+            <?php foreach ($items as $item): ?>
                 <li>
                     <a rel="nofollow" href="<?= Url::to([
                         '/portfolio/work/show',

@@ -7,13 +7,13 @@ use yii\helpers\Url;
 
 /** @var Post[] $posts */
 ?>
-<?php if (count($posts)) : ?>
+<?php if (count($posts)): ?>
     <?php Portlet::begin(['title' => null]); ?>
     <h4>Последние записи:</h4>
 
-    <?php foreach ($posts as $post) : ?>
+    <?php foreach ($posts as $post): ?>
         <div class="entry last">
-            <?php if ($post->image) : ?>
+            <?php if ($post->image): ?>
                 <p class="thumb"><?= Html::img($post->getImageThumbUrl(100, 100)); ?></p>
             <?php endif; ?>
 

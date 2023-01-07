@@ -23,10 +23,10 @@ use yii\helpers\Html;
  */
 ?>
 
-<?php if ($episodes) : ?>
+<?php if ($episodes): ?>
     <div class="edu-items">
         <div class="edu-items-wrapper">
-            <?php foreach ($episodes as $item) : ?>
+            <?php foreach ($episodes as $item): ?>
                 <div class="edu-items-item">
                     <div class="edu-items-item-wrapper">
                         <div class="thumb-wrapper">
@@ -48,7 +48,7 @@ use yii\helpers\Html;
                                     </g>
                                 </svg>
                             </a>
-                            <?php if ($item['episode']['free']) : ?>
+                            <?php if ($item['episode']['free']): ?>
                                 <span class="badges"><span class="badge free">Free</span></span>
                             <?php endif; ?>
                         </div>

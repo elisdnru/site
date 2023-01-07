@@ -16,7 +16,7 @@ use yii\web\View;
 
 <div class="main left-main">
 
-    <?php if ($this->beginCache('banner_blog_top', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+    <?php if ($this->beginCache('banner_blog_top', ['dependency' => new TagDependency(['tags' => 'block'])])): ?>
         <?= BlockWidget::widget(['id' => 'banner_blog_top']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>
@@ -26,7 +26,7 @@ use yii\web\View;
 
     <?= $content; ?>
 
-    <?php if ($this->beginCache('banner_blog_bottom', ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+    <?php if ($this->beginCache('banner_blog_bottom', ['dependency' => new TagDependency(['tags' => 'block'])])): ?>
         <?= BlockWidget::widget(['id' => 'banner_blog_bottom']); ?>
         <?php $this->endCache(); ?>
     <?php endif; ?>

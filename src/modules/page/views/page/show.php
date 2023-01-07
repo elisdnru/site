@@ -21,7 +21,7 @@ if ($page->styles) {
     ?><?= $page->text;
     ?><?php PurifierWidget::end();
     ?><?php Shortcodes::end(); ?><?php
-else : ?>
+else: ?>
     <section>
         <header>
             <?= $this->render('_head', ['page' => $page]); ?>

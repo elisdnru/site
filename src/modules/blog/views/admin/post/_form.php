@@ -66,7 +66,7 @@ use yii\widgets\ActiveForm;
         <fieldset>
             <h4>Изображение</h4>
 
-            <?php if ($post !== null && $post->image) : ?>
+            <?php if ($post !== null && $post->image): ?>
                 <div class="image">
                     <a target="_blank" href="<?= $post->getImageUrl(); ?>"><img src="<?= $post->getImageThumbUrl(250, 0); ?>" alt=""></a>
                 </div>
@@ -142,7 +142,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="row">
                 <ul class="tags-list" id="tags-variants">
-                    <?php foreach ($model->getAvailableTagsList() as $id => $name) : ?>
+                    <?php foreach ($model->getAvailableTagsList() as $id => $name): ?>
                         <li id="tag-<?= $id; ?>">
                             <a class="tag" href="#"><?= Html::encode($name); ?></a>
                         </li>

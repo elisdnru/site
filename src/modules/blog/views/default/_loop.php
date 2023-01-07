@@ -13,7 +13,7 @@ use yii\widgets\LinkPager;
 
 <div>
     <div class="items">
-        <?php foreach ($dataProvider->getItems() as $post) : ?>
+        <?php foreach ($dataProvider->getItems() as $post): ?>
             <?php
             $links = [];
             foreach ($post->tags as $tag) {
@@ -32,14 +32,14 @@ use yii\widgets\LinkPager;
                         <div class="category">
                             <span><a href="<?= $post->category->getUrl(); ?>"><?= Html::encode($post->category->title); ?></a></span>
                         </div>
-                        <?php if ($links) : ?>
+                        <?php if ($links): ?>
                             <div class="tags"><span><?= implode(', ', $links); ?></span></div>
                         <?php endif; ?>
                         <div class="comments">
                             <span><?= $post->getCommentsCount(); ?></span>
                         </div>
                     </div>
-                    <?php if ($post->image) : ?>
+                    <?php if ($post->image): ?>
                         <?php $imageUrl = $post->getImageThumbUrl(250, 0); ?>
                         <?php
                         $properties = [

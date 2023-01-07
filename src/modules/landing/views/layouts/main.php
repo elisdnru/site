@@ -17,7 +17,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language; ?>">
 <head>
-    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
+    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)): ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
     <?php endif; ?>
 

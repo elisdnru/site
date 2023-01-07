@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
         <?= Csrf::hiddenInput(); ?>
 
-        <?php if ($user !== null && $user->id) : ?>
+        <?php if ($user !== null && $user->id): ?>
             <a href="<?= Url::to(['/user/profile/view']); ?>"><img style="float:left; margin:2px 10px 0 0; width:50px" src="<?= $user->getAvatarUrl(); ?>" alt=""></a>
 
             <p class='exit' style="float: right">
@@ -30,17 +30,17 @@ use yii\widgets\ActiveForm;
                 <a href="<?= Url::to(['/user/default/logout']); ?>">выход</a>
             </p>
             <p class="nomargin">
-                <?php if ($user->site) : ?>
+                <?php if ($user->site): ?>
                     <a rel="nofollow" href="<?= $user->site; ?>"><?= $user->getFio(); ?></a>
-                <?php else : ?>
+                <?php else: ?>
                     <?= $user->getFio(); ?>
                 <?php endif; ?>
             </p>
             <div class="clear"></div>
 
-        <?php else : ?>
+        <?php else: ?>
             <div style="margin-bottom: 10px">
-                <?php if (Yii::$app->features->isActive('OAUTH')) : ?>
+                <?php if (Yii::$app->features->isActive('OAUTH')): ?>
                     <div style="float: right">
                         <?= OAuthWidget::widget([
                             'return' => Yii::$app->request->getUrl(),

@@ -36,7 +36,7 @@ $this->params['admin'][] = ['label' => 'Добавить группу', 'url' =>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($groups as $group) : ?>
+                <?php foreach ($groups as $group): ?>
                     <tr id="item-<?= $group->id; ?>">
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $group->id]); ?>"><?= Html::encode($group->title); ?></a>

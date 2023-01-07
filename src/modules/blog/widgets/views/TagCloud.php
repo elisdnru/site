@@ -9,7 +9,7 @@ use yii\helpers\Url;
  */
 ?>
 <div class="tags">
-    <?php foreach ($tags as $tag) : ?>
+    <?php foreach ($tags as $tag): ?>
         <?php
         $size = $tag->getFrequency() + 8;
         if ($size < 8) {

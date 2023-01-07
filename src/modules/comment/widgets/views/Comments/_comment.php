@@ -23,10 +23,10 @@ use yii\web\Session;
 
     <header>
         <span class="link">
-            <?php if ($user !== null && $comment->user && $user->id === $comment->user_id) : ?>
+            <?php if ($user !== null && $comment->user && $user->id === $comment->user_id): ?>
                 <a rel="nofollow" href="<?= Url::to(['/comment/comment/update', 'id' => $comment->id]); ?>" title="Изменить комментарий"><img src="/images/admin/edit.png" width="16" height="16" alt="Изменить комментарий" title="Изменить комментарий"></a>
             <?php endif; ?>
-            <?php if ($user !== null && $comment->user && $user->id === $comment->user_id) : ?>
+            <?php if ($user !== null && $comment->user && $user->id === $comment->user_id): ?>
                 <a rel="nofollow" class="ajax-del" data-del="comment_<?= $comment->id; ?>" href="<?= Url::to(['/comment/ajax/delete', 'id' => $comment->id]); ?>" title="Удалить комментарий"><img src="/images/admin/del.png" width="16" height="16" alt="Удалить" title="Удалить"></a>
             <?php endif; ?>
         </span>
@@ -38,16 +38,16 @@ use yii\web\Session;
 
         <h2 class="date enc-date" data-date="<?= DateFormatter::format($comment->date, true); ?>">&nbsp;</h2>
 
-        <?php if ($comment->user && $comment->user->network) : ?>
+        <?php if ($comment->user && $comment->user->network): ?>
             <a href="<?= $comment->user->identity; ?>"><?= SocNetwork::icon($comment->user->network); ?></a>
         <?php endif; ?>
 
         <span class="author">
-            <?php if (!empty($comment->site) && !empty($comment->name)) : ?>
+            <?php if (!empty($comment->site) && !empty($comment->name)): ?>
                 <cite><a href="<?= Html::encode($comment->site); ?>"><?= Html::encode($comment->name); ?></a></cite>
-            <?php elseif (!empty($comment->name)) : ?>
+            <?php elseif (!empty($comment->name)): ?>
                 <cite><?= Html::encode($comment->name); ?></cite>
-            <?php else : ?>
+            <?php else: ?>
                 <cite><em>Неизвестный</em></cite>
             <?php endif; ?>
         </span>
@@ -55,7 +55,7 @@ use yii\web\Session;
     </header>
 
     <div class="text">
-        <?php if ($comment->public) : ?>
+        <?php if ($comment->public): ?>
             <?php CommentPostFilterWidget::begin(); ?>
             <?php PurifierWidget::begin([
                 'encodePreContent' => true,
@@ -70,7 +70,7 @@ use yii\web\Session;
             <?= $comment->text; ?>
             <?php PurifierWidget::end(); ?>
             <?php CommentPostFilterWidget::end(); ?>
-        <?php else : ?>
+        <?php else: ?>
             <em>Комментарий удалён</em>
         <?php endif; ?>
     </div>

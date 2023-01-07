@@ -39,16 +39,16 @@ $moderurl = Url::to(['toggle', 'attribute' => 'moder', 'id' => $comment->id]);
 
         <h2 class="date"><?= $comment->date; ?></h2>
 
-        <?php if ($comment->user && $comment->user->network) : ?>
+        <?php if ($comment->user && $comment->user->network): ?>
             <a target="_blank" rel="nofollow" href="<?= $comment->user->identity; ?>"><?= SocNetwork::icon($comment->user->network); ?></a>
         <?php endif; ?>
 
         <span class="author">
-            <?php if (!empty($comment->site) && !empty($comment->name)) : ?>
+            <?php if (!empty($comment->site) && !empty($comment->name)): ?>
                 <cite><a rel="nofollow" href="<?= Html::encode($comment->site); ?>"><?= Html::encode($comment->name); ?></a></cite>
-            <?php elseif (!empty($comment->name)) : ?>
+            <?php elseif (!empty($comment->name)): ?>
                 <?= Html::encode($comment->name); ?>
-            <?php else : ?>
+            <?php else: ?>
                 <i>Неизвестный</i>
             <?php endif; ?>
         </span>

@@ -38,7 +38,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <h1><?= Html::encode($category->title); ?></h1>
 
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1): ?>
     <!--noindex-->
 <?php endif; ?>
 
@@ -46,7 +46,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?= $category->text; ?>
 <?php Shortcodes::end(); ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1) : ?>
+<?php if (Yii::$app->request->get('page', 1) > 1): ?>
     <!--/noindex-->
 <?php endif; ?>
 

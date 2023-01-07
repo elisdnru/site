@@ -8,6 +8,6 @@
  * @var string $logout_url
  */
 ?>
-<?php if (Yii::$app->user->isGuest) : ?>
+<?php if (Yii::$app->user->isGuest): ?>
     <div id="uLogin" data-ulogin="display=<?= $display; ?>;fields=<?= $fields; ?>;providers=<?= $providers; ?>;hidden=<?= $hidden; ?>;redirect_uri=<?= urlencode($redirect); ?>"></div>
 <?php endif; ?>

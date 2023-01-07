@@ -15,8 +15,8 @@ use yii\web\View;
  * @var Session $session
  */
 ?>
-<?php if (isset($comments[$parent])) : ?>
-    <?php foreach ($comments[$parent] as $comment) : ?>
+<?php if (isset($comments[$parent])): ?>
+    <?php foreach ($comments[$parent] as $comment): ?>
         <?= $this->render('_comment', [
             'indent' => $indent,
             'comment' => $comment,
@@ -25,7 +25,7 @@ use yii\web\View;
             'session' => $session,
         ]); ?>
 
-        <?php if ($indent < 100 && array_key_exists($comment->id, $comments)) : ?>
+        <?php if ($indent < 100 && array_key_exists($comment->id, $comments)): ?>
             <?= $this->render('_tree', [
                 'indent' => $indent + 1,
                 'comments' => $comments,

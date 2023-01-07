@@ -10,23 +10,23 @@ use yii\web\View;
  * @var Page $page
  */
 ?>
-<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])) : ?>
-    <?php if ($page->children) : ?>
-        <?php if (!$page->hidetitle) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__ . '_tabschild_' . $page->id, ['dependency' => new TagDependency(['tags' => 'page'])])): ?>
+    <?php if ($page->children): ?>
+        <?php if (!$page->hidetitle): ?>
             <h1><?= $page->title; ?></h1>
         <?php endif; ?>
 
         <div class="subpages">
             <ul>
-                <?php foreach ($page->children as $child) : ?>
+                <?php foreach ($page->children as $child): ?>
                     <li><a href="<?= Url::to(['/page/page/show', 'path' => $child->getPath()]); ?>"><?= $child->title; ?></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="clear"></div>
         </div>
 
-    <?php else : ?>
-        <?php if (!$page->hidetitle) : ?>
+    <?php else: ?>
+        <?php if (!$page->hidetitle): ?>
             <h1><?= $page->title; ?></h1>
         <?php endif; ?>
 

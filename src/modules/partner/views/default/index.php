@@ -83,7 +83,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($items as $item) : ?>
+                <?php foreach ($items as $item): ?>
                     <tr>
                         <td>
                             <a href="<?= Html::encode($item->url); ?>"><?= Html::encode($item->title); ?></a>

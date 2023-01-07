@@ -33,7 +33,7 @@ $this->params['admin'][] = ['label' => 'Добавить блок', 'url' => ['c
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($blocks as $block) : ?>
+                <?php foreach ($blocks as $block): ?>
                     <tr id="item-<?= $block->id; ?>">
                         <td>
                             <a href="<?= Url::to(['update', 'id' => $block->id]); ?>"><?= Html::encode($block->title); ?></a>

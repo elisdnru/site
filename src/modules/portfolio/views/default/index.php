@@ -39,10 +39,10 @@ PortfolioAsset::register($this);
 
 <h1>Портфолио</h1>
 
-<?php if ($categories) : ?>
+<?php if ($categories): ?>
     <div class="subpages">
         <ul>
-            <?php foreach ($categories as $category) : ?>
+            <?php foreach ($categories as $category): ?>
                 <li><a href="<?= $category->getUrl(); ?>"><?= $category->title; ?></a></li>
             <?php endforeach; ?>
         </ul>
@@ -50,7 +50,7 @@ PortfolioAsset::register($this);
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->request->get('page', 1) === '1') : ?>
+<?php if (Yii::$app->request->get('page', 1) === '1'): ?>
     <p class="portfolio-description">
         <span>В 2013-14 году все услуги<br />предоставлялись совместно со студией</span>
         <img src="/images/webdoka.jpg" alt="" />

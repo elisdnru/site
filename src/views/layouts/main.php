@@ -25,7 +25,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language; ?>">
 <head>
-    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)) : ?>
+    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)): ?>
         <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
     <?php endif; ?>
 
@@ -56,9 +56,9 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         </a>
         </div>
         <div class="title">
-            <?php if ($this->context->route === 'home/default/index') : ?>
+            <?php if ($this->context->route === 'home/default/index'): ?>
                 <h1 class="name">Дмитрий Елисеев</h1>
-            <?php else : ?>
+            <?php else: ?>
                 <div class="name">Дмитрий Елисеев</div>
             <?php endif; ?>
             <div class="slogan">о разработке сайтов и сервисов</div>
@@ -76,7 +76,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         </nav>
     </header>
 
-    <?php if (count($this->params['admin'] ?? [])) : ?>
+    <?php if (count($this->params['admin'] ?? [])): ?>
         <div class="admin-bar">
             <?= AdminBar::widget([
                 'links' => $this->params['admin'],
@@ -104,14 +104,14 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <!--/noindex-->
 
         <div class="system-nav">
-            <?php if (Yii::$app->request->getPathInfo() !== 'sitemap') : ?>
+            <?php if (Yii::$app->request->getPathInfo() !== 'sitemap'): ?>
                 <a href="/sitemap">Карта сайта</a>
-            <?php else : ?>
+            <?php else: ?>
                 <span>Карта сайта</span>
             <?php endif; ?>
         </div>
 
-        <?php if ($this->context->route !== 'home/default/index') : ?>
+        <?php if ($this->context->route !== 'home/default/index'): ?>
             <!--noindex-->
         <?php endif; ?>
         <div class="info">
@@ -123,7 +123,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
                 <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>')</script>
             </p>
         </div>
-        <?php if ($this->context->route !== 'home/default/index') : ?>
+        <?php if ($this->context->route !== 'home/default/index'): ?>
             <!--/noindex-->
         <?php endif; ?>
 
@@ -146,7 +146,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 
 <?= Counters::widget(); ?>
 
-<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])) : ?>
+<?php if ($this->beginCache(__FILE__ . __LINE__, ['dependency' => new TagDependency(['tags' => 'block'])])): ?>
     <?= BlockWidget::widget(['id' => 'end']); ?>
     <?php $this->endCache(); ?>
 <?php endif; ?>

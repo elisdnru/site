@@ -6,7 +6,7 @@ use yii\helpers\Html;
  * @var string $display
  * @var string $url
  */
-if (Yii::$app->user->isGuest) : ?>
+if (Yii::$app->user->isGuest): ?>
     <?php
     $providers = [
         [
@@ -43,7 +43,7 @@ if (Yii::$app->user->isGuest) : ?>
     ?>
 
     <div class="auth <?= $display; ?>">
-        <?php foreach ($providers as $provider) : ?>
+        <?php foreach ($providers as $provider): ?>
             <span class="auth-<?= $provider['class']; ?>" title="<?= $provider['name']; ?>" data-href="<?= Html::encode($provider['url']); ?>"></span>
         <?php endforeach; ?>
     </div>

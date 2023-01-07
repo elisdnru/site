@@ -24,7 +24,7 @@ $this->params['breadcrumbs'] = [
 
 <h2><?= $name; ?></h2>
 
-<?php if ($message) : ?>
+<?php if ($message): ?>
     <div class="flash flash-error">
         <?= nl2br(Html::encode($message)); ?>
     </div>

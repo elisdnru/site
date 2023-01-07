@@ -23,7 +23,7 @@ use yii\web\Request;
     </div>
     <div style="margin-left:60px;">
         <p class="nomargin"><strong>
-                <?php if ($user->network) : ?>
+                <?php if ($user->network): ?>
                     <a href="<?= $user->identity; ?>">
                         <?= SocNetwork::icon($user->network); ?>
                     </a>
@@ -58,7 +58,7 @@ use yii\web\Request;
     <?= Html::endForm(); ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
-        <?php if (Yii::$app->features->isActive('OAUTH')) : ?>
+        <?php if (Yii::$app->features->isActive('OAUTH')): ?>
             <?= OAuthWidget::widget([
                 'display' => 'small',
                 'return' => Yii::$app->request->getUrl(),

@@ -39,11 +39,11 @@ use yii\web\View;
                 <?= Html::error($model, 'parent_id', ['class' => 'error-message']); ?>
             </div>
 
-            <?php if ($comment->user) : ?>
+            <?php if ($comment->user): ?>
                 <p class="nomargin">
                     <a href="<?= Url::to(['/user/admin/user/update', 'id' => $comment->user_id]); ?>"><?= $comment->user->getFio(); ?></a>
                 </p>
-            <?php else : ?>
+            <?php else: ?>
                 <div class="row<?= $model->hasErrors('name') ? ' error' : ''; ?>">
                     <?= Html::activeLabel($model, 'name'); ?><br />
                     <?= Html::activeTextInput($model, 'name'); ?><br />
