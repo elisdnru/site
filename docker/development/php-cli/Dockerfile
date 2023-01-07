@@ -2,7 +2,6 @@ FROM php:8.2-cli-alpine
 
 ENV XDEBUG_VERSION 3.2.0
 
-# TODO: Remove linux-headers after Alpine fix
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git linux-headers \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
     && docker-php-ext-configure mcrypt \
