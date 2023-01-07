@@ -67,8 +67,6 @@ final class FileUploadBehavior extends Behavior
         $fileValidator = Validator::createValidator('file', $owner, $this->fileAttribute, [
             'extensions' => $this->fileTypes,
             'skipOnEmpty' => true,
-            // TODO: remove after https://github.com/yiisoft/yii2/pull/19246 release
-            'checkExtensionByMimeType' => false,
         ]);
         /** @var ArrayObject $validators */
         $validators = $owner->getValidators();

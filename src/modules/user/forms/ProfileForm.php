@@ -32,8 +32,7 @@ final class ProfileForm extends Model
             [['lastname', 'firstname'], 'required'],
             [['lastname', 'firstname'], 'string', 'max' => 255],
             ['site', 'url'],
-            // TODO: remove checkExtensionByMimeType after https://github.com/yiisoft/yii2/pull/19246 release
-            ['avatar', ImageValidator::class, 'checkExtensionByMimeType' => false],
+            ['avatar', ImageValidator::class],
             ['del_avatar', 'safe'],
         ];
     }
