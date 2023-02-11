@@ -18,26 +18,32 @@ final class ShortcodesProcessorTest extends Unit
     {
         $renderer = $this->createMock(WidgetRenderer::class);
         $renderer->expects(self::exactly(2))->method('render')
-            ->withConsecutive(
-                ['One', ['name' => 'John', 'age' => 21]],
-                ['Two', []],
-            )
-            ->willReturnOnConsecutiveCalls(
-                '<div>One, John</div>',
-                '<div>Two</div>',
+            ->willReturnCallback(
+                static fn (string $class, array $attributes) => match ($match = [$class, $attributes]) {
+                    ['One', ['age' => '21', 'name' => 'John']] => '<div>One, John</div>',
+                    ['Two', []] => '<div>Two</div>',
+                    ['Three', []] => '<div>Three</div>',
+                    default => self::fail(json_encode($match))
+                }
             );
 
         $cache = $this->createMock(CacheInterface::class);
-        $cache->expects(self::exactly(2))->method('get')->withConsecutive(
-            [self::stringContains('One')],
-            [self::stringContains('Three')]
-        )->willReturnOnConsecutiveCalls(
-            null,
-            '<div>Three</div>'
-        );
-        $cache->expects(self::once())->method('set')->withConsecutive(
-            [self::stringContains('One'), '<div>One, John</div>', 12],
-        );
+        $cache->expects(self::exactly(2))->method('get')
+            ->willReturnCallback(
+                static fn (string $key) => match ($match = $key) {
+                    'widget_One_{"age":"21","name":"John"}' => null,
+                    'widget_Three_[]' => '<div>Three</div>',
+                    default => self::fail(json_encode($match)),
+                }
+            );
+
+        $cache->expects(self::once())->method('set')
+            ->willReturnCallback(
+                static fn (string $key, string $value, ?int $duration) => match ($match = [$key, $value, $duration]) {
+                    ['widget_One_{"age":"21","name":"John"}', '<div>One, John</div>', 12] => null,
+                    default => self::fail(json_encode($match)),
+                }
+            );
 
         $processor = new ShortcodesProcessor([
             'one' => 'One',
