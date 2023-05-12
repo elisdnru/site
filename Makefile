@@ -10,22 +10,22 @@ test: site-test site-fixtures
 update-deps: site-composer-update site-assets-update restart
 
 docker-up:
-	docker-compose up -d
+	docker compose up -d
 
 docker-down:
-	docker-compose down --remove-orphans -t 3
+	docker compose down --remove-orphans -t 3
 
 docker-down-clear:
-	docker-compose down -v --remove-orphans -t 1
+	docker compose down -v --remove-orphans -t 1
 
 docker-pull:
-	- docker-compose pull
+	- docker compose pull
 
 docker-build:
-	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
+	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
 
 push-dev-cache:
-	docker-compose push
+	docker compose push
 
 site-init: site-permissions site-composer-install site-assets-install site-wait-db site-wait-redis site-migrations site-fixtures site-test-generate site-assets-build
 
@@ -36,79 +36,79 @@ site-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'mkdir -p public/build && chmod 777 var public/assets public/build public/upload tests/_output tests/_support/_generated'
 
 site-composer-install:
-	docker-compose run --rm site-php-cli composer install
+	docker compose run --rm site-php-cli composer install
 
 site-composer-update:
-	docker-compose run --rm site-php-cli composer update
+	docker compose run --rm site-php-cli composer update
 
 site-composer-validate:
-	docker-compose run --rm site-php-cli composer validate
+	docker compose run --rm site-php-cli composer validate
 
 site-assets-install:
-	docker-compose run --rm site-node-cli yarn install
+	docker compose run --rm site-node-cli yarn install
 
 site-assets-update:
-	docker-compose run --rm site-node-cli yarn upgrade
+	docker compose run --rm site-node-cli yarn upgrade
 
 site-wait-db:
-	docker-compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
+	docker compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 
 site-wait-redis:
-	docker-compose run --rm site-php-cli wait-for-it site-redis:6379 -t 30
+	docker compose run --rm site-php-cli wait-for-it site-redis:6379 -t 30
 
 site-migrations:
-	docker-compose run --rm site-php-cli composer app migrate -- --interactive=0
+	docker compose run --rm site-php-cli composer app migrate -- --interactive=0
 
 site-fixtures:
-	docker-compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
-	docker-compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
+	docker compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
+	docker compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf public/upload/* && cp -rf demo/upload/* public/upload'
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type d -exec chmod 777 {} \;'
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type f -exec chmod 666 {} \;'
 
 site-backup-mysql:
-	docker-compose run --rm site-mysql-backup
+	docker compose run --rm site-mysql-backup
 
 site-backup-upload:
-	docker-compose run --rm site-upload-backup
+	docker compose run --rm site-upload-backup
 
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 
 site-assets-build:
-	docker-compose run --rm site-node-cli yarn build
+	docker compose run --rm site-node-cli yarn build
 
 site-lint:
-	docker-compose run --rm site-php-cli composer lint
-	docker-compose run --rm site-php-cli composer php-cs-fixer fix -- --dry-run --diff
+	docker compose run --rm site-php-cli composer lint
+	docker compose run --rm site-php-cli composer php-cs-fixer fix -- --dry-run --diff
 
 site-cs-fix:
-	docker-compose run --rm site-php-cli composer php-cs-fixer fix
+	docker compose run --rm site-php-cli composer php-cs-fixer fix
 
 site-assets-lint:
-	docker-compose run --rm site-node-cli yarn eslint
-	docker-compose run --rm site-node-cli yarn stylelint
+	docker compose run --rm site-node-cli yarn eslint
+	docker compose run --rm site-node-cli yarn stylelint
 
 site-assets-eslint-fix:
-	docker-compose run --rm site-node-cli yarn eslint-fix
+	docker compose run --rm site-node-cli yarn eslint-fix
 
 site-assets-pretty:
-	docker-compose run --rm site-node-cli yarn prettier
+	docker compose run --rm site-node-cli yarn prettier
 
 site-analyze:
-	docker-compose run --rm site-php-cli composer psalm -- --no-diff
+	docker compose run --rm site-php-cli composer psalm -- --no-diff
 
 site-analyze-diff:
-	docker-compose run --rm site-php-cli composer psalm
+	docker compose run --rm site-php-cli composer psalm
 
 site-test-generate:
-	docker-compose run --rm site-php-cli composer test build
+	docker compose run --rm site-php-cli composer test build
 
 site-test:
-	docker-compose run --rm site-php-cli composer test run unit,integration,acceptance
+	docker compose run --rm site-php-cli composer test run unit,integration,acceptance
 
 site-test-unit-integration:
-	docker-compose run --rm site-php-cli composer test run unit,integration
+	docker compose run --rm site-php-cli composer test run unit,integration
 
 build:
 	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
@@ -195,16 +195,16 @@ testing-push-build-cache:
 	docker push ${REGISTRY}/site-testing-php-cli:cache
 
 testing-init:
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml up -d
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm site-php-cli wait-for-it site-mysql:3306 -t 60
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm site-php-cli php bin/app.php migrate --interactive=0
+	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml up -d
+	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml run --rm site-php-cli wait-for-it site-mysql:3306 -t 60
+	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml run --rm site-php-cli php bin/app.php migrate --interactive=0
 	sleep 10
 
 testing-e2e:
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm testing-site-php-cli composer test run acceptance
+	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml run --rm testing-site-php-cli composer test run acceptance
 
 testing-down-clear:
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml down -v --remove-orphans
+	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml down -v --remove-orphans
 
 try-testing: try-build try-testing-build try-testing-init try-testing-e2e try-testing-down-clear
 
