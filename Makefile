@@ -13,10 +13,10 @@ docker-up:
 	docker compose up -d
 
 docker-down:
-	docker compose down --remove-orphans -t 3
+	docker compose down --remove-orphans --timeout 3
 
 docker-down-clear:
-	docker compose down -v --remove-orphans -t 1
+	docker compose down --volumes --remove-orphans --timeout 1
 
 docker-pull:
 	- docker compose pull
