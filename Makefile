@@ -194,6 +194,7 @@ testing-build: testing-build-site-testing-php-cli
 
 testing-build-site-testing-php-cli:
 	docker buildx build --pull \
+	--cache-to type=inline \
 	--cache-from ${REGISTRY}/site-testing-php-cli:cache \
 	--tag ${REGISTRY}/site-testing-php-cli:cache \
 	--tag ${REGISTRY}/site-testing-php-cli:${IMAGE_TAG} \
