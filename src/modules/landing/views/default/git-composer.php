@@ -30,7 +30,7 @@ $this->title = 'Git и Composer для начинающих';
         border-top: 1px solid #ddd;
     }
 
-    @media (min-width: 1200px) {
+    @media (width >= 1200px) {
         .container {
             width: 970px;
         }

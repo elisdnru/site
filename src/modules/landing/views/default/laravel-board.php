@@ -73,7 +73,7 @@ $this->title = 'Мастер-класс по разработке доски о�
             background: #00437c url('/landing/intro.jpg') no-repeat center top;
         }
 
-        @media (min-width:768px){
+        @media (width >=768px){
             .intro {
                 min-height: 200px;
             }

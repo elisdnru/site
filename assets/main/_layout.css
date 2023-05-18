@@ -334,13 +334,13 @@ body {
   color: #ccc;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
   .main-nav ul li {
     width: 33.3%;
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
   .page-header .logo img {
     width: 154px;
     height: 37px;
@@ -472,7 +472,7 @@ body {
   }
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (width >= 780px) {
   .page-wrapper,
   .page-footer {
     width: 780px;
@@ -520,7 +520,7 @@ body {
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (width >= 900px) {
   .page-wrapper,
   .page-footer {
     width: 900px;
@@ -532,7 +532,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (width >= 1000px) {
   .page-wrapper,
   .page-footer {
     width: 1000px;

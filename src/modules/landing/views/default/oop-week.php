@@ -74,7 +74,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         background: #00437c url('/landing/intro.jpg') no-repeat center top;
     }
 
-    @media (min-width: 768px) {
+    @media (width >= 768px) {
         .intro {
             min-height: 456px;
         }

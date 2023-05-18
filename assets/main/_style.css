@@ -28,7 +28,7 @@ div.breadcrumbs span {
   font-weight: normal;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
   div.breadcrumbs span {
     display: inline;
   }

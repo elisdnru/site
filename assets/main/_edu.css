@@ -13,13 +13,13 @@
   margin: 0 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .text .edu-items .edu-items-wrapper .edu-items-item {
     width: 50%;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .text .edu-items .edu-items-wrapper .edu-items-item {
     width: 33.3333%;
   }

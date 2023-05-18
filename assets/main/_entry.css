@@ -157,7 +157,7 @@
   line-height: 1.5;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
   .entry .info .comments,
   .entry .info .tags {
     display: inline-block;

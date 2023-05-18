@@ -63,7 +63,7 @@ ul.paginator .last {
   display: none;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
   ul.paginator .previous,
   ul.paginator .next {
     display: inline-block;
@@ -147,7 +147,7 @@ ul.pagination .last {
   display: none;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
   ul.pagination .prev,
   ul.pagination .next {
     display: inline-block;
