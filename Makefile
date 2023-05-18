@@ -92,6 +92,9 @@ site-assets-lint:
 site-assets-eslint-fix:
 	docker compose run --rm site-node-cli yarn eslint-fix
 
+site-assets-stylelint-fix:
+	docker compose run --rm site-node-cli yarn stylelint-fix
+
 site-assets-pretty:
 	docker compose run --rm site-node-cli yarn prettier
 

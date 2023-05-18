@@ -6,6 +6,7 @@
     "eslint": "eslint --ext .js assets",
     "eslint-fix": "eslint --fix --ext .js assets",
     "stylelint": "stylelint \"assets/**/*.css\"",
+    "stylelint-fix": "stylelint \"assets/**/*.css\" --fix",
     "prettier": "prettier --write \"assets/**/*.(js|css)\""
   },
   "dependencies": {
