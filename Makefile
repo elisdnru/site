@@ -19,7 +19,7 @@ docker-down-clear:
 	docker compose down --volumes --remove-orphans --timeout 1
 
 docker-pull:
-	- docker compose pull
+	docker compose pull --ignore-pull-failures
 
 docker-build:
 	docker compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
