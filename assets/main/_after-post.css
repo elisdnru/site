@@ -1,13 +1,13 @@
 .subscribe-after-post {
   margin-bottom: 20px;
-  padding: 15px 20px 10px 20px;
+  padding: 15px 20px 10px;
   border: 2px dashed #aabace;
   background: #f3f6ff;
   border-radius: 10px;
 }
 
 .subscribe-after-post p.title {
-  margin: 0 0 15px 0;
+  margin: 0 0 15px;
   color: #333;
   font-size: 14px;
   font-weight: bold;
@@ -49,7 +49,7 @@
 }
 
 .subscribe-after-post .subscribe-form .button {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   float: left;
 }
 

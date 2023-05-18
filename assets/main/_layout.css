@@ -24,7 +24,7 @@ body {
 }
 
 .page-header {
-  padding: 20px 20px 10px 20px;
+  padding: 20px 20px 10px;
   position: relative;
   background: #fff;
   background: linear-gradient(#fff, #fafafa);
@@ -50,7 +50,7 @@ body {
   line-height: 1;
   color: #555;
   font-size: 22px;
-  margin: 0 0 5px 0;
+  margin: 0 0 5px;
 }
 
 .page-header .title .slogan {
@@ -154,7 +154,7 @@ body {
 }
 
 .page-content {
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 20px;
   position: relative;
 }
 
@@ -227,7 +227,7 @@ body {
 
 .page-footer {
   min-height: 130px;
-  margin: -130px auto 0 auto;
+  margin: -130px auto 0;
   position: relative;
   background: #444;
   color: #ccc;
@@ -246,7 +246,7 @@ body {
 }
 
 .page-footer .content {
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0;
   position: relative;
 }
 
@@ -276,7 +276,7 @@ body {
 
 .page-footer .nav ul li {
   margin: 0;
-  padding: 0 0 4px 0;
+  padding: 0 0 4px;
 }
 
 .page-footer .nav ul li:first-child {
@@ -317,7 +317,7 @@ body {
 }
 
 .page-footer .counters img {
-  margin: 0 0 4px 0;
+  margin: 0 0 4px;
   opacity: 0.5;
 }
 
@@ -427,7 +427,7 @@ body {
     display: block;
     width: 100%;
     position: relative;
-    padding: 12px 0 12px 0;
+    padding: 12px 0;
     text-align: center;
     color: #333;
     text-decoration: none;

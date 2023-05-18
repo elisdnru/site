@@ -3,7 +3,7 @@ ul.paginator {
   clear: both;
   line-height: 1.4;
   text-align: center;
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
   font-size: 0;
 }
 
@@ -75,7 +75,7 @@ ul.pagination {
   clear: both;
   line-height: 1.4;
   text-align: center;
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
   font-size: 0;
 }
 

@@ -4,7 +4,7 @@ div.form input[type='text'],
 div.form input[type='password'],
 div.form textarea,
 div.form select {
-  margin: 0.2em 0 0.5em 0;
+  margin: 0.2em 0 0.5em;
   padding: 4px;
   border: 1px solid #aaa;
   box-sizing: border-box;
@@ -102,7 +102,7 @@ div.form .error-message {
 div.form .error-summary {
   border: 2px solid #c00;
   padding: 7px;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   background: #fee;
   font-size: 0.9em;
 }
@@ -141,11 +141,11 @@ div.form.login {
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 10px;
   text-align: center;
   border-radius: 5px;
 }
 
 div.form.login p {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }

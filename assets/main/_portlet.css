@@ -18,11 +18,11 @@
 
 .portlet-content {
   border-top: #ddd 1px solid;
-  padding: 15px 10px 10px 10px;
+  padding: 15px 10px 10px;
 }
 
 .portlet-content ul {
-  margin: -15px -10px -10px -10px;
+  margin: -15px -10px -10px;
   list-style: none;
 }
 
@@ -160,7 +160,7 @@
 }
 
 .portlet-content .subscribe-form .button {
-  margin: 15px 0 6px 0;
+  margin: 15px 0 6px;
   text-align: center;
 }
 

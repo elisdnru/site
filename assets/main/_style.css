@@ -43,7 +43,7 @@ div.breadcrumbs span {
 }
 
 .subpages {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .subpages ul {
@@ -53,7 +53,7 @@ div.breadcrumbs span {
 }
 
 .subpages li {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   font-size: 13px;
   float: left;
   padding: 0 10px 0 0;
@@ -86,12 +86,12 @@ div.breadcrumbs span {
 
 ul.short-list {
   list-style: none;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 ul.short-list li {
   list-style: none;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   font-size: 14px;
 }
 
@@ -108,7 +108,7 @@ ul.short-list li {
 .block-title {
   font-size: 14px;
   font-weight: bold;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .twitter-tweet {

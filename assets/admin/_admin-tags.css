@@ -1,7 +1,7 @@
 ul.tags-list {
   list-style: none;
   margin: 0;
-  padding: 6px 6px 0 6px;
+  padding: 6px 6px 0;
   background: #fff;
   float: left;
   border: #ddd 1px solid;
@@ -17,7 +17,7 @@ ul.tags-list {
 
 .tags-list li a {
   display: block;
-  padding: 2px 8px 3px 8px;
+  padding: 2px 8px 3px;
   color: #fff;
   text-decoration: none;
 }
