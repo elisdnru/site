@@ -22,6 +22,8 @@ services:
             dockerfile: development/nginx/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev:cache
+            cache_to:
+                - type=inline
         networks:
             - traefik-public
             - default
@@ -41,6 +43,8 @@ services:
             dockerfile: development/php-fpm/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-php-fpm:cache
+            cache_to:
+                - type=inline
         environment:
             PHP_IDE_CONFIG: serverName=SITE
             APP_DEBUG: 1
@@ -77,6 +81,8 @@ services:
             dockerfile: development/php-cli/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-php-cli:cache
+            cache_to:
+                - type=inline
         environment:
             APP_DEBUG: 1
             APP_ENV: dev
@@ -144,6 +150,8 @@ services:
             dockerfile: mysql-backup/Dockerfile
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
+            cache_to:
+                - type=inline
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
@@ -166,6 +174,8 @@ services:
             context: ./docker/common/files-backup
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-files-backup:cache
+            cache_to:
+                - type=inline
         environment:
             BACKUP_NAME: site-upload
             TARGET: /upload
@@ -184,7 +194,9 @@ services:
         build:
             context: ./docker/common/redis
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-redis:cache
+                - ${REGISTRY:-localhost}/site-dev-redis:cache`
+            cache_to:
+                - type=inline
         environment:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
         secrets:

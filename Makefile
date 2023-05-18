@@ -22,7 +22,7 @@ docker-pull:
 	docker compose pull --ignore-pull-failures
 
 docker-build:
-	docker compose build --build-arg BUILDKIT_INLINE_CACHE=1 --pull
+	docker compose build --pull
 
 push-dev-cache:
 	docker compose push
