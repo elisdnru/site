@@ -22,9 +22,6 @@ final class CategoryUrlRule implements UrlRuleInterface
         return (string)$params['category'];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function parseRequest($manager, $request): array|bool
     {
         if (!preg_match('|^(?P<category>\w[\w_/-]+)$|', $request->getPathInfo(), $matches)) {

@@ -61,7 +61,7 @@ final class Comment extends ActiveRecord
 
     public function getChildren(): ActiveQuery
     {
-        return $this->hasMany(static::class, ['parent_id' => 'id']);
+        return $this->hasMany(self::class, ['parent_id' => 'id']);
     }
 
     public function getUser(): ActiveQuery
@@ -91,7 +91,7 @@ final class Comment extends ActiveRecord
 
     public static function find(): CommentQuery
     {
-        return new CommentQuery(static::class);
+        return new CommentQuery(self::class);
     }
 
     public function behaviors(): array

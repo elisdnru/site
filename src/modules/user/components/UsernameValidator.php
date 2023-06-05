@@ -8,13 +8,7 @@ use yii\validators\RegularExpressionValidator;
 
 final class UsernameValidator extends RegularExpressionValidator
 {
-    /**
-     * {@inheritdoc}
-     */
     public $pattern = '#^[a-zA-Z0-9_\.-]+$#';
 
-    /**
-     * {@inheritdoc}
-     */
     public $message = 'Логин содержит запрещённые символы.';
 }
