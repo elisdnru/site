@@ -36,8 +36,5 @@
     "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.37.0",
     "webpack-cli": "^5.0.0"
-  },
-  "resolutions": {
-    "stylelint/cosmiconfig": "8.1.3"
   }
 }
