@@ -213,7 +213,7 @@ services:
                 constraints: [ node.role == manager ]
 
     site-redis:
-        image: ${REGISTRY}/site-redis:6.2
+        image: ${REGISTRY}/site-redis:7.0
         environment:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
         secrets:

@@ -1,6 +1,6 @@
 services:
     traefik:
-        image: traefik:2.9
+        image: traefik:2.10
         command:
             --providers.docker=true
             --providers.docker.exposedbydefault=false
@@ -126,7 +126,7 @@ services:
             - db_password
 
     site-redis:
-        image: ${REGISTRY}/site-redis:6.2
+        image: ${REGISTRY}/site-redis:7.0
         environment:
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
         secrets:
