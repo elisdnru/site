@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\components\uploader;
 
 use app\extensions\file\File;
-use app\extensions\image\Image;
 use ArrayObject;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
