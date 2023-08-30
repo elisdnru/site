@@ -2,11 +2,9 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\web\Request;
 
 /**
  * @var string $code
- * @var Request $request
  */
 $request = Yii::$app->request;
 

@@ -18,13 +18,11 @@ use app\widgets\SubscribeAfterPost;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\web\Request;
 use yii\web\View;
 
 /**
  * @var View $this
  * @var Post $model
- * @var Request $request
  */
 $request = Yii::$app->request;
 

@@ -1,11 +1,9 @@
 <?php declare(strict_types=1);
 
 use yii\helpers\Html;
-use yii\web\Request;
 
 /**
  * @var string $password
- * @var Request $request
  */
 $request = Yii::$app->request;
 ?>

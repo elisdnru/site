@@ -8,13 +8,11 @@ use app\modules\user\widgets\LoginFormWidget;
 use app\widgets\Follow;
 use app\widgets\Portlet;
 use yii\caching\TagDependency;
-use yii\web\Request;
 use yii\web\View;
 use yii\widgets\Menu;
 
 /**
  * @var View $this
- * @var Request $request
  */
 $request = Yii::$app->request;
 ?>
