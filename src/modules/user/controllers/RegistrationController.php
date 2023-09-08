@@ -16,10 +16,6 @@ use yii\web\Session;
 
 final class RegistrationController extends Controller
 {
-    /**
-     * @psalm-suppress TypeDoesNotContainType
-     * @psalm-suppress RedundantCondition
-     */
     public function actions(): array
     {
         return [
