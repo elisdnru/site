@@ -6,6 +6,4 @@ namespace tests\Helper;
 
 use Codeception\Module;
 
-final class Acceptance extends Module
-{
-}
+final class Acceptance extends Module {}
