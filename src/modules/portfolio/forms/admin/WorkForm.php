@@ -11,19 +11,19 @@ use yii\web\UploadedFile;
 
 final class WorkForm extends Model
 {
-    public string|int $sort = '';
+    public int|string $sort = '';
     public string $date = '';
-    public string|int|null $category_id = null;
+    public null|int|string $category_id = null;
     public string $slug = '';
     public string $title = '';
     public string $meta_title = '';
     public string $meta_description = '';
     public string $short = '';
     public string $text = '';
-    public string|UploadedFile|null $image = '';
-    public string|bool $del_image = false;
-    public string|int $image_show = '';
-    public string|int $public = '';
+    public null|string|UploadedFile $image = '';
+    public bool|string $del_image = false;
+    public int|string $image_show = '';
+    public int|string $public = '';
 
     private ?int $id = null;
 

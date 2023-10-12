@@ -10,13 +10,13 @@ use yii\base\Model;
 class CommentUpdateForm extends Model
 {
     public string $date;
-    public string|null $name;
+    public null|string $name;
     public string $email;
-    public string|null $site;
+    public null|string $site;
     public string $text;
-    public string|int|null $parent_id;
+    public null|int|string $parent_id;
 
-    private int|null $user_id;
+    private null|int $user_id;
 
     final public function __construct(Comment $comment, array $config = [])
     {

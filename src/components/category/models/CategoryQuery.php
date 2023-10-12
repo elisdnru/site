@@ -51,7 +51,7 @@ class CategoryQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Category|null
      */
-    public function one($db = null): array|Category|null
+    public function one($db = null): null|array|Category
     {
         return parent::one($db);
     }

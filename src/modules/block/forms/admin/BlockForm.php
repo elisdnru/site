@@ -14,7 +14,7 @@ final class BlockForm extends Model
     public string $title = '';
     public string $text = '';
 
-    private int|null $id = null;
+    private null|int $id = null;
 
     public function __construct(?Block $block = null, array $config = [])
     {

@@ -60,7 +60,7 @@ final class CommentQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Comment|null
      */
-    public function one($db = null): array|Comment|null
+    public function one($db = null): null|array|Comment
     {
         return parent::one($db);
     }

@@ -45,7 +45,7 @@ final class WorkQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Work|null
      */
-    public function one($db = null): array|Work|null
+    public function one($db = null): null|array|Work
     {
         return parent::one($db);
     }

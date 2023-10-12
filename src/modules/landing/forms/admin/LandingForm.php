@@ -13,7 +13,7 @@ final class LandingForm extends Model
     public string $slug = '';
     public string $title = '';
     public string $text = '';
-    public string|int|null $parent_id = null;
+    public null|int|string $parent_id = null;
     public string $system = '';
 
     private ?Landing $landing = null;

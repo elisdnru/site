@@ -51,7 +51,7 @@ final class GroupsFetcher
         return $result;
     }
 
-    private function getGroupsSet(string $name, object|array $module): ?Set
+    private function getGroupsSet(string $name, array|object $module): ?Set
     {
         if (\is_object($module)) {
             $class = $module::class;

@@ -25,7 +25,7 @@ final class SimpleCacheAdapter implements CacheInterface
         return $result !== false ? $result : $default;
     }
 
-    public function set(string $key, mixed $value, null|int|DateInterval $ttl = null): bool
+    public function set(string $key, mixed $value, null|DateInterval|int $ttl = null): bool
     {
         return $this->cache->set($key, $value, self::toSeconds($ttl));
     }
@@ -53,7 +53,7 @@ final class SimpleCacheAdapter implements CacheInterface
         return $this->cache->multiGet($strings);
     }
 
-    public function setMultiple(iterable $values, null|int|DateInterval $ttl = null): bool
+    public function setMultiple(iterable $values, null|DateInterval|int $ttl = null): bool
     {
         /**
          * @var array<string, mixed> $items
@@ -85,7 +85,7 @@ final class SimpleCacheAdapter implements CacheInterface
         return $this->cache->exists($key);
     }
 
-    private static function toSeconds(null|int|DateInterval $ttl): int
+    private static function toSeconds(null|DateInterval|int $ttl): int
     {
         if ($ttl instanceof DateInterval) {
             return (new DateTimeImmutable('@0'))->add($ttl)->getTimestamp();

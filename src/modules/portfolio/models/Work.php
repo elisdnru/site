@@ -33,7 +33,7 @@ final class Work extends ActiveRecord
 {
     use ForceActiveRecordErrors;
 
-    public string|bool $del_image = false;
+    public bool|string $del_image = false;
 
     public static function tableName(): string
     {

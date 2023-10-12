@@ -51,7 +51,7 @@ final class PageQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Page|null
      */
-    public function one($db = null): array|Page|null
+    public function one($db = null): null|array|Page
     {
         return parent::one($db);
     }

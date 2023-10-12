@@ -51,7 +51,7 @@ final class TreeCategoryQuery extends CategoryQuery
      * @param Connection|null $db
      * @psalm-return TreeCategory|null
      */
-    public function one($db = null): array|TreeCategory|null
+    public function one($db = null): null|array|TreeCategory
     {
         return ActiveQuery::one($db);
     }

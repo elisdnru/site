@@ -44,7 +44,7 @@ final class PostQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Post|null
      */
-    public function one($db = null): array|Post|null
+    public function one($db = null): null|array|Post
     {
         return parent::one($db);
     }

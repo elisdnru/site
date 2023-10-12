@@ -16,7 +16,7 @@ use yii\web\UploadedFile;
 final class PostForm extends Model
 {
     public string $date = '';
-    public string|int $category_id = '';
+    public int|string $category_id = '';
     public string $slug = '';
     public string $title = '';
     public string $meta_title = '';
@@ -24,17 +24,17 @@ final class PostForm extends Model
     public ?string $styles = '';
     public string $short = '';
     public string $text = '';
-    public string|UploadedFile|null $image = '';
+    public null|string|UploadedFile $image = '';
     public string $image_alt = '';
-    public string|bool|int $image_show = '';
-    public string|bool|int|null $group_id = null;
+    public bool|int|string $image_show = '';
+    public null|bool|int|string $group_id = null;
     public string $new_group = '';
-    public string|bool|int $public = '';
-    public string|bool|int $promoted = '';
-    public string|bool|int $del_image = '';
+    public bool|int|string $public = '';
+    public bool|int|string $promoted = '';
+    public bool|int|string $del_image = '';
     public string $tags = '';
 
-    private int|null $id = null;
+    private null|int $id = null;
 
     public function __construct(?Post $post = null, array $config = [])
     {

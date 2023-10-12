@@ -12,7 +12,7 @@ final class PageForm extends Model
 {
     public string $slug = '';
     public string $title = '';
-    public string|int $hidetitle = '';
+    public int|string $hidetitle = '';
     public string $meta_title = '';
     public string $meta_description = '';
     public string $robots = '';
@@ -20,8 +20,8 @@ final class PageForm extends Model
     public string $text = '';
     public string $layout = '';
     public string $subpages_layout = '';
-    public string|int|null $parent_id = null;
-    public string|int $system = '';
+    public null|int|string $parent_id = null;
+    public int|string $system = '';
 
     private ?Page $page = null;
 

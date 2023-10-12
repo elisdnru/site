@@ -51,7 +51,7 @@ final class LandingQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Landing|null
      */
-    public function one($db = null): array|Landing|null
+    public function one($db = null): null|array|Landing
     {
         return parent::one($db);
     }

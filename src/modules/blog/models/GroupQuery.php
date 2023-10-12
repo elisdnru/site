@@ -51,7 +51,7 @@ final class GroupQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Group|null
      */
-    public function one($db = null): array|Group|null
+    public function one($db = null): null|array|Group
     {
         return parent::one($db);
     }
