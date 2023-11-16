@@ -19,7 +19,7 @@
         "laminas/laminas-feed": "^2.12",
         "php-http/curl-client": "^2.0",
         "psr/simple-cache": "^3.0",
-        "sentry/sdk": "^3.0",
+        "sentry/sdk": "^4.0",
         "webmozart/assert": "^1.9",
         "yiisoft/yii2": "2.0.*-dev",
         "yiisoft/yii2-redis": "^2.0",
