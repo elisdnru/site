@@ -7,7 +7,6 @@ on:
 
 env:
     REGISTRY_HOST: ghcr.io
-    REGISTRY: ghcr.io/${{ github.repository }}
     IMAGE_TAG: master-${{ github.run_number }}
 
 jobs:
@@ -28,6 +27,9 @@ jobs:
                 with:
                     path: node_modules
                     key: yarn-${{ hashFiles('yarn.lock') }}
+
+            -   name: Set registry env
+                run:  echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
             -   name: Docker login
                 uses: azure/docker-login@v1
@@ -119,6 +121,9 @@ jobs:
                     echo "${{ secrets.MAILER_PASSWORD }}" > /tmp/mailer_password
                     echo "${{ secrets.SENTRY_DSN }}" > /tmp/sentry_dsn
                     echo "${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}" > /tmp/backup_aws_secret_access_key
+
+            -   name: Set registry env
+                run:  echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
             -   name: Deploy
                 run: make deploy
