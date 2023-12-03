@@ -8,7 +8,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM php:8.2-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git \
     && git clone --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
