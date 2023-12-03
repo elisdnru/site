@@ -16,7 +16,7 @@ use yii\web\User;
 $isSecure = parse_url(env('APP_URL'), PHP_URL_SCHEME) === 'https';
 
 return ArrayHelper::merge(
-    require(__DIR__ . '/common.php'),
+    require (__DIR__ . '/common.php'),
     [
         'components' => [
             'request' => Request::class,
