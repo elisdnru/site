@@ -521,16 +521,6 @@ $this->title = 'Мастер-класс по разработке доски о�
                 </div>
             </div>
         </div>
-        <p style="color: #aaa; text-align: center">
-            Принимаем
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/alfabank-white.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/sberbank.png" />
-            и другие...
-        </p>
     </div>
 </section>
 

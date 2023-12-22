@@ -480,15 +480,6 @@ $this->title = 'Git и Composer для начинающих';
 
 <footer style="background: #e6e6e9">
     <div class="container">
-        <p>
-            Принимаем
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/visa.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/mastercard.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/webmoney-white.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/yandexmoney.png" />
-            <img alt="" src="https://elisdn.justclick.ru/media/content/elisdn/payicons/qiwi.png" />
-            и другие...
-        </p>
         <p style="font-size: 13px">
             ИП Елисеев Дмитрий Николаевич<br />
             ОГРН 309574636200019 ИНН 570600870325<br />
