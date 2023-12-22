@@ -7,6 +7,7 @@ use app\modules\user\models\Access;
 use app\widgets\AdminBar;
 use app\widgets\Counters;
 use app\widgets\MainMenu;
+use app\widgets\NotificationBar;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -43,6 +44,8 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 </head>
 <body>
 <?php $this->beginBody(); ?>
+
+<?= NotificationBar::widget(); ?>
 
 <div class="page-wrapper">
 
@@ -156,4 +159,3 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 </body>
 </html>
 <?php $this->endPage(); ?>
-

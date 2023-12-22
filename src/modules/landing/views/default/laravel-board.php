@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use app\widgets\NotificationBar;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -523,6 +524,8 @@ $this->title = 'Мастер-класс по разработке доски о�
         </div>
     </div>
 </section>
+
+<?= NotificationBar::widget(); ?>
 
 <footer style="background: #e6e6e9">
     <div class="container">
