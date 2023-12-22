@@ -63,6 +63,9 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "src/overrides/Codeception/Lib/Connector/Yii2.php"
+        ],
         "psr-4": {
             "tests\\": [
                 "tests/",

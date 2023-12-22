@@ -17,6 +17,7 @@ return
                     'extensions/file',
                     'extensions/image',
                     'extensions/markdown',
+                    'overrides',
                     '_support/_generated',
                 ])
                 ->append([
