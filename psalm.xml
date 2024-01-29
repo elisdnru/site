@@ -6,6 +6,7 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     cacheDirectory="./var/.psalm"
     autoloader="./vendor/yiisoft/yii2/Yii.php"
+    errorBaseline="psalm-baseline.xml"
 >
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.20.0@3f284e96c9d9be6fe6b15c79416e1d1903dcfef4">
+  <file src="src/components/AuthIdentity.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($user->confirm)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/CSSMinimizer.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$css</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/DateFormatter.php">
+    <RiskyTruthyFalsyComparison>
+      <code>!$time</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/Gravatar.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$email</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/SimpleCacheAdapter.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$ttl</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/TextMarker.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$needle</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/category/TreeActiveDataProvider.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($rootQuery->where)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/category/behaviors/CategoryTreeQueryBehavior.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$parent</code>
+      <code>$parent</code>
+      <code><![CDATA[Attribute::intOrNull($item, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($item, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
+      <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/uploader/Uploader.php">
+    <RiskyTruthyFalsyComparison>
+      <code>!$fileName</code>
+      <code>$content</code>
+      <code><![CDATA[$ext = $file->getExtension()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/block/widgets/BlockWidget.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$this->id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/Module.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$comments</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/controllers/FeedController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/controllers/admin/CategoryController.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$count</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/controllers/admin/GroupController.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$count</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/controllers/admin/PostController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->del_image]]></code>
+      <code><![CDATA[$model->group_id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/views/admin/post/_form.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$post->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/views/default/_loop.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$post->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/views/default/search.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$post->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/views/post/show.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->image]]></code>
+      <code><![CDATA[$model->image]]></code>
+      <code><![CDATA[$model->styles]]></code>
+      <code><![CDATA[$request->getHostInfo()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/widgets/views/LastPosts/default.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$post->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/widgets/views/LastPosts/home.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$post->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/blog/widgets/views/OtherPosts.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$post->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/Module.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$comments</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/components/CommentAdminController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->parent_id]]></code>
+      <code><![CDATA[$request->getReferrer()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/controllers/AjaxController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$user->id]]></code>
+      <code><![CDATA[!$user->id]]></code>
+      <code><![CDATA[$request->getReferrer()]]></code>
+      <code><![CDATA[$request->getReferrer()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/forms/admin/CommentUpdateForm.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$model->user_id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/views/admin/comment/_view.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$comment->user->network]]></code>
+      <code><![CDATA[empty($comment->name)]]></code>
+      <code><![CDATA[empty($comment->name)]]></code>
+      <code><![CDATA[empty($comment->site)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/widgets/CommentsWidget.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$form->parent_id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/widgets/views/Comments/_comment.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$comment->user->network]]></code>
+      <code><![CDATA[empty($comment->name)]]></code>
+      <code><![CDATA[empty($comment->name)]]></code>
+      <code><![CDATA[empty($comment->site)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/widgets/views/Comments/_form.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$user->site]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/file/views/admin/file/index.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getBasename()]]></code>
+      <code><![CDATA[$item->getTimeModified()]]></code>
+      <code><![CDATA[$item->getTimeModified()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/landing/controllers/admin/LandingController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->parent_id]]></code>
+      <code>$parent</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/landing/forms/admin/LandingForm.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->landing->parent_id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/page/controllers/admin/PageController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->parent_id]]></code>
+      <code>$parent</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/page/forms/admin/PageForm.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->page->parent_id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/portfolio/controllers/admin/CategoryController.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$count</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/portfolio/controllers/admin/WorkController.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$category</code>
+      <code>$category</code>
+      <code><![CDATA[$model->del_image]]></code>
+      <code><![CDATA[$request->getReferrer()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/portfolio/views/admin/work/_form.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$work->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/portfolio/views/admin/work/index.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$item->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/portfolio/views/work/show.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->image]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/sitemap/views/default/_recursive.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$item->label]]></code>
+      <code><![CDATA[$item->label]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/ulogin/models/ULoginModel.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->photo]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/controllers/DefaultController.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$request->getReferrer()]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/forms/LoginForm.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$user->confirm]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/forms/admin/UserSearch.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->fio)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/models/User.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->salt]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/views/admin/user/index.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$user->confirm]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/views/admin/user/view.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$model->network]]></code>
+      <code><![CDATA[$model->site]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/views/profile/view.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$user->network]]></code>
+      <code><![CDATA[$user->site]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/widgets/LoginFormWidget.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->user->id]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/widgets/views/LoginForm.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$user->network]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/widgets/Portlet.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->url]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+</files>

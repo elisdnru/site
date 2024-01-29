@@ -10,6 +10,7 @@ use app\components\module\admin\AdminAccess;
 use app\components\module\admin\AdminDashboard;
 use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
+use app\components\module\Provider;
 use app\components\module\routes\RoutesLoader;
 use app\components\shortcodes\ShortcodesProcessor;
 use app\components\shortcodes\WidgetRenderer;
@@ -17,6 +18,7 @@ use app\components\SimpleCacheAdapter;
 use app\components\uploader\Uploader;
 use app\extensions\file\File as FileExtension;
 use app\extensions\image\Image;
+use app\modules\admin\Module;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\edu\widgets\SeriesEpisodes;
@@ -65,13 +67,13 @@ return [
 
     'bootstrap' => [
         'log',
-        app\components\module\Provider::class,
+        Provider::class,
         app\modules\edu\components\Provider::class,
         RoutesLoader::class,
     ],
 
     'modules' => [
-        'admin' => ['class' => app\modules\admin\Module::class],
+        'admin' => ['class' => Module::class],
         'block' => ['class' => app\modules\block\Module::class],
         'blog' => ['class' => app\modules\blog\Module::class],
         'comment' => ['class' => app\modules\comment\Module::class],
