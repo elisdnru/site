@@ -484,8 +484,8 @@ $this->title = 'Git и Composer для начинающих';
 <footer style="background: #e6e6e9">
     <div class="container">
         <p style="font-size: 13px">
-            ИП Елисеев Дмитрий Николаевич<br />
-            ОГРН 309574636200019 ИНН 570600870325<br />
+            Елисеев Дмитрий Николаевич<br />
+            ИНН 570600870325<br />
             <script>document.write('mai' + 'l@eli' + 'sdn.ru');</script>
         </p>
         <p style="font-size: 13px">

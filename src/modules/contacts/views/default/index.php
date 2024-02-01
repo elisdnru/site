@@ -36,8 +36,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
     <h1>Елисеев Дмитрий Николаевич</h1>
 
     <div class="text">
-        <p>Действует на основании свидетельства о регистрации ИП сер. 57 № 001202119 от 28 декабря 2009 года.</p>
-        <p>ОГРНИП: 309574636200019 &nbsp; ИНН: 570600870325</p>
+        <p>ИНН: 570600870325</p>
         <ul>
             <li><a href="https://www.fl.ru/users/elisdn/">Профиль на FL.ru</a></li>
             <li><a href="https://www.weblancer.net/users/ElisDN/">Профиль на weblancer.net</a></li>

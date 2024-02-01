@@ -119,8 +119,8 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <?php endif; ?>
         <div class="info">
             <p>
-                © ИП Елисеев Дмитрий Николаевич, 2009-<?= date('Y'); ?><br />
-                ОГРН: 309574636200019; ИНН: 570600870325<br />
+                © Елисеев Дмитрий Николаевич, 2009-<?= date('Y'); ?><br />
+                ИНН: 570600870325<br />
                 <a rel="nofollow" href="/privacy">Политика конфиденциальности</a><br />
                 Email:
                 <script>document.write('<a rel="nofollow" href="mailto:mai' + 'l@el' + 'isdn.ru">ma' + 'il@e' + 'lisdn.ru</a>')</script>
