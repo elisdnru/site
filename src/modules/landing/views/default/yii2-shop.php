@@ -558,7 +558,7 @@ $this->title = 'Мастер-класс по разработке интерне
                     <div class="price-button"><a href="https://products.elisdn.ru/order/yii2-shop/" target="_blank">Приобрести все записи</a></div>
                     <div class="price-text">пробные <span>5</span> дней за <span>4975</span> руб:</div>
                     <p style="margin: 0; text-align: center; font-size: 13px; color: #999">Если Вам не понравятся пробные уроки, то я верну платёж</p>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/yii2-shop-part-1/" target="_blank">Приобрести первую половину</a></div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/yii2-shop-part-1/" target="_blank">Приобрести половину</a></div>
                     <p style="text-align: center; font-size: 14px">Если у вас есть скидка, то введите купон в открывшуюся форму оплаты.</p>
                 </div>
             </div>
