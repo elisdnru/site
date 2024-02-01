@@ -513,10 +513,10 @@ $this->title = 'Мастер-класс по разработке доски о�
                     </div>
                     <p>Сразу приобрести полностью</p>
                     <div class="price-text">все <span>8</span> тем за <span>8800</span> руб:</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/laravel-board/" target="_blank">Приобрести записи</a></div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/laravel-board/" target="_blank">Приобрести все записи</a></div>
                     <p>или внести предоплату</p>
                     <div class="price-text">первые <span>4</span> темы за <span>4400</span> руб:</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/laravel-board-prepay/" target="_blank">Внести предоплату</a></div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/laravel-board-part-1/" target="_blank">Приобрести половину</a></div>
                     <p style="text-align: center; font-size: 14px">Если у вас есть скидка постоянного участника<br />(пришла на электронную почту, если Вы не отписывались),<br />то введите код купона в открывшуюся форму оплаты.</p>
                     <p style="text-align: center; font-size: 14px">Если Вас что-то не устроит в ходе участия или Вы просто передумаете,<br />то я верну весь ваш платёж.</p>
                 </div>

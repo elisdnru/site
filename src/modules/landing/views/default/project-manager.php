@@ -391,11 +391,11 @@ $this->title = 'Мастер-класс по разработке менедже
 
                     <p>Приобрести в рассрочку:</p>
                     <div class="price-text"><span>1</span> вводный + <span>4</span> платных урока</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/product-manager-part-1/" target="_blank">Приобрести первую треть</a></div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/project-manager-part-1/" target="_blank">Приобрести первую треть</a></div>
 
                     <p>или приобрести целиком:</p>
                     <div class="price-text"><span>1</span> вводный + <span>14</span> платных уроков</div>
-                    <div class="price-button"><a href="https://products.elisdn.ru/order/product-manager/" target="_blank">Приобрести все записи</a></div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/project-manager/" target="_blank">Приобрести все записи</a></div>
 
                     <p style="text-align: center; font-size: 14px; margin-bottom: 30px"><a href="/blog/130/enterprise-frameworks" target="_blank" style="text-decoration: underline">Посмотреть запись первого урока</a></p>
 
