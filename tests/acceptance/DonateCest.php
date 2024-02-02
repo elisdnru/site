@@ -13,6 +13,6 @@ final class DonateCest
         $I->stopFollowingRedirects();
         $I->amOnPage('donate');
         $I->seeResponseCodeIs(302);
-        $I->haveHttpHeader('Location', 'https://products.elisdn.ru/order/donate/');
+        $I->haveHttpHeader('Location', '/order/donate/');
     }
 }

@@ -11,6 +11,6 @@ final class DefaultController extends Controller
 {
     public function actionIndex(): Response
     {
-        return $this->redirect('https://products.elisdn.ru/order/donate/', 302);
+        return $this->redirect('/order/donate/', 302);
     }
 }
