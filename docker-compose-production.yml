@@ -169,7 +169,7 @@ services:
             MYSQL_HOST: site-mysql
             MYSQL_USER: app
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
-            MYSQL_DB: ${DB_NAME}
+            MYSQL_DB: app
             AWS_ACCESS_KEY_ID: ${BACKUP_AWS_ACCESS_KEY_ID}
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: ${BACKUP_AWS_DEFAULT_REGION}
