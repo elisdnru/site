@@ -469,7 +469,7 @@ $this->title = 'Git и Composer для начинающих';
                 <p style="font-size: 13px; text-align: center">Полная гарантия возврата средств:<br />если Вас что-то не устроит в начале просмотра<br />или Вы просто передумаете, то я верну ваш платёж.</p>
 
                 <div style="width: 380px; margin: 0 auto 20px auto; text-align: center; padding: 10px 0 0 0; background: #eeeeff; border: 2px dashed #aabace; border-radius: 20px">
-                    <div class="price-button"><a href="/order/gitcomposer/" target="_blank">Приобрести записи</a></div>
+                    <div class="price-button"><a href="https://products.elisdn.ru/order/gitcomposer/" target="_blank">Приобрести записи</a></div>
                 </div>
 
                 <p style="font-size: 13px; text-align: center">Если есть какие-нибудь вопросы по практикуму,<br />по оплате или его формату и любые другие, то пишите<br />сразу мне по адресу <script>document.write('<b>mai' + 'l@eli' + 'sdn.ru</b>');</script><br />Заранее спасибо!</p>

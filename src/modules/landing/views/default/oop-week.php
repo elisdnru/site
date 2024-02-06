@@ -510,7 +510,7 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
                     </div>
                     <div class="price-text"><span>6</span> дней по <span>5</span> часов за <span>5950</span> руб</div>
                     <div class="price-button">
-                        <a href="/order/oop-week-3/" target="_blank">Приобрести записи</a>
+                        <a href="https://products.elisdn.ru/order/oop-week-3/" target="_blank">Приобрести записи</a>
                     </div>
                 </div>
             </div>
