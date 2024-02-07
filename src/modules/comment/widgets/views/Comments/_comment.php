@@ -39,12 +39,15 @@ use yii\web\Session;
         <h2 class="date enc-date" data-date="<?= DateFormatter::format($comment->date, true); ?>">&nbsp;</h2>
 
         <?php if ($comment->user && $comment->user->network): ?>
-            <a href="<?= $comment->user->identity; ?>"><?= SocNetwork::icon($comment->user->network); ?></a>
+            <?= SocNetwork::icon($comment->user->network); ?>
         <?php endif; ?>
 
         <span class="author">
             <?php if (!empty($comment->site) && !empty($comment->name)): ?>
-                <cite><a href="<?= Html::encode($comment->site); ?>"><?= Html::encode($comment->name); ?></a></cite>
+                <cite>
+                    <?= Html::encode($comment->name); ?>
+                    &ndash; <?= Html::encode(parse_url($comment->site, PHP_URL_HOST)); ?>
+                </cite>
             <?php elseif (!empty($comment->name)): ?>
                 <cite><?= Html::encode($comment->name); ?></cite>
             <?php else: ?>
