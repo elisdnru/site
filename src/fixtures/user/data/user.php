@@ -21,7 +21,7 @@ return [
         'active' => 1,
         'lastname' => 'Last',
         'firstname' => 'Admin',
-        'site' => '',
+        'site' => 'https://app.test',
     ],
     [
         'id' => 2,

@@ -10,7 +10,7 @@ return [
         'user_id' => 2,
         'name' => 'User',
         'email' => 'user@app.test',
-        'site' => '',
+        'site' => 'https://app.test',
         'text' => 'Comment',
         'date' => '2019-10-24 09:53:19',
         'parent_id' => null,
