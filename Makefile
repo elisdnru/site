@@ -205,16 +205,16 @@ testing-push-build-cache:
 	docker push ${REGISTRY}/site-testing-php-cli:cache
 
 testing-init:
-	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml up -d
-	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml run --rm site-php-cli wait-for-it site-mysql:3306 -t 60
-	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml run --rm site-php-cli php bin/app.php migrate --interactive=0
+	docker compose -f docker-compose-testing.yml up -d
+	docker compose -f docker-compose-testing.yml run --rm site-php-cli wait-for-it site-mysql:3306 -t 60
+	docker compose -f docker-compose-testing.yml run --rm site-php-cli php bin/app.php migrate --interactive=0
 	sleep 10
 
 testing-e2e:
-	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml run --rm testing-site-php-cli composer test run acceptance
+	docker compose -f docker-compose-testing.yml run --rm testing-site-php-cli composer test run acceptance
 
 testing-down-clear:
-	COMPOSE_PROJECT_NAME=testing docker compose -f docker-compose-testing.yml down -v --remove-orphans
+	docker compose -f docker-compose-testing.yml down -v --remove-orphans
 
 try-testing: try-build try-testing-build try-testing-init try-testing-e2e try-testing-down-clear
 
