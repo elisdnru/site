@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-use app\modules\user\models\Access;
 use app\widgets\Counters;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -17,10 +16,6 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language; ?>">
 <head>
-    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)): ?>
-        <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
-    <?php endif; ?>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

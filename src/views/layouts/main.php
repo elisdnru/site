@@ -3,7 +3,6 @@
 use app\assets\MainAsset;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\SearchFormWidget;
-use app\modules\user\models\Access;
 use app\widgets\AdminBar;
 use app\widgets\Counters;
 use app\widgets\MainMenu;
@@ -26,10 +25,6 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language; ?>">
 <head>
-    <?php if (!Yii::$app->user->can(Access::ROLE_ADMIN)): ?>
-        <script src="//elisdn.justclick.ru/jsapi/click.js" async></script>
-    <?php endif; ?>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="webmoney.attestation.label" content="webmoney attestation label#52154DE9-6E16-41B7-A8EF-3214D8E53DAB">
