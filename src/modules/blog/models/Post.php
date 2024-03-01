@@ -48,7 +48,7 @@ final class Post extends ActiveRecord implements Material
 {
     use ForceActiveRecordErrors;
 
-    public null|bool $del_image = null;
+    public ?bool $del_image = null;
 
     public static function tableName(): string
     {

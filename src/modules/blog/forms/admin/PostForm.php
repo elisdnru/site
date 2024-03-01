@@ -34,7 +34,7 @@ final class PostForm extends Model
     public bool|int|string $del_image = '';
     public string $tags = '';
 
-    private null|int $id = null;
+    private ?int $id = null;
 
     public function __construct(?Post $post = null, array $config = [])
     {
