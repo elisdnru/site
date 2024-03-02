@@ -208,7 +208,7 @@ testing-init:
 	docker compose -f docker-compose-testing.yml up -d
 	docker compose -f docker-compose-testing.yml run --rm site-php-cli wait-for-it site-mysql:3306 -t 60
 	docker compose -f docker-compose-testing.yml run --rm site-php-cli php bin/app.php migrate --interactive=0
-	sleep 10
+	sleep 15
 
 testing-e2e:
 	docker compose -f docker-compose-testing.yml run --rm testing-site-php-cli composer test run acceptance

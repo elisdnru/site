@@ -61,7 +61,7 @@ services:
             replicas: 2
             update_config:
                 parallelism: 1
-                delay: 10s
+                delay: 20s
             placement:
                 constraints: [ node.role == manager ]
 
