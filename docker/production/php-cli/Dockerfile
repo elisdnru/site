@@ -10,7 +10,7 @@ RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev f
     && docker-php-ext-install pdo_mysql gd mcrypt intl opcache \
     && apk del git
 
-RUN apk add --no-cache bash coreutils unzip
+RUN apk add --no-cache bash coreutils
 
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
