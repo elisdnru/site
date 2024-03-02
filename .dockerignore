@@ -6,6 +6,7 @@
 /.ready
 /var/*
 /tests/_output/*
+/tests/_support/_generated/*
 /public/assets/*
 /public/build/*
 /public/upload/*
