@@ -1,17 +1,17 @@
 init: \
 	docker-down-clear \
-	site-clear \
+	app-clear \
 	docker-pull docker-build docker-up \
-	site-init \
-	site-ready
+	app-init \
+	app-ready
 
 up: docker-up
 down: docker-down
 restart: docker-down docker-up
 
-check: site-check
+check: app-check
 
-update-deps: site-composer-update site-assets-update restart
+update-deps: app-composer-update app-assets-update restart
 
 docker-up:
 	docker compose up -d
@@ -31,112 +31,112 @@ docker-build:
 push-dev-cache:
 	docker compose push
 
-site-clear:
+app-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* public/build/* public/upload/* tests/_output/* tests/_support/_generated/*'
 
-site-init: \
-	site-permissions \
-	site-composer-install \
-	site-assets-install \
-	site-wait-db \
-	site-wait-redis \
-	site-migrations \
-	site-fixtures \
-	site-test-generate \
-	site-assets-build
+app-init: \
+	app-permissions \
+	app-composer-install \
+	app-assets-install \
+	app-wait-db \
+	app-wait-redis \
+	app-migrations \
+	app-fixtures \
+	app-test-generate \
+	app-assets-build
 
-site-permissions:
+app-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'mkdir -p public/build && chmod 777 var public/assets public/build public/upload tests/_output tests/_support/_generated'
 
-site-composer-install:
+app-composer-install:
 	docker compose run --rm site-php-cli composer install
 
-site-composer-update:
+app-composer-update:
 	docker compose run --rm site-php-cli composer update
 
-site-assets-install:
+app-assets-install:
 	docker compose run --rm site-node-cli yarn install
 
-site-assets-update:
+app-assets-update:
 	docker compose run --rm site-node-cli yarn upgrade
 
-site-wait-db:
+app-wait-db:
 	docker compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 
-site-wait-redis:
+app-wait-redis:
 	docker compose run --rm site-php-cli wait-for-it site-redis:6379 -t 30
 
-site-migrations:
+app-migrations:
 	docker compose run --rm site-php-cli composer app migrate -- --interactive=0
 
-site-fixtures:
+app-fixtures:
 	docker compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
 	docker compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf public/upload/* && cp -rf demo/upload/* public/upload'
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type d -exec chmod 777 {} \;'
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type f -exec chmod 666 {} \;'
 
-site-assets-build:
+app-assets-build:
 	docker compose run --rm site-node-cli yarn build
 
-site-ready:
+app-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 
-site-check: \
-	site-composer-validate \
-	site-lint \
-	site-assets-lint \
-	site-analyze \
-	site-test \
-	site-fixtures \
-	site-backup-mysql \
-	site-backup-upload
+app-check: \
+	app-composer-validate \
+	app-lint \
+	app-assets-lint \
+	app-analyze \
+	app-test \
+	app-fixtures \
+	app-backup-mysql \
+	app-backup-upload
 
-site-fix: \
-	site-lint-fix \
-	site-assets-lint-fix \
-	site-assets-pretty
+app-fix: \
+	app-lint-fix \
+	app-assets-lint-fix \
+	app-assets-pretty
 
-site-composer-validate:
+app-composer-validate:
 	docker compose run --rm site-php-cli composer validate
 
-site-lint:
+app-lint:
 	docker compose run --rm site-php-cli composer lint
 	docker compose run --rm site-php-cli composer php-cs-fixer fix -- --dry-run --diff
 
-site-lint-fix:
+app-lint-fix:
 	docker compose run --rm site-php-cli composer php-cs-fixer fix
 
-site-assets-lint:
+app-assets-lint:
 	docker compose run --rm site-node-cli yarn eslint
 	docker compose run --rm site-node-cli yarn stylelint
 
-site-assets-lint-fix:
+app-assets-lint-fix:
 	docker compose run --rm site-node-cli yarn eslint-fix
 	docker compose run --rm site-node-cli yarn stylelint-fix
 
-site-assets-pretty:
+app-assets-pretty:
 	docker compose run --rm site-node-cli yarn prettier
 
-site-analyze:
+app-analyze:
 	docker compose run --rm site-php-cli composer psalm -- --no-diff
 
-site-analyze-diff:
+app-analyze-diff:
 	docker compose run --rm site-php-cli composer psalm
 
-site-test-generate:
+app-test-generate:
 	docker compose run --rm site-php-cli composer test build
 
-site-test:
+app-test:
 	docker compose run --rm site-php-cli composer test run unit,integration,acceptance
 
-site-test-unit-integration:
+app-test-unit-integration:
 	docker compose run --rm site-php-cli composer test run unit,integration
 
-site-backup-mysql:
+app-backup-mysql:
 	docker compose run --rm site-mysql-backup
 
-site-backup-upload:
+app-backup-upload:
 	docker compose run --rm site-upload-backup
 
 build:

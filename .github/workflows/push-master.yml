@@ -48,22 +48,22 @@ jobs:
                 run: make push-dev-cache
 
             -   name: Valid
-                run: make site-composer-validate
+                run: make app-composer-validate
 
             -   name: Lint
-                run: make site-lint
+                run: make app-lint
 
             -   name: Analyze
-                run: make site-analyze
+                run: make app-analyze
 
             -   name: Test
-                run: make site-test-unit-integration
+                run: make app-test-unit-integration
 
             -   name: Backup MySQL
-                run: make site-backup-mysql
+                run: make app-backup-mysql
 
             -   name: Backup uploads
-                run: make site-backup-upload
+                run: make app-backup-upload
 
             -   name: Down
                 run: make down
