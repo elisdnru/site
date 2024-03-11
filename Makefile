@@ -1,11 +1,15 @@
-init: docker-down-clear site-clear docker-pull docker-build docker-build docker-up site-init site-ready
+init: \
+	docker-down-clear \
+	site-clear \
+	docker-pull docker-build docker-up \
+	site-init \
+	site-ready
+
 up: docker-up
 down: docker-down
 restart: docker-down docker-up
-check: validate lint test
-validate: site-composer-validate
-lint: site-lint site-assets-lint site-analyze
-test: site-test site-fixtures
+
+check: site-check
 
 update-deps: site-composer-update site-assets-update restart
 
@@ -27,10 +31,19 @@ docker-build:
 push-dev-cache:
 	docker compose push
 
-site-init: site-permissions site-composer-install site-assets-install site-wait-db site-wait-redis site-migrations site-fixtures site-test-generate site-assets-build
-
 site-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* public/build/* public/upload/* tests/_output/* tests/_support/_generated/*'
+
+site-init: \
+	site-permissions \
+	site-composer-install \
+	site-assets-install \
+	site-wait-db \
+	site-wait-redis \
+	site-migrations \
+	site-fixtures \
+	site-test-generate \
+	site-assets-build
 
 site-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'mkdir -p public/build && chmod 777 var public/assets public/build public/upload tests/_output tests/_support/_generated'
@@ -40,9 +53,6 @@ site-composer-install:
 
 site-composer-update:
 	docker compose run --rm site-php-cli composer update
-
-site-composer-validate:
-	docker compose run --rm site-php-cli composer validate
 
 site-assets-install:
 	docker compose run --rm site-node-cli yarn install
@@ -66,17 +76,29 @@ site-fixtures:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type d -exec chmod 777 {} \;'
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type f -exec chmod 666 {} \;'
 
-site-backup-mysql:
-	docker compose run --rm site-mysql-backup
-
-site-backup-upload:
-	docker compose run --rm site-upload-backup
+site-assets-build:
+	docker compose run --rm site-node-cli yarn build
 
 site-ready:
 	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
 
-site-assets-build:
-	docker compose run --rm site-node-cli yarn build
+site-check: \
+	site-composer-validate \
+	site-lint \
+	site-assets-lint \
+	site-analyze \
+	site-test \
+	site-fixtures \
+	site-backup-mysql \
+	site-backup-upload
+
+site-fix: \
+	site-lint-fix \
+	site-assets-lint-fix \
+	site-assets-pretty
+
+site-composer-validate:
+	docker compose run --rm site-php-cli composer validate
 
 site-lint:
 	docker compose run --rm site-php-cli composer lint
@@ -110,6 +132,12 @@ site-test:
 
 site-test-unit-integration:
 	docker compose run --rm site-php-cli composer test run unit,integration
+
+site-backup-mysql:
+	docker compose run --rm site-mysql-backup
+
+site-backup-upload:
+	docker compose run --rm site-upload-backup
 
 build:
 	docker buildx build --pull \
