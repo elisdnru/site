@@ -6,7 +6,6 @@ use app\modules\blog\widgets\SearchFormWidget;
 use app\widgets\AdminBar;
 use app\widgets\Counters;
 use app\widgets\MainMenu;
-use app\widgets\NotificationBar;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -40,7 +39,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 <body>
 <?php $this->beginBody(); ?>
 
-<?= NotificationBar::widget(); ?>
+<?= BlockWidget::widget(['id' => 'top-bar']); ?>
 
 <div class="page-wrapper">
 
