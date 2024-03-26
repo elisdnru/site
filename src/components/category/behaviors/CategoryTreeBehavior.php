@@ -30,7 +30,7 @@ final class CategoryTreeBehavior extends CategoryBehavior
         return implode($separator, array_reverse($uri));
     }
 
-    public function getChildBySlug(string $slug, ActiveQuery $query = null): ?ActiveRecord
+    public function getChildBySlug(string $slug, ?ActiveQuery $query = null): ?ActiveRecord
     {
         if ($query === null) {
             $query = $this->getModel()::find();

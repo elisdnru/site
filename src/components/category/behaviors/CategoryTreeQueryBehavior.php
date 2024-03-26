@@ -18,7 +18,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getQuery()->andWhere([$this->parentAttribute => null]);
     }
 
-    public function getAssocList(int $parent = null): array
+    public function getAssocList(?int $parent = null): array
     {
         $items = $this->getFullAssocData([
             $this->primaryKeyAttribute,
@@ -52,7 +52,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
-    public function getSlugList(int $parent = null): array
+    public function getSlugList(?int $parent = null): array
     {
         $items = $this->getFullAssocData([
             $this->slugAttribute,
@@ -86,7 +86,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
-    public function getTabList(int $parent = null): array
+    public function getTabList(?int $parent = null): array
     {
         $items = $this->getFullAssocData([
             $this->primaryKeyAttribute,
@@ -102,7 +102,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
-    public function getUrlList(int $parent = null): array
+    public function getUrlList(?int $parent = null): array
     {
         $query = $this->getQuery();
 
@@ -122,7 +122,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getUrlListRecursive($categories, $parent ?: 0);
     }
 
-    public function getMenuList(string $path, int $sub = 0, int $parent = null): array
+    public function getMenuList(string $path, int $sub = 0, ?int $parent = null): array
     {
         $query = $this->getQuery();
 
@@ -177,7 +177,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $model;
     }
 
-    public function getChildrenArray(int $parent = null): array
+    public function getChildrenArray(?int $parent = null): array
     {
         /** @var ActiveRecord[] $items */
         $items = $this->getQuery()
@@ -276,7 +276,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
      * @param string[] $attributes
      * @return ActiveRecord[]
      */
-    private function getFullAssocData(array $attributes, int $parent = null): array
+    private function getFullAssocData(array $attributes, ?int $parent = null): array
     {
         $query = $this->getQuery();
 
