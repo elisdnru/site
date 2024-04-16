@@ -1,7 +1,6 @@
-FROM alpine:3.14
+FROM alpine
 
-RUN apk add --no-cache python3 py3-pip bash \
-    && pip3 install --upgrade awscli
+RUN apk add --no-cache bash aws-cli
 
 RUN apk add --no-cache coreutils mariadb-client
 
