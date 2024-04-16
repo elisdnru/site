@@ -1,6 +1,7 @@
 {
     "name": "elisdnru/site",
     "description": "",
+    "version": "1.0.0",
     "type": "project",
     "license": "BSD-3-Clause",
     "require": {
