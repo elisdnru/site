@@ -12,6 +12,9 @@ env:
 jobs:
     build:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write
 
         steps:
             -   uses: actions/checkout@v4
@@ -102,6 +105,8 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         needs: build
+        permissions:
+            contents: read
 
         steps:
             -   uses: actions/checkout@v4
