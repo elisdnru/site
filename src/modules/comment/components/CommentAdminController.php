@@ -19,7 +19,7 @@ use yii\web\Response;
 
 abstract class CommentAdminController extends AdminController
 {
-    private const COMMENTS_PER_PAGE = 20;
+    private const int COMMENTS_PER_PAGE = 20;
 
     public function behaviors(): array
     {

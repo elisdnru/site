@@ -15,7 +15,7 @@ use yii\web\NotFoundHttpException;
 
 final class DefaultController extends Controller
 {
-    private const PER_PAGE = 9;
+    private const int PER_PAGE = 9;
 
     public function actionIndex(): string
     {

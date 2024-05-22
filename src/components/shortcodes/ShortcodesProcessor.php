@@ -10,8 +10,8 @@ use function strtr;
 
 final class ShortcodesProcessor
 {
-    private const START_BLOCK = '[{widget:';
-    private const END_BLOCK = '}]';
+    private const string START_BLOCK = '[{widget:';
+    private const string END_BLOCK = '}]';
 
     /**
      * @var array<string, string>

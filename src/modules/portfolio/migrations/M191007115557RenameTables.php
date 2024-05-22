@@ -8,7 +8,7 @@ use yii\db\Migration;
 
 final class M191007115557RenameTables extends Migration
 {
-    private const TABLES = [
+    private const array TABLES = [
         'portfolio_category' => 'portfolio_categories',
         'portfolio_work' => 'portfolio_works',
     ];

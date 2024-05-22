@@ -16,7 +16,7 @@ use yii\web\UploadedFile;
 
 final class WorkController extends AdminController
 {
-    private const ITEMS_PER_PAGE = 50;
+    private const int ITEMS_PER_PAGE = 50;
 
     public function actionIndex(Request $request): string
     {

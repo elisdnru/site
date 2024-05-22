@@ -14,9 +14,9 @@ final class IconMenu extends Menu
     protected function renderItem($item): string
     {
         /**
-         * @psalm-var array{icon: string, label: string, url: array, linkOptions: array} $item
+         * @psalm-var array{icon?: string, label: string, url?: array, linkOptions: array} $item
          */
-        $icon = !empty($item['icon']) ? Html::img($this->iconsPath . $item['icon'], ['alt' => $item['label']]) : '';
+        $icon = isset($item['icon']) ? Html::img($this->iconsPath . $item['icon'], ['alt' => $item['label']]) : '';
         $options = $item['linkOptions'] ?? [];
 
         if (isset($item['url'])) {

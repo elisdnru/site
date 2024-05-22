@@ -33,12 +33,12 @@ final class Page extends ActiveRecord
 {
     use ForceActiveRecordErrors;
 
-    public const INDEX_FOLLOW = 'index, follow';
-    public const INDEX_NOFOLLOW = 'index, nofollow';
-    public const NOINDEX_FOLLOW = 'noindex, follow';
-    public const NOINDEX_NOFOLLOW = 'noindex, nofollow';
+    public const string INDEX_FOLLOW = 'index, follow';
+    public const string INDEX_NOFOLLOW = 'index, nofollow';
+    public const string NOINDEX_FOLLOW = 'noindex, follow';
+    public const string NOINDEX_NOFOLLOW = 'noindex, nofollow';
 
-    public const LAYOUTS = [
+    public const array LAYOUTS = [
         'default' => 'По умолчанию',
         'fullscreen' => 'Во всю ширину',
         'leftcolumn' => 'Колонка с левым сайдбаром',
@@ -46,7 +46,7 @@ final class Page extends ActiveRecord
         'blank' => 'Полноэкранный без контейнера',
     ];
 
-    public const SUBPAGES_LAYOUTS = [
+    public const array SUBPAGES_LAYOUTS = [
         'default' => 'Не отображать (по умолчанию)',
         'tabs' => 'Взаимные вкладки',
         'tabschild' => 'Дочерние вкладки',

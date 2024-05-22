@@ -8,7 +8,7 @@ use yii\base\Model;
 
 final class CommentForm extends Model
 {
-    public const SCENARIO_ANONIM = 'anonim';
+    public const string SCENARIO_ANONIM = 'anonim';
 
     public ?string $name = null;
     public ?string $email = null;
