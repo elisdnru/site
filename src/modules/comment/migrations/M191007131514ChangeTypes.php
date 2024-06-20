@@ -12,9 +12,9 @@ final class M191007131514ChangeTypes extends Migration
     {
         $this->update(
             'comments',
-            ['type' => 'app\\modules\\blog\\models\\Post'],
+            ['type' => 'app\modules\blog\models\Post'],
             'type = :old_type',
-            [':old_type' => 'app\\modules\\blog\\models\\BlogPost']
+            [':old_type' => 'app\modules\blog\models\BlogPost']
         );
         return true;
     }
@@ -23,9 +23,9 @@ final class M191007131514ChangeTypes extends Migration
     {
         $this->update(
             'comments',
-            ['type' => 'app\\modules\\blog\\models\\BlogPost'],
+            ['type' => 'app\modules\blog\models\BlogPost'],
             'type = :old_type',
-            [':old_type' => 'app\\modules\\blog\\models\\Post']
+            [':old_type' => 'app\modules\blog\models\Post']
         );
         return true;
     }

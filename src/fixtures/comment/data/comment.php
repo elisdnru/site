@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     [
         'id' => 1,
-        'type' => 'app\\modules\\blog\\models\\Post',
+        'type' => 'app\modules\blog\models\Post',
         'material_id' => 3,
         'user_id' => 2,
         'name' => 'User',
@@ -20,7 +20,7 @@ return [
     ],
     [
         'id' => 2,
-        'type' => 'app\\modules\\blog\\models\\Post',
+        'type' => 'app\modules\blog\models\Post',
         'material_id' => 3,
         'user_id' => 1,
         'name' => 'User',
@@ -35,7 +35,7 @@ return [
     ],
     [
         'id' => 3,
-        'type' => 'app\\modules\\blog\\models\\Post',
+        'type' => 'app\modules\blog\models\Post',
         'material_id' => 3,
         'user_id' => 1,
         'name' => 'Admin',
@@ -50,7 +50,7 @@ return [
     ],
     [
         'id' => 4,
-        'type' => 'app\\modules\\blog\\models\\Post',
+        'type' => 'app\modules\blog\models\Post',
         'material_id' => 3,
         'user_id' => 2,
         'name' => 'User',
@@ -65,7 +65,7 @@ return [
     ],
     [
         'id' => 5,
-        'type' => 'app\\modules\\blog\\models\\Post',
+        'type' => 'app\modules\blog\models\Post',
         'material_id' => 3,
         'user_id' => null,
         'name' => 'Guest',
