@@ -2,7 +2,7 @@ FROM php:8.3-cli-alpine
 
 ENV MCRYPT_VERSION 1.0.7
 
-RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git \
+RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git \
     && git clone -b $MCRYPT_VERSION --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
     && docker-php-ext-configure mcrypt \
     && docker-php-ext-configure gd \
