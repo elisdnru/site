@@ -1,7 +1,7 @@
 FROM php:8.3-cli-alpine
 
 ENV MCRYPT_VERSION 1.0.7
-ENV XDEBUG_VERSION 3.3.0
+ENV XDEBUG_VERSION 3.3.2
 
 RUN apk add --no-cache mariadb-client libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev icu-dev git linux-headers \
     && git clone -b $MCRYPT_VERSION --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \

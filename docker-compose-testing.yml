@@ -113,7 +113,7 @@ services:
         network_mode: service:site
 
     site-mysql:
-        image: mariadb:10
+        image: mariadb:11
         volumes:
             - site-mysql:/var/lib/mysql
         environment:

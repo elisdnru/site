@@ -146,7 +146,7 @@ services:
                 constraints: [ node.role == manager ]
 
     site-mysql:
-        image: mariadb:10
+        image: mariadb:11
         environment:
             MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
             MYSQL_USER: app
