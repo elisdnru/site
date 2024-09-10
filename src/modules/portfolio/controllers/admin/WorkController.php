@@ -102,6 +102,9 @@ final class WorkController extends AdminController
             throw new BadRequestHttpException('Missing attribute ' . $attribute);
         }
 
+        /**
+         * @psalm-suppress UndefinedMagicPropertyAssignment
+         */
         $work->{$attribute} = $work->{$attribute} ? '0' : '1';
         $work->save();
 
