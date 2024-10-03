@@ -9,7 +9,6 @@ use yii\base\Widget;
 final class YouTube extends Widget
 {
     public string $id = '';
-    public string $date = '';
 
     public function run(): string
     {
