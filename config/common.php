@@ -24,6 +24,7 @@ use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\edu\widgets\SeriesEpisodes;
 use app\widgets\inline\CountDown;
 use app\widgets\inline\MailTo;
+use app\widgets\inline\RuTube;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
 use app\widgets\inline\YouTube;
@@ -230,6 +231,7 @@ return [
                         'lastPosts' => LastPostsWidget::class,
                         'block' => BlockWidget::class,
                         'countdown' => CountDown::class,
+                        'rutube' => RuTube::class,
                         'youtube' => YouTube::class,
                         'subscribe_webinars' => SubscribeWebinars::class,
                         'subscribe_news' => SubscribeNews::class,
