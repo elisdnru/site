@@ -139,6 +139,7 @@ body {
   left: 0;
   top: 0;
   background: #fff;
+  border-right: 1px solid #fff;
   opacity: 0.2;
 }
 
@@ -472,6 +473,7 @@ body {
     left: 0;
     top: 0;
     background: #fff;
+    border-right: 1px solid #fff;
     opacity: 0.2;
   }
 }
