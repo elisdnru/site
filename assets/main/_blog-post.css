@@ -45,7 +45,6 @@
 }
 
 .entry.last .title {
-  font-family: arial, sans-serif;
   font-weight: normal;
   font-size: 16px;
   line-height: 1;
@@ -81,8 +80,7 @@
 }
 
 .entry.last .short {
-  font-family: verdana, arial, sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   color: #777;
 }
 
