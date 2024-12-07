@@ -1,4 +1,4 @@
-FROM php:8.3-cli-alpine
+FROM php:8.3-cli-alpine3.20
 
 ENV MCRYPT_VERSION 1.0.7
 

@@ -151,7 +151,7 @@ services:
             - traefik.http.services.site-mailer.loadbalancer.server.port=80
 
     site-wiremock:
-        image: wiremock/wiremock:latest-alpine
+        image: wiremock/wiremock:3.10.0-alpine
         networks:
             - traefik-public
             - default

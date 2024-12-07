@@ -1,4 +1,4 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.3-fpm-alpine3.20
 
 ENV MCRYPT_VERSION 1.0.7
 ENV XDEBUG_VERSION 3.3.2

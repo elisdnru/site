@@ -32,7 +32,7 @@ push-dev-cache:
 	docker compose push
 
 app-clear:
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready var/* public/assets/* public/build/* public/upload/* tests/_output/* tests/_support/_generated/*'
+	docker run --rm -v ${PWD}:/app -w /app alpine:3.20 sh -c 'rm -rf .ready var/* public/assets/* public/build/* public/upload/* tests/_output/* tests/_support/_generated/*'
 
 app-init: \
 	app-permissions \
@@ -46,7 +46,7 @@ app-init: \
 	app-assets-build
 
 app-permissions:
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'mkdir -p public/build && chmod 777 var public/assets public/build public/upload tests/_output tests/_support/_generated'
+	docker run --rm -v ${PWD}:/app -w /app alpine:3.20 sh -c 'mkdir -p public/build && chmod 777 var public/assets public/build public/upload tests/_output tests/_support/_generated'
 
 app-composer-install:
 	docker compose run --rm site-php-cli composer install
@@ -72,15 +72,15 @@ app-migrations:
 app-fixtures:
 	docker compose run --rm site-php-cli composer app fixture/load '*' -- --interactive=0
 	docker compose run --rm site-php-cli composer app cache/flush cache -- --interactive=0
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf public/upload/* && cp -rf demo/upload/* public/upload'
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type d -exec chmod 777 {} \;'
-	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'find public/upload -type f -exec chmod 666 {} \;'
+	docker run --rm -v ${PWD}:/app -w /app alpine:3.20 sh -c 'rm -rf public/upload/* && cp -rf demo/upload/* public/upload'
+	docker run --rm -v ${PWD}:/app -w /app alpine:3.20 sh -c 'find public/upload -type d -exec chmod 777 {} \;'
+	docker run --rm -v ${PWD}:/app -w /app alpine:3.20 sh -c 'find public/upload -type f -exec chmod 666 {} \;'
 
 app-assets-build:
 	docker compose run --rm site-node-cli yarn build
 
 app-ready:
-	docker run --rm -v ${PWD}:/app --workdir=/app alpine touch .ready
+	docker run --rm -v ${PWD}:/app --workdir=/app alpine:3.20 touch .ready
 
 app-check: \
 	app-composer-validate \

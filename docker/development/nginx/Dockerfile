@@ -1,4 +1,4 @@
-FROM nginx:1.27-alpine
+FROM nginx:1.27-alpine3.20
 
 COPY ./common/nginx/snippets /etc/nginx/snippets
 COPY ./common/nginx/conf.d /etc/nginx/conf.d

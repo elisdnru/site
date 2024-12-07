@@ -112,7 +112,7 @@ services:
         network_mode: service:site
 
     site-node-watch:
-        image: node:22-alpine
+        image: node:22-alpine3.20
         user: "1000:1000"
         volumes:
             - ./:/app
@@ -120,7 +120,7 @@ services:
         command: sh -c 'until [ -f .ready ] ; do sleep 1 ; done && npm run watch'
 
     site-node-cli:
-        image: node:22-alpine
+        image: node:22-alpine3.20
         user: "1000:1000"
         volumes:
             - ./:/app
@@ -239,7 +239,7 @@ services:
             - traefik.http.services.site-backup-storage.loadbalancer.server.port=80
 
     site-wiremock:
-        image: wiremock/wiremock:latest-alpine
+        image: wiremock/wiremock:3.10.0-alpine
         networks:
             - traefik-public
             - default

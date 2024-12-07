@@ -1,4 +1,4 @@
-FROM node:22-alpine as builder
+FROM node:22-alpine3.20 as builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM php:8.3-fpm-alpine
+FROM php:8.3-fpm-alpine3.20
 
 ENV MCRYPT_VERSION 1.0.7
 
