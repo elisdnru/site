@@ -164,6 +164,8 @@ services:
 
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
+        volumes:
+            - site-mysql-backup:/app
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
@@ -202,6 +204,7 @@ services:
             - backup_aws_secret_access_key
         volumes:
             - site-upload:/upload:ro
+            - site-upload-backup:/app
         deploy:
             labels:
                 - swarm.cronjob.enable=true
@@ -249,7 +252,9 @@ secrets:
 volumes:
     site-assets:
     site-upload:
+    site-upload-backup:
     site-mysql:
+    site-mysql-backup:
     site-redis:
 
 networks:

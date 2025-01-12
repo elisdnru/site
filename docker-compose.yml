@@ -150,6 +150,8 @@ services:
                 - ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
             cache_to:
                 - type=inline
+        volumes:
+            - site-mysql-backup:/app
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
@@ -186,6 +188,7 @@ services:
             - backup_aws_secret_access_key
         volumes:
             - ./public/upload:/upload:ro
+            - site-upload-backup:/app
 
     site-redis:
         image: ${REGISTRY:-localhost}/site-dev-redis:cache
@@ -273,7 +276,9 @@ secrets:
         file: ./secrets/backup_aws_secret_access_key
 
 volumes:
+    site-upload-backup:
     site-mysql:
+    site-mysql-backup:
     site-redis:
     site-backup-storage:
 
