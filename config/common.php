@@ -12,6 +12,7 @@ use app\components\module\admin\AdminMenu;
 use app\components\module\admin\AdminNotifications;
 use app\components\module\Provider;
 use app\components\module\routes\RoutesLoader;
+use app\components\module\sitemap\GroupsFetcher;
 use app\components\shortcodes\ShortcodesProcessor;
 use app\components\shortcodes\WidgetRenderer;
 use app\components\SimpleCacheAdapter;
@@ -22,6 +23,7 @@ use app\modules\admin\Module;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\edu\widgets\SeriesEpisodes;
+use app\modules\partner\model\ItemsFetcher;
 use app\widgets\inline\CountDown;
 use app\widgets\inline\MailTo;
 use app\widgets\inline\RuTube;
@@ -278,6 +280,8 @@ return [
             RequestFactoryInterface::class => RequestFactory::class,
             StreamFactoryInterface::class => StreamFactory::class,
             SimpleCacheInterface::class => SimpleCacheAdapter::class,
+            ItemsFetcher::class => [],
+            GroupsFetcher::class => [],
             FeatureToggle::class => [
                 ['class' => FeatureToggle::class],
                 [[
