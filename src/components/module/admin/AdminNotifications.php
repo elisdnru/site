@@ -6,7 +6,7 @@ namespace app\components\module\admin;
 
 use app\components\module\Modules;
 
-final class AdminNotifications
+final readonly class AdminNotifications
 {
     private Modules $modules;
 

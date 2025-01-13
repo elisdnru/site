@@ -6,7 +6,7 @@ namespace app\components\module\admin;
 
 use app\components\module\Modules;
 
-final class AdminMenu
+final readonly class AdminMenu
 {
     private Modules $modules;
 

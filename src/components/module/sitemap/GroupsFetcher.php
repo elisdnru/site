@@ -7,7 +7,7 @@ namespace app\components\module\sitemap;
 use app\components\module\Modules;
 use RuntimeException;
 
-final class GroupsFetcher
+final readonly class GroupsFetcher
 {
     private Modules $modules;
 

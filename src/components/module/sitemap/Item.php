@@ -6,10 +6,7 @@ namespace app\components\module\sitemap;
 
 use Webmozart\Assert\Assert;
 
-/**
- * @psalm-immutable
- */
-final class Item
+final readonly class Item
 {
     public string $url;
     public ?string $label;

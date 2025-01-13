@@ -11,7 +11,7 @@ use yii\data\Sort;
 /**
  * @template T
  */
-final class DataProvider
+final readonly class DataProvider
 {
     private DataProviderInterface $origin;
 

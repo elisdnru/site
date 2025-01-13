@@ -6,7 +6,7 @@ namespace app\components\module\admin;
 
 use yii\web\User;
 
-final class AdminAccess
+final readonly class AdminAccess
 {
     private User $user;
 

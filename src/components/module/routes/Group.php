@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\module\routes;
 
-/**
- * @psalm-immutable
- */
-final class Group
+final readonly class Group
 {
     public array $rules;
     public int $priority;

@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\module\sitemap;
 
-/**
- * @psalm-immutable
- */
-final class Set
+final readonly class Set
 {
     /**
      * @var Group[]
