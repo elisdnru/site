@@ -1,11 +1,14 @@
 <?php declare(strict_types=1);
 
+use app\assets\BootstrapAsset;
 use yii\helpers\Url;
 use yii\web\View;
 
 /**
  * @var View $this
  */
+BootstrapAsset::register($this);
+
 $this->title = 'Мастер-класс по разработке менеджера проектов';
 ?>
 
@@ -13,7 +16,6 @@ $this->title = 'Мастер-класс по разработке менедже
 <meta name="robots" content="index, nofollow">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&amp;subset=latin,cyrillic-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&amp;subset=latin,cyrillic-ext,cyrillic" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <?php $this->endBlock(); ?>
 
 <?php $this->beginBlock('styles'); ?>

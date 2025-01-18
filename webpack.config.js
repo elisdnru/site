@@ -16,6 +16,7 @@ module.exports = {
     highlight: './assets/highlight.css',
     jquery: './assets/jquery.js',
     countdown: './assets/countdown.js',
+    bootstrap: './assets/bootstrap.css',
   },
   output: {
     path: path.join(__dirname, '/public/build'),
