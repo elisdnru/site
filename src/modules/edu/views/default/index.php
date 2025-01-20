@@ -118,9 +118,6 @@ if (Yii::$app->user->can(Access::CONTROL)) {
                                         <img src="/images/lazy/blank.jpg" data-src="<?= Html::encode($imageUrl); ?>" alt="" />
                                     </picture>
                                 </a>
-                                <?php if ($item['episode']['free']): ?>
-                                    <span class="badges"><span class="badge free">Free</span></span>
-                                <?php endif; ?>
                             </div>
                             <div class="body">
                                 <div class="series">

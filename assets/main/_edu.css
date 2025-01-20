@@ -129,44 +129,6 @@
   border-radius: 3px;
 }
 
-.edu-items
-  .edu-items-wrapper
-  .edu-items-item
-  .edu-items-item-wrapper
-  .thumb-wrapper
-  .badges {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-}
-
-.edu-items
-  .edu-items-wrapper
-  .edu-items-item
-  .edu-items-item-wrapper
-  .thumb-wrapper
-  .badges
-  .badge {
-  display: inline-block;
-  line-height: 0.75rem;
-  padding: 4px 3px;
-  margin-right: 5px;
-  font-size: 0.75rem;
-  color: #fff;
-  border-radius: 4px;
-}
-
-.edu-items
-  .edu-items-wrapper
-  .edu-items-item
-  .edu-items-item-wrapper
-  .thumb-wrapper
-  .badges
-  .badge.free {
-  background: #06ab32;
-  padding: 4px 6px;
-}
-
 .edu-items .edu-items-wrapper .edu-items-item .edu-items-item-wrapper .body {
   padding: 13px;
 }

@@ -48,9 +48,6 @@ use yii\helpers\Html;
                                     </g>
                                 </svg>
                             </a>
-                            <?php if ($item['episode']['free']): ?>
-                                <span class="badges"><span class="badge free">Free</span></span>
-                            <?php endif; ?>
                         </div>
                         <div class="body">
                             <div class="title">
