@@ -1,15 +1,11 @@
 FROM php:8.3-cli-alpine3.20
 
-ENV MCRYPT_VERSION 1.0.7
-
-RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libmcrypt-dev git \
-    && git clone -b $MCRYPT_VERSION --depth 1 https://github.com/php/pecl-encryption-mcrypt.git /usr/src/php/ext/mcrypt \
-    && docker-php-ext-configure mcrypt \
+RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev git \
     && docker-php-ext-configure gd \
         --with-jpeg \
         --with-webp \
         --with-freetype \
-    && docker-php-ext-install pdo_mysql gd mcrypt opcache
+    && docker-php-ext-install pdo_mysql gd opcache
 
 RUN apk add --no-cache bash coreutils
 
