@@ -11,7 +11,6 @@ use yii\caching\TagDependency;
 final class LastPostsWidget extends Widget
 {
     public string $tpl = 'default';
-    public string $class = '';
     public int|string $limit = 10;
 
     public function run(): string

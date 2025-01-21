@@ -173,5 +173,4 @@ foreach ($model->tags as $tag) {
     'material_id' => $model->id,
     'authorId' => $model->author_id,
     'type' => Post::class,
-    'url' => Url::to(['/blog/post/show', 'id' => $model->id, 'slug' => $model->slug]),
 ]); ?>

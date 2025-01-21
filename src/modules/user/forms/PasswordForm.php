@@ -37,6 +37,7 @@ final class PasswordForm extends Model
                 'current',
                 CurrentPasswordValidator::class,
                 'className' => User::class,
+                'idAttribute' => 'id',
                 'validateMethod' => 'validatePassword',
                 'emptyMessage' => 'Введите текущий пароль.',
                 'notValidMessage' => 'Неверный текущий пароль.',

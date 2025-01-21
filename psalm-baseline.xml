@@ -237,10 +237,6 @@
     </PossiblyFalseArgument>
   </file>
   <file src="src/modules/block/widgets/BlockWidget.php">
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$title]]></code>
-      <code><![CDATA[$tpl]]></code>
-    </PossiblyUnusedProperty>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$this->id]]></code>
     </RiskyTruthyFalsyComparison>
@@ -354,11 +350,6 @@
       <code><![CDATA[$request->getHostInfo()]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/blog/widgets/LastPostsWidget.php">
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$class]]></code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="src/modules/blog/widgets/views/LastPosts/default.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$post->image]]></code>
@@ -463,9 +454,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$url]]></code>
-    </PossiblyUnusedProperty>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$form->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
@@ -718,9 +706,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$title]]></code>
-    </PossiblyUnusedProperty>
   </file>
   <file src="src/widgets/Counters.php">
     <PossiblyUnusedMethod>

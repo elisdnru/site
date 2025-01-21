@@ -11,7 +11,6 @@ use yii\web\User;
 
 final class AdminBar extends Widget
 {
-    public string $title = '';
     public array $links = [];
 
     private User $user;

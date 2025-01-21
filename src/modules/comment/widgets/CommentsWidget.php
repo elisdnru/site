@@ -28,7 +28,6 @@ final class CommentsWidget extends Widget
      * @psalm-var class-string
      */
     public ?string $type = null;
-    public string $url = '';
 
     private WebUser $webUser;
     private MailerInterface $mailer;
