@@ -19,12 +19,6 @@
   <file src="src/components/CacheFlushBehavior.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[beforeAction]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/ContentReplaceBehavior.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[afterRender]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/components/DateFormatter.php">
@@ -135,7 +129,6 @@
     </PossiblyFalseIterator>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[beforeRequest]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/components/module/admin/AdminAccess.php">
@@ -216,8 +209,6 @@
   <file src="src/components/uploader/FileUploadBehavior.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[beforeDelete]]></code>
-      <code><![CDATA[beforeSave]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/components/uploader/Parsed.php">

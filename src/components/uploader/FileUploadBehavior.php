@@ -75,31 +75,10 @@ final class FileUploadBehavior extends Behavior
     public function events(): array
     {
         return [
-            ActiveRecord::EVENT_BEFORE_INSERT => 'beforeSave',
-            ActiveRecord::EVENT_BEFORE_UPDATE => 'beforeSave',
-            ActiveRecord::EVENT_BEFORE_DELETE => 'beforeDelete',
+            ActiveRecord::EVENT_BEFORE_INSERT => $this->beforeSave(...),
+            ActiveRecord::EVENT_BEFORE_UPDATE => $this->beforeSave(...),
+            ActiveRecord::EVENT_BEFORE_DELETE => $this->beforeDelete(...),
         ];
-    }
-
-    public function beforeSave(): void
-    {
-        $model = $this->getModel();
-
-        if (isset($model->{$this->deleteAttribute}) && $model->{$this->deleteAttribute}) {
-            $this->deleteFile();
-            return;
-        }
-
-        $this->loadFile();
-
-        if (empty($model->{$this->storageAttribute}) && !empty($model->getOldAttribute($this->storageAttribute))) {
-            $model->{$this->storageAttribute} = $model->getOldAttribute($this->storageAttribute);
-        }
-    }
-
-    public function beforeDelete(): void
-    {
-        $this->deleteFile();
     }
 
     public function getImageUrl(): string
@@ -128,6 +107,27 @@ final class FileUploadBehavior extends Behavior
     {
         /** @var ActiveRecord */
         return $this->owner;
+    }
+
+    private function beforeSave(): void
+    {
+        $model = $this->getModel();
+
+        if (isset($model->{$this->deleteAttribute}) && $model->{$this->deleteAttribute}) {
+            $this->deleteFile();
+            return;
+        }
+
+        $this->loadFile();
+
+        if (empty($model->{$this->storageAttribute}) && !empty($model->getOldAttribute($this->storageAttribute))) {
+            $model->{$this->storageAttribute} = $model->getOldAttribute($this->storageAttribute);
+        }
+    }
+
+    private function beforeDelete(): void
+    {
+        $this->deleteFile();
     }
 
     private function loadFile(): void

@@ -21,11 +21,11 @@ final class FeaturesNegotiator extends Behavior
     public function events(): array
     {
         return [
-            Application::EVENT_BEFORE_REQUEST => 'beforeRequest',
+            Application::EVENT_BEFORE_REQUEST => $this->beforeRequest(...),
         ];
     }
 
-    public function beforeRequest(Event $event): void
+    private function beforeRequest(Event $event): void
     {
         $app = $event->sender;
 

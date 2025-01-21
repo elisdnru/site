@@ -15,11 +15,11 @@ final class ContentReplaceBehavior extends Behavior
     public function events(): array
     {
         return [
-            View::EVENT_AFTER_RENDER => 'afterRender',
+            View::EVENT_AFTER_RENDER => $this->afterRender(...),
         ];
     }
 
-    public function afterRender(ViewEvent $event): void
+    private function afterRender(ViewEvent $event): void
     {
         $event->output = strtr($event->output, $this->replaces);
     }
