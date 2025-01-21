@@ -48,6 +48,7 @@ abstract class TreeCategory extends Category
     }
 
     /**
+     * @psalm-api
      * @return ActiveQuery|CategoryQuery
      * @psalm-return CategoryQuery
      */
@@ -58,6 +59,7 @@ abstract class TreeCategory extends Category
     }
 
     /**
+     * @psalm-api
      * @return ActiveQuery|CategoryQuery
      * @psalm-return CategoryQuery
      */

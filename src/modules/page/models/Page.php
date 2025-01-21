@@ -64,6 +64,9 @@ final class Page extends ActiveRecord
         return new PageQuery(self::class);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getChildren(): ActiveQuery
     {
         return $this->hasMany(self::class, ['parent_id' => 'id'])
@@ -71,6 +74,9 @@ final class Page extends ActiveRecord
             ->orderBy(['children.title' => SORT_ASC]);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getParent(): ActiveQuery
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);

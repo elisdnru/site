@@ -68,21 +68,6 @@ final class ULoginModel extends Model
         return false;
     }
 
-    public function attributeNames(): array
-    {
-        return [
-            'identity',
-            'network',
-            'email',
-            'lastname',
-            'firstname',
-            'photo',
-            'token',
-            'error_type',
-            'error_message',
-        ];
-    }
-
     private function authenticate(): ?AuthIdentity
     {
         if ($user = User::findOne(['identity' => $this->identity, 'network' => $this->network])) {

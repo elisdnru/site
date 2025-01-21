@@ -81,26 +81,41 @@ final class Post extends ActiveRecord implements Material
         }
     }
 
+    /**
+     * @psalm-api
+     */
     public function getPostTags(): ActiveQuery
     {
         return $this->hasMany(PostTag::class, ['post_id' => 'id']);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getTags(): ActiveQuery
     {
         return $this->hasMany(Tag::class, ['id' => 'tag_id'])->via('postTags');
     }
 
+    /**
+     * @psalm-api
+     */
     public function getGroup(): ActiveQuery
     {
         return $this->hasOne(Group::class, ['id' => 'group_id']);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getCategory(): ActiveQuery
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getAuthor(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'author_id']);

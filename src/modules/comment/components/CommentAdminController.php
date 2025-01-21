@@ -34,6 +34,9 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionIndex(int $id = 0): string
     {
         $query = Comment::find();
@@ -60,6 +63,9 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionUpdate(int $id, Request $request): Response|string
     {
         $comment = $this->loadModel($id);
@@ -82,6 +88,9 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionToggle(int $id, string $attribute, Request $request): ?Response
     {
         $comment = $this->loadModel($id);
@@ -99,6 +108,9 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionView(int $id): string
     {
         $comment = $this->loadModel($id);
@@ -107,6 +119,9 @@ abstract class CommentAdminController extends AdminController
         ]);
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionDelete(int $id, Request $request): ?Response
     {
         $comment = $this->loadModel($id);
@@ -124,6 +139,9 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionModer(int $id, Request $request): ?Response
     {
         $comment = $this->loadModel($id);
@@ -137,6 +155,9 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
+    /**
+     * @psalm-api
+     */
     public function actionModerAll(Request $request): ?Response
     {
         foreach (Comment::find()->type($this->getType())->unread()->each() as $item) {
@@ -150,7 +171,7 @@ abstract class CommentAdminController extends AdminController
         return null;
     }
 
-    public function loadModel(int $id): Comment
+    protected function loadModel(int $id): Comment
     {
         $model = Comment::findOne($id);
         if ($model === null) {

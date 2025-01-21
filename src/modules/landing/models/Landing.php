@@ -37,6 +37,9 @@ final class Landing extends ActiveRecord
         return new LandingQuery(self::class);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getChildren(): ActiveQuery
     {
         return $this->hasMany(self::class, ['parent_id' => 'id'])
@@ -44,6 +47,9 @@ final class Landing extends ActiveRecord
             ->orderBy(['children.title' => SORT_ASC]);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getParent(): ActiveQuery
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);

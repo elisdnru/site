@@ -22,6 +22,9 @@ final class PostTag extends ActiveRecord
         return 'blog_post_tags';
     }
 
+    /**
+     * @psalm-api
+     */
     public function getTag(): ActiveQuery
     {
         return $this->hasOne(Tag::class, ['id' => 'tag_id']);

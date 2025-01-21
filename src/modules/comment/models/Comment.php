@@ -54,21 +54,33 @@ final class Comment extends ActiveRecord
         return 'comments';
     }
 
+    /**
+     * @psalm-api
+     */
     public function getParent(): ActiveQuery
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getChildren(): ActiveQuery
     {
         return $this->hasMany(self::class, ['parent_id' => 'id']);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getUser(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getMaterial(): ActiveQuery
     {
         return $this->hasOne($this->type, ['id' => 'material_id']);

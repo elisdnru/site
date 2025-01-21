@@ -28,6 +28,9 @@ final class Tag extends ActiveRecord
         return (int)PostTag::find()->andWhere(['tag_id' => $this->id])->count();
     }
 
+    /**
+     * @psalm-api
+     */
     public function getPostTags(): ActiveQuery
     {
         return $this->hasMany(PostTag::class, ['tag_id' => 'id']);

@@ -45,6 +45,9 @@ final class Work extends ActiveRecord
         return new WorkQuery(self::class);
     }
 
+    /**
+     * @psalm-api
+     */
     public function getCategory(): ActiveQuery
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
@@ -61,19 +64,5 @@ final class Work extends ActiveRecord
                 'filePath' => 'upload/images/portfolio',
             ],
         ];
-    }
-
-    public function getAssocList(bool $onlyPublic = false): array
-    {
-        if ($onlyPublic) {
-            $query = self::find()->published();
-        } else {
-            $query = self::find();
-        }
-
-        return $query
-            ->orderBy(['date' => SORT_DESC])
-            ->select(['title', 'id'])
-            ->indexBy('id')->column();
     }
 }

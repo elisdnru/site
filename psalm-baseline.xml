@@ -87,12 +87,6 @@
       <code><![CDATA[Category[]]]></code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/category/models/TreeCategory.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getChildren]]></code>
-      <code><![CDATA[getParent]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/components/category/models/TreeCategoryQuery.php">
     <InvalidReturnStatement>
       <code><![CDATA[ActiveQuery::one($db)]]></code>
@@ -229,13 +223,6 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/modules/blog/models/Post.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getAuthor]]></code>
-      <code><![CDATA[getCategory]]></code>
-      <code><![CDATA[getGroup]]></code>
-      <code><![CDATA[getPostTags]]></code>
-      <code><![CDATA[getTags]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code><![CDATA[$del_image]]></code>
     </PossiblyUnusedProperty>
@@ -250,16 +237,6 @@
     <MoreSpecificReturnType>
       <code><![CDATA[Post[]]]></code>
     </MoreSpecificReturnType>
-  </file>
-  <file src="src/modules/blog/models/PostTag.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getTag]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/modules/blog/models/Tag.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getPostTags]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/modules/blog/views/admin/post/_form.php">
     <PossiblyFalseArgument>
@@ -311,15 +288,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/comment/components/CommentAdminController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[actionDelete]]></code>
-      <code><![CDATA[actionIndex]]></code>
-      <code><![CDATA[actionModer]]></code>
-      <code><![CDATA[actionModerAll]]></code>
-      <code><![CDATA[actionToggle]]></code>
-      <code><![CDATA[actionUpdate]]></code>
-      <code><![CDATA[actionView]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->parent_id]]></code>
       <code><![CDATA[$request->getReferrer()]]></code>
@@ -359,14 +327,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$model->user_id]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/comment/models/Comment.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getChildren]]></code>
-      <code><![CDATA[getMaterial]]></code>
-      <code><![CDATA[getParent]]></code>
-      <code><![CDATA[getUser]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/modules/comment/models/CommentQuery.php">
     <InvalidReturnStatement>
@@ -436,12 +396,6 @@
       <code><![CDATA[$this->landing->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/landing/models/Landing.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getChildren]]></code>
-      <code><![CDATA[getParent]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/modules/landing/models/LandingQuery.php">
     <InvalidReturnStatement>
       <code><![CDATA[parent::one($db)]]></code>
@@ -463,12 +417,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->page->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/page/models/Page.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getChildren]]></code>
-      <code><![CDATA[getParent]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/modules/page/models/PageQuery.php">
     <InvalidReturnStatement>
@@ -499,10 +447,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/portfolio/models/Work.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getAssocList]]></code>
-      <code><![CDATA[getCategory]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code><![CDATA[$del_image]]></code>
     </PossiblyUnusedProperty>
@@ -543,9 +487,6 @@
     <PossiblyFalseArgument>
       <code><![CDATA[$body]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[attributeNames]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code><![CDATA[$error_message]]></code>
       <code><![CDATA[$error_type]]></code>
