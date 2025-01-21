@@ -14,6 +14,9 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
+/**
+ * @psalm-api
+ */
 final class WorkController extends AdminController
 {
     private const int ITEMS_PER_PAGE = 50;

@@ -6,6 +6,9 @@ namespace tests\acceptance;
 
 use tests\AcceptanceTester;
 
+/**
+ * @psalm-api
+ */
 final class CopyrightCest
 {
     public function home(AcceptanceTester $I): void

@@ -7,6 +7,9 @@ namespace tests\acceptance\blog;
 use tests\AcceptanceTester;
 use tests\fixtures\blog\TagFixture;
 
+/**
+ * @psalm-api
+ */
 final class TagCest
 {
     public function _before(AcceptanceTester $I): void

@@ -8,6 +8,7 @@ use app\components\FilenameEscaper;
 use Codeception\Test\Unit;
 
 /**
+ * @psalm-api
  * @internal
  */
 final class FilenameEscaperTest extends Unit

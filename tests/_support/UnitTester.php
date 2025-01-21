@@ -6,6 +6,9 @@ namespace tests;
 
 use Codeception\Actor;
 
+/**
+ * @psalm-api
+ */
 final class UnitTester extends Actor
 {
     use _generated\UnitTesterActions;

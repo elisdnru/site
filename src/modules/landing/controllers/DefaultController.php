@@ -6,6 +6,9 @@ namespace app\modules\landing\controllers;
 
 use yii\web\Controller;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     public $layout = 'main';

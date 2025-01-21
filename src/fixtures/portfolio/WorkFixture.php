@@ -7,6 +7,9 @@ namespace app\fixtures\portfolio;
 use app\modules\portfolio\models\Work;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class WorkFixture extends ActiveFixture
 {
     public $modelClass = Work::class;

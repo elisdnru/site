@@ -9,6 +9,9 @@ use tests\fixtures\portfolio\CategoryFixture;
 use tests\fixtures\portfolio\WorkFixture;
 use tests\fixtures\user\UserFixture;
 
+/**
+ * @psalm-api
+ */
 final class WorksCest
 {
     public function _before(AcceptanceTester $I): void

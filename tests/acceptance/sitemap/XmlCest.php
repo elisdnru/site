@@ -6,6 +6,9 @@ namespace tests\acceptance\sitemap;
 
 use tests\AcceptanceTester;
 
+/**
+ * @psalm-api
+ */
 final class XmlCest
 {
     public function success(AcceptanceTester $I): void

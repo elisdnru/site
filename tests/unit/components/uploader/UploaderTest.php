@@ -10,6 +10,7 @@ use app\extensions\image\Image;
 use Codeception\Test\Unit;
 
 /**
+ * @psalm-api
  * @internal
  */
 final class UploaderTest extends Unit

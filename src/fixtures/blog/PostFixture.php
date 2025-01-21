@@ -8,6 +8,9 @@ use app\fixtures\user\UserFixture;
 use app\modules\blog\models\Post;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class PostFixture extends ActiveFixture
 {
     public $modelClass = Post::class;

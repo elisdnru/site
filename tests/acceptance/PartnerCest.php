@@ -6,6 +6,9 @@ namespace tests\acceptance;
 
 use tests\AcceptanceTester;
 
+/**
+ * @psalm-api
+ */
 final class PartnerCest
 {
     public function home(AcceptanceTester $I): void

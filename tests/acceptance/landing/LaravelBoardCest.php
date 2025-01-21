@@ -6,6 +6,9 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
+/**
+ * @psalm-api
+ */
 final class LaravelBoardCest
 {
     public function home(AcceptanceTester $I): void

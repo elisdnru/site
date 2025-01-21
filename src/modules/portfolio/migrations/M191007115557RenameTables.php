@@ -6,6 +6,9 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M191007115557RenameTables extends Migration
 {
     private const array TABLES = [

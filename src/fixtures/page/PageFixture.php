@@ -7,6 +7,9 @@ namespace app\fixtures\page;
 use app\modules\page\models\Page;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class PageFixture extends ActiveFixture
 {
     public $modelClass = Page::class;

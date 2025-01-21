@@ -7,6 +7,9 @@ namespace tests\acceptance;
 use tests\AcceptanceTester;
 use tests\fixtures\landing\LandingFixture;
 
+/**
+ * @psalm-api
+ */
 final class LandingCest
 {
     public function _before(AcceptanceTester $I): void

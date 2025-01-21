@@ -11,6 +11,9 @@ use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\Response;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     public function actionIndex(GroupsFetcher $fetcher): string

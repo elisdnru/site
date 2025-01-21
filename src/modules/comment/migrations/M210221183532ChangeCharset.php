@@ -6,6 +6,9 @@ namespace app\modules\comment\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M210221183532ChangeCharset extends Migration
 {
     public function safeUp(): bool

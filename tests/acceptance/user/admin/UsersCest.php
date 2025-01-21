@@ -7,6 +7,9 @@ namespace tests\acceptance\user\admin;
 use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 
+/**
+ * @psalm-api
+ */
 final class UsersCest
 {
     public function _before(AcceptanceTester $I): void

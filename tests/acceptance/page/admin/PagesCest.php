@@ -8,6 +8,9 @@ use tests\AcceptanceTester;
 use tests\fixtures\page\PageFixture;
 use tests\fixtures\user\UserFixture;
 
+/**
+ * @psalm-api
+ */
 final class PagesCest
 {
     public function _before(AcceptanceTester $I): void

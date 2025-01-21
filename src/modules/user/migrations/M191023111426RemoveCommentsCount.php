@@ -6,6 +6,9 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M191023111426RemoveCommentsCount extends Migration
 {
     public function safeUp(): bool

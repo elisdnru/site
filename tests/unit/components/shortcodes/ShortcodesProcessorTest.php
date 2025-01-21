@@ -10,6 +10,7 @@ use Codeception\Test\Unit;
 use yii\caching\CacheInterface;
 
 /**
+ * @psalm-api
  * @internal
  */
 final class ShortcodesProcessorTest extends Unit

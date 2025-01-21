@@ -6,6 +6,9 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M220605154016RenameAlias extends Migration
 {
     public function safeUp(): bool

@@ -13,6 +13,9 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     private const int PER_PAGE = 9;

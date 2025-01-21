@@ -6,6 +6,9 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M190918193620AddNullable extends Migration
 {
     public function safeUp(): bool

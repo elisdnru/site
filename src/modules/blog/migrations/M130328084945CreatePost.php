@@ -6,6 +6,9 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M130328084945CreatePost extends Migration
 {
     public function safeUp(): bool

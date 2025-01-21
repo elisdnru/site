@@ -6,6 +6,9 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M130717065918AddAuthorLink extends Migration
 {
     public function safeUp(): bool

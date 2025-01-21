@@ -7,6 +7,9 @@ namespace app\fixtures\landing;
 use app\modules\landing\models\Landing;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class LandingFixture extends ActiveFixture
 {
     public $modelClass = Landing::class;

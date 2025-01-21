@@ -6,6 +6,9 @@ namespace app\modules\comment\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M190914202714ChangeTypes extends Migration
 {
     public function safeUp(): bool

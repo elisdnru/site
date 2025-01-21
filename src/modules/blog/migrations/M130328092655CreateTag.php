@@ -6,6 +6,9 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M130328092655CreateTag extends Migration
 {
     public function safeUp(): bool

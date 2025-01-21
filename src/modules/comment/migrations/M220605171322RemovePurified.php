@@ -6,6 +6,9 @@ namespace app\modules\comment\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M220605171322RemovePurified extends Migration
 {
     public function safeUp(): bool

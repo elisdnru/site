@@ -6,6 +6,9 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M181022130712RemoveAddress extends Migration
 {
     public function safeUp(): bool

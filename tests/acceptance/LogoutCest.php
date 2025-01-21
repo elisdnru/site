@@ -7,6 +7,9 @@ namespace tests\acceptance;
 use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 
+/**
+ * @psalm-api
+ */
 final class LogoutCest
 {
     public function _before(AcceptanceTester $I): void

@@ -9,6 +9,9 @@ use app\modules\comment\components\CommentAdminController;
 use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
+/**
+ * @psalm-api
+ */
 final class CommentController extends CommentAdminController
 {
     protected function loadMaterialModel(int $id): ActiveRecord

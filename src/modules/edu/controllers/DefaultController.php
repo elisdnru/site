@@ -8,6 +8,9 @@ use app\modules\edu\components\api\Api;
 use yii\base\Module;
 use yii\web\Controller;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     private Api $api;

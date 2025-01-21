@@ -14,6 +14,9 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     public $enableCsrfValidation = false;

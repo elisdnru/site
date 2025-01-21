@@ -6,4 +6,7 @@ namespace tests\Helper;
 
 use Codeception\Module;
 
+/**
+ * @psalm-api
+ */
 final class Integration extends Module {}

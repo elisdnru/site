@@ -7,6 +7,9 @@ namespace app\modules\donate\controllers;
 use yii\web\Controller;
 use yii\web\Response;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     public function actionIndex(): Response

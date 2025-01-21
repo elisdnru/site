@@ -10,6 +10,7 @@ use tests\IntegrationTester;
 use Yii;
 
 /**
+ * @psalm-api
  * @internal
  */
 final class CategoryBehaviorTest extends Unit

@@ -6,6 +6,9 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M130328123107CreateCategory extends Migration
 {
     public function safeUp(): bool

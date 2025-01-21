@@ -11,6 +11,9 @@ use app\modules\user\models\User;
 use yii\filters\AccessControl;
 use yii\web\User as WebUser;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends AdminController
 {
     public function behaviors(): array

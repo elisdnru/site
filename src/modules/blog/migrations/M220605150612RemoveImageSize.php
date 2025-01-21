@@ -6,6 +6,9 @@ namespace app\modules\blog\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M220605150612RemoveImageSize extends Migration
 {
     public function safeUp(): bool

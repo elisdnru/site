@@ -15,6 +15,9 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
+/**
+ * @psalm-api
+ */
 final class AjaxController extends Controller
 {
     public function behaviors(): array

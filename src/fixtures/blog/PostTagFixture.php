@@ -7,6 +7,9 @@ namespace app\fixtures\blog;
 use app\modules\blog\models\PostTag;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class PostTagFixture extends ActiveFixture
 {
     public $modelClass = PostTag::class;

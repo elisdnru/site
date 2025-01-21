@@ -8,6 +8,9 @@ use tests\AcceptanceTester;
 use tests\fixtures\portfolio\CategoryFixture;
 use tests\fixtures\portfolio\WorkFixture;
 
+/**
+ * @psalm-api
+ */
 final class HomeCest
 {
     public function _before(AcceptanceTester $I): void

@@ -6,6 +6,9 @@ namespace app\modules\page\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M220607183717RemoveUnique extends Migration
 {
     public function safeUp(): bool

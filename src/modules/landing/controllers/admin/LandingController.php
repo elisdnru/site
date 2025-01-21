@@ -13,6 +13,9 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
+/**
+ * @psalm-api
+ */
 final class LandingController extends AdminController
 {
     public function actionIndex(): string

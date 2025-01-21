@@ -11,6 +11,9 @@ use yii\filters\AccessControl;
 use yii\web\Response;
 use yii\web\Session;
 
+/**
+ * @psalm-api
+ */
 final class CacheController extends AdminController
 {
     public function behaviors(): array

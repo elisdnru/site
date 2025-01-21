@@ -6,6 +6,9 @@ namespace tests\acceptance\landing;
 
 use tests\AcceptanceTester;
 
+/**
+ * @psalm-api
+ */
 final class OopWeekCest
 {
     public function home(AcceptanceTester $I): void

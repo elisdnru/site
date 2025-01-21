@@ -16,6 +16,9 @@ use yii\web\Session;
 use yii\web\UploadedFile;
 use yii\web\User as WebUser;
 
+/**
+ * @psalm-api
+ */
 final class ProfileController extends Controller
 {
     public function behaviors(): array

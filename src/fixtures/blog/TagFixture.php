@@ -7,6 +7,9 @@ namespace app\fixtures\blog;
 use app\modules\blog\models\Tag;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class TagFixture extends ActiveFixture
 {
     public $modelClass = Tag::class;

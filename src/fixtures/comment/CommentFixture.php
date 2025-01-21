@@ -9,6 +9,9 @@ use app\fixtures\user\UserFixture;
 use app\modules\comment\models\Comment;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class CommentFixture extends ActiveFixture
 {
     public $modelClass = Comment::class;

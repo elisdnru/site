@@ -6,6 +6,9 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M201030162824RenamePassword extends Migration
 {
     public function safeUp(): bool

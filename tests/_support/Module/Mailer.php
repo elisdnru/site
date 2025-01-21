@@ -7,6 +7,9 @@ namespace tests\Module;
 use Codeception\Module;
 use GuzzleHttp\Client;
 
+/**
+ * @psalm-api
+ */
 final class Mailer extends Module
 {
     private ?Client $client = null;

@@ -7,6 +7,9 @@ namespace app\fixtures\portfolio;
 use app\modules\portfolio\models\Category;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class CategoryFixture extends ActiveFixture
 {
     public $modelClass = Category::class;

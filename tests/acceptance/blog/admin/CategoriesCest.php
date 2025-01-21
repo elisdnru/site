@@ -8,6 +8,9 @@ use tests\AcceptanceTester;
 use tests\fixtures\blog\CategoryFixture;
 use tests\fixtures\user\UserFixture;
 
+/**
+ * @psalm-api
+ */
 final class CategoriesCest
 {
     public function _before(AcceptanceTester $I): void

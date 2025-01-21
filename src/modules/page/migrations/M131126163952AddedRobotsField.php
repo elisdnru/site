@@ -6,6 +6,9 @@ namespace app\modules\page\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M131126163952AddedRobotsField extends Migration
 {
     public function safeUp(): bool

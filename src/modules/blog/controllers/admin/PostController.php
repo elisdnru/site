@@ -16,6 +16,9 @@ use yii\web\Response;
 use yii\web\UploadedFile;
 use yii\web\User;
 
+/**
+ * @psalm-api
+ */
 final class PostController extends AdminController
 {
     public function actionIndex(Request $request): string

@@ -6,6 +6,9 @@ namespace app\modules\user\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M191017160126ChangeSalt extends Migration
 {
     public function safeUp(): bool

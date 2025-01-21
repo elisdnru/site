@@ -14,6 +14,9 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\Session;
 
+/**
+ * @psalm-api
+ */
 final class RegistrationController extends Controller
 {
     public function actions(): array

@@ -6,6 +6,9 @@ namespace app\modules\portfolio\migrations;
 
 use yii\db\Migration;
 
+/**
+ * @psalm-api
+ */
 final class M180806105836RemoveLanguageTables extends Migration
 {
     public function safeUp(): bool

@@ -10,6 +10,9 @@ use tests\fixtures\blog\GroupFixture;
 use tests\fixtures\blog\PostFixture;
 use tests\fixtures\user\UserFixture;
 
+/**
+ * @psalm-api
+ */
 final class CountdownCest
 {
     public function _before(AcceptanceTester $I): void

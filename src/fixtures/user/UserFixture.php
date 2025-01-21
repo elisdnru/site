@@ -7,6 +7,9 @@ namespace app\fixtures\user;
 use app\modules\user\models\User;
 use yii\test\ActiveFixture;
 
+/**
+ * @psalm-api
+ */
 final class UserFixture extends ActiveFixture
 {
     public $modelClass = User::class;

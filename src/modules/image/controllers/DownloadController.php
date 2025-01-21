@@ -10,6 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
+/**
+ * @psalm-api
+ */
 final class DownloadController extends Controller
 {
     public function actionThumb(Request $request, Uploader $uploader): Response

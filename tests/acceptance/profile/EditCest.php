@@ -8,6 +8,9 @@ use tests\AcceptanceTester;
 use tests\fixtures\user\UserFixture;
 use yii\helpers\FileHelper;
 
+/**
+ * @psalm-api
+ */
 final class EditCest
 {
     public function _before(AcceptanceTester $I): void

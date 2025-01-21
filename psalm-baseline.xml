@@ -245,71 +245,6 @@
       <code><![CDATA[file_get_contents($file)]]></code>
     </PossiblyFalseArgument>
   </file>
-  <file src="src/fixtures/blog/PostTagFixture.php">
-    <UnusedClass>
-      <code><![CDATA[PostTagFixture]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/fixtures/comment/CommentFixture.php">
-    <UnusedClass>
-      <code><![CDATA[CommentFixture]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/fixtures/landing/LandingFixture.php">
-    <UnusedClass>
-      <code><![CDATA[LandingFixture]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/fixtures/page/PageFixture.php">
-    <UnusedClass>
-      <code><![CDATA[PageFixture]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/fixtures/portfolio/CategoryFixture.php">
-    <UnusedClass>
-      <code><![CDATA[CategoryFixture]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/fixtures/portfolio/WorkFixture.php">
-    <UnusedClass>
-      <code><![CDATA[WorkFixture]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/admin/controllers/CacheController.php">
-    <UnusedClass>
-      <code><![CDATA[CacheController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/admin/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/block/controllers/admin/BlockController.php">
-    <UnusedClass>
-      <code><![CDATA[BlockController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/block/migrations/M130328093402CreateBlock.php">
-    <UnusedClass>
-      <code><![CDATA[M130328093402CreateBlock]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/block/migrations/M180806105832RemoveLanguageTables.php">
-    <UnusedClass>
-      <code><![CDATA[M180806105832RemoveLanguageTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/block/migrations/M191007115551RenameTables.php">
-    <UnusedClass>
-      <code><![CDATA[M191007115551RenameTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/block/migrations/M220605154012RenameAlias.php">
-    <UnusedClass>
-      <code><![CDATA[M220605154012RenameAlias]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/block/widgets/BlockWidget.php">
     <PossiblyUnusedProperty>
       <code><![CDATA[$title]]></code>
@@ -327,11 +262,6 @@
       <code><![CDATA[Post[]]]></code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="src/modules/blog/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/blog/controllers/FeedController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->image]]></code>
@@ -339,17 +269,11 @@
     <UnnecessaryVarAnnotation>
       <code><![CDATA[Post[]]]></code>
     </UnnecessaryVarAnnotation>
-    <UnusedClass>
-      <code><![CDATA[FeedController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/blog/controllers/PostController.php">
     <UnnecessaryVarAnnotation>
       <code><![CDATA[Post|null]]></code>
     </UnnecessaryVarAnnotation>
-    <UnusedClass>
-      <code><![CDATA[PostController]]></code>
-    </UnusedClass>
     <UnusedParam>
       <code><![CDATA[$slug]]></code>
     </UnusedParam>
@@ -358,131 +282,22 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$count]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[CategoryController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/controllers/admin/CommentController.php">
-    <UnusedClass>
-      <code><![CDATA[CommentController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/blog/controllers/admin/GroupController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$count]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[GroupController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/blog/controllers/admin/PostController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->del_image]]></code>
       <code><![CDATA[$model->group_id]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[PostController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/controllers/admin/TagController.php">
-    <UnusedClass>
-      <code><![CDATA[TagController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/blog/forms/admin/PostForm.php">
     <PossiblyFalseArgument>
       <code><![CDATA[preg_split('/\s*,\s*/', $this->tags)]]></code>
     </PossiblyFalseArgument>
-  </file>
-  <file src="src/modules/blog/migrations/M130328084945CreatePost.php">
-    <UnusedClass>
-      <code><![CDATA[M130328084945CreatePost]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M130328090350CreateCategory.php">
-    <UnusedClass>
-      <code><![CDATA[M130328090350CreateCategory]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M130328092321CreatePostGroup.php">
-    <UnusedClass>
-      <code><![CDATA[M130328092321CreatePostGroup]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M130328092655CreateTag.php">
-    <UnusedClass>
-      <code><![CDATA[M130328092655CreateTag]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M180806105833RemoveLanguageTables.php">
-    <UnusedClass>
-      <code><![CDATA[M180806105833RemoveLanguageTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M190806190154RemoveGallery.php">
-    <UnusedClass>
-      <code><![CDATA[M190806190154RemoveGallery]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M191007115552RenameTables.php">
-    <UnusedClass>
-      <code><![CDATA[M191007115552RenameTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M191010181651AddStyles.php">
-    <UnusedClass>
-      <code><![CDATA[M191010181651AddStyles]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M191020153212RemoveKeywords.php">
-    <UnusedClass>
-      <code><![CDATA[M191020153212RemoveKeywords]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M191023111425RemoveCommentsCount.php">
-    <UnusedClass>
-      <code><![CDATA[M191023111425RemoveCommentsCount]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M201213171234AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M201213171234AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M210125100812RenameMeta.php">
-    <UnusedClass>
-      <code><![CDATA[M210125100812RenameMeta]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M210225094512AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M210225094512AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M211030121245AddPromoted.php">
-    <UnusedClass>
-      <code><![CDATA[M211030121245AddPromoted]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M220605150612RemoveImageSize.php">
-    <UnusedClass>
-      <code><![CDATA[M220605150612RemoveImageSize]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M220605154013RenameAlias.php">
-    <UnusedClass>
-      <code><![CDATA[M220605154013RenameAlias]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M220605171321RemovePurified.php">
-    <UnusedClass>
-      <code><![CDATA[M220605171321RemovePurified]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/blog/migrations/M220607173423AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M220607173423AddNullable]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/blog/models/GroupQuery.php">
     <InvalidReturnStatement>
@@ -620,22 +435,11 @@
       <code><![CDATA[$request->getReferrer()]]></code>
       <code><![CDATA[$request->getReferrer()]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[AjaxController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/comment/controllers/CommentController.php">
     <UnnecessaryVarAnnotation>
       <code><![CDATA[Comment|null]]></code>
     </UnnecessaryVarAnnotation>
-    <UnusedClass>
-      <code><![CDATA[CommentController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/controllers/admin/CommentController.php">
-    <UnusedClass>
-      <code><![CDATA[CommentController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/comment/forms/CommentForm.php">
     <PossiblyUnusedProperty>
@@ -650,51 +454,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$model->user_id]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/comment/migrations/M130328094620CreateComment.php">
-    <UnusedClass>
-      <code><![CDATA[M130328094620CreateComment]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M180806105834RemoveLanguageTables.php">
-    <UnusedClass>
-      <code><![CDATA[M180806105834RemoveLanguageTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M190914202714ChangeTypes.php">
-    <UnusedClass>
-      <code><![CDATA[M190914202714ChangeTypes]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M191007115553RenameTables.php">
-    <UnusedClass>
-      <code><![CDATA[M191007115553RenameTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M191007131514ChangeTypes.php">
-    <UnusedClass>
-      <code><![CDATA[M191007131514ChangeTypes]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M191025193912AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M191025193912AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M191109153821AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M191109153821AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M210221183532ChangeCharset.php">
-    <UnusedClass>
-      <code><![CDATA[M210221183532ChangeCharset]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/comment/migrations/M220605171322RemovePurified.php">
-    <UnusedClass>
-      <code><![CDATA[M220605171322RemovePurified]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/comment/models/Comment.php">
     <PossiblyUnusedMethod>
@@ -756,21 +515,6 @@
       <code><![CDATA[$user->site]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/contacts/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/donate/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/edu/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/edu/widgets/PromotedEpisodes.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
@@ -780,11 +524,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/modules/file/controllers/admin/FileController.php">
-    <UnusedClass>
-      <code><![CDATA[FileController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/file/views/admin/file/index.php">
     <RiskyTruthyFalsyComparison>
@@ -800,64 +539,21 @@
       <code><![CDATA[$item->getTimeModified()]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/home/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/home/controllers/ErrorController.php">
-    <UnusedClass>
-      <code><![CDATA[ErrorController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/image/controllers/DownloadController.php">
-    <UnusedClass>
-      <code><![CDATA[DownloadController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/landing/Module.php">
     <UnnecessaryVarAnnotation>
       <code><![CDATA[Landing[]]]></code>
     </UnnecessaryVarAnnotation>
-  </file>
-  <file src="src/modules/landing/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/landing/controllers/LandingController.php">
-    <UnusedClass>
-      <code><![CDATA[LandingController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/landing/controllers/admin/LandingController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->parent_id]]></code>
       <code><![CDATA[$parent]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[LandingController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/landing/forms/admin/LandingForm.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->landing->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/landing/migrations/M191025144021CreateLanding.php">
-    <UnusedClass>
-      <code><![CDATA[M191025144021CreateLanding]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/landing/migrations/M220605154014RenameAlias.php">
-    <UnusedClass>
-      <code><![CDATA[M220605154014RenameAlias]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/landing/migrations/M220607183716RemoveUnique.php">
-    <UnusedClass>
-      <code><![CDATA[M220607183716RemoveUnique]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/landing/models/Landing.php">
     <PossiblyUnusedMethod>
@@ -881,104 +577,16 @@
       <code><![CDATA[Page[]]]></code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="src/modules/page/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/controllers/PageController.php">
-    <UnusedClass>
-      <code><![CDATA[PageController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/page/controllers/admin/PageController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->parent_id]]></code>
       <code><![CDATA[$parent]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[PageController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/page/forms/admin/PageForm.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->page->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/page/migrations/M130328120429CreatePage.php">
-    <UnusedClass>
-      <code><![CDATA[M130328120429CreatePage]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M130328122139CreatePageLayout.php">
-    <UnusedClass>
-      <code><![CDATA[M130328122139CreatePageLayout]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M131126163952AddedRobotsField.php">
-    <UnusedClass>
-      <code><![CDATA[M131126163952AddedRobotsField]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M180806105835RemoveLanguageTables.php">
-    <UnusedClass>
-      <code><![CDATA[M180806105835RemoveLanguageTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M191007111239InlinePageLayout.php">
-    <UnusedClass>
-      <code><![CDATA[M191007111239InlinePageLayout]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M191007115556RenameTables.php">
-    <UnusedClass>
-      <code><![CDATA[M191007115556RenameTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M191010181652AddStyles.php">
-    <UnusedClass>
-      <code><![CDATA[M191010181652AddStyles]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M191020153213RemoveKeywords.php">
-    <UnusedClass>
-      <code><![CDATA[M191020153213RemoveKeywords]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M191025175116RemoveImage.php">
-    <UnusedClass>
-      <code><![CDATA[M191025175116RemoveImage]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M201213171235AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M201213171235AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M210125100813RenameMeta.php">
-    <UnusedClass>
-      <code><![CDATA[M210125100813RenameMeta]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M220605154015RenameAlias.php">
-    <UnusedClass>
-      <code><![CDATA[M220605154015RenameAlias]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M220605171323RemovePurified.php">
-    <UnusedClass>
-      <code><![CDATA[M220605171323RemovePurified]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M220607183717RemoveUnique.php">
-    <UnusedClass>
-      <code><![CDATA[M220607183717RemoveUnique]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/page/migrations/M220608162834RemoveDate.php">
-    <UnusedClass>
-      <code><![CDATA[M220608162834RemoveDate]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/page/models/Page.php">
     <PossiblyUnusedMethod>
@@ -997,28 +605,15 @@
       <code><![CDATA[Page[]]]></code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/modules/partner/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/portfolio/Module.php">
     <UnnecessaryVarAnnotation>
       <code><![CDATA[Work[]]]></code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="src/modules/portfolio/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/portfolio/controllers/WorkController.php">
     <UnnecessaryVarAnnotation>
       <code><![CDATA[Work|null]]></code>
     </UnnecessaryVarAnnotation>
-    <UnusedClass>
-      <code><![CDATA[WorkController]]></code>
-    </UnusedClass>
     <UnusedParam>
       <code><![CDATA[$slug]]></code>
     </UnusedParam>
@@ -1027,9 +622,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$count]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[CategoryController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/portfolio/controllers/admin/WorkController.php">
     <RiskyTruthyFalsyComparison>
@@ -1037,64 +629,6 @@
       <code><![CDATA[$model->del_image]]></code>
       <code><![CDATA[$request->getReferrer()]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[WorkController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M130328122419CreateWork.php">
-    <UnusedClass>
-      <code><![CDATA[M130328122419CreateWork]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M130328123107CreateCategory.php">
-    <UnusedClass>
-      <code><![CDATA[M130328123107CreateCategory]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M180806105836RemoveLanguageTables.php">
-    <UnusedClass>
-      <code><![CDATA[M180806105836RemoveLanguageTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M191007115557RenameTables.php">
-    <UnusedClass>
-      <code><![CDATA[M191007115557RenameTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M191020153214RemoveKeywords.php">
-    <UnusedClass>
-      <code><![CDATA[M191020153214RemoveKeywords]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M201213171236AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M201213171236AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M210125100814RenameMeta.php">
-    <UnusedClass>
-      <code><![CDATA[M210125100814RenameMeta]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M220605150613RemoveImageSize.php">
-    <UnusedClass>
-      <code><![CDATA[M220605150613RemoveImageSize]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M220605154016RenameAlias.php">
-    <UnusedClass>
-      <code><![CDATA[M220605154016RenameAlias]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M220605171324RemovePurified.php">
-    <UnusedClass>
-      <code><![CDATA[M220605171324RemovePurified]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/portfolio/migrations/M220608170532AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M220608170532AddNullable]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/portfolio/models/Work.php">
     <PossiblyUnusedMethod>
@@ -1131,41 +665,11 @@
       <code><![CDATA[$model->image]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/products/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/products/controllers/PartnerController.php">
-    <UnusedClass>
-      <code><![CDATA[PartnerController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/services/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/sitemap/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/modules/sitemap/views/default/_recursive.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$item->label]]></code>
       <code><![CDATA[$item->label]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/subscribe/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/ulogin/controllers/DefaultController.php">
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/ulogin/models/ULoginModel.php">
     <PossiblyFalseArgument>
@@ -1191,29 +695,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$request->getReferrer()]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedClass>
-      <code><![CDATA[DefaultController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/controllers/ProfileController.php">
-    <UnusedClass>
-      <code><![CDATA[ProfileController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/controllers/RegistrationController.php">
-    <UnusedClass>
-      <code><![CDATA[RegistrationController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/controllers/RemindController.php">
-    <UnusedClass>
-      <code><![CDATA[RemindController]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/controllers/admin/UserController.php">
-    <UnusedClass>
-      <code><![CDATA[UserController]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/user/forms/LoginForm.php">
     <RiskyTruthyFalsyComparison>
@@ -1238,76 +719,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->fio)]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/user/migrations/M130328130712CreateUser.php">
-    <UnusedClass>
-      <code><![CDATA[M130328130712CreateUser]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M130328141310CreateUserPage.php">
-    <UnusedClass>
-      <code><![CDATA[M130328141310CreateUserPage]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M130717065918AddAuthorLink.php">
-    <UnusedClass>
-      <code><![CDATA[M130717065918AddAuthorLink]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M181022130712RemoveAddress.php">
-    <UnusedClass>
-      <code><![CDATA[M181022130712RemoveAddress]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M190918143321AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M190918143321AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M190918193620AddNullable.php">
-    <UnusedClass>
-      <code><![CDATA[M190918193620AddNullable]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M191007110105RemovePage.php">
-    <UnusedClass>
-      <code><![CDATA[M191007110105RemovePage]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M191007115558RenameTables.php">
-    <UnusedClass>
-      <code><![CDATA[M191007115558RenameTables]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M191007135558RehashPasswords.php">
-    <UnusedClass>
-      <code><![CDATA[M191007135558RehashPasswords]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M191017160126ChangeSalt.php">
-    <UnusedClass>
-      <code><![CDATA[M191017160126ChangeSalt]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M191023111426RemoveCommentsCount.php">
-    <UnusedClass>
-      <code><![CDATA[M191023111426RemoveCommentsCount]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M201030155612RemoveMiddlename.php">
-    <UnusedClass>
-      <code><![CDATA[M201030155612RemoveMiddlename]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M201030162824RenamePassword.php">
-    <UnusedClass>
-      <code><![CDATA[M201030162824RenamePassword]]></code>
-    </UnusedClass>
-  </file>
-  <file src="src/modules/user/migrations/M201030165531RenameName.php">
-    <UnusedClass>
-      <code><![CDATA[M201030165531RenameName]]></code>
-    </UnusedClass>
   </file>
   <file src="src/modules/user/models/User.php">
     <PossiblyUnusedProperty>
@@ -1378,316 +789,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->url]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="tests/_support/Helper/Acceptance.php">
-    <UnusedClass>
-      <code><![CDATA[Acceptance]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/_support/Helper/Integration.php">
-    <UnusedClass>
-      <code><![CDATA[Integration]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/_support/Helper/Unit.php">
-    <UnusedClass>
-      <code><![CDATA[Unit]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/_support/Module/Cache.php">
-    <UnusedClass>
-      <code><![CDATA[Cache]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/_support/Module/Mailer.php">
-    <UnusedClass>
-      <code><![CDATA[Mailer]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/_support/UnitTester.php">
-    <UnusedClass>
-      <code><![CDATA[UnitTester]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/ContactsCest.php">
-    <UnusedClass>
-      <code><![CDATA[ContactsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/CopyrightCest.php">
-    <UnusedClass>
-      <code><![CDATA[CopyrightCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/DonateCest.php">
-    <UnusedClass>
-      <code><![CDATA[DonateCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/EduCest.php">
-    <UnusedClass>
-      <code><![CDATA[EduCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/HomeCest.php">
-    <UnusedClass>
-      <code><![CDATA[HomeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/LandingCest.php">
-    <UnusedClass>
-      <code><![CDATA[LandingCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/LoginCest.php">
-    <UnusedClass>
-      <code><![CDATA[LoginCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/LogoutCest.php">
-    <UnusedClass>
-      <code><![CDATA[LogoutCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/PageCest.php">
-    <UnusedClass>
-      <code><![CDATA[PageCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/PartnerCest.php">
-    <UnusedClass>
-      <code><![CDATA[PartnerCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/PrivacyCest.php">
-    <UnusedClass>
-      <code><![CDATA[PrivacyCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/ProductsCest.php">
-    <UnusedClass>
-      <code><![CDATA[ProductsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/RemindCest.php">
-    <UnusedClass>
-      <code><![CDATA[RemindCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/SearchCest.php">
-    <UnusedClass>
-      <code><![CDATA[SearchCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/ServicesCest.php">
-    <UnusedClass>
-      <code><![CDATA[ServicesCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/SubscribeCest.php">
-    <UnusedClass>
-      <code><![CDATA[SubscribeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/admin/HomeCest.php">
-    <UnusedClass>
-      <code><![CDATA[HomeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/CategoryCest.php">
-    <UnusedClass>
-      <code><![CDATA[CategoryCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/DateCest.php">
-    <UnusedClass>
-      <code><![CDATA[DateCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/FeedCest.php">
-    <UnusedClass>
-      <code><![CDATA[FeedCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/HomeCest.php">
-    <UnusedClass>
-      <code><![CDATA[HomeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/SearchCest.php">
-    <UnusedClass>
-      <code><![CDATA[SearchCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/ShowCest.php">
-    <UnusedClass>
-      <code><![CDATA[ShowCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/TagCest.php">
-    <UnusedClass>
-      <code><![CDATA[TagCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/admin/CategoriesCest.php">
-    <UnusedClass>
-      <code><![CDATA[CategoriesCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/admin/CommentsCest.php">
-    <UnusedClass>
-      <code><![CDATA[CommentsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/admin/GroupsCest.php">
-    <UnusedClass>
-      <code><![CDATA[GroupsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/admin/PostsCest.php">
-    <UnusedClass>
-      <code><![CDATA[PostsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/admin/TagsCest.php">
-    <UnusedClass>
-      <code><![CDATA[TagsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/comment/SendCest.php">
-    <UnusedClass>
-      <code><![CDATA[SendCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/widgets/CountdownCest.php">
-    <UnusedClass>
-      <code><![CDATA[CountdownCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/widgets/EduSeriesEpisodesCest.php">
-    <UnusedClass>
-      <code><![CDATA[EduSeriesEpisodesCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/widgets/SubscribeNewsCest.php">
-    <UnusedClass>
-      <code><![CDATA[SubscribeNewsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/widgets/SubscribeWebinarsCest.php">
-    <UnusedClass>
-      <code><![CDATA[SubscribeWebinarsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/blog/widgets/YouTubeCest.php">
-    <UnusedClass>
-      <code><![CDATA[YouTubeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/comment/UpdateCest.php">
-    <UnusedClass>
-      <code><![CDATA[UpdateCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/landing/GitComposerCest.php">
-    <UnusedClass>
-      <code><![CDATA[GitComposerCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/landing/LaravelBoardCest.php">
-    <UnusedClass>
-      <code><![CDATA[LaravelBoardCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/landing/OopWeekCest.php">
-    <UnusedClass>
-      <code><![CDATA[OopWeekCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/landing/ProjectManagerCest.php">
-    <UnusedClass>
-      <code><![CDATA[ProjectManagerCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/landing/Yii2ShopCest.php">
-    <UnusedClass>
-      <code><![CDATA[Yii2ShopCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/landing/admin/LandingsCest.php">
-    <UnusedClass>
-      <code><![CDATA[LandingsCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/page/admin/PagesCest.php">
-    <UnusedClass>
-      <code><![CDATA[PagesCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/portfolio/CategoryCest.php">
-    <UnusedClass>
-      <code><![CDATA[CategoryCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/portfolio/HomeCest.php">
-    <UnusedClass>
-      <code><![CDATA[HomeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/portfolio/ShowCest.php">
-    <UnusedClass>
-      <code><![CDATA[ShowCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/portfolio/admin/CategoriesCest.php">
-    <UnusedClass>
-      <code><![CDATA[CategoriesCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/portfolio/admin/WorksCest.php">
-    <UnusedClass>
-      <code><![CDATA[WorksCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/profile/EditCest.php">
-    <UnusedClass>
-      <code><![CDATA[EditCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/profile/HomeCest.php">
-    <UnusedClass>
-      <code><![CDATA[HomeCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/profile/PasswordCest.php">
-    <UnusedClass>
-      <code><![CDATA[PasswordCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/registration/ConfirmCest.php">
-    <UnusedClass>
-      <code><![CDATA[ConfirmCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/registration/RegisterCest.php">
-    <UnusedClass>
-      <code><![CDATA[RegisterCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/sitemap/HtmlCest.php">
-    <UnusedClass>
-      <code><![CDATA[HtmlCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/sitemap/XmlCest.php">
-    <UnusedClass>
-      <code><![CDATA[XmlCest]]></code>
-    </UnusedClass>
-  </file>
-  <file src="tests/acceptance/user/admin/UsersCest.php">
-    <UnusedClass>
-      <code><![CDATA[UsersCest]]></code>
-    </UnusedClass>
   </file>
   <file src="tests/unit/components/shortcodes/ShortcodesProcessorTest.php">
     <PossiblyFalseArgument>

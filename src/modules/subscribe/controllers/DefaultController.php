@@ -6,6 +6,9 @@ namespace app\modules\subscribe\controllers;
 
 use yii\web\Controller;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     public function actionIndex(): string

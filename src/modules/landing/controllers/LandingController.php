@@ -9,6 +9,9 @@ use yii\caching\TagDependency;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
+/**
+ * @psalm-api
+ */
 final class LandingController extends Controller
 {
     public function actionShow(string $path = 'index'): string

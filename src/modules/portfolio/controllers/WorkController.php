@@ -12,6 +12,9 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
+/**
+ * @psalm-api
+ */
 final class WorkController extends Controller
 {
     public function actionShow(int $id, Request $request, AdminAccess $access, ?string $slug = null): Response|string

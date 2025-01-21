@@ -20,6 +20,9 @@ use yii\web\Request;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
+/**
+ * @psalm-api
+ */
 final class FileController extends AdminController
 {
     private const string UPLOAD_PATH = 'upload/media';

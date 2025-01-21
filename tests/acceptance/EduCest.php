@@ -6,6 +6,9 @@ namespace tests\acceptance;
 
 use tests\AcceptanceTester;
 
+/**
+ * @psalm-api
+ */
 final class EduCest
 {
     public function index(AcceptanceTester $I): void

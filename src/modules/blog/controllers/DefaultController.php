@@ -17,6 +17,9 @@ use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use yii\web\Response;
 
+/**
+ * @psalm-api
+ */
 final class DefaultController extends Controller
 {
     public function actionIndex(): string
