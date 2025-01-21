@@ -65,10 +65,8 @@ use yii\web\Request;
             ]); ?>
         <?php else: ?>
             <?= ULoginWidget::widget([
-                'params' => [
-                    'display' => 'small',
-                    'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true),
-                ],
+                'display' => 'small',
+                'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true),
             ]); ?>
         <?php endif; ?>
     </div>

@@ -554,11 +554,6 @@
       <code><![CDATA[$this->photo]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/ulogin/widgets/ULoginWidget.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[setParams]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/modules/user/controllers/DefaultController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$request->getReferrer()]]></code>

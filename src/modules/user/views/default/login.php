@@ -71,7 +71,7 @@ $this->params['breadcrumbs'] = [
     ]); ?>
 <?php else: ?>
     <?= ULoginWidget::widget([
-        'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true)],
+        'redirect' => Url::to(['/ulogin/default/login', 'return' => ltrim($request->getUrl(), '/')], true),
     ]); ?>
 <?php endif; ?>
 <?php Portlet::end(); ?>

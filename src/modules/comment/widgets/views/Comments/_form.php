@@ -49,7 +49,8 @@ use yii\widgets\ActiveForm;
                 <?php else: ?>
                     <div style="float: right; margin-right: -10px">
                         <?= ULoginWidget::widget([
-                            'params' => ['redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments', 'display' => 'panel'],
+                            'redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments',
+                            'display' => 'panel',
                         ]); ?>
                     </div>
                 <?php endif; ?>

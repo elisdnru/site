@@ -8,28 +8,25 @@ use yii\base\Widget;
 
 final class ULoginWidget extends Widget
 {
-    private static bool $once = false;
+    public string $display = 'panel';
+    public string $redirect = '';
 
-    private array $params = [
-        'display' => 'panel',
-        'fields' => 'first_name,last_name,email,photo',
-        'providers' => 'vkontakte,twitter,facebook,google,yandex',
-        'hidden' => 'other',
-        'redirect' => '',
-        'logout_url' => '/logout',
-    ];
+    private static bool $once = false;
 
     public function run(): string
     {
         if (self::$once) {
             return '';
         }
-        self::$once = true;
-        return $this->render('uLoginWidget', $this->params);
-    }
 
-    public function setParams(array $params): void
-    {
-        $this->params = array_merge($this->params, $params);
+        self::$once = true;
+
+        return $this->render('ULogin', [
+            'display' => $this->display,
+            'fields' => 'first_name,last_name,email,photo',
+            'providers' => 'vkontakte,twitter,facebook,google,yandex',
+            'hidden' => 'other',
+            'redirect' => $this->redirect,
+        ]);
     }
 }
