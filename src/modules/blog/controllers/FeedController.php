@@ -20,7 +20,6 @@ final class FeedController extends Controller
 {
     public function actionIndex(Request $request, Response $response): Response
     {
-        /** @psalm-var Post[] $posts */
         $posts = Post::find()->published()->orderBy(['date' => SORT_DESC])->all();
 
         $feed = new Feed();

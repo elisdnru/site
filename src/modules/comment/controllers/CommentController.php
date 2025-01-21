@@ -46,7 +46,6 @@ final class CommentController extends Controller
 
     private function loadModel(int $id, int $userId, AdminAccess $access): Comment
     {
-        /** @var Comment|null $model */
         $model = Comment::find()
             ->published()
             ->andWhere(['id' => $id])

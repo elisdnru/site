@@ -110,7 +110,6 @@ final class CommentsWidget extends Widget
             return '';
         }
 
-        /** @psalm-var Comment[] $items */
         $items = Comment::find()
             ->where([])
             ->type($this->type)

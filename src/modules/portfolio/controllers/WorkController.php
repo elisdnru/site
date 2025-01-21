@@ -48,7 +48,6 @@ final class WorkController extends Controller
             $query->published();
         }
 
-        /** @var Work|null $model */
         $model = $query->andWhere(['id' => $id])->one();
 
         if ($model === null) {

@@ -40,7 +40,6 @@ final class PostController extends Controller
             $query = $query->published();
         }
 
-        /** @var Post|null $model */
         $model = $query->andWhere(['id' => $id])->one();
         if ($model === null) {
             throw new NotFoundHttpException();

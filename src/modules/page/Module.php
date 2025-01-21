@@ -51,7 +51,6 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
 
     public static function sitemap(): array
     {
-        /** @psalm-var Page[] $pages */
         $pages = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))
             ->andWhere(['system' => 0])
             ->orderBy(['title' => SORT_ASC])

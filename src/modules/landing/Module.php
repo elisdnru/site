@@ -54,7 +54,6 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
 
     public static function sitemap(): array
     {
-        /** @psalm-var Landing[] $landings */
         $landings = Landing::find()->cache(0, new TagDependency(['tags' => ['landing']]))
             ->andWhere(['system' => 0])
             ->orderBy(['title' => SORT_ASC])
