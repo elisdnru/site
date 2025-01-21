@@ -161,7 +161,7 @@ services:
             AWS_ACCESS_KEY_ID: app
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
-            S3_ENDPOINT: http://site-backup-storage:9000
+            S3_ENDPOINT: http://site-backup-storage:9090
             S3_BUCKET: backup
         secrets:
             - db_password
@@ -182,7 +182,7 @@ services:
             AWS_ACCESS_KEY_ID: app
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: region
-            S3_ENDPOINT: http://site-backup-storage:9000
+            S3_ENDPOINT: http://site-backup-storage:9090
             S3_BUCKET: backup
         secrets:
             - backup_aws_secret_access_key
@@ -222,24 +222,13 @@ services:
             - traefik.http.services.site-mailer.loadbalancer.server.port=8025
 
     site-backup-storage:
-        image: minio/minio
+        image: adobe/s3mock:3.12.0
         environment:
-            MINIO_ROOT_USER: app
-            MINIO_ROOT_PASSWORD_FILE: /run/secrets/backup_aws_secret_access_key
-        secrets:
-            - backup_aws_secret_access_key
-        networks:
-            - traefik-public
-            - default
+            initialBuckets: backup
+            debug: true
+            root: data
         volumes:
             - site-backup-storage:/data
-        entrypoint: sh -c 'mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ":80"'
-        labels:
-            - traefik.enable=true
-            - traefik.docker.network=traefik-public
-            - traefik.http.routers.site-backup-storage.rule=Host(`backup-storage.localhost`)
-            - traefik.http.routers.site-backup-storage.entrypoints=http
-            - traefik.http.services.site-backup-storage.loadbalancer.server.port=80
 
     site-wiremock:
         image: wiremock/wiremock:3.10.0-alpine
