@@ -8,7 +8,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM php:8.3-fpm-alpine3.20
+FROM php:8.4-fpm-alpine3.21
 
 RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev git \
     && docker-php-ext-configure gd \
