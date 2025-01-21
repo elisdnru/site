@@ -16,11 +16,6 @@
       <code><![CDATA[$css]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/components/CacheFlushBehavior.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/components/DateFormatter.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$time]]></code>
@@ -53,9 +48,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/components/SimpleCacheAdapter.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$ttl]]></code>
     </RiskyTruthyFalsyComparison>
@@ -112,11 +104,6 @@
       <code><![CDATA[TreeCategory[]]]></code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/components/feature/FeatureToggle.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/components/feature/FeaturesNegotiator.php">
     <MixedArgument>
       <code><![CDATA[$name]]></code>
@@ -127,47 +114,11 @@
     <PossiblyFalseIterator>
       <code><![CDATA[$features]]></code>
     </PossiblyFalseIterator>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/module/admin/AdminAccess.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/module/admin/AdminDashboard.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/module/admin/AdminMenu.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/module/admin/AdminNotifications.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/module/routes/RoutesFetcher.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/components/module/sitemap/GroupsFetcher.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/components/purifier/MarkdownWidget.php">
     <PossiblyFalseArgument>
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/components/purifier/Purifier.php">
     <InvalidNullableReturnType>
@@ -189,27 +140,16 @@
     <PossiblyFalseArgument>
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/components/shortcodes/Shortcodes.php">
     <PossiblyFalseArgument>
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/components/shortcodes/WidgetRenderer.php">
     <PossiblyFalseArgument>
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
-  </file>
-  <file src="src/components/uploader/FileUploadBehavior.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/components/uploader/Parsed.php">
     <PossiblyUnusedProperty>
@@ -397,9 +337,6 @@
     <PossiblyFalseArgument>
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/modules/comment/controllers/AjaxController.php">
     <RiskyTruthyFalsyComparison>
@@ -451,9 +388,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/comment/widgets/CommentsWidget.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$form->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
@@ -476,16 +410,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->site]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/edu/widgets/PromotedEpisodes.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/modules/edu/widgets/SeriesEpisodes.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/modules/file/views/admin/file/index.php">
     <RiskyTruthyFalsyComparison>
@@ -690,9 +614,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/user/widgets/LoginFormWidget.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->user->id]]></code>
     </RiskyTruthyFalsyComparison>
@@ -701,21 +622,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->network]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/widgets/AdminBar.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/widgets/Counters.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/widgets/Messages.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument>

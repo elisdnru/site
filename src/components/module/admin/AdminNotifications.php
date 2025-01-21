@@ -10,6 +10,9 @@ final readonly class AdminNotifications
 {
     private Modules $modules;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Modules $modules)
     {
         $this->modules = $modules;

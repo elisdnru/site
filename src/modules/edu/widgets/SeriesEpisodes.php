@@ -13,6 +13,9 @@ final class SeriesEpisodes extends Widget
 
     private Api $api;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Api $api, array $config = [])
     {
         parent::__construct($config);

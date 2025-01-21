@@ -11,6 +11,9 @@ final class Messages extends Widget
 {
     private Session $session;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Session $session, array $config = [])
     {
         parent::__construct($config);

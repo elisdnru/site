@@ -12,6 +12,7 @@ final class FeatureToggle
     private array $features;
 
     /**
+     * @psalm-api
      * @param array<string, bool> $features
      */
     public function __construct(array $features)

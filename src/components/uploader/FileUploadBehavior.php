@@ -52,6 +52,9 @@ final class FileUploadBehavior extends Behavior
      */
     private array $cachedImageThumbUrl = [];
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Uploader $uploader, array $config = [])
     {
         parent::__construct($config);

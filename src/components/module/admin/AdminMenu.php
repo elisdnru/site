@@ -10,6 +10,9 @@ final readonly class AdminMenu
 {
     private Modules $modules;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Modules $modules)
     {
         $this->modules = $modules;

@@ -12,6 +12,9 @@ final class PromotedEpisodes extends Widget
     public int $limit = 6;
     private Api $api;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Api $api, array $config = [])
     {
         parent::__construct($config);

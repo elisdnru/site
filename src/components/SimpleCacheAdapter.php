@@ -13,6 +13,9 @@ final readonly class SimpleCacheAdapter implements CacheInterface
 {
     private YiiCacheInterface $cache;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(YiiCacheInterface $cache)
     {
         $this->cache = $cache;

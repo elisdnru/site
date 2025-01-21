@@ -11,6 +11,9 @@ final readonly class RoutesFetcher
 {
     private Modules $modules;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Modules $modules)
     {
         $this->modules = $modules;

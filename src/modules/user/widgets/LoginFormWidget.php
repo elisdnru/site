@@ -16,6 +16,9 @@ final class LoginFormWidget extends Widget
 {
     private WebUser $user;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(WebUser $user, array $config = [])
     {
         parent::__construct($config);

@@ -10,6 +10,9 @@ final readonly class AdminAccess
 {
     private User $user;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(User $user)
     {
         $this->user = $user;

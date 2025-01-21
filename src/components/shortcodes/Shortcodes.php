@@ -10,6 +10,9 @@ final class Shortcodes extends Widget
 {
     private ShortcodesProcessor $shortcodes;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(ShortcodesProcessor $shortcodes, array $config = [])
     {
         parent::__construct($config);

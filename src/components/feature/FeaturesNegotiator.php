@@ -12,6 +12,9 @@ final class FeaturesNegotiator extends Behavior
 {
     private FeatureToggle $features;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(FeatureToggle $features, array $config = [])
     {
         parent::__construct($config);

@@ -11,6 +11,9 @@ final readonly class AdminDashboard
     private AdminAccess $access;
     private Modules $modules;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(AdminAccess $access, Modules $modules)
     {
         $this->access = $access;

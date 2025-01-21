@@ -15,6 +15,9 @@ final class AdminBar extends Widget
 
     private User $user;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(User $user, array $config = [])
     {
         parent::__construct($config);

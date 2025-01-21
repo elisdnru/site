@@ -10,6 +10,9 @@ final class CommentPostFilterWidget extends Widget
 {
     private CommentPostFilter $filter;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(CommentPostFilter $filter, array $config = [])
     {
         parent::__construct($config);

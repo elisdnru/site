@@ -10,6 +10,9 @@ final class MarkdownWidget extends Widget
 {
     private Markdown $markdown;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(Markdown $markdown, array $config = [])
     {
         parent::__construct($config);

@@ -33,6 +33,9 @@ final class CommentsWidget extends Widget
     private MailerInterface $mailer;
     private Session $session;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(WebUser $webUser, MailerInterface $mailer, Session $session, array $config = [])
     {
         parent::__construct($config);
