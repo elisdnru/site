@@ -220,7 +220,6 @@ $this->title = 'Мастер-класс по разработке менедже
                 <li><a href="#for">Для кого</a></li>
                 <li><a href="#author">Автор</a></li>
                 <li><a href="#format">Формат</a></li>
-                <li><a href="#support">Поддержка</a></li>
                 <li><a href="#program">Программа</a></li>
             </ul>
             <a href="#price" class="btn btn-danger navbar-btn pull-right">Получить записи</a>
@@ -291,26 +290,7 @@ $this->title = 'Мастер-класс по разработке менедже
                 <li>Первый <a href="/blog/130/enterprise-frameworks" target="_blank" style="text-decoration: underline">вводный урок</a> проведён бесплатно, поэтому в первой части оплачиваются 4 урока.</li>
             </ul>
         </div>
-        <p style="text-align: center">По любым организационным и техническим вопросам Вам будет дан ответ в службе поддержки:</p>
-    </div>
-</section>
-
-<section id="support" style="background: #f3f3f3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div style="width: 270px; height: 270px; background: url('/landing/juli.jpg') center center no-repeat; border-radius: 1000px"></div>
-            </div>
-            <div class="col-md-8">
-                <h3 style="text-align: left">Меня зовут Юлия</h3>
-
-                <p>О моих пристрастиях к учёту и порядку ходят легенды, поэтому я решила направить их в полезное русло: до и во время интенсива я буду обеспечивать техническую поддержку всего процесса.</p>
-
-                <p>Я буду решать все организационные моменты, следить за вашим комфортом, отвечать на ваши вопросы по электронной почте, проверять платежи и выставлять счета и акты юрлицам.</p>
-
-                <p>Отвечать буду в порядке приоритетности: сначала на экстренные вопросы, потом на менее важное. Но всё равно ни одно письмо не пропадёт бесследно.</p>
-            </div>
-        </div>
+        <p style="text-align: center">По любым организационным и техническим вопросам Вам будет дан ответ в службе поддержки.</p>
     </div>
 </section>
 
