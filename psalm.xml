@@ -9,7 +9,7 @@
     errorBaseline="psalm-baseline.xml"
 >
     <plugins>
-        <pluginClass class="app\overrides\Psalm\PhpUnitPlugin\Plugin"/>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
 
     <stubs>
@@ -26,7 +26,6 @@
         <directory name="tests" />
         <ignoreFiles>
             <directory name="src/extensions" />
-            <directory name="src/overrides" />
             <directory name="tests/_support/_generated" />
             <directory name="vendor" />
         </ignoreFiles>
