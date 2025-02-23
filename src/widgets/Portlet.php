@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
+use Override;
 use yii\base\Widget;
 use yii\helpers\Html;
 
@@ -16,6 +17,7 @@ final class Portlet extends Widget
 
     private string $openTag = '';
 
+    #[Override]
     public function init(): void
     {
         ob_start();
@@ -26,6 +28,7 @@ final class Portlet extends Widget
         ob_clean();
     }
 
+    #[Override]
     public function run(): string
     {
         $content = ob_get_clean();

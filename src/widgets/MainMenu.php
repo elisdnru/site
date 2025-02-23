@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace app\widgets;
 
 use BadMethodCallException;
+use Override;
 use Yii;
 use yii\web\Request;
 use yii\widgets\Menu;
 
 final class MainMenu extends Menu
 {
+    #[Override]
     public function init(): void
     {
         parent::init();

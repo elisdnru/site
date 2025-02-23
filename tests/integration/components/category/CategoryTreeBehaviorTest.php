@@ -7,6 +7,7 @@ namespace tests\integration\components\category;
 use app\components\category\behaviors\CategoryTreeQueryBehavior;
 use app\components\category\models\TreeCategoryQuery;
 use Codeception\Test\Unit;
+use Override;
 use tests\IntegrationTester;
 use Yii;
 
@@ -366,6 +367,7 @@ final class CategoryTreeBehaviorTest extends Unit
         self::assertEquals('First Root First Middle Child - First Root First Middle - First Root', $category->getFullTitle(true));
     }
 
+    #[Override]
     protected function _before(): void
     {
         if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {

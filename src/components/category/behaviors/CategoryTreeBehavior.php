@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\components\category\behaviors;
 
 use app\components\category\Attribute;
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -98,6 +99,7 @@ final class CategoryTreeBehavior extends CategoryBehavior
         return implode($separator, $inverse ? $titles : array_reverse($titles));
     }
 
+    #[Override]
     public function isLinkActive(string $path): bool
     {
         /** @var self $model */

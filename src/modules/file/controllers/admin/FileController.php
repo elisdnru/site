@@ -10,6 +10,7 @@ use app\extensions\file\File;
 use app\modules\file\forms\admin\DirectoryForm;
 use app\modules\file\forms\admin\RenameForm;
 use app\modules\file\forms\admin\UploadForm;
+use Override;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
@@ -27,6 +28,7 @@ final class FileController extends AdminController
 {
     private const string UPLOAD_PATH = 'upload/media';
 
+    #[Override]
     public function behaviors(): array
     {
         return array_merge(parent::behaviors(), [

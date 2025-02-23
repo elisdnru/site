@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
+use Override;
 use yii\helpers\Html;
 use yii\widgets\Menu;
 
@@ -11,6 +12,7 @@ final class IconMenu extends Menu
 {
     public string $iconsPath = '';
 
+    #[Override]
     protected function renderItem($item): string
     {
         /**

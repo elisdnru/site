@@ -8,6 +8,7 @@ use app\components\MathCaptchaAction;
 use app\modules\user\forms\RegistrationForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
+use Override;
 use yii\mail\MailerInterface;
 use yii\web\Controller;
 use yii\web\Request;
@@ -19,6 +20,7 @@ use yii\web\Session;
  */
 final class RegistrationController extends Controller
 {
+    #[Override]
     public function actions(): array
     {
         return [

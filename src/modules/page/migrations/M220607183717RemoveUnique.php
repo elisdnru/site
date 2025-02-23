@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M220607183717RemoveUnique extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->dropIndex('slug', 'pages');
@@ -18,6 +20,7 @@ final class M220607183717RemoveUnique extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropIndex('slug', 'pages');

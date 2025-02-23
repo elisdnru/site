@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M220605171321RemovePurified extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->dropColumn('blog_posts', 'short_purified');
@@ -19,6 +21,7 @@ final class M220605171321RemovePurified extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->addColumn('blog_posts', 'short_purified', 'text NOT NULL');

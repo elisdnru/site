@@ -8,6 +8,7 @@ use app\components\ImageValidator;
 use app\modules\user\components\UsernameValidator;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -36,6 +37,7 @@ final class EditForm extends Model
         $this->role = $user->role;
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -64,6 +66,7 @@ final class EditForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

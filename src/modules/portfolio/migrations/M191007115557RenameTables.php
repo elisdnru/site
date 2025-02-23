@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -16,6 +17,7 @@ final class M191007115557RenameTables extends Migration
         'portfolio_work' => 'portfolio_works',
     ];
 
+    #[Override]
     public function safeUp(): bool
     {
         foreach (self::TABLES as $old => $new) {
@@ -24,6 +26,7 @@ final class M191007115557RenameTables extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         foreach (self::TABLES as $old => $new) {

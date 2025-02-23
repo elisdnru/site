@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M130328122139CreatePageLayout extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->createTable('{{page_layout}}', [
@@ -79,6 +81,7 @@ final class M130328122139CreatePageLayout extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropTable('{{page_layout}}');

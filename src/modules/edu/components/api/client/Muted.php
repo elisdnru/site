@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\edu\components\api\client;
 
 use Exception;
+use Override;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
@@ -25,6 +26,7 @@ final readonly class Muted implements ClientInterface
         $this->factory = $factory;
     }
 
+    #[Override]
     public function sendRequest(RequestInterface $request): ResponseInterface
     {
         try {

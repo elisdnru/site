@@ -7,6 +7,7 @@ namespace app\modules\edu\components;
 use app\modules\edu\components\api\Api;
 use app\modules\edu\components\api\client\Cached;
 use app\modules\edu\components\api\client\Muted;
+use Override;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
@@ -17,6 +18,7 @@ use yii\di\Container;
 
 final class Provider implements BootstrapInterface
 {
+    #[Override]
     public function bootstrap($app): void
     {
         $container = Yii::$container;

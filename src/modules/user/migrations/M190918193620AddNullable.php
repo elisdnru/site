@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M190918193620AddNullable extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->alterColumn('{{user}}', 'identity', 'varchar(255) DEFAULT NULL');
@@ -21,6 +23,7 @@ final class M190918193620AddNullable extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->alterColumn('{{user}}', 'identity', 'varchar(255) NOT NULL');

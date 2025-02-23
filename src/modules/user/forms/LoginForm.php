@@ -6,6 +6,7 @@ namespace app\modules\user\forms;
 
 use app\components\AuthIdentity;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 use yii\web\User as WebUser;
 
@@ -15,6 +16,7 @@ final class LoginForm extends Model
     public string $password = '';
     public string $rememberMe = '1';
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -24,6 +26,7 @@ final class LoginForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

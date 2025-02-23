@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
+use Override;
 use yii\base\Widget;
 use yii\caching\TagDependency;
 
@@ -13,6 +14,7 @@ final class LastPostsWidget extends Widget
     public string $tpl = 'default';
     public int|string $limit = 10;
 
+    #[Override]
     public function run(): string
     {
         $posts = Post::find()

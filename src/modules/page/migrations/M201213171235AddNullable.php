@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M201213171235AddNullable extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->alterColumn('pages', 'parent_id', 'int(11) DEFAULT NULL');
@@ -19,6 +21,7 @@ final class M201213171235AddNullable extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         return false;

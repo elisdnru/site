@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\models;
 
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -24,6 +25,7 @@ final class WorkQuery extends ActiveQuery
      * @param Connection|null $db
      * @return Work[]
      */
+    #[Override]
     public function all($db = null): array
     {
         return parent::all($db);
@@ -35,6 +37,7 @@ final class WorkQuery extends ActiveQuery
      * @param Connection|null $db
      * @return BatchQueryResult|Work[]
      */
+    #[Override]
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
@@ -45,6 +48,7 @@ final class WorkQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Work|null
      */
+    #[Override]
     public function one($db = null): null|array|Work
     {
         return parent::one($db);

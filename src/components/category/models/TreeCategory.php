@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
+use Override;
 use yii\db\ActiveQuery;
 use yii\helpers\Url;
 
@@ -19,11 +20,13 @@ abstract class TreeCategory extends Category
 
     private ?string $cachedUrl = null;
 
+    #[Override]
     public static function find(): TreeCategoryQuery
     {
         return new TreeCategoryQuery(static::class);
     }
 
+    #[Override]
     public function rules(): array
     {
         return array_merge(self::staticRules(), [
@@ -31,6 +34,7 @@ abstract class TreeCategory extends Category
         ]);
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return array_merge(self::staticAttributeLabels(), [
@@ -38,6 +42,7 @@ abstract class TreeCategory extends Category
         ]);
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return array_replace(parent::behaviors(), [
@@ -71,6 +76,7 @@ abstract class TreeCategory extends Category
             ->orderBy(['children.sort' => SORT_ASC, 'children.title' => SORT_ASC]);
     }
 
+    #[Override]
     public function getUrl(): string
     {
         if ($this->cachedUrl === null) {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
+use Override;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -12,6 +13,7 @@ abstract class AdminController extends Controller
 {
     public $layout = '@app/views/layouts/admin';
 
+    #[Override]
     public function behaviors(): array
     {
         return [

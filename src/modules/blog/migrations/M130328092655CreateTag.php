@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M130328092655CreateTag extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->createTable('{{blog_tag}}', [
@@ -29,6 +31,7 @@ final class M130328092655CreateTag extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropTable('{{blog_post_tag}}');

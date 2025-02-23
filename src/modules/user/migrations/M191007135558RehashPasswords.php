@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\migrations;
 
+use Override;
 use yii\db\Migration;
 use yii\db\Query;
 
@@ -12,6 +13,7 @@ use yii\db\Query;
  */
 final class M191007135558RehashPasswords extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->alterColumn('users', 'password', 'varchar(255) DEFAULT NULL');
@@ -37,6 +39,7 @@ final class M191007135558RehashPasswords extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         echo "m191007_135558_rehash_passwords does not support migration down.\n";

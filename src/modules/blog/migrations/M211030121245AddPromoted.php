@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M211030121245AddPromoted extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->addColumn('blog_posts', 'promoted', 'tinyint(1) NOT NULL DEFAULT 0');
@@ -18,6 +20,7 @@ final class M211030121245AddPromoted extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropIndex('promoted', 'blog_posts');

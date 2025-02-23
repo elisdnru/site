@@ -6,6 +6,7 @@ namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryBehavior;
 use app\components\SlugValidator;
+use Override;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
@@ -26,11 +27,13 @@ abstract class Category extends ActiveRecord
 
     private ?string $cachedUrl = null;
 
+    #[Override]
     public static function find(): CategoryQuery
     {
         return new CategoryQuery(static::class);
     }
 
+    #[Override]
     public function rules(): array
     {
         return self::staticRules();
@@ -47,6 +50,7 @@ abstract class Category extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return self::staticAttributeLabels();
@@ -65,6 +69,7 @@ abstract class Category extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [

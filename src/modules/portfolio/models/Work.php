@@ -6,6 +6,7 @@ namespace app\modules\portfolio\models;
 
 use app\components\ForceActiveRecordErrors;
 use app\components\uploader\FileUploadBehavior;
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
@@ -35,11 +36,13 @@ final class Work extends ActiveRecord
 
     public bool|string $del_image = false;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'portfolio_works';
     }
 
+    #[Override]
     public static function find(): WorkQuery
     {
         return new WorkQuery(self::class);
@@ -53,6 +56,7 @@ final class Work extends ActiveRecord
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [

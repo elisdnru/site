@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\block\models;
 
 use app\components\ForceActiveRecordErrors;
+use Override;
 use yii\db\ActiveRecord;
 
 /**
@@ -17,11 +18,13 @@ final class Block extends ActiveRecord
 {
     use ForceActiveRecordErrors;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'blocks';
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

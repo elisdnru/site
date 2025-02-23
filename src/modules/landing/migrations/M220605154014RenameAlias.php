@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\landing\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M220605154014RenameAlias extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->dropIndex('landings_alias', 'landings');
@@ -19,6 +21,7 @@ final class M220605154014RenameAlias extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropIndex('landings_slug', 'landings');

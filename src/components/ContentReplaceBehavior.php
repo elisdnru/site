@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
+use Override;
 use yii\base\Behavior;
 use yii\base\ViewEvent;
 use yii\web\View;
@@ -12,6 +13,7 @@ final class ContentReplaceBehavior extends Behavior
 {
     public array $replaces = [];
 
+    #[Override]
     public function events(): array
     {
         return [

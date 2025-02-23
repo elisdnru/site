@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace app\components;
 
 use app\modules\user\models\User;
+use Override;
 use yii\rbac\Assignment;
 use yii\rbac\PhpManager;
 
 final class AuthManager extends PhpManager
 {
+    #[Override]
     public function getAssignments($userId): array
     {
         if (\array_key_exists($userId, $this->assignments)) {

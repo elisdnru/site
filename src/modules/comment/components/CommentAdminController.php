@@ -9,6 +9,7 @@ use app\components\DataProvider;
 use app\modules\comment\forms\admin\CommentUpdateForm;
 use app\modules\comment\models\Comment;
 use BadMethodCallException;
+use Override;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;
@@ -21,6 +22,7 @@ abstract class CommentAdminController extends AdminController
 {
     private const int COMMENTS_PER_PAGE = 20;
 
+    #[Override]
     public function behaviors(): array
     {
         return array_merge(parent::behaviors(), [

@@ -7,6 +7,7 @@ namespace app\modules\ulogin\models;
 use app\components\AuthIdentity;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 use yii\web\User as WebUser;
 
@@ -22,6 +23,7 @@ final class ULoginModel extends Model
     public ?string $error_type = null;
     public ?string $error_message = null;
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -32,6 +34,7 @@ final class ULoginModel extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

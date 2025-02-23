@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M130328123107CreateCategory extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->createTable('{{portfolio_category}}', [
@@ -57,6 +59,7 @@ final class M130328123107CreateCategory extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropForeignKey('portfolio_category_lang_owner', '{{portfolio_category_lang}}');

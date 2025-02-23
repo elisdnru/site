@@ -6,6 +6,7 @@ namespace app\modules\landing\forms\admin;
 
 use app\components\SlugValidator;
 use app\modules\landing\models\Landing;
+use Override;
 use yii\base\Model;
 
 final class LandingForm extends Model
@@ -33,6 +34,7 @@ final class LandingForm extends Model
         }
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -45,6 +47,7 @@ final class LandingForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

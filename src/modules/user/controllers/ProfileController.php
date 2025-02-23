@@ -7,6 +7,7 @@ namespace app\modules\user\controllers;
 use app\modules\user\forms\PasswordForm;
 use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\User;
+use Override;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
@@ -21,6 +22,7 @@ use yii\web\User as WebUser;
  */
 final class ProfileController extends Controller
 {
+    #[Override]
     public function behaviors(): array
     {
         return [

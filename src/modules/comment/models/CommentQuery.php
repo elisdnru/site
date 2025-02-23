@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\comment\models;
 
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -39,6 +40,7 @@ final class CommentQuery extends ActiveQuery
      * @param Connection|null $db
      * @return Comment[]
      */
+    #[Override]
     public function all($db = null): array
     {
         return parent::all($db);
@@ -50,6 +52,7 @@ final class CommentQuery extends ActiveQuery
      * @param Connection|null $db
      * @return BatchQueryResult|Comment[]
      */
+    #[Override]
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
@@ -60,6 +63,7 @@ final class CommentQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Comment|null
      */
+    #[Override]
     public function one($db = null): null|array|Comment
     {
         return parent::one($db);

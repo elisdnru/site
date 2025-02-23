@@ -8,6 +8,7 @@ use app\components\ForceActiveRecordErrors;
 use app\components\Gravatar;
 use app\components\uploader\FileUploadBehavior;
 use app\modules\comment\models\Comment;
+use Override;
 use RuntimeException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -43,6 +44,7 @@ final class User extends ActiveRecord
 
     private ?string $cachedAvatarUrl = null;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'users';
@@ -53,6 +55,7 @@ final class User extends ActiveRecord
         return (int)Comment::find()->user($this->id)->published()->count();
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [
@@ -75,6 +78,7 @@ final class User extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [
@@ -94,6 +98,7 @@ final class User extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {
@@ -106,6 +111,7 @@ final class User extends ActiveRecord
         return false;
     }
 
+    #[Override]
     public function afterFind(): void
     {
         if ($this->create_datetime === '0000-00-00 00:00:00') {

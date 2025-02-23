@@ -6,6 +6,7 @@ namespace app\modules\comment\controllers;
 
 use app\components\module\admin\AdminAccess;
 use app\modules\comment\models\Comment;
+use Override;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
@@ -20,6 +21,7 @@ use yii\web\User;
  */
 final class AjaxController extends Controller
 {
+    #[Override]
     public function behaviors(): array
     {
         return array_merge(parent::behaviors(), [

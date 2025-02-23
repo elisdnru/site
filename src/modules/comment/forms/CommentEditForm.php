@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\comment\forms;
 
 use app\modules\comment\models\Comment;
+use Override;
 use yii\base\Model;
 
 final class CommentEditForm extends Model
@@ -17,6 +18,7 @@ final class CommentEditForm extends Model
         $this->text = $comment->text;
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -24,6 +26,7 @@ final class CommentEditForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

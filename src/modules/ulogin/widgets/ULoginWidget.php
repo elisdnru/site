@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\ulogin\widgets;
 
+use Override;
 use yii\base\Widget;
 
 final class ULoginWidget extends Widget
@@ -13,6 +14,7 @@ final class ULoginWidget extends Widget
 
     private static bool $once = false;
 
+    #[Override]
     public function run(): string
     {
         if (self::$once) {

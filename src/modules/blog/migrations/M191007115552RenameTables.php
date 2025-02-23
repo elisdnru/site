@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -19,6 +20,7 @@ final class M191007115552RenameTables extends Migration
         'blog_tag' => 'blog_tags',
     ];
 
+    #[Override]
     public function safeUp(): bool
     {
         foreach (self::TABLES as $old => $new) {
@@ -27,6 +29,7 @@ final class M191007115552RenameTables extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         foreach (self::TABLES as $old => $new) {

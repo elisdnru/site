@@ -8,6 +8,7 @@ use app\components\AdminController;
 use app\components\module\admin\AdminDashboard;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
+use Override;
 use yii\filters\AccessControl;
 use yii\web\User as WebUser;
 
@@ -16,6 +17,7 @@ use yii\web\User as WebUser;
  */
 final class DefaultController extends AdminController
 {
+    #[Override]
     public function behaviors(): array
     {
         return [

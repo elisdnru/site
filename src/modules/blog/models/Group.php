@@ -6,6 +6,7 @@ namespace app\modules\blog\models;
 
 use app\components\category\behaviors\CategoryBehavior;
 use app\components\ForceActiveRecordErrors;
+use Override;
 use yii\db\ActiveRecord;
 
 /**
@@ -18,11 +19,13 @@ final class Group extends ActiveRecord
 {
     use ForceActiveRecordErrors;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'blog_post_groups';
     }
 
+    #[Override]
     public static function find(): GroupQuery
     {
         return new GroupQuery(self::class);
@@ -33,6 +36,7 @@ final class Group extends ActiveRecord
         return (int)Post::find()->andWhere(['group_id' => $this->id])->count();
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [

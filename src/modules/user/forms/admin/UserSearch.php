@@ -6,6 +6,7 @@ namespace app\modules\user\forms\admin;
 
 use app\components\DataProvider;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
@@ -19,6 +20,7 @@ final class UserSearch extends Model
     public ?string $fio = null;
     public ?string $role = null;
 
+    #[Override]
     public function rules(): array
     {
         return [

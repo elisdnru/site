@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M191025175116RemoveImage extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->dropColumn('pages', 'image');
@@ -20,6 +22,7 @@ final class M191025175116RemoveImage extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         return false;

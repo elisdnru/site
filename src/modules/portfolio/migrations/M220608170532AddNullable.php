@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M220608170532AddNullable extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->alterColumn('portfolio_works', 'image', 'varchar(255) DEFAULT NULL');
@@ -19,6 +21,7 @@ final class M220608170532AddNullable extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->update('portfolio_works', ['image' => ''], ['image' => null]);

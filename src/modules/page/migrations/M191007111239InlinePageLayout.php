@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\page\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M191007111239InlinePageLayout extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->addColumn('{{page}}', 'layout', 'varchar(255) DEFAULT NULL');
@@ -35,6 +37,7 @@ final class M191007111239InlinePageLayout extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         echo "m191007_111239_inline_page_layout does not support migration down.\n";

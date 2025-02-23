@@ -11,22 +11,26 @@ use app\components\module\sitemap\Item;
 use app\components\module\sitemap\SitemapProvider;
 use app\components\module\sitemap\Xml;
 use app\modules\landing\models\Landing;
+use Override;
 use yii\base\Module as Base;
 use yii\caching\TagDependency;
 use yii\helpers\Url;
 
 final class Module extends Base implements RoutesProvider, AdminMenuProvider, SitemapProvider
 {
+    #[Override]
     public function adminGroup(): string
     {
         return 'Контент';
     }
 
+    #[Override]
     public function adminName(): string
     {
         return 'Лендинги';
     }
 
+    #[Override]
     public static function adminMenu(): array
     {
         return [
@@ -35,6 +39,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
         ];
     }
 
+    #[Override]
     public static function routes(): array
     {
         return [
@@ -47,11 +52,13 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
         ];
     }
 
+    #[Override]
     public static function routesPriority(): int
     {
         return -1;
     }
 
+    #[Override]
     public static function sitemap(): array
     {
         $landings = Landing::find()->cache(0, new TagDependency(['tags' => ['landing']]))
@@ -96,6 +103,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
         ];
     }
 
+    #[Override]
     public static function sitemapPriority(): int
     {
         return 98;

@@ -6,6 +6,7 @@ namespace app\modules\landing\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\ForceActiveRecordErrors;
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -27,11 +28,13 @@ final class Landing extends ActiveRecord
 
     public int $indent = 0;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'landings';
     }
 
+    #[Override]
     public static function find(): LandingQuery
     {
         return new LandingQuery(self::class);
@@ -55,6 +58,7 @@ final class Landing extends ActiveRecord
         return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [
@@ -67,6 +71,7 @@ final class Landing extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [
@@ -80,6 +85,7 @@ final class Landing extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {

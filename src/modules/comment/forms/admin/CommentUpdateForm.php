@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace app\modules\comment\forms\admin;
 
 use app\modules\comment\models\Comment;
+use Override;
 use yii\base\Model;
 
-class CommentUpdateForm extends Model
+final class CommentUpdateForm extends Model
 {
     public string $date;
     public ?string $name;
@@ -18,7 +19,7 @@ class CommentUpdateForm extends Model
 
     private ?int $user_id;
 
-    final public function __construct(Comment $comment, array $config = [])
+    public function __construct(Comment $comment, array $config = [])
     {
         parent::__construct($config);
 
@@ -31,6 +32,7 @@ class CommentUpdateForm extends Model
         $this->user_id = $comment->user_id;
     }
 
+    #[Override]
     public function rules(): array
     {
         $anon = static fn (self $model): bool => !$model->user_id;
@@ -61,6 +63,7 @@ class CommentUpdateForm extends Model
         $this->{$attribute} = $value;
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\feature;
 
+use Override;
 use yii\base\Application;
 use yii\base\Behavior;
 use yii\base\Event;
@@ -21,6 +22,7 @@ final class FeaturesNegotiator extends Behavior
         $this->features = $features;
     }
 
+    #[Override]
     public function events(): array
     {
         return [

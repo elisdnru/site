@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\edu\components\api\client;
 
 use Laminas\Diactoros\Response\ArraySerializer;
+use Override;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -23,6 +24,7 @@ final readonly class Cached implements ClientInterface
         $this->ttl = $ttl;
     }
 
+    #[Override]
     public function sendRequest(RequestInterface $request): ResponseInterface
     {
         if (!self::isCacheNeeded($request)) {

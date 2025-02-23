@@ -6,6 +6,7 @@ namespace app\modules\blog\controllers\admin;
 
 use app\modules\blog\models\Post;
 use app\modules\comment\components\CommentAdminController;
+use Override;
 use yii\db\ActiveRecord;
 use yii\web\NotFoundHttpException;
 
@@ -14,6 +15,7 @@ use yii\web\NotFoundHttpException;
  */
 final class CommentController extends CommentAdminController
 {
+    #[Override]
     protected function loadMaterialModel(int $id): ActiveRecord
     {
         $model = Post::findOne($id);
@@ -23,6 +25,7 @@ final class CommentController extends CommentAdminController
         return $model;
     }
 
+    #[Override]
     protected function getType(): ?string
     {
         return Post::class;

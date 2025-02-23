@@ -10,6 +10,7 @@ use app\modules\comment\models\Comment;
 use app\modules\comment\models\Material;
 use app\modules\user\models\User;
 use BadMethodCallException;
+use Override;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -50,11 +51,13 @@ final class Post extends ActiveRecord implements Material
 
     public ?bool $del_image = null;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'blog_posts';
     }
 
+    #[Override]
     public static function find(): PostQuery
     {
         return new PostQuery(self::class);
@@ -131,6 +134,7 @@ final class Post extends ActiveRecord implements Material
         return (int)Comment::find()->type(self::class)->material($this->id)->published()->unread()->count();
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [
@@ -150,6 +154,7 @@ final class Post extends ActiveRecord implements Material
         ];
     }
 
+    #[Override]
     public function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {
@@ -161,11 +166,13 @@ final class Post extends ActiveRecord implements Material
         return false;
     }
 
+    #[Override]
     public function getCommentTitle(): string
     {
         return $this->title;
     }
 
+    #[Override]
     public function getCommentUrl(): string
     {
         return Url::to(['/blog/post/show', 'id' => $this->id, 'slug' => $this->slug]);

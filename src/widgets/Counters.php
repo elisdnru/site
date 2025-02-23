@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\widgets;
 
 use app\modules\user\models\Access;
+use Override;
 use yii\base\Widget;
 use yii\web\User;
 
@@ -24,6 +25,7 @@ final class Counters extends Widget
     /**
      * @psalm-suppress TypeDoesNotContainType
      */
+    #[Override]
     public function run(): string
     {
         if (YII_DEBUG || $this->user->can(Access::ROLE_ADMIN)) {

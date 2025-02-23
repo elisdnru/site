@@ -6,6 +6,7 @@ namespace app\modules\page\models;
 
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\ForceActiveRecordErrors;
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -54,11 +55,13 @@ final class Page extends ActiveRecord
 
     public int $indent = 0;
 
+    #[Override]
     public static function tableName(): string
     {
         return 'pages';
     }
 
+    #[Override]
     public static function find(): PageQuery
     {
         return new PageQuery(self::class);
@@ -82,6 +85,7 @@ final class Page extends ActiveRecord
         return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [
@@ -110,6 +114,7 @@ final class Page extends ActiveRecord
         return \in_array($this->robots, [self::INDEX_FOLLOW, self::INDEX_NOFOLLOW], true);
     }
 
+    #[Override]
     public function beforeDelete(): bool
     {
         if (parent::beforeDelete()) {

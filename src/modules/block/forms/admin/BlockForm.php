@@ -6,6 +6,7 @@ namespace app\modules\block\forms\admin;
 
 use app\components\SlugValidator;
 use app\modules\block\models\Block;
+use Override;
 use yii\base\Model;
 
 final class BlockForm extends Model
@@ -28,6 +29,7 @@ final class BlockForm extends Model
         }
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -39,6 +41,7 @@ final class BlockForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

@@ -10,6 +10,7 @@ use app\components\DataProvider;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
+use Override;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
@@ -22,6 +23,7 @@ use yii\web\Response;
  */
 final class CategoryController extends AdminController
 {
+    #[Override]
     public function behaviors(): array
     {
         return ArrayHelper::merge(parent::behaviors(), [

@@ -7,6 +7,7 @@ namespace app\modules\user\widgets;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use BadMethodCallException;
+use Override;
 use Yii;
 use yii\base\Widget;
 use yii\web\Request;
@@ -25,6 +26,7 @@ final class LoginFormWidget extends Widget
         $this->user = $user;
     }
 
+    #[Override]
     public function run(): string
     {
         $model = new LoginForm();

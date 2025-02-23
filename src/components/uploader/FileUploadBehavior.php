@@ -6,6 +6,7 @@ namespace app\components\uploader;
 
 use app\extensions\file\File;
 use ArrayObject;
+use Override;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\validators\Validator;
@@ -61,6 +62,7 @@ final class FileUploadBehavior extends Behavior
         $this->uploader = $uploader;
     }
 
+    #[Override]
     public function attach($owner): void
     {
         parent::attach($owner);
@@ -75,6 +77,7 @@ final class FileUploadBehavior extends Behavior
         $validators->append($fileValidator);
     }
 
+    #[Override]
     public function events(): array
     {
         return [

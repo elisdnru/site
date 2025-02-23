@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\portfolio\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M130328122419CreateWork extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->createTable('{{portfolio_work}}', [
@@ -71,6 +73,7 @@ final class M130328122419CreateWork extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropForeignKey('portfolio_work_lang_owner', '{{portfolio_work_lang}}');

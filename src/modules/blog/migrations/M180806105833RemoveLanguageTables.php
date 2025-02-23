@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M180806105833RemoveLanguageTables extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->dropTable('{{blog_post_lang}}');
@@ -18,6 +20,7 @@ final class M180806105833RemoveLanguageTables extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         echo "m180806_105833_remove_language_tables does not support migration down.\n";

@@ -9,6 +9,7 @@ use app\modules\blog\models\Category;
 use app\modules\blog\models\Group;
 use app\modules\blog\models\Post;
 use app\modules\blog\models\Tag;
+use Override;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 use yii\web\UploadedFile;
@@ -63,6 +64,7 @@ final class PostForm extends Model
         }
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -80,6 +82,7 @@ final class PostForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

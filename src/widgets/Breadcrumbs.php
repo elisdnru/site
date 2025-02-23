@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
+use Override;
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -17,6 +18,7 @@ final class Breadcrumbs extends Widget
     public string $inactiveLinkTemplate = '<!--noindex--><span>{label}</span><!--/noindex-->';
     public string $separator = ' &raquo; ';
 
+    #[Override]
     public function run(): string
     {
         if ($this->links === []) {

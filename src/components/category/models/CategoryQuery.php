@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\components\category\models;
 
 use app\components\category\behaviors\CategoryQueryBehavior;
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -14,6 +15,7 @@ use yii\db\Connection;
  */
 class CategoryQuery extends ActiveQuery
 {
+    #[Override]
     public function behaviors(): array
     {
         return [
@@ -30,6 +32,7 @@ class CategoryQuery extends ActiveQuery
      * @param Connection|null $db
      * @return Category[]
      */
+    #[Override]
     public function all($db = null): array
     {
         return parent::all($db);
@@ -41,6 +44,7 @@ class CategoryQuery extends ActiveQuery
      * @param Connection|null $db
      * @return BatchQueryResult|Category[]
      */
+    #[Override]
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
@@ -51,6 +55,7 @@ class CategoryQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Category|null
      */
+    #[Override]
     public function one($db = null): null|array|Category
     {
         return parent::one($db);

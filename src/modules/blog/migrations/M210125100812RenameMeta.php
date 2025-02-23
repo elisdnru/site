@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M210125100812RenameMeta extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->renameColumn('blog_categories', 'pagetitle', 'meta_title');
@@ -20,6 +22,7 @@ final class M210125100812RenameMeta extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->renameColumn('blog_categories', 'meta_title', 'pagetitle');

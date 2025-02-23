@@ -6,6 +6,7 @@ namespace app\modules\user\forms;
 
 use app\modules\user\components\CurrentPasswordValidator;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 
 final class PasswordForm extends Model
@@ -22,6 +23,7 @@ final class PasswordForm extends Model
         $this->id = $user->id;
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -45,6 +47,7 @@ final class PasswordForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

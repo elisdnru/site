@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components;
 
+use Override;
 use Throwable;
 use yii\web\ErrorHandler;
 use yii\web\HttpException;
@@ -14,6 +15,7 @@ final class SentryErrorHandler extends ErrorHandler
 {
     public bool $sentryActive = false;
 
+    #[Override]
     public function logException($exception): void
     {
         parent::logException($exception);

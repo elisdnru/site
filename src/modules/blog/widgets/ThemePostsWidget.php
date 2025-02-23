@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
+use Override;
 use yii\base\Widget;
 
 final class ThemePostsWidget extends Widget
@@ -12,6 +13,7 @@ final class ThemePostsWidget extends Widget
     public int $current = 0;
     public ?int $group = null;
 
+    #[Override]
     public function run(): string
     {
         if ($this->group === null || $this->group === 0) {

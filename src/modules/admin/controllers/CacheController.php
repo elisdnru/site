@@ -6,6 +6,7 @@ namespace app\modules\admin\controllers;
 
 use app\components\AdminController;
 use app\modules\user\models\Access;
+use Override;
 use yii\caching\CacheInterface;
 use yii\filters\AccessControl;
 use yii\web\Response;
@@ -16,6 +17,7 @@ use yii\web\Session;
  */
 final class CacheController extends AdminController
 {
+    #[Override]
     public function behaviors(): array
     {
         return [

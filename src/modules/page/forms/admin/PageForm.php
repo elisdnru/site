@@ -6,6 +6,7 @@ namespace app\modules\page\forms\admin;
 
 use app\components\SlugValidator;
 use app\modules\page\models\Page;
+use Override;
 use yii\base\Model;
 
 final class PageForm extends Model
@@ -47,6 +48,7 @@ final class PageForm extends Model
         }
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -58,6 +60,7 @@ final class PageForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

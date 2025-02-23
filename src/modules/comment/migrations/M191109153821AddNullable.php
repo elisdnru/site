@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\comment\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M191109153821AddNullable extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->alterColumn('comments', 'name', 'varchar(255) DEFAULT NULL');
@@ -23,6 +25,7 @@ final class M191109153821AddNullable extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         return false;

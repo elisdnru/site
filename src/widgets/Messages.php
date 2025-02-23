@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
+use Override;
 use yii\base\Widget;
 use yii\web\Session;
 
@@ -20,6 +21,7 @@ final class Messages extends Widget
         $this->session = $session;
     }
 
+    #[Override]
     public function run(): string
     {
         return $this->render('Messages', [

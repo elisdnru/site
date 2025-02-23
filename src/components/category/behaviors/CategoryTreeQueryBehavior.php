@@ -6,6 +6,7 @@ namespace app\components\category\behaviors;
 
 use app\components\category\Attribute;
 use app\components\category\models\TreeCategory;
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -18,6 +19,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getQuery()->andWhere([$this->parentAttribute => null]);
     }
 
+    #[Override]
     public function getAssocList(?int $parent = null): array
     {
         $items = $this->getFullAssocData([
@@ -52,6 +54,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
+    #[Override]
     public function getSlugList(?int $parent = null): array
     {
         $items = $this->getFullAssocData([
@@ -102,6 +105,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $result;
     }
 
+    #[Override]
     public function getUrlList(?int $parent = null): array
     {
         $query = $this->getQuery();
@@ -122,6 +126,7 @@ final class CategoryTreeQueryBehavior extends CategoryQueryBehavior
         return $this->getUrlListRecursive($categories, $parent ?: 0);
     }
 
+    #[Override]
     public function getMenuList(string $path, int $sub = 0, ?int $parent = null): array
     {
         $query = $this->getQuery();

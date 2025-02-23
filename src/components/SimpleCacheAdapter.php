@@ -6,6 +6,7 @@ namespace app\components;
 
 use DateInterval;
 use DateTimeImmutable;
+use Override;
 use Psr\SimpleCache\CacheInterface;
 use yii\caching\CacheInterface as YiiCacheInterface;
 
@@ -21,6 +22,7 @@ final readonly class SimpleCacheAdapter implements CacheInterface
         $this->cache = $cache;
     }
 
+    #[Override]
     public function get(string $key, mixed $default = null): mixed
     {
         /** @var false|mixed $result */
@@ -28,21 +30,25 @@ final readonly class SimpleCacheAdapter implements CacheInterface
         return $result !== false ? $result : $default;
     }
 
+    #[Override]
     public function set(string $key, mixed $value, null|DateInterval|int $ttl = null): bool
     {
         return $this->cache->set($key, $value, self::toSeconds($ttl));
     }
 
+    #[Override]
     public function delete(string $key): bool
     {
         return $this->cache->delete($key);
     }
 
+    #[Override]
     public function clear(): bool
     {
         return $this->cache->flush();
     }
 
+    #[Override]
     public function getMultiple(iterable $keys, mixed $default = null): iterable
     {
         $strings = [];
@@ -56,6 +62,7 @@ final readonly class SimpleCacheAdapter implements CacheInterface
         return $this->cache->multiGet($strings);
     }
 
+    #[Override]
     public function setMultiple(iterable $values, null|DateInterval|int $ttl = null): bool
     {
         /**
@@ -74,6 +81,7 @@ final readonly class SimpleCacheAdapter implements CacheInterface
         return $this->cache->multiSet($items, self::toSeconds($ttl)) !== [];
     }
 
+    #[Override]
     public function deleteMultiple(iterable $keys): bool
     {
         $res = true;
@@ -83,6 +91,7 @@ final readonly class SimpleCacheAdapter implements CacheInterface
         return $res;
     }
 
+    #[Override]
     public function has(string $key): bool
     {
         return $this->cache->exists($key);

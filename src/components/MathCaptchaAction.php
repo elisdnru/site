@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace app\components;
 
+use Override;
 use yii\captcha\CaptchaAction;
 
 final class MathCaptchaAction extends CaptchaAction
 {
+    #[Override]
     protected function generateVerifyCode(): string
     {
         return (string)random_int(3, 20);
     }
 
+    #[Override]
     protected function renderImage($code): string
     {
         return parent::renderImage($this->getText($code));

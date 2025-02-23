@@ -9,6 +9,7 @@ use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
 use BadMethodCallException;
+use Override;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\base\Widget;
@@ -44,6 +45,7 @@ final class CommentsWidget extends Widget
         $this->session = $session;
     }
 
+    #[Override]
     public function run(): string
     {
         if (!$this->material_id) {

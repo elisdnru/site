@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\home\controllers;
 
+use Override;
 use yii\web\Controller;
 use yii\web\ErrorAction;
 
@@ -12,6 +13,7 @@ use yii\web\ErrorAction;
  */
 final class ErrorController extends Controller
 {
+    #[Override]
     public function actions(): array
     {
         return [

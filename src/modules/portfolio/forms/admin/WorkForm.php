@@ -6,6 +6,7 @@ namespace app\modules\portfolio\forms\admin;
 
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
+use Override;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -48,6 +49,7 @@ final class WorkForm extends Model
         }
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -63,6 +65,7 @@ final class WorkForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

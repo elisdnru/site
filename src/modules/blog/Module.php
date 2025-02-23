@@ -13,6 +13,7 @@ use app\components\module\sitemap\SitemapProvider;
 use app\components\module\sitemap\Xml;
 use app\modules\blog\models\Post;
 use app\modules\comment\models\Comment;
+use Override;
 use yii\base\Module as Base;
 use yii\caching\TagDependency;
 use yii\helpers\Url;
@@ -20,16 +21,19 @@ use yii\web\GroupUrlRule;
 
 final class Module extends Base implements RoutesProvider, AdminMenuProvider, AdminNotificationsProvider, SitemapProvider
 {
+    #[Override]
     public function adminGroup(): string
     {
         return 'Блог';
     }
 
+    #[Override]
     public function adminName(): string
     {
         return 'Блог';
     }
 
+    #[Override]
     public static function adminMenu(): array
     {
         return [
@@ -41,6 +45,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
         ];
     }
 
+    #[Override]
     public static function adminNotifications(): array
     {
         $comments = Comment::find()->type(Post::class)->unread()->count();
@@ -54,6 +59,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
         ];
     }
 
+    #[Override]
     public static function routes(): array
     {
         return [
@@ -78,11 +84,13 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
         ];
     }
 
+    #[Override]
     public static function routesPriority(): int
     {
         return 98;
     }
 
+    #[Override]
     public static function sitemap(): array
     {
         $posts = Post::find()->published()
@@ -109,6 +117,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Ad
         ];
     }
 
+    #[Override]
     public static function sitemapPriority(): int
     {
         return 80;

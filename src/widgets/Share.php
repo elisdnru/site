@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\widgets;
 
 use BadMethodCallException;
+use Override;
 use RuntimeException;
 use Yii;
 use yii\base\Widget;
@@ -17,6 +18,7 @@ final class Share extends Widget
     public string $description = '';
     public string $image = '';
 
+    #[Override]
     public function run(): string
     {
         $request = Yii::$app->request;

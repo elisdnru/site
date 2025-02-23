@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\components;
 
+use Override;
 use yii\base\Exception;
 use yii\base\Model;
 use yii\db\ActiveRecord;
@@ -18,6 +19,7 @@ final class CurrentPasswordValidator extends Validator
     public string $emptyMessage = 'Current password required';
     public string $notValidMessage = 'Current password is not correct';
 
+    #[Override]
     public function validateAttribute($model, $attribute): void
     {
         /** @var string $value */

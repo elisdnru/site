@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace app\modules\blog\widgets;
 
 use app\modules\blog\models\Post;
+use Override;
 use yii\base\Widget;
 
 final class OtherPostsWidget extends Widget
 {
     public int $current = 0;
 
+    #[Override]
     public function run(): string
     {
         $promoted = Post::find()

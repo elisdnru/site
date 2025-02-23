@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\blog\forms\admin;
 
 use app\modules\blog\models\Group;
+use Override;
 use yii\base\Model;
 
 final class GroupForm extends Model
@@ -20,6 +21,7 @@ final class GroupForm extends Model
         }
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -28,6 +30,7 @@ final class GroupForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

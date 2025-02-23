@@ -6,6 +6,7 @@ namespace app\widgets;
 
 use app\assets\AdminBarAsset;
 use app\modules\user\models\Access;
+use Override;
 use yii\base\Widget;
 use yii\web\User;
 
@@ -24,6 +25,7 @@ final class AdminBar extends Widget
         $this->user = $user;
     }
 
+    #[Override]
     public function run(): string
     {
         if ($this->user->can(Access::CONTROL)) {

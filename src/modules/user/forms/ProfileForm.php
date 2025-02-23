@@ -6,6 +6,7 @@ namespace app\modules\user\forms;
 
 use app\components\ImageValidator;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -26,6 +27,7 @@ final class ProfileForm extends Model
         $this->site = $user->site;
     }
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -37,6 +39,7 @@ final class ProfileForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

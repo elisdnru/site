@@ -6,6 +6,7 @@ namespace app\modules\blog\forms\admin;
 
 use app\components\DataProvider;
 use app\modules\blog\models\Post;
+use Override;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -21,6 +22,7 @@ final class PostSearch extends Model
     public ?string $slug = null;
     public ?string $public = null;
 
+    #[Override]
     public function rules(): array
     {
         return [

@@ -6,20 +6,24 @@ namespace app\modules\user;
 
 use app\components\module\admin\AdminMenuProvider;
 use app\components\module\routes\RoutesProvider;
+use Override;
 use yii\base\Module as Base;
 
 final class Module extends Base implements RoutesProvider, AdminMenuProvider
 {
+    #[Override]
     public function adminGroup(): string
     {
         return 'Пользователи';
     }
 
+    #[Override]
     public function adminName(): string
     {
         return 'Пользователи';
     }
 
+    #[Override]
     public static function adminMenu(): array
     {
         return [
@@ -27,6 +31,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider
         ];
     }
 
+    #[Override]
     public static function routes(): array
     {
         return [
@@ -41,6 +46,7 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider
         ];
     }
 
+    #[Override]
     public static function routesPriority(): int
     {
         return 99;

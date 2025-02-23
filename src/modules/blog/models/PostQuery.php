@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\blog\models;
 
+use Override;
 use yii\db\ActiveQuery;
 use yii\db\BatchQueryResult;
 use yii\db\Connection;
@@ -23,6 +24,7 @@ final class PostQuery extends ActiveQuery
      * @param Connection|null $db
      * @return Post[]
      */
+    #[Override]
     public function all($db = null): array
     {
         return parent::all($db);
@@ -34,6 +36,7 @@ final class PostQuery extends ActiveQuery
      * @param Connection|null $db
      * @return BatchQueryResult|Post[]
      */
+    #[Override]
     public function each($batchSize = 100, $db = null): array|BatchQueryResult
     {
         return parent::each($batchSize, $db);
@@ -44,6 +47,7 @@ final class PostQuery extends ActiveQuery
      * @param Connection|null $db
      * @psalm-return Post|null
      */
+    #[Override]
     public function one($db = null): null|array|Post
     {
         return parent::one($db);

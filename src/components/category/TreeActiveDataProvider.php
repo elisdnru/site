@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\components\category;
 
 use LogicException;
+use Override;
 use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
 use yii\data\Sort;
@@ -16,6 +17,7 @@ final class TreeActiveDataProvider extends ActiveDataProvider
 {
     public string $childrenRelation = 'children';
 
+    #[Override]
     protected function prepareModels(): array
     {
         $originQuery = $this->query;

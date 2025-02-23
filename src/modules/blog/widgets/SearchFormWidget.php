@@ -6,12 +6,14 @@ namespace app\modules\blog\widgets;
 
 use app\modules\blog\forms\SearchForm;
 use BadMethodCallException;
+use Override;
 use Yii;
 use yii\base\Widget;
 use yii\web\Request;
 
 final class SearchFormWidget extends Widget
 {
+    #[Override]
     public function run(): string
     {
         $form = new SearchForm();

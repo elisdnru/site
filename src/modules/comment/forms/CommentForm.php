@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\comment\forms;
 
+use Override;
 use yii\base\Model;
 
 final class CommentForm extends Model
@@ -18,6 +19,7 @@ final class CommentForm extends Model
     public string $yqe1 = '';
     public string $yqe2 = '';
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -39,6 +41,7 @@ final class CommentForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\user\migrations;
 
+use Override;
 use yii\db\Migration;
 
 /**
@@ -11,6 +12,7 @@ use yii\db\Migration;
  */
 final class M130328141310CreateUserPage extends Migration
 {
+    #[Override]
     public function safeUp(): bool
     {
         $this->createTable('{{user_page}}', [
@@ -24,6 +26,7 @@ final class M130328141310CreateUserPage extends Migration
         return true;
     }
 
+    #[Override]
     public function safeDown(): bool
     {
         $this->dropTable('{{user_page}}');

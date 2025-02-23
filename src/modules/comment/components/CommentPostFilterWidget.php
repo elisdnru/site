@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\comment\components;
 
+use Override;
 use yii\base\Widget;
 
 final class CommentPostFilterWidget extends Widget
@@ -19,12 +20,14 @@ final class CommentPostFilterWidget extends Widget
         $this->filter = $filter;
     }
 
+    #[Override]
     public function init(): void
     {
         parent::init();
         ob_start();
     }
 
+    #[Override]
     public function run(): string
     {
         $text = trim(ob_get_clean());

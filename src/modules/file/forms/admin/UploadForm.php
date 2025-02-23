@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\file\forms\admin;
 
+use Override;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -14,6 +15,7 @@ final class UploadForm extends Model
      */
     public array|string $files = '';
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -21,6 +23,7 @@ final class UploadForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [

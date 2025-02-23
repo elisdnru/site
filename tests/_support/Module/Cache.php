@@ -6,6 +6,7 @@ namespace tests\Module;
 
 use Codeception\Module;
 use Codeception\TestInterface;
+use Override;
 use Yii;
 
 /**
@@ -13,6 +14,7 @@ use Yii;
  */
 final class Cache extends Module
 {
+    #[Override]
     public function _before(TestInterface $test): void
     {
         Yii::$app->cache?->flush();

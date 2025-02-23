@@ -8,6 +8,7 @@ use app\components\ForceActiveRecordErrors;
 use app\components\Gravatar;
 use app\modules\user\models\User;
 use LogicException;
+use Override;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -49,6 +50,7 @@ final class Comment extends ActiveRecord
         parent::__construct($config);
     }
 
+    #[Override]
     public static function tableName(): string
     {
         return 'comments';
@@ -86,6 +88,7 @@ final class Comment extends ActiveRecord
         return $this->hasOne($this->type, ['id' => 'material_id']);
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [
@@ -101,11 +104,13 @@ final class Comment extends ActiveRecord
         ];
     }
 
+    #[Override]
     public static function find(): CommentQuery
     {
         return new CommentQuery(self::class);
     }
 
+    #[Override]
     public function behaviors(): array
     {
         return [
@@ -118,6 +123,7 @@ final class Comment extends ActiveRecord
         ];
     }
 
+    #[Override]
     public function beforeSave($insert): bool
     {
         if (parent::beforeSave($insert)) {

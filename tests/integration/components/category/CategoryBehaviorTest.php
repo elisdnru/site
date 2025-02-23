@@ -6,6 +6,7 @@ namespace tests\integration\components\category;
 
 use app\components\category\models\CategoryQuery;
 use Codeception\Test\Unit;
+use Override;
 use tests\IntegrationTester;
 use Yii;
 
@@ -112,6 +113,7 @@ final class CategoryBehaviorTest extends Unit
         self::assertFalse($category->isLinkActive('second'));
     }
 
+    #[Override]
     protected function _before(): void
     {
         if (!Yii::$app->db->getTableSchema(Category::tableName())) {

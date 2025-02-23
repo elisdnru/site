@@ -6,6 +6,7 @@ namespace app\modules\user\forms;
 
 use app\modules\user\components\UsernameValidator;
 use app\modules\user\models\User;
+use Override;
 use yii\base\Model;
 
 final class RegistrationForm extends Model
@@ -19,6 +20,7 @@ final class RegistrationForm extends Model
     public string $test1 = '';
     public string $test2 = '';
 
+    #[Override]
     public function rules(): array
     {
         return [
@@ -51,6 +53,7 @@ final class RegistrationForm extends Model
         ];
     }
 
+    #[Override]
     public function attributeLabels(): array
     {
         return [
