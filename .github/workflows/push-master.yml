@@ -69,7 +69,7 @@ jobs:
                 run: make app-backup-upload
 
             -   name: Down
-                run: make down
+                run: make docker-down-clear
 
             -   name: Build
                 run: make build
@@ -97,7 +97,7 @@ jobs:
                 if: ${{ failure() }}
 
             -   name: Testing Down
-                run: make try-testing-down-clear
+                run: make testing-down-clear
 
             -   name: Push
                 run: make push
