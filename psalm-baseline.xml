@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.5.0@38fc8444edf0cebc9205296ee6e30e906ade783b">
+<files psalm-version="6.8.6@34ba9e1e5ea2e7396d3e2e644ee3e3a1d4336603">
   <file src="src/components/AuthIdentity.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($user->confirm)]]></code>
@@ -78,19 +78,30 @@
   </file>
   <file src="src/components/category/models/CategoryQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Category[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[CategoryQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Category[]]]></code>
     </MoreSpecificReturnType>
   </file>
   <file src="src/components/category/models/TreeCategoryQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[ActiveQuery::each($batchSize, $db)]]></code>
       <code><![CDATA[ActiveQuery::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|TreeCategory[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[ActiveQuery::all($db)]]></code>
     </LessSpecificReturnStatement>
@@ -176,6 +187,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/blog/Module.php">
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$comments]]></code>
+    </PossiblyInvalidOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$comments]]></code>
     </RiskyTruthyFalsyComparison>
@@ -213,11 +227,18 @@
   </file>
   <file src="src/modules/blog/models/GroupQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Group[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[GroupQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Group[]]]></code>
     </MoreSpecificReturnType>
@@ -229,11 +250,18 @@
   </file>
   <file src="src/modules/blog/models/PostQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Post[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[PostQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Post[]]]></code>
     </MoreSpecificReturnType>
@@ -283,6 +311,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/comment/Module.php">
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$comments]]></code>
+    </PossiblyInvalidOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$comments]]></code>
     </RiskyTruthyFalsyComparison>
@@ -330,11 +361,18 @@
   </file>
   <file src="src/modules/comment/models/CommentQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Comment[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[CommentQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Comment[]]]></code>
     </MoreSpecificReturnType>
@@ -351,6 +389,9 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$form->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
+    <UndefinedMagicMethod>
+      <code><![CDATA[redirect]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">
     <PossiblyFalseArgument>
@@ -371,6 +412,11 @@
       <code><![CDATA[$user->site]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/edu/components/api/client/Cached.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[$request->getUri()]]></code>
+    </ImplicitToStringCast>
+  </file>
   <file src="src/modules/file/views/admin/file/index.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$item->getBasename()]]></code>
@@ -385,6 +431,11 @@
       <code><![CDATA[$item->getTimeModified()]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/home/views/error/index.php">
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$error['code'] ?? '']]></code>
+    </PossiblyInvalidOperand>
+  </file>
   <file src="src/modules/landing/controllers/admin/LandingController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->parent_id]]></code>
@@ -398,11 +449,18 @@
   </file>
   <file src="src/modules/landing/models/LandingQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Landing[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[LandingQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Landing[]]]></code>
     </MoreSpecificReturnType>
@@ -420,11 +478,18 @@
   </file>
   <file src="src/modules/page/models/PageQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Page[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[PageQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Page[]]]></code>
     </MoreSpecificReturnType>
@@ -453,11 +518,18 @@
   </file>
   <file src="src/modules/portfolio/models/WorkQuery.php">
     <InvalidReturnStatement>
+      <code><![CDATA[parent::each($batchSize, $db)]]></code>
       <code><![CDATA[parent::one($db)]]></code>
     </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[BatchQueryResult|Work[]]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[parent::all($db)]]></code>
     </LessSpecificReturnStatement>
+    <MissingTemplateParam>
+      <code><![CDATA[WorkQuery]]></code>
+    </MissingTemplateParam>
     <MoreSpecificReturnType>
       <code><![CDATA[Work[]]]></code>
     </MoreSpecificReturnType>
@@ -558,6 +630,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->network]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/views/layouts/main.php">
+    <InvalidOperand>
+      <code><![CDATA[round(memory_get_peak_usage() / (1024 * 1024), 2)]]></code>
+    </InvalidOperand>
   </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument>
