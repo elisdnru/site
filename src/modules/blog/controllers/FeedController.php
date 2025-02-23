@@ -20,7 +20,7 @@ final class FeedController extends Controller
 {
     public function actionIndex(Request $request, Response $response): Response
     {
-        $posts = Post::find()->published()->orderBy(['date' => SORT_DESC])->all();
+        $posts = Post::find()->published()->with('category')->orderBy(['date' => SORT_DESC])->each(50);
 
         $feed = new Feed();
 
