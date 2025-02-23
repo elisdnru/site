@@ -24,7 +24,7 @@ final class ShortcodesProcessorTest extends Unit
                     ['One', ['age' => '21', 'name' => 'John']] => '<div>One, John</div>',
                     ['Two', []] => '<div>Two</div>',
                     ['Three', []] => '<div>Three</div>',
-                    default => self::fail(json_encode($match))
+                    default => self::fail(json_encode($match, JSON_THROW_ON_ERROR))
                 }
             );
 
@@ -34,7 +34,7 @@ final class ShortcodesProcessorTest extends Unit
                 static fn (string $key) => match ($match = $key) {
                     'widget_One_{"age":"21","name":"John"}' => null,
                     'widget_Three_[]' => '<div>Three</div>',
-                    default => self::fail(json_encode($match)),
+                    default => self::fail(json_encode($match, JSON_THROW_ON_ERROR)),
                 }
             );
 
@@ -42,7 +42,7 @@ final class ShortcodesProcessorTest extends Unit
             ->willReturnCallback(
                 static fn (string $key, string $value, ?int $duration) => match ($match = [$key, $value, $duration]) {
                     ['widget_One_{"age":"21","name":"John"}', '<div>One, John</div>', 12] => null,
-                    default => self::fail(json_encode($match)),
+                    default => self::fail(json_encode($match, JSON_THROW_ON_ERROR)),
                 }
             );
 

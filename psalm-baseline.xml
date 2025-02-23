@@ -650,11 +650,4 @@
       <code><![CDATA[$this->url]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="tests/unit/components/shortcodes/ShortcodesProcessorTest.php">
-    <PossiblyFalseArgument>
-      <code><![CDATA[json_encode($match)]]></code>
-      <code><![CDATA[json_encode($match)]]></code>
-      <code><![CDATA[json_encode($match)]]></code>
-    </PossiblyFalseArgument>
-  </file>
 </files>
