@@ -76,39 +76,6 @@
       <code><![CDATA[Attribute::intOrNull($temp, $this->parentAttribute)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/components/category/models/CategoryQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Category[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[CategoryQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Category[]]]></code>
-    </MoreSpecificReturnType>
-  </file>
-  <file src="src/components/category/models/TreeCategoryQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[ActiveQuery::each($batchSize, $db)]]></code>
-      <code><![CDATA[ActiveQuery::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|TreeCategory[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[ActiveQuery::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType>
-      <code><![CDATA[TreeCategory[]]]></code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/components/feature/FeaturesNegotiator.php">
     <MixedArgument>
       <code><![CDATA[$name]]></code>
@@ -194,11 +161,6 @@
       <code><![CDATA[$comments]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/blog/controllers/FeedController.php">
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$model->image]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/modules/blog/controllers/PostController.php">
     <UnusedParam>
       <code><![CDATA[$slug]]></code>
@@ -225,46 +187,10 @@
       <code><![CDATA[preg_split('/\s*,\s*/', $this->tags)]]></code>
     </PossiblyFalseArgument>
   </file>
-  <file src="src/modules/blog/models/GroupQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Group[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[GroupQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Group[]]]></code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/modules/blog/models/Post.php">
     <PossiblyUnusedProperty>
       <code><![CDATA[$del_image]]></code>
     </PossiblyUnusedProperty>
-  </file>
-  <file src="src/modules/blog/models/PostQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Post[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[PostQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Post[]]]></code>
-    </MoreSpecificReturnType>
   </file>
   <file src="src/modules/blog/views/admin/post/_form.php">
     <PossiblyFalseArgument>
@@ -359,24 +285,6 @@
       <code><![CDATA[!$model->user_id]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/comment/models/CommentQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Comment[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[CommentQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Comment[]]]></code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/modules/comment/views/admin/comment/_view.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$comment->user->network]]></code>
@@ -447,24 +355,6 @@
       <code><![CDATA[$this->landing->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/landing/models/LandingQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Landing[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[LandingQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Landing[]]]></code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/modules/page/controllers/admin/PageController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->parent_id]]></code>
@@ -475,24 +365,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->page->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/page/models/PageQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Page[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[PageQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Page[]]]></code>
-    </MoreSpecificReturnType>
   </file>
   <file src="src/modules/portfolio/controllers/WorkController.php">
     <UnusedParam>
@@ -515,24 +387,6 @@
     <PossiblyUnusedProperty>
       <code><![CDATA[$del_image]]></code>
     </PossiblyUnusedProperty>
-  </file>
-  <file src="src/modules/portfolio/models/WorkQuery.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[parent::each($batchSize, $db)]]></code>
-      <code><![CDATA[parent::one($db)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[BatchQueryResult|Work[]]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[parent::all($db)]]></code>
-    </LessSpecificReturnStatement>
-    <MissingTemplateParam>
-      <code><![CDATA[WorkQuery]]></code>
-    </MissingTemplateParam>
-    <MoreSpecificReturnType>
-      <code><![CDATA[Work[]]]></code>
-    </MoreSpecificReturnType>
   </file>
   <file src="src/modules/portfolio/views/admin/work/_form.php">
     <RiskyTruthyFalsyComparison>

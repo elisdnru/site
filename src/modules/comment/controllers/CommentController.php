@@ -51,7 +51,7 @@ final class CommentController extends Controller
             ->andWhere(['id' => $id])
             ->one();
 
-        if ($model === null) {
+        if (!$model instanceof Comment) {
             throw new NotFoundHttpException();
         }
 

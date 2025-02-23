@@ -50,7 +50,7 @@ final class WorkController extends Controller
 
         $model = $query->andWhere(['id' => $id])->one();
 
-        if ($model === null) {
+        if (!$model instanceof Work) {
             throw new NotFoundHttpException();
         }
 

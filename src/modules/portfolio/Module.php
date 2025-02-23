@@ -70,6 +70,9 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
     #[Override]
     public static function sitemap(): array
     {
+        /**
+         * @var Work[] $works
+         */
         $works = Work::find()->published()
             ->cache(0, new TagDependency(['tags' => 'portfolio']))
             ->orderBy(['title' => SORT_ASC])

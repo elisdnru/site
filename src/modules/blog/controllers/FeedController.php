@@ -44,7 +44,7 @@ final class FeedController extends Controller
             $item->setTitle($model->title);
 
             $description = '';
-            if ($model->image) {
+            if ($model->image !== null && \is_string($model->image) && $model->image !== '') {
                 $description .= Html::a(Html::img($image, [
                     'title' => $model->title,
                     'style' => 'display:block; float:left; margin:0 10px 10px 0',

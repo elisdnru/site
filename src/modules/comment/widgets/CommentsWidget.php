@@ -114,6 +114,9 @@ final class CommentsWidget extends Widget
             return '';
         }
 
+        /**
+         * @var Comment[] $items
+         */
         $items = Comment::find()
             ->where([])
             ->type($this->type)

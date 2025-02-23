@@ -61,6 +61,9 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
     #[Override]
     public static function sitemap(): array
     {
+        /**
+         * @var Landing[] $landings
+         */
         $landings = Landing::find()->cache(0, new TagDependency(['tags' => ['landing']]))
             ->andWhere(['system' => 0])
             ->orderBy(['title' => SORT_ASC])
