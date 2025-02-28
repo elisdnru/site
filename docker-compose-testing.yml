@@ -3,8 +3,8 @@ services:
         image: traefik:3.3
         command:
             --providers.docker=true
-            --providers.docker.exposedbydefault=false
-            --entrypoints.http.address=:80
+            --providers.docker.exposedByDefault=false
+            --entryPoints.http.address=:80
         networks:
             - traefik-public
         volumes:
@@ -22,8 +22,8 @@ services:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site.rule=Host(`localhost`)
-            - traefik.http.routers.site.entrypoints=http
-            - traefik.http.services.site.loadbalancer.server.port=80
+            - traefik.http.routers.site.entryPoints=http
+            - traefik.http.services.site.loadBalancer.server.port=80
 
     site-php-fpm:
         image: ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
@@ -147,8 +147,8 @@ services:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site-mailer.rule=Host(`mailer.localhost`)
-            - traefik.http.routers.site-mailer.entrypoints=http
-            - traefik.http.services.site-mailer.loadbalancer.server.port=80
+            - traefik.http.routers.site-mailer.entryPoints=http
+            - traefik.http.services.site-mailer.loadBalancer.server.port=80
 
     site-wiremock:
         image: wiremock/wiremock:3.12.0-alpine
@@ -167,8 +167,8 @@ services:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site-wiremock.rule=Host(`wiremock.localhost`)
-            - traefik.http.routers.site-wiremock.entrypoints=http
-            - traefik.http.services.site-wiremock.loadbalancer.server.port=80
+            - traefik.http.routers.site-wiremock.entryPoints=http
+            - traefik.http.services.site-wiremock.loadBalancer.server.port=80
 
 secrets:
     cookie_secret:
