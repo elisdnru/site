@@ -32,7 +32,11 @@ services:
         labels:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
-            - traefik.http.routers.site.rule=Host(`localhost`)
+            - traefik.http.routers.site.rule=Host(`localhost`) || Host(`www.localhost`)
+            - traefik.http.middlewares.site-redirect.redirectRegex.regex=^(https?://)www\.localhost/(.*)$$
+            - traefik.http.middlewares.site-redirect.redirectRegex.replacement=$${1}localhost/$${2}
+            - traefik.http.middlewares.site-redirect.redirectRegex.permanent=true
+            - traefik.http.routers.site.middlewares=site-redirect
             - traefik.http.routers.site.entryPoints=http
             - traefik.http.services.site.loadBalancer.server.port=80
 
