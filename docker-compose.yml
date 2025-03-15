@@ -117,7 +117,7 @@ services:
         network_mode: service:site
 
     site-node-watch:
-        image: node:23-alpine3.20
+        image: node:23-alpine3.21
         user: "1000:1000"
         volumes:
             - ./:/app
@@ -125,7 +125,7 @@ services:
         command: sh -c 'until [ -f .ready ] ; do sleep 1 ; done && npm run watch'
 
     site-node-cli:
-        image: node:23-alpine3.20
+        image: node:23-alpine3.21
         user: "1000:1000"
         volumes:
             - ./:/app
