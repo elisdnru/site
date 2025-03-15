@@ -138,6 +138,7 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 'enableStrictParsing' => true,
+                'baseUrl' => '',
                 'suffix' => '',
                 'rules' => [
                     '<module:\w+>/admin/<controller:\w+>' => '<module>/admin/<controller>/index',

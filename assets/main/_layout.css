@@ -117,7 +117,7 @@ body {
 }
 
 .main-nav ul li.active a {
-  text-shadow: 2px 2px 2px 1px #666;
+  text-shadow: 2px 2px 2px #666;
   background: #05a;
   border-right-color: #05a;
   color: #fff;
@@ -449,7 +449,7 @@ body {
   }
 
   .main-nav ul li.active a {
-    text-shadow: 2px 2px 2px 1px #666;
+    text-shadow: 2px 2px 2px #666;
     background: #05a;
     border-right-color: #05a;
     color: #fff;
