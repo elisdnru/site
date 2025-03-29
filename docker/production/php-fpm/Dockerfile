@@ -28,7 +28,7 @@ COPY ./docker/production/php-fpm/php-fpm.d /usr/local/etc/php-fpm.d
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.8.5 --quiet
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.8.6 --quiet
 
 WORKDIR /app
 
