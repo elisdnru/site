@@ -1,12 +1,11 @@
 FROM php:8.4-cli-alpine3.21
 
-RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev git \
+RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev \
     && docker-php-ext-configure gd \
         --with-jpeg \
         --with-webp \
         --with-freetype \
-    && docker-php-ext-install pdo_mysql gd intl opcache \
-    && apk del git
+    && docker-php-ext-install pdo_mysql gd intl opcache
 
 RUN apk add --no-cache bash coreutils
 
