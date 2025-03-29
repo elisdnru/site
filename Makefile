@@ -121,6 +121,9 @@ app-assets-pretty:
 app-analyze:
 	docker compose run --rm site-php-cli composer psalm -- --no-diff
 
+app-analyze-update-baseline:
+	docker compose run --rm site-php-cli composer psalm -- --no-diff --update-baseline
+
 app-analyze-diff:
 	docker compose run --rm site-php-cli composer psalm
 
