@@ -56,6 +56,9 @@ jobs:
             -   name: Lint
                 run: make app-lint
 
+            -   name: Lint Assets
+                run: make app-assets-lint
+
             -   name: Analyze
                 run: make app-analyze
 
