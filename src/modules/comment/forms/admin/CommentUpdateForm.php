@@ -19,6 +19,9 @@ final class CommentUpdateForm extends Model
 
     private ?int $user_id;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(Comment $comment, array $config = [])
     {
         parent::__construct($config);

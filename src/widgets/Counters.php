@@ -15,6 +15,7 @@ final class Counters extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(User $user, array $config = [])
     {

@@ -37,6 +37,9 @@ final class PostForm extends Model
 
     private ?int $id = null;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Post $post = null, array $config = [])
     {
         parent::__construct($config);

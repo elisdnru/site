@@ -162,7 +162,13 @@ abstract class CommentAdminController extends AdminController
      */
     public function actionModerAll(Request $request): ?Response
     {
-        foreach (Comment::find()->type($this->getType())->unread()->each() as $item) {
+        /**
+         * @psalm-suppress TooManyTemplateParams
+         * @var Comment[] $items
+         */
+        $items = Comment::find()->type($this->getType())->unread()->each();
+
+        foreach ($items as $item) {
             $item->moder = 1;
             $item->save();
         }

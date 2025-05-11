@@ -65,7 +65,14 @@ final class Tag extends ActiveRecord
      */
     public static function getAssocList(): array
     {
-        /** @var array<int, string> */
-        return ArrayHelper::map(self::find()->orderBy(['title' => SORT_ASC])->asArray()->all(), 'id', 'title');
+        /**
+         * @psalm-suppress PossiblyInvalidMethodCall
+         */
+        $items = self::find()->orderBy(['title' => SORT_ASC])->asArray()->all();
+
+        /**
+         * @var array<int, string>
+         */
+        return ArrayHelper::map($items, 'id', 'title');
     }
 }

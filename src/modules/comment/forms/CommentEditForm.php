@@ -12,6 +12,9 @@ final class CommentEditForm extends Model
 {
     public string $text;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(Comment $comment, array $config = [])
     {
         parent::__construct($config);

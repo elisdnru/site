@@ -18,6 +18,9 @@ final class ProfileForm extends Model
     public ?UploadedFile $avatar = null;
     public string $del_avatar = '';
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(User $user, array $config = [])
     {
         parent::__construct($config);

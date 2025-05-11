@@ -58,9 +58,6 @@ final class Module extends Base implements RoutesProvider, AdminMenuProvider, Si
     #[Override]
     public static function sitemap(): array
     {
-        /**
-         * @var Page[] $pages
-         */
         $pages = Page::find()->cache(0, new TagDependency(['tags' => ['page']]))
             ->andWhere(['system' => 0])
             ->orderBy(['title' => SORT_ASC])

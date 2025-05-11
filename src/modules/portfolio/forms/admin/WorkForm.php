@@ -28,6 +28,9 @@ final class WorkForm extends Model
 
     private ?int $id = null;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Work $work = null, array $config = [])
     {
         parent::__construct($config);

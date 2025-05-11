@@ -19,6 +19,9 @@ final class LandingForm extends Model
 
     private ?Landing $landing = null;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Landing $landing = null, array $config = [])
     {
         parent::__construct($config);

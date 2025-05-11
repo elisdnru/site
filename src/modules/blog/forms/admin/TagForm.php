@@ -12,6 +12,9 @@ final class TagForm extends Model
 {
     public string $title = '';
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Tag $tag = null, array $config = [])
     {
         parent::__construct($config);

@@ -55,6 +55,7 @@ final class FileUploadBehavior extends Behavior
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(Uploader $uploader, array $config = [])
     {

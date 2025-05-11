@@ -26,6 +26,9 @@ final class PageForm extends Model
 
     private ?Page $page = null;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Page $page = null, array $config = [])
     {
         parent::__construct($config);

@@ -17,6 +17,9 @@ final class BlockForm extends Model
 
     private ?int $id = null;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Block $block = null, array $config = [])
     {
         parent::__construct($config);

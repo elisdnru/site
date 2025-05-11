@@ -36,6 +36,7 @@ final class CommentsWidget extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(WebUser $webUser, MailerInterface $mailer, Session $session, array $config = [])
     {
@@ -74,11 +75,11 @@ final class CommentsWidget extends Widget
 
         if ($user === null) {
             $form->scenario = CommentForm::SCENARIO_ANONIM;
-            $form->attributes = $this->loadFormState($request);
+            $form->attributes = self::loadFormState($request);
         }
 
         if ($form->load((array)Yii::$app->request->post()) && $form->validate()) {
-            $this->saveFormState([
+            self::saveFormState([
                 'name' => $form->name,
                 'email' => $form->email,
                 'site' => $form->site,
@@ -114,9 +115,6 @@ final class CommentsWidget extends Widget
             return '';
         }
 
-        /**
-         * @var Comment[] $items
-         */
         $items = Comment::find()
             ->where([])
             ->type($this->type)
@@ -143,7 +141,7 @@ final class CommentsWidget extends Widget
         ]);
     }
 
-    private function saveFormState(array $attributes, Response $response): void
+    private static function saveFormState(array $attributes, Response $response): void
     {
         try {
             $data = Json::encode($attributes);
@@ -151,7 +149,6 @@ final class CommentsWidget extends Widget
             $data = null;
         }
 
-        /** @var Cookie $cookie */
         $cookie = Yii::createObject([
             'class' => Cookie::class,
             'name' => 'comment_form_data',
@@ -162,10 +159,16 @@ final class CommentsWidget extends Widget
         $response->cookies->add($cookie);
     }
 
-    private function loadFormState(Request $request): array
+    /**
+     * @return array<string, mixed>
+     */
+    private static function loadFormState(Request $request): array
     {
         $value = (string)$request->cookies->getValue('comment_form_data');
         try {
+            /**
+             * @var array<string, mixed>
+             */
             return (array)Json::decode($value);
         } catch (InvalidArgumentException) {
             return [];

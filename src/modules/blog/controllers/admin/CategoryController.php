@@ -12,7 +12,6 @@ use app\modules\blog\models\Post;
 use app\modules\user\models\Access;
 use Override;
 use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Request;
@@ -26,8 +25,8 @@ final class CategoryController extends AdminController
     #[Override]
     public function behaviors(): array
     {
-        return ArrayHelper::merge(parent::behaviors(), [
-            [
+        return array_merge(parent::behaviors(), [
+            'category-access' => [
                 'class' => AccessControl::class,
                 'rules' => [
                     [

@@ -13,6 +13,7 @@ final class CommentPostFilterWidget extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(CommentPostFilter $filter, array $config = [])
     {

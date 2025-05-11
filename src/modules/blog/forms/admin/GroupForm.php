@@ -12,6 +12,9 @@ final class GroupForm extends Model
 {
     public string $title = '';
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(?Group $group = null, array $config = [])
     {
         parent::__construct($config);

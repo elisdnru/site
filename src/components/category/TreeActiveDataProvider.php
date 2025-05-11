@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\components\category;
 
+use app\components\category\models\TreeCategory;
 use LogicException;
 use Override;
 use yii\base\InvalidConfigException;
@@ -51,6 +52,9 @@ final class TreeActiveDataProvider extends ActiveDataProvider
             throw new LogicException('Type');
         }
 
+        /**
+         * @var ActiveRecordInterface[] $items
+         */
         $items = $rootQuery->all($this->db);
 
         if ($isEmptyCondition) {
@@ -68,8 +72,9 @@ final class TreeActiveDataProvider extends ActiveDataProvider
     {
         $data = [];
         foreach ($items as $item) {
-            /** @psalm-suppress NoInterfaceProperties */
-            $item->indent = $indent;
+            if ($item instanceof TreeCategory) {
+                $item->indent = $indent;
+            }
             $data[] = $item;
             if ($foolproof && $children = Attribute::ars($item, $this->childrenRelation)) {
                 /** @noinspection SlowArrayOperationsInLoopInspection */

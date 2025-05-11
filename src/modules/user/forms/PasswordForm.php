@@ -16,6 +16,9 @@ final class PasswordForm extends Model
     public string $password = '';
     public string $confirm = '';
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(User $user, array $config = [])
     {
         parent::__construct($config);

@@ -13,6 +13,7 @@ final class MarkdownWidget extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(Markdown $markdown, array $config = [])
     {

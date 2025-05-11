@@ -13,6 +13,7 @@ final class Shortcodes extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(ShortcodesProcessor $shortcodes, array $config = [])
     {

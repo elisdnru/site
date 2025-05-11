@@ -18,6 +18,7 @@ final class PurifierWidget extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(Purifier $purifier, array $config = [])
     {

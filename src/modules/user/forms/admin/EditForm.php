@@ -24,6 +24,9 @@ final class EditForm extends Model
     public string $del_avatar = '';
     public string $role = '';
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(User $user, array $config = [])
     {
         parent::__construct($config);

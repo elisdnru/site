@@ -39,6 +39,9 @@ abstract class Category extends ActiveRecord
         return self::staticRules();
     }
 
+    /**
+     * @return array<int|string, mixed>[]
+     */
     public static function staticRules(): array
     {
         return [
@@ -56,6 +59,9 @@ abstract class Category extends ActiveRecord
         return self::staticAttributeLabels();
     }
 
+    /**
+     * @return array<string, string>
+     */
     public static function staticAttributeLabels(): array
     {
         return [

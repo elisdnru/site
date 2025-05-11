@@ -14,6 +14,7 @@ final class Messages extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(Session $session, array $config = [])
     {

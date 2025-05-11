@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\components\category\behaviors;
 
 use app\components\category\Attribute;
-use app\components\category\models\TreeCategory;
+use app\components\category\models\Category;
 use yii\base\Behavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -36,6 +36,9 @@ class CategoryQueryBehavior extends Behavior
 
     public function getSlugList(): array
     {
+        /**
+         * @psalm-suppress PossiblyInvalidMethodCall
+         */
         $rows = $this->getQuery()
             ->select([$this->titleAttribute, $this->slugAttribute, $this->primaryKeyAttribute])
             ->indexBy($this->primaryKeyAttribute)
@@ -47,6 +50,9 @@ class CategoryQueryBehavior extends Behavior
 
     public function getUrlList(): array
     {
+        /**
+         * @var Category[] $items
+         */
         $items = $this->getQuery()->indexBy($this->slugAttribute)->all();
 
         $result = [];
@@ -58,7 +64,9 @@ class CategoryQueryBehavior extends Behavior
 
     public function getMenuList(string $path): array
     {
-        /** @var TreeCategory[] $items */
+        /**
+         * @var Category[] $items
+         */
         $items = $this->getQuery()->indexBy($this->slugAttribute)->all();
 
         $result = [];

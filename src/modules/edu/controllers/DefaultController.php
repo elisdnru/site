@@ -15,6 +15,9 @@ final class DefaultController extends Controller
 {
     private Api $api;
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function __construct(string $id, Module $module, Api $api, array $config = [])
     {
         parent::__construct($id, $module, $config);

@@ -20,6 +20,10 @@ final class FeedController extends Controller
 {
     public function actionIndex(Request $request, Response $response): Response
     {
+        /**
+         * @psalm-suppress TooManyTemplateParams
+         * @var Post[] $posts
+         */
         $posts = Post::find()->published()->with('category')->orderBy(['date' => SORT_DESC])->each(50);
 
         $feed = new Feed();

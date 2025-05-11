@@ -62,7 +62,6 @@ final class LoginForm extends Model
 
     private function loadIdentity(string $username, string $password): ?AuthIdentity
     {
-        /** @var User|null $user */
         $user = User::findBySql('SELECT * FROM users WHERE LOWER(username) = :name OR LOWER(email) = :name', [
             ':name' => strtolower($username),
         ])->one();

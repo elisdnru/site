@@ -19,6 +19,7 @@ final class LoginFormWidget extends Widget
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(WebUser $user, array $config = [])
     {

@@ -20,7 +20,6 @@ final class BlockWidget extends Widget
             return '<div class="flash-error">[*block|id=?*]</div>';
         }
 
-        /** @var Block|null $block */
         $block = Block::find()
             ->cache(0, new TagDependency(['tags' => 'block']))
             ->andWhere(['slug' => $this->id])

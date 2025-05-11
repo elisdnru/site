@@ -17,6 +17,7 @@ final class CacheFlushBehavior extends Behavior
 
     /**
      * @psalm-api
+     * @param array<string, mixed> $config
      */
     public function __construct(CacheInterface $cache, array $config = [])
     {
