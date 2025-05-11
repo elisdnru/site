@@ -45,11 +45,6 @@ final class Comment extends ActiveRecord
      */
     private array $cachedAvatarUrl = [];
 
-    public function __construct(array $config = [])
-    {
-        parent::__construct($config);
-    }
-
     #[Override]
     public static function tableName(): string
     {
