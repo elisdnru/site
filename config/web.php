@@ -70,6 +70,8 @@ return ArrayHelper::merge(
                 ],
             ],
         ],
-        'as featureNegotiator' => FeaturesNegotiator::class,
+        'as featureNegotiator' => [
+            'class' => FeaturesNegotiator::class,
+        ],
     ]
 );

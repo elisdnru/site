@@ -13,7 +13,6 @@ use app\modules\file\forms\admin\UploadForm;
 use Override;
 use Yii;
 use yii\filters\VerbFilter;
-use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
@@ -46,7 +45,7 @@ final class FileController extends AdminController
     {
         $path = FilenameEscaper::escapePath($path);
 
-        $root = ((string)Yii::getAlias('@webroot')) . '/' . $this->getFileDir();
+        $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
 
         if (!file_exists($root)) {
             FileHelper::createDirectory($root, 0754);
@@ -78,7 +77,7 @@ final class FileController extends AdminController
 
         $items = array_map(
             static fn (string $path): File => $fileHandler->set($path),
-            ArrayHelper::merge(
+            array_merge(
                 FileHelper::findDirectories($root . '/' . $path, ['recursive' => false]),
                 FileHelper::findFiles($root . '/' . $path, ['recursive' => false])
             )
