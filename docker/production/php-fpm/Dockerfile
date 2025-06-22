@@ -1,4 +1,4 @@
-FROM node:24-alpine3.21 as builder
+FROM node:24-alpine3.21 AS builder
 
 WORKDIR /app
 
@@ -25,7 +25,7 @@ COPY ./docker/common/php/conf.d /usr/local/etc/php/conf.d
 COPY ./docker/production/php/conf.d /usr/local/etc/php/conf.d
 COPY ./docker/production/php-fpm/php-fpm.d /usr/local/etc/php-fpm.d
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.8.6 --quiet
 
