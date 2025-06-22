@@ -198,7 +198,7 @@ build:
 	--cache-to type=inline \
 	--cache-from ${REGISTRY}/site-redis:cache \
 	--tag ${REGISTRY}/site-redis:cache \
-	--tag ${REGISTRY}/site-redis:7.0 \
+	--tag ${REGISTRY}/site-redis:${IMAGE_TAG} \
 	--file docker/common/redis/Dockerfile docker/common/redis
 
 try-build:
@@ -220,7 +220,7 @@ push:
 	docker push ${REGISTRY}/site-php-cli:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-files-backup:${IMAGE_TAG}
-	docker push ${REGISTRY}/site-redis:7.0
+	docker push ${REGISTRY}/site-redis:${IMAGE_TAG}
 
 testing-build: testing-build-site-testing-php-cli
 
