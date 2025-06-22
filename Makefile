@@ -262,19 +262,19 @@ try-testing-down-clear:
 	REGISTRY=localhost IMAGE_TAG=0 make testing-down-clear
 
 deploy:
-	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'rm -rf site_${BUILD_NUMBER} && mkdir site_${BUILD_NUMBER}'
+	ssh deploy@${HOST} -p ${PORT} 'rm -rf site_${BUILD_NUMBER} && mkdir site_${BUILD_NUMBER}'
 
 	envsubst < docker-compose-production.yml > docker-compose-production-env.yml
-	scp -o StrictHostKeyChecking=no -P ${PORT} docker-compose-production-env.yml deploy@${HOST}:site_${BUILD_NUMBER}/docker-compose.yml
+	scp -P ${PORT} docker-compose-production-env.yml deploy@${HOST}:site_${BUILD_NUMBER}/docker-compose.yml
 	rm -f docker-compose-production-env.yml
 
-	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'mkdir site_${BUILD_NUMBER}/secrets'
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${COOKIE_SECRET_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/cookie_secret
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${DB_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/db_password
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${DB_ROOT_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/db_root_password
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${REDIS_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/redis_password
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${MAILER_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/mailer_password
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${SENTRY_DSN_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/sentry_dsn
-	scp -o StrictHostKeyChecking=no -P ${PORT} ${BACKUP_AWS_SECRET_ACCESS_KEY_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/backup_aws_secret_access_key
+	ssh deploy@${HOST} -p ${PORT} 'mkdir site_${BUILD_NUMBER}/secrets'
+	scp -P ${PORT} ${COOKIE_SECRET_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/cookie_secret
+	scp -P ${PORT} ${DB_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/db_password
+	scp -P ${PORT} ${DB_ROOT_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/db_root_password
+	scp -P ${PORT} ${REDIS_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/redis_password
+	scp -P ${PORT} ${MAILER_PASSWORD_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/mailer_password
+	scp -P ${PORT} ${SENTRY_DSN_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/sentry_dsn
+	scp -P ${PORT} ${BACKUP_AWS_SECRET_ACCESS_KEY_FILE} deploy@${HOST}:site_${BUILD_NUMBER}/secrets/backup_aws_secret_access_key
 
-	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} 'cd site_${BUILD_NUMBER} && docker stack deploy --compose-file docker-compose.yml site --with-registry-auth --prune'
+	ssh deploy@${HOST} -p ${PORT} 'cd site_${BUILD_NUMBER} && docker stack deploy --compose-file docker-compose.yml site --with-registry-auth --prune'
