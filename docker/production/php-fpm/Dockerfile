@@ -29,10 +29,6 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.8.6 --quiet
 
-HEALTHCHECK --interval=10s --timeout=3s --start-period=10s \
-    CMD REDIRECT_STATUS=true SCRIPT_NAME=/ping SCRIPT_FILENAME=/ping REQUEST_METHOD=GET \
-    cgi-fcgi -bind -connect 127.0.0.1:9000 || exit 1
-
 WORKDIR /app
 
 COPY ./composer.json ./composer.lock ./
@@ -44,3 +40,7 @@ COPY --from=builder /app/public/build ./public/build
 COPY ./ ./
 
 RUN chown www-data:www-data ./var -R
+
+HEALTHCHECK --interval=10s --timeout=3s --start-period=10s \
+    CMD REDIRECT_STATUS=true SCRIPT_NAME=/ping SCRIPT_FILENAME=/ping REQUEST_METHOD=GET \
+    cgi-fcgi -bind -connect 127.0.0.1:9000 || exit 1
