@@ -124,6 +124,13 @@ jobs:
                 run: |
                     ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
+            -   name: Docker login
+                uses: azure/docker-login@v1
+                with:
+                    login-server: ${{ env.REGISTRY_HOST }}
+                    username: ${{ github.actor }}
+                    password: ${{ secrets.DEPLOY_REGISTRY_PASSWORD }}
+
             -   name: Secrets
                 run: |
                     echo "${{ secrets.COOKIE_SECRET }}" > /tmp/cookie_secret
@@ -140,7 +147,6 @@ jobs:
             -   name: Deploy
                 run: make deploy
                 env:
-                    BUILD_NUMBER: ${{ github.run_number }}
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
                     COOKIE_SECRET_FILE: /tmp/cookie_secret

@@ -235,19 +235,19 @@ services:
 
 secrets:
     cookie_secret:
-        file: ./secrets/cookie_secret
+        file: ${COOKIE_SECRET_FILE}
     db_password:
-        file: ./secrets/db_password
+        file: ${DB_PASSWORD_FILE}
     db_root_password:
-        file: ./secrets/db_root_password
+        file: ${DB_ROOT_PASSWORD_FILE}
     redis_password:
-        file: ./secrets/redis_password
+        file: ${REDIS_PASSWORD_FILE}
     mailer_password:
-        file: ./secrets/mailer_password
+        file: ${MAILER_PASSWORD_FILE}
     sentry_dsn:
-        file: ./secrets/sentry_dsn
+        file: ${SENTRY_DSN_FILE}
     backup_aws_secret_access_key:
-        file: ./secrets/backup_aws_secret_access_key
+        file: ${BACKUP_AWS_SECRET_ACCESS_KEY_FILE}
 
 volumes:
     site-assets:
