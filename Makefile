@@ -262,6 +262,5 @@ try-testing-down-clear:
 	REGISTRY=localhost IMAGE_TAG=0 make testing-down-clear
 
 deploy:
-	envsubst < docker-compose-production.yml > docker-compose-production-env.yml
-	DOCKER_HOST=ssh://deploy@${HOST}:${PORT} docker stack deploy --compose-file docker-compose-production-env.yml site --with-registry-auth --prune
-	rm -f docker-compose-production-env.yml
+	envsubst < docker-compose-production.yml > "${TEMP_PATH}/compose.yml"
+	DOCKER_HOST=ssh://deploy@${HOST}:${PORT} docker stack deploy --compose-file "${TEMP_PATH}/compose.yml" site --with-registry-auth --prune

@@ -150,6 +150,7 @@ jobs:
             -   name: Deploy
                 run: make deploy
                 env:
+                    TEMP_PATH: /tmp
                     HOST: ${{ secrets.DEPLOY_HOST }}
                     PORT: ${{ secrets.DEPLOY_PORT }}
                     COOKIE_SECRET_FILE: /tmp/cookie_secret
