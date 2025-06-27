@@ -152,7 +152,7 @@ services:
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site-mailer.rule=Host(`mailer.localhost`)
             - traefik.http.routers.site-mailer.entryPoints=http
-            - traefik.http.services.site-mailer.loadBalancer.server.port=80
+            - traefik.http.services.site-mailer.loadBalancer.server.port=8025
 
     site-wiremock:
         image: wiremock/wiremock:3.12.0-alpine
