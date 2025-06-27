@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine3.21
+FROM php:8.4-fpm-alpine3.22
 
 ENV XDEBUG_VERSION=3.4.2
 
