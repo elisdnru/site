@@ -21,10 +21,11 @@ services:
                 - traefik.http.routers.site.entryPoints=https
                 - traefik.http.routers.site.tls=true
                 - traefik.http.routers.site.tls.certResolver=letsEncrypt
-            replicas: 2
+            replicas: 1
             update_config:
                 parallelism: 1
                 delay: 10s
+                order: start-first
             placement:
                 constraints: [ node.role == manager ]
 
@@ -58,10 +59,11 @@ services:
             - assets:/app/public/assets
             - upload:/app/public/upload
         deploy:
-            replicas: 2
+            replicas: 1
             update_config:
                 parallelism: 1
                 delay: 20s
+                order: start-first
             placement:
                 constraints: [ node.role == manager ]
 
