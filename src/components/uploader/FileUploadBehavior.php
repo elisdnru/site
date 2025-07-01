@@ -35,6 +35,8 @@ use yii\web\UploadedFile;
  *     ];
  * }
  * </pre>
+ *
+ * @extends Behavior<ActiveRecord>
  */
 final class FileUploadBehavior extends Behavior
 {

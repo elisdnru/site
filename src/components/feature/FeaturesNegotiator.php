@@ -9,6 +9,9 @@ use yii\base\Application;
 use yii\base\Behavior;
 use yii\base\Event;
 
+/**
+ * @extends Behavior<Application>
+ */
 final class FeaturesNegotiator extends Behavior
 {
     private FeatureToggle $features;

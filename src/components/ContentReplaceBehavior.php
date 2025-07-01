@@ -9,6 +9,9 @@ use yii\base\Behavior;
 use yii\base\ViewEvent;
 use yii\web\View;
 
+/**
+ * @extends Behavior<View>
+ */
 final class ContentReplaceBehavior extends Behavior
 {
     public array $replaces = [];

@@ -10,6 +10,9 @@ use yii\base\Behavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
+/**
+ * @extends Behavior<ActiveQuery>
+ */
 class CategoryQueryBehavior extends Behavior
 {
     public string $primaryKeyAttribute = 'id';

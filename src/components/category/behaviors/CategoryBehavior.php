@@ -8,6 +8,9 @@ use app\components\category\Attribute;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 
+/**
+ * @extends Behavior<ActiveRecord>
+ */
 class CategoryBehavior extends Behavior
 {
     public string $slugAttribute = 'slug';

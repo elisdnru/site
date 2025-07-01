@@ -11,6 +11,9 @@ use yii\caching\CacheInterface;
 use yii\caching\TagDependency;
 use yii\web\Controller;
 
+/**
+ * @extends Behavior<Controller>
+ */
 final class CacheFlushBehavior extends Behavior
 {
     private CacheInterface $cache;
