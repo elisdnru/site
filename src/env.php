@@ -4,16 +4,22 @@ declare(strict_types=1);
 
 function env(string $name, ?string $default = null): string
 {
-    $file = getenv($name . '_FILE');
-
-    if ($file !== false) {
-        return trim(file_get_contents($file));
-    }
-
     $value = getenv($name);
 
     if ($value !== false) {
         return $value;
+    }
+
+    $file = getenv($name . '_FILE');
+
+    if ($file !== false) {
+        $content = file_get_contents($file);
+
+        if ($content === false) {
+            throw new RuntimeException('Unable to open "' . $file . '" file');
+        }
+
+        return trim($content);
     }
 
     if ($default !== null) {
