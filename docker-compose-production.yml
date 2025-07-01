@@ -6,8 +6,8 @@ services:
             - traefik-public
             - default
         volumes:
-            - site-assets:/app/public/assets:ro
-            - site-upload:/app/public/upload:ro
+            - assets:/app/public/assets:ro
+            - upload:/app/public/upload:ro
         deploy:
             labels:
                 - traefik.enable=true
@@ -55,8 +55,8 @@ services:
             - mailer_password
             - sentry_dsn
         volumes:
-            - site-assets:/app/public/assets
-            - site-upload:/app/public/upload
+            - assets:/app/public/assets
+            - upload:/app/public/upload
         deploy:
             replicas: 2
             update_config:
@@ -92,8 +92,8 @@ services:
             - mailer_password
             - sentry_dsn
         volumes:
-            - site-assets:/app/public/assets
-            - site-upload:/app/public/upload
+            - assets:/app/public/assets
+            - upload:/app/public/upload
         command: sh -c "wait-for-it site-mysql:3306 -t 60 && php bin/app.php migrate --interactive=0"
         deploy:
             restart_policy:
@@ -131,8 +131,8 @@ services:
             - mailer_password
             - sentry_dsn
         volumes:
-            - site-assets:/app/public/assets
-            - site-upload:/app/public/upload
+            - assets:/app/public/assets
+            - upload:/app/public/upload
         command: sh -c "wait-for-it site-redis:6379 -t 60 && php bin/app.php cache/flush cache --interactive=0"
         deploy:
             update_config:
@@ -156,7 +156,7 @@ services:
             - db_root_password
             - db_password
         volumes:
-            - site-mysql:/var/lib/mysql
+            - mysql:/var/lib/mysql
         deploy:
             placement:
                 constraints: [ node.labels.db == db ]
@@ -165,7 +165,7 @@ services:
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         volumes:
-            - site-mysql-backup:/app
+            - mysql-backup:/app
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
@@ -203,8 +203,8 @@ services:
         secrets:
             - backup_aws_secret_access_key
         volumes:
-            - site-upload:/upload:ro
-            - site-upload-backup:/app
+            - upload:/upload:ro
+            - upload-backup:/app
         deploy:
             labels:
                 - swarm.cronjob.enable=true
@@ -223,7 +223,7 @@ services:
         secrets:
             - redis_password
         volumes:
-            - site-redis:/data
+            - redis:/data
         command:
             - 'redis-server'
             - '--maxmemory 32mb'
@@ -250,12 +250,12 @@ secrets:
         file: ${BACKUP_AWS_SECRET_ACCESS_KEY_FILE}
 
 volumes:
-    site-assets:
-    site-upload:
-    site-upload-backup:
-    site-mysql:
-    site-mysql-backup:
-    site-redis:
+    assets:
+    upload:
+    upload-backup:
+    mysql:
+    mysql-backup:
+    redis:
 
 networks:
     traefik-public:

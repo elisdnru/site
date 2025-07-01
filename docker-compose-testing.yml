@@ -119,7 +119,7 @@ services:
     site-mysql:
         image: mariadb:11
         volumes:
-            - site-mysql:/var/lib/mysql
+            - mysql:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
             MYSQL_USER: app
@@ -136,7 +136,7 @@ services:
         secrets:
             - redis_password
         volumes:
-            - site-redis:/data
+            - redis:/data
         command:
             - 'redis-server'
             - '--maxmemory 32mb'
@@ -192,8 +192,8 @@ secrets:
         file: ./secrets/sentry_dsn
 
 volumes:
-    site-mysql:
-    site-redis:
+    mysql:
+    redis:
 
 networks:
     traefik-public:

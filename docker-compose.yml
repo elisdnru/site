@@ -134,7 +134,7 @@ services:
     site-mysql:
         image: mariadb:11
         volumes:
-            - site-mysql:/var/lib/mysql
+            - mysql:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
             MYSQL_USER: app
@@ -156,7 +156,7 @@ services:
             cache_to:
                 - type=inline
         volumes:
-            - site-mysql-backup:/app
+            - mysql-backup:/app
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
@@ -193,7 +193,7 @@ services:
             - backup_aws_secret_access_key
         volumes:
             - ./public/upload:/upload:ro
-            - site-upload-backup:/app
+            - upload-backup:/app
 
     site-redis:
         image: ${REGISTRY:-localhost}/site-dev-redis:cache
@@ -208,7 +208,7 @@ services:
         secrets:
             - redis_password
         volumes:
-            - site-redis:/data
+            - redis:/data
         command:
             - 'redis-server'
             - '--maxmemory 32mb'
@@ -236,7 +236,7 @@ services:
             debug: true
             root: data
         volumes:
-            - site-backup-storage:/data
+            - backup-storage:/data
 
     site-wiremock:
         image: wiremock/wiremock:3.12.0-alpine
@@ -275,11 +275,11 @@ secrets:
         file: ./secrets/backup_aws_secret_access_key
 
 volumes:
-    site-upload-backup:
-    site-mysql:
-    site-mysql-backup:
-    site-redis:
-    site-backup-storage:
+    upload-backup:
+    mysql:
+    mysql-backup:
+    redis:
+    backup-storage:
 
 networks:
     traefik-public:
