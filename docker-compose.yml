@@ -88,7 +88,6 @@ services:
             cache_to:
                 - type=inline
         environment:
-            PHP_CS_FIXER_IGNORE_ENV: 1
             APP_DEBUG: 1
             APP_ENV: dev
             APP_URL: http://localhost

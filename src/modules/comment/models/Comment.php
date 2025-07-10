@@ -17,7 +17,7 @@ use yii\web\Session;
 
 /**
  * @property int $id
- * @property string $type
+ * @property class-string<ActiveRecord>|null $type
  * @property int $material_id
  * @property string $date
  * @property int $user_id
@@ -80,6 +80,10 @@ final class Comment extends ActiveRecord
      */
     public function getMaterial(): ActiveQuery
     {
+        if (!$this->type) {
+            throw new LogicException('Unable to relate without type.');
+        }
+
         return $this->hasOne($this->type, ['id' => 'material_id']);
     }
 

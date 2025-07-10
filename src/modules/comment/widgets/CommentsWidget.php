@@ -13,6 +13,7 @@ use Override;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\base\Widget;
+use yii\db\ActiveRecord;
 use yii\helpers\Json;
 use yii\mail\MailerInterface;
 use yii\web\Cookie;
@@ -26,7 +27,7 @@ final class CommentsWidget extends Widget
     public int $material_id = 0;
     public ?int $authorId = null;
     /**
-     * @psalm-var class-string
+     * @var class-string<ActiveRecord>|null
      */
     public ?string $type = null;
 
