@@ -5,7 +5,6 @@ import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default defineConfig([
   { ignores: ['public/build/', 'public/assets/', 'vendor/', 'var/'] },
-  { files: ['**/*.{js,mjs}'] },
   {
     files: ['**/*.{js,mjs}'],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
