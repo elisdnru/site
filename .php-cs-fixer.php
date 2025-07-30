@@ -7,7 +7,7 @@ use PhpCsFixer\Finder;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
 return
-    (new Config())
+    new Config()
         ->setCacheFile(__DIR__ . '/var/.php_cs')
         ->setParallelConfig(ParallelConfigFactory::detect())
         ->setFinder(
@@ -32,12 +32,12 @@ return
         )
         ->setRiskyAllowed(true)
         ->setRules([
-            '@PSR12' => true,
-            '@PSR12:risky' => true,
-            '@DoctrineAnnotation' => true,
-            '@PHP80Migration' => true,
-            '@PHP80Migration:risky' => true,
-            '@PHPUnit84Migration:risky' => true,
+            '@PER-CS' => true,
+            '@PER-CS:risky' => true,
+            '@PHP82Migration' => true,
+            '@PHP82Migration:risky' => true,
+            '@PHP84Migration' => true,
+            '@PHPUnit100Migration:risky' => true,
             '@PhpCsFixer' => true,
             '@PhpCsFixer:risky' => true,
 

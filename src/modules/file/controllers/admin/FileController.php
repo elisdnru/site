@@ -48,7 +48,7 @@ final class FileController extends AdminController
         $root = Yii::getAlias('@webroot') . '/' . $this->getFileDir();
 
         if (!file_exists($root)) {
-            FileHelper::createDirectory($root, 0754);
+            FileHelper::createDirectory($root, 0o754);
         }
 
         $currentPath = $root . ($path ? '/' . $path : '');
@@ -72,7 +72,7 @@ final class FileController extends AdminController
         $directoryForm = new DirectoryForm();
 
         if ($directoryForm->load((array)$request->post()) && $directoryForm->validate()) {
-            FileHelper::createDirectory($currentPath . '/' . $directoryForm->name, 0755);
+            FileHelper::createDirectory($currentPath . '/' . $directoryForm->name, 0o755);
         }
 
         $items = array_map(

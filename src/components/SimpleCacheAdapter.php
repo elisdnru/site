@@ -100,7 +100,7 @@ final readonly class SimpleCacheAdapter implements CacheInterface
     private static function toSeconds(null|DateInterval|int $ttl): int
     {
         if ($ttl instanceof DateInterval) {
-            return (new DateTimeImmutable('@0'))->add($ttl)->getTimestamp();
+            return new DateTimeImmutable('@0')->add($ttl)->getTimestamp();
         }
 
         return $ttl ?: 0;

@@ -21,7 +21,7 @@ final class M191007135558RehashPasswords extends Migration
         /**
          * @psalm-var array<array-key, array{id: int, password: string}> $rows
          */
-        $rows = (new Query())
+        $rows = new Query()
             ->select('id, password')
             ->from('users')
             ->andWhere('LENGTH(password) = 32')

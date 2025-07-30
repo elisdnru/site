@@ -20,10 +20,10 @@ final class EditCest
         ]);
 
         $dir = __DIR__ . '/../../../public/upload/images/users/avatars';
-        FileHelper::createDirectory($dir, 0777);
+        FileHelper::createDirectory($dir, 0o777);
         $target = $dir . '/160b82352f2c6025f74398703828a2ff.png';
         copy(__DIR__ . '/../../_data/files/avatar.png', $target);
-        chmod($target, 0666);
+        chmod($target, 0o666);
     }
 
     public function guest(AcceptanceTester $I): void
