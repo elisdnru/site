@@ -121,7 +121,7 @@ services:
         volumes:
             - ./:/app
         working_dir: /app
-        command: ["sh", "-c", "until [ -f .ready ] ; do sleep 1 ; done && npm run watch"]
+        command: ["sh", "-c", "until [ -f .ready ] ; do sleep 1 ; done && exec npm run watch"]
 
     site-node-cli:
         image: node:24-alpine3.22
@@ -170,7 +170,7 @@ services:
         secrets:
             - db_password
             - backup_aws_secret_access_key
-        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && backup"]
+        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && exec backup"]
 
     site-upload-backup:
         image: ${REGISTRY:-localhost}/site-dev-files-backup:cache
