@@ -3,10 +3,6 @@
 set -o errexit
 set -o pipefail
 
-if [ -f "$AWS_SECRET_ACCESS_KEY_FILE" ]; then
-  AWS_SECRET_ACCESS_KEY="$(cat "$AWS_SECRET_ACCESS_KEY_FILE")"
-fi
-
 BACKUP_FILE="${BACKUP_NAME:?}_$(date +%Y-%m-%d_%H-%M).tar"
 
 echo "Archive $BACKUP_FILE"
