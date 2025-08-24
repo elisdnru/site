@@ -136,13 +136,13 @@ jobs:
 
             -   name: Secrets
                 run: |
-                    echo "${{ secrets.COOKIE_SECRET }}" > /tmp/cookie_secret
-                    echo "${{ secrets.DB_PASSWORD }}" > /tmp/db_password
-                    echo "${{ secrets.DB_ROOT_PASSWORD }}" > /tmp/db_root_password
-                    echo "${{ secrets.REDIS_PASSWORD }}" > /tmp/redis_password
-                    echo "${{ secrets.MAILER_PASSWORD }}" > /tmp/mailer_password
-                    echo "${{ secrets.SENTRY_DSN }}" > /tmp/sentry_dsn
-                    echo "${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}" > /tmp/backup_aws_secret_access_key
+                    echo '${{ secrets.COOKIE_SECRET }}' > /tmp/cookie_secret
+                    echo '${{ secrets.DB_PASSWORD }}' > /tmp/db_password
+                    echo '${{ secrets.DB_ROOT_PASSWORD }}' > /tmp/db_root_password
+                    echo '${{ secrets.REDIS_PASSWORD }}' > /tmp/redis_password
+                    echo '${{ secrets.MAILER_PASSWORD }}' > /tmp/mailer_password
+                    echo '${{ secrets.SENTRY_DSN }}' > /tmp/sentry_dsn
+                    echo '${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}' > /tmp/backup_aws_secret_access_key
 
             -   name: Set registry env
                 run:  echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
