@@ -1,6 +1,6 @@
 FROM alpine:3.22
 
-RUN apk add --no-cache bash aws-cli
+RUN apk add --no-cache aws-cli
 
 RUN addgroup -g 1000 app && adduser -u 1000 -G app -s /bin/sh -D app
 
