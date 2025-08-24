@@ -67,7 +67,7 @@ services:
             MAILER_USERNAME: app
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: mail@app.test
-            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
+            DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         volumes:
             - ./:/app
@@ -103,7 +103,7 @@ services:
             MAILER_USERNAME: app
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: mail@app.test
-            DEWORKER_API_URL: http://site-wiremock/api.deworker.pro
+            DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         volumes:
             - ./:/app
@@ -244,10 +244,7 @@ services:
             - default
         volumes:
             - ./wiremock:/home/wiremock
-        healthcheck:
-            test: wget --no-verbose --tries=1 --spider http://localhost/__admin/health || exit 1
         command:
-            - '--port=80'
             - '--global-response-templating'
             - '--verbose'
         labels:
@@ -255,7 +252,7 @@ services:
             - traefik.docker.network=traefik-public
             - traefik.http.routers.site-wiremock.rule=Host(`wiremock.localhost`)
             - traefik.http.routers.site-wiremock.entryPoints=http
-            - traefik.http.services.site-wiremock.loadBalancer.server.port=80
+            - traefik.http.services.site-wiremock.loadBalancer.server.port=8080
 
 secrets:
     cookie_secret:
