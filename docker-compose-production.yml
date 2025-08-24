@@ -96,7 +96,7 @@ services:
         volumes:
             - assets:/app/public/assets
             - upload:/app/public/upload
-        command: sh -c "wait-for-it site-mysql:3306 -t 60 && php bin/app.php migrate --interactive=0"
+        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 60 && php bin/app.php migrate --interactive=0"]
         deploy:
             restart_policy:
                 condition: on-failure
@@ -135,7 +135,7 @@ services:
         volumes:
             - assets:/app/public/assets
             - upload:/app/public/upload
-        command: sh -c "wait-for-it site-redis:6379 -t 60 && php bin/app.php cache/flush cache --interactive=0"
+        command: ["sh", "-c", "wait-for-it site-redis:6379 -t 60 && php bin/app.php cache/flush cache --interactive=0"]
         deploy:
             update_config:
                 delay: 40s
@@ -182,7 +182,7 @@ services:
         secrets:
             - db_password
             - backup_aws_secret_access_key
-        command: sh -c "wait-for-it site-mysql:3306 -t 60 && backup"
+        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 60 && backup"]
         deploy:
             labels:
                 - swarm.cronjob.enable=true
