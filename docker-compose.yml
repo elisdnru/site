@@ -16,7 +16,7 @@ services:
             - traefik.docker.network=traefik-public
 
     site:
-        image: ${REGISTRY:-localhost}/site:cache-dev
+        image: ${REGISTRY:-localhost}/site-dev:cache
         build:
             context: ./docker
             dockerfile: development/nginx/Dockerfile
@@ -41,12 +41,12 @@ services:
             - traefik.http.services.site.loadBalancer.server.port=80
 
     site-php-fpm:
-        image: ${REGISTRY:-localhost}/site-php-fpm:cache-dev
+        image: ${REGISTRY:-localhost}/site-dev-php-fpm:cache
         build:
             context: ./docker
             dockerfile: development/php-fpm/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/site-php-fpm:cache-dev
+                - ${REGISTRY:-localhost}/site-dev-php-fpm:cache
             cache_to:
                 - type=inline
         environment:
@@ -79,12 +79,12 @@ services:
             - sentry_dsn
 
     site-php-cli:
-        image: ${REGISTRY:-localhost}/site-php-cli:cache-dev
+        image: ${REGISTRY:-localhost}/site-dev-php-cli:cache
         build:
             context: ./docker
             dockerfile: development/php-cli/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/site-php-cli:cache-dev
+                - ${REGISTRY:-localhost}/site-dev-php-cli:cache
             cache_to:
                 - type=inline
         environment:
@@ -146,12 +146,12 @@ services:
             - "3306:3306"
 
     site-mysql-backup:
-        image: ${REGISTRY:-localhost}/site-mysql-backup:cache-dev
+        image: ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
         build:
             context: ./docker/common
             dockerfile: mysql-backup/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/site-mysql-backup:cache
+                - ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
             cache_to:
                 - type=inline
         volumes:
@@ -173,11 +173,11 @@ services:
         command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && exec backup"]
 
     site-upload-backup:
-        image: ${REGISTRY:-localhost}/site-files-backup:cache-dev
+        image: ${REGISTRY:-localhost}/site-dev-files-backup:cache
         build:
             context: ./docker/common/files-backup
             cache_from:
-                - ${REGISTRY:-localhost}/site-files-backup:cache-dev
+                - ${REGISTRY:-localhost}/site-dev-files-backup:cache
             cache_to:
                 - type=inline
         environment:
@@ -195,11 +195,11 @@ services:
             - upload-backup:/app
 
     site-redis:
-        image: ${REGISTRY:-localhost}/site-redis:cache-dev
+        image: ${REGISTRY:-localhost}/site-dev-redis:cache
         build:
             context: ./docker/common/redis
             cache_from:
-                - ${REGISTRY:-localhost}/site-redis:cache-dev
+                - ${REGISTRY:-localhost}/site-dev-redis:cache`
             cache_to:
                 - type=inline
         environment:
