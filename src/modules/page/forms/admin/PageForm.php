@@ -21,7 +21,7 @@ final class PageForm extends Model
     public string $text = '';
     public string $layout = '';
     public string $subpages_layout = '';
-    public null|int|string $parent_id = null;
+    public int|string|null $parent_id = null;
     public int|string $system = '';
 
     private ?Page $page = null;

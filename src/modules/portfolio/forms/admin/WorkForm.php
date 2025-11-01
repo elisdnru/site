@@ -14,14 +14,14 @@ final class WorkForm extends Model
 {
     public int|string $sort = '';
     public string $date = '';
-    public null|int|string $category_id = null;
+    public int|string|null $category_id = null;
     public string $slug = '';
     public string $title = '';
     public string $meta_title = '';
     public string $meta_description = '';
     public string $short = '';
     public string $text = '';
-    public null|string|UploadedFile $image = '';
+    public string|UploadedFile|null $image = '';
     public bool|string $del_image = false;
     public int|string $image_show = '';
     public int|string $public = '';

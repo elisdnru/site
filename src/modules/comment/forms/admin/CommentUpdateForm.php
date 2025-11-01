@@ -15,7 +15,7 @@ final class CommentUpdateForm extends Model
     public string $email;
     public ?string $site;
     public string $text;
-    public null|int|string $parent_id;
+    public int|string|null $parent_id;
 
     private ?int $user_id;
 

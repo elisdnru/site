@@ -20,7 +20,7 @@ final class EditForm extends Model
     public string $lastname = '';
     public string $firstname = '';
     public ?string $site = null;
-    public null|string|UploadedFile $avatar = null;
+    public string|UploadedFile|null $avatar = null;
     public string $del_avatar = '';
     public string $role = '';
 

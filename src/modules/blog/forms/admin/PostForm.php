@@ -25,10 +25,10 @@ final class PostForm extends Model
     public ?string $styles = '';
     public string $short = '';
     public string $text = '';
-    public null|string|UploadedFile $image = '';
+    public string|UploadedFile|null $image = '';
     public string $image_alt = '';
     public bool|int|string $image_show = '';
-    public null|bool|int|string $group_id = null;
+    public bool|int|string|null $group_id = null;
     public string $new_group = '';
     public bool|int|string $public = '';
     public bool|int|string $promoted = '';
