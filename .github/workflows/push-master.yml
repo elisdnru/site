@@ -44,9 +44,6 @@ jobs:
                     username: ${{ github.actor }}
                     password: ${{ github.token }}
 
-            -   name: Permissions
-                run: sudo chown -R 1000:1000 .
-
             -   name: Init
                 run: make init
 

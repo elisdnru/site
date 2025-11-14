@@ -20,4 +20,11 @@ COPY ./development/php/conf.d /usr/local/etc/php/conf.d
 COPY ./development/php-fpm/entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
+RUN apk add --no-cache shadow
+
+ARG UID=1000
+ARG GID=1000
+
+RUN groupmod -g "${GID}" www-data && usermod -u "${UID}" www-data
+
 WORKDIR /app

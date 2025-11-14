@@ -1,3 +1,11 @@
+SHELL = /bin/sh
+
+UID := $(shell id --user)
+GID := $(shell id --group)
+
+export UID
+export GID
+
 init: \
 	docker-down-clear \
 	app-clear \
@@ -80,7 +88,7 @@ app-assets-build:
 	docker compose run --rm site-node-cli yarn build
 
 app-ready:
-	docker run --rm -v ${PWD}:/app --workdir=/app --user 1000:1000 alpine:3.22 touch .ready
+	docker run --rm -v ${PWD}:/app --workdir=/app --user ${UID}:${GID} alpine:3.22 touch .ready
 
 app-check: \
 	app-composer-validate \

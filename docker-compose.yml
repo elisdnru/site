@@ -45,6 +45,9 @@ services:
         build:
             context: ./docker
             dockerfile: development/php-fpm/Dockerfile
+            args:
+                GID: ${GID:-1000}
+                UID: ${UID:-1000}
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-php-fpm:cache
             cache_to:
@@ -83,6 +86,9 @@ services:
         build:
             context: ./docker
             dockerfile: development/php-cli/Dockerfile
+            args:
+                GID: ${GID:-1000}
+                UID: ${UID:-1000}
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-php-cli:cache
             cache_to:
@@ -119,6 +125,9 @@ services:
         image: ${REGISTRY:-localhost}/site-dev-node-watch:cache
         build:
             context: ./docker/development/node
+            args:
+                GID: ${GID:-1000}
+                UID: ${UID:-1000}
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-node-watch:cache
             cache_to:
@@ -131,6 +140,9 @@ services:
         image: ${REGISTRY:-localhost}/site-dev-node-cli:cache
         build:
             context: ./docker/development/node
+            args:
+                GID: ${GID:-1000}
+                UID: ${UID:-1000}
             cache_from:
                 - ${REGISTRY:-localhost}/site-dev-node-cli:cache
             cache_to:
