@@ -1,4 +1,4 @@
-FROM node:24-alpine3.22 AS builder
+FROM node:25-alpine3.23 AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM php:8.4-fpm-alpine3.22
+FROM php:8.4-fpm-alpine3.23
 
 RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev \
     && docker-php-ext-configure gd \

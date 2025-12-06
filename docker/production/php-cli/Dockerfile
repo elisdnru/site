@@ -1,4 +1,4 @@
-FROM php:8.4-cli-alpine3.22
+FROM php:8.4-cli-alpine3.23
 
 RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev \
     && docker-php-ext-configure gd \
