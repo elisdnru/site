@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.12.0@cf420941d061a57050b6c468ef2c778faf40aee2">
+<files psalm-version="6.x-dev@286d85851a49f6b7621101a0d641766bf06f5f23">
+  <file src="src/components/AdminController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[AdminController]]></code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/components/AuthIdentity.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($user->confirm)]]></code>
@@ -15,6 +20,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$css]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/Csrf.php">
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$request instanceof Request]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/components/DateFormatter.php">
     <RiskyTruthyFalsyComparison>
@@ -46,6 +56,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$email]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/components/MathCaptchaAction.php">
+    <MissingTemplateParam>
+      <code><![CDATA[MathCaptchaAction]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/components/SimpleCacheAdapter.php">
     <RiskyTruthyFalsyComparison>
@@ -123,6 +138,11 @@
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
   </file>
+  <file src="src/components/uploader/FileUploadBehavior.php">
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[ActiveRecord]]></code>
+    </UnnecessaryVarAnnotation>
+  </file>
   <file src="src/components/uploader/Parsed.php">
     <PossiblyUnusedProperty>
       <code><![CDATA[$extension]]></code>
@@ -153,7 +173,20 @@
       <code><![CDATA[$comments]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/blog/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/blog/controllers/FeedController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[FeedController]]></code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/modules/blog/controllers/PostController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[PostController]]></code>
+    </MissingTemplateParam>
     <UnusedParam>
       <code><![CDATA[$slug]]></code>
     </UnusedParam>
@@ -197,6 +230,12 @@
       <code><![CDATA[$post->image]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/blog/views/default/category.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/modules/blog/views/default/search.php">
     <PossiblyFalseArgument>
       <code><![CDATA[$text]]></code>
@@ -205,13 +244,36 @@
       <code><![CDATA[$post->image]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/blog/views/layouts/_sidebar.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getPathInfo()]]></code>
+    </MixedArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getPathInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/modules/blog/views/post/show.php">
+    <MixedAssignment>
+      <code><![CDATA[$host]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$host]]></code>
+      <code><![CDATA[$host]]></code>
+      <code><![CDATA[$host]]></code>
+    </MixedOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->image]]></code>
       <code><![CDATA[$model->image]]></code>
       <code><![CDATA[$model->styles]]></code>
-      <code><![CDATA[$request->getHostInfo()]]></code>
     </RiskyTruthyFalsyComparison>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getHostInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/blog/widgets/SearchFormWidget.php">
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$request instanceof Request]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/blog/widgets/views/LastPosts/default.php">
     <RiskyTruthyFalsyComparison>
@@ -253,12 +315,20 @@
     </PossiblyFalseArgument>
   </file>
   <file src="src/modules/comment/controllers/AjaxController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[AjaxController]]></code>
+    </MissingTemplateParam>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$user->id]]></code>
       <code><![CDATA[!$user->id]]></code>
       <code><![CDATA[$request->getReferrer()]]></code>
       <code><![CDATA[$request->getReferrer()]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/comment/controllers/CommentController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[CommentController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/comment/forms/CommentForm.php">
     <PossiblyUnusedProperty>
@@ -283,10 +353,18 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/comment/widgets/CommentsWidget.php">
+    <PossiblyNullReference>
+      <code><![CDATA[redirect]]></code>
+    </PossiblyNullReference>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$request instanceof Request]]></code>
+      <code><![CDATA[$response instanceof Response]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$form->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
     <UndefinedMagicMethod>
+      <code><![CDATA[post]]></code>
       <code><![CDATA[redirect]]></code>
     </UndefinedMagicMethod>
   </file>
@@ -308,11 +386,31 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->site]]></code>
     </RiskyTruthyFalsyComparison>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getUrl]]></code>
+      <code><![CDATA[getUrl]]></code>
+      <code><![CDATA[getUrl]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/contacts/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/donate/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/edu/components/api/client/Cached.php">
     <ImplicitToStringCast>
       <code><![CDATA[$request->getUri()]]></code>
     </ImplicitToStringCast>
+  </file>
+  <file src="src/modules/edu/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/file/views/admin/file/index.php">
     <RiskyTruthyFalsyComparison>
@@ -328,6 +426,39 @@
       <code><![CDATA[$item->getTimeModified()]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/home/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/home/controllers/ErrorController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[ErrorController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/home/views/layouts/_sidebar.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getPathInfo()]]></code>
+    </MixedArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getPathInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/image/controllers/DownloadController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DownloadController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/landing/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/landing/controllers/LandingController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[LandingController]]></code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/modules/landing/controllers/admin/LandingController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->parent_id]]></code>
@@ -338,6 +469,16 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->landing->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/page/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/page/controllers/PageController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[PageController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/page/controllers/admin/PageController.php">
     <RiskyTruthyFalsyComparison>
@@ -350,7 +491,25 @@
       <code><![CDATA[$this->page->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/page/views/page/subpages/tabs.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[getPathInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/partner/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/portfolio/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/modules/portfolio/controllers/WorkController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[WorkController]]></code>
+    </MissingTemplateParam>
     <UnusedParam>
       <code><![CDATA[$slug]]></code>
     </UnusedParam>
@@ -382,16 +541,65 @@
       <code><![CDATA[$item->image]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/portfolio/views/default/category.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/portfolio/views/default/index.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[get]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/portfolio/views/layouts/_sidebar.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getPathInfo()]]></code>
+    </MixedArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getPathInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/modules/portfolio/views/work/show.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->image]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/products/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/products/controllers/PartnerController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[PartnerController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/services/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/sitemap/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/sitemap/views/default/_recursive.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$item->label]]></code>
       <code><![CDATA[$item->label]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/subscribe/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/ulogin/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/ulogin/models/ULoginModel.php">
     <PossiblyFalseArgument>
@@ -406,9 +614,27 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/user/controllers/DefaultController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DefaultController]]></code>
+    </MissingTemplateParam>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$request->getReferrer()]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/modules/user/controllers/ProfileController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[ProfileController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/user/controllers/RegistrationController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[RegistrationController]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/modules/user/controllers/RemindController.php">
+    <MissingTemplateParam>
+      <code><![CDATA[RemindController]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/modules/user/forms/LoginForm.php">
     <RiskyTruthyFalsyComparison>
@@ -453,6 +679,31 @@
       <code><![CDATA[$model->site]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/modules/user/views/default/login.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getUrl()]]></code>
+    </MixedArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getUrl]]></code>
+      <code><![CDATA[getUrl]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/user/views/email/confirm.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getHostInfo()]]></code>
+    </MixedArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getHostInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/modules/user/views/email/remind.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getHostInfo()]]></code>
+    </MixedArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getHostInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/modules/user/views/profile/view.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->network]]></code>
@@ -460,6 +711,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/user/widgets/LoginFormWidget.php">
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$request instanceof Request]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->user->id]]></code>
     </RiskyTruthyFalsyComparison>
@@ -468,11 +722,22 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->network]]></code>
     </RiskyTruthyFalsyComparison>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getUrl]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/views/layouts/main.php">
     <InvalidOperand>
       <code><![CDATA[round(memory_get_peak_usage() / (1024 * 1024), 2)]]></code>
     </InvalidOperand>
+    <UndefinedMagicMethod>
+      <code><![CDATA[getPathInfo]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/widgets/MainMenu.php">
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$request instanceof Request]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument>
@@ -487,5 +752,10 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->url]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/widgets/Share.php">
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$request instanceof Request]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
 </files>

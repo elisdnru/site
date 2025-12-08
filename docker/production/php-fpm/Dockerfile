@@ -8,14 +8,14 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM php:8.4-fpm-alpine3.23
+FROM php:8.5-fpm-alpine3.23
 
 RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev \
     && docker-php-ext-configure gd \
         --with-jpeg \
         --with-webp \
         --with-freetype \
-    && docker-php-ext-install pdo_mysql gd intl opcache
+    && docker-php-ext-install pdo_mysql gd intl
 
 RUN apk add --no-cache fcgi
 
@@ -27,7 +27,7 @@ COPY ./docker/production/php-fpm/php-fpm.d /usr/local/etc/php-fpm.d
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.8.6 --quiet
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.9.2 --quiet
 
 WORKDIR /app
 

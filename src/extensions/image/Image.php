@@ -80,12 +80,16 @@ class Image
     private function freeImage(): void
     {
         if (is_resource($this->image)) {
-            imagedestroy($this->image);
+            if (PHP_VERSION_ID < 80000) {
+                imagedestroy($this->image);
+            }
         }
 
         if ($this->originalImage !== null) {
             if (is_resource($this->originalImage['image'])) {
-                imagedestroy($this->originalImage['image']);
+                if (PHP_VERSION_ID < 80000) {
+                    imagedestroy($this->originalImage['image']);
+                }
             }
             $this->originalImage = null;
         }
@@ -151,7 +155,9 @@ class Image
 
         //Image
         if (is_resource($this->image)) {
-            imagedestroy($this->image);
+            if (PHP_VERSION_ID < 80000) {
+                imagedestroy($this->image);
+            }
         }
 
         $this->image = imagecreatetruecolor($this->width, $this->height);
@@ -239,8 +245,9 @@ class Image
 
         imagecopyresampled($newImage, $this->image, 0, 0, 0, 0, $newWidth, $newHeight, $this->width, $this->height);
 
-
-        imagedestroy($this->image);
+        if (PHP_VERSION_ID < 80000) {
+            imagedestroy($this->image);
+        }
 
         $this->image = $newImage;
         $this->width = $newWidth;
@@ -331,8 +338,9 @@ class Image
                 $wImg['height']
             );
 
-
-            imagedestroy($wImg['image']);
+            if (PHP_VERSION_ID < 80000) {
+                imagedestroy($wImg['image']);
+            }
 
             return $this;
         }
@@ -384,7 +392,9 @@ class Image
             $srcHeight
         );
 
-        imagedestroy($this->image);
+        if (PHP_VERSION_ID < 80000) {
+            imagedestroy($this->image);
+        }
 
         $this->image = $newImage;
         //dimensions not changed
@@ -429,7 +439,9 @@ class Image
 
         imagecopyresampled($newImage, $this->image, 0, 0, $startX, $startY, $width, $height, $width, $height);
 
-        imagedestroy($this->image);
+        if (PHP_VERSION_ID < 80000) {
+            imagedestroy($this->image);
+        }
 
         $this->image = $newImage;
         $this->width = $width;
@@ -554,7 +566,9 @@ class Image
             $this->height
         );
 
-        imagedestroy($this->image);
+        if (PHP_VERSION_ID < 80000) {
+            imagedestroy($this->image);
+        }
 
         $this->image = $newImage;
         $this->width = $toWidth;
@@ -570,7 +584,9 @@ class Image
         imagecopy($newImage, $this->image, 0, 0, 0, 0, $this->width, $this->height);
         imagecopymergegray($newImage, $newImage, 0, 0, 0, 0, $this->width, $this->height, 0);
 
-        imagedestroy($this->image);
+        if (PHP_VERSION_ID < 80000) {
+            imagedestroy($this->image);
+        }
 
         $this->image = $newImage;
 

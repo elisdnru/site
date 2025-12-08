@@ -14,6 +14,10 @@ final class AuthManager extends PhpManager
     #[Override]
     public function getAssignments($userId): array
     {
+        if (!$userId) {
+            return [];
+        }
+
         if (\array_key_exists($userId, $this->assignments)) {
             /** @var Assignment[] */
             return $this->assignments[$userId];
