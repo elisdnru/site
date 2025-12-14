@@ -249,7 +249,7 @@ services:
             - traefik.http.services.site-mailer.loadBalancer.server.port=8025
 
     site-backup-storage:
-        image: adobe/s3mock:3.12.0
+        image: adobe/s3mock:4.11.0
         environment:
             initialBuckets: backup
             debug: true
