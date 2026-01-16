@@ -22,9 +22,9 @@
         "php-http/curl-client": "^2.0",
         "psr/simple-cache": "^3.0",
         "sentry/sdk": "^4.0",
-        "webmozart/assert": "^1.9",
-        "yiisoft/yii2": "22.0.x-dev",
-        "yiisoft/yii2-redis": "22.x-dev",
+        "webmozart/assert": "^2.1",
+        "yiisoft/yii2": "2.0.*-dev",
+        "yiisoft/yii2-redis": "^2.0",
         "yiisoft/yii2-symfonymailer": "^4.0"
     },
     "require-dev": {
@@ -37,7 +37,7 @@
         "overtrue/phplint": "^9.0",
         "psalm/plugin-phpunit": "^0.19.0",
         "roave/security-advisories": "dev-latest",
-        "vimeo/psalm": "6.x-dev"
+        "vimeo/psalm": "^6.14"
     },
     "replace": {
         "bower-asset/jquery":"*",
@@ -62,8 +62,7 @@
     "autoload": {
         "files": [
             "src/env.php",
-            "src/extensions/markdown/markdown/markdown.php",
-            "src/overrides/yii/captcha/CaptchaAction.php"
+            "src/extensions/markdown/markdown/markdown.php"
         ],
         "psr-4": {
             "app\\": "src/"

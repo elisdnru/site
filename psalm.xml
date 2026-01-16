@@ -26,7 +26,6 @@
         <directory name="tests" />
         <ignoreFiles>
             <directory name="src/extensions" />
-            <directory name="src/overrides" />
             <directory name="tests/_support/_generated" />
             <directory name="vendor" />
         </ignoreFiles>
