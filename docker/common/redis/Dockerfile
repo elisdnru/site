@@ -1,4 +1,4 @@
-FROM redis:7.0-alpine3.20
+FROM redis:7.4-alpine3.21
 
 COPY docker-entrypoint-env.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint-env.sh
