@@ -35,7 +35,7 @@ jobs:
                     key: yarn-${{ hashFiles('yarn.lock') }}
 
             -   name: Set registry env
-                run:  echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+                run: echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
             -   name: Docker login
                 uses: azure/docker-login@v1
@@ -124,7 +124,7 @@ jobs:
                 run: ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
             -   name: Set registry env
-                run:  echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+                run: echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
             -   name: Docker login
                 uses: azure/docker-login@v1
