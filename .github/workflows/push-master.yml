@@ -121,8 +121,7 @@ jobs:
                     known_hosts: placeholder
 
             -   name: Put SSH known host
-                run: |
-                    ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+                run: ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
             -   name: Set registry env
                 run:  echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
