@@ -7,7 +7,7 @@ namespace app\modules\page\models;
 use app\components\category\behaviors\CategoryTreeBehavior;
 use app\components\ForceActiveRecordErrors;
 use Override;
-use yii\db\ActiveQuery;
+use yii\db\ActiveQueryInterface;
 use yii\db\ActiveRecord;
 
 /**
@@ -70,7 +70,7 @@ final class Page extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getChildren(): ActiveQuery
+    public function getChildren(): ActiveQueryInterface
     {
         return $this->hasMany(self::class, ['parent_id' => 'id'])
             ->alias('children')
@@ -80,7 +80,7 @@ final class Page extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getParent(): ActiveQuery
+    public function getParent(): ActiveQueryInterface
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);
     }

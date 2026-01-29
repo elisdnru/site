@@ -12,7 +12,7 @@ use app\modules\user\models\User;
 use BadMethodCallException;
 use Override;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveQuery;
+use yii\db\ActiveQueryInterface;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
@@ -87,7 +87,7 @@ final class Post extends ActiveRecord implements Material
     /**
      * @psalm-api
      */
-    public function getPostTags(): ActiveQuery
+    public function getPostTags(): ActiveQueryInterface
     {
         return $this->hasMany(PostTag::class, ['post_id' => 'id']);
     }
@@ -95,7 +95,7 @@ final class Post extends ActiveRecord implements Material
     /**
      * @psalm-api
      */
-    public function getTags(): ActiveQuery
+    public function getTags(): ActiveQueryInterface
     {
         return $this->hasMany(Tag::class, ['id' => 'tag_id'])->via('postTags');
     }
@@ -103,7 +103,7 @@ final class Post extends ActiveRecord implements Material
     /**
      * @psalm-api
      */
-    public function getGroup(): ActiveQuery
+    public function getGroup(): ActiveQueryInterface
     {
         return $this->hasOne(Group::class, ['id' => 'group_id']);
     }
@@ -111,7 +111,7 @@ final class Post extends ActiveRecord implements Material
     /**
      * @psalm-api
      */
-    public function getCategory(): ActiveQuery
+    public function getCategory(): ActiveQueryInterface
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
@@ -119,7 +119,7 @@ final class Post extends ActiveRecord implements Material
     /**
      * @psalm-api
      */
-    public function getAuthor(): ActiveQuery
+    public function getAuthor(): ActiveQueryInterface
     {
         return $this->hasOne(User::class, ['id' => 'author_id']);
     }

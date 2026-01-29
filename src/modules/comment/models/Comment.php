@@ -10,7 +10,7 @@ use app\modules\user\models\User;
 use LogicException;
 use Override;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveQuery;
+use yii\db\ActiveQueryInterface;
 use yii\db\ActiveRecord;
 use yii\mail\MailerInterface;
 use yii\web\Session;
@@ -54,7 +54,7 @@ final class Comment extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getParent(): ActiveQuery
+    public function getParent(): ActiveQueryInterface
     {
         return $this->hasOne(self::class, ['id' => 'parent_id']);
     }
@@ -62,7 +62,7 @@ final class Comment extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getChildren(): ActiveQuery
+    public function getChildren(): ActiveQueryInterface
     {
         return $this->hasMany(self::class, ['parent_id' => 'id']);
     }
@@ -70,7 +70,7 @@ final class Comment extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getUser(): ActiveQuery
+    public function getUser(): ActiveQueryInterface
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
@@ -78,7 +78,7 @@ final class Comment extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getMaterial(): ActiveQuery
+    public function getMaterial(): ActiveQueryInterface
     {
         if (!$this->type) {
             throw new LogicException('Unable to relate without type.');

@@ -7,7 +7,7 @@ namespace app\modules\portfolio\models;
 use app\components\ForceActiveRecordErrors;
 use app\components\uploader\FileUploadBehavior;
 use Override;
-use yii\db\ActiveQuery;
+use yii\db\ActiveQueryInterface;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
 
@@ -51,7 +51,7 @@ final class Work extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getCategory(): ActiveQuery
+    public function getCategory(): ActiveQueryInterface
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }

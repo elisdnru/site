@@ -6,7 +6,7 @@ namespace app\modules\blog\models;
 
 use app\components\ForceActiveRecordErrors;
 use Override;
-use yii\db\ActiveQuery;
+use yii\db\ActiveQueryInterface;
 use yii\db\ActiveRecord;
 
 /**
@@ -27,7 +27,7 @@ final class PostTag extends ActiveRecord
     /**
      * @psalm-api
      */
-    public function getTag(): ActiveQuery
+    public function getTag(): ActiveQueryInterface
     {
         return $this->hasOne(Tag::class, ['id' => 'tag_id']);
     }
