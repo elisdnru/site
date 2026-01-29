@@ -251,14 +251,13 @@ services:
     site-backup-storage:
         image: adobe/s3mock:4.11.0
         environment:
-            initialBuckets: backup
-            debug: true
-            root: data
+            COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: backup
+            COM_ADOBE_TESTING_S3MOCK_STORE_ROOT: data
         volumes:
             - backup-storage:/data
 
     site-wiremock:
-        image: wiremock/wiremock:3.12.0-alpine
+        image: wiremock/wiremock:3.13.2-alpine
         networks:
             - traefik-public
             - default
