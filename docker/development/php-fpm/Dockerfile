@@ -17,8 +17,11 @@ RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 COPY ./common/php/conf.d /usr/local/etc/php/conf.d
 COPY ./development/php/conf.d /usr/local/etc/php/conf.d
 
-COPY ./development/php-fpm/entrypoint.sh /usr/local/bin/docker-php-entrypoint
-RUN chmod +x /usr/local/bin/docker-php-entrypoint
+COPY ./development/php-fpm/docker-entrypoint-host.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint-host.sh
+
+ENTRYPOINT ["docker-entrypoint-host.sh", "docker-php-entrypoint"]
+CMD ["php-fpm"]
 
 RUN apk add --no-cache shadow
 
