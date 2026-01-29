@@ -246,7 +246,7 @@ $this->title = 'Мастер-класс по разработке доски о�
         <div class="block">
             <p>Если хотите получить кучу эмоций и новых знаний, то приходите к нам на полноценный многодневный мастер-класс:<p>
             <div style="max-width: 886px; margin: 20px auto 10px auto;">
-                <iframe width="100%" height="498" src="https://www.youtube.com/embed/gL-aRsPjK1k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="498" src="https://rutube.ru/play/embed/81fbb59e640fcaf99556124589fd29c2/" style="border: none;" allowfullscreen></iframe>
             </div>
             <p></p>
         </div>

@@ -258,8 +258,8 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
                 <iframe
                     width="100%"
                     height="499"
-                    src="https://www.youtube.com/embed/BjLMSNJLTsM?rel=0&amp;showinfo=0"
-                    frameborder="0"
+                    src="https://rutube.ru/play/embed/20aebf3c25bc5981f1bfe5e7c93e609e/"
+                    style="border: none;"
                     allowfullscreen
                 ></iframe>
             </div>
@@ -487,7 +487,13 @@ $this->title = 'Неделя ООП – Онлайн-интенсив по об�
         <p style="text-align: center">После интенсива провели большой стрим с ответами на дополнительные вопросы по материалу:</p>
     </div>
     <div style="max-width: 1280px; margin: 20px auto 10px auto;">
-        <iframe width="100%" height="720" src="https://www.youtube.com/embed/8RdJ3G-OZoc?rel=0" frameborder="0" allowfullscreen></iframe>
+        <iframe
+            width="100%"
+            height="720"
+            src="https://rutube.ru/play/embed/1fffa825054f69e7d194a8182b4f6041/"
+            style="border: none;"
+            allowfullscreen
+        ></iframe>
     </div>
 </section>
 

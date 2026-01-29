@@ -192,7 +192,7 @@ $this->title = 'Git и Composer для начинающих';
 <section>
     <div class="container">
         <div style="max-width: 680px; margin: 0 auto">
-            <iframe width="100%" height="412" src="https://www.youtube.com/embed/puMpFraUc80" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="412" src="https://rutube.ru/play/embed/44e6560c08489f2e05c08932d44e5a9e/" style="border: none;" allowfullscreen></iframe>
         </div>
     </div>
 </section>
