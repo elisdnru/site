@@ -8,14 +8,15 @@ use app\assets\CommentsAsset;
 use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\User;
-use BadMethodCallException;
 use Override;
+use Webmozart\Assert\Assert;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\base\Widget;
 use yii\db\ActiveRecord;
 use yii\helpers\Json;
 use yii\mail\MailerInterface;
+use yii\web\Application;
 use yii\web\Cookie;
 use yii\web\Request;
 use yii\web\Response;
@@ -50,6 +51,8 @@ final class CommentsWidget extends Widget
     #[Override]
     public function run(): string
     {
+        $app = Assert::isInstanceOf(Yii::$app, Application::class);
+
         if (!$this->material_id) {
             throw new InvalidArgumentException('Empty material_id.');
         }
@@ -58,33 +61,21 @@ final class CommentsWidget extends Widget
             throw new InvalidArgumentException('Empty type of comments.');
         }
 
-        $request = Yii::$app->request;
-
-        if (!$request instanceof Request) {
-            throw new BadMethodCallException('Unable to use non-web request.');
-        }
-
-        $response = Yii::$app->response;
-
-        if (!$response instanceof Response) {
-            throw new BadMethodCallException('Unable to use non-web response.');
-        }
-
         $form = new CommentForm();
 
         $user = User::findOne($this->webUser->id);
 
         if ($user === null) {
             $form->scenario = CommentForm::SCENARIO_ANONIM;
-            $form->attributes = self::loadFormState($request);
+            $form->attributes = self::loadFormState($app->request);
         }
 
-        if ($form->load((array)Yii::$app->request->post()) && $form->validate()) {
+        if ($form->load((array)$app->request->post()) && $form->validate()) {
             self::saveFormState([
                 'name' => $form->name,
                 'email' => $form->email,
                 'site' => $form->site,
-            ], $response);
+            ], $app->response);
 
             $comment = new Comment();
             $comment->type = $this->type;
@@ -110,10 +101,8 @@ final class CommentsWidget extends Widget
             $comment->sendNotifications($this->mailer);
 
             $this->session->setFlash('success', 'Ваш комментарий добавлен');
-            Yii::$app->controller->redirect($comment->getUrl());
-            Yii::$app->end();
-
-            return '';
+            $app->controller->redirect($comment->getUrl());
+            $app->end();
         }
 
         $items = Comment::find()

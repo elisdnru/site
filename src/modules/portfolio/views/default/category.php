@@ -7,8 +7,10 @@ use app\components\shortcodes\Shortcodes;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -31,8 +33,10 @@ $this->params['breadcrumbs'] = [
 ];
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->getBreadcrumbs());
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
+$app = Assert::isInstanceOf(Yii::$app, Application::class);
+
+if ($app->user->can(Access::CONTROL)) {
+    if ($app->moduleAdminAccess->isGranted('portfolio')) {
         $this->params['admin'][] = ['label' => 'Редактировать работы', 'url' => ['/portfolio/admin/work/index', 'category' => $category->id]];
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/update', 'category' => $category->id]];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
@@ -64,7 +68,7 @@ PortfolioAsset::register($this);
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1): ?>
+<?php if ($app->request->get('page', 1) > 1): ?>
     <!--noindex-->
 <?php endif; ?>
 
@@ -72,7 +76,7 @@ PortfolioAsset::register($this);
 <?= $category->text; ?>
 <?php Shortcodes::end(); ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1): ?>
+<?php if ($app->request->get('page', 1) > 1): ?>
     <!--/noindex-->
 <?php endif; ?>
 

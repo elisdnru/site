@@ -6,6 +6,8 @@ use app\components\PaginationFormatter;
 use app\modules\portfolio\models\Category;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -26,8 +28,10 @@ $this->params['breadcrumbs'] = [
     'Портфолио',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
+$app = Assert::isInstanceOf(Yii::$app, Application::class);
+
+if ($app->user->can(Access::CONTROL)) {
+    if ($app->moduleAdminAccess->isGranted('portfolio')) {
         $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];
         $this->params['admin'][] = ['label' => 'Добавить работу', 'url' => ['/portfolio/admin/work/create']];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/portfolio/admin/category/index']];
@@ -50,7 +54,7 @@ PortfolioAsset::register($this);
     </div>
 <?php endif; ?>
 
-<?php if (Yii::$app->request->get('page', 1) === '1'): ?>
+<?php if ($app->request->get('page', 1) === '1'): ?>
     <p class="portfolio-description">
         <span>В 2013-14 году все услуги<br />предоставлялись совместно со студией</span>
         <img src="/images/webdoka.jpg" alt="" />

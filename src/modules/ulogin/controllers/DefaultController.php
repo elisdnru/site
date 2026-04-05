@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\ulogin\controllers;
 
 use app\modules\ulogin\models\ULoginModel;
-use BadMethodCallException;
+use Webmozart\Assert\Assert;
 use Yii;
 use yii\web\Application;
 use yii\web\Controller;
@@ -23,16 +23,15 @@ final class DefaultController extends Controller
 
     public function actionLogin(Request $request, Session $session, User $user): Response
     {
-        if (!Yii::$app instanceof Application) {
-            throw new BadMethodCallException('Not web app context.');
-        }
+        $app = Assert::isInstanceOf(Yii::$app, Application::class);
 
         if (!$token = (string)$request->getBodyParam('token')) {
-            return $this->redirect(Yii::$app->homeUrl);
+            return $this->redirect($app->homeUrl);
         }
+
         if ($token !== 'undefined') {
             $uLogin = new ULoginModel();
-            $uLogin->attributes = $request->post();
+            $uLogin->load((array)$request->post(), '');
 
             $uLogin->loadAuthData();
 
@@ -43,6 +42,6 @@ final class DefaultController extends Controller
             $session->setFlash('error', 'Какая-то техническая ошибка при авторизации');
         }
 
-        return $this->redirect((string)$request->getQueryParam('return', Yii::$app->homeUrl));
+        return $this->redirect((string)$request->getQueryParam('return', \app\notNull(Yii::$app)->homeUrl));
     }
 }

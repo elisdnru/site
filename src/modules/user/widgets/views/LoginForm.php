@@ -5,8 +5,10 @@ use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use app\modules\user\widgets\OAuthWidget;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\Request;
 
 /**
@@ -58,10 +60,10 @@ use yii\web\Request;
     <?= Html::endForm(); ?>
     <hr />
     <div style="text-align: center; padding-left:10px">
-        <?php if (Yii::$app->features->isActive('OAUTH')): ?>
+        <?php if (\app\notNull(Yii::$app)->features->isActive('OAUTH')): ?>
             <?= OAuthWidget::widget([
                 'display' => 'small',
-                'return' => Yii::$app->request->getUrl(),
+                'return' => Assert::isInstanceOf(Yii::$app, Application::class)->request->getUrl(),
             ]); ?>
         <?php else: ?>
             <?= ULoginWidget::widget([

@@ -15,16 +15,18 @@ use app\modules\comment\widgets\CommentsWidget;
 use app\modules\user\models\Access;
 use app\widgets\Share;
 use app\widgets\SubscribeAfterPost;
+use Webmozart\Assert\Assert;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
  * @var View $this
  * @var Post $model
  */
-$request = Yii::$app->request;
+$app = Assert::isInstanceOf(Yii::$app, Application::class);
 
 $this->context->layout = 'post';
 
@@ -36,7 +38,7 @@ $this->params['breadcrumbs'] = [
     'Блог' => ['/blog'],
 ];
 
-$host = $request->getHostInfo() ?: '';
+$host = $app->request->getHostInfo() ?? '';
 
 $this->registerMetaTag(['property' => 'og:title', 'content' => $model->title]);
 $this->registerMetaTag(['property' => 'og:meta_description', 'content' => $model->meta_description]);
@@ -55,13 +57,13 @@ $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model-
 
 $this->params['breadcrumbs'][] = $model->title;
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
+if ($app->user->can(Access::CONTROL)) {
+    if ($app->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/blog/admin/post/update', 'id' => $model->id]];
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
         $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['admin/category/update', 'id' => $model->category_id]];
     }
-    if (Yii::$app->moduleAdminAccess->isGranted('comment')) {
+    if ($app->moduleAdminAccess->isGranted('comment')) {
         $count = $model->getCommentsNewCount();
         $this->params['admin'][] = ['label' => 'Комментарии (' . $count . ' ' . Pluraliser::plural($count, ['новый', 'новых', 'новых']) . ')', 'url' => ['/blog/admin/comment/index', 'id' => $model->id]];
     }

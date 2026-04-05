@@ -3,8 +3,10 @@
 use app\components\SocNetwork;
 use app\modules\user\models\User;
 use app\widgets\Portlet;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -30,7 +32,7 @@ $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['
 
 <div style="margin-left:60px;">
 
-    <?php if ($model->id === Yii::$app->user->id): ?>
+    <?php if ($model->id === Assert::isInstanceOf(Yii::$app, Application::class)->user->id): ?>
         <p style="float:right">
             <a href="<?= Url::to(['/user/profile/edit']); ?>">Редактировать</a> |
             <a href="<?= Url::to(['/user/default/logout']); ?>">Выход</a>

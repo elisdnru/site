@@ -9,6 +9,7 @@ use app\components\SlugValidator;
 use Override;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
+use yii\validators\Validator;
 
 /**
  * @property int $id
@@ -40,7 +41,7 @@ abstract class Category extends ActiveRecord
     }
 
     /**
-     * @return array<int|string, mixed>[]
+     * @return array<int, array<array-key, mixed>|Validator>
      */
     public static function staticRules(): array
     {

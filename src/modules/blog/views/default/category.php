@@ -5,7 +5,9 @@ use app\components\PaginationFormatter;
 use app\components\shortcodes\Shortcodes;
 use app\modules\blog\models\Category;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -27,8 +29,10 @@ $this->params['breadcrumbs'] = [
 ];
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $category->getBreadcrumbs());
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
+$app = Assert::isInstanceOf(Yii::$app, Application::class);
+
+if ($app->user->can(Access::CONTROL)) {
+    if ($app->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post']];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create', 'category' => $category->id]];
         $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['/blog/admin/category/update', 'id' => $category->id]];
@@ -38,7 +42,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <h1><?= Html::encode($category->title); ?></h1>
 
-<?php if (Yii::$app->request->get('page', 1) > 1): ?>
+<?php if ($app->request->get('page', 1) > 1): ?>
     <!--noindex-->
 <?php endif; ?>
 
@@ -46,7 +50,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 <?= $category->text; ?>
 <?php Shortcodes::end(); ?>
 
-<?php if (Yii::$app->request->get('page', 1) > 1): ?>
+<?php if ($app->request->get('page', 1) > 1): ?>
     <!--/noindex-->
 <?php endif; ?>
 

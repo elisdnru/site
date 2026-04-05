@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.x-dev@286d85851a49f6b7621101a0d641766bf06f5f23">
+<files psalm-version="6.16.1@f1f5de594dc76faf8784e02d3dc4716c91c6f6ac">
   <file src="src/components/AdminController.php">
     <MissingTemplateParam>
       <code><![CDATA[AdminController]]></code>
@@ -20,11 +20,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$css]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/components/Csrf.php">
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$request instanceof Request]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/components/DateFormatter.php">
     <RiskyTruthyFalsyComparison>
@@ -230,12 +225,6 @@
       <code><![CDATA[$post->image]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/blog/views/default/category.php">
-    <UndefinedMagicMethod>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-    </UndefinedMagicMethod>
-  </file>
   <file src="src/modules/blog/views/default/search.php">
     <PossiblyFalseArgument>
       <code><![CDATA[$text]]></code>
@@ -244,36 +233,12 @@
       <code><![CDATA[$post->image]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/blog/views/layouts/_sidebar.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getPathInfo()]]></code>
-    </MixedArgument>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getPathInfo]]></code>
-    </UndefinedMagicMethod>
-  </file>
   <file src="src/modules/blog/views/post/show.php">
-    <MixedAssignment>
-      <code><![CDATA[$host]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$host]]></code>
-      <code><![CDATA[$host]]></code>
-      <code><![CDATA[$host]]></code>
-    </MixedOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$model->image]]></code>
       <code><![CDATA[$model->image]]></code>
       <code><![CDATA[$model->styles]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getHostInfo]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/modules/blog/widgets/SearchFormWidget.php">
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$request instanceof Request]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/modules/blog/widgets/views/LastPosts/default.php">
     <RiskyTruthyFalsyComparison>
@@ -356,17 +321,9 @@
     <PossiblyNullReference>
       <code><![CDATA[redirect]]></code>
     </PossiblyNullReference>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$request instanceof Request]]></code>
-      <code><![CDATA[$response instanceof Response]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$form->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedMagicMethod>
-      <code><![CDATA[post]]></code>
-      <code><![CDATA[redirect]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="src/modules/comment/widgets/views/Comments/_comment.php">
     <PossiblyFalseArgument>
@@ -386,11 +343,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->site]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getUrl]]></code>
-      <code><![CDATA[getUrl]]></code>
-      <code><![CDATA[getUrl]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="src/modules/contacts/controllers/DefaultController.php">
     <MissingTemplateParam>
@@ -435,14 +387,6 @@
     <MissingTemplateParam>
       <code><![CDATA[ErrorController]]></code>
     </MissingTemplateParam>
-  </file>
-  <file src="src/modules/home/views/layouts/_sidebar.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getPathInfo()]]></code>
-    </MixedArgument>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getPathInfo]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="src/modules/image/controllers/DownloadController.php">
     <MissingTemplateParam>
@@ -491,11 +435,6 @@
       <code><![CDATA[$this->page->parent_id]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/page/views/page/subpages/tabs.php">
-    <UndefinedMagicMethod>
-      <code><![CDATA[getPathInfo]]></code>
-    </UndefinedMagicMethod>
-  </file>
   <file src="src/modules/partner/controllers/DefaultController.php">
     <MissingTemplateParam>
       <code><![CDATA[DefaultController]]></code>
@@ -540,25 +479,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$item->image]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/modules/portfolio/views/default/category.php">
-    <UndefinedMagicMethod>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/modules/portfolio/views/default/index.php">
-    <UndefinedMagicMethod>
-      <code><![CDATA[get]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/modules/portfolio/views/layouts/_sidebar.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getPathInfo()]]></code>
-    </MixedArgument>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getPathInfo]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="src/modules/portfolio/views/work/show.php">
     <RiskyTruthyFalsyComparison>
@@ -679,31 +599,6 @@
       <code><![CDATA[$model->site]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/modules/user/views/default/login.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getUrl()]]></code>
-    </MixedArgument>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getUrl]]></code>
-      <code><![CDATA[getUrl]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/modules/user/views/email/confirm.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getHostInfo()]]></code>
-    </MixedArgument>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getHostInfo]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/modules/user/views/email/remind.php">
-    <MixedArgument>
-      <code><![CDATA[$request->getHostInfo()]]></code>
-    </MixedArgument>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getHostInfo]]></code>
-    </UndefinedMagicMethod>
-  </file>
   <file src="src/modules/user/views/profile/view.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->network]]></code>
@@ -711,9 +606,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/modules/user/widgets/LoginFormWidget.php">
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$request instanceof Request]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->user->id]]></code>
     </RiskyTruthyFalsyComparison>
@@ -722,22 +614,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$user->network]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getUrl]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="src/views/layouts/main.php">
     <InvalidOperand>
       <code><![CDATA[round(memory_get_peak_usage() / (1024 * 1024), 2)]]></code>
     </InvalidOperand>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getPathInfo]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="src/widgets/MainMenu.php">
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$request instanceof Request]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/widgets/Portlet.php">
     <PossiblyFalseArgument>
@@ -752,10 +633,5 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->url]]></code>
     </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/widgets/Share.php">
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$request instanceof Request]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
 </files>

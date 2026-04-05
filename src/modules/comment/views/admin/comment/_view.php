@@ -12,7 +12,7 @@ use yii\web\Session;
  * @var Comment $comment
  * @var Session $session
  */
-$session = Yii::$app->get('session');
+$session = \app\notNull(Yii::$app)->get('session');
 
 $editurl = Url::to(['update', 'id' => $comment->id]);
 $delUrl = Url::to(['delete', 'id' => $comment->id]);

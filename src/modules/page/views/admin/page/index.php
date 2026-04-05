@@ -17,7 +17,7 @@ $this->params['breadcrumbs'] = [
     'Страницы',
 ];
 
-if (Yii::$app->moduleAdminAccess->isGranted('page')) {
+if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('page')) {
     $this->params['admin'][] = ['label' => 'Добавить страницу', 'url' => ['create']];
     $this->params['admin'][] = ['label' => 'Лендинги', 'url' => ['/landing/admin/landing/index']];
 }

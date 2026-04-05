@@ -1,12 +1,14 @@
 <?php declare(strict_types=1);
 
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 
 /**
  * @var string $code
  */
-$request = Yii::$app->request;
+$request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 
 $confirmUrl = Url::to(['/user/registration/confirm', 'code' => $code], true);
 ?>

@@ -4,8 +4,10 @@ use app\components\SocNetwork;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\widgets\Portlet;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -16,7 +18,9 @@ $this->context->layout = 'user';
 $this->title = 'Профиль пользователя ' . $user->username;
 $this->params['breadcrumbs'] = ['Профиль'];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
+$app = Assert::isInstanceOf(Yii::$app, Application::class);
+
+if ($app->user->can(Access::CONTROL)) {
     $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['/user/admin/user/index']];
     $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/user/admin/user/update', 'id' => $user->id]];
 }
@@ -30,7 +34,7 @@ if (Yii::$app->user->can(Access::CONTROL)) {
 
 <div style="margin-left:60px;">
 
-    <?php if ($user->id === Yii::$app->user->id): ?>
+    <?php if ($user->id === $app->user->id): ?>
         <p style="float:right">
             <a href="<?= Url::to(['edit']); ?>">Редактировать</a> |
             <a href="<?= Url::to(['password']); ?>">Сменить пароль</a> |

@@ -17,6 +17,6 @@ final class Cache extends Module
     #[Override]
     public function _before(TestInterface $test): void
     {
-        Yii::$app->cache?->flush();
+        \app\notNull(Yii::$app)->cache?->flush();
     }
 }

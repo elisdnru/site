@@ -6,7 +6,9 @@ namespace app\widgets;
 
 use BadMethodCallException;
 use Override;
+use Webmozart\Assert\Assert;
 use Yii;
+use yii\web\Application;
 use yii\web\Request;
 use yii\widgets\Menu;
 
@@ -17,7 +19,7 @@ final class MainMenu extends Menu
     {
         parent::init();
 
-        $request = Yii::$app->request;
+        $request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 
         if (!$request instanceof Request) {
             throw new BadMethodCallException('Unable to use non-web request.');

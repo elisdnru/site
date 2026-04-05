@@ -681,7 +681,7 @@ class File
 
         $bytes /= 1024 ** $expo;
 
-        return Yii::$app->formatter->asDecimal($bytes) . ' ' . $units[$expo];
+        return \app\notNull(Yii::$app)->formatter->asDecimal($bytes) . ' ' . $units[$expo];
     }
 
     /**

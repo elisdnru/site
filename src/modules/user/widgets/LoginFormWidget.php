@@ -8,8 +8,10 @@ use app\modules\user\forms\LoginForm;
 use app\modules\user\models\User;
 use BadMethodCallException;
 use Override;
+use Webmozart\Assert\Assert;
 use Yii;
 use yii\base\Widget;
+use yii\web\Application;
 use yii\web\Request;
 use yii\web\User as WebUser;
 
@@ -39,7 +41,7 @@ final class LoginFormWidget extends Widget
             $user = null;
         }
 
-        $request = Yii::$app->request;
+        $request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 
         if (!$request instanceof Request) {
             throw new BadMethodCallException('Unable to use non-web request.');

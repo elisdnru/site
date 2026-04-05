@@ -22,7 +22,7 @@ $this->params['breadcrumbs'] = [
     'Файловый менеджер',
 ];
 
-if (Yii::$app->moduleAdminAccess->isGranted('page')) {
+if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('page')) {
     $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
     $this->params['admin'][] = ['label' => 'Лендинги', 'url' => ['/landing/admin/landing/index']];
 }

@@ -2,8 +2,10 @@
 
 use app\components\module\sitemap\Group;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\base\Model;
 use yii\helpers\Html;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -19,8 +21,8 @@ $this->params['breadcrumbs'] = [
     'Карта сайта',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('page')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('page')) {
         $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page']];
     }
 }

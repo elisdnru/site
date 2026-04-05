@@ -4,6 +4,8 @@ use app\components\DataProvider;
 use app\components\PaginationFormatter;
 use app\modules\blog\models\Post;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -23,14 +25,14 @@ $this->params['breadcrumbs'] = [
     'Блог',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post']];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create']];
         $this->params['admin'][] = ['label' => 'Категории', 'url' => ['/blog/admin/category']];
     }
-    if (Yii::$app->moduleAdminAccess->isGranted('blog') && Yii::$app->moduleAdminAccess->isGranted('comment')) {
-        foreach (Yii::$app->moduleAdminNotifications->notifications('blog') as $notification) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('blog') && \app\notNull(Yii::$app)->moduleAdminAccess->isGranted('comment')) {
+        foreach (\app\notNull(Yii::$app)->moduleAdminNotifications->notifications('blog') as $notification) {
             $this->params['admin'][] = $notification;
         }
     }

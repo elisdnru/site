@@ -116,8 +116,8 @@ final class CategoryBehaviorTest extends Unit
     #[Override]
     protected function _before(): void
     {
-        if (!Yii::$app->db->getTableSchema(Category::tableName())) {
-            Yii::$app->db->createCommand()->createTable(Category::tableName(), [
+        if (!\app\notNull(Yii::$app)->db->getTableSchema(Category::tableName())) {
+            \app\notNull(Yii::$app)->db->createCommand()->createTable(Category::tableName(), [
                 'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
                 'sort' => 'smallint(3) NOT NULL',
                 'slug' => 'varchar(255) NOT NULL',
@@ -125,7 +125,7 @@ final class CategoryBehaviorTest extends Unit
             ])->execute();
         }
 
-        Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
+        \app\notNull(Yii::$app)->urlManager->addRules([new CategoryUrlRule()]);
 
         $this->tester->haveFixtures([
             'category' => CategoryFixture::class,

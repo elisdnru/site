@@ -5,8 +5,10 @@ use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\forms\LoginForm;
 use app\modules\user\widgets\OAuthWidget;
 use app\widgets\Portlet;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
@@ -15,7 +17,7 @@ use yii\widgets\ActiveForm;
  * @var ActiveForm $form
  * @var LoginForm $model
  */
-$request = Yii::$app->request;
+$request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 
 $this->context->layout = 'user';
 $this->title = 'Авторизация';
@@ -65,9 +67,9 @@ $this->params['breadcrumbs'] = [
 <?php Portlet::end(); ?>
 
 <?php Portlet::begin(['title' => 'Вход через аккаунт в соцсети']); ?>
-<?php if (Yii::$app->features->isActive('OAUTH')): ?>
+<?php if (\app\notNull(Yii::$app)->features->isActive('OAUTH')): ?>
     <?= OAuthWidget::widget([
-        'return' => Yii::$app->request->getUrl(),
+        'return' => $request->getUrl(),
     ]); ?>
 <?php else: ?>
     <?= ULoginWidget::widget([

@@ -11,9 +11,11 @@ use app\modules\blog\forms\SearchForm;
 use app\modules\blog\models\Post;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 use yii\widgets\LinkPager;
 
@@ -31,8 +33,8 @@ $this->params['breadcrumbs'] = [
     'Поиск',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать записи', 'url' => ['/blog/admin/post']];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create']];
     }

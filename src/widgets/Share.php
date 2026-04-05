@@ -7,8 +7,10 @@ namespace app\widgets;
 use BadMethodCallException;
 use Override;
 use RuntimeException;
+use Webmozart\Assert\Assert;
 use Yii;
 use yii\base\Widget;
+use yii\web\Application;
 use yii\web\Request;
 
 final class Share extends Widget
@@ -21,7 +23,7 @@ final class Share extends Widget
     #[Override]
     public function run(): string
     {
-        $request = Yii::$app->request;
+        $request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 
         if (!$request instanceof Request) {
             throw new BadMethodCallException('Unable to use non-web request.');

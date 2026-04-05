@@ -5,7 +5,9 @@ use app\modules\user\forms\ProfileForm;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
 use app\widgets\Portlet;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
+use yii\web\Application;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
@@ -22,7 +24,7 @@ $this->params['breadcrumbs'] = [
     'Редактирование',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
     $this->params['admin'][] = ['label' => 'Пользователи', 'url' => ['/user/admin/user/index']];
 } ?>
 

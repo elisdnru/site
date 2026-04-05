@@ -3,14 +3,16 @@
 use app\modules\portfolio\models\Category;
 use app\widgets\Follow;
 use app\widgets\Portlet;
+use Webmozart\Assert\Assert;
 use yii\caching\TagDependency;
+use yii\web\Application;
 use yii\web\View;
 use yii\widgets\Menu;
 
 /**
  * @var View $this
  */
-$request = Yii::$app->request;
+$request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 ?>
 
 <?php Portlet::begin(['title' => 'Также я здесь']); ?>

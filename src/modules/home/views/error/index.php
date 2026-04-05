@@ -1,7 +1,9 @@
 <?php declare(strict_types=1);
 
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -18,7 +20,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 
-<?php if (Yii::$app->user->can(Access::CONTROL)) {
+<?php if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
     $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url' => ['default/index']];
 } ?>
 

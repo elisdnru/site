@@ -2,6 +2,8 @@
 
 use app\modules\user\models\Access;
 use app\widgets\inline\SubscribeNews;
+use Webmozart\Assert\Assert;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -24,11 +26,11 @@ $this->params['breadcrumbs'] = [
     'Подписка на обновления',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('page')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('page')) {
         $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
     }
-    if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Записи', 'url' => ['/blog/admin/post/index']];
     }
 }

@@ -7,8 +7,10 @@ namespace app\modules\blog\widgets;
 use app\modules\blog\forms\SearchForm;
 use BadMethodCallException;
 use Override;
+use Webmozart\Assert\Assert;
 use Yii;
 use yii\base\Widget;
+use yii\web\Application;
 use yii\web\Request;
 
 final class SearchFormWidget extends Widget
@@ -18,7 +20,7 @@ final class SearchFormWidget extends Widget
     {
         $form = new SearchForm();
 
-        $request = Yii::$app->request;
+        $request = Assert::isInstanceOf(Yii::$app, Application::class)->request;
 
         if (!$request instanceof Request) {
             throw new BadMethodCallException('Unable to use non-web request.');

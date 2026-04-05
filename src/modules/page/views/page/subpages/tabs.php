@@ -1,9 +1,11 @@
 <?php declare(strict_types=1);
 
 use app\modules\page\models\Page;
+use Webmozart\Assert\Assert;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -21,7 +23,7 @@ use yii\web\View;
             <ul>
                 <?php foreach ($page->parent->children as $child): ?>
                     <?php $url = Url::to(['/page/page/show', 'path' => $child->getPath()]); ?>
-                    <?php if (Yii::$app->request->getPathInfo() === $url): ?>
+                    <?php if (Assert::isInstanceOf(Yii::$app, Application::class)->request->getPathInfo() === $url): ?>
                         <li class="active"><a href="<?= $url; ?>"><?= $child->title; ?></a></li>
                     <?php else: ?>
                         <li><a href="<?= $url; ?>"><?= $child->title; ?></a></li>

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use app\modules\page\models\Page;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -18,8 +20,8 @@ $this->params['breadcrumbs'] = $page->slug !== 'index' ? $page->getBreadcrumbs()
 
 $this->registerMetaTag(['name' => 'robots', 'content' => $page->robots]);
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('page')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('page')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/page/admin/page/update', 'id' => $page->id]];
         $this->params['admin'][] = ['label' => 'Страницы', 'url' => ['/page/admin/page/index']];
         $this->params['admin'][] = ['label' => 'Подстраницы', 'url' => ['/page/admin/page/index', 'Page[parent_id]' => $page->id]];

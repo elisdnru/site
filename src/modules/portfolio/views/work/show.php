@@ -6,8 +6,10 @@ use app\components\shortcodes\Shortcodes;
 use app\modules\portfolio\models\Work;
 use app\modules\user\models\Access;
 use app\widgets\Share;
+use Webmozart\Assert\Assert;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -25,8 +27,8 @@ $this->params['breadcrumbs'] = [
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], $model->category->getBreadcrumbs(true));
 $this->params['breadcrumbs'][] = $model->title;
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('portfolio')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('portfolio')) {
         $this->params['admin'][] = ['label' => 'Редактировать', 'url' => ['/portfolio/admin/work/update', 'id' => $model->id]];
         $this->params['admin'][] = ['label' => 'Редактировать категорию', 'url' => ['/portfolio/admin/category/update', 'id' => $model->category_id]];
         $this->params['admin'][] = ['label' => 'Работы', 'url' => ['/portfolio/admin/work/index']];

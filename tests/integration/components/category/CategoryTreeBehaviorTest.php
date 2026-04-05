@@ -370,8 +370,8 @@ final class CategoryTreeBehaviorTest extends Unit
     #[Override]
     protected function _before(): void
     {
-        if (!Yii::$app->db->getTableSchema(TreeCategory::tableName())) {
-            Yii::$app->db->createCommand()->createTable(TreeCategory::tableName(), [
+        if (!\app\notNull(Yii::$app)->db->getTableSchema(TreeCategory::tableName())) {
+            \app\notNull(Yii::$app)->db->createCommand()->createTable(TreeCategory::tableName(), [
                 'id' => 'int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY',
                 'sort' => 'smallint(3) NOT NULL',
                 'slug' => 'varchar(255) NOT NULL',
@@ -380,7 +380,7 @@ final class CategoryTreeBehaviorTest extends Unit
             ])->execute();
         }
 
-        Yii::$app->urlManager->addRules([new CategoryUrlRule()]);
+        \app\notNull(Yii::$app)->urlManager->addRules([new CategoryUrlRule()]);
 
         $this->tester->haveFixtures([
             'category' => TreeCategoryFixture::class,

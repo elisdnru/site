@@ -4,6 +4,8 @@ use app\modules\comment\forms\CommentForm;
 use app\modules\comment\models\Comment;
 use app\modules\user\models\Access;
 use app\modules\user\models\User;
+use Webmozart\Assert\Assert;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -16,8 +18,8 @@ $this->title = 'Редактор комментариев';
 $this->params['breadcrumbs'] = [
     'Редактор комментария',
 ];
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('comment')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('comment')) {
         $this->params['admin'][] = ['label' => 'Комментарии', 'url' => ['index']];
         $this->params['admin'][] = ['label' => 'Просмотр', 'url' => $model->getUrl()];
     }

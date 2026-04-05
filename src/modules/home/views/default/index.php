@@ -3,8 +3,10 @@
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\LastPostsWidget;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\caching\TagDependency;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -19,9 +21,9 @@ $this->registerMetaTag([
     'content' => 'Дмитрий Елисеев – разработчик сайтов, web-приложений, магазинов и порталов. Автор блога по Yii Framework, статей по программированию, интернет-разработке и профессиональному самосовершенствованию.',
 ]);
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('comment')) {
-        foreach (Yii::$app->moduleAdminNotifications->notifications('comment') as $notification) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('comment')) {
+        foreach (\app\notNull(Yii::$app)->moduleAdminNotifications->notifications('comment') as $notification) {
             $this->params['admin'][] = $notification;
         }
     }

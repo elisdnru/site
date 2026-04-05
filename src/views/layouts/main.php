@@ -6,9 +6,11 @@ use app\modules\blog\widgets\SearchFormWidget;
 use app\widgets\AdminBar;
 use app\widgets\Counters;
 use app\widgets\MainMenu;
+use Webmozart\Assert\Assert;
 use yii\caching\TagDependency;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -22,7 +24,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language; ?>">
+<html lang="<?= \app\notNull(Yii::$app)->language; ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,7 +103,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
         <!--/noindex-->
 
         <div class="system-nav">
-            <?php if (Yii::$app->request->getPathInfo() !== 'sitemap'): ?>
+            <?php if (Assert::isInstanceOf(Yii::$app, Application::class)->request->getPathInfo() !== 'sitemap'): ?>
                 <a href="/sitemap">Карта сайта</a>
             <?php else: ?>
                 <span>Карта сайта</span>

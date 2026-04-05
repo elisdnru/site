@@ -26,7 +26,7 @@ $this->params['admin'][] = ['label' => 'Вернуться на сайт', 'url'
     $notifications = [];
 foreach ($groups as $modules) {
     foreach ($modules as $module) {
-        foreach (Yii::$app->moduleAdminNotifications->notifications($module->id) as $notification) {
+        foreach (\app\notNull(Yii::$app)->moduleAdminNotifications->notifications($module->id) as $notification) {
             $notifications[] = $notification;
         }
     }
@@ -48,7 +48,7 @@ foreach ($groups as $modules) {
         <?php
     $has = false;
         foreach ($modules as $module) {
-            if (Yii::$app->moduleAdminMenu->menu($module->id)) {
+            if (\app\notNull(Yii::$app)->moduleAdminMenu->menu($module->id)) {
                 $has = true;
                 break;
             }
@@ -64,14 +64,14 @@ foreach ($groups as $modules) {
                      * @var AdminDashboardItem&Module $module
                      */
                     foreach ($modules as $module): ?>
-                        <?php if (Yii::$app->moduleAdminMenu->menu($module->id)): ?>
+                        <?php if (\app\notNull(Yii::$app)->moduleAdminMenu->menu($module->id)): ?>
                             <li>
                                 <?php if ($module->adminName() !== $group): ?>
                                     <h3><?= $module->adminName(); ?></h3>
                                 <?php endif; ?>
                                 <ul>
                                     <?= IconMenu::widget([
-                                        'items' => array_merge(Yii::$app->moduleAdminMenu->menu($module->id), Yii::$app->moduleAdminNotifications->notifications($module->id)),
+                                        'items' => array_merge(\app\notNull(Yii::$app)->moduleAdminMenu->menu($module->id), \app\notNull(Yii::$app)->moduleAdminNotifications->notifications($module->id)),
                                         'iconsPath' => '/images/admin/',
                                     ]); ?>
                                 </ul>

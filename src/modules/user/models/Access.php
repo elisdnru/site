@@ -18,7 +18,7 @@ final class Access
 
     public static function getRoles(): array
     {
-        $authManager = Yii::$app->authManager;
+        $authManager = \app\notNull(Yii::$app)->authManager;
 
         if ($authManager === null) {
             throw new BadMethodCallException('Auth manager is not set.');

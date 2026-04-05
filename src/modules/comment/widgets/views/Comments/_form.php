@@ -5,8 +5,10 @@ use app\modules\comment\forms\CommentForm;
 use app\modules\ulogin\widgets\ULoginWidget;
 use app\modules\user\models\User;
 use app\modules\user\widgets\OAuthWidget;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Application;
 use yii\widgets\ActiveForm;
 
 /**
@@ -14,6 +16,7 @@ use yii\widgets\ActiveForm;
  * @var ActiveForm $f
  * @var CommentForm $form
  */
+$app = Assert::isInstanceOf(Yii::$app, Application::class);
 ?>
 <!--noindex-->
 <div id="comment-form" class="form">
@@ -40,16 +43,16 @@ use yii\widgets\ActiveForm;
 
         <?php else: ?>
             <div style="margin-bottom: 10px">
-                <?php if (Yii::$app->features->isActive('OAUTH')): ?>
+                <?php if ($app->features->isActive('OAUTH')): ?>
                     <div style="float: right">
                         <?= OAuthWidget::widget([
-                            'return' => Yii::$app->request->getUrl(),
+                            'return' => $app->request->getUrl(),
                         ]); ?>
                     </div>
                 <?php else: ?>
                     <div style="float: right; margin-right: -10px">
                         <?= ULoginWidget::widget([
-                            'redirect' => Url::to(['/ulogin/default/login', 'return' => Yii::$app->request->getUrl()], true) . '#comments',
+                            'redirect' => Url::to(['/ulogin/default/login', 'return' => $app->request->getUrl()], true) . '#comments',
                             'display' => 'panel',
                         ]); ?>
                     </div>
@@ -57,7 +60,7 @@ use yii\widgets\ActiveForm;
                 <a href="<?= Url::to(['/user/default/login']); ?>">Войти</a> |
                 <a href="<?= Url::to(['/user/registration/request']); ?>">Завести аккаунт</a> |
                 <span style="color: #666">Войти через</span>
-                <?php Yii::$app->user->returnUrl = Yii::$app->request->getUrl(); ?>
+                <?php $app->user->returnUrl = $app->request->getUrl(); ?>
             </div>
 
             <div class="row<?= $form->hasErrors('name') ? ' error' : ''; ?><?= $form->isAttributeRequired('name') ? ' required' : ''; ?>">

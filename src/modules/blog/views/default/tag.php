@@ -4,7 +4,9 @@ use app\components\DataProvider;
 use app\components\PaginationFormatter;
 use app\modules\blog\models\Tag;
 use app\modules\user\models\Access;
+use Webmozart\Assert\Assert;
 use yii\helpers\Html;
+use yii\web\Application;
 use yii\web\View;
 
 /**
@@ -28,8 +30,8 @@ $this->params['breadcrumbs'] = [
     'Записи с меткой «' . $tag->title . '»',
 ];
 
-if (Yii::$app->user->can(Access::CONTROL)) {
-    if (Yii::$app->moduleAdminAccess->isGranted('blog')) {
+if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTROL)) {
+    if (\app\notNull(Yii::$app)->moduleAdminAccess->isGranted('blog')) {
         $this->params['admin'][] = ['label' => 'Редактировать записи', 'url' => ['/blog/admin/post']];
         $this->params['admin'][] = ['label' => 'Добавить запись', 'url' => ['/blog/admin/post/create']];
     }
