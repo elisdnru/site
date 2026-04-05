@@ -122,8 +122,6 @@ app-assets-lint:
 app-assets-lint-fix:
 	docker compose run --rm site-node-cli yarn eslint-fix
 	docker compose run --rm site-node-cli yarn stylelint-fix
-
-app-assets-pretty:
 	docker compose run --rm site-node-cli yarn prettier
 
 app-analyze:

@@ -7,7 +7,7 @@
     "eslint-fix": "eslint --fix",
     "stylelint": "stylelint \"assets/**/*.css\"",
     "stylelint-fix": "stylelint \"assets/**/*.css\" --fix",
-    "prettier": "prettier --write \"assets/**/*.(js|css)\""
+    "prettier": "prettier --write \"assets/**/*.(js|mjs|css)\""
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
