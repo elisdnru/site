@@ -48,6 +48,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
             DEWORKER_API_URL: https://api.deworker.pro
+            PRODUCTS_URL: https://products.elisdn.ru
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         secrets:
             - cookie_secret
@@ -86,6 +87,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
             DEWORKER_API_URL: https://api.deworker.pro
+            PRODUCTS_URL: https://products.elisdn.ru
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         secrets:
             - cookie_secret
@@ -125,6 +127,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: ${MAILER_FROM_EMAIL}
             DEWORKER_API_URL: https://api.deworker.pro
+            PRODUCTS_URL: https://products.elisdn.ru
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         secrets:
             - cookie_secret

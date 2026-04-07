@@ -71,6 +71,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
+            PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         volumes:
             - ./:/app
@@ -110,6 +111,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/mailer_password
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
+            PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
         volumes:
             - ./:/app

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use app\assets\ProductsAsset;
 use app\components\AuthManager;
 use app\components\ContentReplaceBehavior;
 use app\components\feature\FeatureToggle;
@@ -125,6 +126,9 @@ return [
             ],
             Pagination::class => [
                 'validatePage' => false,
+            ],
+            ProductsAsset::class => [
+                'baseUrl' => env('PRODUCTS_URL'),
             ],
             MathCaptchaAction::class => [
                 'backColor' => 0xFFFFFF,

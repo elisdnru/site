@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\assets\MainAsset;
+use app\assets\ProductsAsset;
 use app\modules\block\widgets\BlockWidget;
 use app\modules\blog\widgets\SearchFormWidget;
 use app\widgets\AdminBar;
@@ -18,6 +19,7 @@ use yii\web\View;
  * @var string $content
  */
 MainAsset::register($this);
+ProductsAsset::register($this);
 
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 

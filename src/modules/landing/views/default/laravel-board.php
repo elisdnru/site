@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use app\assets\BootstrapAsset;
+use app\assets\ProductsAsset;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -8,6 +9,7 @@ use yii\web\View;
  * @var View $this
  */
 BootstrapAsset::register($this);
+ProductsAsset::register($this);
 
 $this->title = 'Мастер-класс по разработке доски объявлений на Laravel Framework';
 ?>
