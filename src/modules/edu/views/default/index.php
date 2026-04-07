@@ -62,7 +62,7 @@ if (Assert::isInstanceOf(Yii::$app, Application::class)->user->can(Access::CONTR
 
     <div class="text">
         <p>
-            Каждую неделю записываю интересные видео по программированию на моём втором проекте скринкастов
+            Помимо статей записываю интересные скринкасты по программированию на моём втором проекте
             <a href="https://deworker.pro/edu" target="_blank" rel="noopener">deworker.pro</a> в сериях:
         </p>
 
