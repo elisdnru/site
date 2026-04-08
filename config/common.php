@@ -30,6 +30,7 @@ use app\widgets\inline\MailTo;
 use app\widgets\inline\RuTube;
 use app\widgets\inline\SubscribeNews;
 use app\widgets\inline\SubscribeWebinars;
+use app\widgets\inline\Video;
 use app\widgets\inline\YouTube;
 use codemix\streamlog\Target as StreamTarget;
 use Http\Client\Curl\Client;
@@ -240,6 +241,7 @@ return [
                         'countdown' => CountDown::class,
                         'rutube' => RuTube::class,
                         'youtube' => YouTube::class,
+                        'video' => Video::class,
                         'subscribe_webinars' => SubscribeWebinars::class,
                         'subscribe_news' => SubscribeNews::class,
                         'mailto' => MailTo::class,
