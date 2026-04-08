@@ -86,12 +86,12 @@ final class ShortcodesProcessor
 
     private function parseAttributes(string $attributesString): array
     {
-        $params = explode(';', $attributesString);
+        $params = explode(';', html_entity_decode($attributesString));
         $attrs = [];
 
         foreach ($params as $param) {
             if ($param) {
-                [$attribute, $value] = explode('=', $param);
+                [$attribute, $value] = explode('=', $param, 2);
                 if ($value) {
                     $attrs[$attribute] = trim($value);
                 }

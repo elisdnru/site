@@ -128,6 +128,11 @@
       <code><![CDATA[ob_get_clean()]]></code>
     </PossiblyFalseArgument>
   </file>
+  <file src="src/components/shortcodes/ShortcodesProcessor.php">
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$value]]></code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
   <file src="src/components/shortcodes/WidgetRenderer.php">
     <PossiblyFalseArgument>
       <code><![CDATA[ob_get_clean()]]></code>
