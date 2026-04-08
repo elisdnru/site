@@ -1,0 +1,26 @@
+.countdown {
+  display: grid;
+  grid-template-columns: 4rem 0.1rem 4rem 0.1rem 4rem 0.1rem 4rem;
+  font-size: 2.3rem;
+  place-items: center;
+  padding: 0.2rem 0 0.75rem;
+}
+
+.countdown-item {
+  position: relative;
+}
+
+.countdown-item::before {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  transform: translateX(-50%);
+  font-size: 0.875rem;
+}
+
+.countdown-separator {
+  color: #ccc;
+  font-size: 80%;
+}

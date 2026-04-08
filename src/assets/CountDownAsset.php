@@ -13,8 +13,4 @@ final class CountDownAsset extends AssetBundle
     public $js = [
         'countdown.js',
     ];
-
-    public $depends = [
-        ETimerAsset::class,
-    ];
 }
