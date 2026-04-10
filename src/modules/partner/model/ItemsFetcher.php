@@ -21,7 +21,7 @@ final class ItemsFetcher
             new Item(
                 title: 'Интенсив Неделя ООП',
                 url: '/oop-week',
-                price: 5950,
+                price: 12000,
                 firstPercent: 30
             ),
             new Item(
