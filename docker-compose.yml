@@ -16,12 +16,12 @@ services:
             - traefik.docker.network=traefik-public
 
     site:
-        image: ${REGISTRY:-localhost}/site-dev:cache
+        image: ${REGISTRY:-localhost}/site:dev-cache
         build:
             context: ./docker
             dockerfile: development/nginx/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev:cache
+                - ${REGISTRY:-localhost}/site:dev-cache
             cache_to:
                 - type=inline
         networks:
@@ -41,7 +41,7 @@ services:
             - traefik.http.services.site.loadBalancer.server.port=80
 
     site-php-fpm:
-        image: ${REGISTRY:-localhost}/site-dev-php-fpm:cache
+        image: ${REGISTRY:-localhost}/site-php-fpm:dev-cache
         build:
             context: ./docker
             dockerfile: development/php-fpm/Dockerfile
@@ -49,7 +49,7 @@ services:
                 GID: ${GID:-1000}
                 UID: ${UID:-1000}
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-php-fpm:cache
+                - ${REGISTRY:-localhost}/site-php-fpm:dev-cache
             cache_to:
                 - type=inline
         environment:
@@ -83,7 +83,7 @@ services:
             - sentry_dsn
 
     site-php-cli:
-        image: ${REGISTRY:-localhost}/site-dev-php-cli:cache
+        image: ${REGISTRY:-localhost}/site-php-cli:dev-cache
         build:
             context: ./docker
             dockerfile: development/php-cli/Dockerfile
@@ -91,7 +91,7 @@ services:
                 GID: ${GID:-1000}
                 UID: ${UID:-1000}
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-php-cli:cache
+                - ${REGISTRY:-localhost}/site-php-cli:dev-cache
             cache_to:
                 - type=inline
         environment:
@@ -124,14 +124,14 @@ services:
         network_mode: service:site
 
     site-node-watch:
-        image: ${REGISTRY:-localhost}/site-dev-node-watch:cache
+        image: ${REGISTRY:-localhost}/site-node-watch:dev-cache
         build:
             context: ./docker/development/node
             args:
                 GID: ${GID:-1000}
                 UID: ${UID:-1000}
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-node-watch:cache
+                - ${REGISTRY:-localhost}/site-node-watch:dev-cache
             cache_to:
                 - type=inline
         volumes:
@@ -139,14 +139,14 @@ services:
         command: ["sh", "-c", "until [ -f .ready ] ; do sleep 1 ; done && exec npm run watch"]
 
     site-node-cli:
-        image: ${REGISTRY:-localhost}/site-dev-node-cli:cache
+        image: ${REGISTRY:-localhost}/site-node-cli:dev-cache
         build:
             context: ./docker/development/node
             args:
                 GID: ${GID:-1000}
                 UID: ${UID:-1000}
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-node-cli:cache
+                - ${REGISTRY:-localhost}/site-node-cli:dev-cache
             cache_to:
                 - type=inline
         volumes:
@@ -168,12 +168,12 @@ services:
             - "3306:3306"
 
     site-mysql-backup:
-        image: ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
+        image: ${REGISTRY:-localhost}/site-mysql-backup:dev-cache
         build:
             context: ./docker/common
             dockerfile: mysql-backup/Dockerfile
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-mysql-backup:cache
+                - ${REGISTRY:-localhost}/site-mysql-backup:dev-cache
             cache_to:
                 - type=inline
         volumes:
@@ -195,11 +195,11 @@ services:
         command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && exec backup"]
 
     site-upload-backup:
-        image: ${REGISTRY:-localhost}/site-dev-files-backup:cache
+        image: ${REGISTRY:-localhost}/site-files-backup:dev-cache
         build:
             context: ./docker/common/files-backup
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-files-backup:cache
+                - ${REGISTRY:-localhost}/site-files-backup:dev-cache
             cache_to:
                 - type=inline
         environment:
@@ -217,11 +217,11 @@ services:
             - upload-backup:/app
 
     site-redis:
-        image: ${REGISTRY:-localhost}/site-dev-redis:cache
+        image: ${REGISTRY:-localhost}/site-redis:dev-cache
         build:
             context: ./docker/common/redis
             cache_from:
-                - ${REGISTRY:-localhost}/site-dev-redis:cache`
+                - ${REGISTRY:-localhost}/site-redis:dev-cache
             cache_to:
                 - type=inline
         environment:

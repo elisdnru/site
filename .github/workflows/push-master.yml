@@ -179,4 +179,4 @@ jobs:
                     delete-untagged: true
                     filter-tags: master-*
                     keep-at-most: 5
-                    skip-tags: latest,cache,cache-builder
+                    skip-tags: latest,cache,cache-builder,dev-cache
