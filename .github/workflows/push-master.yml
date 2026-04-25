@@ -20,16 +20,16 @@ jobs:
             packages: write
 
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v6
 
             -   name: Cache vendors
-                uses: actions/cache@v4
+                uses: actions/cache@v5
                 with:
                     path: vendor
                     key: composer-${{ hashFiles('composer.lock') }}
 
             -   name: Cache node modules
-                uses: actions/cache@v4
+                uses: actions/cache@v5
                 with:
                     path: node_modules
                     key: yarn-${{ hashFiles('yarn.lock') }}
@@ -38,7 +38,7 @@ jobs:
                 run: echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
             -   name: Docker login
-                uses: azure/docker-login@v1
+                uses: azure/docker-login@v2
                 with:
                     login-server: ${{ env.REGISTRY_HOST }}
                     username: ${{ github.actor }}
@@ -94,7 +94,7 @@ jobs:
                 run: make testing-e2e
 
             -   name: Archive test output
-                uses: actions/upload-artifact@v4
+                uses: actions/upload-artifact@v7
                 with:
                     name: test-output
                     path: tests/_output
@@ -113,7 +113,7 @@ jobs:
             contents: read
 
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v6
 
             -   name: Install SSH key
                 uses: shimataro/ssh-key-action@v2
@@ -128,7 +128,7 @@ jobs:
                 run: echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
             -   name: Docker login
-                uses: azure/docker-login@v1
+                uses: azure/docker-login@v2
                 with:
                     login-server: ${{ env.REGISTRY_HOST }}
                     username: ${{ github.actor }}
