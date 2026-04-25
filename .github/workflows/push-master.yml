@@ -90,6 +90,7 @@ jobs:
                 run: make testing-init
 
             -   name: Testing E2E
+                id: testing_e2e
                 run: make testing-e2e
 
             -   name: Archive test output
@@ -97,7 +98,7 @@ jobs:
                 with:
                     name: test-output
                     path: tests/_output
-                if: ${{ failure() }}
+                if: ${{ failure() && steps.testing_e2e.outcome == 'failure' }}
 
             -   name: Testing Down
                 run: make testing-down-clear
