@@ -153,7 +153,7 @@ services:
             - ./:/app
 
     site-mysql:
-        image: mariadb:11
+        image: mariadb:12
         volumes:
             - mysql:/var/lib/mysql
         environment:
