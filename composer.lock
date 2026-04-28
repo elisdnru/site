@@ -716,12 +716,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-feed.git",
-                "reference": "f9c4191824adb19b7cb8f9bdb5d0e2352e57dbf2"
+                "reference": "912330e5e2140b2f4d8337cf727f4e14d81c366e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/f9c4191824adb19b7cb8f9bdb5d0e2352e57dbf2",
-                "reference": "f9c4191824adb19b7cb8f9bdb5d0e2352e57dbf2",
+                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/912330e5e2140b2f4d8337cf727f4e14d81c366e",
+                "reference": "912330e5e2140b2f4d8337cf727f4e14d81c366e",
                 "shasum": ""
             },
             "require": {
@@ -790,7 +790,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2026-04-20T12:17:29+00:00"
+            "time": "2026-04-27T01:21:04+00:00"
         },
         {
             "name": "laminas/laminas-stdlib",
@@ -10115,7 +10115,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -10174,7 +10174,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.37.0"
             },
             "funding": [
                 {
