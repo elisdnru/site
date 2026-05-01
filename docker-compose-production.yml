@@ -37,10 +37,12 @@ services:
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
+            DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
+            REDIS_PORT: 6379
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
@@ -76,10 +78,12 @@ services:
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
+            DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
+            REDIS_PORT: 6379
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
@@ -116,10 +120,12 @@ services:
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
+            DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
+            REDIS_PORT: 6379
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
@@ -175,6 +181,7 @@ services:
         environment:
             BACKUP_NAME: site-mysql
             MYSQL_HOST: site-mysql
+            MYSQL_PORT: 3306
             MYSQL_USER: app
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_DB: app

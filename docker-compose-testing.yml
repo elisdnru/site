@@ -39,10 +39,12 @@ services:
             APP_CAPTCHA_CODE: 42
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
+            DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
+            REDIS_PORT: 6379
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
@@ -67,10 +69,12 @@ services:
             APP_URL: http://localhost
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
+            DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
+            REDIS_PORT: 6379
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
@@ -96,10 +100,12 @@ services:
             APP_URL: http://localhost
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
             DB_HOST: site-mysql
+            DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
             DB_PASSWORD_FILE: /run/secrets/db_password
             REDIS_HOST: site-redis
+            REDIS_PORT: 6379
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025

@@ -7,8 +7,13 @@ BACKUP_FILE="${BACKUP_NAME:?}_$(date +%Y-%m-%d_%H-%M).sql.gz"
 
 echo "Dump $BACKUP_FILE"
 
-mariadb-dump --host="${MYSQL_HOST:?}" --user="${MYSQL_USER:?}" --password="${MYSQL_PASSWORD:?}" \
-  --single-transaction "${MYSQL_DB:?}" | gzip -9 > "$BACKUP_FILE"
+mariadb-dump \
+    --host="${MYSQL_HOST:?}" \
+    --port="${MYSQL_PORT:?}" \
+    --user="${MYSQL_USER:?}" \
+    --password="${MYSQL_PASSWORD:?}" \
+    --single-transaction \
+    "${MYSQL_DB:?}" | gzip -9 > "$BACKUP_FILE"
 
 echo "Upload to S3"
 

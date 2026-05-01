@@ -153,7 +153,7 @@ return [
             ],
             Connection::class => [
                 'class' => Connection::class,
-                'dsn' => 'mysql:host=' . env('DB_HOST') . ';dbname=' . env('DB_NAME'),
+                'dsn' => 'mysql:host=' . env('DB_HOST') . ';port=' . env('DB_PORT') . ';dbname=' . env('DB_NAME'),
                 'username' => env('DB_USERNAME'),
                 'password' => env('DB_PASSWORD'),
                 'tablePrefix' => '',
@@ -164,7 +164,7 @@ return [
             RedisConnection::class => [
                 'class' => RedisConnection::class,
                 'hostname' => env('REDIS_HOST'),
-                'port' => 6379,
+                'port' => (int)env('REDIS_PORT'),
                 'password' => env('REDIS_PASSWORD'),
                 'database' => 0,
             ],
