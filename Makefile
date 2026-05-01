@@ -200,13 +200,6 @@ build:
 	--tag ${REGISTRY}/site-files-backup:${IMAGE_TAG} \
 	--file docker/common/files-backup/Dockerfile docker/common/files-backup
 
-	docker buildx build --pull \
-	--cache-to type=inline \
-	--cache-from ${REGISTRY}/site-redis:cache \
-	--tag ${REGISTRY}/site-redis:cache \
-	--tag ${REGISTRY}/site-redis:${IMAGE_TAG} \
-	--file docker/common/redis/Dockerfile docker/common/redis
-
 try-build:
 	REGISTRY=localhost IMAGE_TAG=0 make build
 
@@ -218,7 +211,6 @@ push-build-cache:
 	docker push ${REGISTRY}/site-php-cli:cache
 	docker push ${REGISTRY}/site-mysql-backup:cache
 	docker push ${REGISTRY}/site-files-backup:cache
-	docker push ${REGISTRY}/site-redis:cache
 
 push:
 	docker push ${REGISTRY}/site:${IMAGE_TAG}
@@ -226,7 +218,6 @@ push:
 	docker push ${REGISTRY}/site-php-cli:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
 	docker push ${REGISTRY}/site-files-backup:${IMAGE_TAG}
-	docker push ${REGISTRY}/site-redis:${IMAGE_TAG}
 
 testing-build: testing-build-site-testing-php-cli
 

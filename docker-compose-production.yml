@@ -36,13 +36,13 @@ services:
             APP_ENV: prod
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
-            DB_HOST: site-mysql
-            DB_PORT: 3306
-            DB_NAME: app
-            DB_USERNAME: app
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_NAME: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
             DB_PASSWORD_FILE: /run/secrets/db_password
-            REDIS_HOST: site-redis
-            REDIS_PORT: 6379
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PORT: ${REDIS_PORT}
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
@@ -77,13 +77,13 @@ services:
             APP_ENV: prod
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
-            DB_HOST: site-mysql
-            DB_PORT: 3306
-            DB_NAME: app
-            DB_USERNAME: app
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_NAME: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
             DB_PASSWORD_FILE: /run/secrets/db_password
-            REDIS_HOST: site-redis
-            REDIS_PORT: 6379
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PORT: ${REDIS_PORT}
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
@@ -102,7 +102,7 @@ services:
         volumes:
             - assets:/app/public/assets
             - upload:/app/public/upload
-        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 60 && exec php bin/app.php migrate --interactive=0"]
+        command: ["php", "bin/app.php migrate", "--interactive=0"]
         deploy:
             restart_policy:
                 condition: on-failure
@@ -119,13 +119,13 @@ services:
             APP_ENV: prod
             APP_URL: https://elisdn.ru
             COOKIE_SECRET_FILE: /run/secrets/cookie_secret
-            DB_HOST: site-mysql
-            DB_PORT: 3306
-            DB_NAME: app
-            DB_USERNAME: app
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_NAME: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
             DB_PASSWORD_FILE: /run/secrets/db_password
-            REDIS_HOST: site-redis
-            REDIS_PORT: 6379
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PORT: ${REDIS_PORT}
             REDIS_PASSWORD_FILE: /run/secrets/redis_password
             MAILER_HOST: ${MAILER_HOST}
             MAILER_PORT: ${MAILER_PORT}
@@ -144,7 +144,7 @@ services:
         volumes:
             - assets:/app/public/assets
             - upload:/app/public/upload
-        command: ["sh", "-c", "wait-for-it site-redis:6379 -t 60 && exec php bin/app.php cache/flush cache --interactive=0"]
+        command: ["php", "bin/app.php", "cache/flush", "cache", "--interactive=0"]
         deploy:
             update_config:
                 delay: 40s
@@ -156,35 +156,17 @@ services:
             placement:
                 constraints: [ node.role == manager ]
 
-    site-mysql:
-        image: mariadb:11
-        environment:
-            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
-            MYSQL_USER: app
-            MYSQL_PASSWORD_FILE: /run/secrets/db_password
-            MYSQL_DATABASE: app
-            MARIADB_AUTO_UPGRADE: 1
-        secrets:
-            - db_root_password
-            - db_password
-        volumes:
-            - mysql:/var/lib/mysql
-        deploy:
-            placement:
-                constraints: [ node.labels.db == db ]
-            endpoint_mode: dnsrr
-
     site-mysql-backup:
         image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
         volumes:
             - mysql-backup:/app
         environment:
             BACKUP_NAME: site-mysql
-            MYSQL_HOST: site-mysql
-            MYSQL_PORT: 3306
-            MYSQL_USER: app
+            MYSQL_HOST: ${DB_HOST}
+            MYSQL_PORT: ${DB_PORT}
+            MYSQL_DB: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
-            MYSQL_DB: app
             AWS_ACCESS_KEY_ID: ${BACKUP_AWS_ACCESS_KEY_ID}
             AWS_SECRET_ACCESS_KEY_FILE: /run/secrets/backup_aws_secret_access_key
             AWS_DEFAULT_REGION: ${BACKUP_AWS_DEFAULT_REGION}
@@ -193,7 +175,6 @@ services:
         secrets:
             - db_password
             - backup_aws_secret_access_key
-        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 60 && exec backup"]
         deploy:
             labels:
                 - swarm.cronjob.enable=true
@@ -229,23 +210,6 @@ services:
             placement:
                 constraints: [ node.role == manager ]
 
-    site-redis:
-        image: ${REGISTRY}/site-redis:${IMAGE_TAG}
-        environment:
-            REDIS_PASSWORD_FILE: /run/secrets/redis_password
-        secrets:
-            - redis_password
-        volumes:
-            - redis:/data
-        command:
-            - 'redis-server'
-            - '--maxmemory 32mb'
-            - '--maxmemory-policy allkeys-lru'
-        deploy:
-            placement:
-                constraints: [ node.labels.db == db ]
-            endpoint_mode: dnsrr
-
 secrets:
     cookie_secret:
         file: ${COOKIE_SECRET_FILE}
@@ -266,9 +230,7 @@ volumes:
     assets:
     upload:
     upload-backup:
-    mysql:
     mysql-backup:
-    redis:
 
 networks:
     traefik-public:

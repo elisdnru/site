@@ -139,17 +139,14 @@ services:
             - db_password
 
     site-redis:
-        image: ${REGISTRY}/site-redis:${IMAGE_TAG}
-        environment:
-            REDIS_PASSWORD_FILE: /run/secrets/redis_password
-        secrets:
-            - redis_password
+        image: redis:8.6-alpine3.23
         volumes:
             - redis:/data
         command:
             - 'redis-server'
             - '--maxmemory 32mb'
             - '--maxmemory-policy allkeys-lru'
+            - '--requirepass secret'
 
     site-mailer:
         image: axllent/mailpit:v1.26
