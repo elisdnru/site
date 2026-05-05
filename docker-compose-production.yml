@@ -102,7 +102,7 @@ services:
         volumes:
             - assets:/app/public/assets
             - upload:/app/public/upload
-        command: ["php", "bin/app.php migrate", "--interactive=0"]
+        command: ["php", "bin/app.php", "migrate", "--interactive=0"]
         deploy:
             restart_policy:
                 condition: on-failure
