@@ -36,29 +36,23 @@ services:
             APP_ENV: prod
             APP_URL: http://localhost
             APP_CAPTCHA_CODE: 42
-            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            COOKIE_SECRET: test
             DB_HOST: site-mysql
             DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
-            DB_PASSWORD_FILE: /run/secrets/db_password
+            DB_PASSWORD: db-password
             REDIS_HOST: site-redis
             REDIS_PORT: 6379
-            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            REDIS_PASSWORD: redis-password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USERNAME: app
-            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_PASSWORD: mailer-password
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
-        secrets:
-            - cookie_secret
-            - db_password
-            - redis_password
-            - mailer_password
-            - sentry_dsn
+            SENTRY_DSN: ''
 
     site-php-cli:
         image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
@@ -66,29 +60,23 @@ services:
             APP_DEBUG: 0
             APP_ENV: prod
             APP_URL: http://localhost
-            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            COOKIE_SECRET: test
             DB_HOST: site-mysql
             DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
-            DB_PASSWORD_FILE: /run/secrets/db_password
+            DB_PASSWORD: db-password
             REDIS_HOST: site-redis
             REDIS_PORT: 6379
-            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            REDIS_PASSWORD: redis-password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USERNAME: app
-            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_PASSWORD: mailer-password
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
-        secrets:
-            - cookie_secret
-            - db_password
-            - redis_password
-            - mailer_password
-            - sentry_dsn
+            SENTRY_DSN: ''
         network_mode: service:site
 
     testing-site-php-cli:
@@ -97,31 +85,25 @@ services:
             APP_DEBUG: 1
             APP_ENV: dev
             APP_URL: http://localhost
-            COOKIE_SECRET_FILE: /run/secrets/cookie_secret
+            COOKIE_SECRET: test
             DB_HOST: site-mysql
             DB_PORT: 3306
             DB_NAME: app
             DB_USERNAME: app
-            DB_PASSWORD_FILE: /run/secrets/db_password
+            DB_PASSWORD: db-password
             REDIS_HOST: site-redis
             REDIS_PORT: 6379
-            REDIS_PASSWORD_FILE: /run/secrets/redis_password
+            REDIS_PASSWORD: redis-password
             MAILER_HOST: site-mailer
             MAILER_PORT: 1025
             MAILER_USERNAME: app
-            MAILER_PASSWORD_FILE: /run/secrets/mailer_password
+            MAILER_PASSWORD: mailer-password
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN_FILE: /run/secrets/sentry_dsn
+            SENTRY_DSN: ''
         volumes:
             - ./tests/_output:/app/tests/_output
-        secrets:
-            - cookie_secret
-            - db_password
-            - redis_password
-            - mailer_password
-            - sentry_dsn
         network_mode: service:site
 
     site-mysql:
@@ -129,13 +111,10 @@ services:
         volumes:
             - mysql:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+            MYSQL_ROOT_PASSWORD: db-root-password
             MYSQL_USER: app
-            MYSQL_PASSWORD_FILE: /run/secrets/db_password
+            MYSQL_PASSWORD: db-password
             MYSQL_DATABASE: app
-        secrets:
-            - db_root_password
-            - db_password
 
     site-redis:
         image: redis:8.6-alpine3.23
@@ -145,7 +124,7 @@ services:
             - 'redis-server'
             - '--maxmemory 32mb'
             - '--maxmemory-policy allkeys-lru'
-            - '--requirepass secret'
+            - '--requirepass redis-password'
 
     site-mailer:
         image: axllent/mailpit:v1.26
@@ -178,20 +157,6 @@ services:
             - traefik.http.routers.site-wiremock.rule=Host(`wiremock.localhost`)
             - traefik.http.routers.site-wiremock.entryPoints=http
             - traefik.http.services.site-wiremock.loadBalancer.server.port=8080
-
-secrets:
-    cookie_secret:
-        file: ./secrets/cookie_secret
-    db_password:
-        file: ./secrets/db_password
-    db_root_password:
-        file: ./secrets/db_root_password
-    redis_password:
-        file: ./secrets/redis_password
-    mailer_password:
-        file: ./secrets/mailer_password
-    sentry_dsn:
-        file: ./secrets/sentry_dsn
 
 volumes:
     mysql:

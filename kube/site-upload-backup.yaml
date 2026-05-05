@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: site-mysql-backup
+  name: site-upload-backup
   namespace: elisdn
 spec:
   schedule: "30 0 */2 * *"
@@ -13,7 +13,7 @@ spec:
         spec:
           restartPolicy: Never
           containers:
-            - name: site-mysql-backup
+            - name: site-upload-backup
               image: ${REGISTRY}/site-files-backup:${IMAGE_TAG}
               env:
                 - name: BACKUP_NAME
