@@ -5,6 +5,9 @@ services:
         networks:
             - traefik-public
             - default
+        environment:
+            NGINX_UPSTREAM_RESOLVER: 127.0.0.11
+            NGINX_UPSTREAM_HOST: ""
         volumes:
             - assets:/app/public/assets:ro
             - upload:/app/public/upload:ro

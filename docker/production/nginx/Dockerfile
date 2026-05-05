@@ -10,10 +10,16 @@ RUN yarn build
 
 FROM nginx:1.29-alpine3.23
 
-RUN apk add --no-cache curl
+COPY ./docker/common/nginx/docker-entrypoint-nginx-conf.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint-nginx-conf.sh
+
+ENTRYPOINT ["docker-entrypoint-nginx-conf.sh", "/docker-entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
 
 COPY ./docker/common/nginx/snippets /etc/nginx/snippets
 COPY ./docker/common/nginx/conf.d /etc/nginx/conf.d
+
+RUN apk add --no-cache curl
 
 WORKDIR /app
 
