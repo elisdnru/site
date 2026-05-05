@@ -259,5 +259,4 @@ try-testing-down-clear:
 	REGISTRY=localhost IMAGE_TAG=0 make testing-down-clear
 
 deploy:
-	envsubst < docker-compose-production.yml > "${TEMP_PATH}/compose.yml"
-	DOCKER_HOST=ssh://deploy@${HOST}:${PORT} docker stack deploy --compose-file "${TEMP_PATH}/compose.yml" site --with-registry-auth --prune
+	find kube -type f -name "*.yaml" | xargs -i sh -c 'envsubst < "{}" | kubectl apply -f -'

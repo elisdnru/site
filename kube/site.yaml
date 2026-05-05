@@ -1,0 +1,427 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site
+  namespace: elisdn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: site
+  template:
+    metadata:
+      labels:
+        app: site
+    spec:
+      containers:
+        - name: site
+          image: ${REGISTRY}/site:${IMAGE_TAG}
+          env:
+            - name: NGINX_UPSTREAM_RESOLVER
+              value: kube-dns.kube-system.svc.cluster.local
+            - name: NGINX_UPSTREAM_HOST
+              value: .elisdn.svc.cluster.local
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 6
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: site-assets
+              mountPath: /app/public/assets
+              readOnly: true
+            - name: site-upload
+              mountPath: /app/public/upload
+              readOnly: true
+      volumes:
+        - name: site-assets
+          hostPath:
+            path: /mnt/elisdn/site/assets
+            type: Directory
+        - name: site-upload
+          hostPath:
+            path: /mnt/elisdn/site/upload
+            type: Directory
+      imagePullSecrets:
+        - name: docker-registry
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: site
+  namespace: elisdn
+spec:
+  selector:
+    app: site
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-php-fpm
+  namespace: elisdn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: site-php-fpm
+  template:
+    metadata:
+      labels:
+        app: site-php-fpm
+    spec:
+      containers:
+        - name: site-php-fpm
+          image: ${REGISTRY}/site-php-fpm:${IMAGE_TAG}
+          env:
+            - name: APP_DEBUG
+              value: '0'
+            - name: APP_ENV
+              value: prod
+            - name: APP_URL
+              value: https://elisdn.ru
+            - name: COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: site-cookie
+                  key: secret
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: host
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: port
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: password
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: port
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: password
+            - name: MAILER_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: host
+            - name: MAILER_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: port
+            - name: MAILER_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: username
+            - name: MAILER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: password
+            - name: MAILER_FROM_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: fromEmail
+            - name: DEWORKER_API_URL
+              value: https://api.deworker.pro
+            - name: PRODUCTS_URL
+              value: https://products.elisdn.ru
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: site-sentry
+                  key: dsn
+          ports:
+            - containerPort: 9000
+          volumeMounts:
+            - name: site-assets
+              mountPath: /app/public/assets
+            - name: site-upload
+              mountPath: /app/public/upload
+      initContainers:
+        - name: site-migrations
+          image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
+          command: ["php", "bin/app.php", "migrate", "--interactive=0"]
+          env:
+            - name: APP_DEBUG
+              value: '0'
+            - name: APP_ENV
+              value: prod
+            - name: APP_URL
+              value: https://elisdn.ru
+            - name: COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: site-cookie
+                  key: secret
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: host
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: port
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: password
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: port
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: password
+            - name: MAILER_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: host
+            - name: MAILER_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: port
+            - name: MAILER_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: username
+            - name: MAILER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: password
+            - name: MAILER_FROM_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: fromEmail
+            - name: DEWORKER_API_URL
+              value: https://api.deworker.pro
+            - name: PRODUCTS_URL
+              value: https://products.elisdn.ru
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: site-sentry
+                  key: dsn
+          volumeMounts:
+            - name: site-assets
+              mountPath: /app/public/assets
+            - name: site-upload
+              mountPath: /app/public/upload
+        - name: site-cache-flush
+          image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
+          command: ["php", "bin/app.php", "cache/flush", "cache", "--interactive=0"]
+          env:
+            - name: APP_DEBUG
+              value: '0'
+            - name: APP_ENV
+              value: prod
+            - name: APP_URL
+              value: https://elisdn.ru
+            - name: COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: site-cookie
+                  key: secret
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: host
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: port
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-db
+                  key: password
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: port
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-redis
+                  key: password
+            - name: MAILER_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: host
+            - name: MAILER_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: port
+            - name: MAILER_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: username
+            - name: MAILER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: password
+            - name: MAILER_FROM_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: site-mailer
+                  key: fromEmail
+            - name: DEWORKER_API_URL
+              value: https://api.deworker.pro
+            - name: PRODUCTS_URL
+              value: https://products.elisdn.ru
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: site-sentry
+                  key: dsn
+          volumeMounts:
+            - name: site-assets
+              mountPath: /app/public/assets
+            - name: site-upload
+              mountPath: /app/public/upload
+      volumes:
+        - name: site-assets
+          hostPath:
+            path: /mnt/elisdn/site/assets
+            type: Directory
+        - name: site-upload
+          hostPath:
+            path: /mnt/elisdn/site/upload
+            type: Directory
+      imagePullSecrets:
+        - name: docker-registry
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: site-php-fpm
+  namespace: elisdn
+spec:
+  selector:
+    app: site-php-fpm
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: site
+  namespace: elisdn
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    cert-manager.io/issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - elisdn.ru
+        - www.elisdn.ru
+      secretName: letsencrypt-site
+  rules:
+    - host: elisdn.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: site
+                port:
+                  number: 80

@@ -1,0 +1,62 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: site-mysql-backup
+  namespace: elisdn
+spec:
+  schedule: "30 0 */2 * *"
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 100
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: site-mysql-backup
+              image: ${REGISTRY}/site-files-backup:${IMAGE_TAG}
+              env:
+                - name: BACKUP_NAME
+                  value: site-upload
+                - name: TARGET
+                  value: /upload
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: keyId
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: keySecret
+                - name: AWS_DEFAULT_REGION
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: region
+                - name: S3_ENDPOINT
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: endpoint
+                - name: S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: bucket
+              volumeMounts:
+                - name: site-upload-backup
+                  mountPath: /app
+                - name: site-upload
+                  mountPath: /upload
+          volumes:
+            - name: site-upload-backup
+              emptyDir:
+                sizeLimit: 128Mi
+            - name: site-upload
+              hostPath:
+                path: /mnt/elisdn/site/upload
+                type: Directory
+          imagePullSecrets:
+            - name: docker-registry

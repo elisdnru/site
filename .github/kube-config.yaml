@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Config
+clusters:
+  - name: k8s
+    cluster:
+      insecure-skip-tls-verify: true
+      server: ${SERVER}
+contexts:
+  - name: context
+    context:
+      cluster: k8s
+      namespace: default
+      user: deploy
+current-context: context
+users:
+  - name: deploy
+    user:
+      token: ${TOKEN}

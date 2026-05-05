@@ -115,59 +115,42 @@ jobs:
         steps:
             -   uses: actions/checkout@v6
 
-            -   name: Install SSH key
-                uses: shimataro/ssh-key-action@v2
+            -   name: Install Kubectl
+                uses: azure/setup-kubectl@v5
                 with:
-                    key: ${{ secrets.DEPLOY_SSH_KEY }}
-                    known_hosts: placeholder
+                    version: 'v1.35.3'
 
-            -   name: Put SSH known host
-                run: ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+            -   name: Kube Config
+                run: |
+                    mkdir ~/.kube
+                    envsubst < .github/kube-config.yaml > ~/.kube/config
+                env:
+                    SERVER: ${{ secrets.PRODUCTION_KUBERNETES_SERVER }}
+                    TOKEN: ${{ secrets.PRODUCTION_KUBERNETES_TOKEN }}
 
             -   name: Set registry env
                 run: echo "REGISTRY=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
-            -   name: Docker login
-                uses: azure/docker-login@v2
-                with:
-                    login-server: ${{ env.REGISTRY_HOST }}
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.DEPLOY_REGISTRY_PASSWORD }}
-
-            -   name: Secrets
-                run: |
-                    echo '${{ secrets.COOKIE_SECRET }}' > /tmp/cookie_secret
-                    echo '${{ secrets.DB_PASSWORD }}' > /tmp/db_password
-                    echo '${{ secrets.DB_ROOT_PASSWORD }}' > /tmp/db_root_password
-                    echo '${{ secrets.REDIS_PASSWORD }}' > /tmp/redis_password
-                    echo '${{ secrets.MAILER_PASSWORD }}' > /tmp/mailer_password
-                    echo '${{ secrets.SENTRY_DSN }}' > /tmp/sentry_dsn
-                    echo '${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}' > /tmp/backup_aws_secret_access_key
-
             -   name: Deploy
                 run: make deploy
                 env:
-                    TEMP_PATH: /tmp
-                    HOST: ${{ secrets.DEPLOY_HOST }}
-                    PORT: ${{ secrets.DEPLOY_PORT }}
-                    COOKIE_SECRET_FILE: /tmp/cookie_secret
+                    COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
                     DB_HOST: ${{ secrets.DB_HOST }}
                     DB_PORT: ${{ secrets.DB_PORT }}
                     DB_DATABASE: ${{ secrets.DB_DATABASE }}
                     DB_USERNAME: ${{ secrets.DB_USERNAME }}
-                    DB_ROOT_PASSWORD_FILE: /tmp/db_root_password
-                    DB_PASSWORD_FILE: /tmp/db_password
+                    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
                     REDIS_HOST: ${{ secrets.REDIS_HOST }}
                     REDIS_PORT: ${{ secrets.REDIS_PORT }}
-                    REDIS_PASSWORD_FILE: /tmp/redis_password
+                    REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
                     MAILER_HOST: ${{ secrets.MAILER_HOST }}
                     MAILER_PORT: ${{ secrets.MAILER_PORT }}
                     MAILER_USERNAME: ${{ secrets.MAILER_USERNAME }}
-                    MAILER_PASSWORD_FILE: /tmp/mailer_password
+                    MAILER_PASSWORD: ${{ secrets.MAILER_PASSWORD }}
                     MAILER_FROM_EMAIL: ${{ secrets.MAILER_FROM_EMAIL }}
-                    SENTRY_DSN_FILE: /tmp/sentry_dsn
+                    SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
                     BACKUP_AWS_ACCESS_KEY_ID: ${{ secrets.BACKUP_AWS_ACCESS_KEY_ID }}
-                    BACKUP_AWS_SECRET_ACCESS_KEY_FILE: /tmp/backup_aws_secret_access_key
+                    BACKUP_AWS_SECRET_ACCESS_KEY: ${{ secrets.BACKUP_AWS_SECRET_ACCESS_KEY }}
                     BACKUP_AWS_DEFAULT_REGION: ${{ secrets.BACKUP_AWS_DEFAULT_REGION }}
                     BACKUP_S3_ENDPOINT: ${{ secrets.BACKUP_S3_ENDPOINT }}
                     BACKUP_S3_BUCKET: ${{ secrets.BACKUP_S3_BUCKET }}

@@ -1,0 +1,79 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: site-mysql-backup
+  namespace: elisdn
+spec:
+  schedule: "9 */3 * * *"
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 100
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: site-mysql-backup
+              image: ${REGISTRY}/site-mysql-backup:${IMAGE_TAG}
+              env:
+                - name: BACKUP_NAME
+                  value: site-mysql
+                - name: MYSQL_HOST
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-db
+                      key: host
+                - name: MYSQL_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-db
+                      key: port
+                - name: MYSQL_DB
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-db
+                      key: database
+                - name: MYSQL_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-db
+                      key: username
+                - name: MYSQL_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-db
+                      key: password
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: keyId
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: keySecret
+                - name: AWS_DEFAULT_REGION
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: region
+                - name: S3_ENDPOINT
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: endpoint
+                - name: S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: site-backup-storage
+                      key: bucket
+              volumeMounts:
+                - name: site-mysql-backup
+                  mountPath: /app
+          volumes:
+            - name: site-mysql-backup
+              emptyDir:
+                sizeLimit: 128Mi
+          imagePullSecrets:
+            - name: docker-registry
