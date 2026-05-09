@@ -398,30 +398,117 @@ spec:
       targetPort: 9000
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.networking.k8s.io/v1
+kind: ListenerSet
 metadata:
   name: site
   namespace: elisdn
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     cert-manager.io/issuer: letsencrypt-prod
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - elisdn.ru
-        - www.elisdn.ru
-      secretName: letsencrypt-site
+  parentRef:
+    name: gateway
+    namespace: gateway
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      hostname: elisdn.ru
+    - name: http-www
+      protocol: HTTP
+      port: 80
+      hostname: www.elisdn.ru
+    - name: https
+      protocol: HTTPS
+      port: 443
+      hostname: elisdn.ru
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: letsencrypt-site
+    - name: https-www
+      protocol: HTTPS
+      port: 443
+      hostname: www.elisdn.ru
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: letsencrypt-site
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: site-http
+  namespace: elisdn
+spec:
+  parentRefs:
+    - kind: ListenerSet
+      name: site
+      sectionName: http
+  hostnames:
+    - elisdn.ru
   rules:
-    - host: elisdn.ru
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: site
-                port:
-                  number: 80
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            statusCode: 301
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: site-http-www
+  namespace: elisdn
+spec:
+  parentRefs:
+    - kind: ListenerSet
+      name: site
+      sectionName: http-www
+  hostnames:
+    - www.elisdn.ru
+  rules:
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            statusCode: 301
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: site-www
+  namespace: elisdn
+spec:
+  parentRefs:
+    - kind: ListenerSet
+      name: site
+      sectionName: https-www
+  hostnames:
+    - www.elisdn.ru
+  rules:
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            hostname: elisdn.ru
+            statusCode: 301
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: site
+  namespace: elisdn
+spec:
+  parentRefs:
+    - kind: ListenerSet
+      name: site
+      sectionName: https
+  hostnames:
+    - elisdn.ru
+  rules:
+    - backendRefs:
+        - name: site
+          port: 80
