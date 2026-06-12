@@ -1,6 +1,6 @@
 services:
     traefik:
-        image: traefik:3.6
+        image: traefik:3.7
         command:
             --providers.docker=true
             --providers.docker.exposedByDefault=false
@@ -117,7 +117,7 @@ services:
             MYSQL_DATABASE: app
 
     site-redis:
-        image: redis:8.6-alpine3.23
+        image: redis:8.8-alpine3.23
         volumes:
             - redis:/data
         command:
@@ -127,7 +127,7 @@ services:
             - '--requirepass redis-password'
 
     site-mailer:
-        image: axllent/mailpit:v1.26
+        image: axllent/mailpit:v1.30
         environment:
             MP_SMTP_AUTH_ACCEPT_ANY: 1
             MP_SMTP_AUTH_ALLOW_INSECURE: 1

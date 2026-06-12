@@ -1,4 +1,6 @@
-FROM node:25-alpine3.23 AS builder
+FROM node:26-alpine3.23 AS builder
+
+RUN npm install -g yarn
 
 WORKDIR /app
 
@@ -27,7 +29,7 @@ COPY ./docker/production/php-fpm/php-fpm.d /usr/local/etc/php-fpm.d
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.9.5 --quiet
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --version=2.10.1 --quiet
 
 WORKDIR /app
 

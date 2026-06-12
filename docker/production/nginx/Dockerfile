@@ -1,4 +1,6 @@
-FROM node:25-alpine3.23 AS builder
+FROM node:26-alpine3.23 AS builder
+
+RUN npm install -g yarn
 
 WORKDIR /app
 
@@ -8,7 +10,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM nginx:1.29-alpine3.23
+FROM nginx:1.31-alpine3.23
 
 COPY ./docker/common/nginx/docker-entrypoint-nginx-conf.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint-nginx-conf.sh

@@ -1,4 +1,6 @@
-FROM node:25-alpine3.23
+FROM node:26-alpine3.23
+
+RUN npm install -g yarn
 
 RUN apk add --no-cache shadow
 
