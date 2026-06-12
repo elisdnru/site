@@ -46,7 +46,7 @@
         "bower-asset/yii2-pjax":"*",
         "symfony/polyfill-intl-grapheme": "*",
         "symfony/polyfill-intl-icu": "*",
-        "symfony/polyfill-intl-idn": "*",
+        "symfony/polyfill-intl-idn": "1.17.0",
         "symfony/polyfill-intl-messageformatter": "*",
         "symfony/polyfill-intl-normalizer": "*",
         "symfony/polyfill-mbstring": "*",
