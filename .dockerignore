@@ -3,6 +3,7 @@
 /demo
 /vendor
 /node_modules
+/.yarn/
 /.ready
 /var/*
 /tests/_output/*

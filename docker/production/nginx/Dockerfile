@@ -1,10 +1,12 @@
 FROM node:26-alpine3.23 AS builder
 
-RUN npm install -g yarn
+ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+
+RUN npm install -g corepack && corepack enable && corepack prepare yarn@4.16.0 --activate
 
 WORKDIR /app
 
-COPY ./package.json ./yarn.lock ./
+COPY ./.yarnrc.yml ./package.json ./yarn.lock ./
 RUN yarn install && yarn cache clean
 
 COPY ./ ./
