@@ -2,7 +2,7 @@ FROM node:26-alpine3.23 AS builder
 
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
-RUN npm install -g corepack && corepack enable && corepack prepare yarn@4.16.0 --activate
+RUN npm install -g corepack && corepack enable && corepack prepare yarn@4.18.0 --activate
 
 WORKDIR /app
 

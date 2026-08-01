@@ -2,7 +2,7 @@ FROM node:26-alpine3.23
 
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
-RUN npm install -g corepack && corepack enable && corepack prepare yarn@4.16.0 --activate
+RUN npm install -g corepack && corepack enable && corepack prepare yarn@4.18.0 --activate
 
 RUN apk add --no-cache shadow
 
