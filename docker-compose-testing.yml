@@ -52,7 +52,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN: ''
 
     site-php-cli:
         image: ${REGISTRY}/site-php-cli:${IMAGE_TAG}
@@ -76,7 +75,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN: ''
         network_mode: service:site
 
     testing-site-php-cli:
@@ -101,7 +99,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN: ''
         volumes:
             - ./tests/_output:/app/tests/_output
         network_mode: service:site

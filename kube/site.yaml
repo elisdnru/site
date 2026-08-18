@@ -169,11 +169,6 @@ spec:
               value: https://api.deworker.pro
             - name: PRODUCTS_URL
               value: https://products.elisdn.ru
-            - name: SENTRY_DSN
-              valueFrom:
-                secretKeyRef:
-                  name: site-sentry
-                  key: dsn
           ports:
             - containerPort: 9000
           volumeMounts:
@@ -266,11 +261,6 @@ spec:
               value: https://api.deworker.pro
             - name: PRODUCTS_URL
               value: https://products.elisdn.ru
-            - name: SENTRY_DSN
-              valueFrom:
-                secretKeyRef:
-                  name: site-sentry
-                  key: dsn
           volumeMounts:
             - name: site-assets
               mountPath: /app/public/assets
@@ -360,11 +350,6 @@ spec:
               value: https://api.deworker.pro
             - name: PRODUCTS_URL
               value: https://products.elisdn.ru
-            - name: SENTRY_DSN
-              valueFrom:
-                secretKeyRef:
-                  name: site-sentry
-                  key: dsn
           volumeMounts:
             - name: site-assets
               mountPath: /app/public/assets

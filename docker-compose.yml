@@ -73,7 +73,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN: ''
         volumes:
             - ./:/app
 
@@ -109,7 +108,6 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             DEWORKER_API_URL: http://site-wiremock:8080/api.deworker.pro
             PRODUCTS_URL: http://wiremock.localhost/products.elisdn.ru
-            SENTRY_DSN: ''
         volumes:
             - ./:/app
         network_mode: service:site

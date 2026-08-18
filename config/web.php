@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use app\components\AuthIdentity;
 use app\components\feature\FeaturesNegotiator;
-use app\components\SentryErrorHandler;
 use yii\helpers\ArrayHelper;
 use yii\redis\Session as RedisSession;
 use yii\web\Cookie;
@@ -64,9 +63,7 @@ return ArrayHelper::merge(
                     'loginUrl' => ['/user/default/login'],
                 ],
                 ErrorHandler::class => [
-                    'class' => SentryErrorHandler::class,
                     'errorAction' => 'home/error/index',
-                    'sentryActive' => !(bool)env('APP_DEBUG', ''),
                 ],
             ],
         ],
