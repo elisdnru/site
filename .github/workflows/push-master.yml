@@ -129,8 +129,10 @@ jobs:
 
             -   name: Kube Config
                 run: |
-                    mkdir ~/.kube
-                    envsubst < .github/kube-config.yaml > ~/.kube/config
+                    kubectl config set-cluster cluster --server="${SERVER}" --certificate-authority=<(echo "${CA}") --embed-certs=true
+                    kubectl config set-credentials deploy --token="${TOKEN}"
+                    kubectl config set-context deploy --cluster=cluster --user=deploy --namespace=default
+                    kubectl config use-context deploy
                 env:
                     SERVER: ${{ secrets.PRODUCTION_KUBERNETES_SERVER }}
                     CA: ${{ secrets.PRODUCTION_KUBERNETES_CA }}
