@@ -1,4 +1,4 @@
-FROM node:26-alpine3.23 AS builder
+FROM dockerhub.timeweb.cloud/node:26-alpine3.23 AS builder
 
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
@@ -12,7 +12,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM php:8.5-fpm-alpine3.23
+FROM dockerhub.timeweb.cloud/php:8.5-fpm-alpine3.23
 
 RUN apk add --no-cache libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev icu-dev \
     && docker-php-ext-configure gd \

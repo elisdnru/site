@@ -1,4 +1,4 @@
-FROM node:26-alpine3.23
+FROM dockerhub.timeweb.cloud/node:26-alpine3.23
 
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 

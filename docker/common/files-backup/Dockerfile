@@ -1,4 +1,4 @@
-FROM alpine:3.23
+FROM dockerhub.timeweb.cloud/alpine:3.23
 
 RUN apk add --no-cache aws-cli
 

@@ -1,6 +1,6 @@
 services:
     traefik:
-        image: traefik:3.7
+        image: dockerhub.timeweb.cloud/traefik:3.7
         command:
             --providers.docker=true
             --providers.docker.exposedByDefault=false
@@ -104,7 +104,7 @@ services:
         network_mode: service:site
 
     site-mysql:
-        image: mariadb:11
+        image: dockerhub.timeweb.cloud/mariadb:11
         volumes:
             - mysql:/var/lib/mysql
         environment:
@@ -114,7 +114,7 @@ services:
             MYSQL_DATABASE: app
 
     site-redis:
-        image: redis:8.8-alpine3.23
+        image: dockerhub.timeweb.cloud/redis:8.8-alpine3.23
         volumes:
             - redis:/data
         command:
@@ -124,7 +124,7 @@ services:
             - '--requirepass redis-password'
 
     site-mailer:
-        image: axllent/mailpit:v1.30
+        image: dockerhub.timeweb.cloud/axllent/mailpit:v1.30
         environment:
             MP_SMTP_AUTH_ACCEPT_ANY: 1
             MP_SMTP_AUTH_ALLOW_INSECURE: 1
@@ -139,7 +139,7 @@ services:
             - traefik.http.services.site-mailer.loadBalancer.server.port=8025
 
     site-wiremock:
-        image: wiremock/wiremock:3.13.2-alpine
+        image: dockerhub.timeweb.cloud/wiremock/wiremock:3.13.2-alpine
         networks:
             - traefik-public
             - default

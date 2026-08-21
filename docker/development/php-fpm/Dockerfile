@@ -1,4 +1,4 @@
-FROM php:8.5-fpm-alpine3.23
+FROM dockerhub.timeweb.cloud/php:8.5-fpm-alpine3.23
 
 ENV XDEBUG_VERSION=3.5.3
 
