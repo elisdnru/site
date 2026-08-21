@@ -133,6 +133,7 @@ jobs:
                     envsubst < .github/kube-config.yaml > ~/.kube/config
                 env:
                     SERVER: ${{ secrets.PRODUCTION_KUBERNETES_SERVER }}
+                    CA: ${{ secrets.PRODUCTION_KUBERNETES_CA }}
                     TOKEN: ${{ secrets.PRODUCTION_KUBERNETES_TOKEN }}
 
             -   name: Set registry env

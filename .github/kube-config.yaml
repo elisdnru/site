@@ -3,7 +3,7 @@ kind: Config
 clusters:
   - name: k8s
     cluster:
-      insecure-skip-tls-verify: true
+      certificate-authority-data: ${CA}
       server: ${SERVER}
 contexts:
   - name: context
