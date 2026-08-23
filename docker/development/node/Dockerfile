@@ -1,8 +1,6 @@
 FROM node:26-alpine3.23
 
-ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-
-RUN npm install -g corepack && corepack enable && corepack prepare yarn@4.18.0 --activate
+RUN npm install -g corepack && corepack enable
 
 RUN apk add --no-cache shadow
 
@@ -14,3 +12,5 @@ RUN groupmod -g "${GID}" node && usermod -u "${UID}" node && chown node:node /ho
 WORKDIR /app
 
 USER node
+
+RUN corepack prepare yarn@4.18.0 --activate
