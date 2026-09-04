@@ -66,7 +66,7 @@ app-assets-install:
 	docker compose run --rm site-node-cli yarn install
 
 app-assets-update:
-	docker compose run --rm site-node-cli yarn upgrade
+	docker compose run --rm -it site-node-cli yarn upgrade-interactive
 
 app-wait-db:
 	docker compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
