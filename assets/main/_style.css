@@ -120,6 +120,7 @@ ul.short-list li {
   content: attr(data-date);
 }
 
+.text span.order-button,
 .text a.order-button,
 .text a.order-button:visited {
   padding: 12px 20px;
